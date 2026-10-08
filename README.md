@@ -58,4 +58,12 @@ onion 版本在寫檔前把 `https://anoni.net/docs` 這類 clearnet 網址改�
 
 ## 授權
 
-頁面內容以 [CC-BY 4.0](./LICENSE) 授權。`build.py`、模板與 CSS 的授權還沒決定，決定之後另外標示。圖示的授權見 [`icons/README.md`](./icons/README.md)。
+程式碼與頁面內容分開授權：
+
+| 授權 | 涵蓋 |
+|---|---|
+| [MIT](./LICENSE-code) | `build.py`、`site.toml`、`pyproject.toml`、`templates/`、`static/css/`、`.github/` |
+| [Pictogrammers Free License](./icons/LICENSE) | `icons/`，來源見 [`icons/README.md`](./icons/README.md) |
+| [CC-BY 4.0](./LICENSE) | 其餘檔案，包含 `pages/`、`data/`、`strings.toml` 這些頁面上讀得到的文字，以及 `static/` 底下的 logo、favicon 與預覽圖 |
+
+logo 與色票跟文件站的[品牌素材](https://anoni.net/docs/community/brand-assets/)是同一套。
