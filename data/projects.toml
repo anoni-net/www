@@ -1,0 +1,50 @@
+# 專案：社群自己寫的內容或程式，由社群撰寫與維護，有自己的路線圖與貢獻者。
+# 別人開發、社群架設的軟體是服務，寫在 services.toml。
+#
+# content 是兩個內容專案，用填色卡呈現。tools 是觀測與工具，用細線列呈現。
+# 專案的詳細介紹寫在專案自己的關於頁，這裡只放一句話。
+
+[[content]]
+icon = "folder-open-outline"
+product = "docs"
+display = "anoni.net/docs"
+# 文件站還沒有自己的關於頁（toomore/anoni-net-ws#397 的「關於文件站」），補上之後填路徑。
+about = ""
+name = { zh-TW = "文件", zh-CN = "文档", en = "Docs" }
+summary.zh-TW = "從概念、工具到各種處境的準備，整理匿名網路與隱私的知識，也追蹤台灣的網路觀測與相關法規。"
+summary.zh-CN = "从概念、工具到各种处境的准备，整理匿名网络与隐私的知识，也追踪台湾的网络观测与相关法规。"
+summary.en = "Guides to anonymity networks and privacy, from concepts and tools to preparing for specific situations, plus Taiwan's network measurements and regulations."
+
+[[content]]
+icon = "newspaper-variant-outline"
+product = "news"
+display = "anoni.net/news"
+about = "about/"
+name = { zh-TW = "新聞導讀", zh-CN = "新闻导读", en = "News" }
+summary.zh-TW = "從科技與開源的角度，導讀國際隱私、匿名網路與網路審查的新聞，每篇附上原文與導讀觀點。"
+summary.zh-CN = "从科技与开源的角度，导读国际隐私、匿名网络与网络审查的新闻，每篇附上原文与导读观点。"
+summary.en = "News on privacy, anonymity networks and Internet censorship, read from a tech and open-source angle with a view from Asia. Every story links to its original sources."
+
+[[tools]]
+icon = "access-point-network"
+name = "onionoo-mcp"
+docs = "community/onionoo-mcp/"
+summary.zh-TW = "Tor 中繼節點的查詢服務。在雲端 AI 助理貼上一個網址，就能用中文盤點各地的 Tor 節點、頻寬與所在的電信網路。"
+summary.zh-CN = "Tor 中继节点的查询服务。在云端 AI 助手贴上一个网址，就能用中文盘点各地的 Tor 节点、带宽与所在的电信网络。"
+summary.en = "A query service for Tor relay data. Paste one URL into a cloud AI assistant and ask how many relays a place runs, with what bandwidth and on which networks."
+
+[[tools]]
+icon = "chart-line"
+name = "Pulse"
+docs = "taiwan/tor-relay-watcher/"
+summary.zh-TW = "定期收集台灣、香港、日本、南韓的 Tor 中繼節點資料，提供 API 與圖表給文件站的觀測頁使用。"
+summary.zh-CN = "定期收集台湾、香港、日本、韩国的 Tor 中继节点数据，提供 API 与图表给文档站的观测页使用。"
+summary.en = "Collects Tor relay data for Taiwan, Hong Kong, Japan and South Korea, and serves the API and charts behind the measurement pages in the docs."
+
+[[tools]]
+icon = "map-outline"
+name = "ASN Coverage"
+docs = "taiwan/ooni-asn-coverage/"
+summary.zh-TW = "分析台灣各電信網路在 OONI 的觀測覆蓋率，找出需要更多測試的盲點。"
+summary.zh-CN = "分析台湾各电信网络在 OONI 的观测覆盖率，找出需要更多测试的盲点。"
+summary.en = "Maps how well each network in Taiwan is covered by OONI measurements, to find the blind spots that need more testing."

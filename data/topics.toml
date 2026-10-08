@@ -1,0 +1,26 @@
+# 年度工作方向。主題不是成品，讀者可以認領、加入，所以放在「參與」底下。
+# 主題頁還在文件站，docs 寫文件站的路徑，搬過來之後改成本站的頁面。
+
+[[topics]]
+icon = "shield-account-outline"
+docs = "community/privacy-guide/"
+name = { zh-TW = "個人隱私指引", zh-CN = "个人隐私指引", en = "Personal privacy guidance" }
+summary.zh-TW = "依日常、敏感工作、高風險三種情境，整理可以照著做的工具與步驟。"
+summary.zh-CN = "按日常、敏感工作、高风险三种情境，整理可以照着做的工具与步骤。"
+summary.en = "Practical guidance graded by exposure: everyday use, sensitive work and high-risk situations."
+
+[[topics]]
+icon = "server-network-outline"
+docs = "community/relay-on-campus/"
+name = { zh-TW = "Tor Relay 校園建立", zh-CN = "Tor Relay 校园建设", en = "Tor relays on campus" }
+summary.zh-TW = "與 EFF、Tor Project 推動校園中繼節點，台師大的節點運作中，提案範本與 SOP 已公開。"
+summary.zh-CN = "与 EFF、Tor Project 推动校园中继节点，台师大的节点运行中，提案范本与 SOP 已公开。"
+summary.en = "Campus relays with EFF and the Tor Project. NTNU runs one, and the proposal kit and SOP are public."
+
+[[topics]]
+icon = "currency-usd-off"
+docs = "community/payments-research/"
+name = { zh-TW = "匿名支付", zh-CN = "匿名支付", en = "Anonymous payments" }
+summary.zh-TW = "現金以外的匿名支付，涵蓋穩定幣、區塊鏈應用的法規與實作，目前在研究階段。"
+summary.zh-CN = "现金以外的匿名支付，涵盖稳定币、区块链应用的法规与实践，目前在研究阶段。"
+summary.en = "Paying anonymously beyond cash, from stablecoins to on-chain tools, with the law around them. Research stage."

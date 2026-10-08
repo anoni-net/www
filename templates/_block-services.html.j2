@@ -1,0 +1,9 @@
+<div class="svc">
+{% for svc in data.services.services %}
+  <article>
+    <h3>{{ icon(svc.icon) }}<a href="{{ service_url(svc) }}">{{ svc.name }}</a><small>{{ pick(svc.kind) }}</small></h3>
+    <p>{{ pick(svc.summary) }}</p>
+    <div class="tags"><span>{{ pick(svc.account) }}</span>{% if svc.onion %}<span>{{ t.onion }}</span>{% endif %}</div>
+  </article>
+{% endfor %}
+</div>

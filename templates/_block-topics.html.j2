@@ -1,0 +1,5 @@
+<ul class="rows">
+{% for topic in data.topics.topics %}
+  <li><a class="row" href="{{ docs_url(topic.docs) }}"><span class="ic">{{ icon(topic.icon) }}</span><span class="b"><span class="t">{{ pick(topic.name) }}</span><span class="d">{{ pick(topic.summary) }}</span></span><span class="go">{{ icon('arrow-right') }}</span></a></li>
+{% endfor %}
+</ul>

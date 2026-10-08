@@ -1,0 +1,12 @@
+<div class="cards">
+{% for p in data.projects.content %}
+  <div class="card">
+    <span class="ic">{{ icon(p.icon) }}</span>
+    <div>
+      <a class="n" href="{{ docs_url() if p.product == 'docs' else news_url() }}">{{ pick(p.name) }}</a><span class="p">{{ p.display }}</span>
+      <p>{{ pick(p.summary) }}</p>
+      <div class="tags"><span>正體中文</span><span>简体中文</span><span>English</span>{% if p.about %}<a href="{{ docs_url(p.about) if p.product == 'docs' else news_url(p.about) }}">{{ t.about_project }}</a>{% endif %}</div>
+    </div>
+  </div>
+{% endfor %}
+</div>

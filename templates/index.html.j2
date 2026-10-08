@@ -1,0 +1,15 @@
+{% extends "_layout.html.j2" %}
+{% block jsonld %}
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Organization", "name": "匿名網路社群 anoni.net", "alternateName": "Anonymity Networks Community - anoni.net", "url": "{{ target.base }}/", "email": "whisper@anoni.net", "sameAs": ["https://github.com/anoni-net", "{{ docs_url() }}", "{{ news_url() }}"]}
+</script>
+{% endblock %}
+{% block main %}
+<section class="hero">
+  <h1>{{ logo() }}<span>{{ page.hero }}{% if page.hero_sub is defined %}<small>{{ page.hero_sub }}</small>{% endif %}</span></h1>
+  <p class="lead">{{ page.tagline }}</p>
+</section>
+<div class="prose">
+{{ body }}
+</div>
+{% endblock %}
