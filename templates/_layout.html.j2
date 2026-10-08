@@ -18,9 +18,14 @@
 {% endfor %}
 <link rel="alternate" type="application/rss+xml" title="{{ t.rss_created }}" href="{{ docs_url('feed_rss_created.xml') }}">
 <link rel="alternate" type="application/rss+xml" title="{{ t.rss_updated }}" href="{{ docs_url('feed_rss_updated.xml') }}">
+{% if page.slug == "404" %}
+<meta name="robots" content="noindex">
+{% endif %}
 {% if target.clearnet %}
+{% if page.slug != "404" %}
 <link rel="canonical" href="{{ target.base }}{{ page.path }}">
 <meta http-equiv="onion-location" content="http://{{ onion_host }}{{ page.path }}">
+{% endif %}
 {% block jsonld %}{% endblock %}
 <script defer src="https://aa.anoni.net/script.js" data-website-id="2b8d98c3-5bc4-45ef-958f-6cd9b770502e"></script>
 {% endif %}

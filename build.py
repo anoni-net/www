@@ -1,6 +1,7 @@
 """產生 anoni.net 首頁與社群頁面的 clearnet 與 onion 兩份靜態產物。
 
     uv run build.py          # 產生 public/clearnet 與 public/onion
+    uv run build.py --out DIR  # 產生到 DIR/clearnet 與 DIR/onion，m6 部署時用
     uv run build.py --check  # 產生到暫存目錄，再執行下方 check() 的檢查
 
 頁面寫在 pages/<語系>/，資料寫在 data/，兩個目標與三個語系的差異寫在 site.toml，
@@ -29,6 +30,7 @@ PAGES = ROOT / "pages"
 DATA = ROOT / "data"
 ICONS = ROOT / "icons"
 STATIC = ROOT / "static"
+EXTRA = ROOT / "extra"
 TEMPLATES = ROOT / "templates"
 
 # 寫在 Markdown 裡的連結簡寫，建置時依語系展開：
@@ -177,6 +179,10 @@ class Site:
             shutil.copytree(STATIC, out)
             for lang in self.langs:
                 self.build_lang(lang, target, out)
+            self.build_404(target, out)
+            # 只有部分目標需要的檔案，例如 clearnet 的 llms.txt
+            for name in target.get("extra", []):
+                self.write(out / name, (EXTRA / name).read_text(encoding="utf-8"), target)
             self.write(out / "robots.txt", self.env.get_template("robots.txt.j2").render(
                 target=target, langs=self.langs, slugs=self.slugs, page_path=self.page_path), target)
             self.write(out / "sitemap.xml", self.env.get_template("sitemap.xml.j2").render(
@@ -207,6 +213,22 @@ class Site:
             text = self.env.get_template(f"{template}.html.j2").render(
                 **self.context(lang, target), page=page, body=Markup(body_html))
             self.write(out / page["path"].lstrip("/") / "index.html", text, target)
+
+    def build_404(self, target: dict, out: Path) -> None:
+        """一份 404 頁放在根目錄，三種語言寫在同一頁，nginx 的 error_page 指到它。"""
+        lang = self.langs[0]
+        page = {
+            "title": self.strings[lang.code]["not_found_title"],
+            "description": self.strings[lang.code]["not_found_title"],
+            "slug": "404",
+            "path": "/404.html",
+            "alternates": [(other, self.page_path(other, "index")) for other in self.langs],
+        }
+        messages = [(other, self.strings[other.code]) for other in self.langs]
+        text = self.env.get_template("404.html.j2").render(
+            **self.context(lang, target), page=page, messages=messages,
+            home=lambda other: self.page_path(other, "index"))
+        self.write(out / "404.html", text, target)
 
     def write(self, dest: Path, text: str, target: dict) -> None:
         for old, new in target.get("rewrite", {}).items():
@@ -251,11 +273,12 @@ def check(site: Site, outs: list[Path]) -> list[str]:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--check", action="store_true", help="產生到暫存目錄並檢查，不寫入 public/")
+    parser.add_argument("--out", type=Path, default=ROOT / "public", help="輸出目錄，預設是 public/")
     args = parser.parse_args()
     site = Site()
     if not args.check:
-        for out in site.build(ROOT / "public"):
-            print(f"產生 {out.relative_to(ROOT)}/")
+        for out in site.build(args.out.resolve()):
+            print(f"產生 {out}/")
         return 0
     with tempfile.TemporaryDirectory() as tmp:
         problems = check(site, site.build(Path(tmp)))

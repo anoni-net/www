@@ -1,0 +1,10 @@
+{% extends "_layout.html.j2" %}
+{% block main %}
+{% for other, s in messages %}
+<section class="not-found" lang="{{ other.html }}">
+  <h1>{{ s.not_found_title }}</h1>
+  <p>{{ s.not_found_body }}</p>
+  <p><a class="more" href="{{ home(other) }}">{{ s.not_found_home }} {{ icon('arrow-right') }}</a></p>
+</section>
+{% endfor %}
+{% endblock %}

@@ -185,6 +185,10 @@ p, li, .lead, .row .d, .row .t, h1, h3 { text-wrap: pretty; }
 .btn { display: inline-flex; align-items: center; gap: .4rem; padding: .4rem .9rem; border: 1px solid var(--c-line); border-radius: 999px; text-decoration: none; font-size: .92rem; }
 .btn.solid { background: var(--c-solid); border-color: var(--c-solid); color: #fff; }
 
+/* 404 頁三種語言疊在一起，用細線分開 */
+.not-found + .not-found { border-top: 1px solid var(--c-hair); margin-top: 1.5rem; }
+.not-found h1 { font-size: 1.4rem; }
+
 /* 頁尾 */
 footer { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--c-hair); font-size: .85rem; color: var(--c-muted); line-height: 1.9; }
 footer .cols { display: grid; gap: .1rem 1.5rem; grid-template-columns: 1fr; }

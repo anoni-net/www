@@ -14,7 +14,7 @@
 
 ## 狀態
 
-籌備中，目前的首頁仍由舊的 repo 產生。第一批頁面是首頁、關於、聯絡、參與、專案、服務，活動與社群動態還在文件站，導覽列暫時連過去。
+第一批頁面是首頁、關於、聯絡、參與、專案、服務，活動與社群動態還在文件站，導覽列暫時連過去。
 
 ## 建置
 
@@ -34,6 +34,7 @@ uv run build.py --check  # 產生到暫存目錄並檢查，CI 跑同一個指�
 | `strings.toml` | 模板裡的介面文字 |
 | `templates/` | 頁面模板，`_block-*.html.j2` 是可以插進 Markdown 的區塊 |
 | `static/` | CSS、logo、PGP 公鑰等原樣複製的檔案 |
+| `extra/` | 只有部分目標需要的檔案，例如 clearnet 的 `llms.txt`，在 `site.toml` 指定 |
 | `icons/` | 內嵌的 SVG 圖示，來源與授權見該目錄的 README |
 
 Markdown 裡的連結有三種寫法，建置時依語系展開：
@@ -45,6 +46,21 @@ Markdown 裡的連結有三種寫法，建置時依語系展開：
 在 Markdown 裡單獨一行寫 `<!-- topics -->`，建置時換成 `templates/_block-topics.html.j2` 的內容，主題、專案卡片、服務卡片都用這個方式放進頁面。
 
 onion 版本在寫檔前把 `https://anoni.net/docs` 這類 clearnet 網址改寫成 onion 位址，對照表在 `site.toml` 的 `[targets.onion.rewrite]`。`--check` 會檢查三個語系的頁面是否一致、站內連結是否找得到檔案，以及 onion 版本有沒有漏改的網址。
+
+## 部署
+
+在 m6 上建置，不經過 GitHub Actions。m6 的 crontab 每 5 分鐘執行一次 [`tools/deploy-m6.sh`](./tools/deploy-m6.sh)（複製到 `/home/ubuntu/www-deploy.sh`），合併進 `main` 之後幾分鐘內上線。
+
+| m6 上的位置 | 內容 |
+|---|---|
+| `/srv/anoni-net-www/repo` | 本 repo 的 clone，只拉 `main` |
+| `/srv/anoni-net-www/releases/<commit>` | 每個 commit 建置一份，保留最近五份 |
+| `/srv/anoni-net-www/current` | symlink，指向線上的那一份 |
+| `/home/ubuntu/www-deploy.log` | 每次發布與失敗的紀錄 |
+
+腳本先執行 `--check`，通過之後建置到新的目錄，最後才切換 `current`，建置失敗時線上維持原本的版本。nginx 的 `anoni.net` 與根 onion 位址都讀 `current`，設定在 m6 的 `/etc/nginx/conf.d/anoninet.conf`，`error_page 404` 指到根目錄的 `404.html`。
+
+要退回上一版，先建立 `/srv/anoni-net-www/hold` 暫停自動發布，再把 `current` 改指到 `releases/` 底下較舊的那一份。修好之後刪掉 `hold`，下一輪就會發布 `main` 的最新版。
 
 ## 分類
 
@@ -62,7 +78,7 @@ onion 版本在寫檔前把 `https://anoni.net/docs` 這類 clearnet 網址改�
 
 | 授權 | 涵蓋 |
 |---|---|
-| [MIT](./LICENSE-code) | `build.py`、`site.toml`、`pyproject.toml`、`templates/`、`static/css/`、`.github/` |
+| [MIT](./LICENSE-code) | `build.py`、`site.toml`、`pyproject.toml`、`templates/`、`static/css/`、`tools/`、`.github/` |
 | [Pictogrammers Free License](./icons/LICENSE) | `icons/`，來源見 [`icons/README.md`](./icons/README.md) |
 | [CC-BY 4.0](./LICENSE) | 其餘檔案，包含 `pages/`、`data/`、`strings.toml` 這些頁面上讀得到的文字，以及 `static/` 底下的 logo、favicon 與預覽圖 |
 
