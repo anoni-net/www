@@ -1,0 +1,69 @@
+# anoni.net 首頁與社群頁面的設定。頁面寫在 pages/，介面文字寫在 strings.toml，
+# 專案、服務、主題的資料寫在 data/。
+
+onion_host = "anoninetru5tflukgfaehun7q6khowgmymcff3gtk5oyesqazhmfxtyd.onion"
+
+# 正體中文是預設語系，掛在根目錄。順序同時是語言切換的順序。
+[[languages]]
+code = "zh-TW"
+html = "zh-Hant-TW"
+prefix = ""
+label = "正體"
+
+[[languages]]
+code = "zh-CN"
+html = "zh-Hans"
+prefix = "/zh-cn"
+label = "简体"
+
+[[languages]]
+code = "en"
+html = "en"
+prefix = "/en"
+label = "EN"
+
+# 頁首的導覽列。page 是本站的頁面，docs 是還沒搬過來、暫時連到文件站的頁面。
+# 搬過來之後把 docs 換成 page。
+[[nav]]
+key = "about"
+page = "about"
+
+[[nav]]
+key = "join"
+page = "join"
+
+[[nav]]
+key = "projects"
+page = "projects"
+
+[[nav]]
+key = "services"
+page = "services"
+
+[[nav]]
+key = "events"
+docs = "activity/"
+
+[[nav]]
+key = "updates"
+docs = "blog/"
+
+# 兩個輸出目標。onion 版本在寫檔前把 clearnet 網址改寫成 onion，順序由長到短，
+# 子網域與路徑要排在網域本身之前。沒有 onion 版本的服務（CryptPad、Send、onionoo）
+# 不在這裡，onion 頁面上照樣連到 clearnet。
+[targets.clearnet]
+base = "https://anoni.net"
+clearnet = true
+
+[targets.onion]
+base = "http://anoninetru5tflukgfaehun7q6khowgmymcff3gtk5oyesqazhmfxtyd.onion"
+clearnet = false
+
+[targets.onion.rewrite]
+"https://anoni.net/docs" = "http://docs.{onion}"
+"https://anoni.net/news" = "http://news.{onion}"
+"https://matrix.anoni.net" = "http://matrix.{onion}"
+"https://pad.anoni.net" = "http://pad.{onion}"
+"https://search.anoni.net" = "http://search.{onion}"
+"https://form.anoni.net" = "http://form.{onion}"
+"https://anoni.net" = "http://{onion}"

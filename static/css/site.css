@@ -1,0 +1,202 @@
+/* anoni.net 首頁與社群頁面。白底、1px cyan 細線、只用 cyan 一個色相。
+   色票照抄文件站 docs/zh-TW/stylesheets/extra.css 的 --brand-cyan-*，不自己調。
+   版面規格見 toomore/anoni-net-ws#397 的「版面」。 */
+
+:root {
+  --brand-cyan-50: #e0f4ff;
+  --brand-cyan-100: #b3e3ff;
+  --brand-cyan-200: #80d1ff;
+  --brand-cyan-300: #4dbfff;
+  --brand-cyan-500: #00aeff;
+  --brand-cyan-600: #009ee6;
+  --brand-cyan-700: #0089bf;
+  --brand-cyan-800: #006d99;
+  --brand-cyan-900: #003e57;
+
+  --c-bg: #ffffff;
+  --c-text: #1d2b31;
+  --c-strong: var(--brand-cyan-900);
+  --c-muted: #52646b;
+  --c-line: var(--brand-cyan-500);
+  --c-hair: var(--brand-cyan-100);
+  --c-fill: var(--brand-cyan-50);
+  --c-link: var(--brand-cyan-800);
+  --c-accent: var(--brand-cyan-700);
+  --c-icon: var(--brand-cyan-600);
+  --c-solid: var(--brand-cyan-800);
+
+  --radius: 8px;
+  /* 外框最寬 42rem，桌機 18px 時內文一行約 37 個中文字 */
+  --sheet: 42rem;
+  --font: system-ui, -apple-system, "Segoe UI", "Noto Sans TC", "Noto Sans CJK TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+}
+
+:lang(zh-Hans) {
+  --font: system-ui, -apple-system, "Segoe UI", "Noto Sans SC", "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --c-bg: #00202d;
+    --c-text: #d8eef7;
+    --c-strong: #ffffff;
+    --c-muted: #9db7c2;
+    --c-line: var(--brand-cyan-600);
+    --c-hair: #0b4a63;
+    --c-fill: #002f42;
+    --c-link: var(--brand-cyan-200);
+    --c-accent: var(--brand-cyan-300);
+    --c-icon: var(--brand-cyan-300);
+    --c-solid: var(--brand-cyan-700);
+  }
+}
+
+* { box-sizing: border-box; }
+html { background: var(--c-bg); color: var(--c-text); font: 17px/1.75 var(--font); }
+body { margin: 0; padding: 1.25rem .75rem 2rem; }
+a { color: var(--c-link); text-underline-offset: .2em; }
+a:focus-visible { outline: 2px solid var(--c-line); outline-offset: 2px; border-radius: 2px; }
+.i { width: 1.25em; height: 1.25em; fill: currentColor; vertical-align: -.25em; flex: none; }
+
+/* 外框：每一頁裝在同一張紙裡 */
+.sheet {
+  max-width: var(--sheet);
+  margin: 0 auto;
+  border: 1px solid var(--c-line);
+  border-radius: var(--radius);
+  box-shadow: 0 0 0 4px var(--c-fill);
+  padding: 1rem 1.25rem 1.5rem;
+}
+
+/* 頁首 */
+.top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.brand { display: flex; align-items: center; gap: .4rem; font-weight: 700; color: var(--c-strong); text-decoration: none; font-size: 1.05rem; }
+.brand .logo { width: 1.6rem; height: 1.6rem; }
+.lang { display: flex; gap: .75rem; font-size: .85rem; }
+.lang a { text-decoration: none; color: var(--c-muted); }
+.lang a[aria-current] { color: var(--c-strong); font-weight: 700; }
+nav.main {
+  display: flex;
+  justify-content: space-between;
+  margin: .6rem -.25rem 0;
+  border-top: 1px solid var(--c-hair);
+  border-bottom: 1px solid var(--c-hair);
+}
+nav.main a {
+  flex: 1 1 auto;
+  text-align: center;
+  padding: .5rem .15rem;
+  text-decoration: none;
+  color: var(--c-text);
+  font-size: .95rem;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+nav.main a[aria-current] { color: var(--c-strong); font-weight: 700; border-bottom-color: var(--c-line); }
+nav.main a:hover { color: var(--c-accent); }
+/* 英文的項目比較長，手機上縮小一點才放得進一列 */
+:lang(en) nav.main a { font-size: .82rem; }
+
+/* 標題與段落 */
+h1 { color: var(--c-strong); font-size: 1.8rem; line-height: 1.3; margin: 1.5rem 0 .5rem; }
+.lead { color: var(--c-accent); font-size: 1.1rem; font-weight: 500; margin: 0 0 1rem; }
+h2 {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  color: var(--c-accent);
+  font-size: .95rem;
+  font-weight: 700;
+  letter-spacing: .05em;
+  margin: 2.25rem 0 .75rem;
+}
+h2::after { content: ""; flex: 1; border-top: 1px solid var(--c-hair); }
+h3 { color: var(--c-strong); font-size: 1.1rem; margin: 1.5rem 0 .25rem; }
+p { margin: .5rem 0 1rem; }
+/* 避免最後一行只剩一兩個字，Firefox 不支援時照一般方式斷行 */
+p, li, .lead, .row .d, .row .t, h1, h3 { text-wrap: pretty; }
+
+/* Markdown 內文 */
+.prose ul:not(.rows), .prose ol { padding-left: 1.4rem; margin: .5rem 0 1rem; }
+.prose li { margin: .25rem 0; }
+/* 指紋、網址這類沒有空白的長字串，超出外框時才斷開 */
+.prose a, .prose code { overflow-wrap: anywhere; }
+.prose li > ul { margin: .25rem 0; }
+.prose hr { border: 0; border-top: 1px solid var(--c-hair); margin: 2rem 0; }
+.prose code { font-size: .88em; color: var(--c-accent); overflow-wrap: anywhere; }
+.prose pre { overflow-x: auto; border: 1px solid var(--c-hair); border-radius: var(--radius); padding: .75rem 1rem; font-size: .8rem; line-height: 1.5; }
+.prose pre code { color: var(--c-text); }
+.prose table { border-collapse: collapse; width: 100%; font-size: .92rem; margin: 1rem 0; }
+.prose th, .prose td { border-bottom: 1px solid var(--c-hair); padding: .4rem .5rem; text-align: left; vertical-align: top; }
+.prose details { border: 1px solid var(--c-line); border-radius: var(--radius); padding: .5rem 1rem; margin: 1rem 0; }
+.prose summary { cursor: pointer; color: var(--c-accent); font-weight: 700; }
+/* admonition 用線框，不填色 */
+.admonition { border: 1px solid var(--c-line); border-radius: var(--radius); padding: .25rem 1.1rem; margin: 1rem 0; }
+.admonition-title { color: var(--c-accent); font-weight: 700; margin-bottom: .25rem; }
+
+/* 首頁主視覺 */
+.hero h1 { display: flex; align-items: center; gap: .5rem; font-size: 2rem; margin-top: 1.75rem; }
+.hero h1 .logo { width: 3rem; height: 3rem; flex: none; }
+.hero h1 small { display: block; font-size: .55em; color: var(--c-accent); font-weight: 500; }
+
+/* 細線列：三大主題、觀測與工具、頁內的延伸連結 */
+.rows { list-style: none; margin: 0; padding: 0; }
+.rows li { border-bottom: 1px solid var(--c-hair); margin: 0; }
+.rows li:first-child { border-top: 1px solid var(--c-hair); }
+.row { display: flex; gap: .9rem; align-items: flex-start; padding: .85rem .1rem; text-decoration: none; color: inherit; }
+.row:hover .t { color: var(--c-accent); }
+.row .ic { flex: none; display: grid; place-items: center; width: 2.4rem; height: 2.4rem; border: 1px solid var(--c-line); border-radius: 50%; color: var(--c-icon); }
+.row .b { flex: 1; min-width: 0; }
+.row .t { display: block; font-weight: 700; color: var(--c-strong); }
+.row .d { display: block; color: var(--c-muted); font-size: .9rem; line-height: 1.6; }
+.row .go { align-self: center; color: var(--c-icon); }
+
+/* 填色卡：只給 docs 與 news 兩個內容專案 */
+.cards { display: grid; gap: .75rem; margin: 1rem 0; }
+.card { position: relative; display: flex; gap: .9rem; padding: 1rem 1.1rem; border: 1px solid var(--c-line); border-radius: var(--radius); background: var(--c-fill); }
+.card:hover { box-shadow: 0 0 0 3px rgba(0, 174, 255, .25); }
+.card .ic { color: var(--c-icon); font-size: 1.3rem; }
+.card a.n { color: var(--c-strong); font-weight: 700; font-size: 1.15rem; text-decoration: none; }
+.card a.n::after { content: ""; position: absolute; inset: 0; border-radius: var(--radius); }
+.card .p { color: var(--c-accent); font-size: .85rem; margin-left: .4rem; }
+.card p { margin: .3rem 0 .4rem; font-size: .95rem; }
+.tags { display: flex; flex-wrap: wrap; gap: .2rem .8rem; font-size: .8rem; color: var(--c-muted); }
+.tags a { position: relative; z-index: 1; }
+
+/* 線框卡：自架服務，只有線不填色 */
+.svc { display: grid; gap: .75rem; margin: 1rem 0; }
+@media (min-width: 640px) { .svc { grid-template-columns: 1fr 1fr; } }
+.svc article { border: 1px solid var(--c-line); border-radius: var(--radius); padding: .9rem 1rem; }
+.svc h3 { display: flex; align-items: center; gap: .45rem; margin: 0; }
+.svc h3 .i { color: var(--c-icon); }
+.svc h3 a { color: var(--c-strong); }
+.svc h3 small { font-weight: 400; color: var(--c-muted); font-size: .8rem; }
+.svc p { font-size: .92rem; margin: .35rem 0 .5rem; }
+
+/* 首頁那一排服務連結 */
+.toolrow { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; margin: 1rem 0 0; font-size: .95rem; }
+.toolrow a { display: flex; align-items: center; gap: .35rem; text-decoration: none; color: var(--c-text); }
+.toolrow .i { color: var(--c-icon); }
+.more { display: inline-flex; align-items: center; gap: .25rem; font-size: .9rem; }
+
+/* 按鈕：實心的只有一個，其他是線框膠囊 */
+.btns { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1rem 0; }
+.btn { display: inline-flex; align-items: center; gap: .4rem; padding: .4rem .9rem; border: 1px solid var(--c-line); border-radius: 999px; text-decoration: none; font-size: .92rem; }
+.btn.solid { background: var(--c-solid); border-color: var(--c-solid); color: #fff; }
+
+/* 頁尾 */
+footer { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--c-hair); font-size: .85rem; color: var(--c-muted); line-height: 1.9; }
+footer .cols { display: grid; gap: .1rem 1.5rem; grid-template-columns: 1fr; }
+@media (min-width: 520px) { footer .cols { grid-template-columns: 1fr 1fr; } }
+footer .cols a { color: var(--c-muted); white-space: nowrap; }
+footer .cols .i { margin-right: .3rem; }
+footer p { margin: .5rem 0 0; }
+footer .onion { word-break: break-all; font-size: .75rem; margin-top: .75rem; }
+footer .license { font-size: .75rem; }
+
+@media (min-width: 768px) {
+  html { font-size: 18px; }
+  body { padding-top: 2.5rem; }
+  .sheet { padding: 1.5rem 2.25rem 2rem; }
+}

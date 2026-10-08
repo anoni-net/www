@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{% for slug in slugs %}
+{% for lang in langs %}
+  <url>
+    <loc>{{ target.base }}{{ page_path(lang, slug) }}</loc>
+{% for other in langs %}
+    <xhtml:link rel="alternate" hreflang="{{ other.html }}" href="{{ target.base }}{{ page_path(other, slug) }}"/>
+{% endfor %}
+  </url>
+{% endfor %}
+{% endfor %}
+</urlset>

@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+Sitemap: {{ target.base }}/sitemap.xml
+{% if target.clearnet %}
+{% for prefix in ["", "/en", "/zh-cn"] %}
+Sitemap: https://anoni.net/docs{{ prefix }}/sitemap.xml
+{% endfor %}
+Sitemap: https://anoni.net/news/sitemap.xml
+{% endif %}

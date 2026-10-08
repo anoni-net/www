@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="{{ lang.html }}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% if page.slug == "index" %}{{ t.site_name }}{% else %}{{ page.title }} · {{ t.title_suffix }}{% endif %}</title>
+<meta name="description" content="{{ page.description }}">
+<link rel="icon" href="/favicon.svg">
+<link rel="stylesheet" href="/css/site.css">
+<meta property="og:title" content="{{ page.title }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ target.base }}{{ page.path }}">
+<meta property="og:image" content="{{ target.base }}/og.png">
+<meta property="og:site_name" content="{{ t.site_name }}">
+<meta property="og:description" content="{{ page.description }}">
+{% for other, path in page.alternates %}
+<link rel="alternate" hreflang="{{ other.html }}" href="{{ target.base }}{{ path }}">
+{% endfor %}
+<link rel="alternate" type="application/rss+xml" title="{{ t.rss_created }}" href="{{ docs_url('feed_rss_created.xml') }}">
+<link rel="alternate" type="application/rss+xml" title="{{ t.rss_updated }}" href="{{ docs_url('feed_rss_updated.xml') }}">
+{% if target.clearnet %}
+<link rel="canonical" href="{{ target.base }}{{ page.path }}">
+<meta http-equiv="onion-location" content="http://{{ onion_host }}{{ page.path }}">
+{% block jsonld %}{% endblock %}
+<script defer src="https://aa.anoni.net/script.js" data-website-id="2b8d98c3-5bc4-45ef-958f-6cd9b770502e"></script>
+{% endif %}
+</head>
+<body>
+<div class="sheet">
+<header>
+  <div class="top">
+    <a class="brand" href="{{ page_url('index') }}">{{ logo() }}<span>anoni.net</span></a>
+    <nav class="lang" aria-label="{{ t.lang_label }}">
+{% for other, path in page.alternates %}
+      <a href="{{ path }}" hreflang="{{ other.html }}" lang="{{ other.html }}"{% if other.code == lang.code %} aria-current="true"{% endif %}>{{ other.label }}</a>
+{% endfor %}
+    </nav>
+  </div>
+  <nav class="main" aria-label="{{ t.nav_label }}">
+{% for item in nav %}
+{% if item.page is defined %}
+    <a href="{{ page_url(item.page) }}"{% if item.page == page.slug %} aria-current="page"{% endif %}>{{ t['nav_' ~ item.key] }}</a>
+{% else %}
+    <a href="{{ docs_url(item.docs) }}">{{ t['nav_' ~ item.key] }}</a>
+{% endif %}
+{% endfor %}
+  </nav>
+</header>
+<main>
+{% block main %}{% endblock %}
+</main>
+<footer>
+  <div class="cols">
+    <a href="mailto:whisper@anoni.net">{{ icon('email-outline') }}{{ t.footer_email }}</a>
+    <a href="{{ page_url('contact') }}#pgp">{{ icon('key-variant') }}{{ t.footer_pgp }}</a>
+    <a href="{{ t.newsletter_url }}">{{ icon('rss') }}{{ t.footer_newsletter }}</a>
+    <a href="{{ page_url('contact') }}">{{ t.footer_contact }}</a>
+    <a href="{{ docs_url() }}">{{ t.footer_docs }}</a>
+    <a href="{{ news_url() }}">{{ t.footer_news }}</a>
+  </div>
+  <p class="onion">{{ t.footer_onion }}{{ onion_host }}</p>
+  <p class="license">{{ t.footer_license }}</p>
+</footer>
+</div>
+</body>
+</html>

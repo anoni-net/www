@@ -1,0 +1,5 @@
+<ul class="rows">
+{% for tool in data.projects.tools %}
+  <li><a class="row" href="{{ docs_url(tool.docs) }}"><span class="ic">{{ icon(tool.icon) }}</span><span class="b"><span class="t">{{ tool.name }}</span><span class="d">{{ pick(tool.summary) }}</span></span><span class="go">{{ icon('arrow-right') }}</span></a></li>
+{% endfor %}
+</ul>
