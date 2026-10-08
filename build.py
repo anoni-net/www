@@ -194,6 +194,9 @@ class Site:
             meta, body = split_front_matter(src.read_text(encoding="utf-8"), where)
             body_html = self.fill_blocks(render_markdown(body), blocks, where)
             body_html = ICON_REF.sub(lambda m: icon(m[1]), body_html)
+            # 只有 Markdown 內文用連結簡寫，模板產生的連結（導覽列、語言切換）已經是完整路徑，
+            # 整頁套用會把正體中文沒有前綴的 /about/ 誤加成目前語系的 /en/about/。
+            body_html = self.localize(body_html, lang)
             template = meta.get("template", "page")
             page = {
                 **meta,
@@ -203,7 +206,7 @@ class Site:
             }
             text = self.env.get_template(f"{template}.html.j2").render(
                 **self.context(lang, target), page=page, body=Markup(body_html))
-            self.write(out / page["path"].lstrip("/") / "index.html", self.localize(text, lang), target)
+            self.write(out / page["path"].lstrip("/") / "index.html", text, target)
 
     def write(self, dest: Path, text: str, target: dict) -> None:
         for old, new in target.get("rewrite", {}).items():
@@ -232,6 +235,12 @@ def check(site: Site, outs: list[Path]) -> list[str]:
                 want = href.lstrip("/")
                 if not (want in files or f"{want}index.html" in files or (want == "" and "index.html" in files)):
                     problems.append(f"{out.name}/{rel}：站內連結找不到 {href}")
+            # 語言切換的每個連結都要指到該語系的同一頁
+            for href, want in re.findall(r'<a href="([^"]*)" hreflang="([^"]*)"', text):
+                dest = out / href.lstrip("/") / "index.html"
+                got = re.search(r'<html lang="([^"]*)"', dest.read_text(encoding="utf-8"))[1] if dest.exists() else None
+                if got != want:
+                    problems.append(f"{out.name}/{rel}：語言切換 {want} 指到 {href}，那一頁是 {got}")
             if out.name == "onion":
                 for host in site.config["targets"]["onion"].get("rewrite", {}):
                     if host in text:
