@@ -1,6 +1,9 @@
 # 模板裡的介面文字，三個語系各一組，鍵要一致。
 
 [zh-TW]
+not_found_title = "找不到這一頁"
+not_found_body = "這個網址沒有對應的頁面，可能是打錯字，或是頁面已經搬到其他地方。"
+not_found_home = "回到首頁"
 site_name = "匿名網路社群 anoni.net"
 title_suffix = "anoni.net"
 nav_label = "主要導覽"
@@ -33,6 +36,9 @@ join_matrix = "加入 Matrix"
 join_how = "參與方式"
 
 [zh-CN]
+not_found_title = "找不到这一页"
+not_found_body = "这个网址没有对应的页面，可能是打错字，或是页面已经搬到其他地方。"
+not_found_home = "回到首页"
 site_name = "匿名网络社群 anoni.net"
 title_suffix = "anoni.net"
 nav_label = "主要导航"
@@ -65,6 +71,9 @@ join_matrix = "加入 Matrix"
 join_how = "参与方式"
 
 [en]
+not_found_title = "Page not found"
+not_found_body = "There is no page at this address. It may have a typo, or the page may have moved."
+not_found_home = "Back to the home page"
 site_name = "anoni.net"
 title_suffix = "anoni.net"
 nav_label = "Main"

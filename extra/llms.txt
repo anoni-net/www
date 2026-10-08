@@ -1,0 +1,93 @@
+# anoni.net 匿名網路社群
+
+> 關注匿名網路、隱私與網路自由的台灣在地社群。長期推廣 Tor、Tails、OONI 等開源工具，整理在地法規與場景指引，並與 EFF、Tor Project、OONI 等國際組織合作，把全球議題帶回台灣脈絡討論。
+
+文件站預設語言為正體中文（zh-TW），另有簡體中文（zh-cn）與英文（en）版本。內容以 CC-BY 4.0 授權，single source of truth 是正體中文。站台同時提供 Tor onion 鏡像：http://anoninetru5tflukgfaehun7q6khowgmymcff3gtk5oyesqazhmfxtyd.onion/
+
+## 入口
+
+- [anoni.net 首頁](https://anoni.net/): 社群入口，介紹社群、2026 三大主題、專案與自架服務。
+- [關於我們](https://anoni.net/about/): 社群的緣起、關注範圍、三大主題、治理與合作。
+- [參與](https://anoni.net/join/): 加入 Matrix 討論、認領三大主題、提供機敏資料與組織合作的方式。
+- [專案](https://anoni.net/projects/): 社群自己寫的內容與程式，包含文件站、新聞導讀與觀測工具。
+- [服務](https://anoni.net/services/): 社群自架的 Matrix、CryptPad、Etherpad、SearXNG、Send、Formbricks 與帳號申請方式。
+- [持續關注](https://anoni.net/contact/): 電子報、信箱與 PGP 公鑰。
+- [社群文件 anoni.net/Docs](https://anoni.net/docs/): 多語系文件站主入口，涵蓋概念、工具、場景、進階、報告、在地脈絡、社群七大分類。
+- [新聞導讀 anoni.net/news](https://anoni.net/news/): 從科技與開源的角度導讀國際隱私、匿名網路與網路審查的新聞，每篇附上原文，有正體中文、簡體中文與英文三個版本。
+
+## 概念
+
+- [網路自由為什麼重要](https://anoni.net/docs/basics/internet-freedom/): 社群關注的核心議題入口，說明網路自由與大眾的關係。
+- [匿名、隱私、假名、機密性的區別](https://anoni.net/docs/basics/anonymity-vs-privacy/): 釐清四個常被混用的概念，是選工具前的思考基礎。
+- [威脅模型](https://anoni.net/docs/basics/threat-model/): 先想清楚要防誰、保護什麼，再決定用哪些工具。
+- [Metadata 為什麼難隱藏](https://anoni.net/docs/basics/metadata/): 誰在何時跟誰連線這類 metadata，往往比內容更容易洩漏身分。
+- [為什麼匿名支付重要](https://anoni.net/docs/basics/payments-anonymity/): 金流如何串起身分，匿名支付要解決什麼問題。
+
+## 工具
+
+- [什麼是匿名網路](https://anoni.net/docs/tools/what-is-anonymity-network/): 匿名網路的整體概念與運作方式。
+- [什麼是 Tor](https://anoni.net/docs/tools/what-is-tor/): Tor 的運作原理、用途與常見誤解。
+- [什麼是 Tails](https://anoni.net/docs/tools/what-is-tails/): 從 USB 開機、預設走 Tor、關機後不留痕跡的可攜式作業系統。
+- [什麼是 OONI](https://anoni.net/docs/tools/what-is-ooni/): 量測網路審查與封鎖的開源工具。
+- [Tor Snowflake 橋接](https://anoni.net/docs/tools/tor-snowflake/): 開一個瀏覽器分頁就能幫受審查地區的人連上 Tor，台灣門檻最低的貢獻方式。
+- [OnionShare](https://anoni.net/docs/tools/onionshare/): 透過 Tor 起臨時 onion service，匿名傳檔、收檔、架站、聊天。
+- [Tor Browser 進階設定](https://anoni.net/docs/tools/tor-browser-advanced/): 安全層級、橋接、隔離分頁等進階設定。
+- [匿名作業系統比較](https://anoni.net/docs/tools/tails-vs-whonix-vs-qubes/): Tails、Whonix、Qubes 的取捨與適用情境。
+- [匿名通訊工具比較](https://anoni.net/docs/tools/messaging-comparison/): 常見即時通訊工具在匿名與隱私上的差異。
+- [OONI Run v2 操作說明](https://anoni.net/docs/tools/ooni-run-v2/): 用 OONI Run v2 設計與分享網路檢測任務。
+- [什麼是 CryptPad](https://anoni.net/docs/tools/what-is-cryptpad/): 端對端加密的線上協作工具。
+- [密碼管理器入門](https://anoni.net/docs/tools/password-manager/): 為什麼要用密碼管理器，怎麼開始。
+- [加密貨幣隱私光譜](https://anoni.net/docs/tools/crypto-privacy-spectrum/): 不同加密貨幣在隱私保護上的光譜與落差。
+
+## 場景
+
+- [記者保護消息來源](https://anoni.net/docs/scenarios/journalist/): 記者與獨立工作者的數位安全準備。
+- [社運行動者的數位準備](https://anoni.net/docs/scenarios/activist/): 行動現場與日常的數位風險與對策。
+- [性少數族群的匿名社交](https://anoni.net/docs/scenarios/lgbtq/): LGBTQ+ 在匿名社交與身分保護上的考量。
+- [家暴受害者的數位準備](https://anoni.net/docs/scenarios/domestic-violence/): 跟蹤騷擾情境下的裝置與帳號安全。
+- [選舉觀察員的自保](https://anoni.net/docs/scenarios/election-observer/): 選舉觀察工作中的資料與身分保護。
+- [倡議組織的匿名捐款](https://anoni.net/docs/scenarios/nonprofit-anonymous-donation/): 非營利組織如何在保護捐款人下接受匿名捐款。
+
+## 進階
+
+- [端對端加密如何運作](https://anoni.net/docs/advanced/e2ee/): E2EE 的原理與限制。
+- [後量子密碼](https://anoni.net/docs/advanced/post-quantum/): 量子電腦對現行加密的威脅與因應。
+- [去中心化網站發布](https://anoni.net/docs/advanced/dweb-ipfs-onion/): 用 IPFS 與 onion service 發布不易被下架的網站。
+- [零知識身分與支付](https://anoni.net/docs/advanced/zk-identity-payments/): 零知識證明在身分驗證與支付上的應用。
+
+## 在地脈絡（台灣）
+
+- [台灣在地脈絡總覽](https://anoni.net/docs/taiwan/): 台灣的法規、觀測資料與研究入口。
+- [OONI 網站檢測清單](https://anoni.net/docs/taiwan/ooni-checklist/): 在台灣用 OONI 檢測連線層觀測的操作清單。
+- [台灣 ASN 觀測覆蓋率](https://anoni.net/docs/taiwan/ooni-asn-coverage/): 分析台灣各 ASN 在 OONI 資料庫的觀測覆蓋情況。
+- [台灣 Tor 中繼觀測](https://anoni.net/docs/taiwan/tor-relay-watcher/): 追蹤台灣 Tor relay 節點的數量與分布。
+- [台灣個資法 2025 修法](https://anoni.net/docs/taiwan/pdpa-2025/): 個資法修法對隱私與身分保護的影響。
+- [台灣 VASP 法 2026](https://anoni.net/docs/taiwan/vasp-2026/): 虛擬資產服務業立法與金流匿名性的觀察。
+- [揭弊者保護法的技術觀察](https://anoni.net/docs/taiwan/whistleblower-law/): 從技術角度看揭弊者保護制度。
+
+## 報告翻譯
+
+- [嚴選報告中譯](https://anoni.net/docs/reports/): 外部研究報告的正體中文翻譯入口。
+- [網路政變 InterSec Lab 報告](https://anoni.net/docs/reports/interseclab-network-coup/): 中國防火長城運作團隊與技術的調查報告中譯。
+
+## 社群與參與
+
+- [參與](https://anoni.net/join/): 認領主題與加入討論的方式。
+- [個人隱私指引](https://anoni.net/docs/community/privacy-guide/): 2026 三大主題之一，個人隱私的研究專題入口。
+- [Tor Relay 校園建立](https://anoni.net/docs/community/relay-on-campus/): 2026 三大主題之一，在校園架設 Tor relay 的研究專題。
+- [匿名支付研究](https://anoni.net/docs/community/payments-research/): 2026 三大主題之一，匿名支付的研究專題。
+- [2026 年度路線圖](https://anoni.net/docs/community/roadmap-2026/): 社群這一年的計畫與方向。
+- [成為 anoni](https://anoni.net/docs/community/become-anoni/): 怎麼從讀者變成社群參與者。
+
+## 活動
+
+- [COSCUP 2026 公開徵稿](https://anoni.net/docs/activity/coscup-2026-cfp/): COSCUP 2026 匿名網路議程徵稿資訊。
+- [2026 年度計畫](https://anoni.net/docs/blog/2026/01/2025to2026/): 從 2025 回顧到 2026 規劃的年度計畫文。
+
+## Optional
+
+- [緊急求救](https://anoni.net/docs/help/): 遇到緊急狀況時的求助入口。
+- [English documentation](https://anoni.net/docs/en/): English version of the documentation.
+- [简体中文文件](https://anoni.net/docs/zh-cn/): 简体中文版本。
+- [English homepage](https://anoni.net/en/): English entry page.
+- [简体中文首页](https://anoni.net/zh-cn/): 简体中文版本的社群入口。

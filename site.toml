@@ -54,6 +54,8 @@ docs = "blog/"
 [targets.clearnet]
 base = "https://anoni.net"
 clearnet = true
+# extra/ 底下只有這個目標要的檔案，原樣輸出到根目錄
+extra = ["llms.txt"]
 
 [targets.onion]
 base = "http://anoninetru5tflukgfaehun7q6khowgmymcff3gtk5oyesqazhmfxtyd.onion"
