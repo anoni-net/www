@@ -8,8 +8,7 @@
 icon = "folder-open-outline"
 product = "docs"
 display = "anoni.net/docs"
-# 文件站還沒有自己的關於頁（toomore/anoni-net-ws#397 的「關於文件站」），補上之後填路徑。
-about = ""
+about = "about/"
 name = { zh-TW = "文件", zh-CN = "文档", en = "Docs" }
 summary.zh-TW = "從概念、工具到各種處境的準備，整理匿名網路與隱私的知識，也追蹤台灣的網路觀測與相關法規。"
 summary.zh-CN = "从概念、工具到各种处境的准备，整理匿名网络与隐私的知识，也追踪台湾的网络观测与相关法规。"
