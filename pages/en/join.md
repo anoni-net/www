@@ -43,5 +43,6 @@ Accounts and entry points for these tools are on the [services](/services/) page
 <ul class="rows">
   <li><a class="row" href="/join/upload-sensitive/"><span class="ic">ICON:upload-outline</span><span class="b"><span class="t">Send us sensitive material</span><span class="d">Records of abuse, unpublished research or personal data go through our self-hosted Send, with a one-download link.</span></span></a></li>
   <li><a class="row" href="/about/partners/"><span class="ic">ICON:handshake-outline</span><span class="b"><span class="t">Work with us as an organization</span><span class="d">What we can do together with civil society groups, advocacy organizations and newsrooms, and what we can't.</span></span></a></li>
+  <li><a class="row" href="/join/writing-style/"><span class="ic">ICON:format-letter-case</span><span class="b"><span class="t">Writing style</span><span class="d">The rules for voice, terminology, headings and sentence patterns shared by the community site, the docs site and News.</span></span></a></li>
   <li><a class="row" href="docs:community/how-to-contribute/"><span class="ic">ICON:folder-open-outline</span><span class="b"><span class="t">Contribute to the docs</span><span class="d">Discuss first, then the GitHub flow, the types of contribution and how licensing works.</span></span></a></li>
 </ul>

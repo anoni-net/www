@@ -167,7 +167,8 @@ description: anoni.net 社群的決策方式、成員角色、爭議處理與行
 
 ## 相關文件
 
-- [貢獻者百科](docs:community/contributor-handbook/)：寫作風格、PR 流程、Issue 分類
+- [寫作風格規範](/join/writing-style/)：三個網站共用的句型、標點、用詞與譯名規則
+- [貢獻者百科](docs:community/contributor-handbook/)：文件站的檔案命名、PR 流程、Issue 分類
 - [如何參與與認領主題](/join/)：第一次參與的入門路徑
 - [上傳機敏資訊流程](/join/upload-sensitive/)：機敏內容的處理規範
 - [社群自架服務](/services/)：Matrix、Cryptpad 等服務的入口與帳號申請

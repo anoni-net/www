@@ -90,7 +90,7 @@ uv run tools/import_from_docs.py --nginx                    # 重新產生 tools
 
 ## 寫作規則
 
-照[貢獻者百科](https://anoni.net/docs/community/contributor-handbook/)的寫作風格規範，本 repo 不另外寫一份。
+[寫作風格規範](https://anoni.net/join/writing-style/)是本站的一頁，原始檔在 `pages/<語系>/join/writing-style.md`。社群首頁、文件站、新聞導讀與各 repo 的說明文件共用這一份。可以機器判斷的規則寫在 `anoni-net/docs` 的 `tools/docs_style_lint.py`，改規則時兩邊一起改。
 
 ## 授權
 

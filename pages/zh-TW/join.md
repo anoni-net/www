@@ -39,5 +39,6 @@ lead: 隨時都可以參與，不需要先具備技術背景。
 <ul class="rows">
   <li><a class="row" href="/join/upload-sensitive/"><span class="ic">ICON:upload-outline</span><span class="b"><span class="t">提供機敏資料</span><span class="d">受害紀錄、未公開的研究或個資，走社群自架的 Send，連結設成一次下載。</span></span></a></li>
   <li><a class="row" href="/about/partners/"><span class="ic">ICON:handshake-outline</span><span class="b"><span class="t">組織合作</span><span class="d">給公民團體、倡議組織與新聞媒體的合作說明。</span></span></a></li>
-  <li><a class="row" href="docs:community/contributor-handbook/"><span class="ic">ICON:folder-open-outline</span><span class="b"><span class="t">參與文件站的寫作與翻譯</span><span class="d">寫作風格、PR 流程與翻譯規範，寫在文件站的貢獻者百科。</span></span></a></li>
+  <li><a class="row" href="/join/writing-style/"><span class="ic">ICON:format-letter-case</span><span class="b"><span class="t">寫作風格規範</span><span class="d">社群首頁、文件站與新聞導讀共用的句型、標點、用詞與譯名規則。</span></span></a></li>
+  <li><a class="row" href="docs:community/contributor-handbook/"><span class="ic">ICON:folder-open-outline</span><span class="b"><span class="t">參與文件站的寫作與翻譯</span><span class="d">檔案命名、PR 流程與翻譯規範，寫在文件站的貢獻者百科。</span></span></a></li>
 </ul>
