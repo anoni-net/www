@@ -70,7 +70,7 @@ Beyond the documentation site, the community maintains several technical sub-pro
 - **ASN Coverage**: a batch analysis tool over OONI's public data, feeding the [ASN coverage analysis](docs:regional/ooni-asn-coverage/) page
 - **Asian Diceware**: an EFF-compatible 7776-word passphrase list that blends in dictionary-attested Asian loanwords, built partly to prepare for a future community-run anonymous service platform along the lines of [AnonTicket](https://anonticket.torproject.org/), the Tor Project's anonymous support ticketing service, which would need to generate account codes. See [Asian Diceware](docs:tools/asian-diceware/).
 
-Pulse and ASN Coverage live with their issue trackers in [anoni-net/docs on GitHub](https://github.com/anoni-net/docs). Asian Diceware has its own repository at [anoni-net/asian-diceware](https://github.com/anoni-net/asian-diceware). How the two observation tools connect to the Tor Project's upstream network-health work is covered on [the Tor Project ecosystem page](docs:community/tor-project-ecosystem/).
+Pulse and ASN Coverage each have their own repository and issue tracker, at [anoni-net/pulse](https://github.com/anoni-net/pulse) and [anoni-net/asn-coverage](https://github.com/anoni-net/asn-coverage) on GitHub. Asian Diceware has its own repository at [anoni-net/asian-diceware](https://github.com/anoni-net/asian-diceware). How the two observation tools connect to the Tor Project's upstream network-health work is covered on [the Tor Project ecosystem page](docs:community/tor-project-ecosystem/).
 
 ## How to get involved
 

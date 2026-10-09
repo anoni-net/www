@@ -77,8 +77,8 @@ If you represent a funder interested in regional Sinophone Asia-Pacific network-
 Different parts of the project are licensed for different uses:
 
 - **Documentation site content** ([github.com/anoni-net/docs](https://github.com/anoni-net/docs)) — [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) — share and adapt with attribution
-- **Pulse code** — [MIT License](https://github.com/anoni-net/docs/blob/main/pulse/LICENSE)
-- **ASN coverage tooling** — [GPL-3.0](https://github.com/anoni-net/docs/blob/main/asn_coverage/LICENSE)
+- **Pulse code** ([github.com/anoni-net/pulse](https://github.com/anoni-net/pulse)) — [MIT License](https://github.com/anoni-net/pulse/blob/main/LICENSE)
+- **ASN coverage tooling** ([github.com/anoni-net/asn-coverage](https://github.com/anoni-net/asn-coverage)) — [GPL-3.0](https://github.com/anoni-net/asn-coverage/blob/main/LICENSE)
 - **onionoo-fastapi code** ([github.com/anoni-net/onionoo-fastapi](https://github.com/anoni-net/onionoo-fastapi)) — [MIT License](https://github.com/anoni-net/onionoo-fastapi/blob/main/LICENSE)
 
 Proper attribution for documentation reuse: "anoni.net Docs Project, [URL of the specific page], CC-BY 4.0."
@@ -89,7 +89,7 @@ The logo, wordmark and colour tokens, with the rules for using them, are on the 
 
 Independent of any claim on this page, the following are checkable:
 
-- The full source of the documentation site, Pulse, and ASN coverage tooling is at [github.com/anoni-net/docs](https://github.com/anoni-net/docs), including commit history and contributor list
+- The full source of the documentation site, Pulse, and ASN coverage tooling is public at [github.com/anoni-net/docs](https://github.com/anoni-net/docs), [github.com/anoni-net/pulse](https://github.com/anoni-net/pulse) and [github.com/anoni-net/asn-coverage](https://github.com/anoni-net/asn-coverage), including commit history and contributor list
 - Pulse data is publicly readable at [anoni.net/api](https://anoni.net/api/readme)
 - The onionoo query service is a separate repository at [github.com/anoni-net/onionoo-fastapi](https://github.com/anoni-net/onionoo-fastapi), and the hosted instance answers unauthenticated requests at [onionoo.anoni.net](https://onionoo.anoni.net/docs), so any claim it returns can be re-run
 - The Tor onion mirror at [the docs onion address](http://docs.anoninetru5tflukgfaehun7q6khowgmymcff3gtk5oyesqazhmfxtyd.onion/) reflects the same content as the clearnet site
