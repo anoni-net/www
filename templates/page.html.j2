@@ -1,5 +1,8 @@
 {% extends "_layout.html.j2" %}
 {% block main %}
+{% if page.parent %}
+<p class="crumb"><a href="{{ page_url(page.parent) }}">{{ t['nav_' ~ page.parent] }}</a></p>
+{% endif %}
 <h1>{{ page.title }}</h1>
 {% if page.lead is defined %}
 <p class="lead">{{ page.lead }}</p>

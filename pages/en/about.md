@@ -20,11 +20,11 @@ This page is written for international peer organizations, journalists, research
 
 ## What we are working on in 2026
 
-Three tracks carry most of the community's output this year. The full plan, the quarterly deliverables, and current status are on the [2026 roadmap](docs:community/roadmap-2026/).
+Three tracks carry most of the community's output this year. The full plan, the quarterly deliverables, and current status are on the [2026 roadmap](/join/roadmap-2026/).
 
-- **Personal privacy guidance** — practical guidance graded by exposure level (everyday use, sensitive work, high-risk situations), landing across the concepts, tools, and scenarios sections of the site. Track page: [personal privacy guide](docs:community/privacy-guide/).
-- **Tor relays on university campuses** — a relay runs at National Taiwan Normal University, set up by a community member who worked the proposal through faculty and staff. We turned that case into a template kit: a [proposal template](docs:community/campus-tor-relay-proposal/), a [deployment SOP](docs:community/campus-tor-relay-sop/), and an [FAQ for university administrators and legal counsel](docs:community/campus-relay-faq/). Each marks its Taiwan-specific material in a separate regional note, so another jurisdiction can swap those parts and keep the proposal structure, the outreach emails, and the technical steps as they are. Track page: [Tor relay on campus](docs:community/relay-on-campus/).
-- **Anonymous payments** — at the research stage, collecting real situations: who needs an anonymous money trail and under what circumstances, where current practice breaks down, and what limits regulation and compliance impose. It is also the topic of our booth at [Global Gathering 2026](docs:blog/2026/08/2026-anoni-net-global-gathering/) in Estoril, on 6 September 2026. Track page: [anonymous payments](docs:community/payments-research/).
+- **Personal privacy guidance** — practical guidance graded by exposure level (everyday use, sensitive work, high-risk situations), landing across the concepts, tools, and scenarios sections of the site. Track page: [personal privacy guide](/join/privacy-guide/).
+- **Tor relays on university campuses** — a relay runs at National Taiwan Normal University, set up by a community member who worked the proposal through faculty and staff. We turned that case into a template kit: a [proposal template](docs:community/campus-tor-relay-proposal/), a [deployment SOP](docs:community/campus-tor-relay-sop/), and an [FAQ for university administrators and legal counsel](docs:community/campus-relay-faq/). Each marks its Taiwan-specific material in a separate regional note, so another jurisdiction can swap those parts and keep the proposal structure, the outreach emails, and the technical steps as they are. Track page: [Tor relay on campus](/join/relay-on-campus/).
+- **Anonymous payments** — at the research stage, collecting real situations: who needs an anonymous money trail and under what circumstances, where current practice breaks down, and what limits regulation and compliance impose. It is also the topic of our booth at [Global Gathering 2026](docs:blog/2026/08/2026-anoni-net-global-gathering/) in Estoril, on 6 September 2026. Track page: [anonymous payments](/join/payments-research/).
 
 ## What we publish
 
@@ -38,7 +38,7 @@ Three tracks carry most of the community's output this year. The full plan, the 
 
 ## Governance
 
-The community runs on a low-formalism consensus model. A draft governance charter is going through community review and is documented in full in the [governance charter](docs:community/governance/). Headlines:
+The community runs on a low-formalism consensus model. A draft governance charter is going through community review and is documented in full in the [governance charter](/about/governance/). Headlines:
 
 - **Roles** — *Core members* (long-term maintainers with self-host operations and PR-merge authority), *contributors* (anyone with active output), *observers* (newsletter / Public Space participants), *visitors* (anyone reading and corresponding via `whisper@anoni.net`).
 - **Decisions** — consensus by default with a 3-day window for objections; voting only when consensus is blocked or under time pressure. Major decisions (charter changes, core-member additions) require 2/3 majority of active contributors.

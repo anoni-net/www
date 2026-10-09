@@ -24,7 +24,7 @@ lead: 随时都可以参与，不需要先具备技术背景。
 
 <!-- topics -->
 
-完整说明与背景见[延续 2025，走向 2026](docs:blog/2026/01/2025to2026/)，各季的交付见 [2026 工作蓝图](docs:community/roadmap-2026/)。
+完整说明与背景见[延续 2025，走向 2026](docs:blog/2026/01/2025to2026/)，各季的交付见 [2026 工作蓝图](/join/roadmap-2026/)。
 
 ## 平时如何参与
 
@@ -37,7 +37,7 @@ lead: 随时都可以参与，不需要先具备技术背景。
 ## 其他参与方式
 
 <ul class="rows">
-  <li><a class="row" href="docs:community/upload-sensitive/"><span class="ic">ICON:upload-outline</span><span class="b"><span class="t">提供敏感资料</span><span class="d">受害记录、未公开的研究或个人信息，走社群自架的 Send，链接设成一次下载。</span></span></a></li>
-  <li><a class="row" href="docs:community/partners/"><span class="ic">ICON:handshake-outline</span><span class="b"><span class="t">组织合作</span><span class="d">给公民团体、倡议组织与新闻媒体的合作说明。</span></span></a></li>
+  <li><a class="row" href="/join/upload-sensitive/"><span class="ic">ICON:upload-outline</span><span class="b"><span class="t">提供敏感资料</span><span class="d">受害记录、未公开的研究或个人信息，走社群自架的 Send，链接设成一次下载。</span></span></a></li>
+  <li><a class="row" href="/about/partners/"><span class="ic">ICON:handshake-outline</span><span class="b"><span class="t">组织合作</span><span class="d">给公民团体、倡议组织与新闻媒体的合作说明。</span></span></a></li>
   <li><a class="row" href="docs:community/contributor-handbook/"><span class="ic">ICON:folder-open-outline</span><span class="b"><span class="t">参与文档站的写作与翻译</span><span class="d">写作风格、PR 流程与翻译规范，写在文档站的贡献者百科。</span></span></a></li>
 </ul>

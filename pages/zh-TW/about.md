@@ -16,11 +16,11 @@ lead: 關注匿名網路與網路自由的一群人。
 
 ## 2026 三大主題
 
-完整規劃與各季交付見 [2026 工作藍圖](docs:community/roadmap-2026/)。
+完整規劃與各季交付見 [2026 工作藍圖](/join/roadmap-2026/)。
 
-- **[個人隱私指引](docs:community/privacy-guide/)**：整理可實際操作的隱私保護指引，依情境（日常、敏感工作、高風險）提供工具與步驟。
-- **[Tor Relay 校園建立](docs:community/relay-on-campus/)**：與 EFF、Tor Project 合作推動校園中繼節點，台師大已有一個節點運作中。社群把該案例整理成[提案範本](docs:community/campus-tor-relay-proposal/)、[技術 SOP](docs:community/campus-tor-relay-sop/)、[校方 FAQ](docs:community/campus-relay-faq/) 三份檔案，並把臺灣專屬的內容另外標記，其他地區的推動者替換那幾段就能沿用其餘部分。
-- **[匿名支付](docs:community/payments-research/)**：探索現金以外情境下的匿名支付（如穩定幣、區塊鏈應用），含法規與實作面向。目前在研究階段，蒐集真實情境，也是 [Global Gathering 2026](docs:blog/2026/08/2026-anoni-net-global-gathering/) 攤位的主題（2026/09/06，葡萄牙 Estoril）。
+- **[個人隱私指引](/join/privacy-guide/)**：整理可實際操作的隱私保護指引，依情境（日常、敏感工作、高風險）提供工具與步驟。
+- **[Tor Relay 校園建立](/join/relay-on-campus/)**：與 EFF、Tor Project 合作推動校園中繼節點，台師大已有一個節點運作中。社群把該案例整理成[提案範本](docs:community/campus-tor-relay-proposal/)、[技術 SOP](docs:community/campus-tor-relay-sop/)、[校方 FAQ](docs:community/campus-relay-faq/) 三份檔案，並把臺灣專屬的內容另外標記，其他地區的推動者替換那幾段就能沿用其餘部分。
+- **[匿名支付](/join/payments-research/)**：探索現金以外情境下的匿名支付（如穩定幣、區塊鏈應用），含法規與實作面向。目前在研究階段，蒐集真實情境，也是 [Global Gathering 2026](docs:blog/2026/08/2026-anoni-net-global-gathering/) 攤位的主題（2026/09/06，葡萄牙 Estoril）。
 
 想加入其中一個主題，見[參與](/join/)。
 
@@ -31,8 +31,8 @@ lead: 關注匿名網路與網路自由的一群人。
 ## 治理與合作
 
 <ul class="rows">
-  <li><a class="row" href="docs:community/governance/"><span class="b"><span class="t">治理方式</span><span class="d">決策方式、成員角色、爭議處理與行為準則。</span></span></a></li>
-  <li><a class="row" href="docs:community/partners/"><span class="b"><span class="t">組織合作</span><span class="d">給公民團體、倡議組織與新聞媒體的合作說明，社群能一起做的事與做不到的事。</span></span></a></li>
+  <li><a class="row" href="/about/governance/"><span class="b"><span class="t">治理方式</span><span class="d">決策方式、成員角色、爭議處理與行為準則。</span></span></a></li>
+  <li><a class="row" href="/about/partners/"><span class="b"><span class="t">組織合作</span><span class="d">給公民團體、倡議組織與新聞媒體的合作說明，社群能一起做的事與做不到的事。</span></span></a></li>
 </ul>
 
 [關注我們](/contact/){ .btn }

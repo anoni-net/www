@@ -24,7 +24,7 @@ lead: 隨時都可以參與，不需要先具備技術背景。
 
 <!-- topics -->
 
-完整說明與背景見[延續 2025，走向 2026](docs:blog/2026/01/2025to2026/)，各季的交付見 [2026 工作藍圖](docs:community/roadmap-2026/)。
+完整說明與背景見[延續 2025，走向 2026](docs:blog/2026/01/2025to2026/)，各季的交付見 [2026 工作藍圖](/join/roadmap-2026/)。
 
 ## 平時如何參與
 
@@ -37,7 +37,7 @@ lead: 隨時都可以參與，不需要先具備技術背景。
 ## 其他參與方式
 
 <ul class="rows">
-  <li><a class="row" href="docs:community/upload-sensitive/"><span class="ic">ICON:upload-outline</span><span class="b"><span class="t">提供機敏資料</span><span class="d">受害紀錄、未公開的研究或個資，走社群自架的 Send，連結設成一次下載。</span></span></a></li>
-  <li><a class="row" href="docs:community/partners/"><span class="ic">ICON:handshake-outline</span><span class="b"><span class="t">組織合作</span><span class="d">給公民團體、倡議組織與新聞媒體的合作說明。</span></span></a></li>
+  <li><a class="row" href="/join/upload-sensitive/"><span class="ic">ICON:upload-outline</span><span class="b"><span class="t">提供機敏資料</span><span class="d">受害紀錄、未公開的研究或個資，走社群自架的 Send，連結設成一次下載。</span></span></a></li>
+  <li><a class="row" href="/about/partners/"><span class="ic">ICON:handshake-outline</span><span class="b"><span class="t">組織合作</span><span class="d">給公民團體、倡議組織與新聞媒體的合作說明。</span></span></a></li>
   <li><a class="row" href="docs:community/contributor-handbook/"><span class="ic">ICON:folder-open-outline</span><span class="b"><span class="t">參與文件站的寫作與翻譯</span><span class="d">寫作風格、PR 流程與翻譯規範，寫在文件站的貢獻者百科。</span></span></a></li>
 </ul>

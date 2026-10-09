@@ -62,6 +62,8 @@ base = "http://anoninetru5tflukgfaehun7q6khowgmymcff3gtk5oyesqazhmfxtyd.onion"
 clearnet = false
 
 [targets.onion.rewrite]
+# assets.anoni.net 的圖片在 onion 那一側掛在根位址的 /assets/ 底下
+"https://assets.anoni.net" = "http://{onion}/assets"
 "https://anoni.net/docs" = "http://docs.{onion}"
 "https://anoni.net/news" = "http://news.{onion}"
 "https://matrix.anoni.net" = "http://matrix.{onion}"
