@@ -60,6 +60,8 @@ onion 版本在寫檔前把 `https://anoni.net/docs` 這類 clearnet 網址改�
 
 腳本先執行 `--check`，通過之後建置到新的目錄，最後才切換 `current`，建置失敗時線上維持原本的版本。nginx 的 `anoni.net` 與根 onion 位址都讀 `current`，設定在 m6 的 `/etc/nginx/conf.d/anoninet.conf`，`error_page 404` 指到根目錄的 `404.html`。
 
+從文件站搬過來的頁面，舊網址在 m6 的 nginx 用 301 轉到新網址，clearnet 與 onion 各一份對照表，原始檔是 [`tools/nginx-docs-moved.conf`](./tools/nginx-docs-moved.conf)（複製到 `/etc/nginx/conf.d/anoni-docs-moved.conf`）。每搬一頁就在這裡補一條，三個語系都要想一次。
+
 要退回上一版，先建立 `/srv/anoni-net-www/hold` 暫停自動發布，再把 `current` 改指到 `releases/` 底下較舊的那一份。修好之後刪掉 `hold`，下一輪就會發布 `main` 的最新版。
 
 ## 分類
