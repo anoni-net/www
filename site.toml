@@ -22,7 +22,7 @@ html = "en"
 prefix = "/en"
 label = "EN"
 
-# 頁首的導覽列。page 是本站的頁面，docs 是還沒搬過來、暫時連到文件站的頁面（目前只剩動態）。
+# 頁首的導覽列。page 是本站的頁面，docs 是連到文件站的頁面（2026-10-09 起都是本站的頁面）。
 # 搬過來之後把 docs 換成 page。
 [[nav]]
 key = "about"
@@ -46,7 +46,7 @@ page = "events"
 
 [[nav]]
 key = "updates"
-docs = "blog/"
+page = "updates"
 
 # 兩個輸出目標。onion 版本在寫檔前把 clearnet 網址改寫成 onion，順序由長到短，
 # 子網域與路徑要排在網域本身之前。沒有 onion 版本的服務（CryptPad、Send、onionoo）

@@ -25,6 +25,10 @@ A community in Taiwan working on [anonymity networks](docs:tools/what-is-anonymi
 
 <!-- more-services -->
 
+## Latest updates
+
+<!-- latest-updates -->
+
 ## Take part
 
 Plenty needs no account at all: search with the community's SearXNG, read the guides in the docs, or subscribe to the newsletter. To join the discussion, say hello on Matrix.

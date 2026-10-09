@@ -1,0 +1,46 @@
+# 文件站部落格裡屬於「社群本身的事」的舊文章：活動公告與回顧、專案上線、工作進度、
+# 社群的立場與經驗。2026-10-09 起社群公告改發在本站的 updates/，這些舊文章留在文件站
+# 原本的網址，本站的動態列表連過去（toomore/anoni-net-ws#397 的方案 A）。
+#
+#   uv run tools/import_from_docs.py --updates   讀這份名單，產生 data/docs_updates.toml
+#
+# 翻譯、技術分析、觀測報告與文件站自己的更新回顧留在文件站，不列進來。
+# 之後要讓文件站更輕時，再把這些文章搬過來並設轉址。
+
+posts = [
+    # 活動公告與回顧
+    "2026-gg2026-printed-wrapper.md",
+    "2026-anoni-net-global-gathering.md",
+    "tianjian-digital-privacy.md",
+    "2026-coscup-anoni-track-staff.md",
+    "coscup-2026-community-track.md",
+    "2026-anoni-net-eth-taipei.md",
+    "2026-coscup-anoni-track-cfp.md",
+    "g0v-hackath71n.md",
+    "internetfreedom-oct2025.md",
+    "event-workshop-2025-preparing.md",
+    "rightscon25-tor-tails-ooni-after.md",
+    "g0v-hackath65n.md",
+    "rightscon25-pre-event.md",
+    # 專案上線
+    "2026-anoni-net-news-launch.md",
+    "asian-diceware.md",
+    "2026-cryptpad-zh-hant.md",
+    "2026-campus-tor-relay-template-kit.md",
+    "2026-onionoo-mcp-public.md",
+    # 工作進度
+    "updates-202603.md",
+    "2025to2026.md",
+    "updates-202508.md",
+    "updates-202506.md",
+    "updates-20250613.md",
+    "updates-202505.md",
+    "updates-202504.md",
+    "updates-202503.md",
+    # 社群本身
+    "iran-blackout-webtunnel.md",
+    "2026-discord-matrix-statement.md",
+    "ntnu-nz.md",
+    "move-to-anoni-net.md",
+    "hello-world.md",
+]

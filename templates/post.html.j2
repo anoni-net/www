@@ -1,0 +1,10 @@
+{% extends "_layout.html.j2" %}
+{% block main %}
+<p class="crumb"><a href="{{ page_url('updates') }}">{{ t.nav_updates }}</a></p>
+<h1>{{ page.title }}</h1>
+<p class="post-date"><time datetime="{{ page.date.isoformat() }}">{{ page.date.strftime('%Y/%m/%d') }}</time></p>
+<div class="prose">
+{{ body }}
+</div>
+<p><a class="more" href="{{ page_url('updates') }}">{{ t.all_updates }} {{ icon('arrow-right') }}</a></p>
+{% endblock %}
