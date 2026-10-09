@@ -68,7 +68,7 @@ description: 2026 年匿名网络社群 anoni.net 的三大主题、文件站建
 - **ASN Coverage**：OONI 公开数据的批次分析工具，对应 [ASN 观测数据分析](docs:taiwan/ooni-asn-coverage/)
 - **Asian Diceware**：EFF 兼容的 7776 字密语词表，混入有字典背书的亚洲外来语，为社群未来自建类似 AnonTicket 的匿名服务平台、产生账号代码做准备，对应 [Asian Diceware 密语字典](docs:tools/asian-diceware/)
 
-Pulse 与 ASN Coverage 的程序码与议题追踪在 [GitHub anoni-net/docs](https://github.com/anoni-net/docs)，Asian Diceware 独立放在 [GitHub anoni-net/asian-diceware](https://github.com/anoni-net/asian-diceware)。
+Pulse 与 ASN Coverage 的程序码与议题追踪各自在 [GitHub anoni-net/pulse](https://github.com/anoni-net/pulse) 与 [GitHub anoni-net/asn-coverage](https://github.com/anoni-net/asn-coverage)，Asian Diceware 独立放在 [GitHub anoni-net/asian-diceware](https://github.com/anoni-net/asian-diceware)。
 
 ## 如何加入
 
