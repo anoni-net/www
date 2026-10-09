@@ -119,3 +119,11 @@ docs = "event-workshop-2025-prepare.md"
 page = "events/workshop-2025-prepare"
 langs = ["zh-TW", "zh-CN", "en"]
 import = true
+
+# 2026-10-09 C 批之二：品牌素材。logo、色票與各站分工搬過來，文件站只用得到的
+# 指南分類色、示意圖與分享卡留在文件站，改名成 community/visual-guide.md
+[[moved]]
+docs = "community/brand-assets.md"
+page = "brand"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
