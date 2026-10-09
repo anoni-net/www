@@ -14,7 +14,7 @@
 
 ## 狀態
 
-第一批頁面是首頁、關於、聯絡、參與、專案、服務，活動與社群動態還在文件站，導覽列暫時連過去。
+社群頁面在 2026-10 從文件站搬完，導覽列六項都是本站的頁面。文件站部落格裡 2026-10 以前的社群文章留在原址，社群動態的列表直接連過去，名單在 `tools/docs_updates.toml`。
 
 ## 建置
 
@@ -84,9 +84,17 @@ uv run tools/import_from_docs.py --nginx                    # 重新產生 tools
 
 ## 分類
 
-- **專案**：社群自己寫的內容或程式，有自己的路線圖與貢獻者，例如 docs、news、onionoo-mcp、Pulse、ASN Coverage
-- **服務**：其他開源專案開發的軟體，社群負責架設與維運，例如 Matrix、CryptPad、Etherpad、SearXNG、Send、Formbricks
-- **主題**：年度的工作方向，讀者可以認領、加入，放在「參與」底下
+站上的內容分成專案、服務、主題三類，判斷的依據是誰開發的。
+
+| 分類 | 定義 | 例子 | 頁面 | 資料 |
+|---|---|---|---|---|
+| 專案 | 社群自己寫的內容或程式，有自己的路線圖與貢獻者 | docs、news、onionoo-mcp、Pulse、ASN Coverage | `/projects/` | `data/projects.toml` |
+| 服務 | 其他開源專案開發的軟體，社群負責架設與維運 | Matrix、CryptPad、Etherpad、SearXNG、Send、Formbricks | `/services/` | `data/services.toml` |
+| 主題 | 年度的工作方向，讀者可以認領、加入，不是成品 | 2026 年的個人隱私指引、Tor Relay 校園建立、匿名支付 | `/join/` | `data/topics.toml` |
+
+兩類都說得通時，照開發者判斷。onionoo-mcp 是社群寫的程式，也架設成公開服務，歸在專案。之後新架設的開源軟體歸服務，社群新寫的工具歸專案。
+
+本站只放專案的卡片與一句介紹，連到專案自己的關於頁，詳細介紹寫在專案的 repo。同一份介紹放兩處，改的時候容易漏掉一邊。
 
 ## 寫作規則
 
