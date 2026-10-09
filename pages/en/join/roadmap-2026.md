@@ -46,7 +46,7 @@ Actual progress depends on volunteer writing capacity.
 
 ### COSCUP 2026
 
-Building on our 2025 experience at COSCUP (the Conference for Open Source Coders, Users, and Promoters, Taiwan's largest annual open source conference), the community ran a track again on 8 and 9 August 2026 at National Taiwan University of Science and Technology. The anonymous payments session, organized jointly with [ETHTaipei](https://ethtaipei.org/), ran on the afternoon of 8 August in room `TR-511`. The full program is on the [COSCUP 2026 track page](docs:activity/coscup-2026/), and the call for proposals that preceded it is at [COSCUP 2026 open call](docs:activity/coscup-2026-cfp/).
+Building on our 2025 experience at COSCUP (the Conference for Open Source Coders, Users, and Promoters, Taiwan's largest annual open source conference), the community ran a track again on 8 and 9 August 2026 at National Taiwan University of Science and Technology. The anonymous payments session, organized jointly with [ETHTaipei](https://ethtaipei.org/), ran on the afternoon of 8 August in room `TR-511`. The full program is on the [COSCUP 2026 track page](/events/coscup-2026/), and the call for proposals that preceded it is at [COSCUP 2026 open call](/events/coscup-2026-cfp/).
 
 ### Workshops and meetups
 
@@ -60,7 +60,7 @@ In the second half of 2025 we completed and published the Chinese translation of
 
 ### Showing up at other people's events
 
-Community members turn up at local open source, civic, and privacy events (hackathons, annual conferences, topic meetups, talks). Most of the time this is individuals or community representatives listening in and following context rather than formal inter-organizational collaboration. Concrete collaboration (joint calls for proposals, report translation partnerships, co-organized events) gets announced separately on the [Events](docs:activity/) page once there is something real to announce.
+Community members turn up at local open source, civic, and privacy events (hackathons, annual conferences, topic meetups, talks). Most of the time this is individuals or community representatives listening in and following context rather than formal inter-organizational collaboration. Concrete collaboration (joint calls for proposals, report translation partnerships, co-organized events) gets announced separately on the [Events](/events/) page once there is something real to announce.
 
 ## Technical projects
 

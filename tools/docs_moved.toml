@@ -82,3 +82,40 @@ docs = "community/send-privacy.md"
 page = "services/send"
 langs = ["zh-TW", "zh-CN", "en"]
 import = true
+
+# 2026-10-09 B 批：活動區
+[[moved]]
+docs = "activity/index.md"
+page = "events"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
+
+[[moved]]
+docs = "activity/gg2026.md"
+page = "events/gg2026"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
+
+[[moved]]
+docs = "activity/coscup-2026-cfp.md"
+page = "events/coscup-2026-cfp"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
+
+[[moved]]
+docs = "activity/coscup-2026.md"
+page = "events/coscup-2026"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
+
+[[moved]]
+docs = "event-workshop-2025.md"
+page = "events/workshop-2025"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
+
+[[moved]]
+docs = "event-workshop-2025-prepare.md"
+page = "events/workshop-2025-prepare"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true

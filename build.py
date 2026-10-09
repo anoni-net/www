@@ -22,6 +22,7 @@ from pathlib import Path
 
 import markdown
 from pymdownx.slugs import slugify
+from pymdownx.emoji import to_alt, twemoji
 import yaml
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from markupsafe import Markup
@@ -42,6 +43,8 @@ HREF = re.compile(r'(href|src)="([^"]*)"')
 PLACEHOLDER = re.compile(r"<!--\s*(\w[\w-]*)\s*-->")
 # 寫在 Markdown 原始 HTML 裡的圖示，例如 <span class="ic">ICON:upload-outline</span>
 ICON_REF = re.compile(r"ICON:([a-z0-9-]+)")
+# 從文件站搬過來的頁面，圖示寫成 <i data-icon="名稱"></i>（見 tools/import_from_docs.py）
+ICON_TAG = re.compile(r'<i data-icon="([a-z0-9-]+)"></i>')
 
 
 @dataclass(frozen=True)
@@ -84,12 +87,31 @@ def logo(cls: str = "logo") -> Markup:
     return Markup(svg.replace("<svg ", f'<svg class="{cls}" aria-hidden="true" ', 1))
 
 
+_slug = slugify()
+
+
+def doc_slug(text: str, sep: str) -> str:
+    """跟文件站一樣的錨點。文件站的 emoji 是 SVG 標籤，產生錨點前就被剝掉，這裡的 emoji 是
+    Unicode 字元，去掉之後會在開頭留下一個分隔符號（「📚 參加」變成「-參加」），修掉它。"""
+    return _slug(text, sep).strip(sep)
+
+
 def render_markdown(body: str) -> str:
+    # 擴充與參數照文件站的 mkdocs.yml，從文件站搬過來的頁面才會有相同的結果。圖示不用
+    # pymdownx.emoji，轉換工具把 :material-*: 改成 ICON:名稱，由 icon() 內嵌。
     md = markdown.Markdown(
-        extensions=["attr_list", "tables", "fenced_code", "admonition", "md_in_html", "toc"],
-        # 錨點的寫法跟文件站一致（保留中文與大小寫）。從文件站搬過來的頁面，舊網址轉過來時
-        # 瀏覽器會帶著 # 後面那段，兩邊一致才跳得到同一段。
-        extension_configs={"toc": {"permalink": False, "slugify": slugify()}},
+        extensions=["abbr", "attr_list", "md_in_html", "admonition", "tables", "toc", "footnotes",
+                    "pymdownx.details", "pymdownx.superfences", "pymdownx.tabbed", "pymdownx.tasklist",
+                    "pymdownx.emoji"],
+        extension_configs={
+            # 錨點的寫法跟文件站一致（保留中文與大小寫）。從文件站搬過來的頁面，舊網址轉過來時
+            # 瀏覽器會帶著 # 後面那段，兩邊一致才跳得到同一段。
+            "toc": {"permalink": False, "slugify": doc_slug},
+            "pymdownx.tabbed": {"alternate_style": True},
+            "pymdownx.tasklist": {"custom_checkbox": True},
+            # :books: 這類短碼換成 Unicode 字元，不載入 twemoji 的圖片
+            "pymdownx.emoji": {"emoji_index": twemoji, "emoji_generator": to_alt},
+        },
     )
     return md.convert(body)
 
@@ -213,6 +235,7 @@ class Site:
             meta, body = split_front_matter(src.read_text(encoding="utf-8"), where)
             body_html = self.fill_blocks(render_markdown(body), blocks, where)
             body_html = ICON_REF.sub(lambda m: icon(m[1]), body_html)
+            body_html = ICON_TAG.sub(lambda m: icon(m[1]), body_html)
             # 只有 Markdown 內文用連結簡寫，模板產生的連結（導覽列、語言切換）已經是完整路徑，
             # 整頁套用會把正體中文沒有前綴的 /about/ 誤加成目前語系的 /en/about/。
             body_html = self.localize(body_html, lang)

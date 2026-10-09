@@ -90,7 +90,7 @@ uv run tools/import_from_docs.py --nginx                    # 重新產生 tools
 | 授權 | 涵蓋 |
 |---|---|
 | [MIT](./LICENSE-code) | `build.py`、`site.toml`、`pyproject.toml`、`templates/`、`static/css/`、`tools/`、`.github/` |
-| [Pictogrammers Free License](./icons/LICENSE) | `icons/`，來源見 [`icons/README.md`](./icons/README.md) |
+| 各圖示套件的授權 | `icons/`，來源與授權見 [`icons/README.md`](./icons/README.md) |
 | [CC-BY 4.0](./LICENSE) | 其餘檔案，包含 `pages/`、`data/`、`strings.toml` 這些頁面上讀得到的文字，以及 `static/` 底下的 logo、favicon 與預覽圖 |
 
 logo 與色票跟文件站的[品牌素材](https://anoni.net/docs/community/brand-assets/)是同一套。

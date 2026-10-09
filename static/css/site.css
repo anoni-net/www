@@ -141,6 +141,112 @@ p, li, .lead, .row .d, .row .t, h1, h3 { text-wrap: pretty; }
 .admonition { border: 1px solid var(--c-line); border-radius: var(--radius); padding: .25rem 1.1rem; margin: 1rem 0; }
 .admonition-title { color: var(--c-accent); font-weight: 700; margin-bottom: .25rem; }
 
+/* 從文件站搬過來的頁面用到的元件：折疊區塊、分頁、待辦清單、卡片格線、註腳、議程標籤。
+   照細線單色的規格：線框不填色，強調用 cyan，不用其他色相。 */
+.prose details { border: 1px solid var(--c-line); border-radius: var(--radius); padding: .5rem 1rem; margin: 1rem 0; }
+.prose details[open] > summary { margin-bottom: .5rem; }
+.prose summary { cursor: pointer; color: var(--c-strong); font-weight: 700; line-height: 1.5; }
+.prose summary::marker { color: var(--c-icon); }
+
+/* 分頁（pymdownx.tabbed 的 alternate_style）：radio 加 CSS，不需要 JavaScript。
+   分頁多的時候標籤列橫向捲動，一組最多支援 30 頁 */
+.tabbed-set { display: flex; flex-wrap: wrap; position: relative; margin: 1rem 0; }
+.tabbed-set > input { position: absolute; opacity: 0; pointer-events: none; }
+.tabbed-labels { display: flex; width: 100%; overflow-x: auto; border-bottom: 1px solid var(--c-hair); scrollbar-width: thin; }
+.tabbed-labels > label { flex: none; padding: .35rem .8rem; font-size: .88rem; color: var(--c-muted); cursor: pointer; white-space: nowrap; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+.tabbed-labels > label:hover { color: var(--c-accent); }
+.tabbed-set > input:nth-child(1):checked ~ .tabbed-labels > label:nth-child(1),
+.tabbed-set > input:nth-child(2):checked ~ .tabbed-labels > label:nth-child(2),
+.tabbed-set > input:nth-child(3):checked ~ .tabbed-labels > label:nth-child(3),
+.tabbed-set > input:nth-child(4):checked ~ .tabbed-labels > label:nth-child(4),
+.tabbed-set > input:nth-child(5):checked ~ .tabbed-labels > label:nth-child(5),
+.tabbed-set > input:nth-child(6):checked ~ .tabbed-labels > label:nth-child(6),
+.tabbed-set > input:nth-child(7):checked ~ .tabbed-labels > label:nth-child(7),
+.tabbed-set > input:nth-child(8):checked ~ .tabbed-labels > label:nth-child(8),
+.tabbed-set > input:nth-child(9):checked ~ .tabbed-labels > label:nth-child(9),
+.tabbed-set > input:nth-child(10):checked ~ .tabbed-labels > label:nth-child(10),
+.tabbed-set > input:nth-child(11):checked ~ .tabbed-labels > label:nth-child(11),
+.tabbed-set > input:nth-child(12):checked ~ .tabbed-labels > label:nth-child(12),
+.tabbed-set > input:nth-child(13):checked ~ .tabbed-labels > label:nth-child(13),
+.tabbed-set > input:nth-child(14):checked ~ .tabbed-labels > label:nth-child(14),
+.tabbed-set > input:nth-child(15):checked ~ .tabbed-labels > label:nth-child(15),
+.tabbed-set > input:nth-child(16):checked ~ .tabbed-labels > label:nth-child(16),
+.tabbed-set > input:nth-child(17):checked ~ .tabbed-labels > label:nth-child(17),
+.tabbed-set > input:nth-child(18):checked ~ .tabbed-labels > label:nth-child(18),
+.tabbed-set > input:nth-child(19):checked ~ .tabbed-labels > label:nth-child(19),
+.tabbed-set > input:nth-child(20):checked ~ .tabbed-labels > label:nth-child(20),
+.tabbed-set > input:nth-child(21):checked ~ .tabbed-labels > label:nth-child(21),
+.tabbed-set > input:nth-child(22):checked ~ .tabbed-labels > label:nth-child(22),
+.tabbed-set > input:nth-child(23):checked ~ .tabbed-labels > label:nth-child(23),
+.tabbed-set > input:nth-child(24):checked ~ .tabbed-labels > label:nth-child(24),
+.tabbed-set > input:nth-child(25):checked ~ .tabbed-labels > label:nth-child(25),
+.tabbed-set > input:nth-child(26):checked ~ .tabbed-labels > label:nth-child(26),
+.tabbed-set > input:nth-child(27):checked ~ .tabbed-labels > label:nth-child(27),
+.tabbed-set > input:nth-child(28):checked ~ .tabbed-labels > label:nth-child(28),
+.tabbed-set > input:nth-child(29):checked ~ .tabbed-labels > label:nth-child(29),
+.tabbed-set > input:nth-child(30):checked ~ .tabbed-labels > label:nth-child(30) { color: var(--c-strong); font-weight: 700; border-bottom-color: var(--c-line); }
+.tabbed-set > input:focus-visible ~ .tabbed-labels { outline: 2px solid var(--c-line); outline-offset: 2px; }
+.tabbed-content { width: 100%; }
+.tabbed-block { display: none; padding-top: .5rem; }
+.tabbed-set > input:nth-child(1):checked ~ .tabbed-content > .tabbed-block:nth-child(1),
+.tabbed-set > input:nth-child(2):checked ~ .tabbed-content > .tabbed-block:nth-child(2),
+.tabbed-set > input:nth-child(3):checked ~ .tabbed-content > .tabbed-block:nth-child(3),
+.tabbed-set > input:nth-child(4):checked ~ .tabbed-content > .tabbed-block:nth-child(4),
+.tabbed-set > input:nth-child(5):checked ~ .tabbed-content > .tabbed-block:nth-child(5),
+.tabbed-set > input:nth-child(6):checked ~ .tabbed-content > .tabbed-block:nth-child(6),
+.tabbed-set > input:nth-child(7):checked ~ .tabbed-content > .tabbed-block:nth-child(7),
+.tabbed-set > input:nth-child(8):checked ~ .tabbed-content > .tabbed-block:nth-child(8),
+.tabbed-set > input:nth-child(9):checked ~ .tabbed-content > .tabbed-block:nth-child(9),
+.tabbed-set > input:nth-child(10):checked ~ .tabbed-content > .tabbed-block:nth-child(10),
+.tabbed-set > input:nth-child(11):checked ~ .tabbed-content > .tabbed-block:nth-child(11),
+.tabbed-set > input:nth-child(12):checked ~ .tabbed-content > .tabbed-block:nth-child(12),
+.tabbed-set > input:nth-child(13):checked ~ .tabbed-content > .tabbed-block:nth-child(13),
+.tabbed-set > input:nth-child(14):checked ~ .tabbed-content > .tabbed-block:nth-child(14),
+.tabbed-set > input:nth-child(15):checked ~ .tabbed-content > .tabbed-block:nth-child(15),
+.tabbed-set > input:nth-child(16):checked ~ .tabbed-content > .tabbed-block:nth-child(16),
+.tabbed-set > input:nth-child(17):checked ~ .tabbed-content > .tabbed-block:nth-child(17),
+.tabbed-set > input:nth-child(18):checked ~ .tabbed-content > .tabbed-block:nth-child(18),
+.tabbed-set > input:nth-child(19):checked ~ .tabbed-content > .tabbed-block:nth-child(19),
+.tabbed-set > input:nth-child(20):checked ~ .tabbed-content > .tabbed-block:nth-child(20),
+.tabbed-set > input:nth-child(21):checked ~ .tabbed-content > .tabbed-block:nth-child(21),
+.tabbed-set > input:nth-child(22):checked ~ .tabbed-content > .tabbed-block:nth-child(22),
+.tabbed-set > input:nth-child(23):checked ~ .tabbed-content > .tabbed-block:nth-child(23),
+.tabbed-set > input:nth-child(24):checked ~ .tabbed-content > .tabbed-block:nth-child(24),
+.tabbed-set > input:nth-child(25):checked ~ .tabbed-content > .tabbed-block:nth-child(25),
+.tabbed-set > input:nth-child(26):checked ~ .tabbed-content > .tabbed-block:nth-child(26),
+.tabbed-set > input:nth-child(27):checked ~ .tabbed-content > .tabbed-block:nth-child(27),
+.tabbed-set > input:nth-child(28):checked ~ .tabbed-content > .tabbed-block:nth-child(28),
+.tabbed-set > input:nth-child(29):checked ~ .tabbed-content > .tabbed-block:nth-child(29),
+.tabbed-set > input:nth-child(30):checked ~ .tabbed-content > .tabbed-block:nth-child(30) { display: block; }
+
+/* 待辦清單：勾選框畫成線框，完成的打勾 */
+.task-list { list-style: none; padding-left: .2rem !important; }
+.task-list-item { position: relative; padding-left: 1.6rem; }
+.task-list-control input { position: absolute; opacity: 0; }
+.task-list-indicator { position: absolute; left: 0; top: .35em; width: 1rem; height: 1rem; border: 1px solid var(--c-line); border-radius: 3px; }
+.task-list-control input:checked + .task-list-indicator { background: var(--c-solid); border-color: var(--c-solid); }
+.task-list-control input:checked + .task-list-indicator::after { content: ""; position: absolute; left: .3rem; top: .08rem; width: .3rem; height: .55rem; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg); }
+
+/* 卡片格線（md_in_html 的 grid cards）：線框卡，手機一欄、桌機兩欄 */
+.grid.cards > ul { list-style: none; padding: 0 !important; margin: 1rem 0; display: grid; gap: .75rem; }
+@media (min-width: 640px) { .grid.cards > ul { grid-template-columns: 1fr 1fr; } }
+.grid.cards > ul > li { border: 1px solid var(--c-line); border-radius: var(--radius); padding: .8rem 1rem; margin: 0; }
+.grid.cards > ul > li > :first-child { margin-top: 0; }
+.grid.cards > ul > li > :last-child { margin-bottom: 0; }
+.grid.cards hr { border: 0; border-top: 1px solid var(--c-hair); margin: .6rem 0; }
+.grid.cards .i { color: var(--c-icon); }
+
+/* 註腳 */
+.footnote { font-size: .85rem; color: var(--c-muted); margin-top: 2rem; }
+.footnote hr { border: 0; border-top: 1px solid var(--c-hair); }
+.footnote-ref { font-size: .75em; }
+
+/* 議程表的標籤：類型實心、場地線框、強調文字粗體，都只用 cyan */
+.tag { display: inline-block; padding: 0 .4rem; border: 1px solid var(--c-line); border-radius: 4px; font-size: .8rem; line-height: 1.6; color: var(--c-accent); white-space: nowrap; }
+.tag--solid { background: var(--c-solid); border-color: var(--c-solid); color: #fff; }
+.tag-text { color: var(--c-accent); font-weight: 700; }
+.prose .i { color: var(--c-icon); }
+
 /* 首頁主視覺 */
 .hero h1 { display: flex; align-items: center; gap: .5rem; font-size: 2rem; margin-top: 1.75rem; }
 .hero h1 .logo { width: 3rem; height: 3rem; flex: none; }
