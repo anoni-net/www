@@ -301,6 +301,26 @@ p, li, .lead, .row .d, .row .t, h1, h3 { text-wrap: pretty; }
 .btn { display: inline-flex; align-items: center; gap: .4rem; padding: .4rem .9rem; border: 1px solid var(--c-line); border-radius: 999px; text-decoration: none; font-size: .92rem; }
 .btn.solid { background: var(--c-solid); border-color: var(--c-solid); color: #fff; }
 
+/* 品牌素材頁：logo 放在四種底色上示範，底色是示範的內容，深色模式也不換 */
+.brand-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); gap: .75rem; margin: 1rem 0 1.25rem; }
+.brand-row.wm-row { grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); }
+.brand-card { background: #fff; border: 1px solid #cdcdcd; border-radius: var(--radius); padding: 1rem; }
+.brand-card.dark { background: #1a1a1a; border-color: #333; }
+.brand-card.cyan { background: var(--brand-cyan-500); border-color: var(--brand-cyan-700); }
+.brand-card.cyan-deep { background: var(--brand-cyan-900); border-color: var(--brand-cyan-800); }
+.brand-card-label { font-size: .75rem; color: #666; margin: 0 0 .75rem; }
+.brand-card.dark .brand-card-label, .brand-card.cyan .brand-card-label, .brand-card.cyan-deep .brand-card-label { color: rgba(255, 255, 255, .75); }
+.brand-sizes { display: flex; align-items: end; gap: .75rem; }
+.brand-size { display: flex; flex-direction: column; align-items: center; }
+.brand-size img { display: block; }
+.brand-size-label { font-size: .65rem; color: #888; margin-top: .25rem; }
+.brand-card.dark .brand-size-label, .brand-card.cyan .brand-size-label, .brand-card.cyan-deep .brand-size-label { color: rgba(255, 255, 255, .6); }
+.wm-card { display: flex; flex-direction: column; }
+.wm-card .wm-box { flex: 1; display: flex; align-items: center; justify-content: center; min-height: 5rem; }
+.wm-card img { width: 100%; max-width: 14rem; height: auto; }
+.wm-card.wm-stack img { max-width: 7rem; }
+.color-swatch { display: inline-block; width: 1rem; height: 1rem; border: 1px solid #cdcdcd; border-radius: 3px; vertical-align: middle; margin-right: .4rem; }
+
 /* 404 頁三種語言疊在一起，用細線分開 */
 .not-found + .not-found { border-top: 1px solid var(--c-hair); margin-top: 1.5rem; }
 .not-found h1 { font-size: 1.4rem; }

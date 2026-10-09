@@ -83,6 +83,8 @@ Different parts of the project are licensed for different uses:
 
 Proper attribution for documentation reuse: "anoni.net Docs Project, [URL of the specific page], CC-BY 4.0."
 
+The logo, wordmark and colour tokens, with the rules for using them, are on the [brand assets](/brand/) page.
+
 ## How to verify what we do
 
 Independent of any claim on this page, the following are checkable:

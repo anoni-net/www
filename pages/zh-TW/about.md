@@ -28,11 +28,12 @@ lead: 關注匿名網路與網路自由的一群人。
 
 近期成果是 [2026/08/13 北部行動網路降速 30 分鐘的紀錄](docs:blog/2026/08/ooni-mobile-throttle-drill-results/)。演練的日期、時段、縣市與電信業者都已事先公告，降速研究少有這種已知條件。文中每一則查詢都不需要 API 金鑰，任何人都能自行複驗。
 
-## 治理與合作
+## 治理、合作與品牌
 
 <ul class="rows">
   <li><a class="row" href="/about/governance/"><span class="b"><span class="t">治理方式</span><span class="d">決策方式、成員角色、爭議處理與行為準則。</span></span></a></li>
   <li><a class="row" href="/about/partners/"><span class="b"><span class="t">組織合作</span><span class="d">給公民團體、倡議組織與新聞媒體的合作說明，社群能一起做的事與做不到的事。</span></span></a></li>
+  <li><a class="row" href="/brand/"><span class="b"><span class="t">品牌素材</span><span class="d">logo、wordmark 與色票的下載和使用方式，製作活動文宣、簡報與社群卡片時取用。</span></span></a></li>
 </ul>
 
 [關注我們](/contact/){ .btn }
