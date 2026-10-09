@@ -10,4 +10,10 @@
   </url>
 {% endfor %}
 {% endfor %}
+{% for post in posts %}
+  <url>
+    <loc>{{ target.base }}{{ post.path }}</loc>
+    <lastmod>{{ post.date.isoformat() }}</lastmod>
+  </url>
+{% endfor %}
 </urlset>

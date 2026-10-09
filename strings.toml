@@ -1,6 +1,10 @@
 # 模板裡的介面文字，三個語系各一組，鍵要一致。
 
 [zh-TW]
+all_updates = "所有動態"
+from_docs = "文件站"
+feed_title = "匿名網路社群 anoni.net 社群動態"
+feed_description = "anoni.net 社群的活動公告、專案上線與工作進度。"
 not_found_title = "找不到這一頁"
 not_found_body = "這個網址沒有對應的頁面，可能是打錯字，或是頁面已經搬到其他地方。"
 not_found_home = "回到首頁"
@@ -36,6 +40,10 @@ join_matrix = "加入 Matrix"
 join_how = "參與方式"
 
 [zh-CN]
+all_updates = "所有动态"
+from_docs = "文档站"
+feed_title = "匿名网络社群 anoni.net 社群动态"
+feed_description = "anoni.net 社群的活动公告、项目上线与工作进度。"
 not_found_title = "找不到这一页"
 not_found_body = "这个网址没有对应的页面，可能是打错字，或是页面已经搬到其他地方。"
 not_found_home = "回到首页"
@@ -71,6 +79,10 @@ join_matrix = "加入 Matrix"
 join_how = "参与方式"
 
 [en]
+all_updates = "All updates"
+from_docs = "Docs"
+feed_title = "anoni.net community updates"
+feed_description = "Event announcements, project launches and progress reports from the anoni.net community."
 not_found_title = "Page not found"
 not_found_body = "There is no page at this address. It may have a typo, or the page may have moved."
 not_found_home = "Back to the home page"

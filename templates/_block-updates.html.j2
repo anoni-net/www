@@ -1,0 +1,9 @@
+{# 動態列表，依年份分組。文件站的舊文章標示「文件站」，點下去到文件站原本的網址 #}
+{% for year, items in updates | groupby(attribute='date.year') | reverse %}
+<h2>{{ year }}</h2>
+<ul class="rows updates">
+{% for item in items | sort(attribute='date', reverse=true) %}
+  <li><a class="row" href="{{ item.href }}"><span class="b"><span class="meta"><time datetime="{{ item.date.isoformat() }}">{{ item.date.strftime('%Y/%m/%d') }}</time>{% if item.source == 'docs' %} · {{ t.from_docs }}{% endif %}</span><span class="t">{{ item.title }}</span><span class="d">{{ item.summary }}</span></span><span class="go">{{ icon('arrow-right') }}</span></a></li>
+{% endfor %}
+</ul>
+{% endfor %}

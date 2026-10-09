@@ -4,8 +4,8 @@
     uv run build.py --out DIR  # 產生到 DIR/clearnet 與 DIR/onion，m6 部署時用
     uv run build.py --check  # 產生到暫存目錄，再執行下方 check() 的檢查
 
-頁面寫在 pages/<語系>/，資料寫在 data/，兩個目標與三個語系的差異寫在 site.toml，
-介面文字寫在 strings.toml。
+頁面寫在 pages/<語系>/，社群動態寫在 updates/<語系>/，資料寫在 data/，兩個目標與三個語系的
+差異寫在 site.toml，介面文字寫在 strings.toml。
 """
 
 from __future__ import annotations
@@ -18,6 +18,8 @@ import sys
 import tempfile
 import tomllib
 from dataclasses import dataclass
+from datetime import date, datetime, timezone
+from email.utils import format_datetime
 from pathlib import Path
 
 import markdown
@@ -33,6 +35,7 @@ DATA = ROOT / "data"
 ICONS = ROOT / "icons"
 STATIC = ROOT / "static"
 EXTRA = ROOT / "extra"
+UPDATES = ROOT / "updates"
 TEMPLATES = ROOT / "templates"
 
 # 寫在 Markdown 裡的連結簡寫，建置時依語系展開：
@@ -116,6 +119,17 @@ def render_markdown(body: str) -> str:
     return md.convert(body)
 
 
+@dataclass
+class Post:
+    """一篇社群動態。網址是 <語系前綴>/updates/YYYY/MM/<slug>/，跟文件站部落格的格式一樣。"""
+    lang: str
+    slug: str
+    date: date
+    meta: dict
+    body: str
+    path: str
+
+
 class Site:
     def __init__(self) -> None:
         self.config = load_toml(ROOT / "site.toml")
@@ -132,6 +146,33 @@ class Site:
         self.env.globals["icon"] = icon
         self.env.globals["logo"] = logo
         self.slugs = page_slugs(PAGES / self.langs[0].code)
+        self.posts = {lang.code: self.load_posts(lang) for lang in self.langs}
+
+    def load_posts(self, lang: Lang) -> list[Post]:
+        """社群動態不要求三個語系都有，只有正體中文的公告不會出現在其他語系的列表。"""
+        posts = []
+        for src in sorted((UPDATES / lang.code).glob("*.md")):
+            where = src.relative_to(ROOT).as_posix()
+            meta, body = split_front_matter(src.read_text(encoding="utf-8"), where)
+            day = meta.get("date")
+            if not isinstance(day, date):
+                raise SystemExit(f"{where}：front matter 的 date 要寫成 YYYY-MM-DD")
+            slug = meta.get("slug") or src.stem
+            posts.append(Post(lang.code, slug, day, meta, body,
+                              f"{lang.prefix}/updates/{day:%Y/%m}/{slug}/"))
+        return sorted(posts, key=lambda p: p.date, reverse=True)
+
+    def updates_for(self, lang: Lang) -> list[dict]:
+        """動態列表：本站的新文章加上文件站舊的社群文章，由新到舊。"""
+        items = [{"date": p.date, "title": p.meta["title"], "summary": p.meta["description"],
+                  "href": p.path, "source": "www"} for p in self.posts[lang.code]]
+        for old in self.data.get("docs_updates", {}).get("posts", []):
+            if lang.code in old:
+                items.append({"date": old["date"], "title": old[lang.code]["title"],
+                              "summary": old[lang.code]["summary"],
+                              "href": self.product_url("docs", lang, old[lang.code]["url"]),
+                              "source": "docs"})
+        return sorted(items, key=lambda i: i["date"], reverse=True)
 
     # 網址
 
@@ -194,6 +235,8 @@ class Site:
             "page_url": lambda slug: self.page_path(lang, slug),
             "pick": lambda value: value[lang.code] if isinstance(value, dict) else value,
             "service_url": lambda svc: self.service_url(svc, target),
+            "updates": self.updates_for(lang),
+            "feed_url": f"{lang.prefix}/updates/feed.xml",
             "pgp_key": (STATIC / "B7DF84305C7911D90D59A66061F66CF36EE386D4.asc").read_text(encoding="utf-8").strip(),
         }
 
@@ -221,7 +264,8 @@ class Site:
             self.write(out / "robots.txt", self.env.get_template("robots.txt.j2").render(
                 target=target, langs=self.langs, slugs=self.slugs, page_path=self.page_path), target)
             self.write(out / "sitemap.xml", self.env.get_template("sitemap.xml.j2").render(
-                target=target, langs=self.langs, slugs=self.slugs, page_path=self.page_path), target)
+                target=target, langs=self.langs, slugs=self.slugs, page_path=self.page_path,
+                posts=[p for lang in self.langs for p in self.posts[lang.code]]), target)
             outs.append(out)
         return outs
 
@@ -251,6 +295,41 @@ class Site:
             text = self.env.get_template(f"{template}.html.j2").render(
                 **self.context(lang, target), page=page, body=Markup(body_html))
             self.write(out / page["path"].lstrip("/") / "index.html", text, target)
+        self.build_posts(lang, target, out)
+
+    def build_posts(self, lang: Lang, target: dict, out: Path) -> None:
+        for post in self.posts[lang.code]:
+            where = f"updates/{lang.code}/{post.slug}"
+            body_html = ICON_TAG.sub(lambda m: icon(m[1]), render_markdown(post.body))
+            body_html = self.localize(body_html, lang)
+            # 其他語系有同一篇（slug 相同）就連過去，沒有就回到那個語系的動態列表
+            alternates = []
+            for other in self.langs:
+                twin = next((p for p in self.posts[other.code] if p.slug == post.slug), None)
+                alternates.append((other, twin.path if twin else self.page_path(other, "updates")))
+            page = {
+                **post.meta,
+                "slug": f"updates/{post.slug}",
+                "section": "updates",
+                "parent": "updates",
+                "path": post.path,
+                "date": post.date,
+                "alternates": alternates,
+            }
+            text = self.env.get_template("post.html.j2").render(
+                **self.context(lang, target), page=page, body=Markup(body_html))
+            self.write(out / post.path.lstrip("/") / "index.html", text, target)
+        # RSS，本站的文章與文件站的舊文章一起列，最多 30 則
+        items = []
+        for item in self.updates_for(lang)[:30]:
+            href = item["href"] if "://" in item["href"] else f"{target['base']}{item['href']}"
+            pub = datetime(item["date"].year, item["date"].month, item["date"].day, tzinfo=timezone.utc)
+            items.append({**item, "link": href, "pub": format_datetime(pub)})
+        feed = self.env.get_template("feed.xml.j2").render(
+            t=self.strings[lang.code], lang=lang, target=target, items=items,
+            home=f"{target['base']}{self.page_path(lang, 'updates')}",
+            self_url=f"{target['base']}{lang.prefix}/updates/feed.xml")
+        self.write(out / lang.prefix.lstrip("/") / "updates" / "feed.xml", feed, target)
 
     def build_404(self, target: dict, out: Path) -> None:
         """一份 404 頁放在根目錄，三種語言寫在同一頁，nginx 的 error_page 指到它。"""
@@ -278,7 +357,14 @@ class Site:
 
 
 def check(site: Site, outs: list[Path]) -> list[str]:
+    import xml.etree.ElementTree as ET
     problems = []
+    for out in outs:
+        for feed in out.rglob("feed.xml"):
+            try:
+                ET.parse(feed)
+            except ET.ParseError as err:
+                problems.append(f"{out.name}/{feed.relative_to(out)}：RSS 不是合法的 XML（{err}）")
     for lang in site.langs[1:]:
         have = page_slugs(PAGES / lang.code)
         if have != site.slugs:
@@ -325,7 +411,8 @@ def main() -> int:
     if problems:
         print("\n".join(problems))
         return 1
-    print(f"檢查通過：{len(site.langs)} 個語系、{len(site.slugs)} 頁、clearnet 與 onion 兩份")
+    posts = sum(len(p) for p in site.posts.values())
+    print(f"檢查通過：{len(site.langs)} 個語系、{len(site.slugs)} 頁、{posts} 篇動態、clearnet 與 onion 兩份")
     return 0
 
 

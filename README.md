@@ -29,6 +29,7 @@ uv run build.py --check  # 產生到暫存目錄並檢查，CI 跑同一個指�
 | 位置 | 內容 |
 |---|---|
 | `pages/<語系>/` | 每一頁一個 Markdown 檔，三個語系的檔名要一致 |
+| `updates/<語系>/` | 社群動態，一篇一個 Markdown 檔，見下方「社群動態」 |
 | `data/` | 主題、專案、服務的資料，三個語系寫在同一筆 |
 | `site.toml` | 語系、導覽列、兩個輸出目標與 onion 的網址改寫 |
 | `strings.toml` | 模板裡的介面文字 |
@@ -46,6 +47,14 @@ Markdown 裡的連結有三種寫法，建置時依語系展開：
 在 Markdown 裡單獨一行寫 `<!-- topics -->`，建置時換成 `templates/_block-topics.html.j2` 的內容，主題、專案卡片、服務卡片都用這個方式放進頁面。
 
 onion 版本在寫檔前把 `https://anoni.net/docs` 這類 clearnet 網址改寫成 onion 位址，對照表在 `site.toml` 的 `[targets.onion.rewrite]`。`--check` 會檢查三個語系的頁面是否一致、站內連結是否找得到檔案，以及 onion 版本有沒有漏改的網址。
+
+## 社群動態
+
+社群公告寫在 `updates/<語系>/`，一篇一個 Markdown 檔，front matter 要有 `title`、`description` 與 `date`（`YYYY-MM-DD`），網址是 `/updates/YYYY/MM/<檔名>/`，跟文件站部落格的格式一樣。三個語系不強制都有，檔名相同的會互相連成語言切換，沒有對應版本的語系切過去會回到動態列表。
+
+`/updates/` 的列表、首頁的「最新動態」與每個語系的 RSS（`/updates/feed.xml`），除了本站的文章，也列出文件站部落格裡舊的社群文章，點下去連到文件站原本的網址。那份名單寫在 `tools/docs_updates.toml`，執行 `uv run tools/import_from_docs.py --updates` 產生 `data/docs_updates.toml`。
+
+翻譯、技術分析、觀測報告與文件站自己的更新回顧，照樣發在文件站的部落格。
 
 ## 部署
 
@@ -91,6 +100,6 @@ uv run tools/import_from_docs.py --nginx                    # 重新產生 tools
 |---|---|
 | [MIT](./LICENSE-code) | `build.py`、`site.toml`、`pyproject.toml`、`templates/`、`static/css/`、`tools/`、`.github/` |
 | 各圖示套件的授權 | `icons/`，來源與授權見 [`icons/README.md`](./icons/README.md) |
-| [CC-BY 4.0](./LICENSE) | 其餘檔案，包含 `pages/`、`data/`、`strings.toml` 這些頁面上讀得到的文字，以及 `static/` 底下的 logo、favicon 與預覽圖 |
+| [CC-BY 4.0](./LICENSE) | 其餘檔案，包含 `pages/`、`updates/`、`data/`、`strings.toml` 這些頁面上讀得到的文字，以及 `static/` 底下的 logo、favicon 與預覽圖 |
 
 logo 與色票跟文件站的[品牌素材](https://anoni.net/docs/community/brand-assets/)是同一套。

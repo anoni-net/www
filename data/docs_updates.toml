@@ -1,0 +1,459 @@
+# 由 tools/import_from_docs.py --updates 從 tools/docs_updates.toml 產生，不要手改。
+# 文件站舊的社群文章，本站的動態列表連過去。url 是文件站同語系底下的路徑。
+
+[[posts]]
+date = 2026-08-28
+[posts.zh-TW]
+title = "實體活動才有的文宣小物 Global Gathering 會場見"
+summary = "Global Gathering 2026 現場限量 150 份的紙本小報，沒有數位版。設計過程的紀錄，包含走錯方向的第一版封面、台灣在地圖上消失的那一次，以及影印店如何決定了整體的美術方向"
+url = "blog/2026/08/2026-gg2026-printed-wrapper/"
+[posts.zh-CN]
+title = "实体活动才有的文宣小物 Global Gathering 会场见"
+summary = "Global Gathering 2026 现场限量 150 份的纸本小报，没有电子版。设计过程的记录，包含走错方向的第一版封面、台湾在地图上消失的那一次，以及复印店如何决定了整体的美术方向"
+url = "blog/2026/08/2026-gg2026-printed-wrapper/"
+[posts.en]
+title = "We print this zine only for events and hand it out at Global Gathering"
+summary = "A print-only zine, 150 copies, handed out at Global Gathering 2026 in Estoril. This is the design record behind it: the first cover that took the wrong angle, the run where Taiwan vanished from the map, and the constraints a copy shop imposed on the whole visual direction."
+url = "blog/2026/08/2026-gg2026-printed-wrapper/"
+
+[[posts]]
+date = 2026-08-20
+[posts.zh-TW]
+title = "匿名網路社群前往 Global Gathering 2026"
+summary = "Team CommUNITY 主辦的 Global Gathering 2026 於 9 月 4 日到 6 日在葡萄牙 Estoril 舉行，匿名網路社群申請到一個攤位，排在 9 月 6 日當地時間 13:00 到 15:00，位置是 6 號攤位，攤位名稱為 anoni.net Hub: Sinophone Asia-Pacific Networked Freedom。這是社群第一次參加，主要希望認識開發匿名網路與規避審查工具的技術工作者，以及同在亞洲區域的夥伴，並參與區域之間的協作。攤位的主題是匿名支付，議程上沒有任何一場以金流隱私為題，現場收集實際的使用情境。另一組來自台灣的團隊 Cofacts 也在同一個時段設攤，位置是 Booth 10。本文列出議程上與社群工作重疊的九場討論、會前往交流的六個攤位與各自想問的問題、活動前兩天找到我們的五種方式，以及無法到場的人可以參與的方式。8 月 13 日北部行動網路降速的觀測紀錄會一併帶往現場，作為與其他地區對照的案例。"
+url = "blog/2026/08/2026-anoni-net-global-gathering/"
+[posts.zh-CN]
+title = "匿名网络社区前往 Global Gathering 2026"
+summary = "Team CommUNITY 主办的 Global Gathering 2026 于 9 月 4 日到 6 日在葡萄牙 Estoril 举行，匿名网络社区申请到一个展位，排在 9 月 6 日当地时间 13:00 到 15:00，位置是 6 号展位，展位名称为 anoni.net Hub: Sinophone Asia-Pacific Networked Freedom。这是社区第一次参加，主要希望认识开发匿名网络与规避审查工具的技术工作者，以及同在亚洲区域的伙伴，并参与区域之间的协作。展位的主题是匿名支付，议程上没有任何一场以资金流隐私为题，现场收集实际的使用情境。另一组来自台湾的团队 Cofacts 也在同一个时段设展位，位置是 Booth 10。本文列出议程上与社区工作重叠的九场讨论、会前往交流的六个展位与各自想问的问题、活动前两天找到我们的五种方式，以及无法到场的人可以参与的方式。8 月 13 日台湾北部移动网络降速的观测记录会一并带往现场，作为与其他地区对照的案例。"
+url = "blog/2026/08/2026-anoni-net-global-gathering/"
+[posts.en]
+title = "The Anonymity Networks Community Is Going to Global Gathering 2026"
+summary = "Global Gathering 2026 runs from 4 to 6 September in Estoril, Portugal, hosted by Team CommUNITY. We have a booth on 6 September, 13:00 to 15:00 WEST, at Booth 6, titled anoni.net Hub: Sinophone Asia-Pacific Networked Freedom. This is our first Global Gathering. We want to meet technologists building anonymity networks and circumvention tools, and others working across Asia. The booth takes anonymous payment as its topic, a subject no session on the agenda covers, and collects real situations from the people who have run into it. Cofacts, another team from Taiwan, has Booth 10 in the same slot. This post covers the sessions on the agenda that overlap with our work, the booths we plan to visit and what we want to ask each of them, how to find us before our own slot, and how to take part without travelling. We also bring the observation record from 30 minutes of mobile throttling in northern Taiwan on 13 August, as a case others can compare against."
+url = "blog/2026/08/2026-anoni-net-global-gathering/"
+
+[[posts]]
+date = 2026-08-19
+[posts.zh-TW]
+title = "在田間學的兩場數位安全線上課，8/26 這場還能報名"
+summary = "《田間》的「數位安全與隱私保護系列」兩場線上課，8/12 我們分享記者的數位安全入門，8/26 由黃豆泥接續談平台中介者，免費線上參加"
+url = "blog/2026/08/tianjian-digital-privacy/"
+[posts.zh-CN]
+title = "在田间学的两场数字安全线上课，8/26 这场还能报名"
+summary = "《田间》的「数字安全与隐私保护系列」两场线上课，8/12 我们分享记者的数字安全入门，8/26 由黄豆泥接续谈平台中介者，免费线上参加"
+url = "blog/2026/08/tianjian-digital-privacy/"
+[posts.en]
+title = "Two online sessions on digital security with Tian Jian, and the 26 August one is still open"
+summary = "Tian Jian's two-session series on digital security and privacy for journalists. We covered a journalist's digital security baseline on August 12, and Mashbean takes on platform intermediaries on August 26. Free, online, and still open for registration."
+url = "blog/2026/08/tianjian-digital-privacy/"
+
+[[posts]]
+date = 2026-07-25
+[posts.zh-TW]
+title = "COSCUP 2026 匿名網路社群議程軌徵現場工作人員：三個崗位，8/08、8/09 兩天"
+summary = "匿名網路社群徵 COSCUP 2026 議程軌的現場工作人員，8/08、8/09 兩天於臺灣科技大學，需要錄影、台前機動、場外機動各一位。不需要具備 Tor 或隱私技術背景，行前會開線上說明會，值勤之外可自由聽議程。"
+url = "blog/2026/07/2026-coscup-anoni-track-staff/"
+[posts.zh-CN]
+title = "COSCUP 2026 匿名网络社群议程轨征现场工作人员：三个岗位，8/08、8/09 两天"
+summary = "匿名网络社群征 COSCUP 2026 议程轨的现场工作人员，8/08、8/09 两天于台湾科技大学，需要录影、台前机动、场外机动各一位。不需要具备 Tor 或隐私技术背景，行前会开线上说明会，值勤之外可自由听议程。"
+url = "blog/2026/07/2026-coscup-anoni-track-staff/"
+[posts.en]
+title = "COSCUP 2026 Anonymity Networks Community track needs on-site crew for three roles, Aug 8–9"
+summary = "The Anonymity Networks Community is looking for three on-site crew for its COSCUP 2026 track (Aug 8–9, NTUST, Taipei): one for recording, one front-of-room runner, one door runner. No Tor or privacy-tech background needed, there is an online briefing beforehand, and you are free to sit in on talks when you are off shift."
+url = "blog/2026/07/2026-coscup-anoni-track-staff/"
+
+[[posts]]
+date = 2026-07-13
+[posts.zh-TW]
+title = "COSCUP 2026 匿名網路社群議程軌：8/08、8/09 兩天，免費入場、走進教室就能參加"
+summary = "匿名網路社群在 COSCUP 2026 開了兩天社群議程軌，8/08、8/09 於臺灣科技大學登場，涵蓋 Tor、Tails、OONI、瀏覽器追蹤、校園 Tor 節點、健保資料庫個資權利、隱私指南與匿名支付，並與 ETHTaipei 合辦匿名支付場。COSCUP 免費入場、不需報名，當天走進教室就能參加。"
+url = "blog/2026/07/coscup-2026-community-track/"
+[posts.zh-CN]
+title = "COSCUP 2026 匿名网络社群议程轨：8/08、8/09 两天，免费入场、走进教室就能参加"
+summary = "匿名网络社群在 COSCUP 2026 开了两天社群议程轨，8/08、8/09 于台湾科技大学登场，涵盖 Tor、Tails、OONI、浏览器追踪、校园 Tor 节点、健保数据库个资权利、隐私指南与匿名支付，并与 ETHTaipei 合办匿名支付场。COSCUP 免费入场、不需报名，当天走进教室就能参加。"
+url = "blog/2026/07/coscup-2026-community-track/"
+[posts.en]
+title = "COSCUP 2026 Anonymity Networks Community track runs two days, Aug 8–9, free entry, just walk in"
+summary = "The Anonymity Networks Community runs a two-day track at COSCUP 2026 (Aug 8–9, NTUST, Taipei): Tor, Tails, OONI, browser tracking, campus Tor nodes, data-privacy rights, a privacy guide, and anonymous payments, with a session co-organized with ETHTaipei. COSCUP is free with no registration, so you can walk in and attend anonymously."
+url = "blog/2026/07/coscup-2026-community-track/"
+
+[[posts]]
+date = 2026-04-20
+[posts.zh-TW]
+title = "跨社群合作：匿名網路社群 × ETHTaipei"
+summary = "匿名網路社群與 ETHTaipei 合作：參與 COSCUP 2026，公開徵稿。"
+url = "blog/2026/04/2026-anoni-net-eth-taipei/"
+[posts.zh-CN]
+title = "跨社区合作：匿名网络社区 × ETHTaipei"
+summary = "匿名网络社区与 ETHTaipei 合作：参与 COSCUP 2026，公开征稿。"
+url = "blog/2026/04/2026-anoni-net-eth-taipei/"
+[posts.en]
+title = "Cross-Community Collaboration: Anonymity Networks Community × ETHTaipei"
+summary = "Anonymity Networks Community partners with ETHTaipei for COSCUP 2026 with an open call for proposals."
+url = "blog/2026/04/2026-anoni-net-eth-taipei/"
+
+[[posts]]
+date = 2026-04-08
+[posts.zh-TW]
+title = "COSCUP 2026 匿名網路社群議程軌：公開徵稿"
+summary = "匿名網路社群公開徵稿：投稿 COSCUP 2026 社群議程軌，徵稿截止 2026 年 5 月 9 日（AoE）。"
+url = "blog/2026/04/2026-coscup-anoni-track-cfp/"
+[posts.zh-CN]
+title = "COSCUP 2026 匿名网络社群议程轨：公开征稿"
+summary = "匿名网络社群公开征稿：投稿 COSCUP 2026 社群议程轨，征稿截止 2026 年 5 月 9 日（AoE）。"
+url = "blog/2026/04/2026-coscup-anoni-track-cfp/"
+[posts.en]
+title = "COSCUP 2026 Anonymity Networks Community Track: Call for Proposals"
+summary = "Anonymity Networks Community is accepting proposals for the COSCUP 2026 community track, with a CFP deadline of May 9, 2026 (AoE)."
+url = "blog/2026/04/2026-coscup-anoni-track-cfp/"
+
+[[posts]]
+date = 2026-01-16
+[posts.zh-TW]
+title = "專案提案 - g0v Hackath71n 零時政府第 71 次黑客松"
+summary = "邀請您於 2026 年 1 月 25 日 g0v Hackath71n 零時政府第 71 次黑客松活動，一起推進專案進度！"
+url = "blog/2026/01/g0v-hackath71n/"
+[posts.zh-CN]
+title = "项目提案 - g0v Hackath71n 零时政府第 71 次黑客松"
+summary = "邀请您于 2026 年 1 月 25 日参加 g0v Hackath71n 零时政府第 71 次黑客松活动，一起推进项目进度！"
+url = "blog/2026/01/g0v-hackath71n/"
+[posts.en]
+title = "Project Proposal – g0v Hackath71n (g0v, the 71st Hackathon)"
+summary = "You are invited to join the g0v Hackath71n, the 71st g0v Hackathon, on January 25, 2026, to help push the project forward together!"
+url = "blog/2026/01/g0v-hackath71n/"
+
+[[posts]]
+date = 2025-10-18
+[posts.zh-TW]
+title = "網路自由小聚 2025/10：數位威權主義商品化 - 網路政變報告分享會"
+summary = "快速回顧，國家級的監控，我們還可以採取什麼樣的行動"
+url = "blog/2025/10/internetfreedom-oct2025/"
+[posts.zh-CN]
+title = "网络自由小聚 2025/10：数字威权主义商品化 - 网络政变报告分享会"
+summary = "快速回顾，国家级的监控，我们还可以采取什么样的行动"
+url = "blog/2025/10/internetfreedom-oct2025/"
+[posts.en]
+title = "Taipei Coffee and Circumvention Meetup 2025/10"
+summary = "Quick Recap: What Actions Can We Take Against State-Level Surveillance?"
+url = "blog/2025/10/internetfreedom-oct2025/"
+
+[[posts]]
+date = 2025-04-30
+[posts.zh-TW]
+title = "「匿名網路工作坊」招募工作人員與培訓小幫手"
+summary = "匿名網路工作坊招募活動籌備人員與培訓小幫手！"
+url = "blog/2025/04/event-workshop-2025-preparing/"
+[posts.zh-CN]
+title = "「匿名网络工作坊」招募工作人员与培训小助手"
+summary = "匿名网络工作坊招募活动筹备人员与培训小助手！"
+url = "blog/2025/04/event-workshop-2025-preparing/"
+[posts.en]
+title = "Recruiting Staff and Training Helpers for the \"Anonymous Network Workshop\""
+summary = "Recruiting workshop preparation staff and training helpers for the Anonymous Network Workshop!"
+url = "blog/2025/04/event-workshop-2025-preparing/"
+
+[[posts]]
+date = 2025-03-09
+[posts.zh-TW]
+title = "回顧：網路自由工作坊：Tor、Tails、OONI"
+summary = "在 2025/02/23 活動結束後，關於工作坊 Tor/Tails, OONI，講座 Roger 的活動摘要與回顧。"
+url = "blog/2025/03/rightscon25-tor-tails-ooni-after/"
+[posts.zh-CN]
+title = "回顾：网络自由工作坊：Tor、Tails、OONI"
+summary = "在 2025/02/23 活动结束后，关于工作坊 Tor/Tails, OONI, 讲座 Roger 的活动摘要与回顾。"
+url = "blog/2025/03/rightscon25-tor-tails-ooni-after/"
+[posts.en]
+title = "Review: Internet Freedom Workshop: Tor、Tails、OONI"
+summary = "Summary and recap of the events on 2025/02/23, including the Tor/Tails and OONI workshops and Roger's lecture."
+url = "blog/2025/03/rightscon25-tor-tails-ooni-after/"
+
+[[posts]]
+date = 2025-02-18
+[posts.zh-TW]
+title = "專案提案 - g0v Hackath65n 零時政府第 65 次黑客松"
+summary = "邀請您於 2025 年 2 月 22 日 g0v Hackath65n 零時政府第 65 次黑客松活動，一起推進專案進度！"
+url = "blog/2025/02/g0v-hackath65n/"
+[posts.zh-CN]
+title = "提案 - g0v Hackath65n 零时政府第 65 次黑客松"
+summary = "邀请您于 2025 年 2 月 22 日参加 g0v Hackath65n 零时政府第 65 次黑客松活动，一起推进项目进度！"
+url = "blog/2025/02/g0v-hackath65n/"
+
+[[posts]]
+date = 2025-02-05
+[posts.zh-TW]
+title = "網路自由工作坊：Tor、Tails、OONI"
+summary = "邀請您於 2025 年 2 月 23 日在台北參加一場全天活動，專注於線上隱私、規避審查及審查監測。本次免費的前期活動由開放文化基金會、OONI 和 The Tor Project 合辦，包含實作工作坊及 The Tor Project 共同創辦人 Roger Dingledine 的公開主題演講。"
+url = "blog/2025/02/rightscon25-tor-tails-ooni/"
+[posts.zh-CN]
+title = "网络自由工作坊：Tor、Tails、OONI"
+summary = "邀请您于 2025 年 2 月 23 日在台北参加一场全天活动，专注于线上隐私、规避审查及审查监测。本次免费的前期活动由开放文化基金会、OONI 和 The Tor Project 合办，包含实现工作坊及 The Tor Project 共同创办人 Roger Dingledine 的公开主题演讲。"
+url = "blog/2025/02/rightscon25-tor-tails-ooni/"
+[posts.en]
+title = "Internet Freedom Workshop: Tor、Tails、OONI"
+summary = "Join us on February 23rd, 2025, in Taipei, Taiwan, for a full-day event focused on online privacy, censorship circumvention, and monitoring. Hosted in partnership with the Open Culture Foundation, OONI, and The Tor Project, this free pre-event includes hands-on workshops and a keynote by Roger Dingledine, co-founder of The Tor Project."
+url = "blog/2025/02/rightscon25-tor-tails-ooni/"
+
+[[posts]]
+date = 2026-10-07
+[posts.zh-TW]
+title = "新聞導讀 anoni.net/news 與導讀歷史"
+summary = "國際上隱私、匿名網路與網路審查的新聞多半以英文發表，報導也常停在事情的開頭。anoni.net 社群開了新的網站新聞導讀 anoni.net/news，每天從科技與開源的角度整理這些新聞，寫出背後的技術、讀者現在能做的第一步與要付出的成本，並持續追蹤後續。文中說明為什麼做、選題與查核的原則、八個分類，以及每日專欄導讀歷史。"
+url = "blog/2026/10/2026-anoni-net-news-launch/"
+[posts.zh-CN]
+title = "新闻导读 anoni.net/news 与导读历史"
+summary = "国际上隐私、匿名网络与网络审查的新闻多半以英文发表，报道也常停在事情的开头。anoni.net 社区开了新的网站新闻导读 anoni.net/news，每天从科技与开源的角度整理这些新闻，写出背后的技术、读者现在能做的第一步与要付出的成本，并持续跟进后续。文中说明为什么做、选题与核查的原则、八个分类，以及每日专栏导读历史。"
+url = "blog/2026/10/2026-anoni-net-news-launch/"
+[posts.en]
+title = "anoni.net/news and Same Day, Years Apart"
+summary = "Most news on privacy, anonymity networks and internet censorship is published in English from a European or North American vantage point, and coverage tends to stop at the start of a story. anoni.net now runs a daily news site, anoni.net/news, that reads these stories from a technology and open-source angle, adds comparisons across Asia, explains the first step readers can take and what it costs, and follows stories as they develop. This post covers why we started it, how stories are chosen and checked, the eight categories, and the companion series Same Day, Years Apart."
+url = "blog/2026/10/2026-anoni-net-news-launch/"
+
+[[posts]]
+date = 2026-09-02
+[posts.zh-TW]
+title = "一份英文密語詞表裡的 292 個亞洲外來語，是怎麼選出來的"
+summary = "匿名網路社群做了一份 7776 字的英文密語詞表 asian-diceware，可以直接替換 EFF Large Wordlist，裡面固定收 292 個已經進入英文字典的亞洲外來語。這篇寫選字的過程：292 個字的來源分布跟做的人原本預期的不一樣，日語 102 個、南亞與梵語 91 個，華語只有 16 個，閩南語只有 ketchup 一個。也寫選字的兩個限制、為什麼停在 292 而不湊到整數比例，以及建置流程怎麼擋掉會讓詞表出問題的字。程式採 MIT、詞表採 CC-BY-4.0，附 A5 小冊 PDF，活動現場也會發實體本。"
+url = "blog/2026/09/asian-diceware/"
+[posts.zh-CN]
+title = "一份英文密语词表里的 292 个亚洲外来语，是怎么选出来的"
+summary = "匿名网络社区做了一份 7776 字的英文密语词表 asian-diceware，可以直接替换 EFF Large Wordlist，里面固定收 292 个已经进入英文字典的亚洲外来语。这篇写选字的过程：292 个字的来源分布跟做的人原本预期的不一样，日语 102 个、南亚与梵语 91 个，华语只有 16 个，闽南语只有 ketchup 一个。也写选字的两个限制、为什么停在 292 而不凑成整数比例，以及构建流程怎么挡掉会让词表出问题的字。程序采 MIT、词表采 CC-BY-4.0，附 A5 小册 PDF，活动现场也会发实体本。"
+url = "blog/2026/09/asian-diceware/"
+[posts.en]
+title = "How 292 Asian loanwords ended up in an English passphrase wordlist"
+summary = "The community built asian-diceware, a 7,776-word English passphrase wordlist that drops in for the EFF Large Wordlist and pins 292 dictionary-attested Asian loanwords. This post is about how the words were picked. The breakdown by source language is not what the people who built it expected: 102 from Japanese and 91 from South Asian languages, against 16 from Mandarin and exactly one from Hokkien. It also covers the two hard limits on word choice, why the share stops at 292 instead of rounding up to a tidy percentage, and how the build pipeline refuses to silently drop a pinned word. Code is MIT, the wordlist is CC-BY-4.0, and there is an A5 booklet PDF we also hand out at events."
+url = "blog/2026/09/asian-diceware/"
+
+[[posts]]
+date = 2026-05-25
+[posts.zh-TW]
+title = "CryptPad 2026.5.0 上線：正體中文（zh_Hant）正式收進內建語系"
+summary = "CryptPad 是少數讓伺服器看不到內容的線上協作工具，介面過去缺少正體中文。anoni.net 社群花兩年半在 CryptPad 上游做翻譯，2026/05 隨 CryptPad 2026.5.0 收進內建語系。現在打開 cryptpad.anoni.net，從 Drive 到分享權限對話框介面都是正體中文，台灣、香港、澳門的使用者可以直接上手。"
+url = "blog/2026/05/2026-cryptpad-zh-hant/"
+[posts.zh-CN]
+title = "CryptPad 2026.5.0 上线：正体中文（zh_Hant）正式收进内建语系"
+summary = "CryptPad 是少数让服务器看不到内容的在线协作工具。2026/05 随 CryptPad 2026.5.0 上线，正体中文（zh_Hant）正式收进内建语系，简体中文（zh_Hans）一并升级，并加入 locale alias 让旧设定（zh_CN、zh_TW）平滑迁移。社区自架的 cryptpad.anoni.net 已同步升级，对中国大陆使用者，搭配 Tor 或 VPN 即可访问。"
+url = "blog/2026/05/2026-cryptpad-zh-hant/"
+[posts.en]
+title = "CryptPad 2026.5.0: zh_Hant Lands as a Built-in Locale After Two and a Half Years Upstream"
+summary = "Two and a half years of upstream community work landed in CryptPad 2026.5.0 (2026/05/13): zh_Hant (Traditional Chinese) is now a built-in locale, zh_Hans was upgraded alongside it, and a new locale alias system migrates older zh_CN / zh_TW settings without surprise. The community-hosted cryptpad.anoni.net is upgraded; readers in Taiwan, Hong Kong, Macau, and across the diaspora can now use one of the few end-to-end encrypted collaboration suites entirely in their own script."
+url = "blog/2026/05/2026-cryptpad-zh-hant/"
+
+[[posts]]
+date = 2026-05-21
+[posts.zh-TW]
+title = "校園 Tor Relay 範本工具包：提案、SOP、FAQ 三份範本上線"
+summary = "NZ 把台師大校園 Tor Relay 的提案計畫、溝通 email、技術設定、踩雷整理成三份 CC-BY 4.0 範本，給想響應的學校直接拿去用。"
+url = "blog/2026/05/2026-campus-tor-relay-template-kit/"
+[posts.en]
+title = "Campus Tor Relay templates: proposal, SOP, and FAQ now published"
+summary = "NZ has turned the NTNU campus Tor Relay rollout — proposal, outreach emails, deployment setup, FAQ — into a CC-BY 4.0 template kit other universities can adapt."
+url = "blog/2026/05/2026-campus-tor-relay-template-kit/"
+
+[[posts]]
+date = 2026-05-19
+[posts.zh-TW]
+title = "onionoo MCP 上線：用一句中文問 Tor 中繼節點現況"
+summary = "anoni.net 社群把 Tor Project 的 Onionoo 包成 MCP server 與語義化 HTTP API，公開在 onionoo.anoni.net 上線。接上 Claude Desktop 等 AI 客戶端，用一句中文就能問臺灣 Tor 中繼節點現況。"
+url = "blog/2026/05/2026-onionoo-mcp-public/"
+[posts.zh-CN]
+title = "onionoo MCP 上线：用一句中文问 Tor 中继节点现况"
+summary = "anoni.net 社区把 Tor Project 的 Onionoo 包成 MCP server 与语义化 HTTP API，公开在 onionoo.anoni.net 上线。接上 Claude Desktop 等 AI 客户端，用一句中文就能问台湾 Tor 中继节点现况。"
+url = "blog/2026/05/2026-onionoo-mcp-public/"
+[posts.en]
+title = "onionoo MCP is now public: query the Tor relay network in plain language"
+summary = "The community's onionoo-fastapi service is now public at onionoo.anoni.net. Ask any MCP-capable AI client about the live Tor relay network in plain language."
+url = "blog/2026/05/2026-onionoo-mcp-public/"
+
+[[posts]]
+date = 2026-03-29
+[posts.zh-TW]
+title = "2026/03 社群近況更新"
+summary = "2026/03 社群近況：Tor Project 客座文章、COSCUP 2026 議程軌確認、g0v Hackath71n 匿名支付討論、Cryptpad 正體中文翻譯"
+url = "blog/2026/03/updates-202603/"
+[posts.zh-CN]
+title = "2026/03 社区近况更新"
+summary = "2026/03 社区近况：Tor Project 客座文章、COSCUP 2026 议题轨道确认、g0v Hackath71n 匿名支付讨论、Cryptpad 简繁体中文翻译"
+url = "blog/2026/03/updates-202603/"
+[posts.en]
+title = "2026/03 Community Update"
+summary = "2026/03 Community Update: Tor Project guest post, COSCUP 2026 community track, and Cryptpad zh_Hant/zh_Hans localization"
+url = "blog/2026/03/updates-202603/"
+
+[[posts]]
+date = 2026-01-02
+[posts.zh-TW]
+title = "延續 2025，走向 2026：個人隱私指引、Tor Relay 校園建立競賽、匿名支付探索"
+summary = "回顧一年行動累積，勾勒匿名網路的下一步實作方向"
+url = "blog/2026/01/2025to2026/"
+[posts.zh-CN]
+title = "延续 2025，走向 2026：个人隐私指引、Tor Relay 校园建设竞赛、匿名支付探索"
+summary = "回顾一年行动积累，勾勒匿名网络的下一步实施方向"
+url = "blog/2026/01/2025to2026/"
+[posts.en]
+title = "Continuing from 2025 into 2026: Personal Privacy Guidelines, Tor Relay Campus Deployment Competition, and Exploration of Anonymous Payments"
+summary = "Reviewing a year of accumulated efforts to chart the next implementation direction for anonymous networks."
+url = "blog/2026/01/2025to2026/"
+
+[[posts]]
+date = 2025-09-09
+[posts.zh-TW]
+title = "2025/08 專案進度更新"
+summary = "近期社群活動更新資訊"
+url = "blog/2025/09/updates-202508/"
+[posts.zh-CN]
+title = "2025/08 项目进度更新"
+summary = "近期社区活动更新信息"
+url = "blog/2025/09/updates-202508/"
+[posts.en]
+title = "2025/08 Project Update"
+summary = "Current Project Status and Updates 2025/08"
+url = "blog/2025/09/updates-202508/"
+
+[[posts]]
+date = 2025-07-05
+[posts.zh-TW]
+title = "2025/06 專案進度更新：匿名網路工作坊開始報名"
+summary = "即將在 08/09-08/10 舉辦的工作坊活動已經開始報名了！"
+url = "blog/2025/07/updates-202506/"
+[posts.zh-CN]
+title = "2025/06 项目进度更新：匿名网络工作坊开始报名"
+summary = "即将在 08/09-08/10 举办的工作坊活动已经开始报名了！"
+url = "blog/2025/07/updates-202506/"
+[posts.en]
+title = "2025/06 Project Update: Anonymous Network Workshop Registration Open"
+summary = "Registration is now open for the workshop happening on August 9th and 10th!"
+url = "blog/2025/07/updates-202506/"
+
+[[posts]]
+date = 2025-06-13
+[posts.zh-TW]
+title = "匿名網路工作坊進度更新"
+summary = "專案目前近況與更新 2025/06/13"
+url = "blog/2025/06/updates-20250613/"
+[posts.zh-CN]
+title = "匿名网络工作坊进度更新"
+summary = "项目目前近况与更新 2025/06/13"
+url = "blog/2025/06/updates-20250613/"
+[posts.en]
+title = "Anonymous Network Workshop Progress Update"
+summary = "Current Project Status and Updates 2025/06/13"
+url = "blog/2025/06/updates-20250613/"
+
+[[posts]]
+date = 2025-06-03
+[posts.zh-TW]
+title = "2025/05 專案進度更新"
+summary = "專案目前近況與更新 2025/05"
+url = "blog/2025/06/updates-202505/"
+[posts.zh-CN]
+title = "2025/05 项目进度更新"
+summary = "项目当前近况与更新 2025/05"
+url = "blog/2025/06/updates-202505/"
+[posts.en]
+title = "2025/05 Project Status and Updates"
+summary = "Current Project Status and Updates 2025/05"
+url = "blog/2025/06/updates-202505/"
+
+[[posts]]
+date = 2025-05-01
+[posts.zh-TW]
+title = "2025/04 專案進度更新"
+summary = "專案目前近況與更新 2025/04"
+url = "blog/2025/05/updates-202504/"
+[posts.zh-CN]
+title = "2025/04 项目进度更新"
+summary = "项目当前近况与更新 2025/04"
+url = "blog/2025/05/updates-202504/"
+[posts.en]
+title = "2025/04 Project Status and Updates"
+summary = "Current Project Status and Updates 2025/04"
+url = "blog/2025/05/updates-202504/"
+
+[[posts]]
+date = 2025-03-26
+[posts.zh-TW]
+title = "2025/03 專案進度更新"
+summary = "專案目前近況與更新 2025/03"
+url = "blog/2025/03/updates-202503/"
+[posts.zh-CN]
+title = "2025/03 项目进度更新"
+summary = "项目当前近况与更新 2025/03"
+url = "blog/2025/03/updates-202503/"
+[posts.en]
+title = "2025/03 Project Status and Updates"
+summary = "Current Project Status and Updates 2025/03"
+url = "blog/2025/03/updates-202503/"
+
+[[posts]]
+date = 2026-05-28
+[posts.zh-TW]
+title = "伊朗封網 80 多天後重新開放，流量湧進社群架設的 Tor WebTunnel"
+summary = "伊朗在軍事行動期間封網 80 多天，重新開放後流量湧進社群架設的 Tor WebTunnel。這篇記下我們看到的現象，並號召台灣有能力的人一起架 WebTunnel 橋接。"
+url = "blog/2026/05/iran-blackout-webtunnel/"
+[posts.zh-CN]
+title = "伊朗封网 80 多天后重新开放，流量涌进社群架设的 Tor WebTunnel"
+summary = "伊朗在军事行动期间封网 80 多天，重新开放后流量涌进社群架设的 Tor WebTunnel。这篇记下我们看到的现象，并号召有能力的人一起架 WebTunnel 桥接。"
+url = "blog/2026/05/iran-blackout-webtunnel/"
+[posts.en]
+title = "After Iran's 80-day blackout, traffic surged through our community's Tor WebTunnel bridge"
+summary = "Iran cut off the internet for more than 80 days. When it came back, traffic poured into a Tor WebTunnel bridge our community runs. Here is what we saw, and an invitation for people in other regions to run WebTunnel or Snowflake too."
+url = "blog/2026/05/iran-blackout-webtunnel/"
+
+[[posts]]
+date = 2026-02-12
+[posts.zh-TW]
+title = "從 Discord 年齡驗證談起：我們為什麼自架 Matrix"
+summary = "從 Discord 年齡驗證談起：我們為什麼自架 Matrix，以及如何兼顧隱私與社群品質"
+url = "blog/2026/02/2026-discord-matrix-statement/"
+[posts.zh-CN]
+title = "从 Discord 年龄验证谈起：我们为什么自架 Matrix"
+summary = "从 Discord 年龄验证谈起：我们为什么自架 Matrix，以及如何兼顾隐私与社群品质"
+url = "blog/2026/02/2026-discord-matrix-statement/"
+[posts.en]
+title = "From Discord’s Age Verification to Why We Self-Host Matrix"
+summary = "From Discord's age verification to why we self-host Matrix: balancing privacy and community quality"
+url = "blog/2026/02/2026-discord-matrix-statement/"
+
+[[posts]]
+date = 2025-12-30
+[posts.zh-TW]
+title = "在台師大架設 Tor Relay：一段與學校溝通、留下可能性的實作經驗"
+summary = "一位資工系學生，如何在學術網路體制內，讓匿名網路真正上線運作"
+url = "blog/2025/12/ntnu-nz/"
+[posts.zh-CN]
+title = "在台师大架设 Tor Relay：一段与学校沟通、留下可能性的实现经验"
+summary = "一位资工系学生，如何在学术网络体制内，让匿名网络真正上线运作"
+url = "blog/2025/12/ntnu-nz/"
+[posts.en]
+title = "Setting Up a Tor Relay at National Taiwan Normal University: A Practical Experience of Communicating with the University and Leaving Open Possibilities"
+summary = "How can a computer science student, within the academic network system, make an anonymous network truly go live and operate?"
+url = "blog/2025/12/ntnu-nz/"
+
+[[posts]]
+date = 2025-07-03
+[posts.zh-TW]
+title = "社群專案建立 - 匿名網路社群"
+summary = "社群專案建立 - 匿名網路社群"
+url = "blog/2025/07/move-to-anoni-net/"
+[posts.zh-CN]
+title = "社群项目建立 - 匿名网络社群"
+summary = "社群项目建立 - 匿名网络社群"
+url = "blog/2025/07/move-to-anoni-net/"
+[posts.en]
+title = "Community Project Establishment - Anonymity Network Community"
+summary = "Community Project Establishment - Anonymity Network Community"
+url = "blog/2025/07/move-to-anoni-net/"
+
+[[posts]]
+date = 2025-01-06
+[posts.zh-TW]
+title = "專案重啟 2025"
+summary = "anoni.net Docs 2025 專案重啟，公告社群三個子專案的研究方向，邀請對網路自由與匿名網路議題有興趣的台灣讀者一同加入。"
+url = "blog/2025/01/\u5c08\u6848\u91cd\u555f-2025/"
+[posts.zh-CN]
+title = "项目重启 2025"
+summary = "anoni.net Docs 2025 项目重启，公告社群三个子项目的研究方向，邀请对网络自由与匿名网络议题有兴趣的华语读者一同加入。"
+url = "blog/2025/01/\u9879\u76ee\u91cd\u542f-2025/"
+[posts.en]
+title = "Project Relaunch 2025"
+summary = "anoni.net Docs relaunches in 2025 with three sub-projects on internet freedom research, OONI checklist localization, and Chinese-language documentation. An open call to join the volunteer community."
+url = "blog/2025/01/project-relaunch-2025/"

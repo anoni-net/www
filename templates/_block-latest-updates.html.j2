@@ -1,0 +1,6 @@
+<ul class="rows updates">
+{% for item in updates[:3] %}
+  <li><a class="row" href="{{ item.href }}"><span class="b"><span class="meta"><time datetime="{{ item.date.isoformat() }}">{{ item.date.strftime('%Y/%m/%d') }}</time></span><span class="t">{{ item.title }}</span><span class="d">{{ item.summary }}</span></span><span class="go">{{ icon('arrow-right') }}</span></a></li>
+{% endfor %}
+</ul>
+<p><a class="more" href="{{ page_url('updates') }}">{{ t.all_updates }} {{ icon('arrow-right') }}</a></p>
