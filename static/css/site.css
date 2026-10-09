@@ -302,8 +302,9 @@ p, li, .lead, .row .d, .row .t, h1, h3 { text-wrap: pretty; }
 .btn.solid { background: var(--c-solid); border-color: var(--c-solid); color: #fff; }
 
 /* 品牌素材頁：logo 放在四種底色上示範，底色是示範的內容，深色模式也不換 */
-.brand-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); gap: .75rem; margin: 1rem 0 1.25rem; }
-.brand-row.wm-row { grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); }
+/* 每組都是四張，手機一欄、桌機排成 2×2，不會剩一張落單 */
+.brand-row { display: grid; grid-template-columns: 1fr; gap: .75rem; margin: 1rem 0 1.25rem; }
+@media (min-width: 520px) { .brand-row { grid-template-columns: 1fr 1fr; } }
 .brand-card { background: #fff; border: 1px solid #cdcdcd; border-radius: var(--radius); padding: 1rem; }
 .brand-card.dark { background: #1a1a1a; border-color: #333; }
 .brand-card.cyan { background: var(--brand-cyan-500); border-color: var(--brand-cyan-700); }
