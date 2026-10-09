@@ -44,7 +44,7 @@
   <nav class="main" aria-label="{{ t.nav_label }}">
 {% for item in nav %}
 {% if item.page is defined %}
-    <a href="{{ page_url(item.page) }}"{% if item.page == page.slug %} aria-current="page"{% endif %}>{{ t['nav_' ~ item.key] }}</a>
+    <a href="{{ page_url(item.page) }}"{% if item.page == page.section %} aria-current="{{ 'page' if item.page == page.slug else 'true' }}"{% endif %}>{{ t['nav_' ~ item.key] }}</a>
 {% else %}
     <a href="{{ docs_url(item.docs) }}">{{ t['nav_' ~ item.key] }}</a>
 {% endif %}

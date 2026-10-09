@@ -1,0 +1,84 @@
+# 從文件站（anoni-net/docs）搬到本站的頁面。這份是三件事的單一來源：
+#
+#   uv run tools/import_from_docs.py --import <page>  把文件站的原始檔轉成 pages/ 底下的頁面
+#   uv run tools/import_from_docs.py --nginx           產生 tools/nginx-docs-moved.conf
+#   轉換時的站內連結：連到這裡列出的文件站頁面，一律改成本站的網址
+#
+# docs 是文件站 docs/<語系>/ 底下的原始檔，page 是本站的頁面（pages/<語系>/<page>.md），
+# langs 是要轉址的語系。import = false 的只轉址、不搬內容（內容已經併進其他頁面）。
+# 新增一筆之後，文件站那一側要刪原始檔、補 redirect_maps，見 README 的「部署」。
+
+# 2026-10-09 第一批：內容已經寫進新官網的頁面，只轉址
+[[moved]]
+docs = "contact.md"
+page = "contact"
+langs = ["zh-TW", "zh-CN", "en"]
+import = false
+
+[[moved]]
+docs = "community/tools.md"
+page = "services"
+langs = ["zh-TW", "zh-CN", "en"]
+import = false
+
+# 英文的 how-to-contribute 寫的是 GitHub 貢獻流程，跟 /join/ 不是同一份內容，不轉
+[[moved]]
+docs = "community/how-to-contribute.md"
+page = "join"
+langs = ["zh-TW", "zh-CN"]
+import = false
+
+# 2026-10-09 A 批
+[[moved]]
+docs = "community/index.md"
+page = "join"
+langs = ["zh-TW", "zh-CN", "en"]
+import = false
+
+[[moved]]
+docs = "community/governance.md"
+page = "about/governance"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
+
+[[moved]]
+docs = "community/partners.md"
+page = "about/partners"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
+
+[[moved]]
+docs = "community/roadmap-2026.md"
+page = "join/roadmap-2026"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
+
+[[moved]]
+docs = "community/privacy-guide.md"
+page = "join/privacy-guide"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
+
+[[moved]]
+docs = "community/relay-on-campus.md"
+page = "join/relay-on-campus"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
+
+[[moved]]
+docs = "community/payments-research.md"
+page = "join/payments-research"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
+
+[[moved]]
+docs = "community/upload-sensitive.md"
+page = "join/upload-sensitive"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
+
+[[moved]]
+docs = "community/send-privacy.md"
+page = "services/send"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true

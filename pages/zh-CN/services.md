@@ -21,7 +21,7 @@ Matrix、CryptPad 与 Formbricks 的后台需要人工开账号，请来信 <whi
 
 - **CryptPad**：自 2026.5.0 起内置正体中文与简体中文，可在右上角的设置页切换。社区为正体中文投入两年半上游翻译的历程见[这篇公告](docs:blog/2026/05/2026-cryptpad-zh-hant/)。
 - **Etherpad**：当下遇到一个人、双方都不想交换 App 账号时，可以开一个新的 pad 把网址给对方，用内置的聊天栏当一次性的对话空间。聊完记得清空 pad。内容没有加密，服务器端看得到。
-- **Send**：服务器无法取得文件内容，也不保留一般的访问记录，保存哪些数据与保存多久见 [send.anoni.net 的数据处理](docs:community/send-privacy/)。
+- **Send**：服务器无法取得文件内容，也不保留一般的访问记录，保存哪些数据与保存多久见 [send.anoni.net 的数据处理](/services/send/)。
 
 ## 在线会议（外部）
 

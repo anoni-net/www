@@ -28,7 +28,7 @@ Most ongoing work happens on our own Matrix homeserver, `im.anoni.net`. Start wi
 
 <!-- topics -->
 
-The background is in [Continuing from 2025 into 2026](docs:blog/2026/01/2025to2026/), and the quarterly deliverables are on the [2026 roadmap](docs:community/roadmap-2026/).
+The background is in [Continuing from 2025 into 2026](docs:blog/2026/01/2025to2026/), and the quarterly deliverables are on the [2026 roadmap](/join/roadmap-2026/).
 
 ## Day to day
 
@@ -41,7 +41,7 @@ Accounts and entry points for these tools are on the [services](/services/) page
 ## Other ways to take part
 
 <ul class="rows">
-  <li><a class="row" href="docs:community/upload-sensitive/"><span class="ic">ICON:upload-outline</span><span class="b"><span class="t">Send us sensitive material</span><span class="d">Records of abuse, unpublished research or personal data go through our self-hosted Send, with a one-download link.</span></span></a></li>
-  <li><a class="row" href="docs:community/partners/"><span class="ic">ICON:handshake-outline</span><span class="b"><span class="t">Work with us as an organization</span><span class="d">What we can do together with civil society groups, advocacy organizations and newsrooms, and what we can't.</span></span></a></li>
+  <li><a class="row" href="/join/upload-sensitive/"><span class="ic">ICON:upload-outline</span><span class="b"><span class="t">Send us sensitive material</span><span class="d">Records of abuse, unpublished research or personal data go through our self-hosted Send, with a one-download link.</span></span></a></li>
+  <li><a class="row" href="/about/partners/"><span class="ic">ICON:handshake-outline</span><span class="b"><span class="t">Work with us as an organization</span><span class="d">What we can do together with civil society groups, advocacy organizations and newsrooms, and what we can't.</span></span></a></li>
   <li><a class="row" href="docs:community/how-to-contribute/"><span class="ic">ICON:folder-open-outline</span><span class="b"><span class="t">Contribute to the docs</span><span class="d">Discuss first, then the GitHub flow, the types of contribution and how licensing works.</span></span></a></li>
 </ul>

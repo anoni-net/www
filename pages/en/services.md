@@ -21,7 +21,7 @@ For why we self-host Matrix and the privacy trade-offs behind it, see [From Disc
 
 - **CryptPad** has shipped Traditional and Simplified Chinese as built-in locales since 2026.5.0, switchable from the settings page. The story of the two and a half years of upstream translation behind that is in [this announcement](docs:blog/2026/05/2026-cryptpad-zh-hant/).
 - **Etherpad** works as a throwaway chat when you meet someone in person and neither of you wants to swap app accounts. Open a new pad, hand over the URL and use the chat sidebar, then clear the pad when you are done. Nothing is encrypted, so the server can see it.
-- **Send** gives the server no access to file contents and keeps no routine access logs. What it stores and for how long is in [How send.anoni.net handles your data](docs:community/send-privacy/).
+- **Send** gives the server no access to file contents and keeps no routine access logs. What it stores and for how long is in [How send.anoni.net handles your data](/services/send/).
 
 ## Video calls (external)
 

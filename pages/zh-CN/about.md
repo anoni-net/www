@@ -16,11 +16,11 @@ lead: 关注匿名网络与网络自由的一群人。
 
 ## 2026 三大主题
 
-完整规划与各季交付见 [2026 工作蓝图](docs:community/roadmap-2026/)。
+完整规划与各季交付见 [2026 工作蓝图](/join/roadmap-2026/)。
 
-- **[个人隐私指引](docs:community/privacy-guide/)**：整理可实际操作的隐私保护指引，依情境（日常、敏感工作、高风险）提供工具与步骤。
-- **[Tor Relay 校园建设](docs:community/relay-on-campus/)**：与 EFF、Tor Project 合作推动校园中继节点，台师大已有一个节点运行中。社区把该案例整理成[提案范本](docs:community/campus-tor-relay-proposal/)、[技术 SOP](docs:community/campus-tor-relay-sop/)、[校方 FAQ](docs:community/campus-relay-faq/) 三份文件，并把台湾专属的内容另外标记，其他地区的推动者替换那几段就能沿用其余部分。
-- **[匿名支付](docs:community/payments-research/)**：探索现金以外情境下的匿名支付（如稳定币、区块链应用），含法规与实践面向。目前在研究阶段，搜集真实情境，也是 [Global Gathering 2026](docs:blog/2026/08/2026-anoni-net-global-gathering/) 摊位的主题（2026/09/06，葡萄牙 Estoril）。
+- **[个人隐私指引](/join/privacy-guide/)**：整理可实际操作的隐私保护指引，依情境（日常、敏感工作、高风险）提供工具与步骤。
+- **[Tor Relay 校园建设](/join/relay-on-campus/)**：与 EFF、Tor Project 合作推动校园中继节点，台师大已有一个节点运行中。社区把该案例整理成[提案范本](https://anoni.net/docs/community/campus-tor-relay-proposal/)、[技术 SOP](https://anoni.net/docs/community/campus-tor-relay-sop/)、[校方 FAQ](https://anoni.net/docs/community/campus-relay-faq/) 三份文件（目前只有正体中文版），并把台湾专属的内容另外标记，其他地区的推动者替换那几段就能沿用其余部分。
+- **[匿名支付](/join/payments-research/)**：探索现金以外情境下的匿名支付（如稳定币、区块链应用），含法规与实践面向。目前在研究阶段，搜集真实情境，也是 [Global Gathering 2026](docs:blog/2026/08/2026-anoni-net-global-gathering/) 摊位的主题（2026/09/06，葡萄牙 Estoril）。
 
 想加入其中一个主题，见[参与](/join/)。
 
@@ -31,8 +31,8 @@ lead: 关注匿名网络与网络自由的一群人。
 ## 治理与合作
 
 <ul class="rows">
-  <li><a class="row" href="docs:community/governance/"><span class="b"><span class="t">治理方式</span><span class="d">决策方式、成员角色、争议处理与行为准则。</span></span></a></li>
-  <li><a class="row" href="docs:community/partners/"><span class="b"><span class="t">组织合作</span><span class="d">给公民团体、倡议组织与新闻媒体的合作说明，社区能一起做的事与做不到的事。</span></span></a></li>
+  <li><a class="row" href="/about/governance/"><span class="b"><span class="t">治理方式</span><span class="d">决策方式、成员角色、争议处理与行为准则。</span></span></a></li>
+  <li><a class="row" href="/about/partners/"><span class="b"><span class="t">组织合作</span><span class="d">给公民团体、倡议组织与新闻媒体的合作说明，社区能一起做的事与做不到的事。</span></span></a></li>
 </ul>
 
 [关注我们](/contact/){ .btn }

@@ -21,6 +21,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 import markdown
+from pymdownx.slugs import slugify
 import yaml
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from markupsafe import Markup
@@ -67,6 +68,12 @@ def split_front_matter(text: str, where: str) -> tuple[dict, str]:
     return meta, body
 
 
+def page_slugs(root: Path) -> list[str]:
+    """一個語系目錄底下的頁面。pages/zh-TW/about/governance.md 是 about/governance，
+    輸出到 /about/governance/。"""
+    return sorted(p.relative_to(root).with_suffix("").as_posix() for p in root.rglob("*.md"))
+
+
 def icon(name: str, cls: str = "i") -> Markup:
     svg = (ICONS / f"{name}.svg").read_text(encoding="utf-8").strip()
     return Markup(svg.replace("<svg ", f'<svg class="{cls}" aria-hidden="true" ', 1))
@@ -80,7 +87,9 @@ def logo(cls: str = "logo") -> Markup:
 def render_markdown(body: str) -> str:
     md = markdown.Markdown(
         extensions=["attr_list", "tables", "fenced_code", "admonition", "md_in_html", "toc"],
-        extension_configs={"toc": {"permalink": False}},
+        # 錨點的寫法跟文件站一致（保留中文與大小寫）。從文件站搬過來的頁面，舊網址轉過來時
+        # 瀏覽器會帶著 # 後面那段，兩邊一致才跳得到同一段。
+        extension_configs={"toc": {"permalink": False, "slugify": slugify()}},
     )
     return md.convert(body)
 
@@ -100,9 +109,13 @@ class Site:
         )
         self.env.globals["icon"] = icon
         self.env.globals["logo"] = logo
-        self.slugs = sorted(p.stem for p in (PAGES / self.langs[0].code).glob("*.md"))
+        self.slugs = page_slugs(PAGES / self.langs[0].code)
 
     # 網址
+
+    def section_of(self, slug: str) -> str:
+        """頁面所屬的區塊，給導覽列標示目前位置。about/governance 屬於 about。"""
+        return slug.split("/", 1)[0]
 
     def page_path(self, lang: Lang, slug: str) -> str:
         """本站頁面的路徑，首頁是語系的根目錄。"""
@@ -207,6 +220,8 @@ class Site:
             page = {
                 **meta,
                 "slug": slug,
+                "section": self.section_of(slug),
+                "parent": self.section_of(slug) if "/" in slug else None,
                 "path": self.page_path(lang, slug),
                 "alternates": [(other, self.page_path(other, slug)) for other in self.langs],
             }
@@ -221,6 +236,8 @@ class Site:
             "title": self.strings[lang.code]["not_found_title"],
             "description": self.strings[lang.code]["not_found_title"],
             "slug": "404",
+            "section": "404",
+            "parent": None,
             "path": "/404.html",
             "alternates": [(other, self.page_path(other, "index")) for other in self.langs],
         }
@@ -240,7 +257,7 @@ class Site:
 def check(site: Site, outs: list[Path]) -> list[str]:
     problems = []
     for lang in site.langs[1:]:
-        have = sorted(p.stem for p in (PAGES / lang.code).glob("*.md"))
+        have = page_slugs(PAGES / lang.code)
         if have != site.slugs:
             problems.append(f"pages/{lang.code} 的頁面跟 {site.langs[0].code} 不一致：{have}")
     for out in outs:
