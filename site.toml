@@ -22,7 +22,7 @@ html = "en"
 prefix = "/en"
 label = "EN"
 
-# 頁首的導覽列。page 是本站的頁面，docs 是還沒搬過來、暫時連到文件站的頁面。
+# 頁首的導覽列。page 是本站的頁面，docs 是還沒搬過來、暫時連到文件站的頁面（目前只剩動態）。
 # 搬過來之後把 docs 換成 page。
 [[nav]]
 key = "about"
@@ -42,7 +42,7 @@ page = "services"
 
 [[nav]]
 key = "events"
-docs = "activity/"
+page = "events"
 
 [[nav]]
 key = "updates"

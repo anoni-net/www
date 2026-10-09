@@ -67,7 +67,7 @@ What your organization runs into in practice can be sent anonymously to [whisper
 
 ### Co-hosted events
 
-The community has run a track at COSCUP two years in a row and has co-hosted sessions with other communities; past events are on the [Activity](docs:activity/) page. Proposals for a joint session or workshop are welcome.
+The community has run a track at COSCUP two years in a row and has co-hosted sessions with other communities; past events are on the [Activity](/events/) page. Proposals for a joint session or workshop are welcome.
 
 ## What we cannot take on
 

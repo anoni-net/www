@@ -8,9 +8,13 @@
 有沒有切到別的分支都不影響。搬遷對照寫在 tools/docs_moved.toml。
 
 轉換只處理機械性的部分：front matter 只留 title 與 description，拿掉第一個 # 標題
-（本站的模板用 title 產生），拿掉 Material 的 :material-*: 圖示與 {target="_blank"}，
-站內連結依目標改寫。轉完要人工看一次，文件站特有的版面元件（卡片格線、分頁）
-這支不處理，遇到會印出警告。
+（本站的模板用 title 產生），拿掉 {target="_blank"}，站內連結依目標改寫。
+
+Material 的圖示（:material-*:、:octicons-*: 等）改成 <i data-icon="名稱"></i>，建置時
+內嵌 SVG，用到的 SVG 從文件站的 mkdocs-material 套件複製到 icons/。用空標籤而不是文字
+佔位，是因為標題裡的佔位文字會被算進錨點。admonition 與折疊區塊的標題是純文字，
+那裡的圖示直接拿掉。.md-button 改成本站的 .btn，議程表的彩色標籤改成單色的 .tag。
+轉完要人工看一次，遇到這支不處理的寫法會印出警告。
 """
 
 from __future__ import annotations
@@ -28,15 +32,59 @@ import yaml
 ROOT = Path(__file__).resolve().parent.parent
 MOVED = ROOT / "tools" / "docs_moved.toml"
 NGINX = ROOT / "tools" / "nginx-docs-moved.conf"
-DEFAULT_DOCS = ROOT.parent / "anoni-net-docs"
+# 文件站的 clone。主 clone 旁邊就是 anoni-net-docs，在 .claude/worktrees/ 底下的 worktree 則要回到
+# 工作區根目錄找，兩種都找不到時用 --docs 指定。
+DEFAULT_DOCS = next((p for p in (ROOT.parent / "anoni-net-docs",
+                                 *(a / "anoni-net-docs" for a in ROOT.parents if a.name == ".claude" for a in [a.parent]))
+                     if (p / ".git").exists()), ROOT.parent / "anoni-net-docs")
 ONION = "anoninetru5tflukgfaehun7q6khowgmymcff3gtk5oyesqazhmfxtyd.onion"
 
 # 文件站的語系目錄與網址前綴，跟本站的 site.toml 一致
 LANGS = {"zh-TW": "", "zh-CN": "/zh-cn", "en": "/en"}
 
 LINK = re.compile(r"(\]\()([^)\s]+)(\))")
-ICON = re.compile(r":(?:material|octicons|simple|fontawesome)-[a-z0-9-]+:(\{[^}]*\})?\s?")
-UNSUPPORTED = re.compile(r'grid cards|^\s*=== "|^\s*\?\?\?|--8<--|```vegalite', re.M)
+ICON = re.compile(r":((?:material|octicons|simple|fontawesome)-[a-z0-9-]+):(\{[^}]*\})?")
+TITLE_LINE = re.compile(r'^(\s*(?:!!!|\?\?\?\+?)\s+[a-z-]+\s+")(.*)("\s*)$', re.M)
+UNSUPPORTED = re.compile(r'--8<--|```vegalite|\sstyle="[^"]*"', re.M)
+ICON_DIR = ROOT / "icons"
+# 文件站的 mkdocs-material 隨附的圖示，跟文件站用同一套
+MATERIAL_ICONS: list[Path] = []
+
+# 議程表的彩色標籤。頂層網站只用 cyan 一個色相，類型用實心、場地用線框、強調文字用粗體
+STYLE_SPANS = [
+    (re.compile(r'<span style="background-color:\s*(?:green|purple|dodgerblue|#[0-9a-f]{3,6});\s*color:\s*#fff(?:fff)?;[^"]*">', re.I), '<span class="tag tag--solid">'),
+    (re.compile(r'<span style="background-color:\s*#fefefe;[^"]*">', re.I), '<span class="tag">'),
+    (re.compile(r'<span style="color:\s*(?:green|purple|dodgerblue|#[0-9a-f]{3,6});\s*font-weight:\s*bold;?">', re.I), '<span class="tag-text">'),
+    (re.compile(r'<span class="sess-tag sess-tag--[a-z]+">'), '<span class="tag">'),
+    # 籌備頁待辦清單的狀態標籤（公告、報名等）寫成帶顏色的 code，顏色拿掉
+    (re.compile(r'<code style="[^"]*">'), '<code>'),
+]
+
+
+def icon_file(name: str) -> tuple[str, Path | None]:
+    """:material-x: 對應的本站圖示名稱與文件站裡的原始 SVG。material 沿用原名，其他套件加前綴。"""
+    base = MATERIAL_ICONS[0] if MATERIAL_ICONS else None
+    if name.startswith("material-"):
+        stem, rel = name[len("material-"):], f"material/{name[len('material-'):]}.svg"
+    elif name.startswith("fontawesome-"):
+        _, style, rest = name.split("-", 2)
+        stem, rel = name, f"fontawesome/{style}/{rest}.svg"
+    else:
+        kind, rest = name.split("-", 1)
+        stem, rel = name, f"{kind}/{rest}.svg"
+    return stem, (base / rel) if base else None
+
+
+def use_icon(name: str) -> str:
+    stem, src = icon_file(name)
+    dest = ICON_DIR / f"{stem}.svg"
+    if not dest.exists():
+        if not src or not src.exists():
+            print(f"  ! 找不到圖示 {name}", file=sys.stderr)
+            return ""
+        dest.write_bytes(src.read_bytes())
+        print(f"  + 複製圖示 {dest.relative_to(ROOT)}")
+    return stem
 
 
 def load_moved() -> list[dict]:
@@ -66,7 +114,13 @@ def convert(text: str, src: str, lang: str, moved: list[dict], where: str, blog_
 
     # 本站的模板用 title 產生 <h1>，原稿的第一個 # 標題拿掉
     body = re.sub(r"\A\s*# [^\n]*\n", "", body, count=1)
-    body = ICON.sub("", body)
+    # admonition 與折疊區塊的標題是純文字，圖示拿掉
+    body = TITLE_LINE.sub(lambda m: m[1] + ICON.sub("", m[2]).strip() + m[3], body)
+    body = ICON.sub(lambda m: f'<i data-icon="{use_icon(m[1])}"></i>', body)
+    body = re.sub(r"\{[^}]*\.md-button[^}]*\}",
+                  lambda m: "{ .btn .solid }" if "md-button--primary" in m[0] else "{ .btn }", body)
+    for pattern, repl_tag in STYLE_SPANS:
+        body = pattern.sub(repl_tag, body)
     body = body.replace('{target="_blank"}', "").replace("{ target=\"_blank\" }", "")
     # 文件站截圖的框線寫在 style 裡，本站改用 class
     body = re.sub(r'(!\[[^\]]*\]\([^)]+\))\{\s*style="[^"]*"\s*\}', r"\1{ .shot }", body)
@@ -210,6 +264,7 @@ def main() -> int:
     parser.add_argument("--docs", type=Path, default=DEFAULT_DOCS, help="文件站的 clone")
     parser.add_argument("--ref", default="origin/main", help="文件站要讀的 ref")
     args = parser.parse_args()
+    MATERIAL_ICONS[:] = sorted(args.docs.glob("docs/.venv/lib/python*/site-packages/material/templates/.icons"))
     if args.import_all:
         args.pages = [m["page"] for m in load_moved() if m.get("import")]
     if args.pages:
