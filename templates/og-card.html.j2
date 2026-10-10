@@ -1,0 +1,30 @@
+{#- 每一頁的社群預覽卡片，1200x630，tools/make_og_cards.py 截圖。改了這個檔案，所有卡片的雜湊都會換，要整批重新產生。
+    顏色照 static/css/site.css 的 --brand-cyan-*，跟季報的分享圖同一組。 -#}
+<!doctype html><html lang="{{ c.html_lang }}"><meta charset="utf-8"><style>
+body { margin: 0; }
+.card { width: 1200px; height: 630px; background: #003e57; color: #fff; position: relative; overflow: hidden;
+        font-family: "{{ c.font }}", "Noto Sans CJK TC", sans-serif; }
+.map { position: absolute; right: -20px; top: 60px; }
+.fade { position: absolute; inset: 0; background: linear-gradient(90deg, #003e57 42%, transparent 58%),
+        linear-gradient(180deg, #003e57 8%, transparent 20%); }
+.mark { position: absolute; right: -90px; bottom: -120px; opacity: .07; }
+.text { position: absolute; left: 72px; top: 68px; width: {{ 560 if map else 960 }}px; }
+.brand { display: flex; align-items: center; gap: 16px; font-size: 28px; color: #80d1ff; font-weight: 500; white-space: nowrap; }
+.brand svg { flex: none; }
+.brand b { color: #fff; font-weight: 700; }
+.sep { font-family: "Noto Sans", sans-serif; margin: 0 .35em; }
+.title { margin-top: 64px; font-size: {{ 60 if map else 68 }}px; font-weight: 800; line-height: 1.22;
+         display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.sub { margin-top: 28px; font-size: 30px; line-height: 1.5; font-weight: 500; color: #d6efff;
+       display: -webkit-box; -webkit-line-clamp: {{ 3 if map else 2 }}; -webkit-box-orient: vertical; overflow: hidden; }
+.url { position: absolute; left: 72px; bottom: 52px; font-size: 26px; color: #80d1ff; }
+:lang(en) .title { letter-spacing: -.5px; }
+:lang(en) .sub { font-size: 28px; }
+</style><div class="card">
+{% if map %}<div class="map">{{ map }}</div><div class="fade"></div>
+{% else %}<div class="mark">{{ mark }}</div>
+{% endif %}
+<div class="text"><div class="brand">{{ logo }}<span><b>anoni.net</b>{% for part in c.label %}<span class="sep">·</span>{{ part }}{% endfor %}</span></div>
+<div class="title">{{ c.title }}</div>{% if c.sub %}<div class="sub">{{ c.sub }}</div>{% endif %}</div>
+<div class="url">{{ c.site_url }}</div>
+</div></html>

@@ -86,6 +86,21 @@ uv run tools/import_from_docs.py --nginx                    # 重新產生 tools
 
 要退回上一版，先建立 `/srv/anoni-net-www/hold` 暫停自動發布，再把 `current` 改指到 `releases/` 底下較舊的那一份。修好之後刪掉 `hold`，下一輪就會發布 `main` 的最新版。
 
+## 預覽卡片
+
+分享到社群平台時的預覽圖（og:image），每一頁三個語系各一張，寫著區塊、頁面標題、導言與網址。兩個觀測頁與各地區的子頁加上觀測地區地圖，標出那一頁的地區。地圖只畫亞洲，德國、荷蘭、美國的子頁不放地圖。
+
+卡片不進版控。[`tools/make_og_cards.py`](./tools/make_og_cards.py) 用 `templates/og-card.html.j2` 截圖，上傳到 assets.anoni.net 的 `www/og/`，網址寫進 `og_cards.toml`。建置時每一頁從卡片上的文字、模板與 logo 算出檔名的雜湊（規則在 [`og_cards.py`](./og_cards.py) 開頭），跟登記表一致才用，還沒產生或內容改過時用根目錄的 `og.png`，所以 m6 建置不需要瀏覽器。front matter 寫了 `og_image` 的頁面用指定的圖。
+
+新增頁面、改了標題或導言之後，在合併前執行一次，把更新過的 `og_cards.toml` 跟內容放在同一個 PR：
+
+```bash
+uv run --with playwright tools/make_og_cards.py --dry-run  # 只產圖，.cache/og-cards/preview.html 排在一起看
+WWW_OG_RSYNC=<主機>:<目錄> uv run --with playwright tools/make_og_cards.py
+```
+
+上傳目的地只放在環境變數，不寫進公開的 repo。`build.py --check` 會提示有幾頁的卡片缺少或過期，但不算失敗，GitHub 上的 CI 不能上傳圖片。改了模板，所有卡片的雜湊都會換，要整批重新產生，再到圖片主機刪掉登記表裡已經沒有的舊檔。
+
 ## Tor 中繼節點觀測
 
 `/projects/pulse/` 是 [Pulse](https://github.com/anoni-net/pulse) 的觀測頁，原本是文件站的「Tor Relays 觀測點」。頁面的文字在 `pages/<語系>/projects/pulse.md`，`<!-- pulse -->` 的位置放儀表板，國家清單與圖表上的文字在 `data/pulse.toml`。第一個國家是主頁，其他國家各一頁 `/projects/pulse/<代碼>/`，由同一份 Markdown 產生。
@@ -108,7 +123,7 @@ uv run tools/import_from_docs.py --nginx                    # 重新產生 tools
 
 兩個觀測頁的頁首與社群動態文章裡的 `<!-- region-map -->` 放一張觀測地區地圖（[`region_map.py`](./region_map.py)），觀測地區用主色、參照地區用淺色，點下去開那個地區的頁面。國界資料在 `data/region-map.json`，由 `tools/make_region_map.py` 從 [Natural Earth](https://www.naturalearthdata.com/) 的 1:50m 國界（公有領域）產生，只留亞洲那一塊、簡化到一個像素，約 25 KB。國界很少變動，資料改了才需要重新執行，產出的 JSON 進版控，建置時不連網路。香港、澳門、新加坡小到看不見，畫成圓點。
 
-季報開頭也放一張，只上色那一期數字檔的 `countries`（季報比較的地區），之後新增的地區不會回頭改舊的季報。每一期季報另有一組分享圖與電子報 banner，由 `tools/make_report_images.py <季度>` 產生並上傳到 assets.anoni.net 的 `reports/`（圖不進版控，用法寫在工具開頭），季報頁與那一期的社群動態在 front matter 用 `og_image` 寫完整網址。沒寫 `og_image` 的頁面用根目錄的 `og.png`。
+季報開頭也放一張，只上色那一期數字檔的 `countries`（季報比較的地區），之後新增的地區不會回頭改舊的季報。每一期季報另有一組分享圖與電子報 banner，由 `tools/make_report_images.py <季度>` 產生並上傳到 assets.anoni.net 的 `reports/`（圖不進版控，用法寫在工具開頭），季報頁與那一期的社群動態在 front matter 用 `og_image` 寫完整網址，其他頁面用下方「預覽卡片」自動產生的卡片。
 
 ## OONI 觀測涵蓋率
 
@@ -276,6 +291,21 @@ Old URLs are redirected with a 301 by nginx on m6, with one `map` for clearnet a
 
 To roll back, first create `/srv/anoni-net-www/hold` to pause automatic releases, then point `current` at an older build under `releases/`. Once the problem is fixed, delete `hold` and the next run releases the latest `main`.
 
+## Preview cards
+
+The preview image shown when a page is shared on social media (og:image) is one card per page per locale, carrying the section, the page title, its lead and the URL. The two dashboards and their regional subpages add the map of observed regions with that page's region highlighted. The map covers Asia only, so the subpages for Germany, the Netherlands and the United States leave it out.
+
+The cards are not committed. [`tools/make_og_cards.py`](./tools/make_og_cards.py) screenshots `templates/og-card.html.j2`, uploads the cards to `www/og/` on assets.anoni.net and records their URLs in `og_cards.toml`. At build time each page computes the hash in its card's file name from the text on the card, the template and the logo (the rules are at the top of [`og_cards.py`](./og_cards.py)), and uses the card only when the registry matches. Pages whose card is missing or out of date use `og.png` at the root, so building on m6 needs no browser. Pages that set `og_image` in their front matter use that image.
+
+After adding a page or changing a title or lead, run the tool before merging and include the updated `og_cards.toml` in the same PR:
+
+```bash
+uv run --with playwright tools/make_og_cards.py --dry-run  # images only; .cache/og-cards/preview.html shows them side by side
+WWW_OG_RSYNC=<host>:<directory> uv run --with playwright tools/make_og_cards.py
+```
+
+The upload destination lives only in the environment variable and is never written into the public repository. `build.py --check` reports how many pages have a missing or outdated card without failing, since CI on GitHub cannot upload images. Changing the template changes every card's hash, so regenerate them all, then delete the old files on the image host that the registry no longer lists.
+
 ## Tor Relay Watch
 
 `/projects/pulse/` is the dashboard for [Pulse](https://github.com/anoni-net/pulse), which used to be the docs site's "Tor Relays 觀測點". The page text is in `pages/<locale>/projects/pulse.md`, the dashboard goes where `<!-- pulse -->` is, and the country list and chart labels are in `data/pulse.toml`. The first country is the main page, and every other country gets its own page, `/projects/pulse/<code>/`, generated from the same Markdown.
@@ -298,7 +328,7 @@ The shared chart functions are in [`charts.py`](./charts.py), which the OONI Cov
 
 The header of both dashboards, and `<!-- region-map -->` in a community update, show a map of the regions we observe ([`region_map.py`](./region_map.py)). Observed regions use the main colour and reference regions a lighter one, and clicking a region opens its page. The borders are in `data/region-map.json`, generated by `tools/make_region_map.py` from the 1:50m country borders of [Natural Earth](https://www.naturalearthdata.com/) (public domain), cropped to Asia and simplified to one pixel, about 25 KB. Borders rarely change, so the tool only needs rerunning when the source data does. The generated JSON is committed, and the build does not go online for it. Hong Kong, Macao and Singapore are too small to see, so they are drawn as dots.
 
-Each quarterly report opens with the same map, colouring only the `countries` in that quarter's numbers file (the regions the report compares), so regions added later do not change old reports. Each quarter also has a set of preview images and an email banner, generated by `tools/make_report_images.py <quarter>` and uploaded to `reports/` on assets.anoni.net (the images are not committed; usage is at the top of the tool). The report pages and that quarter's community update set `og_image` to the full URL in their front matter. Pages without `og_image` use `og.png` at the root.
+Each quarterly report opens with the same map, colouring only the `countries` in that quarter's numbers file (the regions the report compares), so regions added later do not change old reports. Each quarter also has a set of preview images and an email banner, generated by `tools/make_report_images.py <quarter>` and uploaded to `reports/` on assets.anoni.net (the images are not committed; usage is at the top of the tool). The report pages and that quarter's community update set `og_image` to the full URL in their front matter, and every other page uses the generated card described in "Preview cards" below.
 
 ## OONI Coverage
 
