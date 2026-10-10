@@ -77,6 +77,10 @@ test = "telegram"
 name = "Telegram"
 
 [[apps.regions]]
+code = "cn"
+name = { zh-TW = "中國", zh-CN = "中国", en = "China" }
+
+[[apps.regions]]
 code = "mm"
 name = { zh-TW = "緬甸", zh-CN = "缅甸", en = "Myanmar" }
 
