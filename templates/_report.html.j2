@@ -46,7 +46,7 @@
   <figcaption>{{ L.upgrade }}</figcaption>
   <ul class="pulse-bars rq-rank">
   {% for u in v.upgrade %}
-    <li{% if u.code == cc %} class="me"{% endif %}><span class="l">{{ cname[u.code] }}</span><span class="bar"><span style="width:{{ '%.2f' | format(u.pct) }}%"></span></span><span class="n">{{ '%.0f' | format(u.pct) }}%</span><span class="t">{% if u.lag is not none %}{{ L.lag_zero if u.lag == 0 else L.lag | replace('{n}', u.lag | string) }}{% endif %}</span></li>
+    <li{% if u.code == cc %} class="me"{% endif %}><span class="l">{{ cname[u.code] }}</span><span class="bar"><span style="width:{{ '%.2f' | format(u.pct) }}%"></span></span><span class="n">{{ '%.0f' | format(u.pct) }}%</span><span class="t">{% if u.lag is not none %}{{ L.lag_zero if u.lag == 0 else L.lag_one if u.lag == 1 else L.lag | replace('{n}', u.lag | string) }}{% endif %}</span></li>
   {% endfor %}
   </ul>
 </figure></div>
@@ -187,7 +187,7 @@
 <div class="pulse"><figure class="pulse-chart">
   <figcaption>{{ L.run }} <code>{{ v.run.link }}</code></figcaption>
   <ul class="pulse-bars asncov-share">
-  {% for a in v.run.list %}<li><span class="l">{{ a.asn }}</span><span class="t">{{ a.name }}（{{ a.kind }}）</span><span class="n">{{ "{:,}".format(a.n) }}</span></li>{% endfor %}
+  {% for a in v.run.list %}<li><span class="l">{{ a.asn }}</span><span class="t">{{ a.name }}{{ ' (' if lang.code == 'en' else '（' }}{{ a.kind }}{{ ')' if lang.code == 'en' else '）' }}</span><span class="n">{{ "{:,}".format(a.n) }}</span></li>{% endfor %}
   </ul>
 </figure></div>
 {% endmacro %}

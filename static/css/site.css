@@ -446,6 +446,8 @@ svg.pc rect:hover, svg.pc circle:hover { opacity: .7; }
 .rq-rank li { grid-template-columns: 4.5rem 1fr 2.8rem 6.5rem; }
 .pulse-asn .kind { display: block; font-size: .72rem; color: var(--c-muted); }
 .rq-types td:first-child { white-space: normal; }
+/* 英文的四個欄名都是不能斷開的單字，320px 寬時再縮一點 */
+@media (max-width: 359px) { .pulse-asn.rq-types { font-size: .7rem; } .prose .pulse-asn.rq-types th, .prose .pulse-asn.rq-types td { padding-left: .2rem; padding-right: .2rem; } }
 .rq-types .bar { height: 4px; margin-top: .25rem; }
 .rq-types .bar + .bar { margin-top: 2px; }
 .rq-types .bar span { background: var(--pcc); }
@@ -453,6 +455,9 @@ svg.pc rect:hover, svg.pc circle:hover { opacity: .7; }
 .rq-rank li.me .l, .rq-rank li.me .n { font-weight: 700; color: var(--c-strong); }
 .rq-rank li.me .bar span { background: var(--pc1); }
 @media (max-width: 560px) { .rq-rank li { grid-template-columns: 4rem 1fr 2.6rem; } .rq-rank .t { display: none; } }
+/* 英文的地區名比較長（Netherlands、United States），名稱欄放寬 */
+:lang(en) .rq-rank li { grid-template-columns: 7rem 1fr 2.8rem 6.5rem; }
+@media (max-width: 560px) { :lang(en) .rq-rank li { grid-template-columns: 6.2rem 1fr 2.6rem; } }
 
 /* 404 頁三種語言疊在一起，用細線分開 */
 .not-found + .not-found { border-top: 1px solid var(--c-hair); margin-top: 1.5rem; }

@@ -10,12 +10,12 @@ only_zh_tw = { zh-TW = "", zh-CN = "（正体中文）", en = " (Traditional Chi
 running = { zh-TW = "運作中", zh-CN = "运作中", en = "Running" }
 stopped = { zh-TW = "已停止", zh-CN = "已停止", en = "Stopped" }
 chart_relays = { zh-TW = "臺灣的中繼數量（每天最後一次快照）", zh-CN = "台湾的中继数量（每天最后一次快照）", en = "Relays in Taiwan (last snapshot of each day)" }
-relays_end = { zh-TW = "季末運作中的中繼", zh-CN = "季末运作中的中继", en = "Running relays at quarter end" }
-bandwidth_end = { zh-TW = "季末觀測頻寬", zh-CN = "季末观测带宽", en = "Observed bandwidth at quarter end" }
-exits_end = { zh-TW = "季末出口節點", zh-CN = "季末出口节点", en = "Exit relays at quarter end" }
+relays_end = { zh-TW = "季末運作中的中繼", zh-CN = "季末运作中的中继", en = "Running relays" }
+bandwidth_end = { zh-TW = "季末觀測頻寬", zh-CN = "季末观测带宽", en = "Bandwidth" }
+exits_end = { zh-TW = "季末出口節點", zh-CN = "季末出口节点", en = "Exit relays" }
 on_new = { zh-TW = "升級到本季新版", zh-CN = "升级到本季新版", en = "On new releases" }
-vs_start = { zh-TW = "比季初", zh-CN = "比季初", en = "vs quarter start" }
-vs_prev = { zh-TW = "比上一季", zh-CN = "比上一季", en = "vs previous quarter" }
+vs_start = { zh-TW = "比季初", zh-CN = "比季初", en = "vs start" }
+vs_prev = { zh-TW = "比上一季", zh-CN = "比上一季", en = "vs previous" }
 at_start = { zh-TW = "季初", zh-CN = "季初", en = "Start" }
 at_end = { zh-TW = "季末", zh-CN = "季末", en = "End" }
 stayed = { zh-TW = "整季都在", zh-CN = "整季都在", en = "Stayed" }
@@ -24,6 +24,7 @@ new = { zh-TW = "新加入", zh-CN = "新加入", en = "Joined" }
 churn = { zh-TW = "季初與季末的中繼", zh-CN = "季初与季末的中继", en = "Relays at the start and end of the quarter" }
 upgrade = { zh-TW = "季末用本季新版的中繼比例", zh-CN = "季末用本季新版的中继比例", en = "Relays on this quarter's releases at quarter end" }
 lag = { zh-TW = "晚 {n} 天出現", zh-CN = "晚 {n} 天出现", en = "{n} days later" }
+lag_one = { zh-TW = "晚 1 天出現", zh-CN = "晚 1 天出现", en = "1 day later" }
 lag_zero = { zh-TW = "最早出現", zh-CN = "最早出现", en = "first" }
 asn_share = { zh-TW = "臺灣季末各 ASN 的中繼", zh-CN = "台湾季末各 ASN 的中继", en = "Relays in Taiwan by ASN at quarter end" }
 top2 = { zh-TW = "各地區前兩大 ASN 占的中繼比例", zh-CN = "各地区前两大 ASN 占的中继比例", en = "Share of relays on the top two ASNs, by region" }
@@ -32,7 +33,7 @@ col_asn = { zh-TW = "ASN", zh-CN = "ASN", en = "ASN" }
 col_name = { zh-TW = "名稱", zh-CN = "名称", en = "Name" }
 col_relays = { zh-TW = "中繼", zh-CN = "中继", en = "Relays" }
 col_users = { zh-TW = "使用者", zh-CN = "用户", en = "Users" }
-col_measured = { zh-TW = "測量", zh-CN = "测量", en = "Measurements" }
+col_measured = { zh-TW = "測量", zh-CN = "测量", en = "Measured" }
 col_days = { zh-TW = "天數", zh-CN = "天数", en = "Days" }
 col_type = { zh-TW = "類型", zh-CN = "类型", en = "Type" }
 col_coverage = { zh-TW = "涵蓋率", zh-CN = "覆盖率", en = "Coverage" }
