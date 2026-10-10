@@ -1,13 +1,13 @@
 ---
 title: 匿名網路社群 anoni.net
-description: 匿名網路社群 anoni.net：一群關注匿名網路、隱私與網路自由的在地社群成員，長期推廣 Tor、Tails、OONI 等開源工具，並與 EFF、Tor Project、OONI 合作把全球議題帶回台灣脈絡討論。
+description: 匿名網路社群 anoni.net：一群以台灣為據點、關注匿名網路、隱私與網路自由的社群成員，長期推廣 Tor、Tails、OONI 等開源工具，並與 EFF、Tor Project、OONI 合作，把全球議題帶回華語地區的脈絡討論。
 template: index
 hero: 匿名網路社群
 hero_sub: anoni.net
-tagline: 把全球網路隱私議題，帶回台灣脈絡。
+tagline: 把全球網路隱私議題，帶回華語地區的脈絡。
 ---
 
-一群關注[匿名網路](docs:tools/what-is-anonymity-network/)與[網路自由](docs:basics/internet-freedom/)的在地社群。長期推廣 Tor、Tails、OONI，並與 EFF、Tor Project、OONI 合作把全球議題帶回台灣脈絡。
+一群關注[匿名網路](docs:tools/what-is-anonymity-network/)與[網路自由](docs:basics/internet-freedom/)的社群，以台灣為據點。長期推廣 Tor、Tails、OONI，並與 EFF、Tor Project、OONI 合作，把全球議題帶回華語地區的脈絡。
 
 ## 2026 正在做的事
 

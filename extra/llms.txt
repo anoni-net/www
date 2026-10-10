@@ -1,6 +1,6 @@
 # anoni.net 匿名網路社群
 
-> 關注匿名網路、隱私與網路自由的台灣在地社群。長期推廣 Tor、Tails、OONI 等開源工具，整理在地法規與場景指引，並與 EFF、Tor Project、OONI 等國際組織合作，把全球議題帶回台灣脈絡討論。
+> 以台灣為據點、關注匿名網路、隱私與網路自由的社群。長期推廣 Tor、Tails、OONI 等開源工具，整理在地法規與場景指引，並與 EFF、Tor Project、OONI 等國際組織合作，把全球議題帶回華語地區的脈絡討論。
 
 文件站預設語言為正體中文（zh-TW），另有簡體中文（zh-cn）與英文（en）版本。內容以 CC-BY 4.0 授權，single source of truth 是正體中文。站台同時提供 Tor onion 鏡像：http://anoninetru5tflukgfaehun7q6khowgmymcff3gtk5oyesqazhmfxtyd.onion/
 
