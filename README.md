@@ -116,7 +116,7 @@ uv run tools/import_from_docs.py --nginx                    # 重新產生 tools
 
 ## 觀測季報
 
-`/projects/reports/` 每季整理一次 Tor 中繼節點與 OONI 觀測涵蓋率，兩個觀測頁顯示最近 60 天，季報把當季的數字定格下來，加上社群的解讀。每一期的本文在 `reports/<語系>/<季度>.md`（例如 `reports/zh-TW/2026-q3.md`），跟社群動態一樣不要求三個語系都有，列表頁 `pages/<語系>/projects/reports.md` 在還沒有翻譯的語系列出正體中文版。
+`/projects/reports/` 每季整理一次 Tor 中繼節點與 OONI 觀測涵蓋率，兩個觀測頁顯示最近 60 天，季報把當季的數字定格下來，加上社群的解讀。每一期的本文在 `reports/<語系>/<季度>.md`（例如 `reports/zh-TW/2026-q3.md`），三個語系都要有，缺一個 `build.py --check` 就不會通過。列表頁是 `pages/<語系>/projects/reports.md`。
 
 圖表與表格用 `<!-- rq-名稱 -->` 放進本文，名稱對應 `templates/_report.html.j2` 的 macro，整理數字的程式在 [`reports.py`](./reports.py)，圖表上的文字在 `data/reports.toml`。數字來自 `data/reports/<季度>.json`，進版控之後就是那一季定格的數字，之後重建網站也不會變。
 

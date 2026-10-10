@@ -186,7 +186,7 @@ class Site:
         return sorted(posts, key=lambda p: p.date, reverse=True)
 
     def load_reports(self, lang: Lang) -> list[Post]:
-        """觀測季報。跟社群動態一樣不要求三個語系都有，檔名是季度，例如 2026-q3.md。"""
+        """觀測季報，檔名是季度，例如 2026-q3.md。每一期都要三個語系，check() 會擋缺的。"""
         items = []
         for src in sorted((REPORTS / lang.code).glob("*.md")):
             where = src.relative_to(ROOT).as_posix()
@@ -563,6 +563,11 @@ def check(site: Site, outs: list[Path]) -> list[str]:
                 ET.parse(feed)
             except ET.ParseError as err:
                 problems.append(f"{out.name}/{feed.relative_to(out)}：RSS 不是合法的 XML（{err}）")
+    # 觀測季報每一期都要三個語系（社群動態可以只有正體中文，季報不行）
+    for rep in site.reports[site.langs[0].code]:
+        for lang in site.langs[1:]:
+            if not any(r.slug == rep.slug for r in site.reports[lang.code]):
+                problems.append(f"reports/{lang.code}/{rep.slug}.md：季報要三個語系都有，這個語系還沒有")
     for lang in site.langs[1:]:
         have = page_slugs(PAGES / lang.code)
         if have != site.slugs:
