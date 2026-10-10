@@ -1,6 +1,9 @@
 # 觀測季報（/projects/reports/）圖表與表格上的文字。季報本文在 reports/<語系>/<季度>.md，
 # 數字在 data/reports/<季度>.json，整理數字的程式在 reports.py。
 
+# 電子報的地區比較只放亞洲，荷蘭、德國與美國的數字大上兩個量級，放進同一張圖會把其他長條壓成零
+email_regions = ["sg", "jp", "in", "hk", "kr", "vn", "tw"]
+
 [labels]
 nav = { zh-TW = "觀測季報", zh-CN = "观测季报", en = "Quarterly reports" }
 only_zh_tw = { zh-TW = "", zh-CN = "（正体中文）", en = " (Traditional Chinese)" }
@@ -55,3 +58,11 @@ run = { zh-TW = "社群 OONI Run 連結的測量", zh-CN = "社区 OONI Run 链�
 added = { zh-TW = "本季新增測量的網路", zh-CN = "本季新增测量的网络", en = "Networks measured this quarter but not last" }
 dropped = { zh-TW = "上一季有、本季沒有測量的網路", zh-CN = "上一季有、本季没有测量的网络", en = "Networks measured last quarter but not this one" }
 none = { zh-TW = "沒有", zh-CN = "没有", en = "None" }
+
+# 電子報版本（tools/report_email.py）用的文字
+em_regions = { zh-TW = "亞洲各地區季末的 Tor 中繼數", zh-CN = "亚洲各地区季末的 Tor 中继数", en = "Tor relays at quarter end in Asia" }
+em_relays = { zh-TW = "季末的 Tor 中繼", zh-CN = "季末的 Tor 中继", en = "Tor relays at quarter end" }
+em_density = { zh-TW = "每百萬網路使用者的中繼", zh-CN = "每百万网络用户的中继", en = "Relays per million Internet users" }
+em_top2 = { zh-TW = "前兩大網路的占比", zh-CN = "前两大网络的占比", en = "Share of the top two networks" }
+em_upgrade = { zh-TW = "已升級到本季新版", zh-CN = "已升级到本季新版", en = "Upgraded to this quarter's releases" }
+em_types = { zh-TW = "臺灣各類網路的使用者與 OONI 測量占比", zh-CN = "台湾各类网络的用户与 OONI 测量占比", en = "Share of users and of OONI measurements in Taiwan, by network type" }
