@@ -1,6 +1,6 @@
 ---
 title: 项目
-description: anoni.net 社区自己写的内容与程序，包含文档站、新闻导读，以及 onionoo-mcp、Pulse、ASN Coverage 等观测工具。
+description: anoni.net 社区自己写的内容与程序，包含文档站、新闻导读，以及 Tor 中继节点观测、OONI 观测覆盖率与 AI 助手的 Tor 节点查询等观测工具。
 lead: 社区自己写的内容与程序。
 ---
 
