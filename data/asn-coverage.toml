@@ -18,7 +18,7 @@ name = { zh-TW = "香港", zh-CN = "香港", en = "Hong Kong" }
 
 [[countries]]
 code = "mo"
-name = { zh-TW = "澳門", zh-CN = "澳门", en = "Macao" }
+name = { zh-TW = "澳門", zh-CN = "澳门", en = "Macau" }
 
 [[countries]]
 code = "jp"
@@ -38,7 +38,7 @@ countries = { zh-TW = "觀測地區", zh-CN = "观测地区", en = "Regions" }
 updated = { zh-TW = "測量資料到", zh-CN = "测量数据到", en = "Measurements up to" }
 pop_updated = { zh-TW = "使用者估計", zh-CN = "用户估计", en = "user estimates from" }
 unavailable = { zh-TW = "OONI 或 APNIC 的資料暫時無法取得，下一次重建時會再試一次。", zh-CN = "OONI 或 APNIC 的数据暂时无法取得，下一次重建时会再试一次。", en = "OONI or APNIC data is unavailable right now. The next rebuild will try again." }
-stale = { zh-TW = "這份資料是快取，建置時資料來源沒有回應。", zh-CN = "这份数据是缓存，建置时数据来源没有响应。", en = "This is cached data; a source did not respond at build time." }
+stale = { zh-TW = "這份資料是快取，建置時資料來源沒有回應。", zh-CN = "这份数据是缓存，构建时数据来源没有响应。", en = "This is cached data; a source did not respond at build time." }
 no_data = { zh-TW = "這段期間沒有測量", zh-CN = "这段期间没有测量", en = "No measurements in this period" }
 stat_asns = { zh-TW = "有測量的網路", zh-CN = "有测量的网络", en = "Networks measured" }
 stat_coverage = { zh-TW = "涵蓋的使用者", zh-CN = "覆盖的用户", en = "Users covered" }

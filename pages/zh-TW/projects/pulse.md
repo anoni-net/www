@@ -10,7 +10,7 @@ Tor 中繼節點是志工架設、替全球 Tor 使用者轉送加密流量的�
 
 <!-- pulse -->
 
-## 資料怎麼算
+## 資料的計算方式
 
 - 每一天取當天最後一次快照，不是整天出現過的所有中繼
 - 頻寬是運作中中繼的觀測頻寬（observed bandwidth）加總
@@ -18,7 +18,7 @@ Tor 中繼節點是志工架設、替全球 Tor 使用者轉送加密流量的�
 - 收集中斷的日子在圖上留下缺口，不補值
 - 原始資料可以從 [Pulse 的 API](https://anoni.net/api/readme) 讀取，這一頁用的是 `/api/summary`
 
-## 想自己架一個
+## 架設 Tor 中繼節點
 
 - [如何搭建 Tor Relay](docs:community/setup-tor-relay/)
 - [Tor Relay 校園建立](/join/relay-on-campus/)：社群 2026 年的三大主題之一

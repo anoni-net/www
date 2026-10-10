@@ -1,6 +1,6 @@
 ---
 title: Stay informed
-description: Subscribe to the newsletter, write to the community, get the PGP key, and the tools we use for day-to-day discussion.
+description: Subscribe to the newsletter, write to the community, get the PGP key, and find the tools we use for day-to-day discussion.
 lead: Even if you can't take part right now, these are the ways to stay in touch.
 ---
 

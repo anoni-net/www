@@ -1,7 +1,7 @@
 ---
 title: OONI Coverage
 description: Which networks OONI measurements in Taiwan and nearby regions come from, how many users they cover, and which networks have no measurements at all.
-lead: Censorship monitoring only sees the networks where someone runs OONI Probe.
+lead: Censorship monitoring only covers the networks where someone runs OONI Probe.
 ---
 
 OONI's censorship measurements come from volunteers running OONI Probe on their own connections. Within one region, each provider and network (ASN, autonomous system number) may block different sites, so when only one or two providers are measured, blocking on the others goes unrecorded. This page sets OONI's measurement counts against APNIC's estimates of how many users each network has, to show how many users the measurements cover, which networks they concentrate on, and which networks have none.

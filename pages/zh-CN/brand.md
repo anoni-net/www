@@ -326,7 +326,7 @@ wordmark 的文字已经转成路径，打开的设备有没有装字体都长�
 
 ## <i data-icon="view-dashboard-outline"></i> 各站的视觉分工
 
-anoni.net 底下有三个网站，共用同一组 logo 与上面的色票，各自用页首的颜色区分，读者从一个网站换到另一个时看得出自己在哪里。三个网站都只用 `--brand-cyan-*` 这一个色相当主色，不另外新增色相。
+anoni.net 底下有三个网站，共用同一组 logo 与上面的色票，各自用页首的颜色区分，读者从一个网站换到另一个时可以看出自己在哪个网站。三个网站都只用 `--brand-cyan-*` 这一个色相当主色，不另外新增色相。
 
 | 网站 | 页首 | 版面 | 样式的位置 |
 |---|---|---|---|
@@ -334,7 +334,7 @@ anoni.net 底下有三个网站，共用同一组 logo 与上面的色票，各�
 | [anoni.net/docs](docs:) | `--brand-cyan-800` 底、白字 | Material for MkDocs，侧栏用指南分类色 | `anoni-net/docs` 的 `docs/*/stylesheets/extra.css` |
 | [anoni.net/news](https://anoni.net/news/zh-cn/) | `--brand-cyan-900` 底、白字，墨色调 | 自己写的单栏版面，标题用宋体 | `anoni-net/news` 的 `static/css/news.css` |
 
-颜色由浅到深是顶层、文档站、新闻导读，三者并排时一眼分得出来。
+颜色由浅到深是顶层、文档站、新闻导读，三者并排时可以一眼分辨。
 
 ### 顶层网站的细线
 
@@ -358,7 +358,7 @@ anoni.net 底下有三个网站，共用同一组 logo 与上面的色票，各�
 
 新闻导读与顶层网站要用到 accent 的时候，照上面的「配色使用守则」，紧急红只用在紧急情境。
 
-指南分类色、Material 界面色、示意图用色与社群分享卡的规格写在文档站的[文档站的视觉规范](docs:community/visual-guide/)。
+指南分类色、Material 界面色、示意图用色与社群分享卡的规格写在[文档站的视觉规范](docs:community/visual-guide/)。
 
 ## <i data-icon="alert-octagon-outline"></i> 不要这样用
 

@@ -57,7 +57,7 @@ title_country = { zh-TW = "{name}的 Tor 中繼節點", zh-CN = "{name}的 Tor �
 countries = { zh-TW = "觀測地區", zh-CN = "观测地区", en = "Regions" }
 updated = { zh-TW = "最近一次快照", zh-CN = "最近一次快照", en = "Latest snapshot" }
 unavailable = { zh-TW = "Pulse 的資料暫時無法取得，下一次重建時會再試一次。", zh-CN = "Pulse 的数据暂时无法取得，下一次重建时会再试一次。", en = "Pulse data is unavailable right now. The next rebuild will try again." }
-stale = { zh-TW = "這份資料是快取，建置時 Pulse 沒有回應。", zh-CN = "这份数据是缓存，建置时 Pulse 没有响应。", en = "This is cached data; Pulse did not respond at build time." }
+stale = { zh-TW = "這份資料是快取，建置時 Pulse 沒有回應。", zh-CN = "这份数据是缓存，构建时 Pulse 没有响应。", en = "This is cached data; Pulse did not respond at build time." }
 running = { zh-TW = "運作中", zh-CN = "运作中", en = "Running" }
 stopped = { zh-TW = "已停止", zh-CN = "已停止", en = "Stopped" }
 relays = { zh-TW = "運作中的中繼", zh-CN = "运作中的中继", en = "Running relays" }
@@ -70,7 +70,7 @@ health_note = { zh-TW = "每天最後一次快照裡運作中與已停止的中�
 chart_relays = { zh-TW = "中繼數量", zh-CN = "中继数量", en = "Relays" }
 chart_bandwidth = { zh-TW = "觀測頻寬（MB/s）", zh-CN = "观测带宽（MB/s）", en = "Observed bandwidth (MB/s)" }
 diversity = { zh-TW = "分散程度", zh-CN = "分散程度", en = "Diversity" }
-diversity_note = { zh-TW = "中繼分散在越多自治網路（ASN），越不容易因為單一電信商的問題一起停擺。", zh-CN = "中继分散在越多自治网络（ASN），越不容易因为单一电信商的问题一起停摆。", en = "The more autonomous systems (ASNs) the relays spread across, the less a single provider's trouble can take them down together." }
+diversity_note = { zh-TW = "中繼分散在越多自治網路（ASN），越不容易因為單一電信商的問題一起停擺。", zh-CN = "中继分散在越多自治网络（ASN），越不容易因为单一电信商的问题一起停摆。", en = "The more autonomous systems (ASNs) the relays spread across, the less likely trouble at a single provider is to take them all down at once." }
 asn_share = { zh-TW = "各 ASN 的中繼占比", zh-CN = "各 ASN 的中继占比", en = "Relays by ASN" }
 asn_trend = { zh-TW = "ASN 數量", zh-CN = "ASN 数量", en = "Number of ASNs" }
 asn_col = { zh-TW = "ASN", zh-CN = "ASN", en = "ASN" }

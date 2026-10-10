@@ -1,6 +1,6 @@
 ---
 title: Projects
-description: The content and code the anoni.net community writes itself, including the docs, the news briefings, and measurement tools such as onionoo-mcp, Pulse and ASN Coverage.
+description: The content and code the anoni.net community writes itself, including the docs, the news briefings, and tools such as onionoo MCP, Pulse and ASN Coverage.
 lead: The content and code the community writes itself.
 ---
 

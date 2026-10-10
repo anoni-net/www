@@ -12,7 +12,7 @@ lead: 此刻没办法直接参与也没关系，可以用这些方式跟我们�
 
 ## 社区讨论与视频
 
-日常讨论与主题协作用 **Matrix**（网页版 [Element](https://matrix.anoni.net/)，主服务器 `im.anoni.net`）、[**CryptPad** 加密共笔](https://cryptpad.anoni.net/)，在线会议用 [**Jitsi**](https://jitsi.goodmeet.asia/)。账号申请与使用方式见[服务](/services/)。
+日常讨论与主题协作用 Matrix（网页版 [Element](https://matrix.anoni.net/)，主服务器 `im.anoni.net`）、[CryptPad 加密共笔](https://cryptpad.anoni.net/)，在线会议用 [Jitsi](https://jitsi.goodmeet.asia/)。账号申请与使用方式见[服务](/services/)。
 
 ## 邮箱与 PGP 公钥 {#pgp}
 

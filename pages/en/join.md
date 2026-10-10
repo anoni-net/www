@@ -12,7 +12,7 @@ The community behind anoni.net is small, volunteer-run and built around self-hos
 - **Journalists** covering regional Internet-freedom stories. We can share what we observe and, where we know the local terrain, point you to people closer to the story.
 - **Peer organizations** in rights advocacy, anti-surveillance and anti-censorship who want Asia-Pacific partners, or want to translate or co-publish material for a Sinophone audience.
 - **Region-specific contributors** who can sharpen the country-by-country coverage from inside their own jurisdiction. We particularly welcome voices from Hong Kong, Macau, Singapore, Malaysia and the mainland Chinese diaspora.
-- **Translators** bridging regional reports between Chinese and English, especially long-form research that doesn't yet exist in either language.
+- **Translators** bridging regional reports between Chinese and English, especially long-form research that has not yet been translated.
 
 ## Joining the discussion
 
