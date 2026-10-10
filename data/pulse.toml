@@ -2,7 +2,8 @@
 # 圖表畫成靜態 SVG，頁面不需要 JavaScript。m6 的部署腳本每小時重建一次。
 #
 # 第一個國家是主頁 /projects/pulse/，其他國家各一頁 /projects/pulse/<code>/。
-# 國家清單要跟 Pulse 的 routers/vega.py 的 Country 一致。
+# 國家清單要跟 Pulse 的 backend/countries.py 一致，不在那份清單裡的國家 /api/summary 會回 422。
+# 依地理分組排列：東亞、東南亞、南亞，德國、荷蘭、美國是中繼最多的地區，留著當作參照。
 
 days = 60
 # 大數字卡片跟幾天前比
@@ -25,12 +26,34 @@ code = "hk"
 name = { zh-TW = "香港", zh-CN = "香港", en = "Hong Kong" }
 
 [[countries]]
+code = "mo"
+name = { zh-TW = "澳門", zh-CN = "澳门", en = "Macau" }
+
+[[countries]]
 code = "sg"
 name = { zh-TW = "新加坡", zh-CN = "新加坡", en = "Singapore" }
 
 [[countries]]
 code = "vn"
 name = { zh-TW = "越南", zh-CN = "越南", en = "Vietnam" }
+
+[[countries]]
+code = "th"
+name = { zh-TW = "泰國", zh-CN = "泰国", en = "Thailand" }
+
+[[countries]]
+code = "my"
+name = { zh-TW = "馬來西亞", zh-CN = "马来西亚", en = "Malaysia" }
+
+[[countries]]
+code = "id"
+name = { zh-TW = "印尼", zh-CN = "印度尼西亚", en = "Indonesia" }
+
+[[countries]]
+code = "ph"
+name = { zh-TW = "菲律賓", zh-CN = "菲律宾", en = "Philippines" }
+# 標題用的寫法，英文要加冠詞
+title_name = { en = "the Philippines" }
 
 [[countries]]
 code = "in"
@@ -51,6 +74,12 @@ code = "us"
 name = { zh-TW = "美國", zh-CN = "美国", en = "United States" }
 # 標題用的寫法，英文要加冠詞
 title_name = { en = "the United States" }
+
+# 只放在「各地區的使用與貢獻」比較表的參照地區，沒有自己的頁面，也不在 Pulse 的收集清單裡。
+# 中國沒有運作中的中繼，只列 Tor Metrics 的使用者與橋接比例，當作直接連線受阻的對照。
+[[use_refs]]
+code = "cn"
+name = { zh-TW = "中國", zh-CN = "中国", en = "China" }
 
 [labels]
 title_country = { zh-TW = "{name}的 Tor 中繼節點", zh-CN = "{name}的 Tor 中继节点", en = "Tor relays in {name}" }
@@ -88,3 +117,24 @@ compare = { zh-TW = "各地區比較", zh-CN = "各地区比较", en = "Across r
 compare_note = { zh-TW = "最近一次快照裡運作中的中繼數，小圖是近 {days} 天的走勢。點進去看各地區的完整圖表。", zh-CN = "最近一次快照里运作中的中继数，小图是近 {days} 天的走势。点进去看各地区的完整图表。", en = "Running relays in the latest snapshot, with the trend over the last {days} days. Open a region for its full charts." }
 other = { zh-TW = "其他", zh-CN = "其他", en = "Others" }
 no_data = { zh-TW = "這段期間沒有資料", zh-CN = "这段期间没有数据", en = "No data for this period" }
+# 使用與貢獻：Tor Metrics 的使用者估計（tor_users.py）與中繼占全網路的權重
+use = { zh-TW = "使用與貢獻", zh-CN = "使用与贡献", en = "Use and contribution" }
+use_note = { zh-TW = "Tor Metrics 依中繼收到的目錄請求，推算每天平均同時上線的 Tor 客戶端，算不出不重複的人數。透過橋接連線的另外計算，橋接的比例高，通常代表直接連上 Tor 受到阻擋。使用者占全球的比例跟中繼占全網路的權重放在一起，可以看出這個地區用掉的與提供的轉送能量差多少。", zh-CN = "Tor Metrics 依中继收到的目录请求，推算每天平均同时在线的 Tor 客户端，算不出不重复的人数。通过网桥连接的另外计算，网桥的比例高，通常代表直接连上 Tor 受到阻挡。用户占全球的比例跟中继占全网络的权重放在一起，可以看出这个地区用掉的与提供的转发能力差多少。", en = "Tor Metrics estimates the average number of Tor clients online at the same time each day from the directory requests relays receive; it cannot count distinct people. Clients connecting through bridges are counted separately, and a high bridge share usually means connecting to Tor directly is being blocked. Setting the region's share of the world's users beside its relays' share of the network's weight shows the gap between the capacity it uses and the capacity it provides." }
+users = { zh-TW = "同時上線的使用者", zh-CN = "同时在线的用户", en = "Concurrent users" }
+bridge_share = { zh-TW = "透過橋接的比例", zh-CN = "通过网桥的比例", en = "Via bridges" }
+user_share = { zh-TW = "使用者占全球", zh-CN = "用户占全球", en = "Share of world users" }
+weight = { zh-TW = "占全網路的權重", zh-CN = "占全网络的权重", en = "Share of network weight" }
+avg = { zh-TW = "近 {back} 天平均", zh-CN = "近 {back} 天平均", en = "{back}-day average" }
+weight_when = { zh-TW = "最近一次快照", zh-CN = "最近一次快照", en = "Latest snapshot" }
+chart_users = { zh-TW = "每天平均同時上線、直接連線的 Tor 客戶端", zh-CN = "每天平均同时在线、直接连接的 Tor 客户端", en = "Average concurrent Tor clients connecting directly, per day" }
+chart_bridge = { zh-TW = "透過橋接的比例（%）", zh-CN = "通过网桥的比例（%）", en = "Share via bridges (%)" }
+users_direct = { zh-TW = "直接連線", zh-CN = "直接连接", en = "Direct" }
+users_updated = { zh-TW = "Tor Metrics 的估計到", zh-CN = "Tor Metrics 的估计到", en = "Tor Metrics estimates up to" }
+users_stale = { zh-TW = "這份資料是快取，建置時 Tor Metrics 沒有回應。", zh-CN = "这份数据是缓存，构建时 Tor Metrics 没有响应。", en = "This is cached data; Tor Metrics did not respond at build time." }
+cmp = { zh-TW = "各地區的使用與貢獻", zh-CN = "各地区的使用与贡献", en = "Use and contribution across regions" }
+cmp_note = { zh-TW = "各地區的中繼數見上方。權重是最近一次快照，使用者與橋接比例是 Tor Metrics 近 {back} 天的平均。權重從 2026 年 10 月開始收集。最後的參照地區沒有運作中的中繼，只列使用者與橋接比例。", zh-CN = "各地区的中继数见上方。权重是最近一次快照，用户与网桥比例是 Tor Metrics 近 {back} 天的平均。权重从 2026 年 10 月开始收集。最后的参照地区没有运作中的中继，只列用户与网桥比例。", en = "Relay counts are above. Weight comes from the latest snapshot; users and the bridge share are Tor Metrics averages over the last {back} days. Weight has been collected since October 2026. The reference region at the end has no running relays, so only users and the bridge share are listed." }
+refs = { zh-TW = "參照地區", zh-CN = "参照地区", en = "Reference regions" }
+col_region = { zh-TW = "地區", zh-CN = "地区", en = "Region" }
+col_weight = { zh-TW = "權重", zh-CN = "权重", en = "Weight" }
+col_users = { zh-TW = "使用者", zh-CN = "用户", en = "Users" }
+col_bridge = { zh-TW = "橋接", zh-CN = "网桥", en = "Bridges" }

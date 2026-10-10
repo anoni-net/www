@@ -37,9 +37,9 @@ icon = "chart-line"
 name = "Pulse"
 # 本站的頁面，其他工具的 docs 是文件站的路徑
 page = "projects/pulse"
-summary.zh-TW = "每小時收集臺灣與鄰近地區共十個地區的 Tor 中繼節點資料，提供公開的 API 與本站的觀測頁。"
-summary.zh-CN = "每小时收集台湾与邻近地区共十个地区的 Tor 中继节点数据，提供公开的 API 与本站的观测页。"
-summary.en = "Collects Tor relay data for Taiwan and nine other regions every hour, and serves a public API and the relay watch page on this site."
+summary.zh-TW = "每小時收集臺灣與鄰近地區共十五個地區的 Tor 中繼節點資料，提供公開的 API 與本站的觀測頁。"
+summary.zh-CN = "每小时收集台湾与邻近地区共十五个地区的 Tor 中继节点数据，提供公开的 API 与本站的观测页。"
+summary.en = "Collects Tor relay data for Taiwan and fourteen other regions every hour, and serves a public API and the relay watch page on this site."
 
 [[tools]]
 icon = "map-outline"

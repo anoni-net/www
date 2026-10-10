@@ -1,5 +1,6 @@
 {# Tor 中繼節點觀測的儀表板。圖表在 pulse.py 畫成 SVG，這裡只負責排版。
-   v 是 pulse.view() 的結果，Pulse 沒有回應又沒有快取時是 None。 #}
+   v 是 pulse.view() 的結果，Pulse 沒有回應又沒有快取時是 None。
+   u 是 tor_users.view() 的結果，Tor Metrics 沒有回應又沒有快取時是 None，那一段就不畫。 #}
 <div class="pulse">
 <nav class="pulse-regions" aria-label="{{ L.countries }}">
 {% for c in countries %}
@@ -33,6 +34,45 @@
   <figcaption>{{ L.chart_bandwidth }}</figcaption>
   {{ v.charts.bandwidth }}
 </figure>
+
+{% if u %}
+<h2 id="use">{{ L.use }}</h2>
+<p class="pulse-note">{{ L.use_note }}</p>
+<div class="pulse-stats">
+  <div class="pulse-stat">
+    <span class="k">{{ L.users }}</span>
+    <span class="v">{{ u.users_text }}</span>
+    <span class="dl flat">{{ L.avg }}</span>
+    {{ u.spark_users }}
+  </div>
+  <div class="pulse-stat">
+    <span class="k">{{ L.bridge_share }}</span>
+    <span class="v">{{ pct(u.bridge_pct) }}</span>
+    <span class="dl flat">{{ L.avg }}</span>
+    {{ u.spark_bridge }}
+  </div>
+  <div class="pulse-stat">
+    <span class="k">{{ L.user_share }}</span>
+    <span class="v">{{ pct(u.share) }}</span>
+    <span class="dl flat">{{ L.avg }}</span>
+  </div>
+  <div class="pulse-stat">
+    <span class="k">{{ L.weight }}</span>
+    <span class="v">{{ pct(v.weight) }}</span>
+    <span class="dl flat">{{ L.weight_when }}</span>
+    {{ v.spark_weight }}
+  </div>
+</div>
+<figure class="pulse-chart">
+  <figcaption>{{ L.chart_users }}</figcaption>
+  {{ u.chart }}
+</figure>
+<figure class="pulse-chart">
+  <figcaption>{{ L.chart_bridge }}</figcaption>
+  {{ u.chart_bridge }}
+</figure>
+<p class="pulse-meta">{{ L.users_updated }} {{ u.last }}{% if u_stale %}<span class="pulse-stale">{{ L.users_stale }}</span>{% endif %}</p>
+{% endif %}
 
 <h2 id="diversity">{{ L.diversity }}</h2>
 <p class="pulse-note">{{ L.diversity_note }}</p>
@@ -107,4 +147,31 @@
   </a>
 {% endfor %}
 </div>
+
+<h3 id="use-compare">{{ L.cmp }}</h3>
+<p class="pulse-note">{{ L.cmp_note }}</p>
+<table class="pulse-asn pulse-cmp">
+  <thead><tr><th>{{ L.col_region }}</th><th class="n">{{ L.col_weight }}</th><th class="n">{{ L.col_users }}</th><th class="n">{{ L.col_bridge }}</th></tr></thead>
+  <tbody>
+  {% for c in countries %}
+    <tr{% if c.current %} class="cur"{% endif %}>
+      <td><a href="{{ c.href }}">{{ c.name }}</a></td>
+      <td class="n">{{ c.weight }}</td>
+      <td class="n">{{ c.users }}</td>
+      <td class="n">{{ c.bridge }}</td>
+    </tr>
+  {% endfor %}
+  {% if use_refs %}
+    <tr class="ref"><th colspan="4">{{ L.refs }}</th></tr>
+    {% for r in use_refs %}
+    <tr>
+      <td>{{ r.name }}</td>
+      <td class="n">–</td>
+      <td class="n">{{ r.users }}</td>
+      <td class="n">{{ r.bridge }}</td>
+    </tr>
+    {% endfor %}
+  {% endif %}
+  </tbody>
+</table>
 </div>

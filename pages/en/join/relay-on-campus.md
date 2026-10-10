@@ -43,7 +43,7 @@ What the community is building is a reproducible method: the full deployment pro
 - **The first campus case is running**: the Tor relay at the Computer Science and Information Engineering department's IT centre at National Taiwan Normal University, deployed by community member NZ after working the proposal through faculty and staff
 - **A guest post on the Tor Project blog**: the case written up in English and [published upstream](https://blog.torproject.org/setting-up-tor-university-relay-taiwan/), putting it in front of a global audience
 - **Tor University Challenge translated**: the [EFF site](https://toruniversity.eff.org/) translated into Traditional Chinese, lowering the language barrier for other universities in Taiwan
-- **Pulse observation live**: [Tor Relay Watch](/projects/pulse/) shows relays in Taiwan and nine other regions, updated hourly
+- **Pulse observation live**: [Tor Relay Watch](/projects/pulse/) shows relays in Taiwan and fourteen other regions, updated hourly
 - **An interview**: the full deployment story recorded as a [long-form interview](docs:blog/2025/12/ntnu-nz/) for whoever goes next
 - **The template kit**: the experience turned into a proposal document, a technical SOP, and an FAQ for university administrators, all reusable as-is
 

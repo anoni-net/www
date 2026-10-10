@@ -14,6 +14,8 @@ Tor 中繼節點是志工架設、替全球 Tor 使用者轉送加密流量的�
 
 - 每一天取當天最後一次快照，不是整天出現過的所有中繼
 - 頻寬是運作中中繼的觀測頻寬（observed bandwidth）加總
+- 中繼占全網路的權重是運作中中繼的共識權重比例（consensus weight fraction）加總，2026 年 10 月開始收集
+- 使用者估計來自 [Tor Metrics](https://metrics.torproject.org/userstats-relay-country.html)，每天更新、晚兩三天，推算方法與限制見[臺灣有多少人在用 Tor](docs:taiwan/tor-users/)
 - 中繼的角色依 Onionoo 給的機率判斷，guard、middle、exit 的機率大於 0 就算在該角色
 - 收集中斷的日子在圖上留下缺口，不補值
 - 原始資料可以從 [Pulse 的 API](https://anoni.net/api/readme) 讀取，這一頁用的是 `/api/summary`

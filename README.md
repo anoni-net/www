@@ -96,6 +96,10 @@ uv run tools/import_from_docs.py --nginx                    # 重新產生 tools
 
 在本機預覽時讀的是公開的 API，回應經過 Cloudflare 的快取，Pulse 剛改過端點時可能讀到舊的回應，清掉 `/api/summary?country=<代碼>&days=60` 的快取即可。
 
+「使用與貢獻」一段另外讀 [Tor Metrics](https://metrics.torproject.org/) 的使用者估計（[`tor_users.py`](./tor_users.py)），每個國家兩份 CSV（直接連線、透過橋接），加上全球兩份當分母，寫進 `.cache/tor-users/`。Tor Metrics 每天更新一次、晚兩三天，所以快取 12 小時，十五國重讀一輪約 30 秒。讀不到時退回快取，連快取都沒有就不畫那一段。中繼占全網路的權重來自 `/api/summary` 的 `weight`，Pulse 2026-10 起才收集，更早的日子是空的。
+
+國家清單要跟 Pulse 的 `backend/countries.py` 一致。新增國家時先部署 Pulse，再改 `data/pulse.toml`，順序反過來的話 `/api/summary` 對新國家回 422，那幾頁會顯示資料暫時無法取得。
+
 共用的圖表函式在 [`charts.py`](./charts.py)，下一節的 OONI 觀測涵蓋率頁也用同一套。
 
 ## OONI 觀測涵蓋率
@@ -110,7 +114,7 @@ uv run tools/import_from_docs.py --nginx                    # 重新產生 tools
 | [APNIC 的 ASN 使用者估計](https://stats.labs.apnic.net/aspop/) | 各 ASN 的使用者人數與名稱，APNIC 每週更新 | 7 天 |
 | [RIPE NCC 的 ASN 名稱表](https://ftp.ripe.net/ripe/asnames/asn.txt) | 不在 APNIC 估計裡的網路名稱，例如學術網路 | 7 天 |
 
-部署在 m6 時每小時重建一次，OONI 每六小時才真的重讀，六個地區約 12 秒，連 APNIC 與 RIPE 一起重讀的那一輪約 25 秒。讀取失敗的處理跟 Pulse 相同，退回快取並標示。APNIC 的資料允許註明出處後再利用，頁面的「資料的計算方式」寫了來源。
+部署在 m6 時每小時重建一次，OONI 每六小時才真的重讀，十二個地區約 25 秒（本機實測），APNIC 與 RIPE 每週重讀一次。讀取失敗的處理跟 Pulse 相同，退回快取並標示。APNIC 的資料允許註明出處後再利用，頁面的「資料的計算方式」寫了來源。
 
 需要網路類型（行動、寬頻）或封鎖方式的細節時，用 [ASN Coverage](https://github.com/anoni-net/asn-coverage) 下載原始測量分析，彙總 API 沒有這兩項。
 

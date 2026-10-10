@@ -2,7 +2,7 @@
 # ASN 使用者估計讀，圖表畫成靜態 SVG，頁面不需要 JavaScript。細節見 asn_coverage.py。
 #
 # 第一個地區是主頁 /projects/asn-coverage/，其他地區各一頁 /projects/asn-coverage/<code>/。
-# 代碼是 ISO 3166-1 的兩碼，OONI 與 APNIC 都用同一套。
+# 代碼是 ISO 3166-1 的兩碼，OONI 與 APNIC 都用同一套。依地理分組排列，東亞、東南亞、南亞。
 
 days = 60
 # 卡片與表格看最近幾天，跟再往前的同樣天數比
@@ -31,6 +31,32 @@ name = { zh-TW = "南韓", zh-CN = "韩国", en = "South Korea" }
 [[countries]]
 code = "sg"
 name = { zh-TW = "新加坡", zh-CN = "新加坡", en = "Singapore" }
+
+[[countries]]
+code = "vn"
+name = { zh-TW = "越南", zh-CN = "越南", en = "Vietnam" }
+
+[[countries]]
+code = "th"
+name = { zh-TW = "泰國", zh-CN = "泰国", en = "Thailand" }
+
+[[countries]]
+code = "my"
+name = { zh-TW = "馬來西亞", zh-CN = "马来西亚", en = "Malaysia" }
+
+[[countries]]
+code = "id"
+name = { zh-TW = "印尼", zh-CN = "印度尼西亚", en = "Indonesia" }
+
+[[countries]]
+code = "ph"
+name = { zh-TW = "菲律賓", zh-CN = "菲律宾", en = "Philippines" }
+# 標題用的寫法，英文要加冠詞
+title_name = { en = "the Philippines" }
+
+[[countries]]
+code = "in"
+name = { zh-TW = "印度", zh-CN = "印度", en = "India" }
 
 [labels]
 title_country = { zh-TW = "{name}的 OONI 觀測涵蓋率", zh-CN = "{name}的 OONI 观测覆盖率", en = "OONI coverage in {name}" }
