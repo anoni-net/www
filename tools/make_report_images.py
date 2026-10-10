@@ -1,8 +1,8 @@
 """產生觀測季報的分享圖（og:image）與電子報的 banner。
 
 每一期季報一組圖，三個語系各一張 1200x630 的分享圖，加一張中英並列、1200x400 的電子報 banner。
-左邊是季別與副標，右邊是觀測地區地圖，上色的地區取自那一期數字檔的 countries（季報比較的地區），
-跟季報頁上的地圖一致。
+左邊是季別與副標，右邊是觀測地區地圖。主色的地區取自那一期數字檔的 countries（季報比較的地區），
+目前觀測、但那一期還沒比較的地區用淺色，跟季報頁上的地圖一致。
 
 圖不進版控。產生之後用 rsync 傳到 assets.anoni.net 背後的目錄，季報頁與社群動態的 front matter
 用 og_image 寫完整網址，電子報的 campaign 在 images 寫同一個網址，寄送時才下載。檔名帶內容的
@@ -22,6 +22,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import tomllib
 from html import escape
 from pathlib import Path
 
@@ -35,6 +36,7 @@ OBS = "#00aeff"      # cyan-500
 LAND = "#0d5675"     # 底色往亮一點，讓國界看得出來
 EDGE = "#003e57"
 SOFT = "#80d1ff"     # cyan-200
+LATER = "#2a85ad"    # 那一期之後才加入觀測的地區，介於底色與主色之間
 
 TEXT = {
     "zh-TW": ("anoni.net 觀測季報", "臺灣與亞洲 {n} 個地區的 Tor 中繼節點與 OONI 觀測", "zh-Hant", "Noto Sans CJK TC"),
@@ -49,19 +51,19 @@ def quarter_label(slug: str) -> str:
     return f"{year} {q.upper()}"
 
 
-def map_svg(observed: set[str], height: int) -> str:
+def map_svg(observed: set[str], height: int, later: set[str] = frozenset()) -> str:
     d = json.loads((ROOT / "data" / "region-map.json").read_text())
     w, h = d["width"], d["height"]
     parts = [f'<svg viewBox="0 0 {w} {h}" height="{height}" xmlns="http://www.w3.org/2000/svg">']
     for code, path in d["countries"].items():
-        if code not in observed:
+        if code not in observed and code not in later:
             parts.append(f'<path d="{path}" fill="{LAND}" stroke="{EDGE}" stroke-width="0.8"/>')
-    for code in observed:
+    for code, fill in [*((c, LATER) for c in later), *((c, OBS) for c in observed)]:
         if code in d["points"]:
             x, y = d["points"][code]
-            parts.append(f'<circle cx="{x}" cy="{y}" r="7" fill="{OBS}" stroke="{EDGE}" stroke-width="1.5"/>')
+            parts.append(f'<circle cx="{x}" cy="{y}" r="7" fill="{fill}" stroke="{EDGE}" stroke-width="1.5"/>')
         elif code in d["countries"]:
-            parts.append(f'<path d="{d["countries"][code]}" fill="{OBS}" stroke="{EDGE}" stroke-width="0.8"/>')
+            parts.append(f'<path d="{d["countries"][code]}" fill="{fill}" stroke="{EDGE}" stroke-width="0.8"/>')
     parts.append("</svg>")
     return "".join(parts)
 
@@ -71,7 +73,7 @@ def logo() -> str:
     return svg.replace("<svg", '<svg width="56" height="56"', 1)
 
 
-def og_html(lang: str, quarter: str, observed: set[str]) -> str:
+def og_html(lang: str, quarter: str, observed: set[str], later: set[str]) -> str:
     label, sub, html_lang, font = TEXT[lang]
     n = len(observed)
     sub = sub.format(n=n, m=n - 1)
@@ -89,14 +91,14 @@ body {{ margin: 0; }}
 .url {{ position: absolute; left: 72px; bottom: 56px; font-size: 26px; color: {SOFT}; }}
 :lang(en) .sub {{ font-size: 30px; }}
 </style><div class="card">
-<div class="map">{map_svg(observed, 510)}</div><div class="fade"></div>
+<div class="map">{map_svg(observed, 510, later)}</div><div class="fade"></div>
 <div class="text"><div class="brand">{logo()}<span>{escape(label)}</span></div>
 <div class="q">{escape(quarter)}</div><div class="sub">{escape(sub)}</div></div>
 <div class="url">anoni.net/projects/reports</div>
 </div></html>"""
 
 
-def banner_html(quarter: str, observed: set[str]) -> str:
+def banner_html(quarter: str, observed: set[str], later: set[str]) -> str:
     n = len(observed)
     zh = TEXT["zh-TW"][1].format(n=n)
     en = TEXT["en"][1].format(m=n - 1)
@@ -113,7 +115,7 @@ body {{ margin: 0; }}
 .sub {{ margin-top: 22px; font-size: 27px; line-height: 1.4; font-weight: 500; }}
 .en {{ margin-top: 6px; font-size: 20px; color: {SOFT}; font-family: "Noto Sans", sans-serif; }}
 </style><div class="card">
-<div class="map">{map_svg(observed, 380)}</div><div class="fade"></div>
+<div class="map">{map_svg(observed, 380, later)}</div><div class="fade"></div>
 <div class="text"><div class="brand">{logo()}<span>anoni.net 觀測季報 · Quarterly observation report</span></div>
 <div class="q">{escape(quarter)}</div><div class="sub">{escape(zh)}</div><div class="en">{escape(en)}</div></div>
 </div></html>"""
@@ -145,7 +147,12 @@ def main() -> int:
 
     data = json.loads((ROOT / "data" / "reports" / f"{args.quarter}.json").read_text())
     regions = json.loads((ROOT / "data" / "region-map.json").read_text())
-    observed = {c for c in data["countries"] if c in regions["countries"] or c in regions["points"]}
+    drawable = lambda c: c in regions["countries"] or c in regions["points"]  # noqa: E731
+    observed = {c for c in data["countries"] if drawable(c)}
+    # 目前觀測、但這一期還沒比較的地區用淺色，跟季報頁的地圖一致
+    current = {c["code"] for name in ("pulse", "asn-coverage")
+               for c in tomllib.loads((ROOT / "data" / f"{name}.toml").read_text())["countries"]}
+    later = {c for c in current if drawable(c)} - observed
     quarter = quarter_label(args.quarter)
     out_dir = Path(tempfile.mkdtemp(prefix="report-images-"))
     files = {}
@@ -154,10 +161,10 @@ def main() -> int:
         page = browser.new_page(device_scale_factor=1)
         for lang in TEXT:
             out = out_dir / f"{args.quarter}-og-{lang.lower()}.png"
-            shoot(page, og_html(lang, quarter, observed), out, 1200, 630)
+            shoot(page, og_html(lang, quarter, observed, later), out, 1200, 630)
             files[f"og_image ({lang})"] = hashed(out)
         out = out_dir / f"{args.quarter}-banner.png"
-        shoot(page, banner_html(quarter, observed), out, 1200, 400)
+        shoot(page, banner_html(quarter, observed, later), out, 1200, 400)
         files["電子報 banner"] = hashed(out)
         browser.close()
 

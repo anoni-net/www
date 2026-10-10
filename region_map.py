@@ -27,20 +27,23 @@ def data(root: Path) -> dict:
 
 
 def svg(root: Path, observed: dict[str, tuple[str, str]], refs: dict[str, str],
-        current: str | None, label: str) -> Markup:
-    """observed 是 {代碼: (名稱, 連結)}，refs 是 {代碼: 名稱}，current 是目前這一頁的地區。"""
+        current: str | None, label: str, later: dict[str, tuple[str, str]] | None = None) -> Markup:
+    """observed 是 {代碼: (名稱, 連結)}，refs 是 {代碼: 名稱}，current 是目前這一頁的地區。
+
+    later 跟 observed 同樣格式，是季報那一期之後才加入觀測的地區，用淺一點的顏色，照樣可以點。"""
+    later = later or {}
     d = data(root)
     w, h = d["width"], d["height"]
     parts = [f'<svg class="rmap" viewBox="0 0 {w} {h}" role="img" aria-label="{escape(label)}">']
     # 底圖先畫，上色的地區後畫，邊界才不會被灰色蓋住
     for code, path in d["countries"].items():
-        if code not in observed and code not in refs:
+        if code not in observed and code not in refs and code not in later:
             parts.append(f'<path class="rm-land" d="{path}"/>')
     for code, name in refs.items():
         if code in d["countries"]:
             parts.append(f'<path class="rm-ref" d="{d["countries"][code]}"><title>{escape(name)}</title></path>')
-    for code, (name, href) in observed.items():
-        cls = "rm-obs rm-cur" if code == current else "rm-obs"
+    for code, (name, href) in [*later.items(), *observed.items()]:
+        cls = "rm-obs rm-later" if code in later else "rm-obs rm-cur" if code == current else "rm-obs"
         if code in d["points"]:
             dx, dy = NUDGE.get(code, (0, 0))
             x, y = d["points"][code][0] + dx, d["points"][code][1] + dy

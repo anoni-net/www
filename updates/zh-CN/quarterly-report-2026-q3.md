@@ -2,7 +2,7 @@
 title: 第一期观测季报与观测页的新位置
 description: 2026 年第三季台湾的 Tor 中继从 13 个减少到 11 个，8 个在中华电信 HiNet，移动网络有 45% 的用户、只占 4% 的 OONI 测量。观测页 10 月搬到社区首页的项目区，覆盖的亚洲地区也补齐了。
 date: 2026-10-11
-og_image: https://assets.anoni.net/reports/2026-q3-og-zh-cn-4edcc2ab.png
+og_image: https://assets.anoni.net/reports/2026-q3-og-zh-cn-911c7cc5.png
 ---
 
 社区每天收集两种观测数据：台湾与邻近地区有多少志愿者架设的 Tor 中继，以及网络审查的测量来自哪些网络。过去数字只放在文档站的观测页，看得到最近两个月，看不出一季的变化，也很难跟周围的地区放在一起比较。10 月起，社区每三个月整理一期[观测季报](/projects/reports/)，观测页也搬到社区首页的[项目](/projects/)区，覆盖的亚洲地区一并补齐。
