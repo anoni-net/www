@@ -266,6 +266,8 @@ p, li, .lead, .row .d, .row .t, h1, h3 { text-wrap: pretty; }
 .row .ic { flex: none; display: grid; place-items: center; width: 2.4rem; height: 2.4rem; border: 1px solid var(--c-line); border-radius: 50%; color: var(--c-icon); }
 .row .b { flex: 1; min-width: 0; }
 .row .t { display: block; font-weight: 700; color: var(--c-strong); }
+/* 專案代號縮小放在名稱下方，名稱長短不一，放旁邊時換行的位置會不一致 */
+.row .t .code { display: block; margin-top: .1rem; font-size: .75rem; font-weight: 400; color: var(--c-muted); font-family: ui-monospace, monospace; white-space: nowrap; }
 .row .d { display: block; color: var(--c-muted); font-size: .9rem; line-height: 1.6; }
 .row .go { align-self: center; color: var(--c-icon); }
 .row .meta { display: block; color: var(--c-muted); font-size: .85rem; font-variant-numeric: tabular-nums; }

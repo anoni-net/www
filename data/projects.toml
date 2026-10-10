@@ -3,6 +3,9 @@
 #
 # content 是兩個內容專案，用填色卡呈現。tools 是觀測與工具，用細線列呈現。
 # 專案的詳細介紹寫在專案自己的關於頁，這裡只放一句話。
+#
+# tools 的 name 用讀者看得懂的名稱，跟頁面標題一致。code 是專案代號（repo、API、季報裡看得到的名字），
+# 縮小放在名稱旁邊，讀者在其他地方看到代號時對得起來。
 
 [[content]]
 icon = "folder-open-outline"
@@ -26,15 +29,17 @@ summary.en = "News on privacy, anonymity networks and Internet censorship, read 
 
 [[tools]]
 icon = "access-point-network"
-name = "onionoo-mcp"
+name = { zh-TW = "AI 助理的 Tor 節點查詢", zh-CN = "AI 助手的 Tor 节点查询", en = "Tor relay lookup for AI assistants" }
+code = "onionoo-mcp"
 docs = "community/onionoo-mcp/"
-summary.zh-TW = "Tor 中繼節點的查詢服務。在雲端 AI 助理貼上一個網址，就能用中文盤點各地的 Tor 節點、頻寬與所在的電信網路。"
-summary.zh-CN = "Tor 中继节点的查询服务。在云端 AI 助手贴上一个网址，就能用中文盘点各地的 Tor 节点、带宽与所在的电信网络。"
-summary.en = "A query service for Tor relay data. Paste one URL into a cloud AI assistant and ask how many relays a place runs, with what bandwidth and on which networks."
+summary.zh-TW = "在雲端 AI 助理貼上一個網址，就能用中文盤點各地的 Tor 節點、頻寬與所在的電信網路。"
+summary.zh-CN = "在云端 AI 助手贴上一个网址，就能用中文盘点各地的 Tor 节点、带宽与所在的电信网络。"
+summary.en = "Paste one URL into a cloud AI assistant and ask how many relays a place runs, with what bandwidth and on which networks."
 
 [[tools]]
 icon = "chart-line"
-name = "Pulse"
+name = { zh-TW = "Tor 中繼節點觀測", zh-CN = "Tor 中继节点观测", en = "Tor Relay Watch" }
+code = "Pulse"
 # 本站的頁面，其他工具的 docs 是文件站的路徑
 page = "projects/pulse"
 summary.zh-TW = "每小時收集臺灣與鄰近地區共十五個地區的 Tor 中繼節點資料，提供公開的 API 與本站的觀測頁。"
@@ -43,7 +48,8 @@ summary.en = "Collects Tor relay data for Taiwan and fourteen other regions ever
 
 [[tools]]
 icon = "map-outline"
-name = "ASN Coverage"
+name = { zh-TW = "OONI 觀測涵蓋率", zh-CN = "OONI 观测覆盖率", en = "OONI Coverage" }
+code = "ASN Coverage"
 page = "projects/asn-coverage"
 summary.zh-TW = "對照 OONI 的測量與各網路的使用者人數，找出臺灣與鄰近地區還沒有人測量的網路。"
 summary.zh-CN = "对照 OONI 的测量与各网络的用户人数，找出台湾与邻近地区还没有人测量的网络。"
@@ -51,9 +57,8 @@ summary.en = "Sets OONI measurements against each network's user count to find t
 
 [[tools]]
 icon = "calendar-text"
-# 名稱要翻譯的項目寫成三語，其他工具名是專有名詞
 name = { zh-TW = "觀測季報", zh-CN = "观测季报", en = "Quarterly reports" }
 page = "projects/reports"
-summary.zh-TW = "每季整理一次 Pulse 與 ASN Coverage 的數字，比較季初與季末、本季與上一季，寫下社群的解讀。"
-summary.zh-CN = "每季整理一次 Pulse 与 ASN Coverage 的数字，比较季初与季末、本季与上一季，写下社区的解读。"
-summary.en = "A quarterly write-up of the Pulse and ASN Coverage numbers, comparing the start and end of the quarter and the quarter before, with the community's reading of them."
+summary.zh-TW = "每季整理一次 Tor 中繼節點觀測與 OONI 觀測涵蓋率的數字，比較季初與季末、本季與上一季，寫下社群的解讀。"
+summary.zh-CN = "每季整理一次 Tor 中继节点观测与 OONI 观测覆盖率的数字，比较季初与季末、本季与上一季，写下社区的解读。"
+summary.en = "A quarterly write-up of the Tor Relay Watch and OONI Coverage numbers, comparing the start and end of the quarter and the quarter before, with the community's reading of them."

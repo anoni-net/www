@@ -1,6 +1,6 @@
 ---
 title: 專案
-description: anoni.net 社群自己寫的內容與程式，包含文件站、新聞導讀，以及 onionoo-mcp、Pulse、ASN Coverage 等觀測工具。
+description: anoni.net 社群自己寫的內容與程式，包含文件站、新聞導讀，以及 Tor 中繼節點觀測、OONI 觀測涵蓋率與 AI 助理的 Tor 節點查詢等觀測工具。
 lead: 社群自己寫的內容與程式。
 ---
 
