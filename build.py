@@ -412,7 +412,8 @@ class Site:
     def tor_users_data(self) -> dict:
         """Tor Metrics 的使用者估計，同一次建置只讀一次。"""
         if self._tor_users is None:
-            self._tor_users = tor_users.load(self.pulse_codes, self.data["pulse"]["days"], CACHE / "tor-users")
+            refs = [r["code"] for r in self.data["pulse"].get("use_refs", [])]
+            self._tor_users = tor_users.load(self.pulse_codes + refs, self.data["pulse"]["days"], CACHE / "tor-users")
         return self._tor_users
 
     def build_pulse(self, lang: Lang, target: dict, out: Path, meta: dict, body: str,
@@ -440,12 +441,20 @@ class Site:
                 "bridge": tor_users.pct(u["bridge_pct"]) if u else "–",
             })
 
+        # 比較表最後的參照地區，只有使用者估計
+        use_refs = []
+        for r in conf.get("use_refs", []):
+            u = tor_users.view(users_raw[r["code"]]["data"], world, conf["labels"], pick, conf["compare_days"]) \
+                if users_raw[r["code"]]["data"] else None
+            use_refs.append({"name": pick(r["name"]), "users": u["users_text"] if u else "–",
+                             "bridge": tor_users.pct(u["bridge_pct"]) if u else "–"})
+
         def render(country: dict, countries: list[dict]) -> str:
             code = country["code"]
             return self.env.get_template("_block-pulse.html.j2").render(
                 **self.context(lang, target), L=L, v=views[code], stale=loaded[code]["stale"],
                 u=users[code], u_stale=users_raw[code]["stale"] or users_raw["all"]["stale"],
-                pct=tor_users.pct, country=country, countries=countries)
+                pct=tor_users.pct, country=country, countries=countries, use_refs=use_refs)
 
         self.build_regions(lang, target, out, meta, body, blocks, where, PULSE_SLUG, "pulse", countries, render)
 

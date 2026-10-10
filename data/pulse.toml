@@ -75,6 +75,12 @@ name = { zh-TW = "美國", zh-CN = "美国", en = "United States" }
 # 標題用的寫法，英文要加冠詞
 title_name = { en = "the United States" }
 
+# 只放在「各地區的使用與貢獻」比較表的參照地區，沒有自己的頁面，也不在 Pulse 的收集清單裡。
+# 中國沒有運作中的中繼，只列 Tor Metrics 的使用者與橋接比例，當作直接連線受阻的對照。
+[[use_refs]]
+code = "cn"
+name = { zh-TW = "中國", zh-CN = "中国", en = "China" }
+
 [labels]
 title_country = { zh-TW = "{name}的 Tor 中繼節點", zh-CN = "{name}的 Tor 中继节点", en = "Tor relays in {name}" }
 countries = { zh-TW = "觀測地區", zh-CN = "观测地区", en = "Regions" }
@@ -126,7 +132,8 @@ users_direct = { zh-TW = "直接連線", zh-CN = "直接连接", en = "Direct" }
 users_updated = { zh-TW = "Tor Metrics 的估計到", zh-CN = "Tor Metrics 的估计到", en = "Tor Metrics estimates up to" }
 users_stale = { zh-TW = "這份資料是快取，建置時 Tor Metrics 沒有回應。", zh-CN = "这份数据是缓存，构建时 Tor Metrics 没有响应。", en = "This is cached data; Tor Metrics did not respond at build time." }
 cmp = { zh-TW = "各地區的使用與貢獻", zh-CN = "各地区的使用与贡献", en = "Use and contribution across regions" }
-cmp_note = { zh-TW = "各地區的中繼數見上方。權重是最近一次快照，使用者與橋接比例是 Tor Metrics 近 {back} 天的平均。權重從 2026 年 10 月開始收集。", zh-CN = "各地区的中继数见上方。权重是最近一次快照，用户与网桥比例是 Tor Metrics 近 {back} 天的平均。权重从 2026 年 10 月开始收集。", en = "Relay counts are above. Weight comes from the latest snapshot; users and the bridge share are Tor Metrics averages over the last {back} days. Weight has been collected since October 2026." }
+cmp_note = { zh-TW = "各地區的中繼數見上方。權重是最近一次快照，使用者與橋接比例是 Tor Metrics 近 {back} 天的平均。權重從 2026 年 10 月開始收集。最後的參照地區沒有運作中的中繼，只列使用者與橋接比例。", zh-CN = "各地区的中继数见上方。权重是最近一次快照，用户与网桥比例是 Tor Metrics 近 {back} 天的平均。权重从 2026 年 10 月开始收集。最后的参照地区没有运作中的中继，只列用户与网桥比例。", en = "Relay counts are above. Weight comes from the latest snapshot; users and the bridge share are Tor Metrics averages over the last {back} days. Weight has been collected since October 2026. The reference region at the end has no running relays, so only users and the bridge share are listed." }
+refs = { zh-TW = "參照地區", zh-CN = "参照地区", en = "Reference regions" }
 col_region = { zh-TW = "地區", zh-CN = "地区", en = "Region" }
 col_weight = { zh-TW = "權重", zh-CN = "权重", en = "Weight" }
 col_users = { zh-TW = "使用者", zh-CN = "用户", en = "Users" }

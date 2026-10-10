@@ -161,6 +161,17 @@
       <td class="n">{{ c.bridge }}</td>
     </tr>
   {% endfor %}
+  {% if use_refs %}
+    <tr class="ref"><th colspan="4">{{ L.refs }}</th></tr>
+    {% for r in use_refs %}
+    <tr>
+      <td>{{ r.name }}</td>
+      <td class="n">–</td>
+      <td class="n">{{ r.users }}</td>
+      <td class="n">{{ r.bridge }}</td>
+    </tr>
+    {% endfor %}
+  {% endif %}
   </tbody>
 </table>
 </div>

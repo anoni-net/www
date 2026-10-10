@@ -416,6 +416,8 @@ svg.pc rect:hover, svg.pc circle:hover { opacity: .7; }
 /* 各地區的使用與貢獻：目前所在的地區整列加粗 */
 .pulse-cmp { margin-bottom: 1.5rem; }
 .pulse-cmp tr.cur td { font-weight: 700; }
+/* 參照地區前面加一列小標 */
+.pulse-cmp tr.ref th { padding-top: .9rem; font-size: .75rem; color: var(--c-muted); font-weight: 400; }
 /* 英文的地區名較長（South Korea、United States），手機上讓名稱斷行，數字欄才放得下 */
 .prose .pulse-asn.pulse-cmp td:first-child, .prose .pulse-cmp td:first-child a { white-space: normal; overflow-wrap: normal; }
 .pulse-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .5rem; margin-bottom: 1.5rem; }
