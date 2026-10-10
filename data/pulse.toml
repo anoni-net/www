@@ -81,6 +81,19 @@ title_name = { en = "the United States" }
 code = "cn"
 name = { zh-TW = "中國", zh-CN = "中国", en = "China" }
 
+# 「Tor 網路給的標記」每個標記下方的說明，條件照 Tor 的目錄規格（dir-spec）簡化，沒有列的標記只顯示名稱
+[flag_desc]
+Fast = { zh-TW = "頻寬至少每秒 100 KB，或排在全網路前八分之七", zh-CN = "带宽至少每秒 100 KB，或排在全网络前八分之七", en = "At least 100 KB/s, or in the top seven-eighths of the network" }
+Stable = { zh-TW = "連續運作的時間夠長，適合需要長時間連線的服務", zh-CN = "连续运作的时间够长，适合需要长时间连接的服务", en = "Up long enough to suit long-lived connections" }
+Guard = { zh-TW = "夠穩定、頻寬也夠大，可以被選為電路的入口", zh-CN = "够稳定、带宽也够大，可以被选为电路的入口", en = "Stable and fast enough to be picked as a circuit's entry" }
+Exit = { zh-TW = "出口政策允許連往網頁常用的連接埠（80、443 等）", zh-CN = "出口策略允许连往网页常用的端口（80、443 等）", en = "Exit policy allows common web ports such as 80 and 443" }
+HSDir = { zh-TW = "存放洋蔥服務（.onion 網站）的目錄資料", zh-CN = "存放洋葱服务（.onion 网站）的目录数据", en = "Stores directory data for onion services (.onion sites)" }
+V2Dir = { zh-TW = "提供目錄資料，讓 Tor 客戶端下載", zh-CN = "提供目录数据，让 Tor 客户端下载", en = "Serves directory data for Tor clients to download" }
+BadExit = { zh-TW = "被判定為有問題的出口，客戶端不會選它當出口", zh-CN = "被判定为有问题的出口，客户端不会选它当出口", en = "Judged faulty as an exit, so clients never use it as one" }
+MiddleOnly = { zh-TW = "只能當電路的中間節點", zh-CN = "只能当电路的中间节点", en = "May only be used as a middle relay" }
+StaleDesc = { zh-TW = "超過 18 小時沒有更新自己的描述資料", zh-CN = "超过 18 小时没有更新自己的描述数据", en = "Has not refreshed its descriptor in over 18 hours" }
+Authority = { zh-TW = "目錄權威伺服器本身", zh-CN = "目录权威服务器本身", en = "One of the directory authorities" }
+
 [labels]
 title_country = { zh-TW = "{name}的 Tor 中繼節點", zh-CN = "{name}的 Tor 中继节点", en = "Tor relays in {name}" }
 countries = { zh-TW = "觀測地區", zh-CN = "观测地区", en = "Regions" }
@@ -94,8 +107,9 @@ bandwidth = { zh-TW = "總頻寬", zh-CN = "总带宽", en = "Bandwidth" }
 asns = { zh-TW = "自治網路（ASN）", zh-CN = "自治网络（ASN）", en = "Networks (ASNs)" }
 exits = { zh-TW = "出口節點", zh-CN = "出口节点", en = "Exit relays" }
 vs = { zh-TW = "比 {back} 天前", zh-CN = "比 {back} 天前", en = "vs {back} days ago" }
+stats_note = { zh-TW = "卡片是最近一次快照的數字，跟 {back} 天前比，小圖是近 {days} 天的走勢。自治網路（ASN）是電信商、大學或雲端業者這類各自管理的網路，中繼分散在越多 ASN 越好。出口節點替使用者連往一般網站，網站看到的是出口節點的 IP。", zh-CN = "卡片是最近一次快照的数字，跟 {back} 天前比，小图是近 {days} 天的走势。自治网络（ASN）是电信商、大学或云服务商这类各自管理的网络，中继分散在越多 ASN 越好。出口节点替用户连往一般网站，网站看到的是出口节点的 IP。", en = "Cards show the latest snapshot against {back} days ago, with the trend over the last {days} days. An autonomous system (ASN) is a network run by one organisation, such as a telecom, a university or a cloud provider, and the more ASNs relays spread across the better. Exit relays connect users to ordinary websites, which see the exit relay's IP address." }
 health = { zh-TW = "運作與頻寬", zh-CN = "运作与带宽", en = "Running relays and bandwidth" }
-health_note = { zh-TW = "每天最後一次快照裡運作中與已停止的中繼，以及運作中中繼的觀測頻寬加總。", zh-CN = "每天最后一次快照里运作中与已停止的中继，以及运作中中继的观测带宽加总。", en = "Running and stopped relays in the last snapshot of each day, and the total observed bandwidth of the running ones." }
+health_note = { zh-TW = "每天最後一次快照裡運作中與已停止的中繼，以及運作中中繼的觀測頻寬加總。已停止的中繼過去一週出現過、這次不在 Tor 網路的共識裡，可能是關機、斷線或停止維護。觀測頻寬是中繼回報能持續處理的最大流量，代表轉送能力的上限。", zh-CN = "每天最后一次快照里运作中与已停止的中继，以及运作中中继的观测带宽加总。已停止的中继过去一周出现过、这次不在 Tor 网络的共识里，可能是关机、断线或停止维护。观测带宽是中继回报能持续处理的最大流量，代表转发能力的上限。", en = "Running and stopped relays in the last snapshot of each day, and the total observed bandwidth of the running ones. A stopped relay appeared in the past week but is missing from the latest Tor network consensus, perhaps because it was shut down, lost its connection or is no longer maintained. Observed bandwidth is the most traffic a relay reports it can sustain, an upper bound on what it can carry." }
 chart_relays = { zh-TW = "中繼數量", zh-CN = "中继数量", en = "Relays" }
 chart_bandwidth = { zh-TW = "觀測頻寬（MB/s）", zh-CN = "观测带宽（MB/s）", en = "Observed bandwidth (MB/s)" }
 diversity = { zh-TW = "分散程度", zh-CN = "分散程度", en = "Diversity" }
@@ -112,14 +126,14 @@ versions = { zh-TW = "Tor 版本", zh-CN = "Tor 版本", en = "Tor versions" }
 versions_note = { zh-TW = "運作中的中繼使用的 Tor 版本，每天的長條疊滿 100%。新版發布之後，新版本的比例長得越快，代表營運者更新得越即時。", zh-CN = "运作中的中继使用的 Tor 版本，每天的长条叠满 100%。新版发布之后，新版本的比例长得越快，代表运营者更新得越及时。", en = "Tor versions on running relays, with each day's bar adding up to 100%. The faster a new version's share grows after a release, the faster operators are keeping up." }
 versions_latest = { zh-TW = "最近一次快照的版本", zh-CN = "最近一次快照的版本", en = "Versions in the latest snapshot" }
 flags = { zh-TW = "Tor 網路給的標記", zh-CN = "Tor 网络给的标记", en = "Flags" }
-flags_note = { zh-TW = "目錄權威伺服器依每個中繼的表現給的標記，例如 Stable 是長期穩定，Fast 是頻寬夠大。各標記不互斥。", zh-CN = "目录权威服务器依每个中继的表现给的标记，例如 Stable 是长期稳定，Fast 是带宽够大。各标记不互斥。", en = "Flags the directory authorities assign from each relay's behaviour, such as Stable for long uptime and Fast for enough bandwidth. A relay can carry several." }
+flags_note = { zh-TW = "目錄權威伺服器（每小時投票產生 Tor 網路共識的幾台伺服器）依每個中繼的表現給的標記，每個標記的意思寫在名稱下方。一個中繼可以同時有好幾個標記，Running 與 Valid 每個運作中的中繼都有，不列。", zh-CN = "目录权威服务器（每小时投票产生 Tor 网络共识的几台服务器）依每个中继的表现给的标记，每个标记的意思写在名称下方。一个中继可以同时有好几个标记，Running 与 Valid 每个运作中的中继都有，不列。", en = "Flags the directory authorities, the few servers that vote on the Tor network consensus every hour, assign from each relay's behaviour. What each flag means is written under its name. A relay can carry several, and Running and Valid, which every running relay has, are left out." }
 compare = { zh-TW = "各地區比較", zh-CN = "各地区比较", en = "Across regions" }
 compare_note = { zh-TW = "最近一次快照裡運作中的中繼數，小圖是近 {days} 天的走勢。點進去看各地區的完整圖表。", zh-CN = "最近一次快照里运作中的中继数，小图是近 {days} 天的走势。点进去看各地区的完整图表。", en = "Running relays in the latest snapshot, with the trend over the last {days} days. Open a region for its full charts." }
 other = { zh-TW = "其他", zh-CN = "其他", en = "Others" }
 no_data = { zh-TW = "這段期間沒有資料", zh-CN = "这段期间没有数据", en = "No data for this period" }
 # 使用與貢獻：Tor Metrics 的使用者估計（tor_users.py）與中繼占全網路的權重
 use = { zh-TW = "使用與貢獻", zh-CN = "使用与贡献", en = "Use and contribution" }
-use_note = { zh-TW = "Tor Metrics 依中繼收到的目錄請求，推算每天平均同時上線的 Tor 客戶端，算不出不重複的人數。透過橋接連線的另外計算，橋接的比例高，通常代表直接連上 Tor 受到阻擋。使用者占全球的比例跟中繼占全網路的權重放在一起，可以看出這個地區用掉的與提供的轉送能量差多少。", zh-CN = "Tor Metrics 依中继收到的目录请求，推算每天平均同时在线的 Tor 客户端，算不出不重复的人数。通过网桥连接的另外计算，网桥的比例高，通常代表直接连上 Tor 受到阻挡。用户占全球的比例跟中继占全网络的权重放在一起，可以看出这个地区用掉的与提供的转发能力差多少。", en = "Tor Metrics estimates the average number of Tor clients online at the same time each day from the directory requests relays receive; it cannot count distinct people. Clients connecting through bridges are counted separately, and a high bridge share usually means connecting to Tor directly is being blocked. Setting the region's share of the world's users beside its relays' share of the network's weight shows the gap between the capacity it uses and the capacity it provides." }
+use_note = { zh-TW = "Tor Metrics 依中繼收到的目錄請求，推算每天平均同時上線的 Tor 客戶端，算不出不重複的人數。橋接是沒有公開列在 Tor 目錄裡的入口，直接連線被封鎖時改用橋接，所以橋接的比例高，通常代表直接連上 Tor 受到阻擋。權重是 Tor 依頻寬量測給每個中繼的分數，客戶端依權重挑選中繼，一個地區的權重加總大致是 Tor 流量經過這個地區的比例。使用者占全球的比例跟權重放在一起，可以看出這個地區用掉的與提供的轉送能量差多少。", zh-CN = "Tor Metrics 依中继收到的目录请求，推算每天平均同时在线的 Tor 客户端，算不出不重复的人数。网桥是没有公开列在 Tor 目录里的入口，直接连接被封锁时改用网桥，所以网桥的比例高，通常代表直接连上 Tor 受到阻挡。权重是 Tor 依带宽测量给每个中继的分数，客户端依权重挑选中继，一个地区的权重加总大致是 Tor 流量经过这个地区的比例。用户占全球的比例跟权重放在一起，可以看出这个地区用掉的与提供的转发能力差多少。", en = "Tor Metrics estimates the average number of Tor clients online at the same time each day from the directory requests relays receive; it cannot count distinct people. Bridges are entry points that are not publicly listed in the Tor directory, used when connecting directly is blocked, so a high bridge share usually means direct connections to Tor are being blocked. Weight is the score Tor gives each relay from bandwidth measurements, and clients pick relays by weight, so a region's total weight roughly matches the share of Tor traffic passing through it. Setting the region's share of the world's users beside its weight shows the gap between the capacity it uses and the capacity it provides." }
 users = { zh-TW = "同時上線的使用者", zh-CN = "同时在线的用户", en = "Concurrent users" }
 bridge_share = { zh-TW = "透過橋接的比例", zh-CN = "通过网桥的比例", en = "Via bridges" }
 user_share = { zh-TW = "使用者占全球", zh-CN = "用户占全球", en = "Share of world users" }

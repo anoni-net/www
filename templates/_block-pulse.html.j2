@@ -23,6 +23,7 @@
   </div>
 {% endfor %}
 </div>
+<p class="pulse-note">{{ L.stats_note }}</p>
 
 <h2 id="health">{{ L.health }}</h2>
 <p class="pulse-note">{{ L.health_note }}</p>
@@ -126,9 +127,9 @@
   </figure>
   <figure class="pulse-chart">
     <figcaption>{{ L.flags }}</figcaption>
-    <ul class="pulse-bars">
+    <ul class="pulse-bars pulse-flags">
     {% for x in v.flags %}
-      <li><span class="l">{{ x.flag }}</span><span class="bar"><span style="width:{{ '%.2f' | format(x.pct) }}%"></span></span><span class="n">{{ x.count }}</span></li>
+      <li><span class="l">{{ x.flag }}</span><span class="bar"><span style="width:{{ '%.2f' | format(x.pct) }}%"></span></span><span class="n">{{ x.count }}</span>{% if flag_desc[x.flag] %}<span class="d">{{ flag_desc[x.flag] }}</span>{% endif %}</li>
     {% endfor %}
     </ul>
   </figure>

@@ -6,9 +6,26 @@ lead: Censorship monitoring only covers the networks where someone runs OONI Pro
 
 OONI's censorship measurements come from volunteers running OONI Probe on their own connections. Within one region, each provider and network (ASN, autonomous system number) may block different sites, so when only one or two providers are measured, blocking on the others goes unrecorded. This page sets OONI's measurement counts against APNIC's estimates of how many users each network has, to show how many users the measurements cover, which networks they concentrate on, and which networks have none.
 
-The page is regenerated every hour and OONI's measurements are read every six hours. Taiwan is shown by default, with other regions as reference points; switch between them with the region list below. Each quarter's changes are written up in the [quarterly reports](/projects/reports/).
+The page is regenerated every hour and OONI's measurements are read every six hours. Taiwan is shown by default, with other regions as reference points; switch between them with the region list below. The [glossary](#glossary) at the end of the page explains the fields. Each quarter's changes are written up in the [quarterly reports](/projects/reports/).
 
 <!-- asn-coverage -->
+
+## Glossary {#glossary}
+
+- **OONI Probe**: an open-source app from OONI that tests from a phone or computer whether websites and services can be reached, with the results published in OONI's database
+- **Measurement**: one result of OONI Probe testing one website or service. A single run of the website test produces hundreds, so a high count does not mean many people ran tests
+- **Autonomous system (ASN)**: a group of networks run by one organisation under one routing policy, such as a telecom, a university or a cloud provider, each with its own AS number. A telecom's fixed and mobile networks are often separate ASNs
+- **Network names**: copied from APNIC and RIPE NCC registry records and often abbreviated. In Taiwan, for example, HINET is Chunghwa Telecom's fixed network and EMOME-NET its mobile network
+- **APNIC**: the Asia Pacific Network Information Centre, which allocates IP addresses and ASNs in the region and estimates each network's users from sampled web ads
+- **Users, Measured (%)**: Users is the network's share of the region's internet users, and Measured is its share of the region's measurements. The further apart the two are, the more the measurements are out of proportion to the users
+- **Days**: how many of the last 30 days had any measurements
+- **Users covered**: the share of the region's internet users on networks with measurements, where a single measurement is enough to count
+- **Users steadily covered**: counts only networks measured on at least 15 of the last 30 days
+- **Top two networks**: the share of measurements from the two most measured networks; lower means more spread out
+- **pp (percentage points)**: the difference between two percentages. Coverage going from 94.6% to 93.9% is written as −0.7 pp
+- **OK, anomaly, confirmed, failure**: OK means the result matched the control. An anomaly means it did not, which can be blocking or an unstable connection. Confirmed blocking is an anomaly matching a known blocking pattern. A failure is a test that did not complete
+- **Anomaly rate (messaging apps)**: the share of the app's measurements that were anomalies. Close to 100% usually means the app is blocked there
+- **Reference region**: a region without its own page, listed in a comparison table for contrast
 
 ## How the numbers are calculated
 
