@@ -520,8 +520,11 @@ class Site:
 
         self.build_regions(lang, target, out, meta, body, blocks, where, ASN_SLUG, "asn-coverage", countries, render)
 
-    def region_map_figure(self, lang: Lang) -> str:
-        """文章裡的 <!-- region-map -->：兩個觀測頁的地區一起上色，點下去開 Tor 中繼節點觀測的那一頁。"""
+    def region_map_figure(self, lang: Lang, codes: list[str] | None = None, note: str | None = None) -> str:
+        """文章與季報裡的 <!-- region-map -->，點下去開那個地區的觀測頁。
+
+        codes 沒給時是兩個觀測頁目前的地區加上參照地區（社群動態用），給了就只上色那幾個地區
+        （季報用那一期比較的地區，跟當時的數字一致）。"""
         pick = lambda value: value[lang.code] if isinstance(value, dict) else value  # noqa: E731
         pulse_conf, asn_conf = self.data["pulse"], self.data["asn-coverage"]
         L = {k: pick(v) for k, v in pulse_conf["labels"].items()}
@@ -532,11 +535,15 @@ class Site:
         for c in asn_conf["countries"]:
             observed.setdefault(c["code"], (pick(c["name"]), self.page_path(lang, f"{ASN_SLUG}/{c['code']}")))
         refs = {r["code"]: pick(r["name"]) for r in pulse_conf.get("use_refs", []) + asn_conf["apps"].get("regions", [])}
+        if codes is not None:
+            observed = {c: observed[c] for c in codes if c in observed}
+            refs = {}
         svg = region_map.svg(ROOT, observed, refs, None, L["map_label"])
-        return (f'<figure class="rmap-fig">{svg}<figcaption><span class="lg">'
-                f'<span><i class="sw rm-sw-obs"></i>{L["map_obs"]}</span>'
-                f'<span><i class="sw rm-sw-ref"></i>{L["map_ref_post"]}</span></span>{L["map_note_post"]}'
-                f'</figcaption></figure>')
+        legend = f'<span><i class="sw rm-sw-obs"></i>{L["map_obs"]}</span>'
+        if refs:
+            legend += f'<span><i class="sw rm-sw-ref"></i>{L["map_ref_post"]}</span>'
+        return (f'<figure class="rmap-fig">{svg}<figcaption><span class="lg">{legend}</span>'
+                f'{note or L["map_note_post"]}</figcaption></figure>')
 
     def build_posts(self, lang: Lang, target: dict, out: Path) -> None:
         for post in self.posts[lang.code]:
@@ -588,6 +595,8 @@ class Site:
             module = self.env.get_template("_report.html.j2").make_module(
                 {**self.context(lang, target), "v": v, "L": L, "cname": cname, "cc": data["ooni"]["cc"]})
             parts = {f"rq-{n.replace('_', '-')}": str(getattr(module, n)()) for n in REPORT_BLOCKS}
+            # 季報的地圖只上色那一期比較的地區，之後新增的地區不算進去
+            parts["region-map"] = self.region_map_figure(lang, data["countries"], L.get("map_note"))
             body_html = self.fill_blocks(render_markdown(rep.body), {**blocks, **parts}, where)
             body_html = ICON_REF.sub(lambda m: icon(m[1]), body_html)
             body_html = self.localize(body_html, lang)
