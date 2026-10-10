@@ -1,4 +1,8 @@
+<a id="zh-tw"></a>
+
 # anoni.net
+
+**正體中文** | [English](#en)
 
 `anoni.net` 首頁與社群頁面的原始碼，包含社群介紹、參與方式、專案與自架服務的目錄、活動與社群動態。由[匿名網路社群 anoni.net](https://anoni.net/) 維護。
 
@@ -181,3 +185,123 @@ APNIC 只提供最近 60 天的估計，查不到過去的值，所以每一期�
 | [CC-BY 4.0](./LICENSE) | 其餘檔案，包含 `pages/`、`updates/`、`data/`、`strings.toml` 這些頁面上讀得到的文字，以及 `static/` 底下的 logo、favicon 與預覽圖 |
 
 logo、wordmark 與色票的使用方式寫在本站的[品牌素材](https://anoni.net/brand/)（`pages/<語系>/brand.md`），下載用的 SVG 放在 `static/brand/`。文件站的 header 與 favicon 用的是同一批檔案，要換 logo 時兩邊一起換。
+
+---
+
+<a id="en"></a>
+
+# anoni.net
+
+[正體中文](#zh-tw) | **English**
+
+Source for the `anoni.net` home page and community pages: who we are, how to take part, the directory of projects and self-hosted services, events and community updates. It is maintained by [anoni.net](https://anoni.net/), a community based in Taiwan.
+
+## Division of work with the other repositories
+
+Content and code written by the community are called projects. Each has its own repository and is served from a path under `anoni.net`. Software developed by other open-source projects and run by the community is called a service, and each service has its own subdomain. This repository holds only the community's own pages; projects and services are described in detail in their own repositories.
+
+| URL | Repository |
+|---|---|
+| `anoni.net/` | This repository |
+| `anoni.net/docs/` | [`anoni-net/docs`](https://github.com/anoni-net/docs) |
+| `anoni.net/news/` | [`anoni-net/news`](https://github.com/anoni-net/news) |
+
+## Status
+
+The community pages finished moving over from the docs site in 2026-10, and all six items in the navigation bar now point to pages on this site. Community posts published on the docs site's blog before 2026-10 stay at their original addresses, and the community updates list links straight to them; the list of those posts is in `tools/docs_updates.toml`.
+
+## Building
+
+```bash
+uv sync
+uv run build.py          # writes public/clearnet and public/onion
+uv run build.py --check  # builds into a temporary directory and checks it; CI runs the same command
+```
+
+We do not use an off-the-shelf static site generator. `build.py` reads the Markdown pages and data files and renders plain HTML and a single CSS file through Jinja templates, without loading any framework or external fonts.
+
+| Location | Contents |
+|---|---|
+| `pages/<locale>/` | One Markdown file per page; file names must match across the three locales |
+| `updates/<locale>/` | Community updates, one Markdown file per post (see "Community updates" below) |
+| `data/` | Topics, projects and services, with all three locales in the same entry |
+| `site.toml` | Locales, the navigation bar, the two output targets and the onion URL rewrites |
+| `strings.toml` | Interface text used in the templates |
+| `templates/` | Page templates; `_block-*.html.j2` are blocks that can be placed inside Markdown |
+| `static/` | Files copied as they are, such as the CSS, the logo and the PGP public key |
+| `extra/` | Files only some targets need, such as `llms.txt` for clearnet, listed in `site.toml` |
+| `icons/` | Inline SVG icons; their sources and licenses are in that directory's README |
+
+Links in Markdown come in three forms, expanded for each locale at build time:
+
+- `/join/`: a page on this site, given the locale prefix, so the English version becomes `/en/join/`
+- `docs:tools/what-is-tor/`: a page on the docs site in the same locale
+- `news:about/`: a page on News in the same locale
+
+A line in Markdown containing only `<!-- topics -->` is replaced at build time with the contents of `templates/_block-topics.html.j2`. Topics, project cards and service cards are all placed on pages this way.
+
+Before writing files, the onion build rewrites clearnet URLs such as `https://anoni.net/docs` to their onion addresses, using the table in `[targets.onion.rewrite]` in `site.toml`. `--check` verifies that the three locales have matching pages, that internal links resolve to files, and that no clearnet URL was missed in the onion build.
+
+## Community updates
+
+Community announcements go in `updates/<locale>/`, one Markdown file per post. The front matter needs `title`, `description` and `date` (`YYYY-MM-DD`), and the URL is `/updates/YYYY/MM/<file name>/`, the same format as the docs site's blog. A post does not need all three locales. Files with the same name are linked to each other by the language switcher, and switching to a locale without that post leads back to the updates list.
+
+The `/updates/` list, the "latest updates" section on the home page and each locale's RSS feed (`/updates/feed.xml`) include older community posts from the docs site's blog alongside this site's own, linking to their original addresses on the docs site. That list is kept in `tools/docs_updates.toml`; run `uv run tools/import_from_docs.py --updates` to generate `data/docs_updates.toml` from it.
+
+Translations, technical analyses, measurement reports and the docs site's own update reviews are still published on the docs site's blog.
+
+## Deployment
+
+The site is built on m6, not through GitHub Actions. m6's crontab runs [`tools/deploy-m6.sh`](./tools/deploy-m6.sh) (copied to `/home/ubuntu/www-deploy.sh`) every 5 minutes, so a merge into `main` goes live within a few minutes.
+
+| Location on m6 | Contents |
+|---|---|
+| `/srv/anoni-net-www/repo` | A clone of this repository that only pulls `main` |
+| `/srv/anoni-net-www/releases/<commit>` | One build per commit; the five most recent are kept |
+| `/srv/anoni-net-www/current` | A symlink to the live build |
+| `/home/ubuntu/www-deploy.log` | A record of every release and failure |
+
+The script runs `--check` first, builds into a new directory if it passes, and only then switches `current`, so a failed build leaves the live site on the previous version. nginx serves both `anoni.net` and the root onion address from `current`, configured in `/etc/nginx/conf.d/anoninet.conf` on m6, with `error_page 404` pointing to `404.html` at the root.
+
+Pages moved over from the docs site are recorded in [`tools/docs_moved.toml`](./tools/docs_moved.toml), which both the import and the redirect table for old URLs are generated from:
+
+```bash
+uv run tools/import_from_docs.py --import about/governance  # convert a docs source file into a page under pages/
+uv run tools/import_from_docs.py --nginx                    # regenerate tools/nginx-docs-moved.conf
+```
+
+The converter reads `origin/main` of a docs clone and rewrites internal links by destination: moved pages become URLs on this site, everything else becomes the `docs:` shorthand, and blog post URLs are built from their front matter. Afterwards it checks every `docs:` link against the docs site's URL contract and prints a warning for any link that is missing or only redirects. Layout components specific to the docs site, such as card grids, have to be rewritten by hand.
+
+Old URLs are redirected with a 301 by nginx on m6, with one `map` for clearnet and one for onion. Copy the generated table to `/etc/nginx/conf.d/anoni-docs-moved.conf` and reload. The order is: the new pages go live first, then the redirects are applied, and finally the source files are deleted from the docs site and its `redirect_maps` are updated.
+
+To roll back, first create `/srv/anoni-net-www/hold` to pause automatic releases, then point `current` at an older build under `releases/`. Once the problem is fixed, delete `hold` and the next run releases the latest `main`.
+
+## Categories
+
+Content on the site falls into three categories, projects, services and topics, decided by who develops it.
+
+| Category | Definition | Examples | Page | Data |
+|---|---|---|---|---|
+| Project | Content or code written by the community, with its own roadmap and contributors | docs, news, onionoo-mcp, Pulse, ASN Coverage | `/projects/` | `data/projects.toml` |
+| Service | Software developed by other open-source projects, set up and run by the community | Matrix, CryptPad, Etherpad, SearXNG, Send, Formbricks | `/services/` | `data/services.toml` |
+| Topic | A direction for the year's work that readers can take up and join, rather than a finished product | Personal privacy guides for 2026, building Tor relays on campuses, anonymous payments | `/join/` | `data/topics.toml` |
+
+When something could fit two categories, decide by who develops it. onionoo-mcp is code written by the community that also runs as a public service, so it is a project. Open-source software we set up in future is a service, and new tools the community writes are projects.
+
+This site carries only a card and a one-line description for each project, linking to the project's own about page, and the full description lives in the project's repository. Keeping the same description in two places makes it easy to update one and miss the other.
+
+## Writing style
+
+The [writing style guide](https://anoni.net/en/join/writing-style/) is a page on this site, with its source in `pages/<locale>/join/writing-style.md`. The community site, the docs site, News and every repository's documentation share it. The rules that can be checked mechanically live in `tools/docs_style_lint.py` in `anoni-net/docs`; when a rule changes, update both.
+
+## License
+
+Code and page content are licensed separately:
+
+| License | Covers |
+|---|---|
+| [MIT](./LICENSE-code) | `build.py`, `site.toml`, `pyproject.toml`, `templates/`, `static/css/`, `tools/`, `.github/` |
+| The license of each icon set | `icons/`; sources and licenses are in [`icons/README.md`](./icons/README.md) |
+| [CC-BY 4.0](./LICENSE) | Everything else, including the text readers see on the pages (`pages/`, `updates/`, `data/`, `strings.toml`) and the logo, favicon and preview images under `static/` |
+
+How to use the logo, wordmark and colour palette is described on the site's [brand assets](https://anoni.net/en/brand/) page (`pages/<locale>/brand.md`), and the SVGs for download are in `static/brand/`. The docs site's header and favicon use the same files, so a logo change has to be made in both places.
