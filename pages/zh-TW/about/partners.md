@@ -36,7 +36,7 @@ Matrix、CryptPad、Send、Etherpad 與表單都由社群自架，用途與申�
 
 組織的網站若屬於 [OONI 網站檢測清單](docs:taiwan/ooni-checklist/)的收錄分類，可以來信建議加入，社群依分類評估後隨下一批修正一起送出。收錄之後，網站在台灣各家電信能否連上，會長期留下公開的量測紀錄。
 
-媒體報導斷網、封鎖或 Tor 相關的題目時，[台灣有多少人在用 Tor](docs:taiwan/tor-users/)、[ASN 自治網路觀測資料分析](docs:taiwan/ooni-asn-coverage/)與 [onionoo MCP](docs:community/onionoo-mcp/) 的資料都可以引用，數字的讀法可以來信詢問。
+媒體報導斷網、封鎖或 Tor 相關的題目時，[台灣有多少人在用 Tor](docs:taiwan/tor-users/)、[ASN 自治網路觀測資料分析](docs:taiwan/ooni-asn-coverage/)與 [onionoo MCP](/projects/onionoo-mcp/) 的資料都可以引用，數字的讀法可以來信詢問。
 
 ### 組織的資安更新提醒
 

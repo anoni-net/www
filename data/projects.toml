@@ -31,7 +31,7 @@ summary.en = "News on privacy, anonymity networks and Internet censorship, read 
 icon = "access-point-network"
 name = { zh-TW = "AI 助理的 Tor 節點查詢", zh-CN = "AI 助手的 Tor 节点查询", en = "Tor relay lookup for AI assistants" }
 code = "onionoo-mcp"
-docs = "community/onionoo-mcp/"
+page = "projects/onionoo-mcp"
 summary.zh-TW = "在雲端 AI 助理貼上一個網址，就能用中文盤點各地的 Tor 節點、頻寬與所在的電信網路。"
 summary.zh-CN = "在云端 AI 助手贴上一个网址，就能用中文盘点各地的 Tor 节点、带宽与所在的电信网络。"
 summary.en = "Paste one URL into a cloud AI assistant and ask how many relays a place runs, with what bandwidth and on which networks."
@@ -40,7 +40,6 @@ summary.en = "Paste one URL into a cloud AI assistant and ask how many relays a 
 icon = "chart-line"
 name = { zh-TW = "Tor 中繼節點觀測", zh-CN = "Tor 中继节点观测", en = "Tor Relay Watch" }
 code = "Pulse"
-# 本站的頁面，其他工具的 docs 是文件站的路徑
 page = "projects/pulse"
 summary.zh-TW = "每小時收集臺灣與鄰近地區共十五個地區的 Tor 中繼節點資料，提供公開的 API 與本站的觀測頁。"
 summary.zh-CN = "每小时收集台湾与邻近地区共十五个地区的 Tor 中继节点数据，提供公开的 API 与本站的观测页。"
