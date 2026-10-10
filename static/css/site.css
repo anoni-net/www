@@ -432,12 +432,15 @@ svg.pc rect:hover, svg.pc circle:hover { opacity: .7; }
 .rmap .rm-obs { fill: var(--c-accent); }
 .rmap a:hover .rm-obs, .rmap a:focus .rm-obs { fill: var(--c-strong); }
 .rmap .rm-cur { fill: var(--c-strong); }
+.rmap .rm-later { fill: color-mix(in srgb, var(--c-accent) 40%, var(--c-bg)); }
+.rmap a:hover .rm-later, .rmap a:focus .rm-later { fill: color-mix(in srgb, var(--c-accent) 70%, var(--c-bg)); }
 .rmap .rm-cur, .rmap circle.rm-obs { stroke: var(--c-bg); }
 .rmap circle.rm-obs { stroke-width: 1.2; }
 .rmap-fig figcaption { margin-top: .4rem; font-size: .8rem; line-height: 1.6; color: var(--c-muted); }
 .rmap-fig .lg { display: flex; flex-wrap: wrap; gap: .25rem 1rem; margin-bottom: .2rem; color: var(--c-strong); }
 .rm-sw-obs { background: var(--c-accent); }
 .rm-sw-cur { background: var(--c-strong); }
+.rm-sw-later { background: color-mix(in srgb, var(--c-accent) 40%, var(--c-bg)); }
 .rm-sw-ref { background: color-mix(in srgb, var(--c-accent) 30%, var(--c-bg)); }
 /* 各地區的使用與貢獻：目前所在的地區整列加粗 */
 .pulse-cmp { margin-bottom: 1.5rem; }

@@ -2,7 +2,7 @@
 title: The first quarterly observation report, and new homes for the monitoring pages
 description: In the third quarter of 2026 Taiwan's running Tor relays fell from 13 to 11, with 8 on Chunghwa Telecom's HiNet, and mobile networks served 45% of users but produced 4% of OONI measurements. In October the monitoring pages moved to the projects section of anoni.net and now cover more of Asia.
 date: 2026-10-11
-og_image: https://assets.anoni.net/reports/2026-q3-og-en-3138faf3.png
+og_image: https://assets.anoni.net/reports/2026-q3-og-en-6fce9afe.png
 ---
 
 The community collects two kinds of observation data every day: how many volunteer-run Tor relays Taiwan and nearby regions have, and which networks the censorship measurements come from. Until now the numbers lived only on the monitoring pages of the documentation site, which show the last two months but not how a whole quarter changed, and made it hard to compare Taiwan with the regions around it. From October the community writes a [quarterly observation report](/projects/reports/) every three months, and the monitoring pages have moved to the [projects](/projects/) section of anoni.net with more Asian regions covered.

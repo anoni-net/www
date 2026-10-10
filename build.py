@@ -552,8 +552,9 @@ class Site:
     def region_map_figure(self, lang: Lang, codes: list[str] | None = None, note: str | None = None) -> str:
         """文章與季報裡的 <!-- region-map -->，點下去開那個地區的觀測頁。
 
-        codes 沒給時是兩個觀測頁目前的地區加上參照地區（社群動態用），給了就只上色那幾個地區
-        （季報用那一期比較的地區，跟當時的數字一致）。"""
+        codes 沒給時是兩個觀測頁目前的地區加上參照地區（社群動態用）。給了的時候（季報）那幾個地區
+        用主色，是那一期比較的地區，跟當時的數字一致。目前觀測、但那一期還沒比較的地區用淺色，
+        讀者才看得到社群關注的完整範圍，也分得出這一期的數字涵蓋哪些地區。"""
         pick = lambda value: value[lang.code] if isinstance(value, dict) else value  # noqa: E731
         pulse_conf, asn_conf = self.data["pulse"], self.data["asn-coverage"]
         L = {k: pick(v) for k, v in pulse_conf["labels"].items()}
@@ -564,11 +565,18 @@ class Site:
         for c in asn_conf["countries"]:
             observed.setdefault(c["code"], (pick(c["name"]), self.page_path(lang, f"{ASN_SLUG}/{c['code']}")))
         refs = {r["code"]: pick(r["name"]) for r in pulse_conf.get("use_refs", []) + asn_conf["apps"].get("regions", [])}
+        later = {}
+        legend_obs = L["map_obs"]
         if codes is not None:
+            later = {c: v for c, v in observed.items() if c not in codes}
             observed = {c: observed[c] for c in codes if c in observed}
             refs = {}
-        svg = region_map.svg(ROOT, observed, refs, None, L["map_label"])
-        legend = f'<span><i class="sw rm-sw-obs"></i>{L["map_obs"]}</span>'
+            R = {k: pick(v) for k, v in self.data["reports"]["labels"].items()}
+            legend_obs = R["map_cmp"]
+        svg = region_map.svg(ROOT, observed, refs, None, L["map_label"], later)
+        legend = f'<span><i class="sw rm-sw-obs"></i>{legend_obs}</span>'
+        if later:
+            legend += f'<span><i class="sw rm-sw-later"></i>{R["map_later"]}</span>'
         if refs:
             legend += f'<span><i class="sw rm-sw-ref"></i>{L["map_ref_post"]}</span>'
         return (f'<figure class="rmap-fig">{svg}<figcaption><span class="lg">{legend}</span>'
