@@ -104,7 +104,7 @@ uv run tools/import_from_docs.py --nginx                    # 重新產生 tools
 
 兩個觀測頁的頁首與社群動態文章裡的 `<!-- region-map -->` 放一張觀測地區地圖（[`region_map.py`](./region_map.py)），觀測地區用主色、參照地區用淺色，點下去開那個地區的頁面。國界資料在 `data/region-map.json`，由 `tools/make_region_map.py` 從 [Natural Earth](https://www.naturalearthdata.com/) 的 1:50m 國界（公有領域）產生，只留亞洲那一塊、簡化到一個像素，約 25 KB。國界很少變動，資料改了才需要重新執行，產出的 JSON 進版控，建置時不連網路。香港、澳門、新加坡小到看不見，畫成圓點。
 
-季報開頭也放一張，只上色那一期數字檔的 `countries`（季報比較的地區），之後新增的地區不會回頭改舊的季報。每一期季報另有一組分享圖與電子報 banner，由 `tools/make_report_images.py <季度>` 產生到 `static/og/`，季報頁與那一期的社群動態在 front matter 寫 `og_image` 指過去。沒寫 `og_image` 的頁面用根目錄的 `og.png`。
+季報開頭也放一張，只上色那一期數字檔的 `countries`（季報比較的地區），之後新增的地區不會回頭改舊的季報。每一期季報另有一組分享圖與電子報 banner，由 `tools/make_report_images.py <季度>` 產生並上傳到 assets.anoni.net 的 `reports/`（圖不進版控，用法寫在工具開頭），季報頁與那一期的社群動態在 front matter 用 `og_image` 寫完整網址。沒寫 `og_image` 的頁面用根目錄的 `og.png`。
 
 ## OONI 觀測涵蓋率
 

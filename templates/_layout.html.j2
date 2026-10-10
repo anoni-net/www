@@ -10,7 +10,7 @@
 <meta property="og:title" content="{{ page.title }}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ target.base }}{{ page.path }}">
-<meta property="og:image" content="{{ target.base }}{{ page.get('og_image') or '/og.png' }}">
+{% set og = page.get('og_image') or '/og.png' %}<meta property="og:image" content="{{ og if '://' in og else target.base ~ og }}">
 <meta property="og:site_name" content="{{ t.site_name }}">
 <meta property="og:description" content="{{ page.description }}">
 {% for other, path in page.alternates %}

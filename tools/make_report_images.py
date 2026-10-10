@@ -2,27 +2,32 @@
 
 每一期季報一組圖，三個語系各一張 1200x630 的分享圖，加一張中英並列、1200x400 的電子報 banner。
 左邊是季別與副標，右邊是觀測地區地圖，上色的地區取自那一期數字檔的 countries（季報比較的地區），
-跟季報頁上的地圖一致。圖寫進 static/og/，進版控，建置時不需要瀏覽器。
+跟季報頁上的地圖一致。
 
-用無頭的 Chrome 把一段 HTML 截成 PNG，中文字型用系統的 Noto Sans CJK。
-需要 Playwright（不進專案的相依，執行時臨時帶上）：
+圖不進版控。產生之後用 rsync 傳到 assets.anoni.net 背後的目錄，季報頁與社群動態的 front matter
+用 og_image 寫完整網址，電子報的 campaign 在 images 寫同一個網址，寄送時才下載。檔名帶內容的
+雜湊，重新產生之後網址跟著換，不會讀到 Cloudflare 上的舊圖。目的地只放在環境變數，不寫進公開的 repo：
 
-    uv run --with playwright tools/make_report_images.py 2026-q3 \\
-        --banner ../mail-mass/tpl/anoni_261010_banner.png
+    WWW_ASSETS_RSYNC=<主機>:<目錄>/reports uv run --with playwright tools/make_report_images.py 2026-q3
 
-產出的 PNG 再用 pngquant 壓一次（有安裝的話），分享圖約 60 KB。
+沒有設 WWW_ASSETS_RSYNC 時只產生到暫存目錄、印出路徑，不上傳。用無頭的 Chrome 把一段 HTML
+截成 PNG，中文字型用系統的 Noto Sans CJK，再用 pngquant 壓一次（有安裝的話），每張約 40 KB。
 """
 
 import argparse
+import hashlib
 import json
+import os
 import shutil
 import subprocess
 import sys
+import tempfile
 from html import escape
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 CHROME = "/usr/bin/google-chrome"
+ASSETS_URL = "https://assets.anoni.net/reports"
 
 # 品牌色，照 static/css/site.css 的 --brand-cyan-*
 BG = "#003e57"       # cyan-900
@@ -121,13 +126,19 @@ def shoot(page, html: str, out: Path, width: int, height: int) -> None:
     if shutil.which("pngquant"):
         subprocess.run(["pngquant", "--force", "--skip-if-larger", "--quality", "80-95",
                         "--output", str(out), str(out)], check=False)
-    print(f"寫入 {out}（{out.stat().st_size:,} bytes）")
+
+
+def hashed(path: Path) -> Path:
+    """檔名加上內容雜湊的前 8 碼，圖改了網址就換。"""
+    digest = hashlib.sha256(path.read_bytes()).hexdigest()[:8]
+    target = path.with_name(f"{path.stem}-{digest}{path.suffix}")
+    path.rename(target)
+    return target
 
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("quarter", help="季度，例如 2026-q3")
-    ap.add_argument("--banner", type=Path, help="電子報 banner 的輸出路徑")
     args = ap.parse_args()
 
     from playwright.sync_api import sync_playwright
@@ -136,16 +147,29 @@ def main() -> int:
     regions = json.loads((ROOT / "data" / "region-map.json").read_text())
     observed = {c for c in data["countries"] if c in regions["countries"] or c in regions["points"]}
     quarter = quarter_label(args.quarter)
-    out_dir = ROOT / "static" / "og"
-    out_dir.mkdir(exist_ok=True)
+    out_dir = Path(tempfile.mkdtemp(prefix="report-images-"))
+    files = {}
     with sync_playwright() as p:
         browser = p.chromium.launch(executable_path=CHROME, args=["--password-store=basic"])
         page = browser.new_page(device_scale_factor=1)
         for lang in TEXT:
-            shoot(page, og_html(lang, quarter, observed), out_dir / f"reports-{args.quarter}-{lang.lower()}.png", 1200, 630)
-        if args.banner:
-            shoot(page, banner_html(quarter, observed), args.banner, 1200, 400)
+            out = out_dir / f"{args.quarter}-og-{lang.lower()}.png"
+            shoot(page, og_html(lang, quarter, observed), out, 1200, 630)
+            files[f"og_image ({lang})"] = hashed(out)
+        out = out_dir / f"{args.quarter}-banner.png"
+        shoot(page, banner_html(quarter, observed), out, 1200, 400)
+        files["電子報 banner"] = hashed(out)
         browser.close()
+
+    dest = os.environ.get("WWW_ASSETS_RSYNC")
+    if dest:
+        subprocess.run(["rsync", "-a", "--chmod=F644", "--mkpath", *map(str, files.values()), dest.rstrip("/") + "/"],
+                       check=True)
+    for label, path in files.items():
+        where = f"{ASSETS_URL}/{path.name}" if dest else str(path)
+        print(f"{label}: {where}（{path.stat().st_size:,} bytes）")
+    if not dest:
+        print("沒有設 WWW_ASSETS_RSYNC，只產生到暫存目錄，沒有上傳")
     return 0
 
 
