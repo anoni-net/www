@@ -1,0 +1,191 @@
+{# 觀測季報的圖表與表格。季報本文用 <!-- rq-名稱 --> 放進來，名稱的 - 換成 _ 就是這裡的 macro，
+   例如 <!-- rq-relays-chart --> 對應 relays_chart()。v 是 reports.view() 的結果，L 是 data/reports.toml
+   的文字，cname 是地區代碼對應的名稱，cc 是季報主要看的地區。外觀沿用 .pulse 的樣式。 #}
+
+{% macro delta(now, then, unit='', digits=0) -%}
+{%- set d = now - then -%}
+{%- if digits -%}{{ ('+' if d > 0 else '') ~ ('%.' ~ digits ~ 'f') | format(d) ~ unit }}{%- else -%}{{ ('+' if d > 0 else '') ~ "{:,}".format(d | round | int) ~ unit }}{%- endif -%}
+{%- endmacro %}
+
+{% macro relays_stats() %}
+{% set r = v.relays %}
+<div class="pulse"><div class="pulse-stats">
+  <div class="pulse-stat"><span class="k">{{ L.relays_end }}</span><span class="v">{{ r.end.running }}</span>
+    <span class="dl {{ 'up' if r.end.running > r.start.running else 'down' }}">{{ delta(r.end.running, r.start.running) }}<small>{{ L.vs_start }}</small></span></div>
+  <div class="pulse-stat"><span class="k">{{ L.bandwidth_end }}</span><span class="v">{{ '%.0f' | format(r.bandwidth_end) }}<small>MB/s</small></span>
+    <span class="dl {{ 'up' if r.bandwidth_end > r.bandwidth_start else 'down' }}">{{ delta(r.bandwidth_end, r.bandwidth_start, ' MB/s') }}<small>{{ L.vs_start }}</small></span></div>
+  <div class="pulse-stat"><span class="k">{{ L.exits_end }}</span><span class="v">{{ r.end.exit }}</span>
+    <span class="dl {{ 'up' if r.end.exit > r.start.exit else 'flat' if r.end.exit == r.start.exit else 'down' }}">{{ delta(r.end.exit, r.start.exit) if r.end.exit != r.start.exit else '±0' }}<small>{{ L.vs_start }}</small></span></div>
+  <div class="pulse-stat"><span class="k">{{ L.on_new }}</span><span class="v">{{ '%.0f' | format(v.upgrade_cc.pct) }}<small>%</small></span>
+    <span class="dl flat">{{ v.upgrade_cc.on_new }} / {{ v.upgrade_cc.total }}</span></div>
+</div></div>
+{% endmacro %}
+
+{% macro relays_chart() %}
+<div class="pulse"><figure class="pulse-chart">
+  <figcaption>{{ L.chart_relays }}<span class="lg"><i class="sw pc-s1"></i>{{ L.running }}<i class="sw pc-s4"></i>{{ L.stopped }}</span></figcaption>
+  {{ v.relays.chart }}
+</figure></div>
+{% endmacro %}
+
+{% macro churn() %}
+{% set c = v.relays.churn %}
+<div class="pulse"><figure class="pulse-chart">
+  <figcaption>{{ L.churn }}<span class="lg"><i class="sw pc-s1"></i>{{ L.stayed }}<i class="sw pc-s4"></i>{{ L.left }}<i class="sw pc-s3"></i>{{ L.new }}</span></figcaption>
+  <div class="rq-flow">
+    <span class="l">{{ L.at_start }} {{ c.at_start }}</span>
+    <div class="rq-bar"><span class="pc-s1" style="width:{{ '%.2f' | format(c.stayed / v.flow_max * 100) }}%" title="{{ L.stayed }} {{ c.stayed }}">{{ c.stayed }}</span><span class="pc-s4" style="width:{{ '%.2f' | format(v.relays.left / v.flow_max * 100) }}%" title="{{ L.left }} {{ v.relays.left }}">{{ v.relays.left }}</span></div>
+    <span class="l">{{ L.at_end }} {{ c.at_end }}</span>
+    <div class="rq-bar"><span class="pc-s1" style="width:{{ '%.2f' | format(c.stayed / v.flow_max * 100) }}%" title="{{ L.stayed }} {{ c.stayed }}">{{ c.stayed }}</span><span class="pc-s3" style="width:{{ '%.2f' | format(v.relays.new / v.flow_max * 100) }}%" title="{{ L.new }} {{ v.relays.new }}">{{ v.relays.new }}</span></div>
+  </div>
+</figure></div>
+{% endmacro %}
+
+{% macro upgrade() %}
+<div class="pulse"><figure class="pulse-chart">
+  <figcaption>{{ L.upgrade }}</figcaption>
+  <ul class="pulse-bars rq-rank">
+  {% for u in v.upgrade %}
+    <li{% if u.code == cc %} class="me"{% endif %}><span class="l">{{ cname[u.code] }}</span><span class="bar"><span style="width:{{ '%.2f' | format(u.pct) }}%"></span></span><span class="n">{{ '%.0f' | format(u.pct) }}%</span><span class="t">{% if u.lag is not none %}{{ L.lag_zero if u.lag == 0 else L.lag | replace('{n}', u.lag | string) }}{% endif %}</span></li>
+  {% endfor %}
+  </ul>
+</figure></div>
+{% endmacro %}
+
+{% macro asn() %}
+<div class="pulse"><figure class="pulse-chart">
+  <figcaption>{{ L.asn_share }}</figcaption>
+  <div class="pulse-share" role="img" aria-label="{{ L.asn_share }}">
+  {% for a in v.asn_share %}<span class="{{ a.shade }}" style="width:{{ '%.2f' | format(a.pct) }}%" title="{{ a.asn }} {{ a.name }} {{ a.n }}"></span>{% endfor %}
+  </div>
+  <table class="pulse-asn">
+    <thead><tr><th>{{ L.col_asn }}</th><th>{{ L.col_name }}</th><th class="n">{{ L.col_relays }}</th></tr></thead>
+    <tbody>
+    {% for a in v.asn_share %}
+      <tr><td><a href="https://radar.cloudflare.com/{{ a.asn | lower }}">{{ a.asn }}</a></td><td>{{ a.name }}</td><td class="n">{{ a.n }}</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</figure>
+<figure class="pulse-chart">
+  <figcaption>{{ L.top2 }}</figcaption>
+  <ul class="pulse-bars rq-rank">
+  {% for t in v.top2 %}
+    <li{% if t.code == cc %} class="me"{% endif %}><span class="l">{{ cname[t.code] }}</span><span class="bar"><span style="width:{{ '%.2f' | format(t.pct) }}%"></span></span><span class="n">{{ '%.0f' | format(t.pct) }}%</span></li>
+  {% endfor %}
+  </ul>
+</figure></div>
+{% endmacro %}
+
+{% macro density() %}
+<div class="pulse"><figure class="pulse-chart">
+  <figcaption>{{ L.density }}</figcaption>
+  <ul class="pulse-bars rq-rank">
+  {% for d in v.density %}
+    <li{% if d.code == cc %} class="me"{% endif %}><span class="l">{{ cname[d.code] }}</span><span class="bar"><span style="width:{{ '%.2f' | format(d.bar) }}%"></span></span><span class="n">{{ '%.2f' | format(d.value) if d.value < 1 else '%.1f' | format(d.value) if d.value < 10 else '%.0f' | format(d.value) }}</span><span class="t">{{ "{:,}".format(d.relays) }} / {{ '%.1f' | format(d.users / 1000000) }}M</span></li>
+  {% endfor %}
+  </ul>
+</figure></div>
+{% endmacro %}
+
+{% macro ooni_stats() %}
+{% set o = v.ooni %}
+<div class="pulse"><div class="pulse-stats">
+  <div class="pulse-stat"><span class="k">{{ L.ooni_coverage }}</span><span class="v">{{ '%.1f' | format(o.coverage) }}<small>%</small></span>
+    <span class="dl {{ 'up' if o.coverage > o.coverage_prev else 'down' }}">{{ delta(o.coverage, o.coverage_prev, ' pp', 1) }}<small>{{ L.vs_prev }}</small></span></div>
+  <div class="pulse-stat"><span class="k">{{ L.ooni_asns }}</span><span class="v">{{ o.asns }}</span>
+    <span class="dl {{ 'up' if o.asns > o.asns_prev else 'flat' if o.asns == o.asns_prev else 'down' }}">{{ delta(o.asns, o.asns_prev) if o.asns != o.asns_prev else '±0' }}<small>{{ L.vs_prev }}</small></span></div>
+  <div class="pulse-stat"><span class="k">{{ L.ooni_total }}</span><span class="v">{{ "{:,}".format(o.total) }}</span>
+    <span class="dl {{ 'up' if o.total > o.total_prev else 'down' }}">{{ delta(o.total, o.total_prev) }}<small>{{ L.vs_prev }}</small></span></div>
+  <div class="pulse-stat"><span class="k">{{ L.ooni_top2 }}</span><span class="v">{{ '%.1f' | format(o.top2) }}<small>%</small></span>
+    <span class="dl {{ 'down' if o.top2 > o.top2_prev else 'up' }}">{{ delta(o.top2, o.top2_prev, ' pp', 1) }}<small>{{ L.vs_prev }}</small></span></div>
+</div></div>
+{% endmacro %}
+
+{% macro types() %}
+<div class="pulse"><figure class="pulse-chart">
+  <figcaption>{{ L.types }}<span class="lg"><i class="sw pc-s3"></i>{{ L.col_users }}<i class="sw pc-s1"></i>{{ L.col_measured }}</span></figcaption>
+  <table class="pulse-asn rq-types">
+    <thead><tr><th>{{ L.col_type }}</th><th class="n">{{ L.col_users }}</th><th class="n">{{ L.col_measured }}</th><th class="n">{{ L.col_coverage }}</th></tr></thead>
+    <tbody>
+    {% for t in v.types %}
+      <tr><td>{{ t.label }}
+        <span class="bar pc-s3"><span style="width:{{ '%.2f' | format(t.users) }}%"></span></span>
+        <span class="bar pc-s1"><span style="width:{{ '%.2f' | format(t.measured) }}%"></span></span></td>
+        <td class="n">{{ '%.1f' | format(t.users) }}%</td><td class="n">{{ '%.1f' | format(t.measured) }}%</td><td class="n">{{ '%.0f' | format(t.coverage) }}%</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</figure></div>
+{% endmacro %}
+
+{% macro networks() %}
+<div class="pulse"><figure class="pulse-chart">
+  <figcaption>{{ L.networks }}<span class="lg"><i class="sw pc-s3"></i>{{ L.col_users }}<i class="sw pc-s1"></i>{{ L.col_measured }}</span></figcaption>
+  <table class="pulse-asn asncov-net">
+    <thead><tr><th>{{ L.col_asn }}</th><th>{{ L.col_name }}</th><th class="n">{{ L.col_users }}</th><th class="n">{{ L.col_measured }}</th><th class="n">{{ L.col_days }}</th></tr></thead>
+    <tbody>
+    {% for n in v.networks %}
+      <tr{% if not n.days %} class="gap"{% endif %}>
+        <td><a href="https://radar.cloudflare.com/{{ n.asn | lower }}">{{ n.asn }}</a></td>
+        <td><a class="asn-m" href="https://radar.cloudflare.com/{{ n.asn | lower }}">{{ n.asn }}</a>{{ n.name }}
+          <span class="bar pc-s3"><span style="width:{{ '%.2f' | format(n.users / v.networks_max * 100) }}%"></span></span>
+          <span class="bar pc-s1"><span style="width:{{ '%.2f' | format(n.measured / v.networks_max * 100) }}%"></span></span></td>
+        <td class="n">{{ '%.1f' | format(n.users) }}%</td>
+        <td class="n">{{ '<0.1' if 0 < n.measured < 0.05 else '%.1f' | format(n.measured) }}%</td>
+        <td class="n">{{ n.days }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</figure></div>
+{% endmacro %}
+
+{% macro gaps() %}
+<div class="pulse"><figure class="pulse-chart">
+  <figcaption>{{ L.gaps }}</figcaption>
+  <table class="pulse-asn">
+    <thead><tr><th>{{ L.col_asn }}</th><th>{{ L.col_name }}</th><th>{{ L.col_type }}</th><th class="n">{{ L.col_users }}</th></tr></thead>
+    <tbody>
+    {% for g in v.gaps %}
+      <tr><td><a href="https://radar.cloudflare.com/{{ g.asn | lower }}">{{ g.asn }}</a></td><td>{{ g.name }}</td><td class="k">{{ g.kind }}</td><td class="n">{{ '%.2f' | format(g.users) }}%</td></tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</figure></div>
+{% endmacro %}
+
+{% macro changes() %}
+<div class="pulse"><div>
+{% for key, items in (('added', v.added), ('dropped', v.dropped)) %}
+  <figure class="pulse-chart">
+    <figcaption>{{ L[key] }}</figcaption>
+    {% if items %}
+    <ul class="pulse-bars asncov-share">
+    {% for a in items %}<li><span class="l">{{ a.asn }}</span><span class="t">{{ a.name }}</span><span class="n">{{ "{:,}".format(a.n) }}</span></li>{% endfor %}
+    </ul>
+    {% else %}<p class="pulse-more">{{ L.none }}</p>{% endif %}
+  </figure>
+{% endfor %}
+</div></div>
+{% endmacro %}
+
+{% macro ooni_daily() %}
+<div class="pulse"><figure class="pulse-chart">
+  <figcaption>{{ L.chart_measurements }}<span class="lg"><i class="sw pc-s3"></i>{{ L.ok }}<i class="sw pc-s1"></i>{{ L.anomaly }}<i class="sw pc-s2"></i>{{ L.confirmed }}<i class="sw pc-s5"></i>{{ L.failure }}</span></figcaption>
+  {{ v.measurements_chart }}
+</figure>
+<figure class="pulse-chart">
+  <figcaption>{{ L.chart_asns }}</figcaption>
+  {{ v.asns_chart }}
+</figure></div>
+{% endmacro %}
+
+{% macro run() %}
+<div class="pulse"><figure class="pulse-chart">
+  <figcaption>{{ L.run }} <code>{{ v.run.link }}</code></figcaption>
+  <ul class="pulse-bars asncov-share">
+  {% for a in v.run.list %}<li><span class="l">{{ a.asn }}</span><span class="t">{{ a.name }}（{{ a.kind }}）</span><span class="n">{{ "{:,}".format(a.n) }}</span></li>{% endfor %}
+  </ul>
+</figure></div>
+{% endmacro %}

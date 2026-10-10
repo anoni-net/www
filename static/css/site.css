@@ -420,6 +420,23 @@ svg.pc rect:hover, svg.pc circle:hover { opacity: .7; }
 .asncov-share li { grid-template-columns: 5.5rem 1fr 3rem; }
 .asncov-share .t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--c-muted); }
 
+/* 觀測季報（/projects/reports/）沿用 .pulse 的樣式，補上季初季末的流向條與各地區排名。
+   季報的圖表穿插在本文之間，.prose 的清單縮排不套到圖表裡的清單 */
+.prose .pulse ul { padding-left: 0; margin: 0; }
+.rq-flow { display: grid; grid-template-columns: 4.5rem 1fr; align-items: center; gap: .45rem .6rem; font-size: .85rem; }
+.rq-bar { display: flex; gap: 2px; height: 1.4rem; }
+.rq-bar span { display: flex; align-items: center; justify-content: center; min-width: 1.4rem; border-radius: 3px; background: var(--pcc); color: #fff; font-size: .75rem; font-variant-numeric: tabular-nums; }
+.rq-bar .pc-s4, .rq-bar .pc-s3 { color: var(--c-strong); }
+.rq-rank li { grid-template-columns: 4.5rem 1fr 2.8rem 6.5rem; }
+.pulse-asn td.k { white-space: nowrap; }
+.rq-types .bar { height: 4px; margin-top: .25rem; }
+.rq-types .bar + .bar { margin-top: 2px; }
+.rq-types .bar span { background: var(--pcc); }
+.rq-rank .t { font-size: .75rem; color: var(--c-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rq-rank li.me .l, .rq-rank li.me .n { font-weight: 700; color: var(--c-strong); }
+.rq-rank li.me .bar span { background: var(--pc1); }
+@media (max-width: 560px) { .rq-rank li { grid-template-columns: 4rem 1fr 2.6rem; } .rq-rank .t { display: none; } }
+
 /* 404 頁三種語言疊在一起，用細線分開 */
 .not-found + .not-found { border-top: 1px solid var(--c-hair); margin-top: 1.5rem; }
 .not-found h1 { font-size: 1.4rem; }

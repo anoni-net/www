@@ -1,0 +1,6 @@
+{# 觀測季報列表，項目由 build.py 的 report_items 產生 #}
+<ul class="rows">
+{% for r in report_items %}
+  <li><a class="row" href="{{ r.href }}"><span class="b"><span class="meta">{{ r.date.strftime('%Y/%m/%d') }}</span><span class="t">{{ r.title }}{{ r.note }}</span><span class="d">{{ r.summary }}</span></span><span class="go">{{ icon('arrow-right') }}</span></a></li>
+{% endfor %}
+</ul>
