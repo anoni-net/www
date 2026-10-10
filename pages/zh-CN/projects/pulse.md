@@ -14,6 +14,8 @@ Tor 中继节点是志愿者架设、替全球 Tor 用户转送加密流量的�
 
 - 每一天取当天最后一次快照，不是整天出现过的所有中继
 - 带宽是运作中中继的观测带宽（observed bandwidth）加总
+- 中继占全网络的权重是运作中中继的共识权重比例（consensus weight fraction）加总，2026 年 10 月开始收集
+- 用户估计来自 [Tor Metrics](https://metrics.torproject.org/userstats-relay-country.html)，每天更新、晚两三天，推算方法与限制见[台湾有多少人在用 Tor](docs:taiwan/tor-users/)
 - 中继的角色依 Onionoo 给的概率判断，guard、middle、exit 的概率大于 0 就算在该角色
 - 收集中断的日子在图上留下缺口，不补值
 - 原始数据可以从 [Pulse 的 API](https://anoni.net/api/readme) 读取，这一页用的是 `/api/summary`

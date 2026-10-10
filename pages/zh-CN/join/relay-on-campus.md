@@ -42,7 +42,7 @@ Tor 网络的匿名性靠**多元的中继节点**支撑。当绝大多数中继
 - **第一个校园案例上线**：国立台湾师范大学资讯工程学系资讯中心的 Tor Relay 已运行，由社群伙伴 NZ 透过教授与教职员提案、协调后完成建置
 - **Tor Project blog 客座文章**：把台师大案例写成英文版本，刊登于 [Tor Project blog](https://blog.torproject.org/setting-up-tor-university-relay-taiwan/)，登录到全球视野
 - **Tor University Challenge 中译**：完成 [EFF Tor University Challenge 网站](https://toruniversity.eff.org/zh-tw/) 的正体中文翻译，降低台湾其他学校接触计划的语言门槛
-- **观测站 Pulse 上线**：[Tor 中继节点观测](/projects/pulse/)每小时更新台湾与邻近地区共十个地区的中继节点状况
+- **观测站 Pulse 上线**：[Tor 中继节点观测](/projects/pulse/)每小时更新台湾与邻近地区共十五个地区的中继节点状况
 - **访谈企划**：把台师大架设过程整理成 [深度访谈](docs:blog/2025/12/ntnu-nz/)，公开给后续推动者参考
 
 ## 进行中与待完成

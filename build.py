@@ -31,6 +31,7 @@ from markupsafe import Markup
 
 import asn_coverage
 import pulse
+import tor_users
 import reports
 
 ROOT = Path(__file__).resolve().parent
@@ -164,6 +165,7 @@ class Site:
         self.pulse_codes = [c["code"] for c in self.data.get("pulse", {}).get("countries", [])]
         self.pulse_slugs = [f"{PULSE_SLUG}/{c}" for c in self.pulse_codes[1:]] if PULSE_SLUG in self.slugs else []
         self._pulse = None
+        self._tor_users = None
         # OONI 觀測涵蓋率：同樣第一個地區是主頁，路徑是 projects/asn-coverage/<code>
         self.asn_codes = [c["code"] for c in self.data.get("asn-coverage", {}).get("countries", [])]
         self.asn_slugs = [f"{ASN_SLUG}/{c}" for c in self.asn_codes[1:]] if ASN_SLUG in self.slugs else []
@@ -407,6 +409,12 @@ class Site:
             self._pulse = pulse.load(self.pulse_codes, self.data["pulse"]["days"], CACHE / "pulse")
         return self._pulse
 
+    def tor_users_data(self) -> dict:
+        """Tor Metrics 的使用者估計，同一次建置只讀一次。"""
+        if self._tor_users is None:
+            self._tor_users = tor_users.load(self.pulse_codes, self.data["pulse"]["days"], CACHE / "tor-users")
+        return self._tor_users
+
     def build_pulse(self, lang: Lang, target: dict, out: Path, meta: dict, body: str,
                     blocks: dict, where: str) -> None:
         """Tor 中繼節點觀測：每個國家各一頁，圖表各自畫。"""
@@ -415,16 +423,29 @@ class Site:
         loaded = self.pulse_data()
         views = {c: pulse.view(loaded[c]["data"], conf["labels"], pick, conf["compare_days"]) if loaded[c]["data"] else None
                  for c in self.pulse_codes}
-        countries = [{"code": c["code"], "name": pick(c["name"]),
-                      "title_name": c.get("title_name", {}).get(lang.code, pick(c["name"])),
-                      "running": views[c["code"]]["latest"]["running"] if views[c["code"]] and views[c["code"]]["latest"] else None,
-                      "spark": pulse.sparkline(views[c["code"]]["running_series"]) if views[c["code"]] else ""}
-                     for c in conf["countries"]]
+        users_raw = self.tor_users_data()
+        world = users_raw["all"]["data"]
+        users = {c: tor_users.view(users_raw[c]["data"], world, conf["labels"], pick, conf["compare_days"])
+                 if users_raw[c]["data"] else None for c in self.pulse_codes}
+        countries = []
+        for c in conf["countries"]:
+            v, u = views[c["code"]], users[c["code"]]
+            countries.append({
+                "code": c["code"], "name": pick(c["name"]),
+                "title_name": c.get("title_name", {}).get(lang.code, pick(c["name"])),
+                "running": v["latest"]["running"] if v and v["latest"] else None,
+                "spark": pulse.sparkline(v["running_series"]) if v else "",
+                "weight": tor_users.pct(v["weight"]) if v and v["weight"] is not None else "–",
+                "users": u["users_text"] if u else "–",
+                "bridge": tor_users.pct(u["bridge_pct"]) if u else "–",
+            })
 
         def render(country: dict, countries: list[dict]) -> str:
+            code = country["code"]
             return self.env.get_template("_block-pulse.html.j2").render(
-                **self.context(lang, target), L=L, v=views[country["code"]], stale=loaded[country["code"]]["stale"],
-                country=country, countries=countries)
+                **self.context(lang, target), L=L, v=views[code], stale=loaded[code]["stale"],
+                u=users[code], u_stale=users_raw[code]["stale"] or users_raw["all"]["stale"],
+                pct=tor_users.pct, country=country, countries=countries)
 
         self.build_regions(lang, target, out, meta, body, blocks, where, PULSE_SLUG, "pulse", countries, render)
 

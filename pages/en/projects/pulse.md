@@ -14,6 +14,8 @@ The data comes from [Pulse](https://github.com/anoni-net/pulse), which the commu
 
 - Each day uses its last snapshot, not every relay seen during the day
 - Bandwidth is the sum of the observed bandwidth of running relays
+- Share of network weight is the sum of the running relays' consensus weight fractions, collected since October 2026
+- User estimates come from [Tor Metrics](https://metrics.torproject.org/userstats-relay-country.html), updated daily with a lag of two to three days; [How many people use Tor in Taiwan](docs:regional/taiwan-tor-users/) explains the method and its limits
 - Relay roles follow Onionoo's probabilities: a relay counts as a guard, middle or exit when that probability is above zero
 - Days when collection was interrupted show as gaps in the charts, with nothing filled in
 - The raw data is available from the [Pulse API](https://anoni.net/api/readme); this page uses `/api/summary`
