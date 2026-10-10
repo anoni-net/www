@@ -98,6 +98,8 @@ nav.main a[aria-current] { color: var(--c-strong); font-weight: 700; border-bott
 nav.main a:hover { color: var(--c-accent); }
 /* 英文的項目比較長，手機上縮小一點才放得進一列 */
 :lang(en) nav.main a { font-size: .82rem; }
+/* 320px 的手機上英文六項仍差十幾 px，再縮一點，項目間距也收窄 */
+@media (max-width: 359px) { :lang(en) nav.main a { font-size: .74rem; padding-left: .05rem; padding-right: .05rem; } }
 
 /* 標題與段落 */
 .crumb { margin: 1.5rem 0 -1rem; font-size: .85rem; }
@@ -132,7 +134,9 @@ p, li, .lead, .row .d, .row .t, h1, h3 { text-wrap: pretty; }
 .prose pre { overflow-x: auto; border: 1px solid var(--c-hair); border-radius: var(--radius); padding: .75rem 1rem; font-size: .8rem; line-height: 1.5; }
 .prose pre code { color: var(--c-text); }
 .prose table { border-collapse: collapse; width: 100%; font-size: .92rem; margin: 1rem 0; }
-.prose th, .prose td { border-bottom: 1px solid var(--c-hair); padding: .4rem .5rem; text-align: left; vertical-align: top; }
+.prose th, .prose td { border-bottom: 1px solid var(--c-hair); padding: .4rem .5rem; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+/* 最窄的手機上，英文表格的欄位多又有長字，縮小間距與字級才不會撐破外框 */
+@media (max-width: 359px) { .prose table { font-size: .8rem; } .prose th, .prose td { padding: .35rem .3rem; } }
 .prose details { border: 1px solid var(--c-line); border-radius: var(--radius); padding: .5rem 1rem; margin: 1rem 0; }
 .prose summary { cursor: pointer; color: var(--c-accent); font-weight: 700; }
 .prose img { max-width: 100%; height: auto; }
@@ -383,6 +387,18 @@ svg.pc rect:hover, svg.pc circle:hover { opacity: .7; }
 .pulse-asn { margin: 0; font-size: .85rem; }
 .pulse-asn td:first-child, .pulse-asn th { white-space: nowrap; }
 .pulse-asn .n { text-align: right; font-variant-numeric: tabular-nums; }
+/* 網路名稱常是 UBBNET-AS-TW 這種沒有空格的長字串，不允許在中間斷開的話，窄螢幕上整張表會撐破外框 */
+.pulse-asn td { overflow-wrap: anywhere; }
+/* 數字與表頭維持一行，只讓名稱欄斷開 */
+.pulse-asn td.n, .pulse-asn th { white-space: nowrap; overflow-wrap: normal; }
+.pulse-asn .asn-m { display: none; }
+/* 手機上 ASN 欄併進名稱欄（.m-asn），字與間距縮小，留給名稱與數字 */
+@media (max-width: 560px) {
+  .pulse-asn { font-size: .78rem; }
+  .prose .pulse-asn th, .prose .pulse-asn td { padding-left: .3rem; padding-right: .3rem; }
+  .pulse-asn.m-asn th:first-child, .pulse-asn.m-asn td:first-child { display: none; }
+  .pulse-asn.m-asn .asn-m { display: block; font-size: .72rem; }
+}
 .pulse .bar { display: block; height: 4px; margin-top: .3rem; border-radius: 2px; background: var(--c-hair); }
 .pulse .bar span { display: block; height: 100%; border-radius: 2px; background: var(--pc2); }
 .pulse-more { margin: .5rem 0 0; font-size: .8rem; color: var(--c-muted); }

@@ -52,13 +52,13 @@
 {% if v.gaps %}
 <p class="pulse-note">{{ L.gaps_note | replace('{n}', v.gaps_count | string) | replace('{pct}', '%.1f' | format(v.gaps_users)) }}</p>
 <figure class="pulse-chart">
-  <table class="pulse-asn">
+  <table class="pulse-asn m-asn">
     <thead><tr><th>{{ L.col_asn }}</th><th>{{ L.col_name }}</th><th class="n">{{ L.col_users }}</th></tr></thead>
     <tbody>
     {% for g in v.gaps %}
       <tr>
         <td><a href="https://radar.cloudflare.com/{{ g.asn | lower }}">{{ g.asn }}</a></td>
-        <td>{{ g.name }}</td>
+        <td><a class="asn-m" href="https://radar.cloudflare.com/{{ g.asn | lower }}">{{ g.asn }}</a>{{ g.name }}</td>
         <td class="n">{{ '%.2f' | format(g.users) }}%</td>
       </tr>
     {% endfor %}
