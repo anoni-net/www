@@ -150,6 +150,18 @@ APNIC 只提供最近 60 天的估計，查不到過去的值，所以每一期�
 
 本站只放專案的卡片與一句介紹，連到專案自己的關於頁，詳細介紹寫在專案的 repo。同一份介紹放兩處，改的時候容易漏掉一邊。
 
+### 名稱與代號
+
+三個觀測工具對讀者用正式名稱，跟頁面標題、專案列表一致。代號是 repo、API 與程式裡的名字，只在提到程式本身時使用，第一次出現寫成「正式名稱（代號）」。文件站、本站、各 repo 的 README 與 GitHub 說明都照這張表。
+
+| 代號 | repo | 正體 | 簡體 | 英文 | 頁面 |
+|---|---|---|---|---|---|
+| Pulse | `anoni-net/pulse` | Tor 中繼節點觀測 | Tor 中继节点观测 | Tor Relay Watch | `/projects/pulse/` |
+| ASN Coverage | `anoni-net/asn-coverage` | OONI 觀測涵蓋率 | OONI 观测覆盖率 | OONI Coverage | `/projects/asn-coverage/` |
+| onionoo MCP | `anoni-net/onionoo-fastapi` | AI 助理的 Tor 節點查詢 | AI 助手的 Tor 节点查询 | Tor relay lookup for AI assistants | `/projects/onionoo-mcp/` |
+
+舊的名稱「Tor Relays 觀測點」、「Tor relay watcher」、「ASN 涵蓋分析工具」不再使用。部落格文章的標題與內文保留發布當時的寫法，只有指到觀測頁的連結文字改成正式名稱。
+
 ## 寫作規則
 
 [寫作風格規範](https://anoni.net/join/writing-style/)是本站的一頁，原始檔在 `pages/<語系>/join/writing-style.md`。社群首頁、文件站、新聞導讀與各 repo 的說明文件共用這一份。可以機器判斷的規則寫在 `anoni-net/docs` 的 `tools/docs_style_lint.py`，改規則時兩邊一起改。

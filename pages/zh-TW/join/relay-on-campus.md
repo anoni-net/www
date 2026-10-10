@@ -25,7 +25,7 @@ Tor 網路的匿名性靠**多元的中繼節點**支撐。當絕大多數中繼
 - **跟學校溝通的應答範本與案例庫**：法律疑慮、頻寬使用、用途說明等高頻問題的回應參考
 - **第二、三所學校接洽**：以台師大為起點，向其他大專院校擴展
 - **EFF/Tor Project 對接**：建立穩定的國際對接管道，把台灣案例回饋給全球計畫
-- **觀測即時化**：透過 [Pulse](https://anoni.net/api/readme) 持續追蹤校園節點的運作狀況
+- **觀測即時化**：透過 [Tor 中繼節點觀測](/projects/pulse/)持續追蹤校園節點的運作狀況
 - **跟資安教育活動的搭配**：把 Tor Relay 架設整合進校園資安宣傳、迎新講座等場合
 
 ## 相關文章
@@ -42,7 +42,7 @@ Tor 網路的匿名性靠**多元的中繼節點**支撐。當絕大多數中繼
 - **第一個校園案例上線**：國立臺灣師範大學資訊工程學系資訊中心的 Tor Relay 已運行，由社群夥伴 NZ 透過教授與教職員提案、協調後完成建置
 - **Tor Project blog 客座文章**：把台師大案例寫成英文版本，刊登於 [Tor Project blog](https://blog.torproject.org/setting-up-tor-university-relay-taiwan/)，登錄到全球視野
 - **Tor University Challenge 中譯**：完成 [EFF Tor University Challenge 網站](https://toruniversity.eff.org/zh-tw/) 的正體中文翻譯，降低台灣其他學校接觸計畫的語言門檻
-- **觀測站 Pulse 上線**：[Tor 中繼節點觀測](/projects/pulse/)每小時更新臺灣與鄰近地區共十五個地區的中繼節點狀況
+- **Tor 中繼節點觀測上線**：[觀測頁](/projects/pulse/)每小時更新臺灣與鄰近地區共十五個地區的中繼節點狀況
 - **訪談企劃**：把台師大架設過程整理成 [深度訪談](docs:blog/2025/12/ntnu-nz/)，公開給後續推動者參考
 - **範本工具包上線**：把台師大實作經驗整理成提案文件、技術 SOP、校方 FAQ 三份檔案，其他學校可直接套用（[上線公告](docs:blog/2026/05/2026-campus-tor-relay-template-kit/)，內容見下方「範本工具包」段落）
 

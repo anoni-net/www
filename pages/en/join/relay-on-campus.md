@@ -27,7 +27,7 @@ What the community is building is a reproducible method: the full deployment pro
 - **Response templates and a case library**: reference answers for the frequent questions about legal exposure, bandwidth use, and purpose
 - **Approaching a second and third university**, extending from the first case
 - **A channel to EFF and the Tor Project**, feeding cases from Taiwan back into the global programme
-- **Live observation** of campus nodes through [Pulse](https://anoni.net/api/readme)
+- **Live observation** of campus nodes through [Tor Relay Watch](/projects/pulse/)
 - **Pairing with campus security events**: integrating relay deployment into security weeks, orientation talks, and similar occasions
 
 ## Related articles
@@ -43,7 +43,7 @@ What the community is building is a reproducible method: the full deployment pro
 - **The first campus case is running**: the Tor relay at the Computer Science and Information Engineering department's IT centre at National Taiwan Normal University, deployed by community member NZ after working the proposal through faculty and staff
 - **A guest post on the Tor Project blog**: the case written up in English and [published upstream](https://blog.torproject.org/setting-up-tor-university-relay-taiwan/), putting it in front of a global audience
 - **Tor University Challenge translated**: the [EFF site](https://toruniversity.eff.org/) translated into Traditional Chinese, lowering the language barrier for other universities in Taiwan
-- **Pulse observation live**: [Tor Relay Watch](/projects/pulse/) shows relays in Taiwan and fourteen other regions, updated hourly
+- **Tor Relay Watch live**: [the watch page](/projects/pulse/) shows relays in Taiwan and fourteen other regions, updated hourly
 - **An interview**: the full deployment story recorded as a [long-form interview](docs:blog/2025/12/ntnu-nz/) for whoever goes next
 - **The template kit**: the experience turned into a proposal document, a technical SOP, and an FAQ for university administrators, all reusable as-is
 

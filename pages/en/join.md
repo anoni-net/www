@@ -8,7 +8,7 @@ The community behind anoni.net is small, volunteer-run and built around self-hos
 
 ## What we welcome
 
-- **Researchers and academics** studying networked freedom, surveillance, censorship or platform regulation in the Asia-Pacific. We can share Pulse and ASN coverage data, talk through observations, and where useful be cited in published work.
+- **Researchers and academics** studying networked freedom, surveillance, censorship or platform regulation in the Asia-Pacific. We can share the data behind Tor Relay Watch and OONI Coverage, talk through observations, and where useful be cited in published work.
 - **Journalists** covering regional Internet-freedom stories. We can share what we observe and, where we know the local terrain, point you to people closer to the story.
 - **Peer organizations** in rights advocacy, anti-surveillance and anti-censorship who want Asia-Pacific partners, or want to translate or co-publish material for a Sinophone audience.
 - **Region-specific contributors** who can sharpen the country-by-country coverage from inside their own jurisdiction. We particularly welcome voices from Hong Kong, Macau, Singapore, Malaysia and the mainland Chinese diaspora.
