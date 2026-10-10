@@ -1,0 +1,119 @@
+{# OONI 觀測涵蓋率的儀表板。圖表在 asn_coverage.py 畫成 SVG，這裡只負責排版，
+   外觀沿用 Tor 中繼節點觀測頁的 .pulse 樣式。v 是 asn_coverage.view() 的結果，
+   資料來源沒有回應又沒有快取時是 None。 #}
+<div class="pulse asncov">
+<nav class="pulse-regions" aria-label="{{ L.countries }}">
+{% for c in countries %}
+  <a href="{{ c.href }}"{% if c.current %} aria-current="page"{% endif %}>{{ c.name }}</a>
+{% endfor %}
+</nav>
+
+{% if not v or not v.latest %}
+<p class="pulse-empty">{{ L.unavailable if not v else L.no_data }}</p>
+{% else %}
+<p class="pulse-meta">{{ L.updated }} {{ v.latest }} UTC · {{ L.pop_updated }} {{ v.pop_date }}{% if stale %}<span class="pulse-stale">{{ L.stale }}</span>{% endif %}</p>
+
+<div class="pulse-stats">
+{% for s in v.stats %}
+  <div class="pulse-stat">
+    <span class="k">{{ s.label }}</span>
+    <span class="v">{{ s.value }}{% if s.unit %}<small>{{ s.unit }}</small>{% endif %}</span>
+    {% if s.delta %}<span class="dl {{ s.trend }}">{{ s.delta }}<small>{{ L.vs }}</small></span>{% endif %}
+    {{ s.spark }}
+  </div>
+{% endfor %}
+</div>
+<p class="pulse-note">{{ L.stats_note }}</p>
+
+<h2 id="networks">{{ L.networks }}</h2>
+<p class="pulse-note">{{ L.networks_note }}</p>
+<figure class="pulse-chart">
+  <figcaption>{{ L.networks }}<span class="lg"><i class="sw pc-s3"></i>{{ L.col_users }}<i class="sw pc-s1"></i>{{ L.col_measured }}</span></figcaption>
+  <table class="pulse-asn asncov-net">
+    <thead><tr><th>{{ L.col_asn }}</th><th>{{ L.col_name }}</th><th class="n">{{ L.col_users }}</th><th class="n">{{ L.col_measured }}</th><th class="n">{{ L.col_days }}</th></tr></thead>
+    <tbody>
+    {% for n in v.networks %}
+      <tr{% if not n.days %} class="gap"{% endif %}>
+        <td><a href="https://radar.cloudflare.com/{{ n.asn | lower }}">{{ n.asn }}</a></td>
+        <td><a class="asn-m" href="https://radar.cloudflare.com/{{ n.asn | lower }}">{{ n.asn }}</a>{{ n.name }}
+          <span class="bar pc-s3"><span style="width:{{ '%.2f' | format(n.users / v.networks_max * 100) }}%"></span></span>
+          <span class="bar pc-s1"><span style="width:{{ '%.2f' | format(n.measured / v.networks_max * 100) }}%"></span></span>
+        </td>
+        <td class="n">{{ '%.1f' | format(n.users) }}%</td>
+        <td class="n">{{ '<0.1' if 0 < n.measured < 0.05 else '%.1f' | format(n.measured) }}%</td>
+        <td class="n">{{ n.days }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</figure>
+
+<h2 id="gaps">{{ L.gaps }}</h2>
+{% if v.gaps %}
+<p class="pulse-note">{{ L.gaps_note | replace('{n}', v.gaps_count | string) | replace('{pct}', '%.1f' | format(v.gaps_users)) }}</p>
+<figure class="pulse-chart">
+  <table class="pulse-asn">
+    <thead><tr><th>{{ L.col_asn }}</th><th>{{ L.col_name }}</th><th class="n">{{ L.col_users }}</th></tr></thead>
+    <tbody>
+    {% for g in v.gaps %}
+      <tr>
+        <td><a href="https://radar.cloudflare.com/{{ g.asn | lower }}">{{ g.asn }}</a></td>
+        <td>{{ g.name }}</td>
+        <td class="n">{{ '%.2f' | format(g.users) }}%</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</figure>
+{% else %}
+<p class="pulse-note">{{ L.gaps_none }}</p>
+{% endif %}
+
+<h2 id="concentration">{{ L.concentration }}</h2>
+<p class="pulse-note">{{ L.concentration_note }}</p>
+<figure class="pulse-chart">
+  <figcaption>{{ L.asn_share }}<span class="lg">{% for a in v.asn_share %}<i class="sw {{ a.shade }}"></i>{{ a.asn or a.name }}{% endfor %}</span></figcaption>
+  <div class="pulse-share" role="img" aria-label="{{ L.asn_share }}">
+  {% for a in v.asn_share %}
+    <span class="{{ a.shade }}" style="width:{{ '%.2f' | format(a.pct) }}%" title="{{ a.asn }} {{ a.name }}（{{ '%.1f' | format(a.pct) }}%）"></span>
+  {% endfor %}
+  </div>
+  <ul class="pulse-bars asncov-share">
+  {% for a in v.asn_share %}
+    <li><span class="l">{{ a.asn or a.name }}</span><span class="t">{{ a.name if a.asn else '' }}</span><span class="n">{{ '%.1f' | format(a.pct) }}%</span></li>
+  {% endfor %}
+  </ul>
+  {% if v.outside_count %}<p class="pulse-more">{{ L.outside | replace('{n}', v.outside_count | string) | replace('{pct}', '%.1f' | format(v.outside_pct)) }}</p>{% endif %}
+</figure>
+
+<h2 id="daily">{{ L.daily }}</h2>
+<p class="pulse-note">{{ L.daily_note }}</p>
+<figure class="pulse-chart">
+  <figcaption>{{ L.chart_measurements }}<span class="lg"><i class="sw pc-s3"></i>{{ L.ok }}<i class="sw pc-s1"></i>{{ L.anomaly }}<i class="sw pc-s2"></i>{{ L.confirmed }}<i class="sw pc-s5"></i>{{ L.failure }}</span></figcaption>
+  {{ v.charts.measurements }}
+</figure>
+<figure class="pulse-chart">
+  <figcaption>{{ L.chart_asns }}</figcaption>
+  {{ v.charts.asns }}
+</figure>
+
+<h2 id="coverage">{{ L.coverage }}</h2>
+<p class="pulse-note">{{ L.coverage_note }}</p>
+<figure class="pulse-chart">
+  <figcaption>{{ L.chart_coverage }}</figcaption>
+  {{ v.charts.coverage }}
+</figure>
+{% endif %}
+
+<h2 id="compare">{{ L.compare }}</h2>
+<p class="pulse-note">{{ L.compare_note }}</p>
+<div class="pulse-grid">
+{% for c in countries %}
+  <a class="pulse-country" href="{{ c.href }}"{% if c.current %} aria-current="page"{% endif %}>
+    <span class="name">{{ c.name }}</span>
+    <span class="v">{{ '%.1f%%' | format(c.coverage) if c.coverage is not none else "–" }}</span>
+    {{ c.spark }}
+  </a>
+{% endfor %}
+</div>
+</div>

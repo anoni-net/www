@@ -44,7 +44,7 @@ summary.en = "Collects Tor relay data for Taiwan and nine other regions every ho
 [[tools]]
 icon = "map-outline"
 name = "ASN Coverage"
-docs = "taiwan/ooni-asn-coverage/"
-summary.zh-TW = "分析台灣各電信網路在 OONI 的觀測覆蓋率，找出需要更多測試的盲點。"
-summary.zh-CN = "分析台湾各电信网络在 OONI 的观测覆盖率，找出需要更多测试的盲点。"
-summary.en = "Maps how well each network in Taiwan is covered by OONI measurements, to find the blind spots that need more testing."
+page = "projects/asn-coverage"
+summary.zh-TW = "對照 OONI 的測量與各網路的使用者人數，找出臺灣與鄰近地區還沒有人測量的網路。"
+summary.zh-CN = "对照 OONI 的测量与各网络的用户人数，找出台湾与邻近地区还没有人测量的网络。"
+summary.en = "Sets OONI measurements against each network's user count to find the networks in Taiwan and nearby regions that nobody is measuring yet."

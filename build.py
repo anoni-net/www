@@ -29,6 +29,7 @@ import yaml
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from markupsafe import Markup
 
+import asn_coverage
 import pulse
 
 ROOT = Path(__file__).resolve().parent
@@ -50,8 +51,10 @@ PLACEHOLDER = re.compile(r"<!--\s*(\w[\w-]*)\s*-->")
 # 寫在 Markdown 原始 HTML 裡的圖示，例如 <span class="ic">ICON:upload-outline</span>
 ICON_REF = re.compile(r"ICON:([a-z0-9-]+)")
 # 從文件站搬過來的頁面，圖示寫成 <i data-icon="名稱"></i>（見 tools/import_from_docs.py）
-PULSE_SLUG = "projects/pulse"
 ICON_TAG = re.compile(r'<i data-icon="([a-z0-9-]+)"></i>')
+# 每個地區各一頁的觀測頁：Markdown 只有一份，資料與地區清單在 data/<名稱>.toml
+PULSE_SLUG = "projects/pulse"
+ASN_SLUG = "projects/asn-coverage"
 
 
 @dataclass(frozen=True)
@@ -155,6 +158,10 @@ class Site:
         self.pulse_codes = [c["code"] for c in self.data.get("pulse", {}).get("countries", [])]
         self.pulse_slugs = [f"{PULSE_SLUG}/{c}" for c in self.pulse_codes[1:]] if PULSE_SLUG in self.slugs else []
         self._pulse = None
+        # OONI 觀測涵蓋率：同樣第一個地區是主頁，路徑是 projects/asn-coverage/<code>
+        self.asn_codes = [c["code"] for c in self.data.get("asn-coverage", {}).get("countries", [])]
+        self.asn_slugs = [f"{ASN_SLUG}/{c}" for c in self.asn_codes[1:]] if ASN_SLUG in self.slugs else []
+        self._asn = None
 
     def load_posts(self, lang: Lang) -> list[Post]:
         """社群動態不要求三個語系都有，只有正體中文的公告不會出現在其他語系的列表。"""
@@ -217,9 +224,10 @@ class Site:
 
     def blocks(self, lang: Lang, target: dict) -> dict[str, str]:
         ctx = self.context(lang, target)
-        # pulse 每個國家各畫一次，在 build_pulse 裡另外處理
+        # 觀測頁的區塊每個地區各畫一次，在 build_regions 裡另外處理
+        regional = {"_block-pulse.html.j2", "_block-asn-coverage.html.j2"}
         names = [p.name.removeprefix("_block-").removesuffix(".html.j2")
-                 for p in TEMPLATES.glob("_block-*.html.j2") if p.name != "_block-pulse.html.j2"]
+                 for p in TEMPLATES.glob("_block-*.html.j2") if p.name not in regional]
         return {n: self.env.get_template(f"_block-{n}.html.j2").render(**ctx) for n in names}
 
     def fill_blocks(self, body_html: str, blocks: dict[str, str], where: str) -> str:
@@ -273,7 +281,7 @@ class Site:
             self.write(out / "robots.txt", self.env.get_template("robots.txt.j2").render(
                 target=target, langs=self.langs, slugs=self.slugs, page_path=self.page_path), target)
             self.write(out / "sitemap.xml", self.env.get_template("sitemap.xml.j2").render(
-                target=target, langs=self.langs, slugs=self.slugs + self.pulse_slugs, page_path=self.page_path,
+                target=target, langs=self.langs, slugs=self.slugs + self.pulse_slugs + self.asn_slugs, page_path=self.page_path,
                 posts=[p for lang in self.langs for p in self.posts[lang.code]]), target)
             outs.append(out)
         return outs
@@ -288,6 +296,9 @@ class Site:
             meta, body = split_front_matter(src.read_text(encoding="utf-8"), where)
             if slug == PULSE_SLUG:
                 self.build_pulse(lang, target, out, meta, body, blocks, where)
+                continue
+            if slug == ASN_SLUG:
+                self.build_asn(lang, target, out, meta, body, blocks, where)
                 continue
             body_html = self.fill_blocks(render_markdown(body), blocks, where)
             body_html = ICON_REF.sub(lambda m: icon(m[1]), body_html)
@@ -315,41 +326,36 @@ class Site:
             self._pulse = pulse.load(self.pulse_codes, self.data["pulse"]["days"], CACHE / "pulse")
         return self._pulse
 
-    def build_pulse(self, lang: Lang, target: dict, out: Path, meta: dict, body: str,
-                    blocks: dict, where: str) -> None:
-        """Tor 中繼節點觀測：同一份 Markdown，每個國家各產生一頁，圖表各自畫。"""
-        conf = self.data["pulse"]
-        labels = conf["labels"]
+    def region_labels(self, conf: dict, lang: Lang) -> tuple[dict, callable]:
         pick = lambda value: value[lang.code] if isinstance(value, dict) else value  # noqa: E731
         L = {k: pick(v).replace("{days}", str(conf["days"])).replace("{back}", str(conf["compare_days"]))
-             for k, v in labels.items()}
-        loaded = self.pulse_data()
-        views = {c: pulse.view(loaded[c]["data"], labels, pick, conf["compare_days"]) if loaded[c]["data"] else None
-                 for c in self.pulse_codes}
+             for k, v in conf["labels"].items()}
+        return L, pick
+
+    def build_regions(self, lang: Lang, target: dict, out: Path, meta: dict, body: str, blocks: dict,
+                      where: str, slug: str, name: str, countries: list[dict], render) -> None:
+        """同一份 Markdown，每個地區各產生一頁。countries 每一項至少要有 code、title_name，
+        render(country, countries) 回傳那個地區的區塊 HTML，放進 <!-- name --> 的位置。"""
+        L, _ = self.region_labels(self.data[name], lang)
+        first_code = countries[0]["code"]
 
         def path(other: Lang, code: str) -> str:
-            return self.page_path(other, PULSE_SLUG if code == self.pulse_codes[0] else f"{PULSE_SLUG}/{code}")
+            return self.page_path(other, slug if code == first_code else f"{slug}/{code}")
 
-        countries = [{"code": c["code"], "name": pick(c["name"]), "href": path(lang, c["code"]),
-                      "title_name": c.get("title_name", {}).get(lang.code, pick(c["name"])),
-                      "running": views[c["code"]]["latest"]["running"] if views[c["code"]] and views[c["code"]]["latest"] else None,
-                      "spark": pulse.sparkline(views[c["code"]]["running_series"]) if views[c["code"]] else ""}
-                     for c in conf["countries"]]
+        countries = [{**c, "href": path(lang, c["code"])} for c in countries]
         for country in countries:
             code = country["code"]
-            block = self.env.get_template("_block-pulse.html.j2").render(
-                **self.context(lang, target), L=L, v=views[code], stale=loaded[code]["stale"],
-                country=country, countries=[{**c, "current": c["code"] == code} for c in countries])
-            body_html = self.fill_blocks(render_markdown(body), {**blocks, "pulse": block}, where)
+            block = render(country, [{**c, "current": c["code"] == code} for c in countries])
+            body_html = self.fill_blocks(render_markdown(body), {**blocks, name: block}, where)
             body_html = ICON_REF.sub(lambda m: icon(m[1]), body_html)
             body_html = ICON_TAG.sub(lambda m: icon(m[1]), body_html)
             body_html = self.localize(body_html, lang)
-            first = code == self.pulse_codes[0]
-            # 導言寫的是整頁的主題，只放在主頁，各國子頁的標題已經寫明是哪個地區
+            first = code == first_code
+            # 導言寫的是整頁的主題，只放在主頁，各地區子頁的標題已經寫明是哪個地區
             page = {
                 **{k: v for k, v in meta.items() if first or k != "lead"},
                 "title": meta["title"] if first else L["title_country"].replace("{name}", country["title_name"]),
-                "slug": PULSE_SLUG,
+                "slug": slug,
                 "section": "projects",
                 "parent": "projects",
                 "path": path(lang, code),
@@ -358,6 +364,63 @@ class Site:
             text = self.env.get_template(f"{meta.get('template', 'page')}.html.j2").render(
                 **self.context(lang, target), page=page, body=Markup(body_html))
             self.write(out / page["path"].lstrip("/") / "index.html", text, target)
+
+    def pulse_data(self) -> dict:
+        """各國的摘要，同一次建置只讀一次（clearnet 與 onion 共用）。"""
+        if self._pulse is None:
+            self._pulse = pulse.load(self.pulse_codes, self.data["pulse"]["days"], CACHE / "pulse")
+        return self._pulse
+
+    def build_pulse(self, lang: Lang, target: dict, out: Path, meta: dict, body: str,
+                    blocks: dict, where: str) -> None:
+        """Tor 中繼節點觀測：每個國家各一頁，圖表各自畫。"""
+        conf = self.data["pulse"]
+        L, pick = self.region_labels(conf, lang)
+        loaded = self.pulse_data()
+        views = {c: pulse.view(loaded[c]["data"], conf["labels"], pick, conf["compare_days"]) if loaded[c]["data"] else None
+                 for c in self.pulse_codes}
+        countries = [{"code": c["code"], "name": pick(c["name"]),
+                      "title_name": c.get("title_name", {}).get(lang.code, pick(c["name"])),
+                      "running": views[c["code"]]["latest"]["running"] if views[c["code"]] and views[c["code"]]["latest"] else None,
+                      "spark": pulse.sparkline(views[c["code"]]["running_series"]) if views[c["code"]] else ""}
+                     for c in conf["countries"]]
+
+        def render(country: dict, countries: list[dict]) -> str:
+            return self.env.get_template("_block-pulse.html.j2").render(
+                **self.context(lang, target), L=L, v=views[country["code"]], stale=loaded[country["code"]]["stale"],
+                country=country, countries=countries)
+
+        self.build_regions(lang, target, out, meta, body, blocks, where, PULSE_SLUG, "pulse", countries, render)
+
+    def asn_data(self) -> dict:
+        if self._asn is None:
+            self._asn = asn_coverage.load(self.asn_codes, self.data["asn-coverage"]["days"], CACHE / "asn-coverage")
+        return self._asn
+
+    def build_asn(self, lang: Lang, target: dict, out: Path, meta: dict, body: str,
+                  blocks: dict, where: str) -> None:
+        """OONI 觀測涵蓋率：每個地區各一頁。"""
+        conf = self.data["asn-coverage"]
+        L, pick = self.region_labels(conf, lang)
+        loaded = self.asn_data()
+        views = {}
+        for c in self.asn_codes:
+            data = loaded["countries"][c]["data"]
+            views[c] = asn_coverage.view(c, data, loaded["names"], conf["labels"], pick,
+                                         conf["compare_days"]) if data else None
+        countries = [{"code": c["code"], "name": pick(c["name"]),
+                      "title_name": c.get("title_name", {}).get(lang.code, pick(c["name"])),
+                      "coverage": views[c["code"]]["coverage"] if views[c["code"]] and views[c["code"]]["latest"] else None,
+                      "spark": asn_coverage.sparkline(views[c["code"]]["coverage_series"])
+                      if views[c["code"]] and views[c["code"]]["latest"] else ""}
+                     for c in conf["countries"]]
+
+        def render(country: dict, countries: list[dict]) -> str:
+            return self.env.get_template("_block-asn-coverage.html.j2").render(
+                **self.context(lang, target), L=L, v=views[country["code"]],
+                stale=loaded["countries"][country["code"]]["stale"], country=country, countries=countries)
+
+        self.build_regions(lang, target, out, meta, body, blocks, where, ASN_SLUG, "asn-coverage", countries, render)
 
     def build_posts(self, lang: Lang, target: dict, out: Path) -> None:
         for post in self.posts[lang.code]:

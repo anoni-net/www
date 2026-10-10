@@ -405,6 +405,21 @@ svg.pc rect:hover, svg.pc circle:hover { opacity: .7; }
 .pulse-country .name { display: block; font-size: .8rem; color: var(--c-muted); }
 .pulse-country .v { display: block; font-size: 1.25rem; font-weight: 700; color: var(--c-strong); font-variant-numeric: tabular-nums; }
 
+/* OONI 觀測涵蓋率（/projects/asn-coverage/）沿用上面的 .pulse 樣式，只補兩種版面：
+   使用者占比與測量占比上下並排的兩條長條，以及占比清單裡的網路名稱 */
+.asncov-net .bar { height: 4px; margin-top: .25rem; }
+.asncov-net .bar + .bar { margin-top: 2px; }
+.asncov-net .bar span { background: var(--pcc); }
+.asncov-net tr.gap td { background: var(--c-fill); }
+.asncov-net .asn-m { display: none; }
+/* 手機上五欄放不下：ASN 併進名稱欄，天數欄收起來 */
+@media (max-width: 560px) {
+  .asncov-net th:first-child, .asncov-net td:first-child, .asncov-net th:last-child, .asncov-net td:last-child { display: none; }
+  .asncov-net .asn-m { display: block; font-size: .75rem; }
+}
+.asncov-share li { grid-template-columns: 5.5rem 1fr 3rem; }
+.asncov-share .t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--c-muted); }
+
 /* 404 頁三種語言疊在一起，用細線分開 */
 .not-found + .not-found { border-top: 1px solid var(--c-hair); margin-top: 1.5rem; }
 .not-found h1 { font-size: 1.4rem; }
