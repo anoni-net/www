@@ -177,6 +177,7 @@ python3 tools/docs_style_lint.py /path/to/www/pages/zh-TW/about.md
     |---|---|
     | 站台 | 網站。指這個站自己時也可以寫文件站 |
     | 網關 | 閘道。照錄合約或產品名稱裡的「安全網關」不在此限 |
+    | 志願者 | 志工。法律用語「志願服務」不在此限 |
 
 - 譯名分三種處理：
     - 工具、協定、產品名保持英文原文（Tor、OONI、Tails、CryptPad）。
