@@ -35,13 +35,13 @@ For the other jurisdictions we can point out where a draft conflicts with the pu
 
 The community's three 2026 tracks, the [personal privacy guide](/join/privacy-guide/), [anonymous payments](/join/payments-research/), and [Tor relays on campus](/join/relay-on-campus/), each publish their research goals and work in progress. Co-researching one of those questions, or co-publishing on a related one, is open to organizations as well as individuals.
 
-Researchers can use our underlying data in published work: the [ASN observation data analysis](docs:regional/ooni-asn-coverage/) over OONI's public dataset, and the relay figures from the [Tor relay watcher](docs:regional/tor-relay-watcher/). We attribute other people's work explicitly and don't claim a formal arrangement where none exists.
+Researchers can use our underlying data in published work: the [ASN observation data analysis](docs:regional/ooni-asn-coverage/) over OONI's public dataset, and the relay figures from the [Tor relay watcher](/projects/pulse/). We attribute other people's work explicitly and don't claim a formal arrangement where none exists.
 
 ### Local observation
 
 We run OONI Probe in Taiwan and contribute to the country test list described in [OONI Website Testing List](docs:regional/ooni-checklist/). If sites relevant to your work fit the list's categories, write to us with them and we will review them for the next batch of list updates, after which their reachability across Taiwan's networks is measured and published over time.
 
-The [Tor relay watcher](docs:regional/tor-relay-watcher/) tracks relays in Taiwan, Japan, South Korea, and Hong Kong, and [How many people use Tor in Taiwan](docs:regional/taiwan-tor-users/) is reproducible from two public CSV files. We are glad to explain how to read the numbers. We cannot run measurements from inside other jurisdictions ourselves.
+[Tor Relay Watch](/projects/pulse/) tracks relays in Taiwan and nine other regions, and [How many people use Tor in Taiwan](docs:regional/taiwan-tor-users/) is reproducible from two public CSV files. We are glad to explain how to read the numbers. We cannot run measurements from inside other jurisdictions ourselves.
 
 ## Other ways to work together
 

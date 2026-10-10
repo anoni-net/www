@@ -7,7 +7,7 @@ Tor Relay 校园建立是匿名网络社群 anoni.net 2026 的三大主题之一
 
 ## 为什么把校园 Tor Relay 独立成一个主题
 
-Tor 网络的匿名性靠**多元的中继节点**支撑。当绝大多数中继集中在少数国家或少数网络供应商时，Tor 对抗流量分析的能力就会降低。台湾目前在 Tor Metrics 上能看到的中继数量有限，截至 2026-06 约 15 个运行中的中继，相比德国上千、美国数千的规模差距明显，多元性还有很大成长空间（数字会随时间变动，即时观测见 [Tor Relays 观测点](docs:taiwan/tor-relay-watcher/)）。
+Tor 网络的匿名性靠**多元的中继节点**支撑。当绝大多数中继集中在少数国家或少数网络供应商时，Tor 对抗流量分析的能力就会降低。台湾目前在 Tor Metrics 上能看到的中继数量有限，截至 2026-06 约 15 个运行中的中继，相比德国上千、美国数千的规模差距明显，多元性还有很大成长空间（数字会随时间变动，即时观测见 [Tor Relays 观测点](/projects/pulse/)）。
 
 大专院校是补上这个缺口的合适切入点：
 
@@ -33,7 +33,7 @@ Tor 网络的匿名性靠**多元的中继节点**支撑。当绝大多数中继
 - 案例：[在台师大架设 Tor Relay：一段与学校沟通、留下可能性的实现经验](docs:blog/2025/12/ntnu-nz/)
 - 国际参考：[Tor Project 客座文章：Setting Up a Tor University Relay in Taiwan](https://blog.torproject.org/setting-up-tor-university-relay-taiwan/)
 - 技术 how-to：[如何搭建 Tor Relay](docs:community/setup-tor-relay/)、[如何搭建 Tor WebTunnel 桥接](docs:community/setup-tor-webtunnel/)
-- 观测：[Tor Relays 观测点](docs:taiwan/tor-relay-watcher/)
+- 观测：[Tor 中继节点观测](/projects/pulse/)
 - 概念：[什么是 Tor](docs:tools/what-is-tor/)、[Tor Snowflake 桥接点](docs:tools/tor-snowflake/)
 - 进阶：[一个会遗忘的服务器：探索无状态中继](docs:blog/2026/04/a-server-that-forgets-exploring-stateless-relays/)
 
@@ -42,7 +42,7 @@ Tor 网络的匿名性靠**多元的中继节点**支撑。当绝大多数中继
 - **第一个校园案例上线**：国立台湾师范大学资讯工程学系资讯中心的 Tor Relay 已运行，由社群伙伴 NZ 透过教授与教职员提案、协调后完成建置
 - **Tor Project blog 客座文章**：把台师大案例写成英文版本，刊登于 [Tor Project blog](https://blog.torproject.org/setting-up-tor-university-relay-taiwan/)，登录到全球视野
 - **Tor University Challenge 中译**：完成 [EFF Tor University Challenge 网站](https://toruniversity.eff.org/zh-tw/) 的正体中文翻译，降低台湾其他学校接触计划的语言门槛
-- **观测站 Pulse 上线**：[Tor Relays 观测点](docs:taiwan/tor-relay-watcher/) 即时显示台湾（与日本、南韩、香港）的中继节点状况
+- **观测站 Pulse 上线**：[Tor 中继节点观测](/projects/pulse/)每小时更新台湾与邻近地区共十个地区的中继节点状况
 - **访谈企划**：把台师大架设过程整理成 [深度访谈](docs:blog/2025/12/ntnu-nz/)，公开给后续推动者参考
 
 ## 进行中与待完成

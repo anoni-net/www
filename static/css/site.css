@@ -7,6 +7,7 @@
   --brand-cyan-100: #b3e3ff;
   --brand-cyan-200: #80d1ff;
   --brand-cyan-300: #4dbfff;
+  --brand-cyan-400: #26b3ff;
   --brand-cyan-500: #00aeff;
   --brand-cyan-600: #009ee6;
   --brand-cyan-700: #0089bf;
@@ -321,6 +322,88 @@ p, li, .lead, .row .d, .row .t, h1, h3 { text-wrap: pretty; }
 .wm-card img { width: 100%; max-width: 14rem; height: auto; }
 .wm-card.wm-stack img { max-width: 7rem; }
 .color-swatch { display: inline-block; width: 1rem; height: 1rem; border: 1px solid #cdcdcd; border-radius: 3px; vertical-align: middle; margin-right: .4rem; }
+
+/* Tor 中繼節點觀測（/projects/pulse/）：圖表是 pulse.py 畫的內嵌 SVG，顏色都從這裡給。
+   五個深淺只用 cyan，淺色模式由深到淺，深色模式反過來，兩種底色上都讀得到。 */
+.pulse { --pc1: var(--brand-cyan-800); --pc2: var(--brand-cyan-600); --pc3: var(--brand-cyan-400); --pc4: var(--brand-cyan-200); --pc5: var(--brand-cyan-100); }
+@media (prefers-color-scheme: dark) {
+  .pulse { --pc1: var(--brand-cyan-200); --pc2: var(--brand-cyan-400); --pc3: var(--brand-cyan-600); --pc4: var(--brand-cyan-800); --pc5: #0b4a63; }
+}
+.pulse-regions { display: flex; flex-wrap: wrap; gap: .4rem; margin: 1.25rem 0 .5rem; }
+.pulse-regions a { padding: .15rem .75rem; border: 1px solid var(--c-line); border-radius: 999px; font-size: .85rem; text-decoration: none; }
+.pulse-regions a[aria-current] { background: var(--c-solid); border-color: var(--c-solid); color: #fff; }
+.pulse-meta { margin: .25rem 0 0; font-size: .8rem; color: var(--c-muted); }
+.pulse-stale { margin-left: .5rem; padding: 0 .4rem; border: 1px solid var(--c-line); border-radius: 4px; }
+.pulse-empty { padding: 1rem; border: 1px dashed var(--c-line); border-radius: var(--radius); color: var(--c-muted); }
+.pulse-note { color: var(--c-muted); font-size: .9rem; }
+
+/* 大數字卡片：數值、跟一個月前的差、近期走勢 */
+.pulse-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: .6rem; margin: 1rem 0 1.75rem; }
+@media (min-width: 640px) { .pulse-stats { grid-template-columns: repeat(4, 1fr); } }
+.pulse-stat { border: 1px solid var(--c-hair); border-radius: var(--radius); padding: .7rem .8rem .5rem; background: linear-gradient(160deg, var(--c-fill), transparent 75%); }
+.pulse-stat .k { display: block; font-size: .75rem; color: var(--c-muted); }
+.pulse-stat .v { display: block; white-space: nowrap; font-size: 1.6rem; font-weight: 700; line-height: 1.25; color: var(--c-strong); font-variant-numeric: tabular-nums; }
+.pulse-stat .v small { margin-left: .2rem; font-size: .55em; font-weight: 400; color: var(--c-muted); }
+.pulse-stat .dl { display: block; font-size: .75rem; color: var(--c-accent); font-variant-numeric: tabular-nums; }
+.pulse-stat .dl.down, .pulse-stat .dl.flat { color: var(--c-muted); }
+.pulse-stat .dl small { margin-left: .3rem; color: var(--c-muted); font-size: 1em; }
+.pc-spark { display: block; width: 100%; height: 28px; margin-top: .35rem; overflow: visible; }
+.pc-spark polyline { fill: none; stroke: var(--pc2); stroke-width: 1.6; stroke-linejoin: round; }
+.pc-spark circle { fill: var(--pc1); }
+
+/* 圖表外框與圖例 */
+.pulse-chart { margin: .75rem 0 1.25rem; padding: .75rem .75rem .5rem; border: 1px solid var(--c-hair); border-radius: var(--radius); }
+.pulse-chart figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .25rem .75rem; margin-bottom: .5rem; font-size: .8rem; font-weight: 700; color: var(--c-strong); }
+.pulse-chart .lg { display: flex; flex-wrap: wrap; align-items: center; gap: .25rem .7rem; font-weight: 400; color: var(--c-muted); }
+.sw { display: inline-block; width: .7rem; height: .7rem; margin-right: .3rem; border-radius: 2px; vertical-align: -.05rem; }
+svg.pc { display: block; width: 100%; height: auto; overflow: visible; }
+.pc-grid { stroke: var(--c-hair); stroke-width: 1; }
+.pc-tick { fill: var(--c-muted); font-size: 11px; font-family: var(--font); }
+/* SVG 跟著外框縮放，手機上整張圖縮到一半左右，刻度字用 viewBox 的單位放大回來 */
+@media (max-width: 560px) { .pc-tick { font-size: 21px; } }
+/* 顏色類別只設定變數，長條、線、點各自讀變數，彼此不會互相覆蓋 */
+.pc-s1 { --pcc: var(--pc1); }
+.pc-s2 { --pcc: var(--pc2); }
+.pc-s3 { --pcc: var(--pc3); }
+.pc-s4 { --pcc: var(--pc4); }
+.pc-s5 { --pcc: var(--pc5); }
+svg.pc rect { fill: var(--pcc, var(--pc1)); }
+.sw, .pulse-share span { background: var(--pcc, var(--pc1)); }
+.pc-line { fill: none; stroke: var(--pcc, var(--pc1)); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.pc-dot { fill: var(--pcc, var(--pc1)); }
+.pc-line.pc-dash { stroke-dasharray: 5 4; }
+.sw.pc-dash { background: repeating-linear-gradient(90deg, var(--pcc) 0 3px, transparent 3px 5px); }
+.pc-grad-top { stop-color: var(--pc2); stop-opacity: .45; }
+.pc-grad-bottom { stop-color: var(--pc2); stop-opacity: 0; }
+svg.pc rect:hover, svg.pc circle:hover { opacity: .7; }
+
+/* ASN：一條分段的占比長條，加上前幾名的表 */
+.pulse-share { display: flex; gap: 2px; height: .9rem; margin: .25rem 0 .9rem; border-radius: 999px; overflow: hidden; }
+.pulse-share span { display: block; min-width: 3px; }
+.pulse-asn { margin: 0; font-size: .85rem; }
+.pulse-asn td:first-child, .pulse-asn th { white-space: nowrap; }
+.pulse-asn .n { text-align: right; font-variant-numeric: tabular-nums; }
+.pulse .bar { display: block; height: 4px; margin-top: .3rem; border-radius: 2px; background: var(--c-hair); }
+.pulse .bar span { display: block; height: 100%; border-radius: 2px; background: var(--pc2); }
+.pulse-more { margin: .5rem 0 0; font-size: .8rem; color: var(--c-muted); }
+
+/* 版本與標記：橫向長條 */
+.pulse-cols { display: grid; gap: 0 .75rem; }
+@media (min-width: 640px) { .pulse-cols { grid-template-columns: 1fr 1fr; } }
+.pulse-bars { list-style: none; margin: 0; padding: 0; }
+.pulse-bars li { display: grid; grid-template-columns: 5.5rem 1fr 2.5rem; align-items: center; gap: .5rem; margin: .3rem 0; font-size: .85rem; }
+.pulse-bars .l { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pulse-bars .bar { height: .6rem; margin: 0; }
+.pulse-bars .n { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* 各地區比較：每個地區一張小卡，數字加走勢 */
+.pulse-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .5rem; margin-bottom: 1.5rem; }
+@media (min-width: 640px) { .pulse-grid { grid-template-columns: repeat(5, 1fr); } }
+.pulse-country { display: block; padding: .5rem .6rem .4rem; border: 1px solid var(--c-hair); border-radius: var(--radius); color: inherit; text-decoration: none; }
+.pulse-country:hover { border-color: var(--c-line); }
+.pulse-country[aria-current] { border-color: var(--c-line); background: var(--c-fill); }
+.pulse-country .name { display: block; font-size: .8rem; color: var(--c-muted); }
+.pulse-country .v { display: block; font-size: 1.25rem; font-weight: 700; color: var(--c-strong); font-variant-numeric: tabular-nums; }
 
 /* 404 頁三種語言疊在一起，用細線分開 */
 .not-found + .not-found { border-top: 1px solid var(--c-hair); margin-top: 1.5rem; }

@@ -66,7 +66,7 @@ Community members turn up at local open source, civic, and privacy events (hacka
 
 Beyond the documentation site, the community maintains several technical sub-projects related to Tor, OONI, and password security:
 
-- **Pulse**: real-time Tor relay monitoring (FastAPI and PostgreSQL), the data source behind the charts on the [Tor relay observatory](docs:regional/tor-relay-watcher/) page
+- **Pulse**: real-time Tor relay monitoring (FastAPI and PostgreSQL), the data source behind the [Tor Relay Watch](/projects/pulse/) page
 - **ASN Coverage**: a batch analysis tool over OONI's public data, feeding the [ASN coverage analysis](docs:regional/ooni-asn-coverage/) page
 - **Asian Diceware**: an EFF-compatible 7776-word passphrase list that blends in dictionary-attested Asian loanwords, built partly to prepare for a future community-run anonymous service platform along the lines of [AnonTicket](https://anonticket.torproject.org/), the Tor Project's anonymous support ticketing service, which would need to generate account codes. See [Asian Diceware](docs:tools/asian-diceware/).
 

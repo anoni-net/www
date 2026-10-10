@@ -35,10 +35,11 @@ summary.en = "A query service for Tor relay data. Paste one URL into a cloud AI 
 [[tools]]
 icon = "chart-line"
 name = "Pulse"
-docs = "taiwan/tor-relay-watcher/"
-summary.zh-TW = "定期收集台灣、香港、日本、南韓的 Tor 中繼節點資料，提供 API 與圖表給文件站的觀測頁使用。"
-summary.zh-CN = "定期收集台湾、香港、日本、韩国的 Tor 中继节点数据，提供 API 与图表给文档站的观测页使用。"
-summary.en = "Collects Tor relay data for Taiwan, Hong Kong, Japan and South Korea, and serves the API and charts behind the measurement pages in the docs."
+# 本站的頁面，其他工具的 docs 是文件站的路徑
+page = "projects/pulse"
+summary.zh-TW = "每小時收集臺灣與鄰近地區共十個地區的 Tor 中繼節點資料，提供公開的 API 與本站的觀測頁。"
+summary.zh-CN = "每小时收集台湾与邻近地区共十个地区的 Tor 中继节点数据，提供公开的 API 与本站的观测页。"
+summary.en = "Collects Tor relay data for Taiwan and nine other regions every hour, and serves a public API and the relay watch page on this site."
 
 [[tools]]
 icon = "map-outline"

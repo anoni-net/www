@@ -127,3 +127,17 @@ docs = "community/brand-assets.md"
 page = "brand"
 langs = ["zh-TW", "zh-CN", "en"]
 import = true
+
+# 2026-10-10：Tor Relays 觀測點改成本站的 Tor 中繼節點觀測，圖表在建置時畫成靜態 SVG，
+# 內容是重寫的，只轉址。英文版在文件站的路徑是 regional/，正體與簡體是 taiwan/。
+[[moved]]
+docs = "taiwan/tor-relay-watcher.md"
+page = "projects/pulse"
+langs = ["zh-TW", "zh-CN"]
+import = false
+
+[[moved]]
+docs = "regional/tor-relay-watcher.md"
+page = "projects/pulse"
+langs = ["en"]
+import = false

@@ -1,0 +1,110 @@
+{# Tor 中繼節點觀測的儀表板。圖表在 pulse.py 畫成 SVG，這裡只負責排版。
+   v 是 pulse.view() 的結果，Pulse 沒有回應又沒有快取時是 None。 #}
+<div class="pulse">
+<nav class="pulse-regions" aria-label="{{ L.countries }}">
+{% for c in countries %}
+  <a href="{{ c.href }}"{% if c.current %} aria-current="page"{% endif %}>{{ c.name }}</a>
+{% endfor %}
+</nav>
+
+{% if not v or not v.latest %}
+<p class="pulse-empty">{{ L.unavailable if not v else L.no_data }}</p>
+{% else %}
+<p class="pulse-meta">{{ L.updated }} {{ v.snapshot[:16] | replace('T', ' ') }} UTC{% if stale %}<span class="pulse-stale">{{ L.stale }}</span>{% endif %}</p>
+
+<div class="pulse-stats">
+{% for s in v.stats %}
+  <div class="pulse-stat">
+    <span class="k">{{ s.label }}</span>
+    <span class="v">{{ s.value }}{% if s.unit %}<small>{{ s.unit }}</small>{% endif %}</span>
+    {% if s.delta %}<span class="dl {{ s.trend }}">{{ s.delta }}<small>{{ L.vs }}</small></span>{% endif %}
+    {{ s.spark }}
+  </div>
+{% endfor %}
+</div>
+
+<h2 id="health">{{ L.health }}</h2>
+<p class="pulse-note">{{ L.health_note }}</p>
+<figure class="pulse-chart">
+  <figcaption>{{ L.chart_relays }}<span class="lg"><i class="sw pc-s1"></i>{{ L.running }}<i class="sw pc-s4"></i>{{ L.stopped }}</span></figcaption>
+  {{ v.charts.relays }}
+</figure>
+<figure class="pulse-chart">
+  <figcaption>{{ L.chart_bandwidth }}</figcaption>
+  {{ v.charts.bandwidth }}
+</figure>
+
+<h2 id="diversity">{{ L.diversity }}</h2>
+<p class="pulse-note">{{ L.diversity_note }}</p>
+<figure class="pulse-chart">
+  <figcaption>{{ L.asn_share }}</figcaption>
+  <div class="pulse-share" role="img" aria-label="{{ L.asn_share }}">
+  {% for a in v.asn_share %}
+    <span class="{{ a.shade }}" style="width:{{ '%.2f' | format(a.pct) }}%" title="{{ a.asn }} {{ a.name }} {{ a.count }}（{{ '%.0f' | format(a.pct) }}%）"></span>
+  {% endfor %}
+  </div>
+  <table class="pulse-asn">
+    <thead><tr><th>{{ L.asn_col }}</th><th>{{ L.asn_name }}</th><th class="n">{{ L.asn_relays }}</th></tr></thead>
+    <tbody>
+    {% for a in v.asn_top %}
+      <tr>
+        <td><a href="https://radar.cloudflare.com/{{ a.asn | lower }}">{{ a.asn }}</a></td>
+        <td>{{ a.as_name }}<span class="bar"><span style="width:{{ '%.2f' | format(a.pct) }}%"></span></span></td>
+        <td class="n">{{ a.count }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  {% if v.asn_rest %}<p class="pulse-more">{{ L.asn_more | replace('{n}', v.asn_rest | string) }}</p>{% endif %}
+</figure>
+<figure class="pulse-chart">
+  <figcaption>{{ L.asn_trend }}</figcaption>
+  {{ v.charts.asns }}
+</figure>
+
+<h2 id="roles">{{ L.roles }}</h2>
+<p class="pulse-note">{{ L.roles_note }}</p>
+<figure class="pulse-chart">
+  <figcaption>{{ L.roles }}<span class="lg"><i class="sw pc-s1"></i>Guard<i class="sw pc-s3"></i>Middle<i class="sw pc-s2 pc-dash"></i>Exit</span></figcaption>
+  {{ v.charts.roles }}
+</figure>
+
+<h2 id="versions">{{ L.versions }}</h2>
+<p class="pulse-note">{{ L.versions_note }}</p>
+<figure class="pulse-chart">
+  <figcaption>{{ L.versions }}<span class="lg">{% for name, cls in v.legend_versions %}<i class="sw {{ cls }}"></i>{{ name }}{% endfor %}</span></figcaption>
+  {{ v.charts.versions }}
+</figure>
+<div class="pulse-cols">
+  <figure class="pulse-chart">
+    <figcaption>{{ L.versions_latest }}</figcaption>
+    <ul class="pulse-bars">
+    {% for x in v.versions %}
+      <li><span class="l">{{ x.version }}</span><span class="bar"><span style="width:{{ '%.2f' | format(x.pct) }}%"></span></span><span class="n">{{ x.count }}</span></li>
+    {% endfor %}
+    </ul>
+  </figure>
+  <figure class="pulse-chart">
+    <figcaption>{{ L.flags }}</figcaption>
+    <ul class="pulse-bars">
+    {% for x in v.flags %}
+      <li><span class="l">{{ x.flag }}</span><span class="bar"><span style="width:{{ '%.2f' | format(x.pct) }}%"></span></span><span class="n">{{ x.count }}</span></li>
+    {% endfor %}
+    </ul>
+  </figure>
+</div>
+<p class="pulse-note">{{ L.flags_note }}</p>
+{% endif %}
+
+<h2 id="compare">{{ L.compare }}</h2>
+<p class="pulse-note">{{ L.compare_note }}</p>
+<div class="pulse-grid">
+{% for c in countries %}
+  <a class="pulse-country" href="{{ c.href }}"{% if c.current %} aria-current="page"{% endif %}>
+    <span class="name">{{ c.name }}</span>
+    <span class="v">{{ "{:,}".format(c.running) if c.running is not none else "–" }}</span>
+    {{ c.spark }}
+  </a>
+{% endfor %}
+</div>
+</div>

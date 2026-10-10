@@ -9,7 +9,7 @@ Getting Tor relays onto university campuses is one of anoni.net's three tracks f
 
 Tor's anonymity rests on **a diverse set of relays**. When most of them concentrate in a few countries or a few hosting providers, Tor's resistance to traffic analysis weakens.
 
-Taiwan's relay count is small. As of June 2026, Tor Metrics showed roughly 15 running relays, against thousands in Germany and the United States, so the room for growth in diversity is substantial. The figure moves, and live observation is on the [Tor relay watcher](docs:regional/tor-relay-watcher/).
+Taiwan's relay count is small. As of June 2026, Tor Metrics showed roughly 15 running relays, against thousands in Germany and the United States, so the room for growth in diversity is substantial. The figure moves, and live observation is on the [Tor relay watcher](/projects/pulse/).
 
 Universities are a good place to close that gap:
 
@@ -35,7 +35,7 @@ What the community is building is a reproducible method: the full deployment pro
 - **The case**: [setting up a Tor relay at National Taiwan Normal University](docs:blog/2025/12/ntnu-nz/), an account of working the proposal through the institution
 - **International**: [our guest post on the Tor Project blog](https://blog.torproject.org/setting-up-tor-university-relay-taiwan/)
 - **Technical how-to**: [how to run a Tor relay](docs:community/setup-tor-relay/), [how to run a Tor WebTunnel bridge](docs:community/setup-tor-webtunnel/)
-- **Observation**: [Tor relay watcher](docs:regional/tor-relay-watcher/)
+- **Observation**: [Tor Relay Watch](/projects/pulse/)
 - **Concepts**: [what is Tor](docs:tools/what-is-tor/), [Tor Snowflake](docs:tools/tor-snowflake/)
 
 ## Done so far
@@ -43,7 +43,7 @@ What the community is building is a reproducible method: the full deployment pro
 - **The first campus case is running**: the Tor relay at the Computer Science and Information Engineering department's IT centre at National Taiwan Normal University, deployed by community member NZ after working the proposal through faculty and staff
 - **A guest post on the Tor Project blog**: the case written up in English and [published upstream](https://blog.torproject.org/setting-up-tor-university-relay-taiwan/), putting it in front of a global audience
 - **Tor University Challenge translated**: the [EFF site](https://toruniversity.eff.org/) translated into Traditional Chinese, lowering the language barrier for other universities in Taiwan
-- **Pulse observation live**: the [Tor relay watcher](docs:regional/tor-relay-watcher/) shows relay activity across Taiwan, Japan, South Korea, and Hong Kong in real time
+- **Pulse observation live**: [Tor Relay Watch](/projects/pulse/) shows relays in Taiwan and nine other regions, updated hourly
 - **An interview**: the full deployment story recorded as a [long-form interview](docs:blog/2025/12/ntnu-nz/) for whoever goes next
 - **The template kit**: the experience turned into a proposal document, a technical SOP, and an FAQ for university administrators, all reusable as-is
 
