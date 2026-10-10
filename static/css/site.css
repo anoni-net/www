@@ -420,6 +420,17 @@ svg.pc rect:hover, svg.pc circle:hover { opacity: .7; }
 .pulse-cmp tr.ref th { padding-top: .9rem; font-size: .75rem; color: var(--c-muted); font-weight: 400; }
 /* 英文的地區名較長（South Korea、United States），手機上讓名稱斷行，數字欄才放得下 */
 .prose .pulse-asn.pulse-cmp td:first-child, .prose .pulse-cmp td:first-child a { white-space: normal; overflow-wrap: normal; }
+/* 通訊 App 的比較表：異常比例過半的格子標成重點色，參照地區前面加一列小標 */
+.asncov-appcmp td.hi { font-weight: 700; color: var(--c-accent); }
+.asncov-appcmp tr.ref th { padding-top: .9rem; font-size: .75rem; color: var(--c-muted); font-weight: 400; }
+/* 欄位多的表格在窄螢幕上左右捲動，不撐破外框 */
+.pulse-scroll { overflow-x: auto; margin-bottom: 1.5rem; }
+.pulse-scroll .pulse-cmp { margin-bottom: 0; }
+@media (max-width: 420px) {
+  .asncov-appcmp { font-size: .72rem; }
+  .prose .asncov-appcmp th, .prose .asncov-appcmp td { padding-left: .2rem; padding-right: .2rem; }
+  .asncov-appcmp thead th { font-size: .66rem; }
+}
 .pulse-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: .5rem; margin-bottom: 1.5rem; }
 @media (min-width: 640px) { .pulse-grid { grid-template-columns: repeat(5, 1fr); } }
 .pulse-country { display: block; padding: .5rem .6rem .4rem; border: 1px solid var(--c-hair); border-radius: var(--radius); color: inherit; text-decoration: none; }
@@ -441,6 +452,7 @@ svg.pc rect:hover, svg.pc circle:hover { opacity: .7; }
   .asncov-net .asn-m { display: block; font-size: .75rem; }
 }
 .asncov-share li { grid-template-columns: 5.5rem 1fr 3rem; }
+.asncov-apps li { grid-template-columns: 5.5rem 1fr 3.2rem; }
 .asncov-share .t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--c-muted); }
 
 /* 觀測季報（/projects/reports/）沿用 .pulse 的樣式，補上季初季末的流向條與各地區排名。

@@ -113,8 +113,11 @@ uv run tools/import_from_docs.py --nginx                    # 重新產生 tools
 | [OONI 彙總 API](https://api.ooni.io/) | 各 ASN 每天的測量數，分成正常、異常、確認封鎖、測量失敗 | 6 小時 |
 | [APNIC 的 ASN 使用者估計](https://stats.labs.apnic.net/aspop/) | 各 ASN 的使用者人數與名稱，APNIC 每週更新 | 7 天 |
 | [RIPE NCC 的 ASN 名稱表](https://ftp.ripe.net/ripe/asnames/asn.txt) | 不在 APNIC 估計裡的網路名稱，例如學術網路 | 7 天 |
+| OONI 彙總 API，`axis_x=probe_cc` | Signal、WhatsApp、Telegram 測試在各國最近 30 天的結果，一個 App 一次查完所有國家 | 6 小時 |
 
 部署在 m6 時每小時重建一次，OONI 每六小時才真的重讀，十二個地區約 25 秒（本機實測），APNIC 與 RIPE 每週重讀一次。讀取失敗的處理跟 Pulse 相同，退回快取並標示。APNIC 的資料允許註明出處後再利用，頁面的「資料的計算方式」寫了來源。
+
+穩定涵蓋率只算最近 30 天裡至少 15 天有測量的網路，跟「有一筆就算」的涵蓋率並排，看使用者有多少在只有零星測量的網路上，門檻是 `asn_coverage.py` 的 `STABLE_DAYS`。通訊 App 的比較表除了有頁面的地區，另外列 `data/asn-coverage.toml` 的 `[[apps.regions]]`，那些地區有封鎖紀錄，可以拿來對照。Messenger 的測試在沒有封鎖紀錄的地區也常有一成以上的異常，所以不列。
 
 需要網路類型（行動、寬頻）或封鎖方式的細節時，用 [ASN Coverage](https://github.com/anoni-net/asn-coverage) 下載原始測量分析，彙總 API 沒有這兩項。
 
