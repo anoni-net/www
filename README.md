@@ -100,7 +100,7 @@ uv run tools/import_from_docs.py --nginx                    # 重新產生 tools
 
 ## OONI 觀測涵蓋率
 
-`/projects/asn-coverage/` 對照 OONI 的測量數與各 ASN 的使用者人數，看測量涵蓋多少使用者、集中在哪些網路、哪些網路還沒有測量，原本只有文件站「ASN 自治網路觀測資料分析」那篇 2023 年的數字。頁面的文字在 `pages/<語系>/projects/asn-coverage.md`，`<!-- asn-coverage -->` 的位置放儀表板，地區清單與圖表上的文字在 `data/asn-coverage.toml`，分頁方式跟 Tor 中繼節點觀測相同。
+`/projects/asn-coverage/` 對照 OONI 的測量數與各 ASN 的使用者人數，看測量涵蓋多少使用者、集中在哪些網路、哪些網路還沒有測量，原本只有文件站一篇 2023 年的分析（ASN 自治網路觀測資料分析）。頁面的文字在 `pages/<語系>/projects/asn-coverage.md`，`<!-- asn-coverage -->` 的位置放儀表板，地區清單與圖表上的文字在 `data/asn-coverage.toml`，分頁方式跟 Tor 中繼節點觀測相同。
 
 建置時 [`asn_coverage.py`](./asn_coverage.py) 讀三個公開來源，寫進 `.cache/asn-coverage/`：
 

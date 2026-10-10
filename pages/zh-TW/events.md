@@ -8,7 +8,7 @@ description: 匿名網路、網路自由相關的工作坊、討論會議與年�
 ## 2026
 
 <ul class="rows">
-  <li><a class="row" href="/events/gg2026/"><span class="b"><span class="meta">2026/09/04 – 09/06 · 葡萄牙 Estoril</span><span class="t">Global Gathering 2026</span><span class="d">現場找到我們的一頁。攤位時段、桌上十二個關掉網路照樣能用的瀏覽器小工具、三件 Tor 的 3D 互動作品，以及用 passkey 把加密資料留在自己裝置上的研究。</span></span><span class="go">ICON:arrow-right</span></a></li>
+  <li><a class="row" href="/events/gg2026/"><span class="b"><span class="meta">2026/09/04 – 09/06 · 葡萄牙 Estoril</span><span class="t">Global Gathering 2026</span><span class="d">現場找到我們的一頁。攤位時段、桌上十二個離線也可使用的瀏覽器小工具、三件 Tor 的 3D 互動作品，以及用 passkey 把加密資料留在自己裝置上的研究。</span></span><span class="go">ICON:arrow-right</span></a></li>
   <li><a class="row" href="/events/coscup-2026/"><span class="b"><span class="meta">2026/08/08 – 08/09 · 國立台灣科技大學</span><span class="t">COSCUP 2026 匿名網路社群議程軌</span><span class="d">二日社群議程與工作坊。涵蓋網路審查、瀏覽器追蹤、校園 Tor 節點、個資權利、隱私指南與匿名支付，並與 ETHTaipei 合辦匿名支付場。</span></span><span class="go">ICON:arrow-right</span></a></li>
   <li><a class="row" href="/events/coscup-2026-cfp/"><span class="b"><span class="meta">徵稿截止 2026/05/09</span><span class="t">COSCUP 2026 公開徵稿</span><span class="d">社群議程軌徵稿。分享匿名、隱私與數位安全相關議題。</span></span><span class="go">ICON:arrow-right</span></a></li>
 </ul>

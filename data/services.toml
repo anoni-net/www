@@ -11,7 +11,7 @@ name = "Matrix"
 host = "matrix.anoni.net"
 onion = true
 home = true
-kind = { zh-TW = "即時討論", zh-CN = "即时讨论", en = "Chat" }
+kind = { zh-TW = "即時討論", zh-CN = "实时讨论", en = "Chat" }
 summary.zh-TW = "日常討論、主題的協作房間與活動協調。家伺服器是 im.anoni.net，網頁版用 Element，手機用 Element X。"
 summary.zh-CN = "日常讨论、主题的协作房间与活动协调。主服务器是 im.anoni.net，网页版用 Element，手机用 Element X。"
 summary.en = "Day-to-day discussion, per-topic rooms and event coordination. The homeserver is im.anoni.net. Use Element on the web or Element X on a phone."
@@ -39,7 +39,7 @@ name = "Etherpad"
 host = "pad.anoni.net"
 onion = true
 home = true
-kind = { zh-TW = "即時共筆", zh-CN = "即时共笔", en = "Shared notes" }
+kind = { zh-TW = "即時共筆", zh-CN = "实时共笔", en = "Shared notes" }
 summary.zh-TW = "活動現場一起記錄、臨時的草稿。內容沒有加密，取得連結的人都能讀，不要放敏感資訊。"
 summary.zh-CN = "活动现场一起记录、临时的草稿。内容没有加密，取得链接的人都能读，不要放敏感信息。"
 summary.en = "Notes taken together during an event and quick throwaway drafts. Nothing is encrypted and anyone with the link can read it, so keep sensitive material out."
@@ -87,4 +87,4 @@ summary.zh-CN = "电子报订阅、活动报名与意见反馈。自架的表单
 summary.en = "Newsletter sign-ups, event registration and feedback. A self-hosted form keeps respondents out of a third-party provider's tracking."
 account.zh-TW = "填表免帳號，建立表單要來信申請"
 account.zh-CN = "填表免账号，建立表单要来信申请"
-account.en = "No account to fill in, on request to create forms"
+account.en = "No account needed to fill in; account on request to create forms"

@@ -1,5 +1,5 @@
 ---
-title: 'WIP: Anonymous Network Workshop 2025/08'
+title: Organizing the Anonymous Network Workshop 2025/08
 description: Recruiting staff to help organize the event!
 ---
 

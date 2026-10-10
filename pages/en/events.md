@@ -17,5 +17,5 @@ We occasionally hold workshops or discussion meetings on topics related to anony
 
 <ul class="rows">
   <li><a class="row" href="/events/workshop-2025/"><span class="b"><span class="meta">August 9, 2025 (two days) · National Taiwan University of Science and Technology</span><span class="t">Anonymous Network Workshop</span><span class="d">Tor/Tails Anonymous Network Workshop, OONI Data Analysis, Roundtable Discussion (Topics Related to Open Source and Anonymous Networks).</span></span><span class="go">ICON:arrow-right</span></a></li>
-  <li><a class="row" href="/events/workshop-2025-prepare/"><span class="b"><span class="meta">August 9, 2025 (two days) · National Taiwan University of Science and Technology</span><span class="t">Organized by: Anonymous Network Workshop</span><span class="d">Participate in event planning, training assistant helpers, and recruiting staff.</span></span><span class="go">ICON:arrow-right</span></a></li>
+  <li><a class="row" href="/events/workshop-2025-prepare/"><span class="b"><span class="meta">August 9, 2025 (two days) · National Taiwan University of Science and Technology</span><span class="t">Help organize the Anonymous Network Workshop</span><span class="d">Event planning, training teaching assistants, and recruiting staff.</span></span><span class="go">ICON:arrow-right</span></a></li>
 </ul>
