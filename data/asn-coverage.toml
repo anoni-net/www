@@ -65,7 +65,7 @@ networks_note = { zh-TW = "APNIC 估計使用者最多的十個網路，對照�
 col_asn = { zh-TW = "ASN", zh-CN = "ASN", en = "ASN" }
 col_name = { zh-TW = "名稱", zh-CN = "名称", en = "Name" }
 col_users = { zh-TW = "使用者", zh-CN = "用户", en = "Users" }
-col_measured = { zh-TW = "測量", zh-CN = "测量", en = "Measurements" }
+col_measured = { zh-TW = "測量", zh-CN = "测量", en = "Measured" }
 col_days = { zh-TW = "天數", zh-CN = "天数", en = "Days" }
 gaps = { zh-TW = "還沒有測量的網路", zh-CN = "还没有测量的网络", en = "Networks without measurements" }
 gaps_note = { zh-TW = "使用者占比 0.1% 以上、最近 {back} 天沒有任何測量的網路，共 {n} 個，合計約 {pct}% 的使用者。", zh-CN = "用户占比 0.1% 以上、最近 {back} 天没有任何测量的网络，共 {n} 个，合计约 {pct}% 的用户。", en = "{n} networks with at least 0.1% of users had no measurements in the last {back} days, about {pct}% of users in total." }

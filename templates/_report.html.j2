@@ -58,11 +58,11 @@
   <div class="pulse-share" role="img" aria-label="{{ L.asn_share }}">
   {% for a in v.asn_share %}<span class="{{ a.shade }}" style="width:{{ '%.2f' | format(a.pct) }}%" title="{{ a.asn }} {{ a.name }} {{ a.n }}"></span>{% endfor %}
   </div>
-  <table class="pulse-asn">
+  <table class="pulse-asn m-asn">
     <thead><tr><th>{{ L.col_asn }}</th><th>{{ L.col_name }}</th><th class="n">{{ L.col_relays }}</th></tr></thead>
     <tbody>
     {% for a in v.asn_share %}
-      <tr><td><a href="https://radar.cloudflare.com/{{ a.asn | lower }}">{{ a.asn }}</a></td><td>{{ a.name }}</td><td class="n">{{ a.n }}</td></tr>
+      <tr><td><a href="https://radar.cloudflare.com/{{ a.asn | lower }}">{{ a.asn }}</a></td><td><a class="asn-m" href="https://radar.cloudflare.com/{{ a.asn | lower }}">{{ a.asn }}</a>{{ a.name }}</td><td class="n">{{ a.n }}</td></tr>
     {% endfor %}
     </tbody>
   </table>
@@ -144,11 +144,13 @@
 {% macro gaps() %}
 <div class="pulse"><figure class="pulse-chart">
   <figcaption>{{ L.gaps }}</figcaption>
-  <table class="pulse-asn">
-    <thead><tr><th>{{ L.col_asn }}</th><th>{{ L.col_name }}</th><th>{{ L.col_type }}</th><th class="n">{{ L.col_users }}</th></tr></thead>
+  <table class="pulse-asn m-asn">
+    <thead><tr><th>{{ L.col_asn }}</th><th>{{ L.col_name }}</th><th class="n">{{ L.col_users }}</th></tr></thead>
     <tbody>
     {% for g in v.gaps %}
-      <tr><td><a href="https://radar.cloudflare.com/{{ g.asn | lower }}">{{ g.asn }}</a></td><td>{{ g.name }}</td><td class="k">{{ g.kind }}</td><td class="n">{{ '%.2f' | format(g.users) }}%</td></tr>
+      <tr><td><a href="https://radar.cloudflare.com/{{ g.asn | lower }}">{{ g.asn }}</a></td>
+        <td><a class="asn-m" href="https://radar.cloudflare.com/{{ g.asn | lower }}">{{ g.asn }}</a>{{ g.name }}<span class="kind">{{ g.kind }}</span></td>
+        <td class="n">{{ '%.2f' | format(g.users) }}%</td></tr>
     {% endfor %}
     </tbody>
   </table>
