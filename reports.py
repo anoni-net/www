@@ -203,6 +203,7 @@ def view(root: Path, data: dict, labels: dict, pick, names: dict) -> dict:
         "asn_start_count": len(p["asn_start"]),
         "top2": top2,
         "density": [{**d, "bar": d["value"] / dmax * 100} for d in density],
+        "relays_end": {c: p["churn"][c]["at_end"] for c in data["countries"]},
         "ooni": ooni_stats,
         "added": [{"asn": f"AS{a}", "name": name_of(a), "n": q_counts[a]} for a in added],
         "dropped": [{"asn": f"AS{a}", "name": name_of(a), "n": prev_asn[a]} for a in dropped],

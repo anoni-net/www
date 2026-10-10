@@ -127,6 +127,8 @@ uv run tools/import_from_docs.py --nginx                    # 重新產生 tools
 
 APNIC 只提供最近 60 天的估計，查不到過去的值，所以每一期用的是產生數字檔當時的那一份，檔案裡記著日期。網路類型（行動、固網與有線寬頻、學術）的人工標記在 `data/reports/asn-types.toml`。
 
+電子報的版本用 [`tools/report_email.py`](./tools/report_email.py) 產生，從同一份數字檔輸出幾張圖表的 HTML 與純文字，貼進 mail-mass 的信件模板。信件程式大多不顯示 SVG，遠端圖片又會回傳開信紀錄，所以信裡的圖表用表格與底色畫（`templates/_report_email.html.j2`），純文字版用 `█` 字元畫長條。
+
 ## 分類
 
 站上的內容分成專案、服務、主題三類，判斷的依據是誰開發的。
