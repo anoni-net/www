@@ -96,6 +96,24 @@ uv run tools/import_from_docs.py --nginx                    # 重新產生 tools
 
 在本機預覽時讀的是公開的 API，回應經過 Cloudflare 的快取，Pulse 剛改過端點時可能讀到舊的回應，清掉 `/api/summary?country=<代碼>&days=60` 的快取即可。
 
+共用的圖表函式在 [`charts.py`](./charts.py)，下一節的 OONI 觀測涵蓋率頁也用同一套。
+
+## OONI 觀測涵蓋率
+
+`/projects/asn-coverage/` 對照 OONI 的測量數與各 ASN 的使用者人數，看測量涵蓋多少使用者、集中在哪些網路、哪些網路還沒有測量，原本只有文件站「ASN 自治網路觀測資料分析」那篇 2023 年的數字。頁面的文字在 `pages/<語系>/projects/asn-coverage.md`，`<!-- asn-coverage -->` 的位置放儀表板，地區清單與圖表上的文字在 `data/asn-coverage.toml`，分頁方式跟 Tor 中繼節點觀測相同。
+
+建置時 [`asn_coverage.py`](./asn_coverage.py) 讀三個公開來源，寫進 `.cache/asn-coverage/`：
+
+| 來源 | 內容 | 快取 |
+|---|---|---|
+| [OONI 彙總 API](https://api.ooni.io/) | 各 ASN 每天的測量數，分成正常、異常、確認封鎖、測量失敗 | 6 小時 |
+| [APNIC 的 ASN 使用者估計](https://stats.labs.apnic.net/aspop/) | 各 ASN 的使用者人數與名稱，APNIC 每週更新 | 7 天 |
+| [RIPE NCC 的 ASN 名稱表](https://ftp.ripe.net/ripe/asnames/asn.txt) | 不在 APNIC 估計裡的網路名稱，例如學術網路 | 7 天 |
+
+部署在 m6 時每小時重建一次，OONI 每六小時才真的重讀，六個地區約 12 秒，連 APNIC 與 RIPE 一起重讀的那一輪約 25 秒。讀取失敗的處理跟 Pulse 相同，退回快取並標示。APNIC 的資料允許註明出處後再利用，頁面的「資料的計算方式」寫了來源。
+
+需要網路類型（行動、寬頻）或封鎖方式的細節時，用 [ASN Coverage](https://github.com/anoni-net/asn-coverage) 下載原始測量分析，彙總 API 沒有這兩項。
+
 ## 分類
 
 站上的內容分成專案、服務、主題三類，判斷的依據是誰開發的。
