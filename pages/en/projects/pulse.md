@@ -41,5 +41,5 @@ The data comes from [Pulse](https://github.com/anoni-net/pulse), which the commu
 
 - [Setting up a Tor relay](docs:community/setup-tor-relay/)
 - [Tor relays on campus](/join/relay-on-campus/), one of the community's three focus areas for 2026
-- [Ask about Tor relays in plain language](docs:community/onionoo-mcp/)
+- [Ask about Tor relays in plain language](/projects/onionoo-mcp/)
 - [How many people use Tor in Taiwan](docs:regional/taiwan-tor-users/)

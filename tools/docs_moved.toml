@@ -141,3 +141,11 @@ docs = "regional/tor-relay-watcher.md"
 page = "projects/pulse"
 langs = ["en"]
 import = false
+
+# 2026-10-11：onionoo MCP 的使用說明搬到本站的專案區，跟 Pulse、ASN Coverage 的觀測頁放在一起。
+# 標題改成專案列表上的名稱，內容照搬，三個語系在文件站的路徑相同
+[[moved]]
+docs = "community/onionoo-mcp.md"
+page = "projects/onionoo-mcp"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true

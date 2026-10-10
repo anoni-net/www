@@ -142,6 +142,11 @@ p, li, .lead, .row .d, .row .t, h1, h3 { text-wrap: pretty; }
 .prose img { max-width: 100%; height: auto; }
 /* 操作步驟的截圖，跟外框同一組線 */
 .prose img.shot { display: block; border: 1px solid var(--c-line); border-radius: var(--radius); margin: .5rem 0 1rem; }
+/* 從文件站搬過來的頁面用 <figure> 包截圖，瀏覽器預設左右各縮 40px，手機上太窄 */
+.prose figure:not(.pulse-chart) { margin: 1rem 0 1.25rem; }
+.prose figure:not(.pulse-chart) figcaption { font-size: .85rem; line-height: 1.6; color: var(--c-muted); }
+/* 產品名稱與設定步驟的表格：英文只在詞與詞之間斷行，真的放不下才拆開單字 */
+.prose .tbl-names td, .prose .tbl-names th { overflow-wrap: break-word; }
 /* admonition 用線框，不填色 */
 .admonition { border: 1px solid var(--c-line); border-radius: var(--radius); padding: .25rem 1.1rem; margin: 1rem 0; }
 .admonition-title { color: var(--c-accent); font-weight: 700; margin-bottom: .25rem; }
