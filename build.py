@@ -30,6 +30,7 @@ from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from markupsafe import Markup
 
 import asn_coverage
+import og_cards
 import pulse
 import region_map
 import tor_users
@@ -174,6 +175,9 @@ class Site:
         self._apps = None
         self.reports = {lang.code: self.load_reports(lang) for lang in self.langs}
         self._report_views = {}
+        # 每一頁的預覽卡片，見 og_cards.py。cards 收集這次建置每一頁該有的卡片，給 tools/make_og_cards.py 用
+        self.og_registry = og_cards.load()
+        self.cards: dict[str, tuple[str, str, dict]] = {}
 
     def load_posts(self, lang: Lang) -> list[Post]:
         """社群動態不要求三個語系都有，只有正體中文的公告不會出現在其他語系的列表。"""
@@ -301,6 +305,24 @@ class Site:
             return f"http://{svc['host'].split('.')[0]}.{self.config['onion_host']}/"
         return f"https://{svc['host']}/"
 
+    def with_card(self, lang: Lang, page: dict, label: list[str], sub: str | None = None,
+                  rmap: dict | None = None) -> dict:
+        """沒有指定 og_image 的頁面換成這一頁的預覽卡片，登記過而且內容相符的才用，否則維持 og.png。"""
+        if page.get("og_image"):
+            return page
+        font = {"zh-TW": "Noto Sans CJK TC", "zh-CN": "Noto Sans CJK SC"}.get(lang.code, "Noto Sans")
+        data = {"html_lang": lang.html, "font": font, "label": label, "title": page["title"],
+                "sub": page.get("tagline") or page.get("lead") or page.get("description", "") if sub is None else sub,
+                "site_url": "anoni.net" + page["path"].rstrip("/"), "map": rmap}
+        entry = og_cards.card(lang.code, page["path"], data)
+        self.cards[entry[0]] = entry
+        found = og_cards.url(entry, self.og_registry)
+        return {**page, "og_image": found} if found else page
+
+    def section_label(self, lang: Lang, section: str) -> list[str]:
+        label = self.strings[lang.code].get(f"nav_{section}")
+        return [label] if label else []
+
     # 輸出
 
     def build(self, out_root: Path) -> list[Path]:
@@ -354,6 +376,7 @@ class Site:
                 "path": self.page_path(lang, slug),
                 "alternates": [(other, self.page_path(other, slug)) for other in self.langs],
             }
+            page = self.with_card(lang, page, self.section_label(lang, page["section"]))
             text = self.env.get_template(f"{template}.html.j2").render(
                 **self.context(lang, target), page=page, body=Markup(body_html))
             self.write(out / page["path"].lstrip("/") / "index.html", text, target)
@@ -401,6 +424,12 @@ class Site:
                 "path": path(lang, code),
                 "alternates": [(other, path(other, code)) for other in self.langs],
             }
+            # 卡片的地圖跟頁首的一樣，目前這一頁的地區另外標出來
+            # 地圖只有亞洲，德國、荷蘭、美國這些畫不出來的地區不放地圖
+            page = self.with_card(lang, page, self.section_label(lang, "projects") + [meta["title"]],
+                                  None if first else meta.get("description", ""),
+                                  {"observed": [c["code"] for c in countries], "current": code}
+                                  if region_map.drawable(ROOT, code) else None)
             text = self.env.get_template(f"{meta.get('template', 'page')}.html.j2").render(
                 **self.context(lang, target), page=page, body=Markup(body_html))
             self.write(out / page["path"].lstrip("/") / "index.html", text, target)
@@ -566,6 +595,8 @@ class Site:
                 "date": post.date,
                 "alternates": alternates,
             }
+            page = self.with_card(lang, page, self.section_label(lang, "updates") + [post.date.isoformat()],
+                                  post.meta.get("description", ""))
             text = self.env.get_template("post.html.j2").render(
                 **self.context(lang, target), page=page, body=Markup(body_html))
             self.write(out / post.path.lstrip("/") / "index.html", text, target)
@@ -707,6 +738,11 @@ def main() -> int:
         return 1
     posts = sum(len(p) for p in site.posts.values())
     print(f"檢查通過：{len(site.langs)} 個語系、{len(site.slugs)} 頁、{posts} 篇動態、clearnet 與 onion 兩份")
+    # 卡片要上傳到圖片主機，CI 做不到，所以缺卡片只提示、不算失敗，那幾頁先用 og.png
+    missing = [key for key, entry in site.cards.items() if og_cards.url(entry, site.og_registry) is None]
+    if missing:
+        print(f"預覽卡片：{len(missing)} 頁還沒有或已經過期，用 og.png，"
+              f"執行 tools/make_og_cards.py 補上（例如 {missing[0]}）")
     return 0
 
 
