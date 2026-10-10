@@ -455,7 +455,8 @@ class Site:
             return self.env.get_template("_block-pulse.html.j2").render(
                 **self.context(lang, target), L=L, v=views[code], stale=loaded[code]["stale"],
                 u=users[code], u_stale=users_raw[code]["stale"] or users_raw["all"]["stale"],
-                pct=tor_users.pct, country=country, countries=countries, use_refs=use_refs)
+                pct=tor_users.pct, country=country, countries=countries, use_refs=use_refs,
+                flag_desc={k: pick(v) for k, v in conf.get("flag_desc", {}).items()})
 
         self.build_regions(lang, target, out, meta, body, blocks, where, PULSE_SLUG, "pulse", countries, render)
 

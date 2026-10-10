@@ -411,6 +411,9 @@ svg.pc rect:hover, svg.pc circle:hover { opacity: .7; }
 .pulse-bars .l { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .pulse-bars .bar { height: .6rem; margin: 0; }
 .pulse-bars .n { text-align: right; font-variant-numeric: tabular-nums; }
+/* Tor 標記的說明放在名稱下面，橫跨整列 */
+.pulse-flags li { row-gap: .1rem; }
+.pulse-flags .d { grid-column: 1 / -1; font-size: .72rem; line-height: 1.4; color: var(--c-muted); }
 
 /* 各地區比較：每個地區一張小卡，數字加走勢 */
 /* 各地區的使用與貢獻：目前所在的地區整列加粗 */
