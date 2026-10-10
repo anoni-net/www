@@ -257,11 +257,11 @@ The site is built on m6, not through GitHub Actions. m6's crontab runs [`tools/d
 | Location on m6 | Contents |
 |---|---|
 | `/srv/anoni-net-www/repo` | A clone of this repository that only pulls `main` |
-| `/srv/anoni-net-www/releases/<commit>` | One build per commit; the five most recent are kept |
+| `/srv/anoni-net-www/releases/<commit>-<hour>` | One build per commit per hour; the six most recent are kept |
 | `/srv/anoni-net-www/current` | A symlink to the live build |
 | `/home/ubuntu/www-deploy.log` | A record of every release and failure |
 
-The script runs `--check` first, builds into a new directory if it passes, and only then switches `current`, so a failed build leaves the live site on the previous version. nginx serves both `anoni.net` and the root onion address from `current`, configured in `/etc/nginx/conf.d/anoninet.conf` on m6, with `error_page 404` pointing to `404.html` at the root.
+The same commit is also rebuilt every hour so the Tor Relay Watch pages get fresh data (see "Tor Relay Watch" below). The script runs `--check` first, builds into a new directory if it passes, and only then switches `current`, so a failed build leaves the live site on the previous version. nginx serves both `anoni.net` and the root onion address from `current`, configured in `/etc/nginx/conf.d/anoninet.conf` on m6, with `error_page 404` pointing to `404.html` at the root.
 
 Pages moved over from the docs site are recorded in [`tools/docs_moved.toml`](./tools/docs_moved.toml), which both the import and the redirect table for old URLs are generated from:
 
@@ -276,6 +276,64 @@ Old URLs are redirected with a 301 by nginx on m6, with one `map` for clearnet a
 
 To roll back, first create `/srv/anoni-net-www/hold` to pause automatic releases, then point `current` at an older build under `releases/`. Once the problem is fixed, delete `hold` and the next run releases the latest `main`.
 
+## Tor Relay Watch
+
+`/projects/pulse/` is the dashboard for [Pulse](https://github.com/anoni-net/pulse), which used to be the docs site's "Tor Relays 觀測點". The page text is in `pages/<locale>/projects/pulse.md`, the dashboard goes where `<!-- pulse -->` is, and the country list and chart labels are in `data/pulse.toml`. The first country is the main page, and every other country gets its own page, `/projects/pulse/<code>/`, generated from the same Markdown.
+
+At build time [`pulse.py`](./pulse.py) reads each country's data from Pulse's `/api/summary` and draws the charts as inline SVG, so the page needs no JavaScript and the onion build never reaches out to clearnet. Every bar and data point carries a `<title>`, so hovering shows its value. The colours are limited to five shades of cyan, and the CSS is the `.pulse` section of `site.css`.
+
+| Environment variable | Purpose |
+|---|---|
+| `PULSE_API` | The API address, `https://anoni.net/api` by default. The deploy script on m6 sets it to the local `http://127.0.0.1:8899/api` |
+
+Responses are written to `.cache/pulse/`, and builds within ten minutes reuse the cache. The deploy script runs `--check` before building, so each run reads the API only once. When the API does not respond, the build falls back to the old cache and the page says the data is cached. With no cache at all the page shows a notice and the build still succeeds, so CI on GitHub does not depend on the API.
+
+A local preview reads the public API, whose responses go through Cloudflare's cache, so right after Pulse changes an endpoint you may get a stale response. Purging the cache for `/api/summary?country=<code>&days=60` fixes it.
+
+The "Use and contribution" section also reads the user estimates from [Tor Metrics](https://metrics.torproject.org/) ([`tor_users.py`](./tor_users.py)): two CSVs per country (direct connections and via bridges), plus the two global ones as the denominator, written to `.cache/tor-users/`. Tor Metrics updates once a day and runs two or three days behind, so the cache lasts 12 hours, and rereading all fifteen countries takes about 30 seconds. If the data cannot be read the build falls back to the cache, and with no cache that section is left out. Relays' share of the network's weight comes from `weight` in `/api/summary`. Pulse started collecting it in 2026-10, so earlier days are empty.
+
+The country list must match Pulse's `backend/countries.py`. To add a country, deploy Pulse first and then edit `data/pulse.toml`. In the other order `/api/summary` returns 422 for the new country, and those pages say the data is temporarily unavailable.
+
+The shared chart functions are in [`charts.py`](./charts.py), which the OONI Coverage pages in the next section use as well.
+
+The header of both dashboards, and `<!-- region-map -->` in a community update, show a map of the regions we observe ([`region_map.py`](./region_map.py)). Observed regions use the main colour and reference regions a lighter one, and clicking a region opens its page. The borders are in `data/region-map.json`, generated by `tools/make_region_map.py` from the 1:50m country borders of [Natural Earth](https://www.naturalearthdata.com/) (public domain), cropped to Asia and simplified to one pixel, about 25 KB. Borders rarely change, so the tool only needs rerunning when the source data does. The generated JSON is committed, and the build does not go online for it. Hong Kong, Macao and Singapore are too small to see, so they are drawn as dots.
+
+Each quarterly report opens with the same map, colouring only the `countries` in that quarter's numbers file (the regions the report compares), so regions added later do not change old reports. Each quarter also has a set of preview images and an email banner, generated by `tools/make_report_images.py <quarter>` and uploaded to `reports/` on assets.anoni.net (the images are not committed; usage is at the top of the tool). The report pages and that quarter's community update set `og_image` to the full URL in their front matter. Pages without `og_image` use `og.png` at the root.
+
+## OONI Coverage
+
+`/projects/asn-coverage/` compares OONI's measurement counts with the number of users on each ASN, to show how many users the measurements cover, which networks they concentrate on and which networks have none. Before it, the docs site only had one analysis from 2023 (ASN 自治網路觀測資料分析). The page text is in `pages/<locale>/projects/asn-coverage.md`, the dashboard goes where `<!-- asn-coverage -->` is, and the region list and chart labels are in `data/asn-coverage.toml`. Pages are split per region the same way as Tor Relay Watch.
+
+At build time [`asn_coverage.py`](./asn_coverage.py) reads three public sources and writes them to `.cache/asn-coverage/`:
+
+| Source | Contents | Cache |
+|---|---|---|
+| [OONI aggregation API](https://api.ooni.io/) | Daily measurement counts per ASN, split into OK, anomaly, confirmed blocking and failure | 6 hours |
+| [APNIC's ASN user estimates](https://stats.labs.apnic.net/aspop/) | User counts and names per ASN, updated weekly by APNIC | 7 days |
+| [RIPE NCC's ASN name list](https://ftp.ripe.net/ripe/asnames/asn.txt) | Names of networks missing from APNIC's estimates, such as academic networks | 7 days |
+| OONI aggregation API, `axis_x=probe_cc` | Results of the Signal, WhatsApp and Telegram tests in each country over the last 30 days, one query per app for all countries | 6 hours |
+
+Deployed on m6, the site rebuilds every hour, but OONI is only reread every six hours, about 25 seconds for twelve regions (measured locally), and APNIC and RIPE once a week. Read failures are handled the same way as Pulse: fall back to the cache and say so on the page. APNIC's data may be reused with attribution, and the "How the numbers are calculated" section of the page names the sources.
+
+Steady coverage counts only networks measured on at least 15 of the last 30 days, shown next to the coverage that counts a network after a single measurement, to show how many users sit on networks with only scattered measurements. The threshold is `STABLE_DAYS` in `asn_coverage.py`. Besides the regions with pages, the messaging app table lists the `[[apps.regions]]` in `data/asn-coverage.toml`, regions with a record of blocking, for comparison. Messenger's test often shows more than one in ten anomalies even in regions with no record of blocking, so it is left out.
+
+For network types (mobile, broadband) or details of how blocking works, download the raw measurement analysis with [ASN Coverage](https://github.com/anoni-net/asn-coverage). The aggregation API has neither.
+
+## Quarterly reports
+
+`/projects/reports/` looks at Tor relays and OONI coverage once a quarter. The two dashboards show the last 60 days, and a report fixes that quarter's numbers and adds the community's reading of them. Each report's text is in `reports/<locale>/<quarter>.md` (for example `reports/zh-TW/2026-q3.md`). All three locales are required, and `build.py --check` fails if one is missing. The list page is `pages/<locale>/projects/reports.md`.
+
+Charts and tables go into the text with `<!-- rq-name -->`, where the name matches a macro in `templates/_report.html.j2`. The code that prepares the numbers is in [`reports.py`](./reports.py), and the chart labels are in `data/reports.toml`. The numbers come from `data/reports/<quarter>.json`. Once committed, that file holds the quarter's fixed numbers, and rebuilding the site later does not change them.
+
+The numbers file is generated once a quarter, with the steps at the top of [`tools/quarterly_report.py`](./tools/quarterly_report.py):
+
+1. On m6, run `tools/quarterly_pulse.sql` (read-only) against Pulse's database to compare the relay list and ASN distribution at the start and end of the quarter. Pulse's API does not offer either yet
+2. Run `tools/quarterly_report.py <quarter> --pulse-extra <output of the previous step>` to fetch Pulse's daily totals and versions, OONI's aggregates, APNIC's user estimates and RIPE's ASN names, and merge them into the numbers file
+
+APNIC only provides estimates for the last 60 days and past values cannot be looked up, so each report uses the estimates available when its numbers file was generated, with the date recorded in the file. Network types (mobile, fixed and cable broadband, academic) are labelled by hand in `data/reports/asn-types.toml`.
+
+The email version is generated by [`tools/report_email.py`](./tools/report_email.py), which turns the same numbers file into HTML and plain text for a few of the charts, to paste into a mail-mass template. Most email clients do not display SVG, and remote images report back when a message is opened, so the charts in the email are drawn with tables and background colours (`templates/_report_email.html.j2`), and the plain-text version draws bars with `█` characters.
+
 ## Categories
 
 Content on the site falls into three categories, projects, services and topics, decided by who develops it.
@@ -289,6 +347,18 @@ Content on the site falls into three categories, projects, services and topics, 
 When something could fit two categories, decide by who develops it. onionoo-mcp is code written by the community that also runs as a public service, so it is a project. Open-source software we set up in future is a service, and new tools the community writes are projects.
 
 This site carries only a card and a one-line description for each project, linking to the project's own about page, and the full description lives in the project's repository. Keeping the same description in two places makes it easy to update one and miss the other.
+
+### Names and code names
+
+Readers see the three measurement tools under their official names, which match the page titles and the project list. Code names are the names used in repositories, APIs and code, and are only used when talking about the code itself. The first mention reads "official name (code name)". The docs site, this site, each repository's README and the GitHub descriptions all follow this table.
+
+| Code name | Repository | Traditional Chinese | Simplified Chinese | English | Page |
+|---|---|---|---|---|---|
+| Pulse | `anoni-net/pulse` | Tor 中繼節點觀測 | Tor 中继节点观测 | Tor Relay Watch | `/projects/pulse/` |
+| ASN Coverage | `anoni-net/asn-coverage` | OONI 觀測涵蓋率 | OONI 观测覆盖率 | OONI Coverage | `/projects/asn-coverage/` |
+| onionoo MCP | `anoni-net/onionoo-fastapi` | AI 助理的 Tor 節點查詢 | AI 助手的 Tor 节点查询 | Tor relay lookup for AI assistants | `/projects/onionoo-mcp/` |
+
+The old names "Tor Relays 觀測點", "Tor relay watcher" and "ASN 涵蓋分析工具" are no longer used. Blog post titles and text keep the wording from when they were published; only the text of links pointing to the dashboards changes to the official names.
 
 ## Writing style
 
