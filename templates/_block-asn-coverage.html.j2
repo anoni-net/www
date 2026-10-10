@@ -1,6 +1,8 @@
 {# OONI 觀測涵蓋率的儀表板。圖表在 asn_coverage.py 畫成 SVG，這裡只負責排版，
    外觀沿用 Tor 中繼節點觀測頁的 .pulse 樣式。v 是 asn_coverage.view() 的結果，
-   資料來源沒有回應又沒有快取時是 None。 #}
+   資料來源沒有回應又沒有快取時是 None。
+   country.apps 與 app_refs 是各 App 的測量數與異常比例（asn_coverage.apps_view()），測量太少時比例是 None。 #}
+{% macro rate(x) %}{% if x is none %}–{% elif x < 0.1 %}&lt;0.1%{% else %}{{ '%.1f' | format(x) }}%{% endif %}{% endmacro %}
 <div class="pulse asncov">
 <nav class="pulse-regions" aria-label="{{ L.countries }}">
 {% for c in countries %}
@@ -103,7 +105,34 @@
   <figcaption>{{ L.chart_coverage }}</figcaption>
   {{ v.charts.coverage }}
 </figure>
+
+<h3 id="stable">{{ L.stable_title }}</h3>
+<p class="pulse-note">{{ L.stable_note | replace('{n}', v.stable_days | string) }}</p>
+<div class="pulse-stats">
+  <div class="pulse-stat">
+    <span class="k">{{ L.stable_any }}</span>
+    <span class="v">{{ '%.1f' | format(v.coverage) }}<small>%</small></span>
+    <span class="dl flat">{{ L.stable_any_sub }}</span>
+  </div>
+  <div class="pulse-stat">
+    <span class="k">{{ L.stable }}</span>
+    <span class="v">{{ '%.1f' | format(v.stable) }}<small>%</small></span>
+    <span class="dl flat">{{ L.stable_sub | replace('{n}', v.stable_days | string) }}</span>
+  </div>
+</div>
 {% endif %}
+
+<h2 id="apps">{{ L.apps }}</h2>
+<p class="pulse-note">{{ L.apps_note | replace('{min}', app_min | string) }}</p>
+<figure class="pulse-chart">
+  <figcaption>{{ L.apps_title | replace('{name}', country.name) }}{% if apps_stale %}<span class="pulse-stale">{{ L.stale }}</span>{% endif %}</figcaption>
+  <ul class="pulse-bars asncov-apps">
+  {% for a in country.apps %}
+    <li><span class="l">{{ a.name }}</span><span class="bar"><span style="width:{{ '%.2f' | format(a.anomaly or 0) }}%"></span></span><span class="n">{{ rate(a.anomaly) }}</span></li>
+  {% endfor %}
+  </ul>
+  <p class="pulse-more">{{ L.apps_count | replace('{n}', '{:,}'.format(country.apps | map(attribute='count') | max)) }}</p>
+</figure>
 
 <h2 id="compare">{{ L.compare }}</h2>
 <p class="pulse-note">{{ L.compare_note }}</p>
@@ -115,5 +144,43 @@
     {{ c.spark }}
   </a>
 {% endfor %}
+</div>
+
+<table class="pulse-asn pulse-cmp">
+  <thead><tr><th>{{ L.col_region }}</th><th class="n">{{ L.col_coverage }}</th><th class="n">{{ L.col_stable }}</th></tr></thead>
+  <tbody>
+  {% for c in countries %}
+    <tr{% if c.current %} class="cur"{% endif %}>
+      <td><a href="{{ c.href }}">{{ c.name }}</a></td>
+      <td class="n">{{ '%.1f%%' | format(c.coverage) if c.coverage is not none else "–" }}</td>
+      <td class="n">{{ '%.1f%%' | format(c.stable) if c.stable is not none else "–" }}</td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+
+<h3 id="apps-compare">{{ L.apps_cmp }}</h3>
+<p class="pulse-note">{{ L.apps_cmp_note }}</p>
+<div class="pulse-scroll">
+<table class="pulse-asn pulse-cmp asncov-appcmp">
+  <thead><tr><th>{{ L.col_region }}</th>{% for t in tests %}<th class="n">{{ t.name }}</th>{% endfor %}</tr></thead>
+  <tbody>
+  {% for c in countries %}
+    <tr{% if c.current %} class="cur"{% endif %}>
+      <td><a href="{{ c.href }}">{{ c.name }}</a></td>
+      {% for a in c.apps %}<td class="n{% if a.anomaly is not none and a.anomaly >= 50 %} hi{% endif %}">{{ rate(a.anomaly) }}</td>{% endfor %}
+    </tr>
+  {% endfor %}
+  {% if app_refs %}
+    <tr class="ref"><th colspan="{{ tests | length + 1 }}">{{ L.apps_refs }}</th></tr>
+    {% for r in app_refs %}
+    <tr>
+      <td>{{ r.name }}</td>
+      {% for a in r.apps %}<td class="n{% if a.anomaly is not none and a.anomaly >= 50 %} hi{% endif %}">{{ rate(a.anomaly) }}</td>{% endfor %}
+    </tr>
+    {% endfor %}
+  {% endif %}
+  </tbody>
+</table>
 </div>
 </div>

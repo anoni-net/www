@@ -16,6 +16,8 @@ The page is regenerated every hour and OONI's measurements are read every six ho
 - Users per network are [APNIC's estimates](https://stats.labs.apnic.net/aspop/), derived from ad-based sampling and updated weekly
 - Network names come from the APNIC and RIPE NCC ASN name lists
 - A single measurement is enough for a network to count as measured; whether it is measured enough shows in its share of measurements and the number of days
+- Steady coverage counts only networks measured on at least 15 of the last 30 days
+- Messaging app results also come from the OONI aggregation API, counted by region; the reference regions at the end of the table have no pages of their own
 - Days without measurements are left as gaps in the charts rather than filled in
 
 ## Help fill the gaps

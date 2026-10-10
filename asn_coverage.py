@@ -9,6 +9,8 @@
 - OONI 的彙總 API，各 ASN 每天的測量數，六小時內的建置直接用快取
 - APNIC 的 ASN 使用者估計，每週更新一次，快取七天
 - RIPE 的 ASN 名稱表，補上不在 APNIC 估計裡的網路名稱，快取七天
+- OONI 的彙總 API，通訊 App 測試（Signal、WhatsApp 等）各國最近 30 天的結果，
+  一個 App 一次查完所有國家，快取六小時
 
 讀取失敗時退回舊的快取並標示，連快取都沒有就顯示提示，建置照樣成功。
 """
@@ -30,6 +32,10 @@ WEEK = 7 * 86400
 
 # 使用者占比在這個比例以上、又沒有任何測量的網路，列進「還沒有測量的網路」
 GAP_MIN_PCT = 0.1
+# 穩定涵蓋率：最近 N 天裡至少這個比例的日子有測量，才算穩定涵蓋
+STABLE_DAYS = 0.5
+# 通訊 App 的測試，測量少於這個數字的地區不算比例
+APP_MIN = 30
 
 
 # 資料
@@ -84,6 +90,38 @@ def load(codes: list[str], days: int, cache_dir: Path) -> dict:
             data = None
         result[code] = {"data": data, "stale": ooni_stale or pop_stale or names_stale}
     return {"countries": result, "names": names}
+
+
+def load_apps(tests: list[str], days: int, cache_dir: Path) -> dict:
+    """通訊 App 的測試，回傳 {"data": {test: {國碼大寫: 彙總}}, "stale": bool}。"""
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    until = datetime.now(timezone.utc).date()
+    since = until - timedelta(days=days)
+    data, stale = {}, False
+    for test in tests:
+        body, old = cached(cache_dir / f"app-{test}.json", OONI_MAX_AGE,
+                           f"{OONI_API}?test_name={test}&since={since}&until={until}&axis_x=probe_cc")
+        stale = stale or old
+        try:
+            data[test] = {r["probe_cc"]: r for r in json.loads(body)["result"]} if body else {}
+        except (ValueError, KeyError) as err:
+            print(f"asn-coverage：{test} 的回應無法解析（{err}）", flush=True)
+            data[test] = {}
+    return {"data": data, "stale": stale}
+
+
+def apps_view(code: str, apps: dict, tests: list[dict], pick) -> list[dict]:
+    """一個地區各 App 的測量數與異常比例，測量太少的比例是 None。"""
+    rows = []
+    for t in tests:
+        r = apps["data"].get(t["test"], {}).get(code.upper())
+        count = r["measurement_count"] if r else 0
+        rows.append({
+            "name": t["name"],
+            "count": count,
+            "anomaly": r["anomaly_count"] / count * 100 if r and count >= APP_MIN else None,
+        })
+    return rows
 
 
 # 頁面要的整理過的資料
@@ -157,6 +195,8 @@ def view(code: str, raw: dict, names: dict[int, str], labels: dict, pick, recent
         return {
             "asns": len(acc),
             "coverage": sum(share_of.get(a, 0) for a in acc),
+            # 只有一兩天有測量的網路，涵蓋率會把它算進去，穩定涵蓋率不算
+            "stable": sum(share_of.get(a, 0) for a, v in acc.items() if v["days"] >= recent_days * STABLE_DAYS),
             "total": total,
             "top2": top2({k: v["count"] for k, v in acc.items()}),
         }
@@ -242,5 +282,7 @@ def view(code: str, raw: dict, names: dict[int, str], labels: dict, pick, recent
         "pop_asns": len(pop),
         "pop_date": pop_date(raw["aspop"].get("Date", "")),
         "coverage": now["coverage"],
+        "stable": now["stable"],
+        "stable_days": int(recent_days * STABLE_DAYS),
         "coverage_series": series("coverage"),
     }

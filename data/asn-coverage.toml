@@ -58,6 +58,40 @@ title_name = { en = "the Philippines" }
 code = "in"
 name = { zh-TW = "印度", zh-CN = "印度", en = "India" }
 
+# 通訊 App 的連線測試。一個 App 一次查完所有國家（OONI 彙總 API 的 axis_x=probe_cc），
+# 所以比較表可以多放幾個沒有自己頁面的參照地區，那些地區的封鎖紀錄讓比較有對照。
+# Messenger（facebook_messenger）的測試在沒有封鎖紀錄的地區也常有一成以上的異常，
+# 2026-10 臺灣 10%、菲律賓 15%，放進來容易被讀成封鎖，所以不列。
+[apps]
+
+[[apps.tests]]
+test = "signal"
+name = "Signal"
+
+[[apps.tests]]
+test = "whatsapp"
+name = "WhatsApp"
+
+[[apps.tests]]
+test = "telegram"
+name = "Telegram"
+
+[[apps.regions]]
+code = "mm"
+name = { zh-TW = "緬甸", zh-CN = "缅甸", en = "Myanmar" }
+
+[[apps.regions]]
+code = "kh"
+name = { zh-TW = "柬埔寨", zh-CN = "柬埔寨", en = "Cambodia" }
+
+[[apps.regions]]
+code = "pk"
+name = { zh-TW = "巴基斯坦", zh-CN = "巴基斯坦", en = "Pakistan" }
+
+[[apps.regions]]
+code = "bd"
+name = { zh-TW = "孟加拉", zh-CN = "孟加拉国", en = "Bangladesh" }
+
 [labels]
 title_country = { zh-TW = "{name}的 OONI 觀測涵蓋率", zh-CN = "{name}的 OONI 观测覆盖率", en = "OONI coverage in {name}" }
 countries = { zh-TW = "觀測地區", zh-CN = "观测地区", en = "Regions" }
@@ -100,3 +134,21 @@ outside = { zh-TW = "另有 {n} 個網路不在 APNIC 的使用者估計裡，�
 compare = { zh-TW = "各地區比較", zh-CN = "各地区比较", en = "Across regions" }
 compare_note = { zh-TW = "最近 {back} 天有測量的網路涵蓋的使用者比例，小圖是近 {days} 天每天的走勢。點進去看各地區的完整圖表。", zh-CN = "最近 {back} 天有测量的网络覆盖的用户比例，小图是近 {days} 天每天的走势。点进去看各地区的完整图表。", en = "Users covered by networks measured in the last {back} days, with each day's value over the last {days}. Open a region for its full charts." }
 other = { zh-TW = "其他", zh-CN = "其他", en = "Others" }
+# 穩定涵蓋率：有一筆測量就算涵蓋，跟至少一半的日子有測量才算，兩個數字並排
+stable_title = { zh-TW = "穩定涵蓋率", zh-CN = "稳定覆盖率", en = "Steady coverage" }
+stable_note = { zh-TW = "涵蓋率只要一個網路有一筆測量就算在內，只測過一兩天的網路也一樣。穩定涵蓋率只算最近 {back} 天裡至少 {n} 天有測量的網路，兩個數字差越多，代表越多使用者在只有零星測量的網路上。", zh-CN = "覆盖率只要一个网络有一笔测量就算在内，只测过一两天的网络也一样。稳定覆盖率只算最近 {back} 天里至少 {n} 天有测量的网络，两个数字差越多，代表越多用户在只有零星测量的网络上。", en = "Coverage counts a network as soon as it has a single measurement, even if it was measured on only a day or two. Steady coverage counts only networks measured on at least {n} of the last {back} days. The wider the gap between the two, the more users sit on networks with only scattered measurements." }
+stable_any = { zh-TW = "涵蓋的使用者", zh-CN = "覆盖的用户", en = "Users covered" }
+stable_any_sub = { zh-TW = "至少一天有測量", zh-CN = "至少一天有测量", en = "Measured on at least one day" }
+stable = { zh-TW = "穩定涵蓋的使用者", zh-CN = "稳定覆盖的用户", en = "Users steadily covered" }
+stable_sub = { zh-TW = "至少 {n} 天有測量", zh-CN = "至少 {n} 天有测量", en = "Measured on at least {n} days" }
+col_region = { zh-TW = "地區", zh-CN = "地区", en = "Region" }
+col_coverage = { zh-TW = "涵蓋", zh-CN = "覆盖", en = "Covered" }
+col_stable = { zh-TW = "穩定涵蓋", zh-CN = "稳定覆盖", en = "Steady" }
+# 通訊 App 的連線測試
+apps = { zh-TW = "通訊 App 的連線測試", zh-CN = "通讯 App 的连接测试", en = "Messaging app tests" }
+apps_note = { zh-TW = "OONI Probe 會測試 Signal、WhatsApp 與 Telegram 的伺服器連不連得上。異常只代表結果跟預期不一致，網路不穩也會出現。異常比例接近 100% 時，通常代表當地封鎖了那個 App。最近 {back} 天的測量少於 {min} 筆時不算比例。", zh-CN = "OONI Probe 会测试 Signal、WhatsApp 与 Telegram 的服务器能否连接。异常只代表结果跟预期不一致，网络不稳也会出现。异常比例接近 100% 时，通常代表当地封锁了那个 App。最近 {back} 天的测量少于 {min} 笔时不算比例。", en = "OONI Probe tests whether the servers of Signal, WhatsApp and Telegram can be reached. An anomaly only means the result differed from what was expected, which an unstable connection can also cause. An anomaly rate close to 100% usually means the app is blocked there. Rates are left out when there were fewer than {min} measurements in the last {back} days." }
+apps_title = { zh-TW = "{name}最近 {back} 天的異常比例", zh-CN = "{name}最近 {back} 天的异常比例", en = "Anomaly rate in {name}, last {back} days" }
+apps_count = { zh-TW = "每個 App 最多 {n} 筆測量", zh-CN = "每个 App 最多 {n} 笔测量", en = "Up to {n} measurements per app" }
+apps_cmp = { zh-TW = "各地區的通訊 App 異常比例", zh-CN = "各地区的通讯 App 异常比例", en = "Messaging app anomaly rates across regions" }
+apps_cmp_note = { zh-TW = "最近 {back} 天的異常比例，過半的標成重點色。最後幾列是沒有獨立頁面的參照地區，有封鎖紀錄，可以跟上面的地區對照。", zh-CN = "最近 {back} 天的异常比例，过半的标成重点色。最后几列是没有独立页面的参照地区，有封锁记录，可以跟上面的地区对照。", en = "Anomaly rates over the last {back} days, with rates above half highlighted. The last rows are reference regions without their own pages, which have records of blocking to compare against." }
+apps_refs = { zh-TW = "參照地區", zh-CN = "参照地区", en = "Reference regions" }

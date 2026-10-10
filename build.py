@@ -170,6 +170,7 @@ class Site:
         self.asn_codes = [c["code"] for c in self.data.get("asn-coverage", {}).get("countries", [])]
         self.asn_slugs = [f"{ASN_SLUG}/{c}" for c in self.asn_codes[1:]] if ASN_SLUG in self.slugs else []
         self._asn = None
+        self._apps = None
         self.reports = {lang.code: self.load_reports(lang) for lang in self.langs}
         self._report_views = {}
 
@@ -463,6 +464,15 @@ class Site:
             self._asn = asn_coverage.load(self.asn_codes, self.data["asn-coverage"]["days"], CACHE / "asn-coverage")
         return self._asn
 
+    def apps_data(self) -> dict:
+        """通訊 App 的測試，一個 App 一次查完所有國家，同一次建置只讀一次。"""
+        if self._apps is None:
+            conf = self.data["asn-coverage"]["apps"]
+            # 跟卡片與表格同一段時間（compare_days），頁面上的 {back} 才對得上
+            self._apps = asn_coverage.load_apps([t["test"] for t in conf["tests"]],
+                                                self.data["asn-coverage"]["compare_days"], CACHE / "asn-coverage")
+        return self._apps
+
     def build_asn(self, lang: Lang, target: dict, out: Path, meta: dict, body: str,
                   blocks: dict, where: str) -> None:
         """OONI 觀測涵蓋率：每個地區各一頁。"""
@@ -474,17 +484,29 @@ class Site:
             data = loaded["countries"][c]["data"]
             views[c] = asn_coverage.view(c, data, loaded["names"], conf["labels"], pick,
                                          conf["compare_days"]) if data else None
-        countries = [{"code": c["code"], "name": pick(c["name"]),
-                      "title_name": c.get("title_name", {}).get(lang.code, pick(c["name"])),
-                      "coverage": views[c["code"]]["coverage"] if views[c["code"]] and views[c["code"]]["latest"] else None,
-                      "spark": asn_coverage.sparkline(views[c["code"]]["coverage_series"])
-                      if views[c["code"]] and views[c["code"]]["latest"] else ""}
-                     for c in conf["countries"]]
+        apps = self.apps_data()
+        tests = conf["apps"]["tests"]
+        countries = []
+        for c in conf["countries"]:
+            v = views[c["code"]]
+            ok = v and v["latest"]
+            countries.append({
+                "code": c["code"], "name": pick(c["name"]),
+                "title_name": c.get("title_name", {}).get(lang.code, pick(c["name"])),
+                "coverage": v["coverage"] if ok else None,
+                "stable": v["stable"] if ok else None,
+                "spark": asn_coverage.sparkline(v["coverage_series"]) if ok else "",
+                "apps": asn_coverage.apps_view(c["code"], apps, tests, pick),
+            })
+        # App 比較表另外放幾個沒有自己頁面的參照地區
+        app_refs = [{"name": pick(r["name"]), "apps": asn_coverage.apps_view(r["code"], apps, tests, pick)}
+                    for r in conf["apps"].get("regions", [])]
 
         def render(country: dict, countries: list[dict]) -> str:
             return self.env.get_template("_block-asn-coverage.html.j2").render(
                 **self.context(lang, target), L=L, v=views[country["code"]],
-                stale=loaded["countries"][country["code"]]["stale"], country=country, countries=countries)
+                stale=loaded["countries"][country["code"]]["stale"], country=country, countries=countries,
+                tests=tests, app_refs=app_refs, apps_stale=apps["stale"], app_min=asn_coverage.APP_MIN)
 
         self.build_regions(lang, target, out, meta, body, blocks, where, ASN_SLUG, "asn-coverage", countries, render)
 
