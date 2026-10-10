@@ -423,6 +423,22 @@ svg.pc rect:hover, svg.pc circle:hover { opacity: .7; }
 .pulse-flags .d { grid-column: 1 / -1; font-size: .72rem; line-height: 1.4; color: var(--c-muted); }
 
 /* 各地區比較：每個地區一張小卡，數字加走勢 */
+/* 觀測地區地圖：灰色底圖，觀測地區用主色、參照地區用淺色，目前這一頁的地區加深 */
+.rmap-fig { margin: 0 0 1rem; }
+.rmap { display: block; width: 100%; height: auto; border: 1px solid var(--c-hair); border-radius: var(--radius); background: var(--c-bg); }
+.rmap path, .rmap circle { stroke: var(--c-bg); stroke-width: .6; }
+.rmap .rm-land { fill: color-mix(in srgb, var(--c-muted) 16%, var(--c-bg)); }
+.rmap .rm-ref { fill: color-mix(in srgb, var(--c-accent) 30%, var(--c-bg)); }
+.rmap .rm-obs { fill: var(--c-accent); }
+.rmap a:hover .rm-obs, .rmap a:focus .rm-obs { fill: var(--c-strong); }
+.rmap .rm-cur { fill: var(--c-strong); }
+.rmap .rm-cur, .rmap circle.rm-obs { stroke: var(--c-bg); }
+.rmap circle.rm-obs { stroke-width: 1.2; }
+.rmap-fig figcaption { margin-top: .4rem; font-size: .8rem; line-height: 1.6; color: var(--c-muted); }
+.rmap-fig .lg { display: flex; flex-wrap: wrap; gap: .25rem 1rem; margin-bottom: .2rem; color: var(--c-strong); }
+.rm-sw-obs { background: var(--c-accent); }
+.rm-sw-cur { background: var(--c-strong); }
+.rm-sw-ref { background: color-mix(in srgb, var(--c-accent) 30%, var(--c-bg)); }
 /* 各地區的使用與貢獻：目前所在的地區整列加粗 */
 .pulse-cmp { margin-bottom: 1.5rem; }
 .pulse-cmp tr.cur td { font-weight: 700; }

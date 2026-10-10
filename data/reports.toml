@@ -66,3 +66,5 @@ em_density = { zh-TW = "每百萬網路使用者的中繼", zh-CN = "每百万�
 em_top2 = { zh-TW = "前兩大網路的占比", zh-CN = "前两大网络的占比", en = "Share of the top two networks" }
 em_upgrade = { zh-TW = "已升級到本季新版", zh-CN = "已升级到本季新版", en = "Upgraded to this quarter's releases" }
 em_types = { zh-TW = "臺灣各類網路的使用者與 OONI 測量占比", zh-CN = "台湾各类网络的用户与 OONI 测量占比", en = "Share of users and of OONI measurements in Taiwan, by network type" }
+# 季報開頭的地圖（<!-- region-map -->），只上色那一期比較的地區
+map_note = { zh-TW = "本期季報比較的地區，點地圖上的地區開啟那個地區的 Tor 中繼節點觀測。德國、荷蘭、美國不在地圖範圍內，在季報裡當作參照。之後新增的地區從加入的那一季開始列進季報。", zh-CN = "本期季报比较的地区，点地图上的地区打开那个地区的 Tor 中继节点观测。德国、荷兰、美国不在地图范围内，在季报里当作参照。之后新增的地区从加入的那一季开始列进季报。", en = "The regions this report compares. Select a region on the map to open its Tor Relay Watch page. Germany, the Netherlands and the United States are outside the map and serve as reference points in the report. Regions added later join the report from the quarter they were added." }

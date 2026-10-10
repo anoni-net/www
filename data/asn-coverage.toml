@@ -156,3 +156,8 @@ apps_count = { zh-TW = "每個 App 最多 {n} 筆測量", zh-CN = "每个 App �
 apps_cmp = { zh-TW = "各地區的通訊 App 異常比例", zh-CN = "各地区的通讯 App 异常比例", en = "Messaging app anomaly rates across regions" }
 apps_cmp_note = { zh-TW = "最近 {back} 天的異常比例，過半的標成重點色。最後幾列是沒有獨立頁面的參照地區，有封鎖紀錄，可以跟上面的地區對照。", zh-CN = "最近 {back} 天的异常比例，过半的标成重点色。最后几列是没有独立页面的参照地区，有封锁记录，可以跟上面的地区对照。", en = "Anomaly rates over the last {back} days, with rates above half highlighted. The last rows are reference regions without their own pages, which have records of blocking to compare against." }
 apps_refs = { zh-TW = "參照地區", zh-CN = "参照地区", en = "Reference regions" }
+# 頁首的觀測地區地圖（region_map.py）
+map_label = { zh-TW = "觀測地區地圖", zh-CN = "观测地区地图", en = "Map of the regions we observe" }
+map_obs = { zh-TW = "觀測地區", zh-CN = "观测地区", en = "Observed" }
+map_ref = { zh-TW = "參照地區（只在 App 比較表）", zh-CN = "参照地区（只在 App 比较表）", en = "Reference (app table only)" }
+map_note = { zh-TW = "點地圖上的地區切換頁面。參照地區只列在通訊 App 的比較表，有封鎖紀錄，可以拿來對照。", zh-CN = "点地图上的地区切换页面。参照地区只列在通讯 App 的比较表，有封锁记录，可以拿来对照。", en = "Select a region on the map to open its page. Reference regions appear only in the messaging app table, for contrast with their records of blocking." }

@@ -4,6 +4,10 @@
    country.apps 與 app_refs 是各 App 的測量數與異常比例（asn_coverage.apps_view()），測量太少時比例是 None。 #}
 {% macro rate(x) %}{% if x is none %}–{% elif x < 0.1 %}&lt;0.1%{% else %}{{ '%.1f' | format(x) }}%{% endif %}{% endmacro %}
 <div class="pulse asncov">
+<figure class="rmap-fig">
+  {{ rmap }}
+  <figcaption><span class="lg"><span><i class="sw rm-sw-cur"></i>{{ country.name }}</span><span><i class="sw rm-sw-obs"></i>{{ L.map_obs }}</span><span><i class="sw rm-sw-ref"></i>{{ L.map_ref }}</span></span>{{ L.map_note }}</figcaption>
+</figure>
 <nav class="pulse-regions" aria-label="{{ L.countries }}">
 {% for c in countries %}
   <a href="{{ c.href }}"{% if c.current %} aria-current="page"{% endif %}>{{ c.name }}</a>

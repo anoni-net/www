@@ -2,6 +2,10 @@
    v 是 pulse.view() 的結果，Pulse 沒有回應又沒有快取時是 None。
    u 是 tor_users.view() 的結果，Tor Metrics 沒有回應又沒有快取時是 None，那一段就不畫。 #}
 <div class="pulse">
+<figure class="rmap-fig">
+  {{ rmap }}
+  <figcaption><span class="lg"><span><i class="sw rm-sw-cur"></i>{{ country.name }}</span><span><i class="sw rm-sw-obs"></i>{{ L.map_obs }}</span><span><i class="sw rm-sw-ref"></i>{{ L.map_ref }}</span></span>{{ L.map_note }}</figcaption>
+</figure>
 <nav class="pulse-regions" aria-label="{{ L.countries }}">
 {% for c in countries %}
   <a href="{{ c.href }}"{% if c.current %} aria-current="page"{% endif %}>{{ c.name }}</a>
