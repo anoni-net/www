@@ -31,6 +31,7 @@ from markupsafe import Markup
 
 import asn_coverage
 import pulse
+import reports
 
 ROOT = Path(__file__).resolve().parent
 PAGES = ROOT / "pages"
@@ -39,6 +40,7 @@ ICONS = ROOT / "icons"
 STATIC = ROOT / "static"
 EXTRA = ROOT / "extra"
 UPDATES = ROOT / "updates"
+REPORTS = ROOT / "reports"
 TEMPLATES = ROOT / "templates"
 CACHE = ROOT / ".cache"
 
@@ -55,6 +57,10 @@ ICON_TAG = re.compile(r'<i data-icon="([a-z0-9-]+)"></i>')
 # 每個地區各一頁的觀測頁：Markdown 只有一份，資料與地區清單在 data/<名稱>.toml
 PULSE_SLUG = "projects/pulse"
 ASN_SLUG = "projects/asn-coverage"
+REPORTS_SLUG = "projects/reports"
+# 季報各期的圖表，名稱對應 templates/_report.html.j2 的 macro，Markdown 裡寫成 <!-- rq-relays-chart -->
+REPORT_BLOCKS = ("relays_stats", "relays_chart", "churn", "upgrade", "asn", "density", "ooni_stats",
+                 "types", "networks", "gaps", "changes", "ooni_daily", "run")
 
 
 @dataclass(frozen=True)
@@ -162,6 +168,8 @@ class Site:
         self.asn_codes = [c["code"] for c in self.data.get("asn-coverage", {}).get("countries", [])]
         self.asn_slugs = [f"{ASN_SLUG}/{c}" for c in self.asn_codes[1:]] if ASN_SLUG in self.slugs else []
         self._asn = None
+        self.reports = {lang.code: self.load_reports(lang) for lang in self.langs}
+        self._report_views = {}
 
     def load_posts(self, lang: Lang) -> list[Post]:
         """社群動態不要求三個語系都有，只有正體中文的公告不會出現在其他語系的列表。"""
@@ -176,6 +184,32 @@ class Site:
             posts.append(Post(lang.code, slug, day, meta, body,
                               f"{lang.prefix}/updates/{day:%Y/%m}/{slug}/"))
         return sorted(posts, key=lambda p: p.date, reverse=True)
+
+    def load_reports(self, lang: Lang) -> list[Post]:
+        """觀測季報。跟社群動態一樣不要求三個語系都有，檔名是季度，例如 2026-q3.md。"""
+        items = []
+        for src in sorted((REPORTS / lang.code).glob("*.md")):
+            where = src.relative_to(ROOT).as_posix()
+            meta, body = split_front_matter(src.read_text(encoding="utf-8"), where)
+            if not isinstance(meta.get("date"), date):
+                raise SystemExit(f"{where}：front matter 的 date 要寫成 YYYY-MM-DD")
+            items.append(Post(lang.code, src.stem, meta["date"], meta, body,
+                              f"{lang.prefix}/{REPORTS_SLUG}/{src.stem}/"))
+        return sorted(items, key=lambda r: r.slug, reverse=True)
+
+    def report_items(self, lang: Lang, target: dict) -> list[dict]:
+        """季報列表。這個語系還沒有的季報，列出正體中文版並標明語言。正體中文的網址沒有語系
+        前綴，寫成站內路徑會被 localize 加上這個語系的前綴，所以寫完整網址（onion 版在最後一步改寫）。"""
+        labels = self.data.get("reports", {}).get("labels", {})
+        mine = {r.slug for r in self.reports[lang.code]}
+        items = [{"title": r.meta["title"], "summary": r.meta["description"], "href": r.path, "date": r.date,
+                  "note": ""} for r in self.reports[lang.code]]
+        for r in self.reports[self.langs[0].code]:
+            if r.slug not in mine:
+                items.append({"title": r.meta["title"], "summary": r.meta["description"],
+                              "href": f"{target['base']}{r.path}",
+                              "date": r.date, "note": labels.get("only_zh_tw", {}).get(lang.code, "")})
+        return sorted(items, key=lambda i: i["href"].rstrip("/").rsplit("/", 1)[-1], reverse=True)
 
     def updates_for(self, lang: Lang) -> list[dict]:
         """動態列表：本站的新文章加上文件站舊的社群文章，由新到舊。"""
@@ -253,6 +287,7 @@ class Site:
             "pick": lambda value: value[lang.code] if isinstance(value, dict) else value,
             "service_url": lambda svc: self.service_url(svc, target),
             "updates": self.updates_for(lang),
+            "report_items": self.report_items(lang, target),
             "feed_url": f"{lang.prefix}/updates/feed.xml",
             "pgp_key": (STATIC / "B7DF84305C7911D90D59A66061F66CF36EE386D4.asc").read_text(encoding="utf-8").strip(),
         }
@@ -282,7 +317,7 @@ class Site:
                 target=target, langs=self.langs, slugs=self.slugs, page_path=self.page_path), target)
             self.write(out / "sitemap.xml", self.env.get_template("sitemap.xml.j2").render(
                 target=target, langs=self.langs, slugs=self.slugs + self.pulse_slugs + self.asn_slugs, page_path=self.page_path,
-                posts=[p for lang in self.langs for p in self.posts[lang.code]]), target)
+                posts=[p for lang in self.langs for p in self.posts[lang.code] + self.reports[lang.code]]), target)
             outs.append(out)
         return outs
 
@@ -319,6 +354,7 @@ class Site:
                 **self.context(lang, target), page=page, body=Markup(body_html))
             self.write(out / page["path"].lstrip("/") / "index.html", text, target)
         self.build_posts(lang, target, out)
+        self.build_reports(lang, target, out, blocks)
 
     def pulse_data(self) -> dict:
         """各國的摘要，同一次建置只讀一次（clearnet 與 onion 共用）。"""
@@ -455,6 +491,43 @@ class Site:
             home=f"{target['base']}{self.page_path(lang, 'updates')}",
             self_url=f"{target['base']}{lang.prefix}/updates/feed.xml")
         self.write(out / lang.prefix.lstrip("/") / "updates" / "feed.xml", feed, target)
+
+    def build_reports(self, lang: Lang, target: dict, out: Path, blocks: dict) -> None:
+        """每一期季報一頁，圖表從 data/reports/<季度>.json 畫，同一期的數字三個語系共用。"""
+        conf = self.data.get("reports", {})
+        labels = conf.get("labels", {})
+        pick = lambda value: value[lang.code] if isinstance(value, dict) else value  # noqa: E731
+        L = {k: pick(v) for k, v in labels.items()}
+        cname = {c["code"]: pick(c["name"]) for c in self.data["pulse"]["countries"]}
+        for rep in self.reports[lang.code]:
+            where = f"reports/{lang.code}/{rep.slug}.md"
+            data = reports.load(ROOT, rep.slug)
+            v = reports.view(ROOT, data, labels, pick, data["names"])
+            module = self.env.get_template("_report.html.j2").make_module(
+                {**self.context(lang, target), "v": v, "L": L, "cname": cname, "cc": data["ooni"]["cc"]})
+            parts = {f"rq-{n.replace('_', '-')}": str(getattr(module, n)()) for n in REPORT_BLOCKS}
+            body_html = self.fill_blocks(render_markdown(rep.body), {**blocks, **parts}, where)
+            body_html = ICON_REF.sub(lambda m: icon(m[1]), body_html)
+            body_html = self.localize(body_html, lang)
+            alternates = []
+            for other in self.langs:
+                twin = next((r for r in self.reports[other.code] if r.slug == rep.slug), None)
+                alternates.append((other, twin.path if twin else self.page_path(other, REPORTS_SLUG)))
+            page = {
+                **rep.meta,
+                "slug": f"{REPORTS_SLUG}/{rep.slug}",
+                "section": "projects",
+                "parent": "projects",
+                "path": rep.path,
+                "date": rep.date,
+                "since": v["since"],
+                "until": v["until"],
+                "alternates": alternates,
+                "crumb": L.get("nav", ""),
+            }
+            text = self.env.get_template("report.html.j2").render(
+                **self.context(lang, target), page=page, body=Markup(body_html))
+            self.write(out / rep.path.lstrip("/") / "index.html", text, target)
 
     def build_404(self, target: dict, out: Path) -> None:
         """一份 404 頁放在根目錄，三種語言寫在同一頁，nginx 的 error_page 指到它。"""

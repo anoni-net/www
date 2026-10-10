@@ -6,7 +6,7 @@ lead: Censorship monitoring only covers the networks where someone runs OONI Pro
 
 OONI's censorship measurements come from volunteers running OONI Probe on their own connections. Within one region, each provider and network (ASN, autonomous system number) may block different sites, so when only one or two providers are measured, blocking on the others goes unrecorded. This page sets OONI's measurement counts against APNIC's estimates of how many users each network has, to show how many users the measurements cover, which networks they concentrate on, and which networks have none.
 
-The page is regenerated every hour and OONI's measurements are read every six hours. Taiwan is shown by default, with other regions as reference points; switch between them with the region list below.
+The page is regenerated every hour and OONI's measurements are read every six hours. Taiwan is shown by default, with other regions as reference points; switch between them with the region list below. Each quarter's changes are written up in the [quarterly reports](/projects/reports/).
 
 <!-- asn-coverage -->
 

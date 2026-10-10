@@ -48,3 +48,12 @@ page = "projects/asn-coverage"
 summary.zh-TW = "對照 OONI 的測量與各網路的使用者人數，找出臺灣與鄰近地區還沒有人測量的網路。"
 summary.zh-CN = "对照 OONI 的测量与各网络的用户人数，找出台湾与邻近地区还没有人测量的网络。"
 summary.en = "Sets OONI measurements against each network's user count to find the networks in Taiwan and nearby regions that nobody is measuring yet."
+
+[[tools]]
+icon = "calendar-text"
+# 名稱要翻譯的項目寫成三語，其他工具名是專有名詞
+name = { zh-TW = "觀測季報", zh-CN = "观测季报", en = "Quarterly reports" }
+page = "projects/reports"
+summary.zh-TW = "每季整理一次 Pulse 與 ASN Coverage 的數字，比較季初與季末、本季與上一季，寫下社群的解讀。"
+summary.zh-CN = "每季整理一次 Pulse 与 ASN Coverage 的数字，比较季初与季末、本季与上一季，写下社区的解读。"
+summary.en = "A quarterly write-up of the Pulse and ASN Coverage numbers, comparing the start and end of the quarter and the quarter before, with the community's reading of them."

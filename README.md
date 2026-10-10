@@ -114,6 +114,19 @@ uv run tools/import_from_docs.py --nginx                    # 重新產生 tools
 
 需要網路類型（行動、寬頻）或封鎖方式的細節時，用 [ASN Coverage](https://github.com/anoni-net/asn-coverage) 下載原始測量分析，彙總 API 沒有這兩項。
 
+## 觀測季報
+
+`/projects/reports/` 每季整理一次 Tor 中繼節點與 OONI 觀測涵蓋率，兩個觀測頁顯示最近 60 天，季報把當季的數字定格下來，加上社群的解讀。每一期的本文在 `reports/<語系>/<季度>.md`（例如 `reports/zh-TW/2026-q3.md`），跟社群動態一樣不要求三個語系都有，列表頁 `pages/<語系>/projects/reports.md` 在還沒有翻譯的語系列出正體中文版。
+
+圖表與表格用 `<!-- rq-名稱 -->` 放進本文，名稱對應 `templates/_report.html.j2` 的 macro，整理數字的程式在 [`reports.py`](./reports.py)，圖表上的文字在 `data/reports.toml`。數字來自 `data/reports/<季度>.json`，進版控之後就是那一季定格的數字，之後重建網站也不會變。
+
+每季產生一次數字檔，步驟寫在 [`tools/quarterly_report.py`](./tools/quarterly_report.py) 的開頭：
+
+1. 在 m6 上對 Pulse 的資料庫執行 `tools/quarterly_pulse.sql`（唯讀），比對季初與季末的中繼名單與 ASN 分布。Pulse 的 API 目前沒有這兩項
+2. 執行 `tools/quarterly_report.py <季度> --pulse-extra <上一步的輸出>`，抓 Pulse 的每日總數與版本、OONI 的彙總、APNIC 的使用者估計與 RIPE 的 ASN 名稱，合併成數字檔
+
+APNIC 只提供最近 60 天的估計，查不到過去的值，所以每一期用的是產生數字檔當時的那一份，檔案裡記著日期。網路類型（行動、固網與有線寬頻、學術）的人工標記在 `data/reports/asn-types.toml`。
+
 ## 分類
 
 站上的內容分成專案、服務、主題三類，判斷的依據是誰開發的。

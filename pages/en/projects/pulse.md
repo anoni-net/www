@@ -6,7 +6,7 @@ lead: How many Tor relays Taiwan and nearby regions run, and on which networks.
 
 Tor relays are volunteer servers that carry encrypted traffic for Tor users around the world. The more running relays and bandwidth a region has, the more it contributes to the network. Spread matters too: when every relay sits on one provider, trouble at that provider, or pressure on it, takes them all down together.
 
-The data comes from [Pulse](https://github.com/anoni-net/pulse), which the community runs. It collects from Onionoo, part of Tor Metrics, every hour, and the page is regenerated every hour as well. Taiwan is shown by default, with other regions as reference points; switch between them with the region list below.
+The data comes from [Pulse](https://github.com/anoni-net/pulse), which the community runs. It collects from Onionoo, part of Tor Metrics, every hour, and the page is regenerated every hour as well. Taiwan is shown by default, with other regions as reference points; switch between them with the region list below. Each quarter's changes are written up in the [quarterly reports](/projects/reports/).
 
 <!-- pulse -->
 
