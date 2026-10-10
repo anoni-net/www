@@ -102,6 +102,8 @@ uv run tools/import_from_docs.py --nginx                    # 重新產生 tools
 
 共用的圖表函式在 [`charts.py`](./charts.py)，下一節的 OONI 觀測涵蓋率頁也用同一套。
 
+兩個觀測頁的頁首與社群動態文章裡的 `<!-- region-map -->` 放一張觀測地區地圖（[`region_map.py`](./region_map.py)），觀測地區用主色、參照地區用淺色，點下去開那個地區的頁面。國界資料在 `data/region-map.json`，由 `tools/make_region_map.py` 從 [Natural Earth](https://www.naturalearthdata.com/) 的 1:50m 國界（公有領域）產生，只留亞洲那一塊、簡化到一個像素，約 25 KB。國界很少變動，資料改了才需要重新執行，產出的 JSON 進版控，建置時不連網路。香港、澳門、新加坡小到看不見，畫成圓點。
+
 ## OONI 觀測涵蓋率
 
 `/projects/asn-coverage/` 對照 OONI 的測量數與各 ASN 的使用者人數，看測量涵蓋多少使用者、集中在哪些網路、哪些網路還沒有測量，原本只有文件站一篇 2023 年的分析（ASN 自治網路觀測資料分析）。頁面的文字在 `pages/<語系>/projects/asn-coverage.md`，`<!-- asn-coverage -->` 的位置放儀表板，地區清單與圖表上的文字在 `data/asn-coverage.toml`，分頁方式跟 Tor 中繼節點觀測相同。

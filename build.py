@@ -31,6 +31,7 @@ from markupsafe import Markup
 
 import asn_coverage
 import pulse
+import region_map
 import tor_users
 import reports
 
@@ -450,9 +451,13 @@ class Site:
             use_refs.append({"name": pick(r["name"]), "users": u["users_text"] if u else "–",
                              "bridge": tor_users.pct(u["bridge_pct"]) if u else "–"})
 
+        refs = {r["code"]: pick(r["name"]) for r in conf.get("use_refs", [])}
+
         def render(country: dict, countries: list[dict]) -> str:
             code = country["code"]
-            return self.env.get_template("_block-pulse.html.j2").render(
+            rmap = region_map.svg(ROOT, {c["code"]: (c["name"], c["href"]) for c in countries}, refs, code,
+                                  L["map_label"])
+            return self.env.get_template("_block-pulse.html.j2").render(rmap=rmap,
                 **self.context(lang, target), L=L, v=views[code], stale=loaded[code]["stale"],
                 u=users[code], u_stale=users_raw[code]["stale"] or users_raw["all"]["stale"],
                 pct=tor_users.pct, country=country, countries=countries, use_refs=use_refs,
@@ -503,18 +508,42 @@ class Site:
         app_refs = [{"name": pick(r["name"]), "apps": asn_coverage.apps_view(r["code"], apps, tests, pick)}
                     for r in conf["apps"].get("regions", [])]
 
+        map_refs = {r["code"]: pick(r["name"]) for r in conf["apps"].get("regions", [])}
+
         def render(country: dict, countries: list[dict]) -> str:
-            return self.env.get_template("_block-asn-coverage.html.j2").render(
+            rmap = region_map.svg(ROOT, {c["code"]: (c["name"], c["href"]) for c in countries}, map_refs,
+                                  country["code"], L["map_label"])
+            return self.env.get_template("_block-asn-coverage.html.j2").render(rmap=rmap,
                 **self.context(lang, target), L=L, v=views[country["code"]],
                 stale=loaded["countries"][country["code"]]["stale"], country=country, countries=countries,
                 tests=tests, app_refs=app_refs, apps_stale=apps["stale"], app_min=asn_coverage.APP_MIN)
 
         self.build_regions(lang, target, out, meta, body, blocks, where, ASN_SLUG, "asn-coverage", countries, render)
 
+    def region_map_figure(self, lang: Lang) -> str:
+        """文章裡的 <!-- region-map -->：兩個觀測頁的地區一起上色，點下去開 Tor 中繼節點觀測的那一頁。"""
+        pick = lambda value: value[lang.code] if isinstance(value, dict) else value  # noqa: E731
+        pulse_conf, asn_conf = self.data["pulse"], self.data["asn-coverage"]
+        L = {k: pick(v) for k, v in pulse_conf["labels"].items()}
+        first = pulse_conf["countries"][0]["code"]
+        observed = {c["code"]: (pick(c["name"]), self.page_path(lang, PULSE_SLUG if c["code"] == first
+                                                                 else f"{PULSE_SLUG}/{c['code']}"))
+                    for c in pulse_conf["countries"]}
+        for c in asn_conf["countries"]:
+            observed.setdefault(c["code"], (pick(c["name"]), self.page_path(lang, f"{ASN_SLUG}/{c['code']}")))
+        refs = {r["code"]: pick(r["name"]) for r in pulse_conf.get("use_refs", []) + asn_conf["apps"].get("regions", [])}
+        svg = region_map.svg(ROOT, observed, refs, None, L["map_label"])
+        return (f'<figure class="rmap-fig">{svg}<figcaption><span class="lg">'
+                f'<span><i class="sw rm-sw-obs"></i>{L["map_obs"]}</span>'
+                f'<span><i class="sw rm-sw-ref"></i>{L["map_ref_post"]}</span></span>{L["map_note_post"]}'
+                f'</figcaption></figure>')
+
     def build_posts(self, lang: Lang, target: dict, out: Path) -> None:
         for post in self.posts[lang.code]:
             where = f"updates/{lang.code}/{post.slug}"
             body_html = ICON_TAG.sub(lambda m: icon(m[1]), render_markdown(post.body))
+            if "<!-- region-map -->" in body_html:
+                body_html = body_html.replace("<!-- region-map -->", self.region_map_figure(lang))
             body_html = self.localize(body_html, lang)
             # 其他語系有同一篇（slug 相同）就連過去，沒有就回到那個語系的動態列表
             alternates = []

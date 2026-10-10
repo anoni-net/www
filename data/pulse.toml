@@ -152,3 +152,11 @@ col_region = { zh-TW = "地區", zh-CN = "地区", en = "Region" }
 col_weight = { zh-TW = "權重", zh-CN = "权重", en = "Weight" }
 col_users = { zh-TW = "使用者", zh-CN = "用户", en = "Users" }
 col_bridge = { zh-TW = "橋接", zh-CN = "网桥", en = "Bridges" }
+# 頁首的觀測地區地圖（region_map.py）
+map_label = { zh-TW = "觀測地區地圖", zh-CN = "观测地区地图", en = "Map of the regions we observe" }
+map_obs = { zh-TW = "觀測地區", zh-CN = "观测地区", en = "Observed" }
+map_ref = { zh-TW = "參照地區（只在比較表）", zh-CN = "参照地区（只在比较表）", en = "Reference (comparison table only)" }
+map_note = { zh-TW = "點地圖上的地區切換頁面。德國、荷蘭、美國不在地圖範圍內，列在地區清單與比較表當作參照。", zh-CN = "点地图上的地区切换页面。德国、荷兰、美国不在地图范围内，列在地区列表与比较表当作参照。", en = "Select a region on the map to open its page. Germany, the Netherlands and the United States are outside the map and appear in the region list and comparison table as reference points." }
+# 社群動態文章裡的地圖（<!-- region-map -->），兩個觀測頁的地區一起列
+map_ref_post = { zh-TW = "參照地區（只在比較表）", zh-CN = "参照地区（只在比较表）", en = "Reference (comparison tables only)" }
+map_note_post = { zh-TW = "Tor 中繼節點觀測與 OONI 觀測涵蓋率關注的地區，點地圖上的地區開啟那個地區的觀測頁。德國、荷蘭、美國不在地圖範圍內，在 Tor 中繼節點觀測當作參照。", zh-CN = "Tor 中继节点观测与 OONI 观测覆盖率关注的地区，点地图上的地区打开那个地区的观测页。德国、荷兰、美国不在地图范围内，在 Tor 中继节点观测当作参照。", en = "The regions Tor Relay Watch and OONI Coverage observe. Select a region on the map to open its page. Germany, the Netherlands and the United States are outside the map and serve as reference points on Tor Relay Watch." }
