@@ -29,6 +29,8 @@ import yaml
 from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from markupsafe import Markup
 
+import pulse
+
 ROOT = Path(__file__).resolve().parent
 PAGES = ROOT / "pages"
 DATA = ROOT / "data"
@@ -37,6 +39,7 @@ STATIC = ROOT / "static"
 EXTRA = ROOT / "extra"
 UPDATES = ROOT / "updates"
 TEMPLATES = ROOT / "templates"
+CACHE = ROOT / ".cache"
 
 # 寫在 Markdown 裡的連結簡寫，建置時依語系展開：
 #   /join/                → 本站的頁面，加上語系前綴
@@ -47,6 +50,7 @@ PLACEHOLDER = re.compile(r"<!--\s*(\w[\w-]*)\s*-->")
 # 寫在 Markdown 原始 HTML 裡的圖示，例如 <span class="ic">ICON:upload-outline</span>
 ICON_REF = re.compile(r"ICON:([a-z0-9-]+)")
 # 從文件站搬過來的頁面，圖示寫成 <i data-icon="名稱"></i>（見 tools/import_from_docs.py）
+PULSE_SLUG = "projects/pulse"
 ICON_TAG = re.compile(r'<i data-icon="([a-z0-9-]+)"></i>')
 
 
@@ -147,6 +151,10 @@ class Site:
         self.env.globals["logo"] = logo
         self.slugs = page_slugs(PAGES / self.langs[0].code)
         self.posts = {lang.code: self.load_posts(lang) for lang in self.langs}
+        # Tor 中繼節點觀測：第一個國家是主頁，其他國家各一頁，路徑是 projects/pulse/<code>
+        self.pulse_codes = [c["code"] for c in self.data.get("pulse", {}).get("countries", [])]
+        self.pulse_slugs = [f"{PULSE_SLUG}/{c}" for c in self.pulse_codes[1:]] if PULSE_SLUG in self.slugs else []
+        self._pulse = None
 
     def load_posts(self, lang: Lang) -> list[Post]:
         """社群動態不要求三個語系都有，只有正體中文的公告不會出現在其他語系的列表。"""
@@ -209,8 +217,9 @@ class Site:
 
     def blocks(self, lang: Lang, target: dict) -> dict[str, str]:
         ctx = self.context(lang, target)
+        # pulse 每個國家各畫一次，在 build_pulse 裡另外處理
         names = [p.name.removeprefix("_block-").removesuffix(".html.j2")
-                 for p in TEMPLATES.glob("_block-*.html.j2")]
+                 for p in TEMPLATES.glob("_block-*.html.j2") if p.name != "_block-pulse.html.j2"]
         return {n: self.env.get_template(f"_block-{n}.html.j2").render(**ctx) for n in names}
 
     def fill_blocks(self, body_html: str, blocks: dict[str, str], where: str) -> str:
@@ -264,7 +273,7 @@ class Site:
             self.write(out / "robots.txt", self.env.get_template("robots.txt.j2").render(
                 target=target, langs=self.langs, slugs=self.slugs, page_path=self.page_path), target)
             self.write(out / "sitemap.xml", self.env.get_template("sitemap.xml.j2").render(
-                target=target, langs=self.langs, slugs=self.slugs, page_path=self.page_path,
+                target=target, langs=self.langs, slugs=self.slugs + self.pulse_slugs, page_path=self.page_path,
                 posts=[p for lang in self.langs for p in self.posts[lang.code]]), target)
             outs.append(out)
         return outs
@@ -277,6 +286,9 @@ class Site:
             if not src.exists():
                 raise SystemExit(f"{where}：缺少這個語系的頁面")
             meta, body = split_front_matter(src.read_text(encoding="utf-8"), where)
+            if slug == PULSE_SLUG:
+                self.build_pulse(lang, target, out, meta, body, blocks, where)
+                continue
             body_html = self.fill_blocks(render_markdown(body), blocks, where)
             body_html = ICON_REF.sub(lambda m: icon(m[1]), body_html)
             body_html = ICON_TAG.sub(lambda m: icon(m[1]), body_html)
@@ -296,6 +308,56 @@ class Site:
                 **self.context(lang, target), page=page, body=Markup(body_html))
             self.write(out / page["path"].lstrip("/") / "index.html", text, target)
         self.build_posts(lang, target, out)
+
+    def pulse_data(self) -> dict:
+        """各國的摘要，同一次建置只讀一次（clearnet 與 onion 共用）。"""
+        if self._pulse is None:
+            self._pulse = pulse.load(self.pulse_codes, self.data["pulse"]["days"], CACHE / "pulse")
+        return self._pulse
+
+    def build_pulse(self, lang: Lang, target: dict, out: Path, meta: dict, body: str,
+                    blocks: dict, where: str) -> None:
+        """Tor 中繼節點觀測：同一份 Markdown，每個國家各產生一頁，圖表各自畫。"""
+        conf = self.data["pulse"]
+        labels = conf["labels"]
+        pick = lambda value: value[lang.code] if isinstance(value, dict) else value  # noqa: E731
+        L = {k: pick(v).replace("{days}", str(conf["days"])).replace("{back}", str(conf["compare_days"]))
+             for k, v in labels.items()}
+        loaded = self.pulse_data()
+        views = {c: pulse.view(loaded[c]["data"], labels, pick, conf["compare_days"]) if loaded[c]["data"] else None
+                 for c in self.pulse_codes}
+
+        def path(other: Lang, code: str) -> str:
+            return self.page_path(other, PULSE_SLUG if code == self.pulse_codes[0] else f"{PULSE_SLUG}/{code}")
+
+        countries = [{"code": c["code"], "name": pick(c["name"]), "href": path(lang, c["code"]),
+                      "title_name": c.get("title_name", {}).get(lang.code, pick(c["name"])),
+                      "running": views[c["code"]]["latest"]["running"] if views[c["code"]] and views[c["code"]]["latest"] else None,
+                      "spark": pulse.sparkline(views[c["code"]]["running_series"]) if views[c["code"]] else ""}
+                     for c in conf["countries"]]
+        for country in countries:
+            code = country["code"]
+            block = self.env.get_template("_block-pulse.html.j2").render(
+                **self.context(lang, target), L=L, v=views[code], stale=loaded[code]["stale"],
+                country=country, countries=[{**c, "current": c["code"] == code} for c in countries])
+            body_html = self.fill_blocks(render_markdown(body), {**blocks, "pulse": block}, where)
+            body_html = ICON_REF.sub(lambda m: icon(m[1]), body_html)
+            body_html = ICON_TAG.sub(lambda m: icon(m[1]), body_html)
+            body_html = self.localize(body_html, lang)
+            first = code == self.pulse_codes[0]
+            # 導言寫的是整頁的主題，只放在主頁，各國子頁的標題已經寫明是哪個地區
+            page = {
+                **{k: v for k, v in meta.items() if first or k != "lead"},
+                "title": meta["title"] if first else L["title_country"].replace("{name}", country["title_name"]),
+                "slug": PULSE_SLUG,
+                "section": "projects",
+                "parent": "projects",
+                "path": path(lang, code),
+                "alternates": [(other, path(other, code)) for other in self.langs],
+            }
+            text = self.env.get_template(f"{meta.get('template', 'page')}.html.j2").render(
+                **self.context(lang, target), page=page, body=Markup(body_html))
+            self.write(out / page["path"].lstrip("/") / "index.html", text, target)
 
     def build_posts(self, lang: Lang, target: dict, out: Path) -> None:
         for post in self.posts[lang.code]:

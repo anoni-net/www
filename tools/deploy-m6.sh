@@ -7,13 +7,15 @@
 #
 # 目錄結構：
 #   /srv/anoni-net-www/repo            anoni-net/www 的 clone，只拉 main
-#   /srv/anoni-net-www/releases/<sha>  每個 commit 建置一份，保留最近 KEEP 份
+#   /srv/anoni-net-www/releases/<sha>-<小時>  每個 commit 每小時建置一份，保留最近 KEEP 份
 #   /srv/anoni-net-www/current         symlink，nginx 讀 current/clearnet 與 current/onion
 #
 # 建置完成、檢查通過之後才切換 current，切換是原子操作，建置失敗時線上維持原本的版本。
 # 只接受 fast-forward，main 的歷史被改寫時停下來寫進 log，不強制覆蓋，等人處理。
-# 同一個 commit 建置失敗過就不再重試，有新的 commit 才會再建置。
-# 有更新時才寫 log，沒有變動就安靜結束。上一輪還沒跑完時這一輪直接略過。
+# Tor 中繼節點觀測頁（/projects/pulse/）的圖表在建置時從本機的 Pulse API 讀資料，
+# 所以同一個 commit 每小時也重建一次。小時從第 10 分開始算，讓 Pulse 第 5 分的收集先寫進資料庫。
+# 同一個 commit 在同一個小時建置失敗過就不再重試，下一個小時或有新的 commit 才會再建置。
+# 有新的 commit 或建置失敗時才寫 log，每小時的重建不寫。上一輪還沒跑完時這一輪直接略過。
 # 要暫停自動發布（例如手動退回上一版時），建立 /srv/anoni-net-www/hold，刪掉就恢復。
 set -eu
 
@@ -21,7 +23,9 @@ BASE=/srv/anoni-net-www
 REPO=$BASE/repo
 LOG=/home/ubuntu/www-deploy.log
 UV=/home/ubuntu/.local/bin/uv
-KEEP=5
+KEEP=6
+PULSE_API=http://127.0.0.1:8899/api
+export PULSE_API
 
 exec 9>/tmp/www-deploy.lock
 flock -n 9 || exit 0
@@ -33,26 +37,32 @@ if ! git -C "$REPO" pull --ff-only -q origin main 2>>"$LOG"; then
     exit 1
 fi
 sha=$(git -C "$REPO" rev-parse --short=12 HEAD)
+hour=$(date -u -d '-10 min' +%Y%m%d%H)
+release="$sha-$hour"
 current=$(readlink "$BASE/current" 2>/dev/null || true)
-[ "$current" = "releases/$sha" ] && exit 0
-[ "$(cat "$BASE/failed" 2>/dev/null || true)" = "$sha" ] && exit 0
+[ "$current" = "releases/$release" ] && exit 0
+[ "$(cat "$BASE/failed" 2>/dev/null || true)" = "$release" ] && exit 0
 
-dest=$BASE/releases/$sha
+dest=$BASE/releases/$release
 rm -rf "$dest.tmp"
 if ! (cd "$REPO" && "$UV" run --quiet --frozen build.py --check && "$UV" run --quiet --frozen build.py --out "$dest.tmp") >/dev/null 2>>"$LOG"; then
-    echo "$(date -Iseconds) $sha 建置或檢查失敗，線上維持 ${current:-（尚未發布）}" >>"$LOG"
-    echo "$sha" >"$BASE/failed"
+    echo "$(date -Iseconds) $release 建置或檢查失敗，線上維持 ${current:-（尚未發布）}" >>"$LOG"
+    echo "$release" >"$BASE/failed"
     rm -rf "$dest.tmp"
     exit 1
 fi
 rm -rf "$dest"
 mv "$dest.tmp" "$dest"
-ln -sfn "releases/$sha" "$BASE/current.tmp"
+ln -sfn "releases/$release" "$BASE/current.tmp"
 mv -T "$BASE/current.tmp" "$BASE/current"
 rm -f "$BASE/failed"
-echo "$(date -Iseconds) 發布 $sha $(git -C "$REPO" log -1 --format=%s)" >>"$LOG"
+# 只有 commit 換了才寫 log，同一個 commit 的每小時重建不寫
+case "$current" in
+    "releases/$sha"-*) ;;
+    *) echo "$(date -Iseconds) 發布 $release $(git -C "$REPO" log -1 --format=%s)" >>"$LOG" ;;
+esac
 
 # 保留最近 KEEP 份，正在使用的那一份不會被刪
 ls -1t "$BASE/releases" | tail -n +$((KEEP + 1)) | while read -r old; do
-    [ "releases/$old" = "releases/$sha" ] || rm -rf "${BASE:?}/releases/$old"
+    [ "releases/$old" = "releases/$release" ] || rm -rf "${BASE:?}/releases/$old"
 done

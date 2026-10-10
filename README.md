@@ -63,11 +63,11 @@ onion 版本在寫檔前把 `https://anoni.net/docs` 這類 clearnet 網址改�
 | m6 上的位置 | 內容 |
 |---|---|
 | `/srv/anoni-net-www/repo` | 本 repo 的 clone，只拉 `main` |
-| `/srv/anoni-net-www/releases/<commit>` | 每個 commit 建置一份，保留最近五份 |
+| `/srv/anoni-net-www/releases/<commit>-<小時>` | 每個 commit 每小時建置一份，保留最近六份 |
 | `/srv/anoni-net-www/current` | symlink，指向線上的那一份 |
 | `/home/ubuntu/www-deploy.log` | 每次發布與失敗的紀錄 |
 
-腳本先執行 `--check`，通過之後建置到新的目錄，最後才切換 `current`，建置失敗時線上維持原本的版本。nginx 的 `anoni.net` 與根 onion 位址都讀 `current`，設定在 m6 的 `/etc/nginx/conf.d/anoninet.conf`，`error_page 404` 指到根目錄的 `404.html`。
+同一個 commit 每小時也重建一次，給 Tor 中繼節點觀測頁更新資料，見下方「Tor 中繼節點觀測」。腳本先執行 `--check`，通過之後建置到新的目錄，最後才切換 `current`，建置失敗時線上維持原本的版本。nginx 的 `anoni.net` 與根 onion 位址都讀 `current`，設定在 m6 的 `/etc/nginx/conf.d/anoninet.conf`，`error_page 404` 指到根目錄的 `404.html`。
 
 從文件站搬過來的頁面記在 [`tools/docs_moved.toml`](./tools/docs_moved.toml)，搬內容、產生舊網址的轉址對照表都讀這一份：
 
@@ -81,6 +81,20 @@ uv run tools/import_from_docs.py --nginx                    # 重新產生 tools
 舊網址在 m6 的 nginx 用 301 轉過來，clearnet 與 onion 各一份 `map`，把產生的對照表複製到 `/etc/nginx/conf.d/anoni-docs-moved.conf` 再 reload。順序是新頁面先上線，再套轉址，最後在文件站刪原始檔、補 `redirect_maps`。
 
 要退回上一版，先建立 `/srv/anoni-net-www/hold` 暫停自動發布，再把 `current` 改指到 `releases/` 底下較舊的那一份。修好之後刪掉 `hold`，下一輪就會發布 `main` 的最新版。
+
+## Tor 中繼節點觀測
+
+`/projects/pulse/` 是 [Pulse](https://github.com/anoni-net/pulse) 的觀測頁，原本是文件站的「Tor Relays 觀測點」。頁面的文字在 `pages/<語系>/projects/pulse.md`，`<!-- pulse -->` 的位置放儀表板，國家清單與圖表上的文字在 `data/pulse.toml`。第一個國家是主頁，其他國家各一頁 `/projects/pulse/<代碼>/`，由同一份 Markdown 產生。
+
+建置時 [`pulse.py`](./pulse.py) 從 Pulse 的 `/api/summary` 讀每個國家的資料，圖表畫成內嵌的 SVG，頁面不需要 JavaScript，onion 版也不會連到 clearnet。每個長條與資料點都帶 `<title>`，滑鼠停在上面會顯示數值。顏色只用 cyan 的五個深淺，CSS 在 `site.css` 的 `.pulse` 一段。
+
+| 環境變數 | 用途 |
+|---|---|
+| `PULSE_API` | API 的位址，預設 `https://anoni.net/api`。m6 的部署腳本設成本機的 `http://127.0.0.1:8899/api` |
+
+讀到的資料寫進 `.cache/pulse/`，十分鐘內的建置直接用快取，部署腳本先 `--check` 再建置，同一輪只讀一次 API。API 沒有回應時退回舊的快取，頁面標示資料是快取。連快取都沒有時頁面顯示提示，建置照樣成功，所以 GitHub 上的 CI 不受 API 影響。
+
+在本機預覽時讀的是公開的 API，回應經過 Cloudflare 的快取，Pulse 剛改過端點時可能讀到舊的回應，清掉 `/api/summary?country=<代碼>&days=60` 的快取即可。
 
 ## 分類
 

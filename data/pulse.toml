@@ -1,0 +1,90 @@
+# Tor 中繼節點觀測（/projects/pulse/）。資料在建置時從 Pulse 的 /api/summary 讀，
+# 圖表畫成靜態 SVG，頁面不需要 JavaScript。m6 的部署腳本每小時重建一次。
+#
+# 第一個國家是主頁 /projects/pulse/，其他國家各一頁 /projects/pulse/<code>/。
+# 國家清單要跟 Pulse 的 routers/vega.py 的 Country 一致。
+
+days = 60
+# 大數字卡片跟幾天前比
+compare_days = 30
+
+[[countries]]
+code = "tw"
+name = { zh-TW = "臺灣", zh-CN = "台湾", en = "Taiwan" }
+
+[[countries]]
+code = "jp"
+name = { zh-TW = "日本", zh-CN = "日本", en = "Japan" }
+
+[[countries]]
+code = "kr"
+name = { zh-TW = "南韓", zh-CN = "韩国", en = "South Korea" }
+
+[[countries]]
+code = "hk"
+name = { zh-TW = "香港", zh-CN = "香港", en = "Hong Kong" }
+
+[[countries]]
+code = "sg"
+name = { zh-TW = "新加坡", zh-CN = "新加坡", en = "Singapore" }
+
+[[countries]]
+code = "vn"
+name = { zh-TW = "越南", zh-CN = "越南", en = "Vietnam" }
+
+[[countries]]
+code = "in"
+name = { zh-TW = "印度", zh-CN = "印度", en = "India" }
+
+[[countries]]
+code = "de"
+name = { zh-TW = "德國", zh-CN = "德国", en = "Germany" }
+
+[[countries]]
+code = "nl"
+name = { zh-TW = "荷蘭", zh-CN = "荷兰", en = "Netherlands" }
+# 標題用的寫法，英文要加冠詞
+title_name = { en = "the Netherlands" }
+
+[[countries]]
+code = "us"
+name = { zh-TW = "美國", zh-CN = "美国", en = "United States" }
+# 標題用的寫法，英文要加冠詞
+title_name = { en = "the United States" }
+
+[labels]
+title_country = { zh-TW = "{name}的 Tor 中繼節點", zh-CN = "{name}的 Tor 中继节点", en = "Tor relays in {name}" }
+countries = { zh-TW = "觀測地區", zh-CN = "观测地区", en = "Regions" }
+updated = { zh-TW = "最近一次快照", zh-CN = "最近一次快照", en = "Latest snapshot" }
+unavailable = { zh-TW = "Pulse 的資料暫時無法取得，下一次重建時會再試一次。", zh-CN = "Pulse 的数据暂时无法取得，下一次重建时会再试一次。", en = "Pulse data is unavailable right now. The next rebuild will try again." }
+stale = { zh-TW = "這份資料是快取，建置時 Pulse 沒有回應。", zh-CN = "这份数据是缓存，建置时 Pulse 没有响应。", en = "This is cached data; Pulse did not respond at build time." }
+running = { zh-TW = "運作中", zh-CN = "运作中", en = "Running" }
+stopped = { zh-TW = "已停止", zh-CN = "已停止", en = "Stopped" }
+relays = { zh-TW = "運作中的中繼", zh-CN = "运作中的中继", en = "Running relays" }
+bandwidth = { zh-TW = "總頻寬", zh-CN = "总带宽", en = "Bandwidth" }
+asns = { zh-TW = "自治網路（ASN）", zh-CN = "自治网络（ASN）", en = "Networks (ASNs)" }
+exits = { zh-TW = "出口節點", zh-CN = "出口节点", en = "Exit relays" }
+vs = { zh-TW = "比 {back} 天前", zh-CN = "比 {back} 天前", en = "vs {back} days ago" }
+health = { zh-TW = "運作與頻寬", zh-CN = "运作与带宽", en = "Running relays and bandwidth" }
+health_note = { zh-TW = "每天最後一次快照裡運作中與已停止的中繼，以及運作中中繼的觀測頻寬加總。", zh-CN = "每天最后一次快照里运作中与已停止的中继，以及运作中中继的观测带宽加总。", en = "Running and stopped relays in the last snapshot of each day, and the total observed bandwidth of the running ones." }
+chart_relays = { zh-TW = "中繼數量", zh-CN = "中继数量", en = "Relays" }
+chart_bandwidth = { zh-TW = "觀測頻寬（MB/s）", zh-CN = "观测带宽（MB/s）", en = "Observed bandwidth (MB/s)" }
+diversity = { zh-TW = "分散程度", zh-CN = "分散程度", en = "Diversity" }
+diversity_note = { zh-TW = "中繼分散在越多自治網路（ASN），越不容易因為單一電信商的問題一起停擺。", zh-CN = "中继分散在越多自治网络（ASN），越不容易因为单一电信商的问题一起停摆。", en = "The more autonomous systems (ASNs) the relays spread across, the less a single provider's trouble can take them down together." }
+asn_share = { zh-TW = "各 ASN 的中繼占比", zh-CN = "各 ASN 的中继占比", en = "Relays by ASN" }
+asn_trend = { zh-TW = "ASN 數量", zh-CN = "ASN 数量", en = "Number of ASNs" }
+asn_col = { zh-TW = "ASN", zh-CN = "ASN", en = "ASN" }
+asn_name = { zh-TW = "名稱", zh-CN = "名称", en = "Name" }
+asn_relays = { zh-TW = "中繼", zh-CN = "中继", en = "Relays" }
+asn_more = { zh-TW = "另外 {n} 個 ASN 各有一兩個中繼", zh-CN = "另外 {n} 个 ASN 各有一两个中继", en = "{n} more ASNs with one or two relays each" }
+roles = { zh-TW = "中繼的角色", zh-CN = "中继的角色", en = "Relay roles" }
+roles_note = { zh-TW = "Guard 是電路的第一個節點，Exit 負責連往目的地，Middle 在兩者之間。一個中繼可以同時擔任多種角色。", zh-CN = "Guard 是电路的第一个节点，Exit 负责连往目的地，Middle 在两者之间。一个中继可以同时担任多种角色。", en = "Guards are the first hop of a circuit, exits connect to the destination, and middles sit in between. A relay can hold more than one role." }
+versions = { zh-TW = "Tor 版本", zh-CN = "Tor 版本", en = "Tor versions" }
+versions_note = { zh-TW = "運作中的中繼使用的 Tor 版本，每天的長條疊滿 100%。新版發布之後，新版本的比例長得越快，代表營運者更新得越即時。", zh-CN = "运作中的中继使用的 Tor 版本，每天的长条叠满 100%。新版发布之后，新版本的比例长得越快，代表运营者更新得越及时。", en = "Tor versions on running relays, with each day's bar adding up to 100%. The faster a new version's share grows after a release, the faster operators are keeping up." }
+versions_latest = { zh-TW = "最近一次快照的版本", zh-CN = "最近一次快照的版本", en = "Versions in the latest snapshot" }
+flags = { zh-TW = "Tor 網路給的標記", zh-CN = "Tor 网络给的标记", en = "Flags" }
+flags_note = { zh-TW = "目錄權威伺服器依每個中繼的表現給的標記，例如 Stable 是長期穩定，Fast 是頻寬夠大。各標記不互斥。", zh-CN = "目录权威服务器依每个中继的表现给的标记，例如 Stable 是长期稳定，Fast 是带宽够大。各标记不互斥。", en = "Flags the directory authorities assign from each relay's behaviour, such as Stable for long uptime and Fast for enough bandwidth. A relay can carry several." }
+compare = { zh-TW = "各地區比較", zh-CN = "各地区比较", en = "Across regions" }
+compare_note = { zh-TW = "最近一次快照裡運作中的中繼數，小圖是近 {days} 天的走勢。點進去看各地區的完整圖表。", zh-CN = "最近一次快照里运作中的中继数，小图是近 {days} 天的走势。点进去看各地区的完整图表。", en = "Running relays in the latest snapshot, with the trend over the last {days} days. Open a region for its full charts." }
+other = { zh-TW = "其他", zh-CN = "其他", en = "Others" }
+no_data = { zh-TW = "這段期間沒有資料", zh-CN = "这段期间没有数据", en = "No data for this period" }
