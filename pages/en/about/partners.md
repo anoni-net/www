@@ -35,7 +35,7 @@ For the other jurisdictions we can point out where a draft conflicts with the pu
 
 The community's three 2026 tracks, the [personal privacy guide](/join/privacy-guide/), [anonymous payments](/join/payments-research/), and [Tor relays on campus](/join/relay-on-campus/), each publish their research goals and work in progress. Co-researching one of those questions, or co-publishing on a related one, is open to organizations as well as individuals.
 
-Researchers can use our underlying data in published work: the [ASN observation data analysis](docs:regional/ooni-asn-coverage/) over OONI's public dataset, and the relay figures from the [Tor relay watcher](/projects/pulse/). We attribute other people's work explicitly and don't claim a formal arrangement where none exists.
+Researchers can use our underlying data in published work: the [ASN observation data analysis](docs:regional/ooni-asn-coverage/) over OONI's public dataset, and the relay figures from [Tor Relay Watch](/projects/pulse/). We attribute other people's work explicitly and don't claim a formal arrangement where none exists.
 
 ### Local observation
 

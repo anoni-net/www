@@ -41,5 +41,5 @@ Tor 中继节点是志愿者架设、替全球 Tor 用户转送加密流量的�
 
 - [如何搭建 Tor Relay](docs:community/setup-tor-relay/)
 - [Tor Relay 校园建设](/join/relay-on-campus/)：社群 2026 年的三大主题之一
-- [用一句中文查 Tor 节点现况](/projects/onionoo-mcp/)
+- [AI 助手的 Tor 节点查询](/projects/onionoo-mcp/)
 - [台湾有多少人在用 Tor](docs:taiwan/tor-users/)
