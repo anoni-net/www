@@ -16,6 +16,7 @@
 """
 
 import json
+import os
 import time
 import urllib.request
 from collections import defaultdict
@@ -50,6 +51,8 @@ def cached(path: Path, max_age: int, url: str) -> tuple[bytes | None, bool]:
     """回傳 (內容, 是否是過期的快取)。"""
     if path.exists() and time.time() - path.stat().st_mtime < max_age:
         return path.read_bytes(), False
+    if os.environ.get("WWW_OFFLINE"):  # CI 不連外部資料，見 pulse.offline()
+        return (path.read_bytes(), True) if path.exists() else (None, False)
     try:
         body = fetch(url)
         path.write_bytes(body)

@@ -21,6 +21,12 @@ MAX_AGE = 600
 
 # 資料
 
+def offline() -> bool:
+    """設了 WWW_OFFLINE 時不連外部資料，只用快取，沒有快取就當作讀不到。CI 只檢查頁面結構，
+    外部的 API 一慢，每個請求都要等到逾時，建置會從一分鐘拖到十幾分鐘。"""
+    return bool(os.environ.get("WWW_OFFLINE"))
+
+
 def fetch(code: str, days: int, api: str, timeout: int = 30) -> dict:
     req = urllib.request.Request(
         f"{api.rstrip('/')}/summary?country={code}&days={days}",
@@ -38,6 +44,10 @@ def load(codes: list[str], days: int, cache_dir: Path) -> dict[str, dict]:
         path = cache_dir / f"{code}.json"
         if path.exists() and time.time() - path.stat().st_mtime < MAX_AGE:
             result[code] = {"data": json.loads(path.read_text()), "stale": False}
+            continue
+        if offline():
+            data = json.loads(path.read_text()) if path.exists() else None
+            result[code] = {"data": data, "stale": data is not None}
             continue
         try:
             data = fetch(code, days, api)

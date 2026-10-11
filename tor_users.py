@@ -9,6 +9,7 @@ Tor Metrics 從中繼收到的目錄請求推算每個地區每天平均同時�
 讀取失敗時退回舊的快取並標示，連快取都沒有就不畫這一段，建置照樣成功。
 """
 
+import os
 import time
 import urllib.request
 from datetime import date, datetime, timedelta, timezone
@@ -31,6 +32,8 @@ def cached(path: Path, url: str) -> tuple[bytes | None, bool]:
     """回傳 (內容, 是否是過期的快取)。"""
     if path.exists() and time.time() - path.stat().st_mtime < MAX_AGE:
         return path.read_bytes(), False
+    if os.environ.get("WWW_OFFLINE"):  # CI 不連外部資料，見 pulse.offline()
+        return (path.read_bytes(), True) if path.exists() else (None, False)
     try:
         body = fetch(url)
         path.write_bytes(body)
