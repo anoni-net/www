@@ -31,6 +31,7 @@ from jinja2 import Environment, FileSystemLoader, StrictUndefined
 from markupsafe import Markup
 
 import asn_coverage
+import charts
 import og_cards
 import pulse
 import region_map
@@ -517,6 +518,24 @@ class Site:
         world = users_raw["all"]["data"]
         users = {c: tor_users.view(users_raw[c]["data"], world, conf["labels"], pick, conf["compare_days"])
                  if users_raw[c]["data"] else None for c in self.pulse_codes}
+        # 各地區比較的小倍數圖：對齊同一段日期，以各地區第一天的數量為 100，全部用同一個刻度
+        aligned = charts.align({c: v["running_by_day"] for c, v in views.items() if v})
+        indexed = {}
+        for code, vals in aligned.items():
+            first = next((x for x in vals if x), None)
+            indexed[code] = [x / first * 100 if x is not None and first else None for x in vals]
+        lo, hi = charts.domain(list(indexed.values()), base=100, floor=0, ceil=200)
+        multi_scale = L["multi_scale"].replace("{lo}", f"{lo:g}").replace("{hi}", f"{hi:g}")
+
+        def change(code: str) -> str:
+            """第一天到最後一天的變化。資料不到一週的地區（剛加入觀測）不寫，兩三天的變化沒有意義。"""
+            vals = [x for x in indexed.get(code, []) if x is not None]
+            if len(vals) < 7:
+                return ""
+            last = vals[-1]
+            d = round(last - 100)
+            return f"{'+' if d > 0 else ''}{d}%"
+
         countries = []
         for c in conf["countries"]:
             v, u = views[c["code"]], users[c["code"]]
@@ -524,7 +543,8 @@ class Site:
                 "code": c["code"], "name": pick(c["name"]),
                 "title_name": c.get("title_name", {}).get(lang.code, pick(c["name"])),
                 "running": v["latest"]["running"] if v and v["latest"] else None,
-                "spark": pulse.sparkline(v["running_series"]) if v else "",
+                "multi": charts.multiple(indexed[c["code"]], lo, hi, 100) if c["code"] in indexed else "",
+                "change": change(c["code"]),
                 "weight": tor_users.pct(v["weight"]) if v and v["weight"] is not None else "–",
                 "users": u["users_text"] if u else "–",
                 "bridge": tor_users.pct(u["bridge_pct"]) if u else "–",
@@ -540,11 +560,18 @@ class Site:
 
         refs = {r["code"]: pick(r["name"]) for r in conf.get("use_refs", [])}
 
+        steps = conf["map_steps"]
+        levels = {c["code"]: (region_map.level(c["running"], steps),
+                              f'{L["map_scale"]} {c["running"]:,}' if c["running"] is not None else L["map_na"])
+                  for c in countries}
+
         def render(country: dict, countries: list[dict]) -> str:
             code = country["code"]
             rmap = region_map.svg(ROOT, {c["code"]: (c["name"], c["href"]) for c in countries}, refs, code,
-                                  L["map_label"])
+                                  L["map_label"], levels=levels)
             return self.env.get_template("_block-pulse.html.j2").render(rmap=rmap,
+                scale=region_map.scale(steps), map_na=any(lv == 0 for lv, _ in levels.values()),
+                multi_scale=multi_scale,
                 **self.context(lang, target), L=L, v=views[code], stale=loaded[code]["stale"],
                 u=users[code], u_stale=users_raw[code]["stale"] or users_raw["all"]["stale"],
                 pct=tor_users.pct, country=country, countries=countries, use_refs=use_refs,
@@ -583,6 +610,10 @@ class Site:
                                          conf["compare_days"]) if data else None
         apps = self.apps_data()
         tests = conf["apps"]["tests"]
+        # 各地區比較的小倍數圖：對齊同一段日期，全部用同一個刻度
+        aligned = charts.align({c: v["coverage_by_day"] for c, v in views.items() if v and v["latest"]})
+        lo, hi = charts.domain(list(aligned.values()), floor=0, ceil=100)
+        multi_scale = L["multi_scale"].replace("{lo}", f"{lo:g}").replace("{hi}", f"{hi:g}")
         countries = []
         for c in conf["countries"]:
             v = views[c["code"]]
@@ -592,7 +623,7 @@ class Site:
                 "title_name": c.get("title_name", {}).get(lang.code, pick(c["name"])),
                 "coverage": v["coverage"] if ok else None,
                 "stable": v["stable"] if ok else None,
-                "spark": asn_coverage.sparkline(v["coverage_series"]) if ok else "",
+                "multi": charts.multiple(aligned[c["code"]], lo, hi) if ok else "",
                 "apps": asn_coverage.apps_view(c["code"], apps, tests, pick),
             })
         # App 比較表另外放幾個沒有自己頁面的參照地區
@@ -601,10 +632,17 @@ class Site:
 
         map_refs = {r["code"]: pick(r["name"]) for r in conf["apps"].get("regions", [])}
 
+        steps = conf["map_steps"]
+        levels = {c["code"]: (region_map.level(c["coverage"], steps),
+                              f'{L["map_scale"]} {c["coverage"]:.1f}%' if c["coverage"] is not None else L["map_na"])
+                  for c in countries}
+
         def render(country: dict, countries: list[dict]) -> str:
             rmap = region_map.svg(ROOT, {c["code"]: (c["name"], c["href"]) for c in countries}, map_refs,
-                                  country["code"], L["map_label"])
+                                  country["code"], L["map_label"], levels=levels)
             return self.env.get_template("_block-asn-coverage.html.j2").render(rmap=rmap,
+                scale=region_map.scale(steps, "%"), map_na=any(lv == 0 for lv, _ in levels.values()),
+                multi_scale=multi_scale,
                 **self.context(lang, target), L=L, v=views[country["code"]],
                 stale=loaded["countries"][country["code"]]["stale"], country=country, countries=countries,
                 tests=tests, app_refs=app_refs, apps_stale=apps["stale"], app_min=asn_coverage.APP_MIN)

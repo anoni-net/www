@@ -4,7 +4,7 @@
 <div class="pulse">
 <figure class="rmap-fig">
   {{ rmap }}
-  <figcaption><span class="lg"><span><i class="sw rm-sw-cur"></i>{{ country.name }}</span><span><i class="sw rm-sw-obs"></i>{{ L.map_obs }}</span><span><i class="sw rm-sw-ref"></i>{{ L.map_ref }}</span></span>{{ L.map_note }}</figcaption>
+  <figcaption><span class="lg rm-steps"><span class="t">{{ L.map_scale }}</span>{% for cls, label in scale %}<span><i class="sw {{ cls }}"></i>{{ label }}</span>{% endfor %}{% if map_na %}<span><i class="sw rm-q0"></i>{{ L.map_na }}</span>{% endif %}</span><span class="lg"><span><i class="sw rm-sw-out"></i>{{ country.name }}</span><span><i class="sw rm-sw-ref"></i>{{ L.map_ref }}</span></span>{{ L.map_note }}</figcaption>
 </figure>
 <nav class="pulse-regions" aria-label="{{ L.countries }}">
 {% for c in countries %}
@@ -145,13 +145,14 @@
 <p class="pulse-note">{{ L.compare_note }}</p>
 <div class="pulse-grid">
 {% for c in countries %}
-  <a class="pulse-country" href="{{ c.href }}"{% if c.current %} aria-current="page"{% endif %}>
+  <a class="pulse-country" href="{{ c.href }}" style="--i:{{ loop.index0 }}"{% if c.current %} aria-current="page"{% endif %}>
     <span class="name">{{ c.name }}</span>
-    <span class="v">{{ "{:,}".format(c.running) if c.running is not none else "–" }}</span>
-    {{ c.spark }}
+    <span class="v">{{ "{:,}".format(c.running) if c.running is not none else "–" }}{% if c.change %}<small class="chg">{{ c.change }}</small>{% endif %}</span>
+    {{ c.multi }}
   </a>
 {% endfor %}
 </div>
+<p class="pulse-more">{{ multi_scale }}</p>
 
 <h3 id="use-compare">{{ L.cmp }}</h3>
 <p class="pulse-note">{{ L.cmp_note }}</p>

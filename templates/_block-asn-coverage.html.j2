@@ -6,7 +6,7 @@
 <div class="pulse asncov">
 <figure class="rmap-fig">
   {{ rmap }}
-  <figcaption><span class="lg"><span><i class="sw rm-sw-cur"></i>{{ country.name }}</span><span><i class="sw rm-sw-obs"></i>{{ L.map_obs }}</span><span><i class="sw rm-sw-ref"></i>{{ L.map_ref }}</span></span>{{ L.map_note }}</figcaption>
+  <figcaption><span class="lg rm-steps"><span class="t">{{ L.map_scale }}</span>{% for cls, label in scale %}<span><i class="sw {{ cls }}"></i>{{ label }}</span>{% endfor %}{% if map_na %}<span><i class="sw rm-q0"></i>{{ L.map_na }}</span>{% endif %}</span><span class="lg"><span><i class="sw rm-sw-out"></i>{{ country.name }}</span><span><i class="sw rm-sw-ref"></i>{{ L.map_ref }}</span></span>{{ L.map_note }}</figcaption>
 </figure>
 <nav class="pulse-regions" aria-label="{{ L.countries }}">
 {% for c in countries %}
@@ -142,13 +142,14 @@
 <p class="pulse-note">{{ L.compare_note }}</p>
 <div class="pulse-grid">
 {% for c in countries %}
-  <a class="pulse-country" href="{{ c.href }}"{% if c.current %} aria-current="page"{% endif %}>
+  <a class="pulse-country" href="{{ c.href }}" style="--i:{{ loop.index0 }}"{% if c.current %} aria-current="page"{% endif %}>
     <span class="name">{{ c.name }}</span>
     <span class="v">{{ '%.1f%%' | format(c.coverage) if c.coverage is not none else "–" }}</span>
-    {{ c.spark }}
+    {{ c.multi }}
   </a>
 {% endfor %}
 </div>
+<p class="pulse-more">{{ multi_scale }}</p>
 
 <table class="pulse-asn pulse-cmp">
   <thead><tr><th>{{ L.col_region }}</th><th class="n">{{ L.col_coverage }}</th><th class="n">{{ L.col_stable }}</th></tr></thead>

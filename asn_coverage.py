@@ -288,4 +288,5 @@ def view(code: str, raw: dict, names: dict[int, str], labels: dict, pick, recent
         "stable": now["stable"],
         "stable_days": int(recent_days * STABLE_DAYS),
         "coverage_series": series("coverage"),
+        "coverage_by_day": col("coverage"),
     }

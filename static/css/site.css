@@ -494,6 +494,28 @@ svg.pc rect:hover, svg.pc circle:hover { opacity: .7; }
 .rm-sw-cur { background: var(--c-strong); }
 .rm-sw-later { background: color-mix(in srgb, var(--c-accent) 40%, var(--c-bg)); }
 .rm-sw-ref { background: color-mix(in srgb, var(--c-accent) 30%, var(--c-bg)); }
+/* 分級上色（Tor 中繼節點觀測、OONI 觀測涵蓋率）：觀測地區依數值分五級，把最深的 cyan 跟底色
+   等比例混合，級距之間的深淺差才平均。數值越大越深，深色模式反過來越大越亮。目前這一頁的地區改用外框標出，參照地區用斜線 */
+.rm-q0 { --rmq: color-mix(in srgb, var(--c-muted) 34%, var(--c-bg)); }
+.rm-q1 { --rmq: color-mix(in oklab, var(--pc1) 26%, var(--c-bg)); }
+.rm-q2 { --rmq: color-mix(in oklab, var(--pc1) 44%, var(--c-bg)); }
+.rm-q3 { --rmq: color-mix(in oklab, var(--pc1) 62%, var(--c-bg)); }
+.rm-q4 { --rmq: color-mix(in oklab, var(--pc1) 80%, var(--c-bg)); }
+.rm-q5 { --rmq: var(--pc1); }
+.rmap.rm-choro .rm-obs { fill: var(--rmq); }
+.rmap.rm-choro .rm-cur { stroke: var(--c-strong); stroke-width: 2; }
+.rmap.rm-choro circle.rm-cur { stroke-width: 2.4; }
+.rmap.rm-choro a:hover .rm-obs, .rmap.rm-choro a:focus .rm-obs { fill: var(--rmq); stroke: var(--c-strong); stroke-width: 1.4; }
+.rmap.rm-choro .rm-ref { fill: url(#rm-hatch); }
+.rmap .rm-hatch-bg { fill: color-mix(in srgb, var(--c-muted) 16%, var(--c-bg)); stroke: none; }
+.rmap .rm-hatch { stroke: color-mix(in srgb, var(--c-muted) 60%, var(--c-bg)); stroke-width: 1.4; }
+.rm-steps { align-items: center; }
+.rm-steps .t { color: var(--c-muted); }
+.rm-steps .sw { background: var(--rmq); }
+.rm-sw-out { box-sizing: border-box; border: 2px solid var(--c-strong); background: color-mix(in oklab, var(--pc1) 62%, var(--c-bg)); }
+.rm-choro ~ figcaption .rm-sw-ref {
+  background: repeating-linear-gradient(45deg, color-mix(in srgb, var(--c-muted) 60%, var(--c-bg)) 0 1.5px, color-mix(in srgb, var(--c-muted) 16%, var(--c-bg)) 1.5px 4px);
+}
 /* 各地區的使用與貢獻：目前所在的地區整列加粗 */
 .pulse-cmp { margin-bottom: 1.5rem; }
 .pulse-cmp tr.cur td { font-weight: 700; }
@@ -521,6 +543,13 @@ svg.pc rect:hover, svg.pc circle:hover { opacity: .7; }
 .pulse-country[aria-current] { border-color: var(--c-line); background: var(--c-fill); }
 .pulse-country .name { display: block; font-size: .8rem; color: var(--c-muted); }
 .pulse-country .v { display: block; font-size: 1.25rem; font-weight: 700; color: var(--c-strong); font-variant-numeric: tabular-nums; }
+.pulse-country .chg { margin-left: .35rem; font-size: .7rem; font-weight: 400; color: var(--c-muted); }
+/* 各地區比較的小倍數圖：所有地區共用同一個刻度，刻度寫在格子下方 */
+.pc-multi { display: block; width: 100%; height: 36px; margin-top: .3rem; overflow: visible; }
+.pc-multi polygon { fill: color-mix(in srgb, var(--pc3) 28%, transparent); }
+.pc-multi polyline { fill: none; stroke: var(--pc2); stroke-width: 1.6; stroke-linejoin: round; vector-effect: non-scaling-stroke; }
+.pc-multi .pc-base { stroke: var(--c-muted); stroke-width: 1; stroke-dasharray: 3 3; opacity: .7; vector-effect: non-scaling-stroke; }
+.pulse-grid + .pulse-more { margin: -1rem 0 1.5rem; }
 
 /* OONI 觀測涵蓋率（/projects/asn-coverage/）沿用上面的 .pulse 樣式，只補兩種版面：
    使用者占比與測量占比上下並排的兩條長條，以及占比清單裡的網路名稱 */
@@ -580,3 +609,17 @@ footer .license { font-size: .75rem; }
   body { padding-top: 2.5rem; }
   .sheet { padding: 1.5rem 2.25rem 2rem; }
 }
+
+/* 觀測圖表的出場動畫：長條從基線長出來，折線與面積由左往右畫出，地圖的分級色淡入。
+   純 CSS，沒有 JavaScript 也會動，結束之後跟靜態的圖一樣。系統設定要求減少動態效果時不播放 */
+@media (prefers-reduced-motion: no-preference) {
+  .pc-bars { transform-box: fill-box; transform-origin: 50% 100%; animation: pc-grow .7s cubic-bezier(.2, .7, .3, 1) both; }
+  .pc-trace, .pc-multi .pc-marks, .pulse-share { animation: pc-wipe 1s ease-out both; }
+  .pulse-country .pc-marks { animation-delay: calc(var(--i, 0) * 60ms); }
+  .pulse .bar span { transform-origin: 0 50%; animation: pc-growx .8s cubic-bezier(.2, .7, .3, 1) both; }
+  .rmap.rm-choro .rm-obs { animation: rm-in .9s ease-out both; }
+}
+@keyframes pc-grow { from { transform: scaleY(0); } }
+@keyframes pc-growx { from { transform: scaleX(0); } }
+@keyframes pc-wipe { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes rm-in { from { opacity: 0; } }

@@ -26,15 +26,40 @@ def data(root: Path) -> dict:
     return _DATA
 
 
+def level(value: float | None, steps: list[float]) -> int:
+    """數值落在第幾級，steps 是由小到大的分界，第一級是 1。沒有資料是 0。"""
+    return 0 if value is None else 1 + sum(value >= s for s in steps)
+
+
+def scale(steps: list[float], unit: str = "") -> list[tuple[str, str]]:
+    """圖例：每一級的 CSS class 與範圍。整數的分界寫成 5–9，有小數或單位的寫成 75–85%。"""
+    whole = not unit and all(float(s).is_integer() for s in steps)
+    fmt = lambda v: f"{v:g}"  # noqa: E731
+    labels = [f"<{fmt(steps[0])}{unit}"]
+    for a, b in zip(steps, steps[1:]):
+        labels.append(f"{fmt(a)}–{fmt(b - 1) if whole else fmt(b)}{unit}")
+    labels.append(f"≥{fmt(steps[-1])}{unit}")
+    return [(f"rm-q{i}", t) for i, t in enumerate(labels, 1)]
+
+
 def svg(root: Path, observed: dict[str, tuple[str, str]], refs: dict[str, str],
-        current: str | None, label: str, later: dict[str, tuple[str, str]] | None = None) -> Markup:
+        current: str | None, label: str, later: dict[str, tuple[str, str]] | None = None,
+        levels: dict[str, tuple[int, str]] | None = None) -> Markup:
     """observed 是 {代碼: (名稱, 連結)}，refs 是 {代碼: 名稱}，current 是目前這一頁的地區。
 
-    later 跟 observed 同樣格式，是季報那一期之後才加入觀測的地區，用淺一點的顏色，照樣可以點。"""
+    later 跟 observed 同樣格式，是季報那一期之後才加入觀測的地區，用淺一點的顏色，照樣可以點。
+
+    levels 是 {代碼: (級距, 數值的文字)}，有給的時候觀測地區依級距上色（級距用 level() 算，0 是
+    沒有資料），數值寫進滑鼠停留的提示，目前這一頁的地區改用外框標出。"""
     later = later or {}
     d = data(root)
     w, h = d["width"], d["height"]
-    parts = [f'<svg class="rmap" viewBox="0 0 {w} {h}" role="img" aria-label="{escape(label)}">']
+    parts = [f'<svg class="rmap{" rm-choro" if levels else ""}" viewBox="0 0 {w} {h}" role="img" aria-label="{escape(label)}">']
+    if levels:
+        # 分級上色時參照地區改用斜線，才不會跟最淺的那一級混在一起
+        parts.append('<defs><pattern id="rm-hatch" width="5" height="5" patternUnits="userSpaceOnUse" '
+                     'patternTransform="rotate(45)"><rect class="rm-hatch-bg" width="5" height="5"/>'
+                     '<line class="rm-hatch" x1="0" y1="0" x2="0" y2="5"/></pattern></defs>')
     # 底圖先畫，上色的地區後畫，邊界才不會被灰色蓋住
     for code, path in d["countries"].items():
         if code not in observed and code not in refs and code not in later:
@@ -42,8 +67,13 @@ def svg(root: Path, observed: dict[str, tuple[str, str]], refs: dict[str, str],
     for code, name in refs.items():
         if code in d["countries"]:
             parts.append(f'<path class="rm-ref" d="{d["countries"][code]}"><title>{escape(name)}</title></path>')
-    for code, (name, href) in [*later.items(), *observed.items()]:
+    # 目前這一頁的地區最後畫，外框才不會被旁邊的地區蓋住
+    for code, (name, href) in sorted([*later.items(), *observed.items()], key=lambda kv: kv[0] == current):
         cls = "rm-obs rm-later" if code in later else "rm-obs rm-cur" if code == current else "rm-obs"
+        if levels:
+            lv, text = levels.get(code, (0, ""))
+            cls += f" rm-q{lv}"
+            name = f"{name}\n{text}" if text else name
         if code in d["points"]:
             dx, dy = NUDGE.get(code, (0, 0))
             x, y = d["points"][code][0] + dx, d["points"][code][1] + dy

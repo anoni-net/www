@@ -170,6 +170,8 @@ def view(summary: dict, labels: dict, pick, days_back: int = 30) -> dict:
         "flags": flags,
         "versions": [{**v, "pct": v["count"] / vtotal * 100} for v in versions[:8]],
         "running_series": [by_day[x]["running"] if x in by_day else None for x in days],
+        # 各地區比較的小倍數圖要對齊同一段日期，所以另外帶日期
+        "running_by_day": col("running"),
         # 占全網路共識權重的比例，Pulse 2026-10 起才收集，舊的快照與舊的快取沒有
         "weight": latest["weight"] * 100 if latest and latest.get("weight") is not None else None,
         "spark_weight": sparkline([by_day[x].get("weight") if x in by_day else None for x in days]),
