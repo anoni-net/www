@@ -20,7 +20,7 @@ lead: 關注匿名網路與網路自由的一群人。
 
 - **[個人隱私指引](/join/privacy-guide/)**：整理可實際操作的隱私保護指引，依情境（日常、敏感工作、高風險）提供工具與步驟。
 - **[Tor Relay 校園建立](/join/relay-on-campus/)**：與 EFF、Tor Project 合作推動校園中繼節點，台師大已有一個節點運作中。社群把該案例整理成[提案範本](docs:community/campus-tor-relay-proposal/)、[技術 SOP](docs:community/campus-tor-relay-sop/)、[校方 FAQ](docs:community/campus-relay-faq/) 三份檔案，並把臺灣專屬的內容另外標記，其他地區的推動者替換那幾段就能沿用其餘部分。
-- **[匿名支付](/join/payments-research/)**：探索現金以外情境下的匿名支付（如穩定幣、區塊鏈應用），含法規與實作面向。目前在研究階段，蒐集真實情境，也是 [Global Gathering 2026](docs:blog/2026/08/2026-anoni-net-global-gathering/) 攤位的主題（2026/09/06，葡萄牙 Estoril）。
+- **[匿名支付](/join/payments-research/)**：探索現金以外情境下的匿名支付（如穩定幣、區塊鏈應用），含法規與實作面向。目前在研究階段，蒐集真實情境，也是 [Global Gathering 2026](/updates/2026/08/2026-anoni-net-global-gathering/) 攤位的主題（2026/09/06，葡萄牙 Estoril）。
 
 想加入其中一個主題，見[參與](/join/)。
 

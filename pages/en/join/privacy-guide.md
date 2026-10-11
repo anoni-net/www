@@ -69,7 +69,7 @@ Backgrounds we would particularly welcome:
 
 No security background is required. Wanting to learn is a sufficient reason to join.
 
-We are at Global Gathering 2026 in Estoril on 6 September, and guides that misread regional context are one of the things we want to hear about there. See [the booth announcement](docs:blog/2026/08/2026-anoni-net-global-gathering/).
+We are at Global Gathering 2026 in Estoril on 6 September, and guides that misread regional context are one of the things we want to hear about there. See [the booth announcement](/updates/2026/08/2026-anoni-net-global-gathering/).
 
 ## Ground rules
 

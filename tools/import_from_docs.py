@@ -58,7 +58,7 @@ LANGS = {"zh-TW": "", "zh-CN": "/zh-cn", "en": "/en"}
 LINK = re.compile(r"(\]\()([^)\s]+)(\))")
 ICON = re.compile(r":((?:material|octicons|simple|fontawesome)-[a-z0-9-]+):(\{[^}]*\})?")
 TITLE_LINE = re.compile(r'^(\s*(?:!!!|\?\?\?\+?)\s+[a-z-]+\s+")(.*)("\s*)$', re.M)
-UNSUPPORTED = re.compile(r'--8<--|```vegalite|\sstyle="[^"]*"|class="grid', re.M)
+UNSUPPORTED = re.compile(r'--8<--|```vegalite|\sstyle="[^"]*"', re.M)
 UPDATES_LIST = ROOT / "tools" / "docs_updates.toml"
 IMAGE_CACHE = ROOT / ".cache" / "updates-images"
 ASSETS_UPDATES = "https://assets.anoni.net/updates/"
@@ -177,6 +177,9 @@ def convert(text: str, src: str, lang: str, moved: list[dict], where: str, blog_
             # 本站同語系頁面的完整網址改成站內路徑，建置時再加語系前綴
             own = f"https://anoni.net{prefix}/"
             if path.startswith(own) and path[len(own):].strip("/") in site_pages:
+                return f"{m[1]}/{path[len(own):]}{anchor}{m[3]}"
+            # 已經搬到本站的動態，文件站那一側先改成了完整網址，搬回本站時改成站內路徑
+            if path.startswith(f"{own}updates/"):
                 return f"{m[1]}/{path[len(own):]}{anchor}{m[3]}"
             return f"{m[1]}{path}{anchor}{m[3]}"
         if not path:

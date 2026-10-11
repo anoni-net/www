@@ -85,7 +85,7 @@ Backgrounds we would particularly welcome:
 
 Having run a relay before is not required. Wanting to learn is a sufficient reason, and [how to run a Tor relay](docs:community/setup-tor-relay/) is there to work through with you.
 
-If you are at Global Gathering 2026 in Estoril and your institution is weighing a relay, come and compare notes at our booth on 6 September. Details are in [the booth announcement](docs:blog/2026/08/2026-anoni-net-global-gathering/).
+If you are at Global Gathering 2026 in Estoril and your institution is weighing a relay, come and compare notes at our booth on 6 September. Details are in [the booth announcement](/updates/2026/08/2026-anoni-net-global-gathering/).
 
 ## Ground rules
 

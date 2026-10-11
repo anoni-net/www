@@ -67,7 +67,7 @@ Backgrounds we would particularly welcome:
 
 No cryptocurrency experience is required. Wanting to learn is a sufficient reason to join.
 
-This is the topic we are taking to our booth at Global Gathering 2026 in Estoril on 6 September. If you have a real situation to describe, whether or not you are travelling, [the booth announcement](docs:blog/2026/08/2026-anoni-net-global-gathering/) covers how to send it, including a route that does not attach your name to it.
+This is the topic we are taking to our booth at Global Gathering 2026 in Estoril on 6 September. If you have a real situation to describe, whether or not you are travelling, [the booth announcement](/updates/2026/08/2026-anoni-net-global-gathering/) covers how to send it, including a route that does not attach your name to it.
 
 ## Ground rules
 
