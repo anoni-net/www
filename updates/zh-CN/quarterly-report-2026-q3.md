@@ -1,6 +1,6 @@
 ---
 title: 第一期观测季报与观测页的新位置
-description: 2026 年第三季台湾的 Tor 中继从 13 个减少到 11 个，8 个在中华电信 HiNet，移动网络有 45% 的用户、只占 4% 的 OONI 测量。观测页 10 月搬到社区首页的项目区，覆盖的亚洲地区也补齐了。
+description: 2026 年第三季台湾的 Tor 中继从 13 个减少到 11 个，8 个在中华电信 HiNet，移动网络只占 4% 的 OONI 测量。观测页也搬到社区首页的项目区。
 date: 2026-10-11
 og_image: https://assets.anoni.net/reports/2026-q3-og-zh-cn-911c7cc5.png
 ---

@@ -1,6 +1,6 @@
 ---
 title: Tor Relay Watch
-description: Pulse, run by the anoni.net community, collects Tor relay data for Taiwan and nearby regions every hour. The charts show relay counts, bandwidth, the networks relays run on, Tor versions and relay roles.
+description: Tor relays in Taiwan and nearby regions, collected hourly by the community's Pulse, with relay counts, bandwidth, networks, versions and relay roles.
 lead: How many Tor relays Taiwan and nearby regions run, and on which networks.
 ---
 

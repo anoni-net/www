@@ -1,6 +1,6 @@
 ---
 title: Sending Us Sensitive Material
-description: How to send personal data, leaked material, or sensitive collaboration files to the anoni.net community using our self-hosted Send instance, with one-time download, expiry, and an agreed password.
+description: How to send personal data, leaks or sensitive files to the anoni.net community through our self-hosted Send, with one-time download, expiry and a password.
 ---
 
 When you need to send personal data, leaked material, or sensitive collaboration files to a community member, and you want the transfer to stay out of reach of anyone who does not need to see it, the steps below give you a link that expires on its own and leaves nothing behind.

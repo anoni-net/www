@@ -1,6 +1,6 @@
 ---
 title: anoni.net
-description: anoni.net is a volunteer community based in Taiwan working on anonymity networks, privacy and Internet freedom. We promote Tor, Tails and OONI, and work with EFF, the Tor Project and OONI to bring global issues into the context of the Sinophone region.
+description: A volunteer community in Taiwan working on anonymity networks, privacy and Internet freedom, promoting Tor, Tails and OONI with EFF and the Tor Project.
 template: index
 hero: anoni.net
 hero_sub: Anonymity Networks Community

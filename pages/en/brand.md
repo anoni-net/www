@@ -1,6 +1,6 @@
 ---
 title: Brand Assets
-description: The three anoni.net logo variants (cyan tonal, mono white, mono black), when to use each, download links, and the colour tokens. For community members making event materials, social cards, slides, and print.
+description: The anoni.net logo in cyan tonal, mono white and mono black, when to use each, downloads and colour tokens, for event materials, slides and print.
 ---
 
 The anoni.net logo is three hexagons, evoking a network of nodes and layered observation, derived and coloured from the Material `hexagon-multiple-outline` icon. The three hexagons sit top, middle, and bottom, corresponding to the three reading layers the community works across: concepts, tools, and regional context.

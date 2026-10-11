@@ -1,6 +1,6 @@
 ---
 title: Working with Organizations
-description: How civil-society groups, newsrooms, researchers, and international organizations working on the Sinophone Asia-Pacific can work with anoni.net, from localization and regional context to measurement, and what we cannot take on.
+description: How civil-society groups, newsrooms and researchers can work with anoni.net on localization, regional context and measurement, and what we cannot take on.
 ---
 
 This page is for civil-society groups, advocacy organizations, newsrooms, independent media, researchers, and international organizations whose work touches the Sinophone Asia-Pacific. anoni.net is a small volunteer community in Taipei. What we can offer is mostly public documentation, one-off workshops, self-hosted services, and the regional layer: localization, local context, local research, and measurement from inside Taiwan. Both what we can do and what we cannot are laid out below, so you can judge the fit before writing to us.

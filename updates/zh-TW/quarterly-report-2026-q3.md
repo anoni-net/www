@@ -1,6 +1,6 @@
 ---
 title: 第一期觀測季報與觀測頁的新位置
-description: 2026 年第三季臺灣的 Tor 中繼從 13 個減少到 11 個，8 個在中華電信 HiNet，行動網路有 45% 的使用者、只占 4% 的 OONI 測量。觀測頁 10 月搬到社群首頁的專案區，涵蓋的亞洲地區也補齊了。
+description: 2026 年第三季臺灣的 Tor 中繼從 13 個減少到 11 個，8 個在中華電信 HiNet，行動網路只占 4% 的 OONI 測量。觀測頁也搬到社群首頁的專案區。
 date: 2026-10-11
 og_image: https://assets.anoni.net/reports/2026-q3-og-zh-tw-75c2d8bb.png
 ---

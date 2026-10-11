@@ -1,6 +1,6 @@
 ---
 title: Services
-description: The Matrix, CryptPad, Etherpad, SearXNG, Send and Formbricks instances anoni.net self-hosts, what each is for, how to get an account, and which have onion addresses.
+description: The Matrix, CryptPad, Etherpad, SearXNG, Send and Formbricks services anoni.net hosts, what each is for, how to sign up and which have onion addresses.
 lead: Open-source software the community runs for anyone to use.
 ---
 
