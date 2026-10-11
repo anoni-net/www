@@ -40,7 +40,7 @@ col_coverage = { zh-TW = "涵蓋率", zh-CN = "覆盖率", en = "Coverage" }
 ooni_coverage = { zh-TW = "涵蓋的使用者", zh-CN = "覆盖的用户", en = "Users covered" }
 ooni_asns = { zh-TW = "有測量的網路", zh-CN = "有测量的网络", en = "Networks measured" }
 ooni_total = { zh-TW = "測量數", zh-CN = "测量数", en = "Measurements" }
-ooni_top2 = { zh-TW = "前兩大網路占比", zh-CN = "前两大网络占比", en = "Top two networks" }
+ooni_top2 = { zh-TW = "前兩大網路的測量占比", zh-CN = "前两大网络的测量占比", en = "Top two networks' share of measurements" }
 types = { zh-TW = "依網路類型", zh-CN = "依网络类型", en = "By network type" }
 type_mobile = { zh-TW = "行動網路", zh-CN = "移动网络", en = "Mobile" }
 type_fixed = { zh-TW = "固網與有線寬頻", zh-CN = "固网与有线宽带", en = "Fixed and cable" }
@@ -63,10 +63,94 @@ none = { zh-TW = "沒有", zh-CN = "没有", en = "None" }
 em_regions = { zh-TW = "亞洲各地區季末的 Tor 中繼數", zh-CN = "亚洲各地区季末的 Tor 中继数", en = "Tor relays at quarter end in Asia" }
 em_relays = { zh-TW = "季末的 Tor 中繼", zh-CN = "季末的 Tor 中继", en = "Tor relays at quarter end" }
 em_density = { zh-TW = "每百萬網路使用者的中繼", zh-CN = "每百万网络用户的中继", en = "Relays per million Internet users" }
-em_top2 = { zh-TW = "前兩大網路的占比", zh-CN = "前两大网络的占比", en = "Share of the top two networks" }
+em_top2 = { zh-TW = "前兩大網路的中繼占比", zh-CN = "前两大网络的中继占比", en = "Top two networks' share of relays" }
 em_upgrade = { zh-TW = "已升級到本季新版", zh-CN = "已升级到本季新版", en = "Upgraded to this quarter's releases" }
 em_types = { zh-TW = "臺灣各類網路的使用者與 OONI 測量占比", zh-CN = "台湾各类网络的用户与 OONI 测量占比", en = "Share of users and of OONI measurements in Taiwan, by network type" }
 # 季報開頭的地圖（<!-- region-map -->），只上色那一期比較的地區
 map_note = { zh-TW = "深色是本期季報比較的地區，淺色是這一期之後才加入觀測的地區，從下一期開始列進季報。點地圖上的地區開啟那個地區的觀測頁。德國、荷蘭、美國不在地圖範圍內，在季報裡當作參照。", zh-CN = "深色是本期季报比较的地区，浅色是这一期之后才加入观测的地区，从下一期开始列进季报。点地图上的地区打开那个地区的观测页。德国、荷兰、美国不在地图范围内，在季报里当作参照。", en = "Dark regions are the ones this report compares. Light regions were added to our observation after this quarter and join the report from the next one. Select a region on the map to open its page. Germany, the Netherlands and the United States are outside the map and serve as reference points in the report." }
 map_cmp = { zh-TW = "本期比較的地區", zh-CN = "本期比较的地区", en = "Compared in this report" }
 map_later = { zh-TW = "之後加入觀測，下一期起列入", zh-CN = "之后加入观测，下一期起列入", en = "Added later, included from the next report" }
+
+# 季報的名詞說明，Markdown 裡寫 <!-- rq-glossary --> 放進本文，每一期共用同一份。
+# 順序照季報出現的順序，算法只在季報出現的（例如季初與季末的比較）也寫在這裡。
+# desc 裡用反引號包住的會排成 code，例如 `AS3462`。
+
+[[glossary]]
+term = { zh-TW = "Tor 中繼", zh-CN = "Tor 中继", en = "Tor relay" }
+desc = { zh-TW = "替 Tor 使用者轉送加密流量的伺服器，多半由志工架設。季報只算運作中的中繼，也就是列在當天最後一份 Tor 網路共識（consensus）裡的", zh-CN = "替 Tor 用户转发加密流量的服务器，多半由志愿者架设。季报只算运行中的中继，也就是列在当天最后一份 Tor 网络共识（consensus）里的", en = "A server, usually run by a volunteer, that forwards encrypted traffic for Tor users. The report counts only running relays, those listed in the day's last Tor network consensus" }
+
+[[glossary]]
+term = { zh-TW = "季初、季末", zh-CN = "季初、季末", en = "Start and end of the quarter" }
+desc = { zh-TW = "Pulse 每小時記錄一次所有中繼的狀態，季報每天取最後一次。季初是本季第一天的那一份，季末是最後一天的那一份", zh-CN = "Pulse 每小时记录一次所有中继的状态，季报每天取最后一次。季初是本季第一天的那一份，季末是最后一天的那一份", en = "Pulse records the state of every relay once an hour, and the report uses each day's last record. The start of the quarter is the one from its first day, the end the one from its last day" }
+
+[[glossary]]
+term = { zh-TW = "觀測頻寬", zh-CN = "观测带宽", en = "Observed bandwidth" }
+desc = { zh-TW = "中繼回報過去幾天能持續處理的最大流量，是轉送能力的上限，實際轉送的流量通常比較少。MB/s 是每秒百萬位元組，乘以 8 約等於 Mbps", zh-CN = "中继报告过去几天能持续处理的最大流量，是转发能力的上限，实际转发的流量通常比较少。MB/s 是每秒百万字节，乘以 8 约等于 Mbps", en = "The highest rate a relay reports sustaining over the past few days. It is a ceiling on forwarding capacity, and actual traffic is usually lower. MB/s is megabytes per second; multiply by 8 for roughly Mbps" }
+
+[[glossary]]
+term = { zh-TW = "出口節點", zh-CN = "出口节点", en = "Exit relay" }
+desc = { zh-TW = "連線的最後一個中繼，替使用者連往一般網站。網站看到的是出口節點的 IP，所以營運者要處理比較多的濫用檢舉", zh-CN = "连接的最后一个中继，替用户连往一般网站。网站看到的是出口节点的 IP，所以运营者要处理比较多的滥用投诉", en = "The last relay in a connection, which reaches ordinary websites on the user's behalf. Websites see the exit's IP address, so exit operators handle more abuse complaints" }
+
+[[glossary]]
+term = { zh-TW = "整季都在、離開、新加入", zh-CN = "整季都在、离开、新加入", en = "Stayed, left, new" }
+desc = { zh-TW = "依中繼的識別碼比對季初與季末。兩份都有的算整季都在，中間可能短暫停過。只在季初的算離開，之後可能再上線。只在季末的算新加入", zh-CN = "依中继的识别码比对季初与季末。两份都有的算整季都在，中间可能短暂停过。只在季初的算离开，之后可能再上线。只在季末的算新加入", en = "Relays are matched by their identity fingerprint at the start and end of the quarter. A relay in both counts as stayed, though it may have paused in between. One only at the start counts as left and may come back later. One only at the end counts as new" }
+
+[[glossary]]
+term = { zh-TW = "本季新版、晚 n 天出現", zh-CN = "本季新版、晚 n 天出现", en = "This quarter's releases, n days later" }
+desc = { zh-TW = "本季第一次出現在觀測地區的 Tor 版本。「晚 n 天出現」表示新版本在那個地區第一次出現，比最早出現的地區晚了幾天。日期依觀測到的時間，不一定是 Tor Project 的發布日", zh-CN = "本季第一次出现在观测地区的 Tor 版本。「晚 n 天出现」表示新版本在那个地区第一次出现，比最早出现的地区晚了几天。日期依观测到的时间，不一定是 Tor Project 的发布日", en = "Tor versions first seen in the observed regions this quarter. \"n days later\" is how many days after the earliest region the release first appeared in that region, which is not necessarily the Tor Project's release date" }
+
+[[glossary]]
+term = { zh-TW = "自治網路（ASN）", zh-CN = "自治网络（ASN）", en = "Autonomous system (ASN)" }
+desc = { zh-TW = "由同一個單位管理、對外用同一套路由政策的一群網路，例如一家電信商、一所大學或一家雲端業者，每個都有一個 AS 編號，例如中華電信 HiNet 是 `AS3462`。同一家電信商的固網與行動網路常是不同的 ASN", zh-CN = "由同一个单位管理、对外用同一套路由策略的一群网络，例如一家电信商、一所大学或一家云服务商，每个都有一个 AS 编号，例如中华电信 HiNet 是 `AS3462`。同一家电信商的固网与移动网络常是不同的 ASN", en = "A group of networks run by one organization under a single routing policy, such as a telecom, a university or a cloud provider. Each has an AS number; Chunghwa Telecom's HiNet is `AS3462`. A telecom's fixed and mobile networks are often separate ASNs" }
+
+[[glossary]]
+term = { zh-TW = "TANet", zh-CN = "TANet", en = "TANet" }
+desc = { zh-TW = "臺灣學術網路，連接各級學校與研究機構", zh-CN = "台湾学术网络，连接各级学校与研究机构", en = "Taiwan Academic Network, which connects schools and research institutions" }
+
+[[glossary]]
+term = { zh-TW = "前兩大網路的中繼占比", zh-CN = "前两大网络的中继占比", en = "Top two networks' share of relays" }
+desc = { zh-TW = "中繼最多的兩個 ASN 合計占所有中繼的比例，越高代表中繼越集中在少數網路，那幾個網路出問題時影響越大", zh-CN = "中继最多的两个 ASN 合计占所有中继的比例，越高代表中继越集中在少数网络，那几个网络出问题时影响越大", en = "The share of relays on the two ASNs with the most relays. The higher it is, the more relays depend on a few networks, and the more a problem on those networks affects them" }
+
+[[glossary]]
+term = { zh-TW = "每百萬網路使用者的中繼數", zh-CN = "每百万网络用户的中继数", en = "Relays per million internet users" }
+desc = { zh-TW = "季末的中繼數除以 APNIC 估計的網路使用者人數，分母是上網的人，不是人口。香港與新加坡的使用者少、機房多，換算下來會偏高", zh-CN = "季末的中继数除以 APNIC 估计的网络用户人数，分母是上网的人，不是人口。香港与新加坡的用户少、机房多，换算下来会偏高", en = "Relays at the end of the quarter divided by APNIC's estimate of internet users, which counts people online rather than the population. Hong Kong and Singapore have few users and many data centres, so their figures run high" }
+
+[[glossary]]
+term = { zh-TW = "OONI Probe、測量", zh-CN = "OONI Probe、测量", en = "OONI Probe, measurement" }
+desc = { zh-TW = "OONI Probe 是 OONI 開發的開源 App，在手機或電腦上測試網站與服務能不能連上。測試一個網站或一項服務的一次結果算一筆測量，執行一次網站測試就會產生上百筆，所以測量數不等於執行測試的人數", zh-CN = "OONI Probe 是 OONI 开发的开源 App，在手机或电脑上测试网站与服务能否连接。测试一个网站或一项服务的一次结果算一笔测量，运行一次网站测试就会产生上百笔，所以测量数不等于运行测试的人数", en = "OONI Probe is OONI's open-source app for testing, on a phone or computer, whether websites and services can be reached. Each result for one site or service is one measurement, and a single website test produces hundreds, so the number of measurements is not the number of people testing" }
+
+[[glossary]]
+term = { zh-TW = "網站測試（Web Connectivity）", zh-CN = "网站测试（Web Connectivity）", en = "Web Connectivity" }
+desc = { zh-TW = "OONI Probe 主要的測試項目，逐一連線清單上的網站，再跟 OONI 從其他網路連線的對照結果比較", zh-CN = "OONI Probe 主要的测试项目，逐一连接列表上的网站，再跟 OONI 从其他网络连接的对照结果比较", en = "OONI Probe's main test. It connects to each website on a list and compares the result with a control connection OONI makes from another network" }
+
+[[glossary]]
+term = { zh-TW = "正常、異常、確認封鎖、測量失敗", zh-CN = "正常、异常、确认封锁、测量失败", en = "OK, anomaly, confirmed, failure" }
+desc = { zh-TW = "正常是結果跟對照一致。異常是不一致，可能是封鎖，也可能是網路不穩或網站本身的問題。確認封鎖是異常裡符合已知封鎖特徵的，例如被導向封鎖頁面。測量失敗是測試沒有完成", zh-CN = "正常是结果跟对照一致。异常是不一致，可能是封锁，也可能是网络不稳或网站本身的问题。确认封锁是异常里符合已知封锁特征的，例如被导向封锁页面。测量失败是测试没有完成", en = "OK means the result matched the control. An anomaly means it did not, which can be blocking but also an unstable connection or a problem with the site itself. Confirmed blocking is an anomaly matching a known blocking pattern, such as a redirect to a block page. A failure is a test that did not complete" }
+
+[[glossary]]
+term = { zh-TW = "APNIC", zh-CN = "APNIC", en = "APNIC" }
+desc = { zh-TW = "亞太網路資訊中心，負責亞太地區 IP 位址與 ASN 的分配，也從網頁廣告的抽樣測量推估各網路的使用者人數。估計只提供最近 60 天，季報用的是產生數字當時的那一份", zh-CN = "亚太网络信息中心，负责亚太地区 IP 地址与 ASN 的分配，也从网页广告的抽样测量推估各网络的用户人数。估计只提供最近 60 天，季报用的是生成数字当时的那一份", en = "The Asia Pacific Network Information Centre, which allocates IP addresses and ASNs in the region and estimates each network's users from sampled measurements in web ads. Estimates cover only the last 60 days, so each report uses the one available when its numbers were produced" }
+
+[[glossary]]
+term = { zh-TW = "涵蓋率、涵蓋的使用者", zh-CN = "覆盖率、覆盖的用户", en = "Coverage, users covered" }
+desc = { zh-TW = "本季有測量的網路，合計占網路使用者的比例。一個網路整季只要有一筆測量，它的使用者就全部算在內，測得夠不夠多要另外看測量占比與天數。依網路類型的涵蓋率，是同一類網路裡有測量的使用者占那一類的比例。不在 APNIC 估計裡的網路，例如部分學術網路，使用者算 0", zh-CN = "本季有测量的网络，合计占网络用户的比例。一个网络整季只要有一笔测量，它的用户就全部算在内，测得够不够多要另外看测量占比与天数。按网络类型的覆盖率，是同一类网络里有测量的用户占那一类的比例。不在 APNIC 估计里的网络，例如部分学术网络，用户算 0", en = "The share of internet users on networks with measurements this quarter. A single measurement in the quarter counts all of a network's users, so whether a network was measured enough shows in its share of measurements and its days. Coverage by network type is the same share within each type. Networks missing from APNIC's estimates, such as some academic networks, count as zero users" }
+
+[[glossary]]
+term = { zh-TW = "使用者、測量（%）、天數", zh-CN = "用户、测量（%）、天数", en = "Users, measurements (%), days" }
+desc = { zh-TW = "使用者是該網路占網路使用者的比例，測量是該網路占本季所有測量的比例，兩個比例差得越多，代表測量量跟使用者人數越不相稱。天數是本季 92 天裡有測量的天數，觀測頁上的天數則是最近 30 天", zh-CN = "用户是该网络占网络用户的比例，测量是该网络占本季所有测量的比例，两个比例差得越多，代表测量量跟用户人数越不相称。天数是本季 92 天里有测量的天数，观测页上的天数则是最近 30 天", en = "Users is the network's share of internet users, measurements its share of all measurements this quarter. The further apart they are, the less the measurements match the number of users. Days counts the days with measurements out of the quarter's 92; on the dashboard it is out of the last 30" }
+
+[[glossary]]
+term = { zh-TW = "前兩大網路的測量占比", zh-CN = "前两大网络的测量占比", en = "Top two networks' share of measurements" }
+desc = { zh-TW = "測量最多的兩個 ASN 合計占所有測量的比例，越高代表測量越集中在少數網路。跟中繼那一節的占比算的是不同的東西", zh-CN = "测量最多的两个 ASN 合计占所有测量的比例，越高代表测量越集中在少数网络。跟中继那一节的占比算的是不同的东西", en = "The share of measurements from the two ASNs with the most measurements. The higher it is, the more measurements come from a few networks. It is a different figure from the relay share in the Tor section" }
+
+[[glossary]]
+term = { zh-TW = "pp（百分點）", zh-CN = "pp（百分点）", en = "pp (percentage points)" }
+desc = { zh-TW = "兩個百分比之間的差。前兩大網路的測量占比從 53% 升到 65%，寫成 +12 pp", zh-CN = "两个百分比之间的差。前两大网络的测量占比从 53% 升到 65%，写成 +12 pp", en = "The difference between two percentages. The top two networks' share of measurements rising from 53% to 65% is written +12 pp" }
+
+[[glossary]]
+term = { zh-TW = "網路類型", zh-CN = "网络类型", en = "Network type" }
+desc = { zh-TW = "依網路名稱與公開資料人工標記為行動網路、固網與有線寬頻、學術網路。「其他」包含使用者很少的光纖業者、雲端、機房與 VPN。OONI 依 IP 位址判斷國家，經由臺灣 VPN 出口送出的測量也算進臺灣，所以「其他」的測量特別多", zh-CN = "依网络名称与公开资料人工标记为移动网络、固网与有线宽带、学术网络。「其他」包含用户很少的光纤业者、云服务、机房与 VPN。OONI 依 IP 地址判断国家，经由台湾 VPN 出口送出的测量也算进台湾，所以「其他」的测量特别多", en = "Networks are labelled by hand as mobile, fixed and cable broadband, or academic, from their names and public information. \"Other\" covers fibre providers with few users, cloud, hosting and VPNs. OONI assigns a country by IP address, so measurements sent through a VPN exit in Taiwan count as Taiwan, which is why \"other\" has so many" }
+
+[[glossary]]
+term = { zh-TW = "OONI Run 連結", zh-CN = "OONI Run 链接", en = "OONI Run link" }
+desc = { zh-TW = "指定 OONI Probe 要測哪些項目的連結，點開之後 App 照連結裡的清單測試。社群維運的是 `10328`，季報另外統計從這個連結送出的測量", zh-CN = "指定 OONI Probe 要测哪些项目的链接，点开之后 App 按链接里的列表测试。社区维护的是 `10328`，季报另外统计从这个链接送出的测量", en = "A link that tells OONI Probe what to test; opening it makes the app run the list it contains. The community's link is `10328`, and the report counts the measurements sent through it separately" }

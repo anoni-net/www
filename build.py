@@ -63,7 +63,7 @@ ASN_SLUG = "projects/asn-coverage"
 REPORTS_SLUG = "projects/reports"
 # 季報各期的圖表，名稱對應 templates/_report.html.j2 的 macro，Markdown 裡寫成 <!-- rq-relays-chart -->
 REPORT_BLOCKS = ("relays_stats", "relays_chart", "churn", "upgrade", "asn", "density", "ooni_stats",
-                 "types", "networks", "gaps", "changes", "ooni_daily", "run")
+                 "types", "networks", "gaps", "changes", "ooni_daily", "run", "glossary")
 
 
 @dataclass(frozen=True)
@@ -627,12 +627,17 @@ class Site:
         pick = lambda value: value[lang.code] if isinstance(value, dict) else value  # noqa: E731
         L = {k: pick(v) for k, v in labels.items()}
         cname = {c["code"]: pick(c["name"]) for c in self.data["pulse"]["countries"]}
+        # 名詞說明的反引號排成 code，其餘照字面輸出
+        glossary = [{"term": pick(g["term"]),
+                     "desc": Markup(re.sub(r"`([^`]+)`", r"<code>\1</code>", str(html.escape(pick(g["desc"])))))}
+                    for g in conf.get("glossary", [])]
         for rep in self.reports[lang.code]:
             where = f"reports/{lang.code}/{rep.slug}.md"
             data = reports.load(ROOT, rep.slug)
             v = reports.view(ROOT, data, labels, pick, data["names"])
             module = self.env.get_template("_report.html.j2").make_module(
-                {**self.context(lang, target), "v": v, "L": L, "cname": cname, "cc": data["ooni"]["cc"]})
+                {**self.context(lang, target), "v": v, "L": L, "cname": cname, "cc": data["ooni"]["cc"],
+                 "G": glossary})
             parts = {f"rq-{n.replace('_', '-')}": str(getattr(module, n)()) for n in REPORT_BLOCKS}
             # 季報的地圖只上色那一期比較的地區，之後新增的地區不算進去
             parts["region-map"] = self.region_map_figure(lang, data["countries"], L.get("map_note"))
