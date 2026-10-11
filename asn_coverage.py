@@ -236,10 +236,10 @@ def view(code: str, raw: dict, names: dict[int, str], labels: dict, pick, recent
 
     charts = {
         "measurements": stacked_bars(days, [
-            (pick(labels["ok"]), col("ok_count"), "pc-s3"),
-            (pick(labels["anomaly"]), col("anomaly_count"), "pc-s1"),
-            (pick(labels["confirmed"]), col("confirmed_count"), "pc-s2"),
-            (pick(labels["failure"]), col("failure_count"), "pc-s5"),
+            (pick(labels["ok"]), col("ok_count"), "oc-ok"),
+            (pick(labels["anomaly"]), col("anomaly_count"), "oc-anomaly"),
+            (pick(labels["confirmed"]), col("confirmed_count"), "oc-confirmed"),
+            (pick(labels["failure"]), col("failure_count"), "oc-failure"),
         ], pick(labels["chart_measurements"])),
         "asns": lines(days, [(pick(labels["stat_asns"]), col("asns"), "pc-s1")], pick(labels["chart_asns"])),
         "coverage": area(days, col("coverage"), pick(labels["chart_coverage"]),
