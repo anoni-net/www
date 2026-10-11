@@ -191,3 +191,10 @@
   </ul>
 </figure></div>
 {% endmacro %}
+
+{# 名詞說明，內容在 data/reports.toml 的 [[glossary]]，每一期共用 #}
+{% macro glossary() %}
+<ul class="rq-glossary">
+{% for g in G %}<li><strong>{{ g.term }}</strong>{{ ': ' if lang.code == 'en' else '：' }}{{ g.desc }}</li>
+{% endfor %}</ul>
+{% endmacro %}
