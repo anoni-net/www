@@ -13,6 +13,14 @@
 # 文件站，--nginx 會產生舊網址的 301。搬遷流程見 anoni-net/www#42。
 moved = [
     "move-to-anoni-net.md",
+    "updates-202603.md",
+    "2025to2026.md",
+    "updates-202508.md",
+    "updates-202506.md",
+    "updates-20250613.md",
+    "updates-202505.md",
+    "updates-202504.md",
+    "updates-202503.md",
 ]
 
 # 活動公告與回顧，標籤「活動」

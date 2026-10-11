@@ -62,7 +62,8 @@ UNSUPPORTED = re.compile(r'--8<--|```vegalite|\sstyle="[^"]*"|class="grid', re.M
 UPDATES_LIST = ROOT / "tools" / "docs_updates.toml"
 IMAGE_CACHE = ROOT / ".cache" / "updates-images"
 ASSETS_UPDATES = "https://assets.anoni.net/updates/"
-IMAGE = re.compile(r'(!\[[^\]]*\]\(|<img\b[^>]*\bsrc=")([^)"\s]+)')
+IMAGE = re.compile(r'(!\[[^\]]*\]\(|<img\b[^>]*\bsrc="|<a\b[^>]*\bhref=")([^)"\s]+)')
+IMAGE_EXT = (".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg")
 ICON_DIR = ROOT / "icons"
 # 文件站的 mkdocs-material 隨附的圖示，跟文件站用同一套
 MATERIAL_ICONS: list[Path] = []
@@ -158,6 +159,9 @@ def convert(text: str, src: str, lang: str, moved: list[dict], where: str, blog_
         anchor = f"#{anchor}" if anchor else ""
         if path.startswith(("mailto:", "#")):
             return m[0]
+        if path == "/docs" or path.startswith("/docs/"):
+            # 文件站的站內絕對路徑，例如 /docs/en/，寫成完整網址，onion 版建置時會改寫
+            path = f"https://anoni.net{path}"
         if "://" in path:
             # 文件站裡指向已搬走頁面的完整網址，改成本站的路徑
             docs_base = f"https://anoni.net/docs{prefix}/"
@@ -172,7 +176,7 @@ def convert(text: str, src: str, lang: str, moved: list[dict], where: str, blog_
             own = f"https://anoni.net{prefix}/"
             if path.startswith(own) and path[len(own):].strip("/") in site_pages:
                 return f"{m[1]}/{path[len(own):]}{anchor}{m[3]}"
-            return m[0]
+            return f"{m[1]}{path}{anchor}{m[3]}"
         if not path:
             return m[0]
         resolved = posixpath.normpath(posixpath.join(src_dir, path))
@@ -264,10 +268,17 @@ def stage_images(text: str, lang: str, docs: Path, ref: str, where: str, staged:
     """文件站 repo 裡的圖片複製到 .cache/updates-images/，檔名加上內容雜湊，內文改成 assets.anoni.net 的網址。"""
     def repl(m: re.Match) -> str:
         path = m[2]
-        if "://" in path or path.startswith(("data:", "#")):
+        if "://" in path or path.startswith(("data:", "#", "mailto:")):
             return m[0]
-        rel = posixpath.normpath(posixpath.join("blog/posts", path.lstrip("/") if path.startswith("/docs/") else path))
-        rel = rel.removeprefix("docs/")
+        # <a href> 只處理指到圖片的（點圖放大），其他連結交給 convert()
+        if m[1].startswith("<a") and not path.lower().endswith(IMAGE_EXT):
+            return m[0]
+        rel = posixpath.normpath(posixpath.join("blog/posts", path))
+        # 文件站有些圖用網址的層級寫相對路徑（文章網址是 blog/YYYY/MM/slug/，往上四層），
+        # 照原始檔的位置算會跑出 docs/ 之外，這種從文件站的根目錄找
+        if rel.startswith(".."):
+            rel = re.sub(r"^(\.\./)+", "", rel)
+        rel = rel.removeprefix("/").removeprefix("docs/")
         blob = git_blob(docs, ref, f"docs/{lang}/{rel}") or git_blob(docs, ref, f"docs/zh-TW/{rel}")
         if blob is None:
             print(f"  ! {where}：找不到圖片 {path}", file=sys.stderr)
