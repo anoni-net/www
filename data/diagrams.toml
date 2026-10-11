@@ -1,0 +1,121 @@
+# 關於頁的三張圖，由 diagrams.py 在建置時畫成內嵌的 SVG 與 HTML，頁面不需要 JavaScript。
+# Markdown 裡寫 <!-- diagram-community -->、<!-- diagram-regions -->、<!-- diagram-history -->。
+# 圖上的文字三個語系都在這裡，改內容不必動程式。
+
+# 社群在做的事：中間是 anoni.net，往外四個方向。topic 對應 data/topics.toml 的 cat，
+# 名稱、圖示與連結從那裡取。區域觀測不是年度主題，另外寫在這裡。
+[community]
+label = { zh-TW = "社群在做的事：三大主題與區域觀測", zh-CN = "社区在做的事：三大主题与区域观测", en = "What the community works on: three themes and regional observation" }
+note = { zh-TW = "點圖上的項目開啟介紹頁。", zh-CN = "点图上的项目打开介绍页。", en = "Select an item to open its page." }
+
+[[community.nodes]]
+topic = "privacy"
+items.zh-TW = ["文件站的隱私指南", "日常、敏感工作、高風險三級"]
+items.zh-CN = ["文档站的隐私指南", "日常、敏感工作、高风险三级"]
+items.en = ["Privacy guides on the docs site", "Everyday, sensitive, high-risk"]
+
+[[community.nodes]]
+topic = "relay"
+items.zh-TW = ["台師大的節點運作中", "提案範本、SOP、FAQ 公開"]
+items.zh-CN = ["台师大的节点运行中", "提案范本、SOP、FAQ 公开"]
+items.en = ["NTNU's relay is running", "Proposal kit, SOP and FAQ"]
+
+[[community.nodes]]
+topic = "payments"
+items.zh-TW = ["COSCUP 2026 議程合作", "Global Gathering 攤位主題"]
+items.zh-CN = ["COSCUP 2026 议程合作", "Global Gathering 摊位主题"]
+items.en = ["COSCUP 2026 sessions", "Global Gathering booth"]
+
+[[community.nodes]]
+cat = "observe"
+icon = "chart-line"
+page = "projects/reports"
+name = { zh-TW = "區域觀測", zh-CN = "区域观测", en = "Regional observation" }
+items.zh-TW = ["Tor 中繼節點觀測", "OONI 觀測涵蓋率、季報"]
+items.zh-CN = ["Tor 中继节点观测", "OONI 观测覆盖率、季报"]
+items.en = ["Tor Relay Watch", "OONI Coverage, reports"]
+
+# 關注地區：臺灣是第一手經驗，其他五個地區透過公開資料與當地聯絡人追蹤
+[regions]
+first = ["tw"]
+others = ["cn", "hk", "mo", "my", "sg"]
+label = { zh-TW = "社群關注的華語六地區", zh-CN = "社区关注的华语六地区", en = "The six Chinese-speaking regions the community follows" }
+legend_first = { zh-TW = "第一手經驗", zh-CN = "第一手经验", en = "First-hand experience" }
+legend_others = { zh-TW = "透過公開資料與當地聯絡人追蹤", zh-CN = "通过公开资料与当地联络人追踪", en = "Followed through public data and local contacts" }
+note = { zh-TW = "也關注在各地之間移動的華語離散社群（diaspora），沒有畫在地圖上。", zh-CN = "也关注在各地之间移动的华语离散社群（diaspora），没有画在地图上。", en = "We also follow the Chinese-speaking diaspora that moves between these places, which the map cannot show." }
+
+[regions.names]
+tw = { zh-TW = "臺灣", zh-CN = "台湾", en = "Taiwan" }
+cn = { zh-TW = "中國大陸", zh-CN = "中国大陆", en = "Mainland China" }
+hk = { zh-TW = "香港", zh-CN = "香港", en = "Hong Kong" }
+mo = { zh-TW = "澳門", zh-CN = "澳门", en = "Macao" }
+my = { zh-TW = "馬來西亞", zh-CN = "马来西亚", en = "Malaysia" }
+sg = { zh-TW = "新加坡", zh-CN = "新加坡", en = "Singapore" }
+
+# 社群的起點：時間由舊到新。連結是本站頁面（page）、社群動態（post，寫檔名，三個語系都要有）或文件站（docs）擇一。
+# kind 決定圓點的顏色，跟社群動態的標籤同一套（new、event、update），origin 是起點。
+[history]
+label = { zh-TW = "社群的起點與重要紀錄", zh-CN = "社区的起点与重要记录", en = "How the community started, and what has happened since" }
+
+[[history.items]]
+when = "2023"
+kind = "origin"
+docs = "taiwan/ooni-asn-coverage/"
+title = { zh-TW = "OONI 的 ASN 涵蓋率調查", zh-CN = "OONI 的 ASN 覆盖率调查", en = "OONI coverage of Taiwan's networks" }
+desc = { zh-TW = "調查臺灣各 ASN 在 OONI 資料庫裡的觀測是否完整，社群從這裡開始。", zh-CN = "调查台湾各 ASN 在 OONI 数据库里的观测是否完整，社区从这里开始。", en = "A study of how well OONI's data covers each of Taiwan's networks (ASNs). The community grew from here." }
+
+[[history.items]]
+when = "2025/01"
+kind = "update"
+post = "project-relaunch-2025"
+title = { zh-TW = "專案重啟", zh-CN = "项目重启", en = "The project restarts" }
+desc = { zh-TW = "延續 ASN 觀測，另外規劃 OONI 檢測清單與文件翻譯。", zh-CN = "延续 ASN 观测，另外规划 OONI 检测清单与文件翻译。", en = "The ASN study continues, joined by the OONI test list and documentation translation." }
+
+[[history.items]]
+when = "2025/08"
+kind = "event"
+page = "events/workshop-2025"
+title = { zh-TW = "匿名網路工作坊", zh-CN = "匿名网络工作坊", en = "Anonymity networks workshop" }
+desc = { zh-TW = "在國立台灣科技大學舉辦兩天，招募到第一批社群夥伴。", zh-CN = "在台湾科技大学举办两天，招募到第一批社区伙伴。", en = "Two days at National Taiwan University of Science and Technology, where the first community members joined." }
+
+[[history.items]]
+when = "2025/12"
+kind = "update"
+post = "ntnu-nz"
+title = { zh-TW = "台師大的校園 Tor Relay", zh-CN = "台师大的校园 Tor Relay", en = "A Tor relay at NTNU" }
+desc = { zh-TW = "第一個校園節點，架設與跟學校溝通的過程整理成訪談。", zh-CN = "第一个校园节点，架设与跟学校沟通的过程整理成访谈。", en = "The first campus relay, with an interview on how it was set up and agreed with the university." }
+
+[[history.items]]
+when = "2026/01"
+kind = "update"
+post = "2025to2026"
+title = { zh-TW = "2026 三大主題", zh-CN = "2026 三大主题", en = "Three themes for 2026" }
+desc = { zh-TW = "個人隱私指引、Tor Relay 校園建立、匿名支付。", zh-CN = "个人隐私指引、Tor Relay 校园建设、匿名支付。", en = "Personal privacy guidance, Tor relays on campus and anonymous payments." }
+
+[[history.items]]
+when = "2026/05"
+kind = "new"
+page = "join/relay-on-campus"
+title = { zh-TW = "校園 Tor Relay 範本工具包", zh-CN = "校园 Tor Relay 范本工具包", en = "Campus Tor relay kit" }
+desc = { zh-TW = "提案範本、技術 SOP、校方 FAQ 三份範本，其他學校可以直接沿用。", zh-CN = "提案范本、技术 SOP、校方 FAQ 三份范本，其他学校可以直接沿用。", en = "A proposal template, a technical SOP and a FAQ for universities, ready for other schools to reuse." }
+
+[[history.items]]
+when = "2026/08"
+kind = "event"
+page = "events/coscup-2026"
+title = { zh-TW = "COSCUP 2026 議程軌", zh-CN = "COSCUP 2026 议程轨", en = "COSCUP 2026 track" }
+desc = { zh-TW = "兩天的社群議程與工作坊，與 ETHTaipei 合辦匿名支付場。", zh-CN = "两天的社区议程与工作坊，与 ETHTaipei 合办匿名支付场。", en = "Two days of community talks and workshops, with an anonymous payments session co-hosted with ETHTaipei." }
+
+[[history.items]]
+when = "2026/09"
+kind = "event"
+page = "events/gg2026"
+title = { zh-TW = "Global Gathering 2026", zh-CN = "Global Gathering 2026", en = "Global Gathering 2026" }
+desc = { zh-TW = "在葡萄牙 Estoril 設攤，帶去十二個離線也能使用的瀏覽器小工具。", zh-CN = "在葡萄牙 Estoril 设摊，带去十二个离线也能使用的浏览器小工具。", en = "A booth in Estoril, Portugal, with twelve browser tools that also work offline." }
+
+[[history.items]]
+when = "2026/10"
+kind = "new"
+post = "quarterly-report-2026-q3"
+title = { zh-TW = "社群首頁與第一期觀測季報", zh-CN = "社区首页与第一期观测季报", en = "A new home page and the first quarterly report" }
+desc = { zh-TW = "社群頁面搬到 anoni.net，新聞導讀上線，發布第一期觀測季報。", zh-CN = "社区页面搬到 anoni.net，新闻导读上线，发布第一期观测季报。", en = "Community pages moved to anoni.net, the news digest launched, and the first quarterly report came out." }

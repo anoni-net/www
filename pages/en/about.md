@@ -7,6 +7,8 @@ anoni.net is a small volunteer community based in Taiwan, working on networked f
 
 The region we cover is Mainland China, Hong Kong and Macau, Singapore, Malaysia, Taiwan, and the diaspora moving between them. Taiwan is the only jurisdiction we can speak to first-hand. Everything else we follow through public sources and through contacts in those places, and we say so on pages that rest on second-hand material.
 
+<!-- diagram-regions -->
+
 What we add is the regional layer that global English-language privacy resources are not set up to produce: how a tool behaves in Mainland China versus Taiwan, what a local statute changes about the threat model, and measurement taken from inside the region.
 
 This page is written for international peer organizations, journalists, researchers, and funders who need to know who is behind the work before citing it, partnering, or recommending it onward.
@@ -18,9 +20,13 @@ This page is written for international peer organizations, journalists, research
 - **Anchored in self-hosted infrastructure**: We run our own Matrix homeserver (`im.anoni.net`), a CryptPad instance, an Etherpad, a Send instance, a SearXNG instance, and a Formbricks instance. Internal coordination happens on these tools rather than on third-party platforms.
 - **Originally a Chinese-language community**: The Traditional Chinese (zh-TW) edition is the source of truth. A re-localized Simplified Chinese (zh-CN) edition exists. This English edition is being rebuilt as a regional observatory for international readers, not as a one-to-one translation.
 
+<!-- diagram-history -->
+
 ## What we are working on in 2026
 
 Three tracks carry most of the community's output this year. The full plan, the quarterly deliverables, and current status are on the [2026 roadmap](/join/roadmap-2026/).
+
+<!-- diagram-community -->
 
 - **Personal privacy guidance** — practical guidance graded by exposure level (everyday use, sensitive work, high-risk situations), landing across the concepts, tools, and scenarios sections of the site. Track page: [personal privacy guide](/join/privacy-guide/).
 - **Tor relays on university campuses** — a relay runs at National Taiwan Normal University, set up by a community member who worked the proposal through faculty and staff. We turned that case into a template kit: a [proposal template](docs:community/campus-tor-relay-proposal/), a [deployment SOP](docs:community/campus-tor-relay-sop/), and an [FAQ for university administrators and legal counsel](docs:community/campus-relay-faq/). Each marks its Taiwan-specific material in a separate regional note, so another jurisdiction can swap those parts and keep the proposal structure, the outreach emails, and the technical steps as they are. Track page: [Tor relay on campus](/join/relay-on-campus/).
