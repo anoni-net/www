@@ -459,21 +459,6 @@ summary = "How can a computer science student, within the academic network syste
 url = "blog/2025/12/ntnu-nz/"
 
 [[posts]]
-date = 2025-07-03
-[posts.zh-TW]
-title = "社群專案建立 - 匿名網路社群"
-summary = "社群專案建立 - 匿名網路社群"
-url = "blog/2025/07/move-to-anoni-net/"
-[posts.zh-CN]
-title = "社群项目建立 - 匿名网络社群"
-summary = "社群项目建立 - 匿名网络社群"
-url = "blog/2025/07/move-to-anoni-net/"
-[posts.en]
-title = "Community Project Establishment - Anonymity Network Community"
-summary = "Community Project Establishment - Anonymity Network Community"
-url = "blog/2025/07/move-to-anoni-net/"
-
-[[posts]]
 date = 2025-01-06
 [posts.zh-TW]
 title = "專案重啟 2025"

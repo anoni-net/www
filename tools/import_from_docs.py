@@ -4,6 +4,7 @@
     uv run tools/import_from_docs.py --import-all     # docs_moved.toml 裡 import = true 的全部
     uv run tools/import_from_docs.py --nginx          # 重新產生 tools/nginx-docs-moved.conf
     uv run tools/import_from_docs.py --updates        # 從 tools/docs_updates.toml 產生 data/docs_updates.toml
+    WWW_UPDATES_RSYNC=<主機>:<目錄> uv run tools/import_from_docs.py --import-post move-to-anoni-net.md
 
 讀的是文件站的 git（預設 ../anoni-net-docs 的 origin/main），不是工作目錄，所以本機
 有沒有切到別的分支都不影響。搬遷對照寫在 tools/docs_moved.toml。
@@ -16,17 +17,27 @@ Material 的圖示（:material-*:、:octicons-*: 等）改成 <i data-icon="名�
 佔位，是因為標題裡的佔位文字會被算進錨點。admonition 與折疊區塊的標題是純文字，
 那裡的圖示直接拿掉。.md-button 改成本站的 .btn，議程表的彩色標籤改成單色的 .tag。
 轉完要人工看一次，遇到這支不處理的寫法會印出警告。
+
+--import-post 把文件站部落格的社群文章搬成 updates/<語系>/<slug>.md（名單與分組在
+tools/docs_updates.toml，搬過的列在 moved）。標題取 H1，日期只取發布日，依組別帶上 kind，
+拿掉 <!-- more -->。文件站 repo 裡的圖片上傳到 assets.anoni.net 的 updates/，檔名帶內容雜湊，
+內文改成新網址，圖不進本站的版控。上傳目的地只放在環境變數 WWW_UPDATES_RSYNC，沒有設時
+只產生到 .cache/updates-images/，頁面上的圖會是 404。分享圖不搬，由 tools/make_og_cards.py
+重新產生，原本就在 assets.anoni.net 的照用。
 """
 
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
+import os
 import posixpath
 import re
 import subprocess
 import sys
 import tomllib
+import urllib.request
 from pathlib import Path
 
 import yaml
@@ -47,7 +58,11 @@ LANGS = {"zh-TW": "", "zh-CN": "/zh-cn", "en": "/en"}
 LINK = re.compile(r"(\]\()([^)\s]+)(\))")
 ICON = re.compile(r":((?:material|octicons|simple|fontawesome)-[a-z0-9-]+):(\{[^}]*\})?")
 TITLE_LINE = re.compile(r'^(\s*(?:!!!|\?\?\?\+?)\s+[a-z-]+\s+")(.*)("\s*)$', re.M)
-UNSUPPORTED = re.compile(r'--8<--|```vegalite|\sstyle="[^"]*"', re.M)
+UNSUPPORTED = re.compile(r'--8<--|```vegalite|\sstyle="[^"]*"|class="grid', re.M)
+UPDATES_LIST = ROOT / "tools" / "docs_updates.toml"
+IMAGE_CACHE = ROOT / ".cache" / "updates-images"
+ASSETS_UPDATES = "https://assets.anoni.net/updates/"
+IMAGE = re.compile(r'(!\[[^\]]*\]\(|<img\b[^>]*\bsrc=")([^)"\s]+)')
 ICON_DIR = ROOT / "icons"
 # 文件站的 mkdocs-material 隨附的圖示，跟文件站用同一套
 MATERIAL_ICONS: list[Path] = []
@@ -109,7 +124,11 @@ def git_show(docs: Path, ref: str, path: str) -> str | None:
     return result.stdout if result.returncode == 0 else None
 
 
-def convert(text: str, src: str, lang: str, moved: list[dict], where: str, blog_url=None) -> str:
+def convert(text: str, src: str, lang: str, moved: list[dict], where: str, blog_url=None,
+            posts: dict[str, str] | None = None) -> str:
+    """posts 是已經搬到本站的部落格文章：文件站的原始檔路徑（blog/posts/x.md）或網址路徑
+    （blog/YYYY/MM/slug/）對到本站的 /updates/YYYY/MM/slug/，連過去的連結改成本站。"""
+    posts = posts or {}
     _, head, body = text.split("---\n", 2)
     meta = yaml.safe_load(head) or {}
     front = {k: meta[k] for k in ("title", "description") if k in meta}
@@ -144,6 +163,8 @@ def convert(text: str, src: str, lang: str, moved: list[dict], where: str, blog_
             docs_base = f"https://anoni.net/docs{prefix}/"
             if path.startswith(docs_base):
                 rest = path[len(docs_base):]
+                if rest in posts:
+                    return f"{m[1]}{posts[rest]}{anchor}{m[3]}"
                 for d, item in by_docs.items():
                     if rest == docs_url_path(d):
                         return f"{m[1]}/{item['page']}/{anchor}{m[3]}"
@@ -157,6 +178,8 @@ def convert(text: str, src: str, lang: str, moved: list[dict], where: str, blog_
         resolved = posixpath.normpath(posixpath.join(src_dir, path))
         if resolved in by_docs:
             return f"{m[1]}/{by_docs[resolved]['page']}/{anchor}{m[3]}"
+        if resolved in posts:
+            return f"{m[1]}{posts[resolved]}{anchor}{m[3]}"
         if resolved.startswith("blog/posts/") and resolved.endswith(".md") and blog_url:
             return f"{m[1]}docs:{blog_url(lang, resolved)}{anchor}{m[3]}"
         if resolved.endswith(".md"):
@@ -183,6 +206,144 @@ def blog_resolver(docs: Path, ref: str):
         slug = meta.get("slug") or posixpath.basename(path)[:-3]
         return f"blog/{date:%Y/%m}/{slug}/" if hasattr(date, "year") else f"blog/{str(date)[:4]}/{str(date)[5:7]}/{slug}/"
     return resolve
+
+
+# ---------------------------------------------------------------- 部落格文章
+
+def load_update_groups() -> tuple[dict[str, list[str]], list[str]]:
+    """tools/docs_updates.toml：依類型分組的文章名單，以及已經搬到本站的 moved。"""
+    with open(UPDATES_LIST, "rb") as f:
+        data = tomllib.load(f)
+    moved = data.pop("moved", [])
+    return data, moved
+
+
+def post_info(docs: Path, ref: str, lang: str, name: str) -> dict | None:
+    """文件站一篇文章在某個語系的 front matter 與網址。"""
+    text = git_show(docs, ref, f"docs/{lang}/blog/posts/{name}")
+    if text is None:
+        return None
+    meta = yaml.safe_load(text.split("---\n", 2)[1]) or {}
+    date = meta.get("date")
+    if isinstance(date, dict):
+        date = date.get("created")
+    slug = meta.get("slug") or name[:-3]
+    return {"text": text, "meta": meta, "date": date, "slug": slug,
+            "url": f"blog/{date:%Y/%m}/{slug}/"}
+
+
+def www_slug(infos: dict[str, dict], name: str) -> str:
+    """本站三個語系要同一個檔名才連得成語言切換。文件站的 slug 有一篇三語各不同，
+    優先用 ASCII 的那個，都不是時用檔名。"""
+    for lang in ("zh-TW", "en", "zh-CN"):
+        slug = infos.get(lang, {}).get("slug", "")
+        if slug and slug.isascii():
+            return slug
+    return name[:-3]
+
+
+def moved_posts_index(docs: Path, ref: str, names: list[str]) -> dict[str, dict[str, str]]:
+    """每個語系：文件站的原始檔路徑與網址路徑，對到本站動態的路徑（不含語系前綴）。"""
+    index = {lang: {} for lang in LANGS}
+    for name in names:
+        infos = {lang: i for lang in LANGS if (i := post_info(docs, ref, lang, name))}
+        slug = www_slug(infos, name)
+        for lang, info in infos.items():
+            dest = f"/updates/{info['date']:%Y/%m}/{slug}/"
+            index[lang][f"blog/posts/{name}"] = dest
+            index[lang][info["url"]] = dest
+    return index
+
+
+def git_blob(docs: Path, ref: str, path: str) -> bytes | None:
+    result = subprocess.run(["git", "-C", str(docs), "show", f"{ref}:{path}"], capture_output=True)
+    return result.stdout if result.returncode == 0 else None
+
+
+def stage_images(text: str, lang: str, docs: Path, ref: str, where: str, staged: dict[str, Path]) -> str:
+    """文件站 repo 裡的圖片複製到 .cache/updates-images/，檔名加上內容雜湊，內文改成 assets.anoni.net 的網址。"""
+    def repl(m: re.Match) -> str:
+        path = m[2]
+        if "://" in path or path.startswith(("data:", "#")):
+            return m[0]
+        rel = posixpath.normpath(posixpath.join("blog/posts", path.lstrip("/") if path.startswith("/docs/") else path))
+        rel = rel.removeprefix("docs/")
+        blob = git_blob(docs, ref, f"docs/{lang}/{rel}") or git_blob(docs, ref, f"docs/zh-TW/{rel}")
+        if blob is None:
+            print(f"  ! {where}：找不到圖片 {path}", file=sys.stderr)
+            return m[0]
+        stem, ext = posixpath.splitext(posixpath.basename(rel))
+        name = f"{stem}-{hashlib.sha256(blob).hexdigest()[:8]}{ext.lower()}"
+        dest = IMAGE_CACHE / name
+        if name not in staged:
+            dest.parent.mkdir(parents=True, exist_ok=True)
+            dest.write_bytes(blob)
+            staged[name] = dest
+        return f"{m[1]}{ASSETS_UPDATES}{name}"
+    return IMAGE.sub(repl, text)
+
+
+def import_posts(names: list[str], docs: Path, ref: str) -> int:
+    groups, moved_names = load_update_groups()
+    kind_of = {n: kind for kind, items in groups.items() for n in items}
+    unknown = [n for n in names if n not in kind_of]
+    if unknown:
+        raise SystemExit(f"這幾篇不在 tools/docs_updates.toml 的名單裡：{unknown}")
+    moved = load_moved()
+    blog_url = blog_resolver(docs, ref)
+    # 連結改寫時，這一次要搬的文章也算已經搬過
+    index = moved_posts_index(docs, ref, sorted(set(moved_names) | set(names)))
+    staged: dict[str, Path] = {}
+    count = 0
+    for name in names:
+        infos = {lang: i for lang in LANGS if (i := post_info(docs, ref, lang, name))}
+        slug = www_slug(infos, name)
+        for lang, info in infos.items():
+            where = f"docs/{lang}/blog/posts/{name}"
+            meta, text = info["meta"], info["text"]
+            body = text.split("---\n", 2)[2]
+            h1 = re.search(r"^# (.+)$", body, re.M)
+            title = ICON.sub("", h1[1] if h1 else meta.get("title", "")).strip()
+            desc = str(meta.get("description") or meta.get("summary") or "").strip()
+            desc = re.sub(r"\*\*|`", "", re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", desc))
+            text = text.replace("<!-- more -->\n", "").replace("<!-- more -->", "")
+            # images.anoni.net 是同一台圖片主機的舊網域，onion 版只改寫 assets.anoni.net
+            text = text.replace("https://images.anoni.net/", "https://assets.anoni.net/")
+            text = stage_images(text, lang, docs, ref, where, staged)
+            out = convert(text, f"blog/posts/{name}", lang, moved, where, blog_url, index[lang])
+            check_docs_links(out, lang, docs, ref, where)
+            front = {"title": title, "description": desc, "date": info["date"]}
+            if kind_of[name] in UPDATE_KINDS:
+                front["kind"] = kind_of[name]
+            image = str(meta.get("image") or "")
+            if image.startswith(ASSETS_UPDATES.rsplit("/", 2)[0]):
+                front["og_image"] = image
+            head = yaml.safe_dump(front, allow_unicode=True, sort_keys=False, width=1000)
+            dest = ROOT / "updates" / lang / f"{slug}.md"
+            converted = out.split("---\n", 2)[2].lstrip()
+            dest.write_text(f"---\n{head}---\n\n{converted}", encoding="utf-8")
+            print(f"  {where} → {dest.relative_to(ROOT)}")
+            count += 1
+    upload_images(staged)
+    return count
+
+
+def upload_images(staged: dict[str, Path]) -> None:
+    if not staged:
+        return
+    target = os.environ.get("WWW_UPDATES_RSYNC")
+    if not target:
+        print(f"  ! 沒有設 WWW_UPDATES_RSYNC，{len(staged)} 張圖只放在 {IMAGE_CACHE.relative_to(ROOT)}，"
+              "頁面上的圖在上傳之前會是 404", file=sys.stderr)
+        return
+    subprocess.run(["rsync", "-a", "--chmod=F644", "--mkpath", *map(str, staged.values()), target.rstrip("/") + "/"],
+                   check=True)
+    for name in staged:
+        req = urllib.request.Request(ASSETS_UPDATES + name, method="HEAD", headers={"User-Agent": "anoni-www-import"})
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            if resp.status != 200:
+                raise SystemExit(f"{ASSETS_UPDATES}{name} 回 {resp.status}")
+    print(f"  上傳 {len(staged)} 張圖到 {ASSETS_UPDATES}")
 
 
 def check_docs_links(text: str, lang: str, docs: Path, ref: str, where: str) -> None:
@@ -231,10 +392,9 @@ UPDATE_KINDS = ("new", "event", "update")
 
 def updates_index(docs: Path, ref: str) -> str:
     """文件站舊的社群文章：每篇每個語系的標題、日期、摘要與網址，給動態列表用。"""
-    with open(ROOT / "tools" / "docs_updates.toml", "rb") as f:
-        groups = tomllib.load(f)
-    # 依組別帶上類型，community（觀點、立場、經驗）不加標籤
-    names = [(name, kind) for kind, items in groups.items() for name in items]
+    groups, moved_names = load_update_groups()
+    # 依組別帶上類型，community（觀點、立場、經驗）不加標籤。已經搬到本站的不列，本站有自己的那一篇
+    names = [(name, kind) for kind, items in groups.items() for name in items if name not in moved_names]
     blog_url = blog_resolver(docs, ref)
     contract = git_show(docs, ref, "tools/data/url_contract.txt") or ""
     published = {line.split(" ")[0] for line in contract.splitlines()
@@ -274,8 +434,14 @@ def updates_index(docs: Path, ref: str) -> str:
     return "\n".join(out)
 
 
-def nginx_conf() -> str:
+def nginx_conf(docs: Path, ref: str) -> str:
     moved = load_moved()
+    _, moved_names = load_update_groups()
+    posts = []
+    for name in moved_names:
+        infos = {lang: i for lang in LANGS if (i := post_info(docs, ref, lang, name))}
+        slug = www_slug(infos, name)
+        posts += [(lang, info["url"].rstrip("/"), f"updates/{info['date']:%Y/%m}/{slug}") for lang, info in infos.items()]
     lines = [
         "# 文件站搬到官網的頁面，clearnet 與 onion 兩邊的 301 對照表。",
         "#",
@@ -303,6 +469,12 @@ def nginx_conf() -> str:
                 path = docs_url_path(item["docs"]).rstrip("/")
                 key = re.escape(f"{docs_root}{prefix}/{path}").replace("\\/", "/").replace("\\-", "-")
                 lines.append(f"    ~^{key}(/|/index\\.html)?$  {site}{prefix}/{item['page']}/;")
+        if posts:
+            lines += ["", "    # 部落格的社群文章，搬到 /updates/（tools/docs_updates.toml 的 moved）"]
+        for lang, src, dest in posts:
+            prefix = LANGS[lang]
+            key = re.escape(f"{docs_root}{prefix}/{src}").replace("\\/", "/").replace("\\-", "-")
+            lines.append(f"    ~^{key}(/|/index\\.html)?$  {site}{prefix}/{dest}/;")
         lines += ["}", ""]
     return "\n".join(lines)
 
@@ -313,6 +485,8 @@ def main() -> int:
     parser.add_argument("--import-all", action="store_true", help="搬 import = true 的全部頁面")
     parser.add_argument("--nginx", action="store_true", help="重新產生 nginx 對照表")
     parser.add_argument("--updates", action="store_true", help="重新產生文件站舊社群文章的清單")
+    parser.add_argument("--import-post", dest="posts", nargs="+", metavar="FILE",
+                        help="把部落格文章搬到 updates/，檔名照 tools/docs_updates.toml，例如 move-to-anoni-net.md")
     parser.add_argument("--docs", type=Path, default=DEFAULT_DOCS, help="文件站的 clone")
     parser.add_argument("--ref", default="origin/main", help="文件站要讀的 ref")
     args = parser.parse_args()
@@ -321,13 +495,15 @@ def main() -> int:
         args.pages = [m["page"] for m in load_moved() if m.get("import")]
     if args.pages:
         print(f"搬了 {import_pages(args.pages, args.docs, args.ref)} 個檔案")
+    if args.posts:
+        print(f"搬了 {import_posts(args.posts, args.docs, args.ref)} 個檔案")
     if args.nginx:
-        NGINX.write_text(nginx_conf(), encoding="utf-8")
+        NGINX.write_text(nginx_conf(args.docs, args.ref), encoding="utf-8")
         print(f"寫入 {NGINX.relative_to(ROOT)}")
     if args.updates:
         (ROOT / "data" / "docs_updates.toml").write_text(updates_index(args.docs, args.ref), encoding="utf-8")
         print("寫入 data/docs_updates.toml")
-    if not (args.pages or args.nginx or args.updates):
+    if not (args.pages or args.posts or args.nginx or args.updates):
         parser.print_help()
     return 0
 

@@ -86,6 +86,13 @@ uv run tools/import_from_docs.py --nginx                    # 重新產生 tools
 
 轉換工具讀的是文件站 clone 的 `origin/main`，站內連結依目標改寫：搬過來的頁面改成本站網址，其他的改成 `docs:` 簡寫，部落格文章從 front matter 組出網址。轉完會拿每個 `docs:` 連結比對文件站的網址合約，找不到或只是轉址都會印警告。卡片格線這類文件站特有的版面元件要手動改寫。
 
+文件站部落格的社群文章搬到 `/updates/` 時，在 `tools/docs_updates.toml` 的 `moved` 加上檔名，再執行 `--import-post`（進度見 #42）。標題取 H1、日期只取發布日、依名單的組別帶上 `kind`，文件站 repo 裡的圖片上傳到 assets.anoni.net 的 `updates/`，上傳目的地放在環境變數 `WWW_UPDATES_RSYNC`。分享圖不搬，改用 `tools/make_og_cards.py` 產生。搬完要重新執行 `--updates` 與 `--nginx`，列表就不再連回文件站，轉址對照表也會加上文章的舊網址。
+
+```bash
+WWW_UPDATES_RSYNC=<主機>:<目錄> uv run tools/import_from_docs.py --import-post move-to-anoni-net.md
+uv run tools/import_from_docs.py --updates --nginx
+```
+
 舊網址在 m6 的 nginx 用 301 轉過來，clearnet 與 onion 各一份 `map`，把產生的對照表複製到 `/etc/nginx/conf.d/anoni-docs-moved.conf` 再 reload。順序是新頁面先上線，再套轉址，最後在文件站刪原始檔、補 `redirect_maps`。
 
 要退回上一版，先建立 `/srv/anoni-net-www/hold` 暫停自動發布，再把 `current` 改指到 `releases/` 底下較舊的那一份。修好之後刪掉 `hold`，下一輪就會發布 `main` 的最新版。
@@ -295,6 +302,13 @@ uv run tools/import_from_docs.py --nginx                    # regenerate tools/n
 ```
 
 The converter reads `origin/main` of a docs clone and rewrites internal links by destination: moved pages become URLs on this site, everything else becomes the `docs:` shorthand, and blog post URLs are built from their front matter. Afterwards it checks every `docs:` link against the docs site's URL contract and prints a warning for any link that is missing or only redirects. Layout components specific to the docs site, such as card grids, have to be rewritten by hand.
+
+To move a community post from the docs site's blog to `/updates/`, add its file name to `moved` in `tools/docs_updates.toml` and run `--import-post` (progress in #42). The title comes from the H1, only the publication date is kept, and `kind` follows the post's group in the list. Images in the docs repository are uploaded to `updates/` on assets.anoni.net, with the destination in the `WWW_UPDATES_RSYNC` environment variable. Preview images are not moved; `tools/make_og_cards.py` generates new ones. Afterwards rerun `--updates` and `--nginx`, so the list stops linking to the docs site and the redirect table picks up the post's old URLs.
+
+```bash
+WWW_UPDATES_RSYNC=<host>:<directory> uv run tools/import_from_docs.py --import-post move-to-anoni-net.md
+uv run tools/import_from_docs.py --updates --nginx
+```
 
 Old URLs are redirected with a 301 by nginx on m6, with one `map` for clearnet and one for onion. Copy the generated table to `/etc/nginx/conf.d/anoni-docs-moved.conf` and reload. The order is: the new pages go live first, then the redirects are applied, and finally the source files are deleted from the docs site and its `redirect_maps` are updated.
 
