@@ -60,7 +60,7 @@
 - [台灣在地脈絡總覽](https://anoni.net/docs/taiwan/): 台灣的法規、觀測資料與研究入口。
 - [OONI 網站檢測清單](https://anoni.net/docs/taiwan/ooni-checklist/): 在台灣用 OONI 檢測連線層觀測的操作清單。
 - [台灣 ASN 觀測覆蓋率](https://anoni.net/docs/taiwan/ooni-asn-coverage/): 分析台灣各 ASN 在 OONI 資料庫的觀測覆蓋情況。
-- [台灣 Tor 中繼觀測](https://anoni.net/docs/taiwan/tor-relay-watcher/): 追蹤台灣 Tor relay 節點的數量與分布。
+- [台灣 Tor 中繼觀測](https://anoni.net/projects/pulse/): 追蹤台灣 Tor relay 節點的數量與分布。
 - [台灣個資法 2025 修法](https://anoni.net/docs/taiwan/pdpa-2025/): 個資法修法對隱私與身分保護的影響。
 - [台灣 VASP 法 2026](https://anoni.net/docs/taiwan/vasp-2026/): 虛擬資產服務業立法與金流匿名性的觀察。
 - [揭弊者保護法的技術觀察](https://anoni.net/docs/taiwan/whistleblower-law/): 從技術角度看揭弊者保護制度。
@@ -73,16 +73,16 @@
 ## 社群與參與
 
 - [參與](https://anoni.net/join/): 認領主題與加入討論的方式。
-- [個人隱私指引](https://anoni.net/docs/community/privacy-guide/): 2026 三大主題之一，個人隱私的研究專題入口。
-- [Tor Relay 校園建立](https://anoni.net/docs/community/relay-on-campus/): 2026 三大主題之一，在校園架設 Tor relay 的研究專題。
-- [匿名支付研究](https://anoni.net/docs/community/payments-research/): 2026 三大主題之一，匿名支付的研究專題。
-- [2026 年度路線圖](https://anoni.net/docs/community/roadmap-2026/): 社群這一年的計畫與方向。
+- [個人隱私指引](https://anoni.net/join/privacy-guide/): 2026 三大主題之一，個人隱私的研究專題入口。
+- [Tor Relay 校園建立](https://anoni.net/join/relay-on-campus/): 2026 三大主題之一，在校園架設 Tor relay 的研究專題。
+- [匿名支付研究](https://anoni.net/join/payments-research/): 2026 三大主題之一，匿名支付的研究專題。
+- [2026 年度路線圖](https://anoni.net/join/roadmap-2026/): 社群這一年的計畫與方向。
 - [成為 anoni](https://anoni.net/docs/community/become-anoni/): 怎麼從讀者變成社群參與者。
 
 ## 活動
 
-- [COSCUP 2026 公開徵稿](https://anoni.net/docs/activity/coscup-2026-cfp/): COSCUP 2026 匿名網路議程徵稿資訊。
-- [2026 年度計畫](https://anoni.net/docs/blog/2026/01/2025to2026/): 從 2025 回顧到 2026 規劃的年度計畫文。
+- [COSCUP 2026 公開徵稿](https://anoni.net/events/coscup-2026-cfp/): COSCUP 2026 匿名網路議程徵稿資訊。
+- [2026 年度計畫](https://anoni.net/updates/2026/01/2025to2026/): 從 2025 回顧到 2026 規劃的年度計畫文。
 
 ## Optional
 

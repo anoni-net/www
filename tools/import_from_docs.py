@@ -146,6 +146,8 @@ def convert(text: str, src: str, lang: str, moved: list[dict], where: str, blog_
     body = body.replace('{target="_blank"}', "").replace("{ target=\"_blank\" }", "")
     # 文件站截圖的框線寫在 style 裡，本站改用 class
     body = re.sub(r'(!\[[^\]]*\]\([^)]+\))\{\s*style="[^"]*"\s*\}', r"\1{ .shot }", body)
+    # HTML 寫的 <img> 只帶圓角時，同樣改成 .shot
+    body = re.sub(r'(<img\b[^>]*?)\s+style="border-radius:\s*[\d.]+(?:px|rem)?;?\s*"', r'\1 class="shot"', body)
 
     by_docs = {m["docs"]: m for m in moved if lang in m["langs"]}
     site_pages = {p.relative_to(ROOT / "pages" / lang).with_suffix("").as_posix()
@@ -224,7 +226,13 @@ def load_update_groups() -> tuple[dict[str, list[str]], list[str]]:
 
 def post_info(docs: Path, ref: str, lang: str, name: str) -> dict | None:
     """文件站一篇文章在某個語系的 front matter 與網址。"""
-    text = git_show(docs, ref, f"docs/{lang}/blog/posts/{name}")
+    path = f"docs/{lang}/blog/posts/{name}"
+    text = git_show(docs, ref, path)
+    if text is None:
+        # 已經從文件站刪掉的文章（搬過來的批次），讀刪除前的版本，轉址表與連結改寫才不會漏
+        deleted = subprocess.run(["git", "-C", str(docs), "log", "-1", "--format=%H", "--diff-filter=D", ref, "--", path],
+                                 capture_output=True, text=True).stdout.strip()
+        text = git_show(docs, f"{deleted}^", path) if deleted else None
     if text is None:
         return None
     meta = yaml.safe_load(text.split("---\n", 2)[1]) or {}
@@ -251,6 +259,8 @@ def moved_posts_index(docs: Path, ref: str, names: list[str]) -> dict[str, dict[
     index = {lang: {} for lang in LANGS}
     for name in names:
         infos = {lang: i for lang in LANGS if (i := post_info(docs, ref, lang, name))}
+        if not infos:
+            raise SystemExit(f"{name}：文件站的歷史裡找不到這篇")
         slug = www_slug(infos, name)
         for lang, info in infos.items():
             dest = f"/updates/{info['date']:%Y/%m}/{slug}/"
@@ -451,6 +461,9 @@ def nginx_conf(docs: Path, ref: str) -> str:
     posts = []
     for name in moved_names:
         infos = {lang: i for lang in LANGS if (i := post_info(docs, ref, lang, name))}
+        if not infos:
+            # 漏掉的話舊網址會少一條 301，寧可中止
+            raise SystemExit(f"{name}：文件站的歷史裡找不到這篇，轉址表沒有寫入")
         slug = www_slug(infos, name)
         posts += [(lang, info["url"].rstrip("/"), f"updates/{info['date']:%Y/%m}/{slug}") for lang, info in infos.items()]
     lines = [

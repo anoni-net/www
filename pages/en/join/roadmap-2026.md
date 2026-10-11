@@ -5,7 +5,7 @@ description: What the anoni.net community is working on in 2026 — three themat
 
 This page sets out the anoni.net community's goals and quarterly deliverables for 2026, written for partners, collaborators, and anyone following our work from outside. Anonymity networks remain the core of what we do. Alongside the continuing local advocacy for Tor, Tails, and OONI, three tracks are new this year: a personal privacy guide, Tor relays on university campuses, and applied work on anonymous payments. We review delivery at the end of each quarter and adjust the next one accordingly.
 
-The 2025 retrospective and the background to how 2026 was scoped are in [From 2025 into 2026](docs:blog/2026/01/2025to2026/).
+The 2025 retrospective and the background to how 2026 was scoped are in [From 2025 into 2026](/updates/2026/01/2025to2026/).
 
 ## Three thematic tracks
 
