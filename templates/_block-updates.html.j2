@@ -3,7 +3,7 @@
 <h2>{{ year }}</h2>
 <ul class="rows updates">
 {% for item in items | sort(attribute='date', reverse=true) %}
-  <li><a class="row" href="{{ item.href }}"><span class="b"><span class="meta"><time datetime="{{ item.date.isoformat() }}">{{ item.date.strftime('%Y/%m/%d') }}</time>{% if item.source == 'docs' %} · {{ t.from_docs }}{% endif %}</span><span class="t">{{ item.title }}</span><span class="d">{{ item.summary }}</span></span><span class="go">{{ icon('arrow-right') }}</span></a></li>
+  <li><a class="row" href="{{ item.href }}"><span class="b"><span class="meta">{% if item.kind %}<span class="ut ut-{{ item.kind }}">{{ t["kind_" ~ item.kind] }}</span>{% endif %}<time datetime="{{ item.date.isoformat() }}">{{ item.date.strftime('%Y/%m/%d') }}</time>{% if item.source == 'docs' %} · {{ t.from_docs }}{% endif %}</span><span class="t">{{ item.title }}</span><span class="d">{{ item.summary }}</span></span><span class="go">{{ icon('arrow-right') }}</span></a></li>
 {% endfor %}
 </ul>
 {% endfor %}

@@ -1,6 +1,7 @@
 ---
 title: 社群頁面的新位置
 description: 關於、參與、專案、服務、活動與社群動態搬到 anoni.net 頂層，文件站只放文件。舊網址會自動轉到新位置，onion 版本一樣。
+kind: update
 date: 2026-10-09
 ---
 

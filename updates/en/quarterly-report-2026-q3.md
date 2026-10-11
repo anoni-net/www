@@ -1,6 +1,7 @@
 ---
 title: First quarterly report and new monitoring pages
 description: Taiwan's Tor relays fell from 13 to 11 in Q3 2026, 8 of them on HiNet, and mobile networks got 4% of OONI measurements. Monitoring now covers more of Asia.
+kind: new
 date: 2026-10-11
 og_image: https://assets.anoni.net/reports/2026-q3-og-en-6fce9afe.png
 ---

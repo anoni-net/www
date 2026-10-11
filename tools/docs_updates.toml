@@ -6,9 +6,11 @@
 #
 # 翻譯、技術分析、觀測報告與文件站自己的更新回顧留在文件站，不列進來。
 # 之後要讓文件站更輕時，再把這些文章搬過來並設轉址。
+#
+# 依類型分組，動態列表依組別加上標籤，規則見品牌素材頁的「公告 tag」。
 
-posts = [
-    # 活動公告與回顧
+# 活動公告與回顧，標籤「活動」
+event = [
     "2026-gg2026-printed-wrapper.md",
     "2026-anoni-net-global-gathering.md",
     "tianjian-digital-privacy.md",
@@ -22,13 +24,19 @@ posts = [
     "rightscon25-tor-tails-ooni-after.md",
     "g0v-hackath65n.md",
     "rightscon25-pre-event.md",
-    # 專案上線
+]
+
+# 專案與服務上線，標籤「新增」
+new = [
     "2026-anoni-net-news-launch.md",
     "asian-diceware.md",
     "2026-cryptpad-zh-hant.md",
     "2026-campus-tor-relay-template-kit.md",
     "2026-onionoo-mcp-public.md",
-    # 工作進度
+]
+
+# 工作進度，標籤「更新」
+update = [
     "updates-202603.md",
     "2025to2026.md",
     "updates-202508.md",
@@ -37,7 +45,10 @@ posts = [
     "updates-202505.md",
     "updates-202504.md",
     "updates-202503.md",
-    # 社群本身
+]
+
+# 社群的觀點、立場與經驗，不加標籤
+community = [
     "iran-blackout-webtunnel.md",
     "2026-discord-matrix-statement.md",
     "ntnu-nz.md",

@@ -12,6 +12,9 @@
     <link>{{ item.link }}</link>
     <guid isPermaLink="true">{{ item.link }}</guid>
     <pubDate>{{ item.pub }}</pubDate>
+{% if item.kind %}
+    <category>{{ t["kind_" ~ item.kind] }}</category>
+{% endif %}
     <description>{{ item.summary }}</description>
   </item>
 {% endfor %}

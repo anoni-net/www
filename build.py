@@ -62,6 +62,9 @@ ICON_TAG = re.compile(r'<i data-icon="([a-z0-9-]+)"></i>')
 PULSE_SLUG = "projects/pulse"
 ASN_SLUG = "projects/asn-coverage"
 REPORTS_SLUG = "projects/reports"
+# 社群動態的標籤：新增（專案或服務上線）、活動、更新（工作進度）。觀點、立場與經驗不加標籤。
+# 顏色照品牌素材頁的「公告 tag」，文件站的舊文章在 tools/docs_updates.toml 依組別標記
+UPDATE_KINDS = ("new", "event", "update")
 # 季報各期的圖表，名稱對應 templates/_report.html.j2 的 macro，Markdown 裡寫成 <!-- rq-relays-chart -->
 REPORT_BLOCKS = ("relays_stats", "relays_chart", "churn", "upgrade", "asn", "density", "ooni_stats",
                  "types", "networks", "gaps", "changes", "ooni_daily", "run", "glossary")
@@ -190,6 +193,8 @@ class Site:
             day = meta.get("date")
             if not isinstance(day, date):
                 raise SystemExit(f"{where}：front matter 的 date 要寫成 YYYY-MM-DD")
+            if meta.get("kind") not in (None, *UPDATE_KINDS):
+                raise SystemExit(f"{where}：kind 只能是 {'、'.join(UPDATE_KINDS)}，觀點與經驗類的文章不寫")
             slug = meta.get("slug") or src.stem
             posts.append(Post(lang.code, slug, day, meta, body,
                               f"{lang.prefix}/updates/{day:%Y/%m}/{slug}/"))
@@ -224,13 +229,13 @@ class Site:
     def updates_for(self, lang: Lang) -> list[dict]:
         """動態列表：本站的新文章加上文件站舊的社群文章，由新到舊。"""
         items = [{"date": p.date, "title": p.meta["title"], "summary": p.meta["description"],
-                  "href": p.path, "source": "www"} for p in self.posts[lang.code]]
+                  "href": p.path, "source": "www", "kind": p.meta.get("kind")} for p in self.posts[lang.code]]
         for old in self.data.get("docs_updates", {}).get("posts", []):
             if lang.code in old:
                 items.append({"date": old["date"], "title": old[lang.code]["title"],
                               "summary": old[lang.code]["summary"],
                               "href": self.product_url("docs", lang, old[lang.code]["url"]),
-                              "source": "docs"})
+                              "source": "docs", "kind": old.get("kind")})
         return sorted(items, key=lambda i: i["date"], reverse=True)
 
     # 網址
