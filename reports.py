@@ -172,10 +172,10 @@ def view(root: Path, data: dict, labels: dict, pick, names: dict) -> dict:
         return {d: ob[d][key] for d in od if d in ob}
 
     measurements_chart = stacked_bars(od, [
-        (pick(labels["ok"]), ocol("ok"), "pc-s3"),
-        (pick(labels["anomaly"]), ocol("anomaly"), "pc-s1"),
-        (pick(labels["confirmed"]), ocol("confirmed"), "pc-s2"),
-        (pick(labels["failure"]), ocol("failure"), "pc-s5"),
+        (pick(labels["ok"]), ocol("ok"), "oc-ok"),
+        (pick(labels["anomaly"]), ocol("anomaly"), "oc-anomaly"),
+        (pick(labels["confirmed"]), ocol("confirmed"), "oc-confirmed"),
+        (pick(labels["failure"]), ocol("failure"), "oc-failure"),
     ], pick(labels["chart_measurements"]))
     asns_chart = lines(od, [(pick(labels["chart_asns"]), ocol("asns"), "pc-s1")], pick(labels["chart_asns"]))
 
