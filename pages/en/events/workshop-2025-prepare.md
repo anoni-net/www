@@ -1,6 +1,6 @@
 ---
-title: Organizing the Anonymous Network Workshop 2025/08
-description: Recruiting staff to help organize the event!
+title: Anonymous Network Workshop 2025/08 staff
+description: Recruiting organizers and helpers for the August 2025 Anonymous Network Workshop, with the schedule, monthly tasks and the Tor, Tails and OONI topics.
 ---
 
 ![Recruiting staff to help organize the event!](docs:assets/images/event-workshop-2025.png){ .shot }

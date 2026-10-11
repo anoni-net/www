@@ -1,6 +1,6 @@
 ---
 title: COSCUP 2026 匿名网络社群议程轨
-description: 匿名网络社群 anoni.net 在 COSCUP 2026 社群议程轨的两日议程与工作坊，涵盖 Tor、Tails、OONI、浏览器追踪、校园 Tor 节点、健保数据库个资权利、隐私指南与匿名支付，并与 ETHTaipei 合办匿名支付场，适合关注隐私与数字安全的台湾读者到现场参与。
+description: 匿名网络社群 anoni.net 在 COSCUP 2026 的两日议程与工作坊，主题有 Tor、Tails、OONI、浏览器追踪、校园 Tor 节点、个资权利、隐私指南与匿名支付。
 ---
 
 ![COSCUP 2026 匿名网络社群议程轨主视觉](https://assets.anoni.net/event/anoni-net-eth-taipei.webp){ .shot }

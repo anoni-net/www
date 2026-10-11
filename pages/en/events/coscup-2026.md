@@ -1,6 +1,6 @@
 ---
 title: COSCUP 2026 Anonymity Networks Community track
-description: The Anonymity Networks Community (anoni.net) runs a two-day community track at COSCUP 2026 (Aug 8–9, NTUST, Taipei) — talks and workshops on Tor, Tails, OONI, browser tracking, campus Tor nodes, data-privacy rights, a personal privacy guide, and anonymous payments, including a session co-organized with ETHTaipei.
+description: The anoni.net two-day track at COSCUP 2026 (8 and 9 August, NTUST, Taipei), with talks and workshops on Tor, Tails, OONI, privacy and anonymous payments.
 ---
 
 ![COSCUP 2026 Anonymity Networks Community track hero image](https://assets.anoni.net/event/anoni-net-eth-taipei.webp){ .shot }

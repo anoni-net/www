@@ -1,6 +1,6 @@
 ---
 title: COSCUP 2026 Call for Proposals
-description: Anonymity Networks Community is accepting proposals for the COSCUP 2026 community track. Submit via Pretalx to share privacy and digital-security practice around Tor, Tails, OONI, anonymous payments, and stablecoins, aligned with free software, open collaboration, and open-source culture.
+description: Proposals for the anoni.net community track at COSCUP 2026, via Pretalx, on privacy and digital security with Tor, Tails, OONI and anonymous payments.
 ---
 
 **Anonymity Networks Community** focuses on anonymity, privacy, and digital security. We work to build practical guidance for Chinese-speaking audiences and to support localized tooling and collaborative knowledge. Our outreach and documentation center on the open-source projects **Tor**, **Tails**, and **OONI**.

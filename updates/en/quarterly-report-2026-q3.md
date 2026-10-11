@@ -1,6 +1,6 @@
 ---
-title: The first quarterly observation report, and new homes for the monitoring pages
-description: In the third quarter of 2026 Taiwan's running Tor relays fell from 13 to 11, with 8 on Chunghwa Telecom's HiNet, and mobile networks served 45% of users but produced 4% of OONI measurements. In October the monitoring pages moved to the projects section of anoni.net and now cover more of Asia.
+title: First quarterly report and new monitoring pages
+description: Taiwan's Tor relays fell from 13 to 11 in Q3 2026, 8 of them on HiNet, and mobile networks got 4% of OONI measurements. Monitoring now covers more of Asia.
 date: 2026-10-11
 og_image: https://assets.anoni.net/reports/2026-q3-og-en-6fce9afe.png
 ---

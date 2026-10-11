@@ -1,6 +1,6 @@
 ---
 title: Writing Style
-description: The writing rules shared by the anoni.net community site, the docs site and News, covering voice, terminology, headings, sentence patterns and writing about security and privacy. For contributors who write, translate or edit documentation.
+description: The writing rules shared by the anoni.net community site, the docs site and News, on voice, terminology, headings and writing about security and privacy.
 ---
 
 The community site, the [docs site](docs:) and [News](news:) are written by different people, and readers should meet the same standard on all three. This page is the shared rule set for English, and the basis for each repository's own documentation. Formats and workflows specific to one site live elsewhere; for the docs site, see the [contributor handbook](docs:community/contributor-handbook/).

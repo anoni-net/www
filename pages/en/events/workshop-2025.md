@@ -1,6 +1,6 @@
 ---
 title: Anonymous Network Workshop 2025/08
-description: This workshop will be supported and guided by the local open-source community "Anonymous Network Community anoni.net," introducing open-source anonymous network tools such as Tor, Tails, and OONI. It will assist participants in setting up secondary secure devices, anonymous connections, and conducting network censorship detection, thereby enhancing the digital resilience of their movements and advocacy efforts. Let's work together to implement the infrastructure for information freedom, using technology to safeguard truth and resist oppression.
+description: Two days in Taipei, 9 and 10 August 2025, of hands-on Tor, Tails and OONI with the anoni.net community, and roundtables on censorship measurement.
 ---
 
 ![Recruiting staff to help organize the event!](docs:assets/images/event-workshop-2025.png){ .shot }

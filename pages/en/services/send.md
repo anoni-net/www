@@ -1,6 +1,6 @@
 ---
 title: How send.anoni.net Handles Your Data
-description: What the community-run encrypted file transfer service send.anoni.net stores, for how long, and who can see it. Files are encrypted in your browser, and the server keeps no routine access logs.
+description: What send.anoni.net stores, for how long and who can see it. Files are encrypted in your browser, and the server keeps no routine access logs.
 ---
 
 [send.anoni.net](https://send.anoni.net/) is the encrypted file transfer service the anoni.net community runs, built on [Send](https://github.com/anoni-net/send). This page lists what passes through or stays on the server while it runs, how long it is kept, and who can see it, so you can decide whether it suits the files you want to send. What the software does can be checked against its public source code; the server and Cloudflare settings are how we operate it.

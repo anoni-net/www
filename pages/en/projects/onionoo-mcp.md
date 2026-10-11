@@ -1,6 +1,6 @@
 ---
 title: Tor relay lookup for AI assistants
-description: A community-hosted Tor relay query service. Journalists, civil-society groups, and fact-checkers can survey how many Tor relays a country runs, how much bandwidth they carry, and which networks host them — in plain language, by pasting one URL into claude.ai or another cloud AI assistant. No coding required.
+description: A community-run Tor relay lookup. Paste one URL into a cloud AI assistant and ask in plain language how many relays a country runs and on which networks.
 lead: Paste one URL into a cloud AI assistant and ask about Tor relays anywhere in plain language.
 ---
 

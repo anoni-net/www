@@ -1,6 +1,6 @@
 ---
 title: Events
-description: Workshops, community tracks and conference booths run by the anoni.net community on anonymity networks and Internet freedom, from the 2025 workshop to COSCUP 2026 and Global Gathering 2026.
+description: Workshops, conference tracks and booths the anoni.net community runs on anonymity networks and Internet freedom, up to COSCUP and Global Gathering 2026.
 ---
 
 We occasionally hold workshops or discussion meetings on topics related to anonymous networks and internet freedom. Whether these events are online or in-person depends on the target audience for each event. Ongoing or past events will be documented on this page.

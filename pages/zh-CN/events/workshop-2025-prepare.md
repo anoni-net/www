@@ -1,6 +1,6 @@
 ---
 title: 筹备：匿名网络工作坊 2025/08
-description: 招募工作人员一起筹备活动！
+description: 2025 年 8 月匿名网络工作坊的工作人员招募，需要活动筹备人员与熟悉 Tor、Tails、OONI 的工作坊小帮手，附时程与各月份的工作任务。
 ---
 
 ![匿名网络工作坊招募工作人员与培训小助手](docs:assets/images/event-workshop-2025.png){ .shot }

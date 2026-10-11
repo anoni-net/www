@@ -1,6 +1,6 @@
 ---
 title: Projects
-description: The content and code the anoni.net community writes itself, including the docs, the news briefings, and monitoring tools such as Tor Relay Watch, OONI Coverage and Tor relay lookup for AI assistants.
+description: Content and code the anoni.net community writes, including the docs, news briefings, Tor Relay Watch, OONI Coverage and Tor relay lookup for AI assistants.
 lead: The content and code the community writes itself.
 ---
 

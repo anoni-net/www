@@ -1,6 +1,6 @@
 ---
 title: About anoni.net
-description: A volunteer community based in Taiwan working on networked freedom across the Sinophone Asia-Pacific, covering Mainland China, Hong Kong and Macau, Singapore, Malaysia, Taiwan, and the diaspora. The 2026 tracks, governance, partnerships, publications, and how to verify what we do.
+description: A volunteer community in Taiwan working on Internet freedom across the Sinophone Asia-Pacific, with our 2026 tracks, governance, partners and publications.
 ---
 
 anoni.net is a small volunteer community based in Taiwan, working on networked freedom across the Sinophone (Chinese-speaking) Asia-Pacific. The community formed around 2023 with a focus on OONI measurement coverage in Taiwan, and has since broadened its scope toward regional observation, regulatory tracking, and selective translation of regional research.

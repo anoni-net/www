@@ -1,6 +1,6 @@
 ---
 title: Personal Privacy Guide Track
-description: One of the community's three 2026 tracks — the research goals for a situation-graded personal privacy guide, the article index, current progress, and how to join.
+description: One of the community's three 2026 tracks, with the goals of a situation-graded personal privacy guide, the article index, progress and how to join.
 ---
 
 The personal privacy guide is one of anoni.net's three tracks for 2026, alongside [Tor relays on campus](/join/relay-on-campus/) and [anonymous payments](/join/payments-research/). This page is the track's public entry point, covering the research goals, the article index, current progress, and how to join the discussion. The annual plan and quarterly rhythm are in the [2026 roadmap](/join/roadmap-2026/).
