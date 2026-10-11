@@ -110,8 +110,9 @@ WWW_OG_RSYNC=<主機>:<目錄> uv run --with playwright tools/make_og_cards.py
 | 環境變數 | 用途 |
 |---|---|
 | `PULSE_API` | API 的位址，預設 `https://anoni.net/api`。m6 的部署腳本設成本機的 `http://127.0.0.1:8899/api` |
+| `WWW_OFFLINE` | 設了就不讀任何外部資料（Pulse、Tor Metrics、OONI、APNIC、RIPE），只用 `.cache/` 裡現有的，沒有就當作讀不到。GitHub 上的 CI 用這個模式，幾秒就完成檢查 |
 
-讀到的資料寫進 `.cache/pulse/`，十分鐘內的建置直接用快取，部署腳本先 `--check` 再建置，同一輪只讀一次 API。API 沒有回應時退回舊的快取，頁面標示資料是快取。連快取都沒有時頁面顯示提示，建置照樣成功，所以 GitHub 上的 CI 不受 API 影響。
+讀到的資料寫進 `.cache/pulse/`，十分鐘內的建置直接用快取，部署腳本先 `--check` 再建置，同一輪只讀一次 API。API 沒有回應時退回舊的快取，頁面標示資料是快取。連快取都沒有時頁面顯示提示，建置照樣成功。GitHub 上的 CI 設了 `WWW_OFFLINE`，不連外部資料，直接走這條路，外部的 API 再慢也不影響檢查的時間。
 
 在本機預覽時讀的是公開的 API，回應經過 Cloudflare 的快取，Pulse 剛改過端點時可能讀到舊的回應，清掉 `/api/summary?country=<代碼>&days=60` 的快取即可。
 
@@ -315,8 +316,9 @@ At build time [`pulse.py`](./pulse.py) reads each country's data from Pulse's `/
 | Environment variable | Purpose |
 |---|---|
 | `PULSE_API` | The API address, `https://anoni.net/api` by default. The deploy script on m6 sets it to the local `http://127.0.0.1:8899/api` |
+| `WWW_OFFLINE` | When set, nothing is read from outside (Pulse, Tor Metrics, OONI, APNIC, RIPE); only what is already in `.cache/` is used, and anything missing counts as unavailable. CI on GitHub runs in this mode and finishes in seconds |
 
-Responses are written to `.cache/pulse/`, and builds within ten minutes reuse the cache. The deploy script runs `--check` before building, so each run reads the API only once. When the API does not respond, the build falls back to the old cache and the page says the data is cached. With no cache at all the page shows a notice and the build still succeeds, so CI on GitHub does not depend on the API.
+Responses are written to `.cache/pulse/`, and builds within ten minutes reuse the cache. The deploy script runs `--check` before building, so each run reads the API only once. When the API does not respond, the build falls back to the old cache and the page says the data is cached. With no cache at all the page shows a notice and the build still succeeds. CI on GitHub sets `WWW_OFFLINE` and takes that path directly without going online, so a slow external API never slows the check down.
 
 A local preview reads the public API, whose responses go through Cloudflare's cache, so right after Pulse changes an endpoint you may get a stale response. Purging the cache for `/api/summary?country=<code>&days=60` fixes it.
 
