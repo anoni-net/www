@@ -18,7 +18,7 @@
 
 ## 狀態
 
-社群頁面在 2026-10 從文件站搬完，導覽列六項都是本站的頁面。文件站部落格裡 2026-10 以前的社群文章留在原址，社群動態的列表直接連過去，名單在 `tools/docs_updates.toml`。
+社群頁面在 2026-10 從文件站搬完，導覽列六項都是本站的頁面。文件站部落格裡 2026-10 以前的 31 篇社群文章也搬到了 `updates/`，舊網址由 nginx 轉過來（#42）。
 
 ## 建置
 
@@ -58,9 +58,9 @@ onion 版本在寫檔前把 `https://anoni.net/docs` 這類 clearnet 網址改�
 
 社群公告寫在 `updates/<語系>/`，一篇一個 Markdown 檔，front matter 要有 `title`、`description` 與 `date`（`YYYY-MM-DD`），網址是 `/updates/YYYY/MM/<檔名>/`，跟文件站部落格的格式一樣。三個語系不強制都有，檔名相同的會互相連成語言切換，沒有對應版本的語系切過去會回到動態列表。
 
-`/updates/` 的列表、首頁的「最新動態」與每個語系的 RSS（`/updates/feed.xml`），除了本站的文章，也列出文件站部落格裡舊的社群文章，點下去連到文件站原本的網址。那份名單寫在 `tools/docs_updates.toml`，執行 `uv run tools/import_from_docs.py --updates` 產生 `data/docs_updates.toml`。
+`/updates/` 的列表、首頁的「最新動態」與每個語系的 RSS（`/updates/feed.xml`）都從 `updates/` 產生。文件站部落格裡 2026-10 以前的社群文章已經全部搬過來，見下方「部署」的搬文章說明。
 
-列表上每一則可以帶一個標籤：`新增`（專案或服務上線）、`活動`（活動公告與回顧）、`更新`（工作進度），顏色照品牌素材頁的「公告 tag」。本站的文章在 front matter 寫 `kind: new`、`event` 或 `update`，文件站的舊文章在名單裡依組別標記。社群的觀點、立場與經驗不加標籤，`kind` 不寫。
+列表上每一則可以帶一個標籤：`新增`（專案或服務上線）、`活動`（活動公告與回顧）、`更新`（工作進度），顏色照品牌素材頁的「公告 tag」。在 front matter 寫 `kind: new`、`event` 或 `update`。社群的觀點、立場與經驗不加標籤，`kind` 不寫。
 
 翻譯、技術分析、觀測報告與文件站自己的更新回顧，照樣發在文件站的部落格。
 
@@ -86,11 +86,11 @@ uv run tools/import_from_docs.py --nginx                    # 重新產生 tools
 
 轉換工具讀的是文件站 clone 的 `origin/main`，站內連結依目標改寫：搬過來的頁面改成本站網址，其他的改成 `docs:` 簡寫，部落格文章從 front matter 組出網址。轉完會拿每個 `docs:` 連結比對文件站的網址合約，找不到或只是轉址都會印警告。卡片格線這類文件站特有的版面元件要手動改寫。
 
-文件站部落格的社群文章搬到 `/updates/` 時，在 `tools/docs_updates.toml` 的 `moved` 加上檔名，再執行 `--import-post`（進度見 #42）。標題取 H1、日期只取發布日、依名單的組別帶上 `kind`，文件站 repo 裡的圖片上傳到 assets.anoni.net 的 `updates/`，上傳目的地放在環境變數 `WWW_UPDATES_RSYNC`。分享圖不搬，改用 `tools/make_og_cards.py` 產生。搬完要重新執行 `--updates` 與 `--nginx`，列表就不再連回文件站，轉址對照表也會加上文章的舊網址。
+文件站部落格的社群文章在 2026-10-11 全部搬到 `/updates/`（#42）。搬的方式是在 `tools/docs_updates.toml` 的 `moved` 加上檔名，再執行 `--import-post`：標題取 H1、日期只取發布日、依名單的組別帶上 `kind`，文件站 repo 裡的圖片上傳到 assets.anoni.net 的 `updates/`，上傳目的地放在環境變數 `WWW_UPDATES_RSYNC`。分享圖不搬，改用 `tools/make_og_cards.py` 產生。`--nginx` 讀 `moved` 產生文章舊網址的 301，文件站已經刪掉的文章改讀刪除前的版本，所以 `moved` 不能拿掉，拿掉的話轉址也會跟著消失。
 
 ```bash
 WWW_UPDATES_RSYNC=<主機>:<目錄> uv run tools/import_from_docs.py --import-post move-to-anoni-net.md
-uv run tools/import_from_docs.py --updates --nginx
+uv run tools/import_from_docs.py --nginx
 ```
 
 舊網址在 m6 的 nginx 用 301 轉過來，clearnet 與 onion 各一份 `map`，把產生的對照表複製到 `/etc/nginx/conf.d/anoni-docs-moved.conf` 再 reload。順序是新頁面先上線，再套轉址，最後在文件站刪原始檔、補 `redirect_maps`。
@@ -235,7 +235,7 @@ Content and code written by the community are called projects. Each has its own 
 
 ## Status
 
-The community pages finished moving over from the docs site in 2026-10, and all six items in the navigation bar now point to pages on this site. Community posts published on the docs site's blog before 2026-10 stay at their original addresses, and the community updates list links straight to them; the list of those posts is in `tools/docs_updates.toml`.
+The community pages finished moving over from the docs site in 2026-10, and all six items in the navigation bar now point to pages on this site. The 31 community posts published on the docs site's blog before 2026-10 have moved to `updates/` as well, with nginx redirecting their old addresses (#42).
 
 ## Building
 
@@ -275,9 +275,9 @@ Before writing files, the onion build rewrites clearnet URLs such as `https://an
 
 Community announcements go in `updates/<locale>/`, one Markdown file per post. The front matter needs `title`, `description` and `date` (`YYYY-MM-DD`), and the URL is `/updates/YYYY/MM/<file name>/`, the same format as the docs site's blog. A post does not need all three locales. Files with the same name are linked to each other by the language switcher, and switching to a locale without that post leads back to the updates list.
 
-The `/updates/` list, the "latest updates" section on the home page and each locale's RSS feed (`/updates/feed.xml`) include older community posts from the docs site's blog alongside this site's own, linking to their original addresses on the docs site. That list is kept in `tools/docs_updates.toml`; run `uv run tools/import_from_docs.py --updates` to generate `data/docs_updates.toml` from it.
+The `/updates/` list, the "latest updates" section on the home page and each locale's RSS feed (`/updates/feed.xml`) are all generated from `updates/`. The community posts published on the docs site's blog before 2026-10 have all moved here; see the note on moving posts under "Deployment" below.
 
-Each entry can carry a tag: `New` (a project or service going live), `Event` (event announcements and recaps) or `Update` (progress reports), coloured as the announcement tags on the brand assets page specify. Posts on this site set `kind: new`, `event` or `update` in their front matter, and older posts on the docs site are tagged by their group in the list. Posts sharing the community's views, positions or experience carry no tag and leave `kind` out.
+Each entry can carry a tag: `New` (a project or service going live), `Event` (event announcements and recaps) or `Update` (progress reports), coloured as the announcement tags on the brand assets page specify. Posts set `kind: new`, `event` or `update` in their front matter. Posts sharing the community's views, positions or experience carry no tag and leave `kind` out.
 
 Translations, technical analyses, measurement reports and the docs site's own update reviews are still published on the docs site's blog.
 
@@ -303,11 +303,11 @@ uv run tools/import_from_docs.py --nginx                    # regenerate tools/n
 
 The converter reads `origin/main` of a docs clone and rewrites internal links by destination: moved pages become URLs on this site, everything else becomes the `docs:` shorthand, and blog post URLs are built from their front matter. Afterwards it checks every `docs:` link against the docs site's URL contract and prints a warning for any link that is missing or only redirects. Layout components specific to the docs site, such as card grids, have to be rewritten by hand.
 
-To move a community post from the docs site's blog to `/updates/`, add its file name to `moved` in `tools/docs_updates.toml` and run `--import-post` (progress in #42). The title comes from the H1, only the publication date is kept, and `kind` follows the post's group in the list. Images in the docs repository are uploaded to `updates/` on assets.anoni.net, with the destination in the `WWW_UPDATES_RSYNC` environment variable. Preview images are not moved; `tools/make_og_cards.py` generates new ones. Afterwards rerun `--updates` and `--nginx`, so the list stops linking to the docs site and the redirect table picks up the post's old URLs.
+The community posts on the docs site's blog all moved to `/updates/` on 2026-10-11 (#42). A post was moved by adding its file name to `moved` in `tools/docs_updates.toml` and running `--import-post`: the title comes from the H1, only the publication date is kept, and `kind` follows the post's group in the list. Images in the docs repository were uploaded to `updates/` on assets.anoni.net, with the destination in the `WWW_UPDATES_RSYNC` environment variable. Preview images were not moved; `tools/make_og_cards.py` generates new ones. `--nginx` reads `moved` to produce 301s for the posts' old URLs, falling back to the version before deletion for posts already removed from the docs site, so `moved` must stay; removing it would drop the redirects too.
 
 ```bash
 WWW_UPDATES_RSYNC=<host>:<directory> uv run tools/import_from_docs.py --import-post move-to-anoni-net.md
-uv run tools/import_from_docs.py --updates --nginx
+uv run tools/import_from_docs.py --nginx
 ```
 
 Old URLs are redirected with a 301 by nginx on m6, with one `map` for clearnet and one for onion. Copy the generated table to `/etc/nginx/conf.d/anoni-docs-moved.conf` and reload. The order is: the new pages go live first, then the redirects are applied, and finally the source files are deleted from the docs site and its `redirect_maps` are updated.

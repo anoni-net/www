@@ -1,16 +1,12 @@
-# 文件站部落格裡屬於「社群本身的事」的舊文章：活動公告與回顧、專案上線、工作進度、
-# 社群的立場與經驗。2026-10-09 起社群公告改發在本站的 updates/，這些舊文章留在文件站
-# 原本的網址，本站的動態列表連過去（toomore/anoni-net-ws#397 的方案 A）。
+# 文件站部落格裡屬於「社群本身的事」的文章：活動公告與回顧、專案上線、工作進度、社群的立場與經驗。
+# 2026-10-11 全部搬到本站的 updates/，舊網址由 m6 的 nginx 回 301（anoni-net/www#42）。
 #
-#   uv run tools/import_from_docs.py --updates   讀這份名單，產生 data/docs_updates.toml
+# 這份名單留著有兩個用途：
+#   uv run tools/import_from_docs.py --nginx   讀 moved，產生文章舊網址的 301（tools/nginx-docs-moved.conf）
+#   uv run tools/import_from_docs.py --import-post <檔名>   搬文章時依組別決定 kind
 #
-# 翻譯、技術分析、觀測報告與文件站自己的更新回顧留在文件站，不列進來。
-# 之後要讓文件站更輕時，再把這些文章搬過來並設轉址。
-#
-# 依類型分組，動態列表依組別加上標籤，規則見品牌素材頁的「公告 tag」。
-#
-# 搬到本站 updates/ 的文章列在 moved，同時仍留在原本的組別（決定 kind）。列在這裡的不再連回
-# 文件站，--nginx 會產生舊網址的 301。搬遷流程見 anoni-net/www#42。
+# 文件站已經刪掉這些文章，工具讀的是刪除前的版本，所以 moved 不能拿掉，拿掉的話轉址也會跟著消失。
+# 之後的社群公告直接寫在 updates/，不再經過文件站。
 moved = [
     "move-to-anoni-net.md",
     "updates-202603.md",

@@ -4,7 +4,7 @@ description: Event announcements, project launches, progress reports and stateme
 lead: Event announcements, project launches and progress reports.
 ---
 
-Translations, technical analysis and measurement reports go on the [docs blog](docs:blog/). This page is for news about the community itself. Community posts from before October 2026 stay at their original addresses on the docs site, are marked "Docs" in the list, and link there.
+Translations, technical analysis and measurement reports go on the [docs blog](docs:blog/). This page is for news about the community itself. Community posts published on the docs blog before October 2026 have moved here too, and their old addresses redirect automatically.
 
 To follow new updates, subscribe to the [RSS feed](/en/updates/feed.xml) or the [newsletter](/contact/).
 
