@@ -15,7 +15,9 @@ When you need to send personal data, leaked material, or sensitive collaboration
 
 The upload produces a share link. Copy it and send it to the recipient to complete the transfer.
 
-The password matters more than it looks. A Send link on its own is a bearer token: anyone who obtains it can download the file. Agree on the password through a different channel from the one carrying the link, so that compromising one channel is not enough.
+!!! danger "Send the link and the password separately"
+
+    A Send link on its own is a bearer token: anyone who obtains it can download the file. Agree on the password through a different channel from the one carrying the link, so that compromising one channel is not enough.
 
 !!! info ""
 

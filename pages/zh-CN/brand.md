@@ -287,6 +287,18 @@ wordmark 的文字已经转成路径，打开的设备有没有装字体都长�
 | `--neutral-muted`  | <span class="color-swatch" style="background:#546e7a"></span>`#546e7a` | 次要文字、背景角色（如首页「我们关注的参与者」卡片） |
 | `--neutral-border` | <span class="color-swatch" style="background:#cdcdcd"></span>`#cdcdcd` | 图片、卡片边框 |
 
+### 网页上的深浅版本
+
+品牌的绿与橘在白底的对比不到 4.5，当文字、细线或白字按钮的底色都不够清楚。社群首页用下面的版本，文档站与其他网页也照这张表。`--accent-action` 是白字按钮的底色，两种模式相同。印刷、简报与大面积色块仍用上方的品牌原色。
+
+| Token | 品牌原色 | 浅色模式 | 深色模式 |
+|---|---|---|---|
+| `--accent-action` | <span class="color-swatch" style="background:#ef6c00"></span>`#ef6c00` | <span class="color-swatch" style="background:#c25400"></span>`#c25400` | <span class="color-swatch" style="background:#c25400"></span>`#c25400` |
+| `--accent-emergency` | <span class="color-swatch" style="background:#d32f2f"></span>`#d32f2f` | <span class="color-swatch" style="background:#d32f2f"></span>`#d32f2f` | <span class="color-swatch" style="background:#e57373"></span>`#e57373` |
+| `--cat-privacy` | <span class="color-swatch" style="background:#4caf50"></span>`#4caf50` | <span class="color-swatch" style="background:#2e7d32"></span>`#2e7d32` | <span class="color-swatch" style="background:#81c784"></span>`#81c784` |
+| `--cat-relay` | <span class="color-swatch" style="background:#7b1fa2"></span>`#7b1fa2` | <span class="color-swatch" style="background:#7b1fa2"></span>`#7b1fa2` | <span class="color-swatch" style="background:#ce93d8"></span>`#ce93d8` |
+| `--cat-payments` | <span class="color-swatch" style="background:#ef6c00"></span>`#ef6c00` | <span class="color-swatch" style="background:#c25400"></span>`#c25400` | <span class="color-swatch" style="background:#ffa040"></span>`#ffa040` |
+
 ### Logo 专用
 
 | 颜色 | Hex | 用途 |
