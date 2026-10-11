@@ -49,7 +49,7 @@
   --oc-failure: #a3b1b7;
 
   --radius: 8px;
-  /* 外框最寬 42rem，桌機 18px 時內文一行約 37 個中文字 */
+  /* 外框最寬 42rem，內文 17px（手機與桌機相同，跟新聞導讀一致），桌機一行約 37 個中文字 */
   --sheet: 42rem;
   --font: system-ui, -apple-system, "Segoe UI", "Noto Sans TC", "Noto Sans CJK TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
 }
@@ -605,7 +605,6 @@ footer .onion { word-break: break-all; font-size: .75rem; margin-top: .75rem; }
 footer .license { font-size: .75rem; }
 
 @media (min-width: 768px) {
-  html { font-size: 18px; }
   body { padding-top: 2.5rem; }
   .sheet { padding: 1.5rem 2.25rem 2rem; }
 }
