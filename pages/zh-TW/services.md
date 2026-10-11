@@ -15,7 +15,7 @@ Matrix 與 CryptPad 需要人工開帳號，請來信 <whisper@anoni.net> 申請
 1. 網頁版用 [Element](https://matrix.anoni.net/)，手機[下載 Element X](https://element.io/download) 之後把家伺服器設成 `im.anoni.net`。已經有 `matrix.org` 帳號的話，照樣可以用原本的帳號登入。
 2. 註冊之後打開社群的 [Public Space](https://matrix.to/#/#community:im.anoni.net)，一次加入社群相關的房間，或依需要加入個別房間。
 
-為什麼自架 Matrix，以及背後的隱私取捨，見[從 Discord 年齡驗證談起：我們為什麼自架 Matrix](docs:blog/2026/02/2026-discord-matrix-statement/)。
+為什麼自架 Matrix，以及背後的隱私取捨，見[從 Discord 年齡驗證談起：我們為什麼自架 Matrix](/updates/2026/02/2026-discord-matrix-statement/)。
 
 ## 使用上的提醒
 

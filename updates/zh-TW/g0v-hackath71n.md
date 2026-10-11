@@ -32,6 +32,6 @@ kind: event
 - [<i data-icon="fontawesome-regular-circle-question"></i> 網路自由為什麼重要？](docs:basics/internet-freedom/)
 - [<i data-icon="octicons-mark-github-24"></i> 專案研究預先準備](docs:community/setup-repo/)
 - [<i data-icon="simple-readdotcv"></i> 2026 規劃藍圖](/updates/2026/01/2025to2026/)
-- [<i data-icon="simple-readdotcv"></i> 在台師大架設 Tor Relay](docs:blog/2025/12/ntnu-nz/)
+- [<i data-icon="simple-readdotcv"></i> 在台師大架設 Tor Relay](/updates/2025/12/ntnu-nz/)
 
 </div>

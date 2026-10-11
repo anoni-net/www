@@ -15,7 +15,7 @@ Most importantly, we have started preparing for the "[Anonymous Network Workshop
 
 ## Recruiting Staff and Training Helpers for the "Anonymous Network Workshop"
 
-We plan to host the "[Anonymous Network Workshop](/events/workshop-2025/)" at this year's COSCUP 2025 conference, continuing from [the workshop held before RightsCon](docs:blog/2025/02/rightscon25-tor-tails-ooni/). This time, we will focus on translating and localizing the teaching materials and conduct the sessions in Mandarin. Before the event in 2025/08, we will provide training for helpers on Tor/Tails, and OONI, enabling them to lead participants more effectively on the day of the workshop to understand the importance of anonymous networks and internet freedom.
+We plan to host the "[Anonymous Network Workshop](/events/workshop-2025/)" at this year's COSCUP 2025 conference, continuing from [the workshop held before RightsCon](/updates/2025/02/rightscon25-tor-tails-ooni/). This time, we will focus on translating and localizing the teaching materials and conduct the sessions in Mandarin. Before the event in 2025/08, we will provide training for helpers on Tor/Tails, and OONI, enabling them to lead participants more effectively on the day of the workshop to understand the importance of anonymous networks and internet freedom.
 
 Over the next three months, we also need event planning staff to assist with coordination, promotion, registration, notifications, and other event-related tasks. We welcome shy newcomers to join us in organizing the event and gradually get to know us and the issues of anonymous networks and internet freedom.
 

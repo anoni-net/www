@@ -12,7 +12,7 @@ Time flies, and March is almost over! The first quarter of 2025 is also coming t
 
 ![](https://assets.anoni.net/updates/tor-tails-workshop-slide-045752ea.webp){ .shot }
 
-RightsCon 2025 was successfully held in the last week of February. The day before the event, we [organized](docs:blog/2025/02/rightscon25-tor-tails-ooni/) a workshop with the Tor/Tails and OONI teams, attracting over 300 participants. It was somewhat surprising to have such a large number of registrations, and we appreciate the support from the Tor/Tails and OONI teams. We also thank the volunteers and other partners from the Open Culture Foundation for their support in assisting RightsCon, providing us with strong support despite the shortage of manpower.
+RightsCon 2025 was successfully held in the last week of February. The day before the event, we [organized](/updates/2025/02/rightscon25-tor-tails-ooni/) a workshop with the Tor/Tails and OONI teams, attracting over 300 participants. It was somewhat surprising to have such a large number of registrations, and we appreciate the support from the Tor/Tails and OONI teams. We also thank the volunteers and other partners from the Open Culture Foundation for their support in assisting RightsCon, providing us with strong support despite the shortage of manpower.
 
 After the event, we compiled a summary article and presentation collection from this workshop and lecture. Whether you participated on the day or wish to review the event's content, you can refer to the contents of [this article](/updates/2025/03/rightscon25-tor-tails-ooni-after/).
 

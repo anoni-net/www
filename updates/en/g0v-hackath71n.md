@@ -38,6 +38,6 @@ The January 25 hackathon will focus on advancing <i data-icon="simple-readdotcv"
 - [<i data-icon="fontawesome-regular-circle-question"></i> Why does Internet Freedom matter?](docs:basics/internet-freedom/)
 - [<i data-icon="octicons-mark-github-24"></i> Development environment setup](/join/)
 - [<i data-icon="simple-readdotcv"></i> 2026 Roadmap](/updates/2026/01/2025to2026/)
-- [<i data-icon="simple-readdotcv"></i> Setting Up a Tor Relay at National Taiwan Normal University](docs:blog/2025/12/ntnu-nz/)
+- [<i data-icon="simple-readdotcv"></i> Setting Up a Tor Relay at National Taiwan Normal University](/updates/2025/12/ntnu-nz/)
 
 </div>

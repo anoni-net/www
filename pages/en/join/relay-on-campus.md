@@ -32,7 +32,7 @@ What the community is building is a reproducible method: the full deployment pro
 
 ## Related articles
 
-- **The case**: [setting up a Tor relay at National Taiwan Normal University](docs:blog/2025/12/ntnu-nz/), an account of working the proposal through the institution
+- **The case**: [setting up a Tor relay at National Taiwan Normal University](/updates/2025/12/ntnu-nz/), an account of working the proposal through the institution
 - **International**: [our guest post on the Tor Project blog](https://blog.torproject.org/setting-up-tor-university-relay-taiwan/)
 - **Technical how-to**: [how to run a Tor relay](docs:community/setup-tor-relay/), [how to run a Tor WebTunnel bridge](docs:community/setup-tor-webtunnel/)
 - **Observation**: [Tor Relay Watch](/projects/pulse/)
@@ -44,7 +44,7 @@ What the community is building is a reproducible method: the full deployment pro
 - **A guest post on the Tor Project blog**: the case written up in English and [published upstream](https://blog.torproject.org/setting-up-tor-university-relay-taiwan/), putting it in front of a global audience
 - **Tor University Challenge translated**: the [EFF site](https://toruniversity.eff.org/) translated into Traditional Chinese, lowering the language barrier for other universities in Taiwan
 - **Tor Relay Watch live**: [the watch page](/projects/pulse/) shows relays in Taiwan and fourteen other regions, updated hourly
-- **An interview**: the full deployment story recorded as a [long-form interview](docs:blog/2025/12/ntnu-nz/) for whoever goes next
+- **An interview**: the full deployment story recorded as a [long-form interview](/updates/2025/12/ntnu-nz/) for whoever goes next
 - **The template kit**: the experience turned into a proposal document, a technical SOP, and an FAQ for university administrators, all reusable as-is
 
 ## The template kit
@@ -55,7 +55,7 @@ Assembled from NZ's work at National Taiwan Normal University, the kit exists to
 - [Campus Tor relay deployment SOP](docs:community/campus-tor-relay-sop/): `torrc`, firewall rules, the status page, monitoring, and an incident runbook
 - [Campus Tor relay FAQ for administrators and legal counsel](docs:community/campus-relay-faq/): the questions universities ask, with answers
 
-Suggested reading order: start with the [interview](docs:blog/2025/12/ntnu-nz/) for the whole picture, then pick the file matching your role. Proposers read the proposal template, operators read the SOP, and anyone heading into a meeting with the university brings the FAQ.
+Suggested reading order: start with the [interview](/updates/2025/12/ntnu-nz/) for the whole picture, then pick the file matching your role. Proposers read the proposal template, operators read the SOP, and anyone heading into a meeting with the university brings the FAQ.
 
 ## In progress
 

@@ -17,7 +17,7 @@ description: 2026 年匿名网络社群 anoni.net 的三大主题、文件站建
 
 ### Tor Relay 校园建立
 
-这项计划源自 EFF 与 Tor Project 合作推动的 [Tor University Challenge](https://toruniversity.eff.org/zh-tw/)，目标在大专院校建置稳定的中继节点。台湾已有成功案例：国立台湾师范大学资讯工程学系资讯中心已运行一个 Tor Relay 中继，由社群伙伴透过教授与教职员提案、协调后完成。详细经过可参考 [台师大 NZ 访谈](docs:blog/2025/12/ntnu-nz/)。
+这项计划源自 EFF 与 Tor Project 合作推动的 [Tor University Challenge](https://toruniversity.eff.org/zh-tw/)，目标在大专院校建置稳定的中继节点。台湾已有成功案例：国立台湾师范大学资讯工程学系资讯中心已运行一个 Tor Relay 中继，由社群伙伴透过教授与教职员提案、协调后完成。详细经过可参考 [台师大 NZ 访谈](/updates/2025/12/ntnu-nz/)。
 
 2025 我们完成了 Tor University Challenge 网站的正体中文翻译，2026 将实际走进校园推动建置流程。
 

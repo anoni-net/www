@@ -72,7 +72,7 @@ We self-host more than CryptPad. There is also [Etherpad](https://pad.anoni.net/
 
 **AGPLv3 licence, public cryptographic protocol**: Any derived service has to remain open, so when we self-host we can audit the code top to bottom. The cryptographic protocol and data structures are also public — like Tor, Tails, and OONI, this is privacy that is verifiable rather than asserted.
 
-**Governance stays with maintainers and the community**: The same reasoning we wrote up in [why we self-host Matrix](docs:blog/2026/02/2026-discord-matrix-statement/) applies here. Retention policy, registration policy, channel rules are decisions we make ourselves; they are predictable, accountable, and can move with the community’s needs.
+**Governance stays with maintainers and the community**: The same reasoning we wrote up in [why we self-host Matrix](/updates/2026/02/2026-discord-matrix-statement/) applies here. Retention policy, registration policy, channel rules are decisions we make ourselves; they are predictable, accountable, and can move with the community’s needs.
 
 **Real European public-sector and civil-society deployments**: CryptPad is in use across multiple European government projects, NGOs, and research groups. Compliance, reliability, and long-term maintenance all have a track record. When we recommend it to more Chinese-reading users, we are not pointing them at a demo-grade toy.
 
@@ -121,5 +121,5 @@ If you spot a typo, awkward wording, or a new string that hasn’t been translat
 
 ## Further reading
 
-- [From Discord’s Age Verification to Why We Self-Host Matrix](docs:blog/2026/02/2026-discord-matrix-statement/)
+- [From Discord’s Age Verification to Why We Self-Host Matrix](/updates/2026/02/2026-discord-matrix-statement/)
 - [Community](/join/)
