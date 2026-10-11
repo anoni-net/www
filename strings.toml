@@ -2,7 +2,6 @@
 
 [zh-TW]
 all_updates = "所有動態"
-from_docs = "文件站"
 kind_new = "新增"
 kind_event = "活動"
 kind_update = "更新"
@@ -45,7 +44,6 @@ join_how = "參與方式"
 
 [zh-CN]
 all_updates = "所有动态"
-from_docs = "文档站"
 kind_new = "新增"
 kind_event = "活动"
 kind_update = "更新"
@@ -88,7 +86,6 @@ join_how = "参与方式"
 
 [en]
 all_updates = "All updates"
-from_docs = "Docs"
 kind_new = "New"
 kind_event = "Event"
 kind_update = "Update"

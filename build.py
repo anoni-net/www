@@ -63,7 +63,7 @@ PULSE_SLUG = "projects/pulse"
 ASN_SLUG = "projects/asn-coverage"
 REPORTS_SLUG = "projects/reports"
 # 社群動態的標籤：新增（專案或服務上線）、活動、更新（工作進度）。觀點、立場與經驗不加標籤。
-# 顏色照品牌素材頁的「公告 tag」，文件站的舊文章在 tools/docs_updates.toml 依組別標記
+# 顏色照品牌素材頁的「公告 tag」
 UPDATE_KINDS = ("new", "event", "update")
 # 季報各期的圖表，名稱對應 templates/_report.html.j2 的 macro，Markdown 裡寫成 <!-- rq-relays-chart -->
 REPORT_BLOCKS = ("relays_stats", "relays_chart", "churn", "upgrade", "asn", "density", "ooni_stats",
@@ -227,15 +227,9 @@ class Site:
         return sorted(items, key=lambda i: i["href"].rstrip("/").rsplit("/", 1)[-1], reverse=True)
 
     def updates_for(self, lang: Lang) -> list[dict]:
-        """動態列表：本站的新文章加上文件站舊的社群文章，由新到舊。"""
+        """動態列表，由新到舊。文件站部落格的舊社群文章 2026-10 全部搬到 updates/（#42）。"""
         items = [{"date": p.date, "title": p.meta["title"], "summary": p.meta["description"],
-                  "href": p.path, "source": "www", "kind": p.meta.get("kind")} for p in self.posts[lang.code]]
-        for old in self.data.get("docs_updates", {}).get("posts", []):
-            if lang.code in old:
-                items.append({"date": old["date"], "title": old[lang.code]["title"],
-                              "summary": old[lang.code]["summary"],
-                              "href": self.product_url("docs", lang, old[lang.code]["url"]),
-                              "source": "docs", "kind": old.get("kind")})
+                  "href": p.path, "kind": p.meta.get("kind")} for p in self.posts[lang.code]]
         return sorted(items, key=lambda i: i["date"], reverse=True)
 
     # 網址

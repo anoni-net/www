@@ -3,7 +3,6 @@
     uv run tools/import_from_docs.py --import about/governance join/roadmap-2026
     uv run tools/import_from_docs.py --import-all     # docs_moved.toml 裡 import = true 的全部
     uv run tools/import_from_docs.py --nginx          # 重新產生 tools/nginx-docs-moved.conf
-    uv run tools/import_from_docs.py --updates        # 從 tools/docs_updates.toml 產生 data/docs_updates.toml
     WWW_UPDATES_RSYNC=<主機>:<目錄> uv run tools/import_from_docs.py --import-post move-to-anoni-net.md
 
 讀的是文件站的 git（預設 ../anoni-net-docs 的 origin/main），不是工作目錄，所以本機
@@ -417,50 +416,6 @@ def import_pages(pages: list[str], docs: Path, ref: str) -> int:
 UPDATE_KINDS = ("new", "event", "update")
 
 
-def updates_index(docs: Path, ref: str) -> str:
-    """文件站舊的社群文章：每篇每個語系的標題、日期、摘要與網址，給動態列表用。"""
-    groups, moved_names = load_update_groups()
-    # 依組別帶上類型，community（觀點、立場、經驗）不加標籤。已經搬到本站的不列，本站有自己的那一篇
-    names = [(name, kind) for kind, items in groups.items() for name in items if name not in moved_names]
-    blog_url = blog_resolver(docs, ref)
-    contract = git_show(docs, ref, "tools/data/url_contract.txt") or ""
-    published = {line.split(" ")[0] for line in contract.splitlines()
-                 if line.startswith("/") and " -> " not in line}
-    out = ["# 由 tools/import_from_docs.py --updates 從 tools/docs_updates.toml 產生，不要手改。",
-           "# 文件站舊的社群文章，本站的動態列表連過去。url 是文件站同語系底下的路徑。", ""]
-    for name, kind in names:
-        out.append("[[posts]]")
-        if kind in UPDATE_KINDS:
-            out.append(f'kind = "{kind}"')
-        for lang in LANGS:
-            path = f"docs/{lang}/blog/posts/{name}"
-            text = git_show(docs, ref, path)
-            if text is None:
-                continue
-            meta = yaml.safe_load(text.split("---\n", 2)[1]) or {}
-            h1 = re.search(r"^# (.+)$", text.split("---\n", 2)[2], re.M)
-            title = ICON.sub("", h1[1] if h1 else meta.get("title", "")).strip()
-            summary = (meta.get("summary") or meta.get("description") or "").strip()
-            # 列表與 RSS 用純文字，拿掉 Markdown 的行內程式碼與連結
-            summary = re.sub(r"\[([^\]]+)\]\([^)]+\)", r"\1", summary).replace("`", "")
-            date = meta.get("date")
-            if isinstance(date, dict):
-                date = date.get("created")
-            url = blog_url(lang, f"blog/posts/{name}")
-            if f"{LANGS[lang]}/{url}" not in published:
-                # 例如 redirect_maps 剛好佔用了文章的網址，文章本身沒有發布出去
-                print(f"  ! {path}：{LANGS[lang]}/{url} 在文件站不是正式頁面，這個語系不列", file=sys.stderr)
-                continue
-            if lang == "zh-TW":
-                out.append(f"date = {str(date)[:10]}")
-            out.append(f"[posts.{lang}]")
-            out.append(f"title = {json.dumps(title, ensure_ascii=False)}")
-            out.append(f"summary = {json.dumps(summary, ensure_ascii=False)}")
-            out.append(f"url = {json.dumps(url)}")
-        out.append("")
-    return "\n".join(out)
-
-
 def nginx_conf(docs: Path, ref: str) -> str:
     moved = load_moved()
     _, moved_names = load_update_groups()
@@ -514,7 +469,6 @@ def main() -> int:
     parser.add_argument("--import", dest="pages", nargs="+", metavar="PAGE", help="要搬的頁面")
     parser.add_argument("--import-all", action="store_true", help="搬 import = true 的全部頁面")
     parser.add_argument("--nginx", action="store_true", help="重新產生 nginx 對照表")
-    parser.add_argument("--updates", action="store_true", help="重新產生文件站舊社群文章的清單")
     parser.add_argument("--import-post", dest="posts", nargs="+", metavar="FILE",
                         help="把部落格文章搬到 updates/，檔名照 tools/docs_updates.toml，例如 move-to-anoni-net.md")
     parser.add_argument("--docs", type=Path, default=DEFAULT_DOCS, help="文件站的 clone")
@@ -530,10 +484,7 @@ def main() -> int:
     if args.nginx:
         NGINX.write_text(nginx_conf(args.docs, args.ref), encoding="utf-8")
         print(f"寫入 {NGINX.relative_to(ROOT)}")
-    if args.updates:
-        (ROOT / "data" / "docs_updates.toml").write_text(updates_index(args.docs, args.ref), encoding="utf-8")
-        print("寫入 data/docs_updates.toml")
-    if not (args.pages or args.posts or args.nginx or args.updates):
+    if not (args.pages or args.posts or args.nginx):
         parser.print_help()
     return 0
 
