@@ -33,6 +33,7 @@ from markupsafe import Markup
 import asn_coverage
 import charts
 import diagrams
+import latest
 import og_cards
 import pulse
 import region_map
@@ -319,6 +320,8 @@ class Site:
             "nav": self.config["nav"],
             "docs_url": lambda path="": self.product_url("docs", lang, path),
             "news_url": lambda path="": self.product_url("news", lang, path),
+            "product_url": lambda product, other, path="": self.product_url(product, other, path),
+            "latest": lambda product, count: latest.load(product, lang.prefix, CACHE / "latest", count),
             "page_url": lambda slug: self.page_path(lang, slug),
             "pick": lambda value: value[lang.code] if isinstance(value, dict) else value,
             "service_url": lambda svc: self.service_url(svc, target),
