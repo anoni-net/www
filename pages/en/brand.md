@@ -287,6 +287,18 @@ Align derivative work to these values. The site's `extra.css` already defines th
 | `--neutral-muted`  | <span class="color-swatch" style="background:#546e7a"></span>`#546e7a` | Secondary text, background roles |
 | `--neutral-border` | <span class="color-swatch" style="background:#cdcdcd"></span>`#cdcdcd` | Image and card borders |
 
+### Web variants
+
+The brand green and orange fall short of 4.5:1 contrast on white, which is not enough for text, thin lines or the background of a button with white text. The community site uses the variants below, and the docs site and other web pages should follow the same table. `--accent-action` is the background of buttons with white text, so it is the same in both modes. Print, slides and large colour blocks keep the brand colours above.
+
+| Token | Brand colour | Light mode | Dark mode |
+|---|---|---|---|
+| `--accent-action` | <span class="color-swatch" style="background:#ef6c00"></span>`#ef6c00` | <span class="color-swatch" style="background:#c25400"></span>`#c25400` | <span class="color-swatch" style="background:#c25400"></span>`#c25400` |
+| `--accent-emergency` | <span class="color-swatch" style="background:#d32f2f"></span>`#d32f2f` | <span class="color-swatch" style="background:#d32f2f"></span>`#d32f2f` | <span class="color-swatch" style="background:#e57373"></span>`#e57373` |
+| `--cat-privacy` | <span class="color-swatch" style="background:#4caf50"></span>`#4caf50` | <span class="color-swatch" style="background:#2e7d32"></span>`#2e7d32` | <span class="color-swatch" style="background:#81c784"></span>`#81c784` |
+| `--cat-relay` | <span class="color-swatch" style="background:#7b1fa2"></span>`#7b1fa2` | <span class="color-swatch" style="background:#7b1fa2"></span>`#7b1fa2` | <span class="color-swatch" style="background:#ce93d8"></span>`#ce93d8` |
+| `--cat-payments` | <span class="color-swatch" style="background:#ef6c00"></span>`#ef6c00` | <span class="color-swatch" style="background:#c25400"></span>`#c25400` | <span class="color-swatch" style="background:#ffa040"></span>`#ffa040` |
+
 ### Logo fills
 
 | Colour | Hex | Use |

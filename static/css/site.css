@@ -32,6 +32,12 @@
   --topic-relay: #7b1fa2;
   --topic-payments: #c25400;
 
+  /* 品牌的 --accent-action（橘）與 --accent-emergency（紅）。按鈕是白字，品牌的橘 #ef6c00
+     對比只有 3.1，用深一階的版本 */
+  --action: #c25400;
+  --action-hover: #a84800;
+  --danger: #d32f2f;
+
   --radius: 8px;
   /* 外框最寬 42rem，桌機 18px 時內文一行約 37 個中文字 */
   --sheet: 42rem;
@@ -58,6 +64,7 @@
     --topic-privacy: #81c784;
     --topic-relay: #ce93d8;
     --topic-payments: #ffa040;
+    --danger: #e57373;
   }
 }
 
@@ -159,6 +166,9 @@ p, li, .lead, .row .d, .row .t, h1, h3 { text-wrap: pretty; }
 /* admonition 用線框，不填色 */
 .admonition { border: 1px solid var(--c-line); border-radius: var(--radius); padding: .25rem 1.1rem; margin: 1rem 0; }
 .admonition-title { color: var(--c-accent); font-weight: 700; margin-bottom: .25rem; }
+/* danger 只用在安全警告，照品牌的配色守則用紅色，一般的提醒用 warning、維持 cyan */
+.admonition.danger { border-color: var(--danger); background: color-mix(in srgb, var(--danger) 6%, var(--c-bg)); }
+.admonition.danger .admonition-title { color: var(--danger); }
 
 /* 從文件站搬過來的頁面用到的元件：折疊區塊、分頁、待辦清單、卡片格線、註腳、議程標籤。
    照細線單色的規格：線框不填色，強調用 cyan，不用其他色相。 */
@@ -325,10 +335,12 @@ p, li, .lead, .row .d, .row .t, h1, h3 { text-wrap: pretty; }
 .toolrow .i { color: var(--c-icon); }
 .more { display: inline-flex; align-items: center; gap: .25rem; font-size: .9rem; }
 
-/* 按鈕：實心的只有一個，其他是線框膠囊 */
+/* 按鈕：實心的只有一個，其他是線框膠囊。實心按鈕是要讀者採取行動的（報名、訂閱、加入、投稿），
+   照品牌的配色守則用橘色 */
 .btns { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1rem 0; }
 .btn { display: inline-flex; align-items: center; gap: .4rem; padding: .4rem .9rem; border: 1px solid var(--c-line); border-radius: 999px; text-decoration: none; font-size: .92rem; }
-.btn.solid { background: var(--c-solid); border-color: var(--c-solid); color: #fff; }
+.btn.solid { background: var(--action); border-color: var(--action); color: #fff; }
+.btn.solid:hover, .btn.solid:focus-visible { background: var(--action-hover); border-color: var(--action-hover); }
 
 /* 品牌素材頁：logo 放在四種底色上示範，底色是示範的內容，深色模式也不換 */
 /* 每組都是四張，手機一欄、桌機排成 2×2，不會剩一張落單 */
