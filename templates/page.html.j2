@@ -3,6 +3,9 @@
 {% if page.parent %}
 <p class="crumb"><a href="{{ page_url(page.parent) }}">{{ t['nav_' ~ page.parent] }}</a></p>
 {% endif %}
+{% if page.get('topic') %}
+<p class="topic-tag topic-{{ page.topic.cat }}">{{ icon(page.topic.icon) }}{{ t.topic_tag }}</p>
+{% endif %}
 <h1>{{ page.title }}</h1>
 {% if page.lead is defined %}
 <p class="lead">{{ page.lead }}</p>

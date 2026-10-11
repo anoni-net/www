@@ -426,6 +426,10 @@ class Site:
                 "path": self.page_path(lang, slug),
                 "alternates": [(other, self.page_path(other, slug)) for other in self.langs],
             }
+            # 三大主題的頁面，頁首放一個主題色的標籤
+            topic = next((tp for tp in self.data.get("topics", {}).get("topics", []) if tp["page"] == slug), None)
+            if topic:
+                page["topic"] = topic
             page = self.with_card(lang, page, self.section_label(lang, page["section"]))
             text = self.env.get_template(f"{template}.html.j2").render(
                 **self.context(lang, target), page=page, body=Markup(body_html))
