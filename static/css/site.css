@@ -337,7 +337,9 @@ p, li, .lead, .row .d, .row .t, h1, h3 { text-wrap: pretty; }
 .card a.n { color: var(--c-strong); font-weight: 700; font-size: 1.1rem; text-decoration: none; }
 .card a.n::after { content: ""; position: absolute; inset: 0; border-radius: var(--radius); }
 .card .p { display: block; color: var(--c-accent); font-size: .8rem; line-height: 1.4; }
-.card p { margin: .65rem 0 .6rem; font-size: .92rem; line-height: 1.7; }
+/* 全站的段落用 text-wrap: pretty。Safari 會重排整段讓每行等長，卡片的簡介每行都提早斷行，
+   右邊空出好幾個字，這裡改回一般的換行 */
+.card p { margin: .65rem 0 .6rem; font-size: .92rem; line-height: 1.7; text-wrap: wrap; }
 .card ul.card-latest { list-style: none; margin: 0 0 .6rem; padding: .5rem 0 0; border-top: 1px solid var(--c-hair); }
 .card-latest li { display: grid; grid-template-columns: 2.6rem 1fr; gap: .4rem; margin: .2rem 0; font-size: .85rem; line-height: 1.55; }
 .card-latest time { color: var(--c-muted); font-variant-numeric: tabular-nums; }
