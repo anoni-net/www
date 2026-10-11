@@ -6,7 +6,7 @@ lead: Open-source software the community runs for anyone to use.
 
 This software is developed by other open-source projects, and the community sets it up, updates it and keeps it running. We run it ourselves to depend less on third parties, keep control of our data, and give community discussion and sensitive collaboration a foundation we can vouch for. The content and code the community writes itself are listed under [projects](/projects/).
 
-Matrix, CryptPad and the Formbricks backend need an account issued by a person, so write to <whisper@anoni.net>. The community works asynchronously, so expect a reply within a day or two.
+Matrix and CryptPad need an account issued by a person, so write to <whisper@anoni.net>. The community works asynchronously, so expect a reply within a day or two. Formbricks is used only for the community's own forms, such as the [newsletter sign-up](/contact/), and is not open for creating forms.
 
 <!-- services -->
 
