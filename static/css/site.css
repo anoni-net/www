@@ -623,3 +623,52 @@ footer .license { font-size: .75rem; }
 @keyframes pc-growx { from { transform: scaleX(0); } }
 @keyframes pc-wipe { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
 @keyframes rm-in { from { opacity: 0; } }
+
+/* 示意圖（diagrams.py）：關於頁的社群全貌、關注地區與時間軸。SVG 的畫布照手機寬度設計，
+   桌機用 max-width 限制放大的倍數，圖上的字才跟內文差不多大 */
+.topic-observe { --topic: var(--c-accent); }
+.dg-fig { margin: 1.25rem auto 1.5rem; }
+.dg-fig figcaption { margin-top: .4rem; font-size: .8rem; line-height: 1.6; color: var(--c-muted); }
+.dg-fig-community { max-width: 30rem; }
+.dg { display: block; width: 100%; height: auto; overflow: visible; font-family: var(--font); }
+.dg-link { stroke: var(--topic); stroke-width: 1.5; stroke-dasharray: 4 4; opacity: .7; }
+.dg-hub { fill: var(--c-fill); stroke: var(--c-line); stroke-width: 1; }
+.dg-hub-t { fill: var(--c-strong); font-size: 14px; font-weight: 700; }
+.dg-dot { fill: var(--topic); }
+.dg-ic { fill: var(--c-bg); }
+.dg-name { fill: var(--c-strong); font-size: 15px; font-weight: 700; }
+.dg-item { fill: var(--c-muted); font-size: 12.5px; }
+.dg-node:hover .dg-name, .dg-node:focus .dg-name { fill: var(--topic); text-decoration: underline; }
+.dg-node:hover .dg-dot, .dg-node:focus .dg-dot { stroke: var(--c-strong); stroke-width: 2; }
+.dg-fig-regions { max-width: 28rem; }
+.rmap.dg-regions { border: 0; background: none; }
+.rmap .rm-first { fill: var(--c-strong); }
+.rmap .rm-second { fill: color-mix(in srgb, var(--c-accent) 55%, var(--c-bg)); }
+.rm-sw-first { background: var(--c-strong); }
+.rm-sw-second { background: color-mix(in srgb, var(--c-accent) 55%, var(--c-bg)); }
+/* 地圖裁切之後畫布仍有五百多單位寬，字級用畫布的單位，手機上約 11px、桌機約 15px */
+.dg-label { fill: var(--c-text); font-size: 18px; paint-order: stroke; stroke: var(--c-bg); stroke-width: 4px; stroke-linejoin: round; }
+.dg-label-first { fill: var(--c-strong); font-weight: 700; }
+/* 時間軸：左邊一條線，每一筆一個圓點，顏色跟社群動態的標籤同一套 */
+ol.tl { list-style: none; margin: 1.25rem 0 1.5rem; padding: 0; }
+.tl li { position: relative; display: grid; grid-template-columns: 4.6rem 1fr; gap: .1rem .75rem; margin: 0 0 0 .4rem; padding: 0 0 1rem 1.25rem; border-left: 2px solid var(--c-hair); }
+.tl li:last-child { border-left-color: transparent; }
+.tl li::before { content: ""; position: absolute; left: calc(-.4rem - 1px); top: .35rem; width: .8rem; height: .8rem; border-radius: 50%; background: var(--dot, var(--c-accent)); box-shadow: 0 0 0 3px var(--c-bg); }
+.tl .tl-origin { --dot: var(--c-strong); }
+.tl .tl-new { --dot: var(--ut-new); }
+.tl .tl-event { --dot: var(--ut-event); }
+.tl .tl-update { --dot: var(--ut-update); }
+.tl-when { font-size: .85rem; color: var(--c-muted); font-variant-numeric: tabular-nums; padding-top: .05rem; }
+.tl-t { display: block; font-weight: 700; }
+.tl-d { display: block; color: var(--c-muted); font-size: .9rem; line-height: 1.6; }
+@media (max-width: 560px) {
+  .tl li { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .dg-node { animation: rm-in .6s ease-out both; }
+  .dg-node:nth-of-type(2) { animation-delay: .1s; }
+  .dg-node:nth-of-type(3) { animation-delay: .2s; }
+  .dg-node:nth-of-type(4) { animation-delay: .3s; }
+  .dg-link { animation: pc-wipe-dash .8s ease-out both; }
+}
+@keyframes pc-wipe-dash { from { opacity: 0; } }

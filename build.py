@@ -32,6 +32,7 @@ from markupsafe import Markup
 
 import asn_coverage
 import charts
+import diagrams
 import og_cards
 import pulse
 import region_map
@@ -272,7 +273,32 @@ class Site:
         regional = {"_block-pulse.html.j2", "_block-asn-coverage.html.j2"}
         names = [p.name.removeprefix("_block-").removesuffix(".html.j2")
                  for p in TEMPLATES.glob("_block-*.html.j2") if p.name not in regional]
-        return {n: self.env.get_template(f"_block-{n}.html.j2").render(**ctx) for n in names}
+        blocks = {n: self.env.get_template(f"_block-{n}.html.j2").render(**ctx) for n in names}
+        return {**blocks, **self.diagram_blocks(lang, ctx)}
+
+    def diagram_blocks(self, lang: Lang, ctx: dict) -> dict[str, str]:
+        """關於頁的示意圖，Markdown 寫 <!-- diagram-community --> 這類標記，內容在 data/diagrams.toml。"""
+        conf, pick = self.data["diagrams"], ctx["pick"]
+
+        def link(item: dict) -> str:
+            if "page" in item:
+                return self.page_path(lang, item["page"])
+            if "docs" in item:
+                return self.product_url("docs", lang, item["docs"])
+            # 社群動態要三個語系都有，連結會加上語系前綴，連不到其他語系的版本
+            post = next((p for p in self.posts[lang.code] if p.slug == item["post"]), None)
+            if not post:
+                raise SystemExit(f"data/diagrams.toml：{lang.code} 沒有社群動態 {item['post']}，改連三個語系都有的頁面")
+            return post.path
+
+        return {
+            "diagram-community": diagrams.community(
+                conf["community"], self.data["topics"]["topics"], pick, ctx["page_url"],
+                lambda name: (ICONS / f"{name}.svg").read_text(encoding="utf-8").strip(),
+                (STATIC / "logo-tonal.svg").read_text(encoding="utf-8").strip()),
+            "diagram-regions": diagrams.regions(ROOT, conf["regions"], pick),
+            "diagram-history": diagrams.history(conf["history"], pick, link),
+        }
 
     def fill_blocks(self, body_html: str, blocks: dict[str, str], where: str) -> str:
         def repl(m: re.Match) -> str:
