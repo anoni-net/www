@@ -37,6 +37,11 @@
   --action: #c25400;
   --action-hover: #a84800;
   --danger: #d32f2f;
+  /* 社群動態的標籤，照品牌素材頁的「公告 tag」：新增 cyan、活動橘、更新灰。
+     品牌的 cyan-600 當小字對比不夠，用 cyan-800 */
+  --ut-new: var(--brand-cyan-800);
+  --ut-event: var(--action);
+  --ut-update: var(--c-muted);
   /* OONI 測量結果的語意色：正常是 cyan，異常是琥珀，確認封鎖是警告紅，測量失敗是灰 */
   --oc-ok: var(--brand-cyan-600);
   --oc-anomaly: #f0a030;
@@ -70,6 +75,8 @@
     --topic-relay: #ce93d8;
     --topic-payments: #ffa040;
     --danger: #e57373;
+    --ut-new: var(--brand-cyan-300);
+    --ut-event: #ffa040;
     --oc-ok: var(--brand-cyan-600);
     --oc-anomaly: #ffb74d;
     --oc-failure: #5d727b;
@@ -312,6 +319,10 @@ p, li, .lead, .row .d, .row .t, h1, h3 { text-wrap: pretty; }
 .topic-tag + h1 { margin-top: 1.25rem; }
 .row .meta { display: block; color: var(--c-muted); font-size: .85rem; font-variant-numeric: tabular-nums; }
 /* 動態列表的摘要最多三行，完整內容在文章裡 */
+.ut { display: inline-block; margin-right: .45rem; padding: 0 .4rem; border: 1px solid currentColor; border-radius: 4px; font-size: .75rem; font-weight: 600; line-height: 1.5; }
+.ut-new { color: var(--ut-new); }
+.ut-event { color: var(--ut-event); }
+.ut-update { color: var(--ut-update); }
 .rows.updates .d { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; overflow: hidden; }
 .post-date { color: var(--c-muted); font-size: .9rem; margin: -.25rem 0 1.25rem; font-variant-numeric: tabular-nums; }
 

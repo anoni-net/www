@@ -2,6 +2,7 @@
 # 文件站舊的社群文章，本站的動態列表連過去。url 是文件站同語系底下的路徑。
 
 [[posts]]
+kind = "event"
 date = 2026-08-28
 [posts.zh-TW]
 title = "實體活動才有的文宣小物 Global Gathering 會場見"
@@ -17,6 +18,7 @@ summary = "A print-only zine, 150 copies, handed out at Global Gathering 2026 in
 url = "blog/2026/08/2026-gg2026-printed-wrapper/"
 
 [[posts]]
+kind = "event"
 date = 2026-08-20
 [posts.zh-TW]
 title = "匿名網路社群前往 Global Gathering 2026"
@@ -32,6 +34,7 @@ summary = "Global Gathering 2026 runs from 4 to 6 September in Estoril, Portugal
 url = "blog/2026/08/2026-anoni-net-global-gathering/"
 
 [[posts]]
+kind = "event"
 date = 2026-08-19
 [posts.zh-TW]
 title = "在田間學的兩場數位安全線上課，8/26 這場還能報名"
@@ -47,6 +50,7 @@ summary = "Tian Jian's two-session series on digital security and privacy for jo
 url = "blog/2026/08/tianjian-digital-privacy/"
 
 [[posts]]
+kind = "event"
 date = 2026-07-25
 [posts.zh-TW]
 title = "COSCUP 2026 匿名網路社群議程軌徵現場工作人員：三個崗位，8/08、8/09 兩天"
@@ -62,6 +66,7 @@ summary = "The Anonymity Networks Community is looking for three on-site crew fo
 url = "blog/2026/07/2026-coscup-anoni-track-staff/"
 
 [[posts]]
+kind = "event"
 date = 2026-07-13
 [posts.zh-TW]
 title = "COSCUP 2026 匿名網路社群議程軌：8/08、8/09 兩天，免費入場、走進教室就能參加"
@@ -77,6 +82,7 @@ summary = "The Anonymity Networks Community runs a two-day track at COSCUP 2026 
 url = "blog/2026/07/coscup-2026-community-track/"
 
 [[posts]]
+kind = "event"
 date = 2026-04-20
 [posts.zh-TW]
 title = "跨社群合作：匿名網路社群 × ETHTaipei"
@@ -92,6 +98,7 @@ summary = "Anonymity Networks Community partners with ETHTaipei for COSCUP 2026 
 url = "blog/2026/04/2026-anoni-net-eth-taipei/"
 
 [[posts]]
+kind = "event"
 date = 2026-04-08
 [posts.zh-TW]
 title = "COSCUP 2026 匿名網路社群議程軌：公開徵稿"
@@ -107,6 +114,7 @@ summary = "Anonymity Networks Community is accepting proposals for the COSCUP 20
 url = "blog/2026/04/2026-coscup-anoni-track-cfp/"
 
 [[posts]]
+kind = "event"
 date = 2026-01-16
 [posts.zh-TW]
 title = "專案提案 - g0v Hackath71n 零時政府第 71 次黑客松"
@@ -122,6 +130,7 @@ summary = "You are invited to join the g0v Hackath71n, the 71st g0v Hackathon, o
 url = "blog/2026/01/g0v-hackath71n/"
 
 [[posts]]
+kind = "event"
 date = 2025-10-18
 [posts.zh-TW]
 title = "網路自由小聚 2025/10：數位威權主義商品化 - 網路政變報告分享會"
@@ -137,6 +146,7 @@ summary = "Quick Recap: What Actions Can We Take Against State-Level Surveillanc
 url = "blog/2025/10/internetfreedom-oct2025/"
 
 [[posts]]
+kind = "event"
 date = 2025-04-30
 [posts.zh-TW]
 title = "「匿名網路工作坊」招募工作人員與培訓小幫手"
@@ -152,6 +162,7 @@ summary = "Recruiting workshop preparation staff and training helpers for the An
 url = "blog/2025/04/event-workshop-2025-preparing/"
 
 [[posts]]
+kind = "event"
 date = 2025-03-09
 [posts.zh-TW]
 title = "回顧：網路自由工作坊：Tor、Tails、OONI"
@@ -167,6 +178,7 @@ summary = "Summary and recap of the events on 2025/02/23, including the Tor/Tail
 url = "blog/2025/03/rightscon25-tor-tails-ooni-after/"
 
 [[posts]]
+kind = "event"
 date = 2025-02-18
 [posts.zh-TW]
 title = "專案提案 - g0v Hackath65n 零時政府第 65 次黑客松"
@@ -176,8 +188,13 @@ url = "blog/2025/02/g0v-hackath65n/"
 title = "提案 - g0v Hackath65n 零时政府第 65 次黑客松"
 summary = "邀请您于 2025 年 2 月 22 日参加 g0v Hackath65n 零时政府第 65 次黑客松活动，一起推进项目进度！"
 url = "blog/2025/02/g0v-hackath65n/"
+[posts.en]
+title = "Project proposals at g0v Hackath65n, the 65th g0v hackathon"
+summary = "Join us on 22 February 2025 at g0v Hackath65n, the 65th g0v hackathon, to push three OONI research projects forward."
+url = "blog/2025/02/g0v-hackath65n/"
 
 [[posts]]
+kind = "event"
 date = 2025-02-05
 [posts.zh-TW]
 title = "網路自由工作坊：Tor、Tails、OONI"
@@ -193,6 +210,7 @@ summary = "Join us on February 23rd, 2025, in Taipei, Taiwan, for a full-day eve
 url = "blog/2025/02/rightscon25-tor-tails-ooni/"
 
 [[posts]]
+kind = "new"
 date = 2026-10-07
 [posts.zh-TW]
 title = "新聞導讀 anoni.net/news 與導讀歷史"
@@ -208,6 +226,7 @@ summary = "Most news on privacy, anonymity networks and internet censorship is p
 url = "blog/2026/10/2026-anoni-net-news-launch/"
 
 [[posts]]
+kind = "new"
 date = 2026-09-02
 [posts.zh-TW]
 title = "一份英文密語詞表裡的 292 個亞洲外來語，是怎麼選出來的"
@@ -223,6 +242,7 @@ summary = "The community built asian-diceware, a 7,776-word English passphrase w
 url = "blog/2026/09/asian-diceware/"
 
 [[posts]]
+kind = "new"
 date = 2026-05-25
 [posts.zh-TW]
 title = "CryptPad 2026.5.0 上線：正體中文（zh_Hant）正式收進內建語系"
@@ -238,6 +258,7 @@ summary = "Two and a half years of upstream community work landed in CryptPad 20
 url = "blog/2026/05/2026-cryptpad-zh-hant/"
 
 [[posts]]
+kind = "new"
 date = 2026-05-21
 [posts.zh-TW]
 title = "校園 Tor Relay 範本工具包：提案、SOP、FAQ 三份範本上線"
@@ -249,6 +270,7 @@ summary = "NZ has turned the NTNU campus Tor Relay rollout — proposal, outreac
 url = "blog/2026/05/2026-campus-tor-relay-template-kit/"
 
 [[posts]]
+kind = "new"
 date = 2026-05-19
 [posts.zh-TW]
 title = "onionoo MCP 上線：用一句中文問 Tor 中繼節點現況"
@@ -264,6 +286,7 @@ summary = "The community's onionoo-fastapi service is now public at onionoo.anon
 url = "blog/2026/05/2026-onionoo-mcp-public/"
 
 [[posts]]
+kind = "update"
 date = 2026-03-29
 [posts.zh-TW]
 title = "2026/03 社群近況更新"
@@ -279,6 +302,7 @@ summary = "2026/03 Community Update: Tor Project guest post, COSCUP 2026 communi
 url = "blog/2026/03/updates-202603/"
 
 [[posts]]
+kind = "update"
 date = 2026-01-02
 [posts.zh-TW]
 title = "延續 2025，走向 2026：個人隱私指引、Tor Relay 校園建立競賽、匿名支付探索"
@@ -294,6 +318,7 @@ summary = "Reviewing a year of accumulated efforts to chart the next implementat
 url = "blog/2026/01/2025to2026/"
 
 [[posts]]
+kind = "update"
 date = 2025-09-09
 [posts.zh-TW]
 title = "2025/08 專案進度更新"
@@ -309,6 +334,7 @@ summary = "Current Project Status and Updates 2025/08"
 url = "blog/2025/09/updates-202508/"
 
 [[posts]]
+kind = "update"
 date = 2025-07-05
 [posts.zh-TW]
 title = "2025/06 專案進度更新：匿名網路工作坊開始報名"
@@ -324,6 +350,7 @@ summary = "Registration is now open for the workshop happening on August 9th and
 url = "blog/2025/07/updates-202506/"
 
 [[posts]]
+kind = "update"
 date = 2025-06-13
 [posts.zh-TW]
 title = "匿名網路工作坊進度更新"
@@ -339,6 +366,7 @@ summary = "Current Project Status and Updates 2025/06/13"
 url = "blog/2025/06/updates-20250613/"
 
 [[posts]]
+kind = "update"
 date = 2025-06-03
 [posts.zh-TW]
 title = "2025/05 專案進度更新"
@@ -354,6 +382,7 @@ summary = "Current Project Status and Updates 2025/05"
 url = "blog/2025/06/updates-202505/"
 
 [[posts]]
+kind = "update"
 date = 2025-05-01
 [posts.zh-TW]
 title = "2025/04 專案進度更新"
@@ -369,6 +398,7 @@ summary = "Current Project Status and Updates 2025/04"
 url = "blog/2025/05/updates-202504/"
 
 [[posts]]
+kind = "update"
 date = 2025-03-26
 [posts.zh-TW]
 title = "2025/03 專案進度更新"

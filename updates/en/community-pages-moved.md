@@ -1,6 +1,7 @@
 ---
 title: New locations for the community pages
 description: About, Join, Projects, Services, Events and Updates moved to the anoni.net top level. Old addresses redirect automatically, on the onion service too.
+kind: update
 date: 2026-10-09
 ---
 

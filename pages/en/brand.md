@@ -330,11 +330,13 @@ The brand green and orange fall short of 4.5:1 contrast on white, which is not e
 - Category tags and section markers
 - Not for general calls to action or decoration
 
-**Announcement tags** (inline tags on the home page and blog announcements)
+**Announcement tags** (inline tags in the community updates list, the home page's latest updates and the docs site's blog announcements)
 
-- `New` uses `--brand-cyan-600`
-- `Event` uses `--accent-action`
-- `Updated` uses `--cat-privacy`, sharing a colour with the privacy track, where the weak visual association is acceptable
+- `New` uses `--brand-cyan-600`, for a project or service going live
+- `Event` uses `--accent-action`, for event announcements and recaps
+- `Update` uses `--neutral-muted` (grey), for progress reports. It used to share the privacy track's green, but the community site also shows the track cards, so readers could take the two as related; it switched to grey in 2026-10. The docs site still uses green and will follow when its colours are revised
+- Posts sharing the community's views, positions or experience carry no tag
+- Small text on the web uses the values in the web variants table; `New` in small text uses `--brand-cyan-800`
 
 ## <i data-icon="view-dashboard-outline"></i> How each site uses the brand
 

@@ -225,18 +225,26 @@ def import_pages(pages: list[str], docs: Path, ref: str) -> int:
     return count
 
 
+# 社群動態的標籤，跟 build.py 的 UPDATE_KINDS 一致
+UPDATE_KINDS = ("new", "event", "update")
+
+
 def updates_index(docs: Path, ref: str) -> str:
     """文件站舊的社群文章：每篇每個語系的標題、日期、摘要與網址，給動態列表用。"""
     with open(ROOT / "tools" / "docs_updates.toml", "rb") as f:
-        names = tomllib.load(f)["posts"]
+        groups = tomllib.load(f)
+    # 依組別帶上類型，community（觀點、立場、經驗）不加標籤
+    names = [(name, kind) for kind, items in groups.items() for name in items]
     blog_url = blog_resolver(docs, ref)
     contract = git_show(docs, ref, "tools/data/url_contract.txt") or ""
     published = {line.split(" ")[0] for line in contract.splitlines()
                  if line.startswith("/") and " -> " not in line}
     out = ["# 由 tools/import_from_docs.py --updates 從 tools/docs_updates.toml 產生，不要手改。",
            "# 文件站舊的社群文章，本站的動態列表連過去。url 是文件站同語系底下的路徑。", ""]
-    for name in names:
+    for name, kind in names:
         out.append("[[posts]]")
+        if kind in UPDATE_KINDS:
+            out.append(f'kind = "{kind}"')
         for lang in LANGS:
             path = f"docs/{lang}/blog/posts/{name}"
             text = git_show(docs, ref, path)

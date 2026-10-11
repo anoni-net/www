@@ -60,6 +60,8 @@ onion 版本在寫檔前把 `https://anoni.net/docs` 這類 clearnet 網址改�
 
 `/updates/` 的列表、首頁的「最新動態」與每個語系的 RSS（`/updates/feed.xml`），除了本站的文章，也列出文件站部落格裡舊的社群文章，點下去連到文件站原本的網址。那份名單寫在 `tools/docs_updates.toml`，執行 `uv run tools/import_from_docs.py --updates` 產生 `data/docs_updates.toml`。
 
+列表上每一則可以帶一個標籤：`新增`（專案或服務上線）、`活動`（活動公告與回顧）、`更新`（工作進度），顏色照品牌素材頁的「公告 tag」。本站的文章在 front matter 寫 `kind: new`、`event` 或 `update`，文件站的舊文章在名單裡依組別標記。社群的觀點、立場與經驗不加標籤，`kind` 不寫。
+
 翻譯、技術分析、觀測報告與文件站自己的更新回顧，照樣發在文件站的部落格。
 
 ## 部署
@@ -267,6 +269,8 @@ Before writing files, the onion build rewrites clearnet URLs such as `https://an
 Community announcements go in `updates/<locale>/`, one Markdown file per post. The front matter needs `title`, `description` and `date` (`YYYY-MM-DD`), and the URL is `/updates/YYYY/MM/<file name>/`, the same format as the docs site's blog. A post does not need all three locales. Files with the same name are linked to each other by the language switcher, and switching to a locale without that post leads back to the updates list.
 
 The `/updates/` list, the "latest updates" section on the home page and each locale's RSS feed (`/updates/feed.xml`) include older community posts from the docs site's blog alongside this site's own, linking to their original addresses on the docs site. That list is kept in `tools/docs_updates.toml`; run `uv run tools/import_from_docs.py --updates` to generate `data/docs_updates.toml` from it.
+
+Each entry can carry a tag: `New` (a project or service going live), `Event` (event announcements and recaps) or `Update` (progress reports), coloured as the announcement tags on the brand assets page specify. Posts on this site set `kind: new`, `event` or `update` in their front matter, and older posts on the docs site are tagged by their group in the list. Posts sharing the community's views, positions or experience carry no tag and leave `kind` out.
 
 Translations, technical analyses, measurement reports and the docs site's own update reviews are still published on the docs site's blog.
 
