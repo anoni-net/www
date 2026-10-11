@@ -154,8 +154,9 @@ h2 {
 h2::after { content: ""; flex: 1; border-top: 1px solid var(--c-hair); }
 h3 { color: var(--c-strong); font-size: 1.1rem; margin: 1.5rem 0 .25rem; }
 p { margin: .5rem 0 1rem; }
-/* 避免最後一行只剩一兩個字，Firefox 不支援時照一般方式斷行 */
-p, li, .lead, .row .d, .row .t, h1, h3 { text-wrap: pretty; }
+/* 標題與導言避免最後一行只剩一兩個字，Firefox 不支援時照一般方式斷行。內文段落與列表不用：
+   Safari 的 pretty 會重排整段讓每行等長，iPhone 上每行右邊都空出好幾個字（2026-10-12 發現） */
+.lead, .row .t, h1, h3 { text-wrap: pretty; }
 
 /* Markdown 內文 */
 .prose ul:not(.rows), .prose ol { padding-left: 1.4rem; margin: .5rem 0 1rem; }
