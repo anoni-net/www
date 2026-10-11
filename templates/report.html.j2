@@ -1,6 +1,6 @@
 {% extends "_layout.html.j2" %}
 {% block main %}
-<p class="crumb"><a href="{{ page_url('projects/reports') }}">{{ page.crumb }}</a></p>
+<p class="crumb"><a href="{{ page_url('projects/reports') }}">{{ page.crumb }}</a>{{ icon('chevron-right') }}</p>
 <h1>{{ page.title }}</h1>
 <p class="post-date">{{ page.since.strftime('%Y/%m/%d') }} – {{ page.until.strftime('%m/%d') }} · <time datetime="{{ page.date.isoformat() }}">{{ page.date.strftime('%Y/%m/%d') }}</time></p>
 {% if page.lead is defined %}
