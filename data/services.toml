@@ -82,9 +82,9 @@ host = "form.anoni.net"
 onion = true
 home = false
 kind = { zh-TW = "隱私表單", zh-CN = "隐私表单", en = "Forms" }
-summary.zh-TW = "電子報訂閱、活動報名與意見回饋。自架的表單不會讓填表的人被第三方服務追蹤。"
-summary.zh-CN = "电子报订阅、活动报名与意见反馈。自架的表单不会让填表的人被第三方服务追踪。"
-summary.en = "Newsletter sign-ups, event registration and feedback. A self-hosted form keeps respondents out of a third-party provider's tracking."
-account.zh-TW = "填表免帳號，建立表單要來信申請"
-account.zh-CN = "填表免账号，建立表单要来信申请"
-account.en = "No account needed to fill in; account on request to create forms"
+summary.zh-TW = "社群自己的電子報訂閱、活動報名與問卷。自架的表單不會讓填表的人被第三方服務追蹤。"
+summary.zh-CN = "社区自己的电子报订阅、活动报名与问卷。自架的表单不会让填表的人被第三方服务追踪。"
+summary.en = "The community's own newsletter sign-up, event registration and surveys. A self-hosted form keeps respondents out of a third-party provider's tracking."
+account.zh-TW = "填表免帳號，目前不開放申請建立表單"
+account.zh-CN = "填表免账号，目前不开放申请创建表单"
+account.en = "No account needed to fill in; not open for creating forms"
