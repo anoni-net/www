@@ -27,6 +27,16 @@ def calendar(daily: list[dict]) -> tuple[list[date], dict[date, dict]]:
     return [first + timedelta(days=i) for i in range((last - first).days + 1)], by_day
 
 
+def align(series: dict[str, dict]) -> dict[str, list]:
+    """多個 {日期: 數值} 對齊到同一段日期，從最早到最晚的每一天，沒有資料的日子是 None。"""
+    every = [d for values in series.values() for d in values]
+    if not every:
+        return {k: [] for k in series}
+    first, last = min(every), max(every)
+    days = [first + timedelta(days=i) for i in range((last - first).days + 1)]
+    return {k: [values.get(d) for d in days] for k, values in series.items()}
+
+
 # 數字
 
 def nice_max(value: float) -> float:
@@ -87,6 +97,7 @@ def stacked_bars(days: list[date], series: list[tuple[str, dict, str]], label: s
     top = nice_max(max(totals, default=0))
     parts, x, y = _frame(days, top, label)
     bar = _step(days) * 0.72
+    parts.append('<g class="pc-marks pc-bars">')
     for i, d in enumerate(days):
         base = 0
         for name, values, cls in series:
@@ -97,7 +108,7 @@ def stacked_bars(days: list[date], series: list[tuple[str, dict, str]], label: s
             parts.append(f'<rect class="{cls}" x="{x(i) + (_step(days) - bar) / 2:.1f}" y="{y1:.1f}" '
                          f'width="{bar:.1f}" height="{max(y0 - y1, 0):.1f}"><title>{d:%Y/%m/%d} {escape(name)} {num(v)}</title></rect>')
             base += v
-    parts.append("</svg>")
+    parts.append("</g></svg>")
     return Markup("".join(parts))
 
 
@@ -118,6 +129,7 @@ def area(days: list[date], values: dict, label: str, name: str, gid: str) -> Mar
             run.append((i, d, values[d]))
     if run:
         runs.append(run)
+    parts.append('<g class="pc-marks pc-trace">')
     for run in runs:
         pts = " ".join(f"{x(i) + half:.1f},{y(v):.1f}" for i, _, v in run)
         if len(run) > 1:
@@ -127,7 +139,7 @@ def area(days: list[date], values: dict, label: str, name: str, gid: str) -> Mar
         for i, d, v in run:
             parts.append(f'<circle class="pc-dot" cx="{x(i) + half:.1f}" cy="{y(v):.1f}" r="2.6">'
                          f'<title>{d:%Y/%m/%d} {escape(name)} {num(v)}</title></circle>')
-    parts.append("</svg>")
+    parts.append("</g></svg>")
     return Markup("".join(parts))
 
 
@@ -135,6 +147,7 @@ def lines(days: list[date], series: list[tuple[str, dict, str]], label: str) -> 
     top = nice_max(max((v for s in series for v in s[1].values() if v is not None), default=0))
     parts, x, y = _frame(days, top, label)
     half = _step(days) / 2
+    parts.append('<g class="pc-marks pc-trace">')
     for name, values, cls in series:
         segment = []
         for i, d in enumerate(days + [None]):
@@ -147,7 +160,7 @@ def lines(days: list[date], series: list[tuple[str, dict, str]], label: str) -> 
             segment.append(f"{x(i) + half:.1f},{y(v):.1f}")
             parts.append(f'<circle class="pc-dot {cls}" cx="{x(i) + half:.1f}" cy="{y(v):.1f}" r="2.2">'
                          f'<title>{d:%Y/%m/%d} {escape(name)} {num(v)}</title></circle>')
-    parts.append("</svg>")
+    parts.append("</g></svg>")
     return Markup("".join(parts))
 
 
@@ -155,6 +168,7 @@ def share_bars(days: list[date], series: list[tuple[str, dict, str]], label: str
     """每天的長條疊滿 100%，看各系列的占比變化。"""
     parts, x, y = _frame(days, 100, label)
     bar = _step(days) * 0.72
+    parts.append('<g class="pc-marks pc-bars">')
     for i, d in enumerate(days):
         total = sum(s[1].get(d, 0) or 0 for s in series)
         if not total:
@@ -169,7 +183,7 @@ def share_bars(days: list[date], series: list[tuple[str, dict, str]], label: str
             parts.append(f'<rect class="{cls}" x="{x(i) + (_step(days) - bar) / 2:.1f}" y="{y1:.1f}" '
                          f'width="{bar:.1f}" height="{max(y0 - y1, 0):.1f}"><title>{d:%Y/%m/%d} {escape(name)} {num(v)}（{pct:.0f}%）</title></rect>')
             base += pct
-    parts.append("</svg>")
+    parts.append("</g></svg>")
     return Markup("".join(parts))
 
 
@@ -185,6 +199,59 @@ def sparkline(values: list, width: int = 120, height: int = 32) -> Markup:
     last_x, last_y = coords.split()[-1].split(",")
     return Markup(f'<svg class="pc-spark" viewBox="0 0 {width} {height}" aria-hidden="true">'
                   f'<polyline points="{coords}"/><circle cx="{last_x}" cy="{last_y}" r="2.5"/></svg>')
+
+
+def multiple(values: list, lo: float, hi: float, base: float | None = None,
+             width: int = 120, height: int = 44) -> Markup:
+    """小倍數圖：每個地區一張，全部用同一個刻度 lo 到 hi，起伏與高低可以直接比較。
+
+    values 要對齊同一段日期，沒有資料的日子是 None，畫出來是缺口，晚加入觀測的地區從中間開始。
+    超出刻度的值貼在邊上。base 畫一條虛線當參考，例如指數化之後的 100。"""
+    span = (hi - lo) or 1
+    step = width / max(len(values) - 1, 1)
+
+    def y(v: float) -> float:
+        return height - 2 - (min(max(v, lo), hi) - lo) / span * (height - 4)
+
+    runs, run = [], []
+    for i, v in enumerate(values + [None]):
+        if v is None:
+            if run:
+                runs.append(run)
+            run = []
+        else:
+            run.append((i * step, y(v)))
+    if not runs:
+        return Markup("")
+    parts = [f'<svg class="pc-multi" viewBox="0 0 {width} {height}" preserveAspectRatio="none" aria-hidden="true">']
+    if base is not None:
+        parts.append(f'<line class="pc-base" x1="0" x2="{width}" y1="{y(base):.1f}" y2="{y(base):.1f}"/>')
+    parts.append('<g class="pc-marks">')
+    for run in runs:
+        pts = " ".join(f"{px:.1f},{py:.1f}" for px, py in run)
+        if len(run) > 1:
+            parts.append(f'<polygon points="{run[0][0]:.1f},{height} {pts} {run[-1][0]:.1f},{height}"/>'
+                         f'<polyline points="{pts}"/>')
+    parts.append("</g></svg>")
+    return Markup("".join(parts))
+
+
+def domain(series: list[list], base: float | None = None, floor: float | None = None,
+           ceil: float | None = None) -> tuple[float, float]:
+    """多張小倍數圖共用的刻度：涵蓋所有值，留一點邊，再用 floor、ceil 限制範圍。"""
+    vals = [v for s in series for v in s if v is not None] + ([base] if base is not None else [])
+    if not vals:
+        return 0, 1
+    lo, hi = min(vals), max(vals)
+    pad = (hi - lo) * 0.08 or 1
+    lo, hi = lo - pad, hi + pad
+    # 刻度取整到 10，圖下方寫得出簡單的範圍
+    lo, hi = math.floor(lo / 10) * 10, math.ceil(hi / 10) * 10
+    if floor is not None:
+        lo = max(lo, floor)
+    if ceil is not None:
+        hi = min(hi, ceil)
+    return lo, hi
 
 
 SHADES = ["pc-s1", "pc-s2", "pc-s3", "pc-s4", "pc-s5"]

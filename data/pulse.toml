@@ -8,6 +8,8 @@
 days = 60
 # 大數字卡片跟幾天前比
 compare_days = 30
+# 地圖依運作中的中繼數上色，這是各級的分界
+map_steps = [5, 10, 20, 50]
 
 [[countries]]
 code = "tw"
@@ -129,7 +131,8 @@ versions_latest = { zh-TW = "最近一次快照的版本", zh-CN = "最近一次
 flags = { zh-TW = "Tor 網路給的標記", zh-CN = "Tor 网络给的标记", en = "Flags" }
 flags_note = { zh-TW = "目錄權威伺服器（每小時投票產生 Tor 網路共識的幾台伺服器）依每個中繼的表現給的標記，每個標記的意思寫在名稱下方。一個中繼可以同時有好幾個標記，Running 與 Valid 每個運作中的中繼都有，不列。", zh-CN = "目录权威服务器（每小时投票产生 Tor 网络共识的几台服务器）依每个中继的表现给的标记，每个标记的意思写在名称下方。一个中继可以同时有好几个标记，Running 与 Valid 每个运作中的中继都有，不列。", en = "Flags the directory authorities, the few servers that vote on the Tor network consensus every hour, assign from each relay's behaviour. What each flag means is written under its name. A relay can carry several, and Running and Valid, which every running relay has, are left out." }
 compare = { zh-TW = "各地區比較", zh-CN = "各地区比较", en = "Across regions" }
-compare_note = { zh-TW = "最近一次快照裡運作中的中繼數，小圖是近 {days} 天的走勢。點進去看各地區的完整圖表。", zh-CN = "最近一次快照里运作中的中继数，小图是近 {days} 天的走势。点进去看各地区的完整图表。", en = "Running relays in the latest snapshot, with the trend over the last {days} days. Open a region for its full charts." }
+compare_note = { zh-TW = "最近一次快照裡運作中的中繼數。小圖是近 {days} 天的變化，以各地區第一天的數量為 100，所有地區共用同一個刻度，起伏的幅度可以直接比較。中繼少的地區增減一兩個就會有明顯的起伏。點進去看各地區的完整圖表。", zh-CN = "最近一次快照里运作中的中继数。小图是近 {days} 天的变化，以各地区第一天的数量为 100，所有地区共用同一个刻度，起伏的幅度可以直接比较。中继少的地区增减一两个就会有明显的起伏。点进去看各地区的完整图表。", en = "Running relays in the latest snapshot. Each small chart shows the change over the last {days} days, indexed to 100 on the region's first day. All regions share one scale, so the size of the swings compares directly. In regions with few relays, one or two coming or going makes a visible swing. Open a region for its full charts." }
+multi_scale = { zh-TW = "小圖刻度 {lo} 到 {hi}，虛線是第一天的 100。", zh-CN = "小图刻度 {lo} 到 {hi}，虚线是第一天的 100。", en = "Small-chart scale: {lo} to {hi}. The dashed line is the first day's 100." }
 other = { zh-TW = "其他", zh-CN = "其他", en = "Others" }
 no_data = { zh-TW = "這段期間沒有資料", zh-CN = "这段期间没有数据", en = "No data for this period" }
 # 使用與貢獻：Tor Metrics 的使用者估計（tor_users.py）與中繼占全網路的權重
@@ -156,6 +159,8 @@ col_bridge = { zh-TW = "橋接", zh-CN = "网桥", en = "Bridges" }
 # 頁首的觀測地區地圖（region_map.py）
 map_label = { zh-TW = "觀測地區地圖", zh-CN = "观测地区地图", en = "Map of the regions we observe" }
 map_obs = { zh-TW = "觀測地區", zh-CN = "观测地区", en = "Observed" }
+map_scale = { zh-TW = "運作中的中繼數", zh-CN = "运作中的中继数", en = "Running relays" }
+map_na = { zh-TW = "沒有資料", zh-CN = "没有数据", en = "No data" }
 map_ref = { zh-TW = "參照地區（只在比較表）", zh-CN = "参照地区（只在比较表）", en = "Reference (comparison table only)" }
 map_note = { zh-TW = "點地圖上的地區切換頁面。德國、荷蘭、美國不在地圖範圍內，列在地區清單與比較表當作參照。", zh-CN = "点地图上的地区切换页面。德国、荷兰、美国不在地图范围内，列在地区列表与比较表当作参照。", en = "Select a region on the map to open its page. Germany, the Netherlands and the United States are outside the map and appear in the region list and comparison table as reference points." }
 # 社群動態文章裡的地圖（<!-- region-map -->），兩個觀測頁的地區一起列

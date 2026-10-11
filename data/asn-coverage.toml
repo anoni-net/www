@@ -7,6 +7,8 @@
 days = 60
 # 卡片與表格看最近幾天，跟再往前的同樣天數比
 compare_days = 30
+# 地圖依涵蓋的使用者比例上色，這是各級的分界（%）
+map_steps = [75, 85, 90, 95]
 
 [[countries]]
 code = "tw"
@@ -137,7 +139,8 @@ gaps_note = { zh-TW = "使用者占比 0.1% 以上、最近 {back} 天沒有任�
 gaps_none = { zh-TW = "使用者占比 0.1% 以上的網路，最近 {back} 天都有測量。", zh-CN = "用户占比 0.1% 以上的网络，最近 {back} 天都有测量。", en = "Every network with at least 0.1% of users was measured in the last {back} days." }
 outside = { zh-TW = "另有 {n} 個網路不在 APNIC 的使用者估計裡，占測量的 {pct}%，多半是學術網路、機房或雲端。", zh-CN = "另有 {n} 个网络不在 APNIC 的用户估计里，占测量的 {pct}%，多半是学术网络、机房或云端。", en = "{n} more networks are not in APNIC's user estimates and account for {pct}% of measurements; most are academic, hosting, or cloud networks." }
 compare = { zh-TW = "各地區比較", zh-CN = "各地区比较", en = "Across regions" }
-compare_note = { zh-TW = "最近 {back} 天有測量的網路涵蓋的使用者比例，小圖是近 {days} 天每天的走勢。點進去看各地區的完整圖表。", zh-CN = "最近 {back} 天有测量的网络覆盖的用户比例，小图是近 {days} 天每天的走势。点进去看各地区的完整图表。", en = "Users covered by networks measured in the last {back} days, with each day's value over the last {days}. Open a region for its full charts." }
+compare_note = { zh-TW = "最近 {back} 天有測量的網路涵蓋的使用者比例。小圖是近 {days} 天每天的涵蓋率，所有地區共用同一個刻度，高低可以直接比較。點進去看各地區的完整圖表。", zh-CN = "最近 {back} 天有测量的网络覆盖的用户比例。小图是近 {days} 天每天的覆盖率，所有地区共用同一个刻度，高低可以直接比较。点进去看各地区的完整图表。", en = "Users covered by networks measured in the last {back} days. Each small chart shows the daily coverage over the last {days} days on one shared scale, so the levels compare directly. Open a region for its full charts." }
+multi_scale = { zh-TW = "小圖刻度 {lo}% 到 {hi}%。", zh-CN = "小图刻度 {lo}% 到 {hi}%。", en = "Small-chart scale: {lo}% to {hi}%." }
 other = { zh-TW = "其他", zh-CN = "其他", en = "Others" }
 # 穩定涵蓋率：有一筆測量就算涵蓋，跟至少一半的日子有測量才算，兩個數字並排
 stable_title = { zh-TW = "穩定涵蓋率", zh-CN = "稳定覆盖率", en = "Steady coverage" }
@@ -160,5 +163,7 @@ apps_refs = { zh-TW = "參照地區", zh-CN = "参照地区", en = "Reference re
 # 頁首的觀測地區地圖（region_map.py）
 map_label = { zh-TW = "觀測地區地圖", zh-CN = "观测地区地图", en = "Map of the regions we observe" }
 map_obs = { zh-TW = "觀測地區", zh-CN = "观测地区", en = "Observed" }
+map_scale = { zh-TW = "涵蓋的使用者比例", zh-CN = "覆盖的用户比例", en = "Users covered" }
+map_na = { zh-TW = "沒有資料", zh-CN = "没有数据", en = "No data" }
 map_ref = { zh-TW = "參照地區（只在 App 比較表）", zh-CN = "参照地区（只在 App 比较表）", en = "Reference (app table only)" }
 map_note = { zh-TW = "點地圖上的地區切換頁面。參照地區只列在通訊 App 的比較表，有封鎖紀錄，可以拿來對照。", zh-CN = "点地图上的地区切换页面。参照地区只列在通讯 App 的比较表，有封锁记录，可以拿来对照。", en = "Select a region on the map to open its page. Reference regions appear only in the messaging app table, for contrast with their records of blocking." }
