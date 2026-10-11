@@ -26,6 +26,12 @@
   --c-icon: var(--brand-cyan-600);
   --c-solid: var(--brand-cyan-800);
 
+  /* 2026 三大主題的分類色，對應品牌素材的 --cat-privacy、--cat-relay、--cat-payments。
+     品牌的綠與橘在白底對比不到 4.5，這裡用深一階的版本，深色模式另用淺色 */
+  --topic-privacy: #2e7d32;
+  --topic-relay: #7b1fa2;
+  --topic-payments: #c25400;
+
   --radius: 8px;
   /* 外框最寬 42rem，桌機 18px 時內文一行約 37 個中文字 */
   --sheet: 42rem;
@@ -49,6 +55,9 @@
     --c-accent: var(--brand-cyan-300);
     --c-icon: var(--brand-cyan-300);
     --c-solid: var(--brand-cyan-700);
+    --topic-privacy: #81c784;
+    --topic-relay: #ce93d8;
+    --topic-payments: #ffa040;
   }
 }
 
@@ -275,6 +284,14 @@ p, li, .lead, .row .d, .row .t, h1, h3 { text-wrap: pretty; }
 .row .t .code { display: block; margin-top: .1rem; font-size: .75rem; font-weight: 400; color: var(--c-muted); font-family: ui-monospace, monospace; white-space: nowrap; }
 .row .d { display: block; color: var(--c-muted); font-size: .9rem; line-height: 1.6; }
 .row .go { align-self: center; color: var(--c-icon); }
+/* 主題卡片的圖示圈用主題色，其餘維持 cyan */
+.topic-privacy { --topic: var(--topic-privacy); }
+.topic-relay { --topic: var(--topic-relay); }
+.topic-payments { --topic: var(--topic-payments); }
+.row .ic[class*="topic-"] { color: var(--topic); border-color: var(--topic); background: color-mix(in srgb, var(--topic) 8%, var(--c-bg)); }
+.topic-tag { display: inline-flex; align-items: center; gap: .35rem; margin: 1.25rem 0 -.75rem; padding: .1rem .65rem .1rem .5rem; border: 1px solid var(--topic); border-radius: 999px; color: var(--topic); background: color-mix(in srgb, var(--topic) 8%, var(--c-bg)); font-size: .8rem; font-weight: 600; }
+.crumb + .topic-tag { margin-top: 1rem; }
+.topic-tag + h1 { margin-top: 1.25rem; }
 .row .meta { display: block; color: var(--c-muted); font-size: .85rem; font-variant-numeric: tabular-nums; }
 /* 動態列表的摘要最多三行，完整內容在文章裡 */
 .rows.updates .d { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; overflow: hidden; }
