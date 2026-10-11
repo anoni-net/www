@@ -627,8 +627,10 @@ footer .license { font-size: .75rem; }
 /* 示意圖（diagrams.py）：關於頁的社群全貌、關注地區與時間軸。SVG 的畫布照手機寬度設計，
    桌機用 max-width 限制放大的倍數，圖上的字才跟內文差不多大 */
 .topic-observe { --topic: var(--c-accent); }
-.dg-fig { margin: 1.25rem auto 1.5rem; }
-.dg-fig figcaption { margin-top: .4rem; font-size: .8rem; line-height: 1.6; color: var(--c-muted); }
+/* 內文的 figure 左右邊距是 0（見上方 .prose figure），示意圖要寫到同樣的權重才能置中 */
+.prose figure.dg-fig, .dg-fig { margin: 1.25rem auto 1.5rem; }
+.dg-fig figcaption { margin-top: .4rem; font-size: .8rem; line-height: 1.6; color: var(--c-muted); text-align: center; }
+.dg-fig figcaption .lg { justify-content: center; }
 .dg-fig-community { max-width: 30rem; }
 .dg { display: block; width: 100%; height: auto; overflow: visible; font-family: var(--font); }
 .dg-link { stroke: var(--topic); stroke-width: 1.5; stroke-dasharray: 4 4; opacity: .7; }
@@ -636,8 +638,8 @@ footer .license { font-size: .75rem; }
 .dg-hub-t { fill: var(--c-strong); font-size: 14px; font-weight: 700; }
 .dg-dot { fill: var(--topic); }
 .dg-ic { fill: var(--c-bg); }
-.dg-name { fill: var(--c-strong); font-size: 15px; font-weight: 700; }
-.dg-item { fill: var(--c-muted); font-size: 12.5px; }
+.dg-name { fill: var(--c-strong); font-size: 16px; font-weight: 700; }
+.dg-item { fill: var(--c-muted); font-size: 13.5px; }
 .dg-node:hover .dg-name, .dg-node:focus .dg-name { fill: var(--topic); text-decoration: underline; }
 .dg-node:hover .dg-dot, .dg-node:focus .dg-dot { stroke: var(--c-strong); stroke-width: 2; }
 .dg-fig-regions { max-width: 28rem; }

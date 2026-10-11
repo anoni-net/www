@@ -61,9 +61,9 @@ def _nested(svg: str, x: float, y: float, size: float, cls: str) -> str:
 # 社群在做的事
 
 W = 360
-NAME, ITEM = 15, 12.5        # 字級
-NAME_LH, ITEM_LH = 19, 17    # 行高
-TEXT_W = 160                 # 每一格文字的寬度
+NAME, ITEM = 16, 13.5        # 字級，手機上整張圖縮到八成多，小字約 11px
+NAME_LH, ITEM_LH = 20, 18    # 行高
+TEXT_W = 166                 # 每一格文字的寬度
 R = 20                       # 圓的半徑
 
 
@@ -78,7 +78,8 @@ def community(conf: dict, topics: list[dict], pick, page_url, icon_svg, logo_svg
             "cat": n.get("topic") or n["cat"],
             "icon": n.get("icon") or t["icon"],
             "href": page_url(n.get("page") or t["page"]),
-            "name": balanced(pick(n.get("name") or t["name"]), NAME, TEXT_W),
+            # 名稱是粗體，估寬時多算一成
+            "name": balanced(pick(n.get("name") or t["name"]), NAME * 1.1, TEXT_W),
             "items": [line for item in pick(n["items"]) for line in balanced(item, ITEM, TEXT_W)],
         })
 
@@ -99,7 +100,9 @@ def community(conf: dict, topics: list[dict], pick, page_url, icon_svg, logo_svg
     for n, (x, y, _) in zip(nodes, spots):
         parts.append(f'<line class="dg-link topic-{n["cat"]}" x1="{W / 2}" y1="{cy}" x2="{x}" y2="{y}"/>')
     parts.append(f'<circle class="dg-hub" cx="{W / 2}" cy="{cy}" r="34"/>')
-    parts.append(_nested(logo_svg, W / 2 - 22, cy - 26, 44, "dg-logo"))
+    # logo 的六角形在 24×24 的畫布裡實際占 x 3–22.25、y 2–22，照實際範圍的中心對齊圓心
+    scale = 44 / 24
+    parts.append(_nested(logo_svg, W / 2 - 12.625 * scale, cy - 12 * scale, 44, "dg-logo"))
     parts.append(f'<text class="dg-hub-t" x="{W / 2}" y="{cy + 54}" text-anchor="middle">anoni.net</text>')
     for n, (x, y, side) in zip(nodes, spots):
         lines = [("dg-name", NAME_LH, s) for s in n["name"]] + [("dg-item", ITEM_LH, s) for s in n["items"]]
