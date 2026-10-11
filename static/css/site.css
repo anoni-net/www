@@ -642,14 +642,14 @@ footer .license { font-size: .75rem; }
 .dg-item { fill: var(--c-muted); font-size: 13.5px; }
 .dg-node:hover .dg-name, .dg-node:focus .dg-name { fill: var(--topic); text-decoration: underline; }
 .dg-node:hover .dg-dot, .dg-node:focus .dg-dot { stroke: var(--c-strong); stroke-width: 2; }
-.dg-fig-regions { max-width: 28rem; }
-.rmap.dg-regions { border: 0; background: none; }
 .rmap .rm-first { fill: var(--c-strong); }
 .rmap .rm-second { fill: color-mix(in srgb, var(--c-accent) 55%, var(--c-bg)); }
 .rm-sw-first { background: var(--c-strong); }
 .rm-sw-second { background: color-mix(in srgb, var(--c-accent) 55%, var(--c-bg)); }
-/* 地圖裁切之後畫布仍有五百多單位寬，字級用畫布的單位，手機上約 11px、桌機約 15px */
-.dg-label { fill: var(--c-text); font-size: 18px; paint-order: stroke; stroke: var(--c-bg); stroke-width: 4px; stroke-linejoin: round; }
+/* 關注地區的地圖跟內文同寬。畫布裁切之後約 580 單位寬，桌機放大到 1.1 倍多、手機只剩一半，
+   地名的字級用畫布的單位，依螢幕寬度分開設，實際大小都在 11 到 15px 之間 */
+.dg-label { fill: var(--c-text); font-size: 21px; paint-order: stroke; stroke: var(--c-bg); stroke-width: 5px; stroke-linejoin: round; }
+@media (min-width: 640px) { .dg-label { font-size: 13px; stroke-width: 3.5px; } }
 .dg-label-first { fill: var(--c-strong); font-weight: 700; }
 /* 時間軸：左邊一條線，每一筆一個圓點，顏色跟社群動態的標籤同一套 */
 ol.tl { list-style: none; margin: 1.25rem 0 1.5rem; padding: 0; }

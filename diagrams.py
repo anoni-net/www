@@ -163,6 +163,9 @@ def regions(root: Path, conf: dict, pick) -> Markup:
     y0 = min(b[1] for b in boxes) - pad
     x1 = max(b[2] for b in boxes) + pad + 60   # 右邊留給臺灣的名稱
     y1 = max(b[3] for b in boxes) + pad
+    # 裁切範圍不超出地圖資料，超出的部分沒有陸地，加上外框之後會變成一條空白
+    x0, y0 = max(x0, 0), max(y0, 0)
+    x1, y1 = min(x1, d["width"]), min(y1, d["height"])
     w, h = x1 - x0, y1 - y0
 
     parts = [f'<svg class="rmap dg-regions" viewBox="{x0:.0f} {y0:.0f} {w:.0f} {h:.0f}" role="img" '
