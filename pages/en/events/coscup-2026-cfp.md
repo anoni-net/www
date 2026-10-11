@@ -128,5 +128,5 @@ The conference is **free to attend** and not run for ticket revenue, which keeps
 ## Related links
 
 - [About us](/about/)
-- [From 2025 to 2026: privacy guidance, campus Tor relay contest, anonymous payments](docs:blog/2026/01/2025to2026/)
+- [From 2025 to 2026: privacy guidance, campus Tor relay contest, anonymous payments](/updates/2026/01/2025to2026/)
 - [Anonymous network workshop 2025 (event recap)](/events/workshop-2025/)

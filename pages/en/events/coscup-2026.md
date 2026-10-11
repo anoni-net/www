@@ -113,7 +113,7 @@ This year the community is partnering with [ETHTaipei](https://ethtaipei.org/) (
 
 - [COSCUP 2026 Call for Proposals](/events/coscup-2026-cfp/): topics, cross-community collaboration, and how to submit
 - [Anonymous network workshop 2025 (event recap)](/events/workshop-2025/): last year's two-day workshop and roundtables
-- [From 2025 to 2026: privacy guidance, campus Tor relay contest, anonymous payments](docs:blog/2026/01/2025to2026/)
+- [From 2025 to 2026: privacy guidance, campus Tor relay contest, anonymous payments](/updates/2026/01/2025to2026/)
 - [About us](/about/)
 - [How to contribute](docs:community/how-to-contribute/): the entry point for helping with Tor, OONI, translation, or running a node
 

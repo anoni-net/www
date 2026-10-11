@@ -28,7 +28,7 @@ Most ongoing work happens on our own Matrix homeserver, `im.anoni.net`. Start wi
 
 <!-- topics -->
 
-The background is in [Continuing from 2025 into 2026](docs:blog/2026/01/2025to2026/), and the quarterly deliverables are on the [2026 roadmap](/join/roadmap-2026/).
+The background is in [Continuing from 2025 into 2026](/updates/2026/01/2025to2026/), and the quarterly deliverables are on the [2026 roadmap](/join/roadmap-2026/).
 
 ## Day to day
 

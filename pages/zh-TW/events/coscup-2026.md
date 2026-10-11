@@ -258,7 +258,7 @@ description: 匿名網路社群 anoni.net 在 COSCUP 2026 的兩日議程與工�
 
 - [COSCUP 2026 公開徵稿](/events/coscup-2026-cfp/)：徵稿主題、跨社群合作與投稿說明
 - [匿名網路工作坊 2025（活動紀錄）](/events/workshop-2025/)：去年兩日工作坊與圓桌會議的內容
-- [延續 2025，走向 2026：個人隱私指引、Tor Relay 校園建立競賽、匿名支付探索](docs:blog/2026/01/2025to2026/)
+- [延續 2025，走向 2026：個人隱私指引、Tor Relay 校園建立競賽、匿名支付探索](/updates/2026/01/2025to2026/)
 - [關於我們](/about/)
 - [如何參與與認領主題](/join/)：想一起貢獻 Tor、OONI、翻譯或架設節點的入口
 - [Tor Project 生態與對接](docs:community/tor-project-ecosystem/)：與上游 Tor 專案對接的導引
