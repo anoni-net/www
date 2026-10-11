@@ -98,6 +98,7 @@ name = { zh-TW = "孟加拉", zh-CN = "孟加拉国", en = "Bangladesh" }
 
 [labels]
 title_country = { zh-TW = "{name}的 OONI 觀測涵蓋率", zh-CN = "{name}的 OONI 观测覆盖率", en = "OONI coverage in {name}" }
+desc_country = { zh-TW = "{name}的 OONI 測量來自哪些網路、涵蓋多少網路使用者、哪些網路還沒有測量，以及通訊 App 的測試結果。", zh-CN = "{name}的 OONI 测量来自哪些网络、覆盖多少网络用户、哪些网络还没有测量，以及通讯 App 的测试结果。", en = "Which networks OONI measurements in {name} come from, how many internet users they cover, which networks have none, and how messaging apps fare." }
 countries = { zh-TW = "觀測地區", zh-CN = "观测地区", en = "Regions" }
 updated = { zh-TW = "測量資料到", zh-CN = "测量数据到", en = "Measurements up to" }
 pop_updated = { zh-TW = "使用者估計", zh-CN = "用户估计", en = "user estimates from" }

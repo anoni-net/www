@@ -15,33 +15,33 @@ anoni.net 的 logo 由三个六角形组成，呼应「节点网络」与「多�
   <div class="brand-card">
     <p class="brand-card-label">白底</p>
     <div class="brand-sizes">
-      <div class="brand-size"><img src="/brand/logo-tonal.svg" width="64" height="64"><span class="brand-size-label">64</span></div>
-      <div class="brand-size"><img src="/brand/logo-tonal.svg" width="32" height="32"><span class="brand-size-label">32</span></div>
-      <div class="brand-size"><img src="/brand/logo-tonal.svg" width="16" height="16"><span class="brand-size-label">16</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-tonal 64px" src="/brand/logo-tonal.svg" width="64" height="64"><span class="brand-size-label">64</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-tonal 32px" src="/brand/logo-tonal.svg" width="32" height="32"><span class="brand-size-label">32</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-tonal 16px" src="/brand/logo-tonal.svg" width="16" height="16"><span class="brand-size-label">16</span></div>
     </div>
   </div>
   <div class="brand-card dark">
     <p class="brand-card-label">暗底</p>
     <div class="brand-sizes">
-      <div class="brand-size"><img src="/brand/logo-tonal.svg" width="64" height="64"><span class="brand-size-label">64</span></div>
-      <div class="brand-size"><img src="/brand/logo-tonal.svg" width="32" height="32"><span class="brand-size-label">32</span></div>
-      <div class="brand-size"><img src="/brand/logo-tonal.svg" width="16" height="16"><span class="brand-size-label">16</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-tonal 64px" src="/brand/logo-tonal.svg" width="64" height="64"><span class="brand-size-label">64</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-tonal 32px" src="/brand/logo-tonal.svg" width="32" height="32"><span class="brand-size-label">32</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-tonal 16px" src="/brand/logo-tonal.svg" width="16" height="16"><span class="brand-size-label">16</span></div>
     </div>
   </div>
   <div class="brand-card cyan">
     <p class="brand-card-label">cyan-500 底</p>
     <div class="brand-sizes">
-      <div class="brand-size"><img src="/brand/logo-tonal.svg" width="64" height="64"><span class="brand-size-label">64</span></div>
-      <div class="brand-size"><img src="/brand/logo-tonal.svg" width="32" height="32"><span class="brand-size-label">32</span></div>
-      <div class="brand-size"><img src="/brand/logo-tonal.svg" width="16" height="16"><span class="brand-size-label">16</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-tonal 64px" src="/brand/logo-tonal.svg" width="64" height="64"><span class="brand-size-label">64</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-tonal 32px" src="/brand/logo-tonal.svg" width="32" height="32"><span class="brand-size-label">32</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-tonal 16px" src="/brand/logo-tonal.svg" width="16" height="16"><span class="brand-size-label">16</span></div>
     </div>
   </div>
   <div class="brand-card cyan-deep">
     <p class="brand-card-label">cyan-900 底</p>
     <div class="brand-sizes">
-      <div class="brand-size"><img src="/brand/logo-tonal.svg" width="64" height="64"><span class="brand-size-label">64</span></div>
-      <div class="brand-size"><img src="/brand/logo-tonal.svg" width="32" height="32"><span class="brand-size-label">32</span></div>
-      <div class="brand-size"><img src="/brand/logo-tonal.svg" width="16" height="16"><span class="brand-size-label">16</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-tonal 64px" src="/brand/logo-tonal.svg" width="64" height="64"><span class="brand-size-label">64</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-tonal 32px" src="/brand/logo-tonal.svg" width="32" height="32"><span class="brand-size-label">32</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-tonal 16px" src="/brand/logo-tonal.svg" width="16" height="16"><span class="brand-size-label">16</span></div>
     </div>
   </div>
 </div>
@@ -56,33 +56,33 @@ anoni.net 的 logo 由三个六角形组成，呼应「节点网络」与「多�
   <div class="brand-card">
     <p class="brand-card-label">白底（不建议）</p>
     <div class="brand-sizes">
-      <div class="brand-size"><img src="/brand/logo-white.svg" width="64" height="64"><span class="brand-size-label">64</span></div>
-      <div class="brand-size"><img src="/brand/logo-white.svg" width="32" height="32"><span class="brand-size-label">32</span></div>
-      <div class="brand-size"><img src="/brand/logo-white.svg" width="16" height="16"><span class="brand-size-label">16</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-white 64px" src="/brand/logo-white.svg" width="64" height="64"><span class="brand-size-label">64</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-white 32px" src="/brand/logo-white.svg" width="32" height="32"><span class="brand-size-label">32</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-white 16px" src="/brand/logo-white.svg" width="16" height="16"><span class="brand-size-label">16</span></div>
     </div>
   </div>
   <div class="brand-card dark">
     <p class="brand-card-label">暗底</p>
     <div class="brand-sizes">
-      <div class="brand-size"><img src="/brand/logo-white.svg" width="64" height="64"><span class="brand-size-label">64</span></div>
-      <div class="brand-size"><img src="/brand/logo-white.svg" width="32" height="32"><span class="brand-size-label">32</span></div>
-      <div class="brand-size"><img src="/brand/logo-white.svg" width="16" height="16"><span class="brand-size-label">16</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-white 64px" src="/brand/logo-white.svg" width="64" height="64"><span class="brand-size-label">64</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-white 32px" src="/brand/logo-white.svg" width="32" height="32"><span class="brand-size-label">32</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-white 16px" src="/brand/logo-white.svg" width="16" height="16"><span class="brand-size-label">16</span></div>
     </div>
   </div>
   <div class="brand-card cyan">
     <p class="brand-card-label">cyan-500 底</p>
     <div class="brand-sizes">
-      <div class="brand-size"><img src="/brand/logo-white.svg" width="64" height="64"><span class="brand-size-label">64</span></div>
-      <div class="brand-size"><img src="/brand/logo-white.svg" width="32" height="32"><span class="brand-size-label">32</span></div>
-      <div class="brand-size"><img src="/brand/logo-white.svg" width="16" height="16"><span class="brand-size-label">16</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-white 64px" src="/brand/logo-white.svg" width="64" height="64"><span class="brand-size-label">64</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-white 32px" src="/brand/logo-white.svg" width="32" height="32"><span class="brand-size-label">32</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-white 16px" src="/brand/logo-white.svg" width="16" height="16"><span class="brand-size-label">16</span></div>
     </div>
   </div>
   <div class="brand-card cyan-deep">
     <p class="brand-card-label">cyan-900 底</p>
     <div class="brand-sizes">
-      <div class="brand-size"><img src="/brand/logo-white.svg" width="64" height="64"><span class="brand-size-label">64</span></div>
-      <div class="brand-size"><img src="/brand/logo-white.svg" width="32" height="32"><span class="brand-size-label">32</span></div>
-      <div class="brand-size"><img src="/brand/logo-white.svg" width="16" height="16"><span class="brand-size-label">16</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-white 64px" src="/brand/logo-white.svg" width="64" height="64"><span class="brand-size-label">64</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-white 32px" src="/brand/logo-white.svg" width="32" height="32"><span class="brand-size-label">32</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-white 16px" src="/brand/logo-white.svg" width="16" height="16"><span class="brand-size-label">16</span></div>
     </div>
   </div>
 </div>
@@ -97,33 +97,33 @@ anoni.net 的 logo 由三个六角形组成，呼应「节点网络」与「多�
   <div class="brand-card">
     <p class="brand-card-label">白底</p>
     <div class="brand-sizes">
-      <div class="brand-size"><img src="/brand/logo-black.svg" width="64" height="64"><span class="brand-size-label">64</span></div>
-      <div class="brand-size"><img src="/brand/logo-black.svg" width="32" height="32"><span class="brand-size-label">32</span></div>
-      <div class="brand-size"><img src="/brand/logo-black.svg" width="16" height="16"><span class="brand-size-label">16</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-black 64px" src="/brand/logo-black.svg" width="64" height="64"><span class="brand-size-label">64</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-black 32px" src="/brand/logo-black.svg" width="32" height="32"><span class="brand-size-label">32</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-black 16px" src="/brand/logo-black.svg" width="16" height="16"><span class="brand-size-label">16</span></div>
     </div>
   </div>
   <div class="brand-card dark">
     <p class="brand-card-label">暗底（不建议）</p>
     <div class="brand-sizes">
-      <div class="brand-size"><img src="/brand/logo-black.svg" width="64" height="64"><span class="brand-size-label">64</span></div>
-      <div class="brand-size"><img src="/brand/logo-black.svg" width="32" height="32"><span class="brand-size-label">32</span></div>
-      <div class="brand-size"><img src="/brand/logo-black.svg" width="16" height="16"><span class="brand-size-label">16</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-black 64px" src="/brand/logo-black.svg" width="64" height="64"><span class="brand-size-label">64</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-black 32px" src="/brand/logo-black.svg" width="32" height="32"><span class="brand-size-label">32</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-black 16px" src="/brand/logo-black.svg" width="16" height="16"><span class="brand-size-label">16</span></div>
     </div>
   </div>
   <div class="brand-card cyan">
     <p class="brand-card-label">cyan-500 底（不建议）</p>
     <div class="brand-sizes">
-      <div class="brand-size"><img src="/brand/logo-black.svg" width="64" height="64"><span class="brand-size-label">64</span></div>
-      <div class="brand-size"><img src="/brand/logo-black.svg" width="32" height="32"><span class="brand-size-label">32</span></div>
-      <div class="brand-size"><img src="/brand/logo-black.svg" width="16" height="16"><span class="brand-size-label">16</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-black 64px" src="/brand/logo-black.svg" width="64" height="64"><span class="brand-size-label">64</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-black 32px" src="/brand/logo-black.svg" width="32" height="32"><span class="brand-size-label">32</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-black 16px" src="/brand/logo-black.svg" width="16" height="16"><span class="brand-size-label">16</span></div>
     </div>
   </div>
   <div class="brand-card cyan-deep">
     <p class="brand-card-label">cyan-900 底（不建议）</p>
     <div class="brand-sizes">
-      <div class="brand-size"><img src="/brand/logo-black.svg" width="64" height="64"><span class="brand-size-label">64</span></div>
-      <div class="brand-size"><img src="/brand/logo-black.svg" width="32" height="32"><span class="brand-size-label">32</span></div>
-      <div class="brand-size"><img src="/brand/logo-black.svg" width="16" height="16"><span class="brand-size-label">16</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-black 64px" src="/brand/logo-black.svg" width="64" height="64"><span class="brand-size-label">64</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-black 32px" src="/brand/logo-black.svg" width="32" height="32"><span class="brand-size-label">32</span></div>
+      <div class="brand-size"><img alt="anoni.net logo-black 16px" src="/brand/logo-black.svg" width="16" height="16"><span class="brand-size-label">16</span></div>
     </div>
   </div>
 </div>
@@ -154,19 +154,19 @@ wordmark 的文字已经转成路径，打开的设备有没有装字体都长�
 <div class="brand-row wm-row">
   <div class="brand-card wm-card">
     <p class="brand-card-label">logo-wordmark</p>
-    <div class="wm-box"><img src="/brand/logo-wordmark-tonal.svg"></div>
+    <div class="wm-box"><img alt="anoni.net logo-wordmark-tonal" src="/brand/logo-wordmark-tonal.svg"></div>
   </div>
   <div class="brand-card wm-card">
     <p class="brand-card-label">logo-wordmark-zh</p>
-    <div class="wm-box"><img src="/brand/logo-wordmark-zh-tonal.svg"></div>
+    <div class="wm-box"><img alt="anoni.net logo-wordmark-zh-tonal" src="/brand/logo-wordmark-zh-tonal.svg"></div>
   </div>
   <div class="brand-card wm-card">
     <p class="brand-card-label">logo-wordmark-en</p>
-    <div class="wm-box"><img src="/brand/logo-wordmark-en-tonal.svg"></div>
+    <div class="wm-box"><img alt="anoni.net logo-wordmark-en-tonal" src="/brand/logo-wordmark-en-tonal.svg"></div>
   </div>
   <div class="brand-card wm-card">
     <p class="brand-card-label">logo-wordmark-fullname</p>
-    <div class="wm-box"><img src="/brand/logo-wordmark-fullname-tonal.svg"></div>
+    <div class="wm-box"><img alt="anoni.net logo-wordmark-fullname-tonal" src="/brand/logo-wordmark-fullname-tonal.svg"></div>
   </div>
 </div>
 
@@ -175,19 +175,19 @@ wordmark 的文字已经转成路径，打开的设备有没有装字体都长�
 <div class="brand-row wm-row">
   <div class="brand-card cyan-deep wm-card">
     <p class="brand-card-label">logo-wordmark-white</p>
-    <div class="wm-box"><img src="/brand/logo-wordmark-white.svg"></div>
+    <div class="wm-box"><img alt="anoni.net logo-wordmark-white" src="/brand/logo-wordmark-white.svg"></div>
   </div>
   <div class="brand-card cyan-deep wm-card">
     <p class="brand-card-label">logo-wordmark-zh-white</p>
-    <div class="wm-box"><img src="/brand/logo-wordmark-zh-white.svg"></div>
+    <div class="wm-box"><img alt="anoni.net logo-wordmark-zh-white" src="/brand/logo-wordmark-zh-white.svg"></div>
   </div>
   <div class="brand-card cyan-deep wm-card">
     <p class="brand-card-label">logo-wordmark-en-white</p>
-    <div class="wm-box"><img src="/brand/logo-wordmark-en-white.svg"></div>
+    <div class="wm-box"><img alt="anoni.net logo-wordmark-en-white" src="/brand/logo-wordmark-en-white.svg"></div>
   </div>
   <div class="brand-card cyan-deep wm-card">
     <p class="brand-card-label">logo-wordmark-fullname-white</p>
-    <div class="wm-box"><img src="/brand/logo-wordmark-fullname-white.svg"></div>
+    <div class="wm-box"><img alt="anoni.net logo-wordmark-fullname-white" src="/brand/logo-wordmark-fullname-white.svg"></div>
   </div>
 </div>
 
@@ -196,19 +196,19 @@ wordmark 的文字已经转成路径，打开的设备有没有装字体都长�
 <div class="brand-row wm-row">
   <div class="brand-card wm-card wm-stack">
     <p class="brand-card-label">logo-wordmark-stack</p>
-    <div class="wm-box"><img src="/brand/logo-wordmark-stack-tonal.svg"></div>
+    <div class="wm-box"><img alt="anoni.net logo-wordmark-stack-tonal" src="/brand/logo-wordmark-stack-tonal.svg"></div>
   </div>
   <div class="brand-card wm-card wm-stack">
     <p class="brand-card-label">logo-wordmark-stack-zh</p>
-    <div class="wm-box"><img src="/brand/logo-wordmark-stack-zh-tonal.svg"></div>
+    <div class="wm-box"><img alt="anoni.net logo-wordmark-stack-zh-tonal" src="/brand/logo-wordmark-stack-zh-tonal.svg"></div>
   </div>
   <div class="brand-card dark wm-card wm-stack">
     <p class="brand-card-label">stack-zh mono white</p>
-    <div class="wm-box"><img src="/brand/logo-wordmark-stack-zh-white.svg"></div>
+    <div class="wm-box"><img alt="anoni.net logo-wordmark-stack-zh-white" src="/brand/logo-wordmark-stack-zh-white.svg"></div>
   </div>
   <div class="brand-card cyan wm-card wm-stack">
     <p class="brand-card-label">stack mono white</p>
-    <div class="wm-box"><img src="/brand/logo-wordmark-stack-white.svg"></div>
+    <div class="wm-box"><img alt="anoni.net logo-wordmark-stack-white" src="/brand/logo-wordmark-stack-white.svg"></div>
   </div>
 </div>
 

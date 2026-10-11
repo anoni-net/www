@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import argparse
 import html
+import json
 import re
 import shutil
 import sys
@@ -72,6 +73,7 @@ class Lang:
     html: str      # <html lang>
     prefix: str    # 網址前綴，正體中文是空字串，例如 /en
     label: str     # 語言切換上顯示的名稱
+    og: str        # og:locale，例如 zh_TW
 
 
 def load_toml(path: Path) -> dict:
@@ -297,8 +299,56 @@ class Site:
             "updates": self.updates_for(lang),
             "report_items": self.report_items(lang, target),
             "feed_url": f"{lang.prefix}/updates/feed.xml",
+            "jsonld": lambda page: self.jsonld(lang, target, page),
             "pgp_key": (STATIC / "B7DF84305C7911D90D59A66061F66CF36EE386D4.asc").read_text(encoding="utf-8").strip(),
         }
+
+    def jsonld(self, lang: Lang, target: dict, page: dict) -> Markup:
+        """結構化資料（schema.org），每頁都有 WebSite 與 Organization，子頁加麵包屑，
+        社群動態與季報加文章，兩個觀測頁的主頁加 Dataset。"""
+        base = target["base"]
+        t = self.strings[lang.code]
+        url = f"{base}{page['path']}"
+        org = {"@type": "Organization", "@id": f"{base}/#org", "name": t["site_name"],
+               "alternateName": "anoni.net", "url": f"{base}/", "email": "whisper@anoni.net",
+               "logo": f"{base}/og.png",
+               "sameAs": ["https://github.com/anoni-net", self.product_url("docs", lang), self.product_url("news", lang)]}
+        graph = [{"@type": "WebSite", "@id": f"{base}/#website", "name": t["site_name"], "alternateName": "anoni.net",
+                  "url": f"{base}{self.page_path(lang, 'index')}", "inLanguage": lang.html, "publisher": {"@id": org["@id"]}},
+                 org]
+        if page["slug"] != "index":
+            crumbs = [(t["site_name"], self.page_path(lang, "index"))]
+            if page.get("parent"):
+                crumbs.append((t[f"nav_{page['parent']}"], self.page_path(lang, page["parent"])))
+            crumbs += [c for c in page.get("trail", []) if c[1] != crumbs[-1][1]]
+            crumbs.append((page["title"], page["path"]))
+            graph.append({"@type": "BreadcrumbList", "itemListElement": [
+                {"@type": "ListItem", "position": i, "name": name, "item": f"{base}{path}"}
+                for i, (name, path) in enumerate(crumbs, 1)]})
+        image = page.get("og_image") or "/og.png"
+        image = image if "://" in image else f"{base}{image}"
+        if page.get("date"):
+            graph.append({"@type": "BlogPosting" if page["section"] == "updates" else "Article",
+                          "headline": page["title"], "description": page["description"], "image": image,
+                          "datePublished": page["date"].isoformat(), "inLanguage": lang.html, "url": url,
+                          "mainEntityOfPage": url, "author": {"@id": org["@id"]}, "publisher": {"@id": org["@id"]}})
+        if page.get("dataset"):
+            d = page["dataset"]
+            # Google 要求 Dataset 的 description 至少 50 個字元，中文的 description 不夠長時接上導言
+            desc = page["description"]
+            if len(desc) < 50 and page.get("lead"):
+                desc += (" " if lang.code == "en" else "") + page["lead"]
+            item = {"@type": "Dataset", "name": page["title"], "description": desc, "url": url,
+                    "inLanguage": lang.html, "isAccessibleForFree": True, "creator": {"@id": org["@id"]},
+                    "spatialCoverage": [{"@type": "Place", "name": n} for n in d["regions"]],
+                    "isBasedOn": d["sources"]}
+            if d.get("download"):
+                item["distribution"] = [{"@type": "DataDownload", "encodingFormat": "application/json",
+                                         "contentUrl": d["download"]}]
+            graph.append(item)
+        text = json.dumps({"@context": "https://schema.org", "@graph": graph}, ensure_ascii=False)
+        # JSON 放在 <script> 裡，</ 要跳脫，內容才不會提早結束標籤
+        return Markup(text.replace("</", "<\\/"))
 
     def service_url(self, svc: dict, target: dict) -> str:
         if target["name"] == "onion" and svc.get("onion"):
@@ -396,7 +446,8 @@ class Site:
         return L, pick
 
     def build_regions(self, lang: Lang, target: dict, out: Path, meta: dict, body: str, blocks: dict,
-                      where: str, slug: str, name: str, countries: list[dict], render) -> None:
+                      where: str, slug: str, name: str, countries: list[dict], render,
+                      dataset: dict | None = None) -> None:
         """同一份 Markdown，每個地區各產生一頁。countries 每一項至少要有 code、title_name，
         render(country, countries) 回傳那個地區的區塊 HTML，放進 <!-- name --> 的位置。"""
         L, _ = self.region_labels(self.data[name], lang)
@@ -418,6 +469,10 @@ class Site:
             page = {
                 **{k: v for k, v in meta.items() if first or k != "lead"},
                 "title": meta["title"] if first else L["title_country"].replace("{name}", country["title_name"]),
+                # 各地區子頁的 description 寫出地區，搜尋結果才分得出是哪一頁
+                "description": meta["description"] if first else L["desc_country"].replace("{name}", country["title_name"]),
+                "trail": [] if first else [(meta["title"], path(lang, first_code))],
+                "dataset": dataset if first else None,
                 "slug": slug,
                 "section": "projects",
                 "parent": "projects",
@@ -492,7 +547,11 @@ class Site:
                 pct=tor_users.pct, country=country, countries=countries, use_refs=use_refs,
                 flag_desc={k: pick(v) for k, v in conf.get("flag_desc", {}).items()})
 
-        self.build_regions(lang, target, out, meta, body, blocks, where, PULSE_SLUG, "pulse", countries, render)
+        # 主頁標成 Dataset，資料可以從 Pulse 的 API 下載
+        dataset = {"regions": [c["name"] for c in countries],
+                   "sources": ["https://metrics.torproject.org/onionoo.html", "https://metrics.torproject.org/"],
+                   "download": f"{self.config['targets']['clearnet']['base']}/api/summary?country={self.pulse_codes[0]}&days={conf['days']}"}
+        self.build_regions(lang, target, out, meta, body, blocks, where, PULSE_SLUG, "pulse", countries, render, dataset)
 
     def asn_data(self) -> dict:
         if self._asn is None:
@@ -547,7 +606,9 @@ class Site:
                 stale=loaded["countries"][country["code"]]["stale"], country=country, countries=countries,
                 tests=tests, app_refs=app_refs, apps_stale=apps["stale"], app_min=asn_coverage.APP_MIN)
 
-        self.build_regions(lang, target, out, meta, body, blocks, where, ASN_SLUG, "asn-coverage", countries, render)
+        dataset = {"regions": [c["name"] for c in countries],
+                   "sources": ["https://api.ooni.io/", "https://stats.labs.apnic.net/aspop/"], "download": None}
+        self.build_regions(lang, target, out, meta, body, blocks, where, ASN_SLUG, "asn-coverage", countries, render, dataset)
 
     def region_map_figure(self, lang: Lang, codes: list[str] | None = None, note: str | None = None) -> str:
         """文章與季報裡的 <!-- region-map -->，點下去開那個地區的觀測頁。
@@ -590,10 +651,12 @@ class Site:
                 body_html = body_html.replace("<!-- region-map -->", self.region_map_figure(lang))
             body_html = self.localize(body_html, lang)
             # 其他語系有同一篇（slug 相同）就連過去，沒有就回到那個語系的動態列表
-            alternates = []
+            alternates, hreflang = [], []
             for other in self.langs:
                 twin = next((p for p in self.posts[other.code] if p.slug == post.slug), None)
                 alternates.append((other, twin.path if twin else self.page_path(other, "updates")))
+                if twin:
+                    hreflang.append((other, twin.path))
             page = {
                 **post.meta,
                 "slug": f"updates/{post.slug}",
@@ -602,6 +665,8 @@ class Site:
                 "path": post.path,
                 "date": post.date,
                 "alternates": alternates,
+                # 語言切換在沒有翻譯時回到動態列表，hreflang 只列真的有翻譯的版本
+                "hreflang": hreflang,
             }
             page = self.with_card(lang, page, self.section_label(lang, "updates") + [post.date.isoformat()],
                                   post.meta.get("description", ""))
@@ -644,10 +709,12 @@ class Site:
             body_html = self.fill_blocks(render_markdown(rep.body), {**blocks, **parts}, where)
             body_html = ICON_REF.sub(lambda m: icon(m[1]), body_html)
             body_html = self.localize(body_html, lang)
-            alternates = []
+            alternates, hreflang = [], []
             for other in self.langs:
                 twin = next((r for r in self.reports[other.code] if r.slug == rep.slug), None)
                 alternates.append((other, twin.path if twin else self.page_path(other, REPORTS_SLUG)))
+                if twin:
+                    hreflang.append((other, twin.path))
             page = {
                 **rep.meta,
                 "slug": f"{REPORTS_SLUG}/{rep.slug}",
@@ -658,7 +725,9 @@ class Site:
                 "since": v["since"],
                 "until": v["until"],
                 "alternates": alternates,
+                "hreflang": hreflang,
                 "crumb": L.get("nav", ""),
+                "trail": [(L.get("nav", ""), self.page_path(lang, REPORTS_SLUG))],
             }
             text = self.env.get_template("report.html.j2").render(
                 **self.context(lang, target), page=page, body=Markup(body_html))

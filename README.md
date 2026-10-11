@@ -50,6 +50,8 @@ Markdown 裡的連結有三種寫法，建置時依語系展開：
 
 在 Markdown 裡單獨一行寫 `<!-- topics -->`，建置時換成 `templates/_block-topics.html.j2` 的內容，主題、專案卡片、服務卡片都用這個方式放進頁面。
 
+每一頁的 `<head>` 由 `templates/_layout.html.j2` 產生，搜尋引擎與社群平台讀的標籤都在那裡：description、canonical、hreflang（含 x-default，只列真的有翻譯的版本）、og 與 `twitter:card`。結構化資料由 `build.py` 的 `jsonld()` 產生，每頁都有 WebSite 與 Organization，子頁加麵包屑，社群動態是 BlogPosting，季報是 Article，兩個觀測頁的主頁是 Dataset。description 是搜尋結果的摘要，中文寫在 100 字以內、英文 155 個字元以內，超過的部分不會顯示。
+
 onion 版本在寫檔前把 `https://anoni.net/docs` 這類 clearnet 網址改寫成 onion 位址，對照表在 `site.toml` 的 `[targets.onion.rewrite]`。`--check` 會檢查三個語系的頁面是否一致、站內連結是否找得到檔案，以及 onion 版本有沒有漏改的網址。
 
 ## 社群動態
@@ -255,6 +257,8 @@ Links in Markdown come in three forms, expanded for each locale at build time:
 - `news:about/`: a page on News in the same locale
 
 A line in Markdown containing only `<!-- topics -->` is replaced at build time with the contents of `templates/_block-topics.html.j2`. Topics, project cards and service cards are all placed on pages this way.
+
+Each page's `<head>` comes from `templates/_layout.html.j2`, which holds the tags search engines and social platforms read: the description, canonical, hreflang (with x-default, listing only versions that really are translations), og and `twitter:card`. Structured data comes from `jsonld()` in `build.py`: every page has WebSite and Organization, subpages add breadcrumbs, community updates are BlogPosting, quarterly reports are Article, and the main pages of the two dashboards are Dataset. The description is the snippet in search results; keep it within 100 characters in Chinese and 155 in English, since anything longer is cut off.
 
 Before writing files, the onion build rewrites clearnet URLs such as `https://anoni.net/docs` to their onion addresses, using the table in `[targets.onion.rewrite]` in `site.toml`. `--check` verifies that the three locales have matching pages, that internal links resolve to files, and that no clearnet URL was missed in the onion build.
 

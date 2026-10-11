@@ -7,14 +7,31 @@
 <meta name="description" content="{{ page.description }}">
 <link rel="icon" href="/favicon.svg">
 <link rel="stylesheet" href="/css/site.css">
+{# hreflang 只列真的有翻譯的版本，沒有翻譯的社群動態，語言切換會回到列表，那不是同一頁 #}
+{% set hreflang = page.get('hreflang', page.alternates) %}
 <meta property="og:title" content="{{ page.title }}">
-<meta property="og:type" content="website">
+<meta property="og:type" content="{{ 'article' if page.get('date') else 'website' }}">
+{% if page.get('date') %}
+<meta property="article:published_time" content="{{ page.date.isoformat() }}">
+{% endif %}
 <meta property="og:url" content="{{ target.base }}{{ page.path }}">
+{# 預覽卡片、季報的分享圖與 og.png 都是 1200x630 #}
 {% set og = page.get('og_image') or '/og.png' %}<meta property="og:image" content="{{ og if '://' in og else target.base ~ og }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ page.title }}">
 <meta property="og:site_name" content="{{ t.site_name }}">
 <meta property="og:description" content="{{ page.description }}">
-{% for other, path in page.alternates %}
+<meta property="og:locale" content="{{ lang.og }}">
+{% for other, path in hreflang if other.code != lang.code %}
+<meta property="og:locale:alternate" content="{{ other.og }}">
+{% endfor %}
+<meta name="twitter:card" content="summary_large_image">
+{% for other, path in hreflang %}
 <link rel="alternate" hreflang="{{ other.html }}" href="{{ target.base }}{{ path }}">
+{% endfor %}
+{% for other, path in hreflang if other.code == langs[0].code %}
+<link rel="alternate" hreflang="x-default" href="{{ target.base }}{{ path }}">
 {% endfor %}
 <link rel="alternate" type="application/rss+xml" title="{{ t.feed_title }}" href="{{ feed_url }}">
 <link rel="alternate" type="application/rss+xml" title="{{ t.rss_created }}" href="{{ docs_url('feed_rss_created.xml') }}">
@@ -27,7 +44,9 @@
 <link rel="canonical" href="{{ target.base }}{{ page.path }}">
 <meta http-equiv="onion-location" content="http://{{ onion_host }}{{ page.path }}">
 {% endif %}
-{% block jsonld %}{% endblock %}
+{% if page.slug != "404" %}
+<script type="application/ld+json">{{ jsonld(page) }}</script>
+{% endif %}
 <script defer src="https://aa.anoni.net/script.js" data-website-id="2b8d98c3-5bc4-45ef-958f-6cd9b770502e"></script>
 {% endif %}
 </head>
