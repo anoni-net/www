@@ -37,9 +37,9 @@ lead: 关注匿名网络与网络自由的一群人。
 ## 治理、合作与品牌
 
 <ul class="rows">
-  <li><a class="row" href="/about/governance/"><span class="b"><span class="t">治理方式</span><span class="d">决策方式、成员角色、争议处理与行为准则。</span></span></a></li>
-  <li><a class="row" href="/about/partners/"><span class="b"><span class="t">组织合作</span><span class="d">给公民团体、倡议组织与新闻媒体的合作说明，社区能一起做的事与做不到的事。</span></span></a></li>
-  <li><a class="row" href="/brand/"><span class="b"><span class="t">品牌素材</span><span class="d">logo、wordmark 与色票的下载和使用方式，制作活动文宣、简报与社群卡片时取用。</span></span></a></li>
+  <li><a class="row" href="/about/governance/"><span class="ic">ICON:scale-balance</span><span class="b"><span class="t">治理方式</span><span class="d">决策方式、成员角色、争议处理与行为准则。</span></span><span class="go">ICON:arrow-right</span></a></li>
+  <li><a class="row" href="/about/partners/"><span class="ic">ICON:handshake-outline</span><span class="b"><span class="t">组织合作</span><span class="d">给公民团体、倡议组织与新闻媒体的合作说明，社区能一起做的事与做不到的事。</span></span><span class="go">ICON:arrow-right</span></a></li>
+  <li><a class="row" href="/brand/"><span class="ic">ICON:palette-swatch-outline</span><span class="b"><span class="t">品牌素材</span><span class="d">logo、wordmark 与色票的下载和使用方式，制作活动文宣、简报与社群卡片时取用。</span></span><span class="go">ICON:arrow-right</span></a></li>
 </ul>
 
 [关注我们](/contact/){ .btn }
