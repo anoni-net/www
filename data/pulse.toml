@@ -96,6 +96,7 @@ Authority = { zh-TW = "目錄權威伺服器本身", zh-CN = "目录权威服务
 
 [labels]
 title_country = { zh-TW = "{name}的 Tor 中繼節點", zh-CN = "{name}的 Tor 中继节点", en = "Tor relays in {name}" }
+desc_country = { zh-TW = "{name}的 Tor 中繼數量、頻寬、所在網路、版本與使用者估計，由社群維運的 Pulse 每小時更新。", zh-CN = "{name}的 Tor 中继数量、带宽、所在网络、版本与用户估计，由社区维护的 Pulse 每小时更新。", en = "Tor relays in {name}: how many run, their bandwidth, networks and versions, plus Tor user estimates, updated hourly by the anoni.net community." }
 countries = { zh-TW = "觀測地區", zh-CN = "观测地区", en = "Regions" }
 updated = { zh-TW = "最近一次快照", zh-CN = "最近一次快照", en = "Latest snapshot" }
 unavailable = { zh-TW = "中繼節點的資料暫時無法取得，下一次重建時會再試一次。", zh-CN = "中继节点的数据暂时无法取得，下一次重建时会再试一次。", en = "Relay data is unavailable right now. The next rebuild will try again." }

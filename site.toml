@@ -6,18 +6,21 @@ onion_host = "anoninetru5tflukgfaehun7q6khowgmymcff3gtk5oyesqazhmfxtyd.onion"
 # 正體中文是預設語系，掛在根目錄。順序同時是語言切換的順序。
 [[languages]]
 code = "zh-TW"
+og = "zh_TW"
 html = "zh-Hant-TW"
 prefix = ""
 label = "正體"
 
 [[languages]]
 code = "zh-CN"
+og = "zh_CN"
 html = "zh-Hans"
 prefix = "/zh-cn"
 label = "简体"
 
 [[languages]]
 code = "en"
+og = "en_US"
 html = "en"
 prefix = "/en"
 label = "EN"
