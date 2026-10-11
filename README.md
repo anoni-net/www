@@ -148,7 +148,7 @@ WWW_OG_RSYNC=<主機>:<目錄> uv run --with playwright tools/make_og_cards.py
 
 `/projects/reports/` 每季整理一次 Tor 中繼節點與 OONI 觀測涵蓋率，兩個觀測頁顯示最近 60 天，季報把當季的數字定格下來，加上社群的解讀。每一期的本文在 `reports/<語系>/<季度>.md`（例如 `reports/zh-TW/2026-q3.md`），三個語系都要有，缺一個 `build.py --check` 就不會通過。列表頁是 `pages/<語系>/projects/reports.md`。
 
-圖表與表格用 `<!-- rq-名稱 -->` 放進本文，名稱對應 `templates/_report.html.j2` 的 macro，整理數字的程式在 [`reports.py`](./reports.py)，圖表上的文字在 `data/reports.toml`。數字來自 `data/reports/<季度>.json`，進版控之後就是那一季定格的數字，之後重建網站也不會變。
+圖表與表格用 `<!-- rq-名稱 -->` 放進本文，名稱對應 `templates/_report.html.j2` 的 macro，整理數字的程式在 [`reports.py`](./reports.py)，圖表上的文字在 `data/reports.toml`。數字來自 `data/reports/<季度>.json`，進版控之後就是那一季定格的數字，之後重建網站也不會變。文末的名詞說明寫在 `data/reports.toml` 的 `[[glossary]]`，用 `<!-- rq-glossary -->` 放進本文，每一期共用，新增欄位或改算法時一起更新。
 
 每季產生一次數字檔，步驟寫在 [`tools/quarterly_report.py`](./tools/quarterly_report.py) 的開頭：
 
@@ -353,7 +353,7 @@ For network types (mobile, broadband) or details of how blocking works, download
 
 `/projects/reports/` looks at Tor relays and OONI coverage once a quarter. The two dashboards show the last 60 days, and a report fixes that quarter's numbers and adds the community's reading of them. Each report's text is in `reports/<locale>/<quarter>.md` (for example `reports/zh-TW/2026-q3.md`). All three locales are required, and `build.py --check` fails if one is missing. The list page is `pages/<locale>/projects/reports.md`.
 
-Charts and tables go into the text with `<!-- rq-name -->`, where the name matches a macro in `templates/_report.html.j2`. The code that prepares the numbers is in [`reports.py`](./reports.py), and the chart labels are in `data/reports.toml`. The numbers come from `data/reports/<quarter>.json`. Once committed, that file holds the quarter's fixed numbers, and rebuilding the site later does not change them.
+Charts and tables go into the text with `<!-- rq-name -->`, where the name matches a macro in `templates/_report.html.j2`. The code that prepares the numbers is in [`reports.py`](./reports.py), and the chart labels are in `data/reports.toml`. The numbers come from `data/reports/<quarter>.json`. Once committed, that file holds the quarter's fixed numbers, and rebuilding the site later does not change them. The glossary at the end of each report lives in `[[glossary]]` in `data/reports.toml` and goes into the text with `<!-- rq-glossary -->`. Every report shares it, so update it whenever a field or calculation changes.
 
 The numbers file is generated once a quarter, with the steps at the top of [`tools/quarterly_report.py`](./tools/quarterly_report.py):
 
