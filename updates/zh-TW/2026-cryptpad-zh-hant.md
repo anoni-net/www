@@ -72,7 +72,7 @@ CryptPad 由法國 [XWiki SAS](https://xwiki.com/) 開發，使用 [AGPLv3](http
 
 **AGPLv3 授權，加密協議公開可審視**：衍生服務都必須開源，我們自架時可以完整檢查程式碼。加密協議與資料結構也對外公開，跟 Tor、Tails、OONI 一樣，是可被驗證的隱私。
 
-**由維護者與社群決定如何治理**：自架的好處跟 [自架 Matrix](docs:blog/2026/02/2026-discord-matrix-statement/) 的理由一致，紀錄保存策略、註冊政策、頻道規則由我們決定，可預期、可問責、可隨社群需求調整。
+**由維護者與社群決定如何治理**：自架的好處跟 [自架 Matrix](/updates/2026/02/2026-discord-matrix-statement/) 的理由一致，紀錄保存策略、註冊政策、頻道規則由我們決定，可預期、可問責、可隨社群需求調整。
 
 **有歐洲公部門與民間組織的真實部署經驗**：CryptPad 在歐洲多個公部門專案、NGO 與研究單位內被採用，合規、可靠性、長期維護三方面都有實際使用紀錄，把它推給更多正體中文使用者時不必擔心是 demo 漂亮的玩具。
 
@@ -109,6 +109,6 @@ CryptPad 介面選單最早寫的是「中文(繁體)」。我們在 PR #1329 �
 
 ## 相關閱讀
 
-- [從 Discord 年齡驗證談起：我們為什麼自架 Matrix](docs:blog/2026/02/2026-discord-matrix-statement/)
+- [從 Discord 年齡驗證談起：我們為什麼自架 Matrix](/updates/2026/02/2026-discord-matrix-statement/)
 - [社群自架服務](/services/)
 - [中文化與文件翻譯](docs:community/i18n/)

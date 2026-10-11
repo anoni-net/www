@@ -146,6 +146,9 @@ def convert(text: str, src: str, lang: str, moved: list[dict], where: str, blog_
     body = body.replace('{target="_blank"}', "").replace("{ target=\"_blank\" }", "")
     # 文件站截圖的框線寫在 style 裡，本站改用 class
     body = re.sub(r'(!\[[^\]]*\]\([^)]+\))\{\s*style="[^"]*"\s*\}', r"\1{ .shot }", body)
+    # 屬性清單裡夾在其他屬性中間的圓角（例如 { align=left width="30%" style="border-radius: 5px;" }）
+    body = re.sub(r'\{([^{}\n]*?)\s*style="border-radius:\s*[\d.]+(?:px|rem)?;?\s*"([^{}\n]*)\}',
+                  lambda m: "{ " + " ".join(x for x in (m[1].strip(), ".shot", m[2].strip()) if x) + " }", body)
     # HTML 寫的 <img> 只帶圓角時，同樣改成 .shot
     body = re.sub(r'(<img\b[^>]*?)\s+style="border-radius:\s*[\d.]+(?:px|rem)?;?\s*"', r'\1 class="shot"', body)
 

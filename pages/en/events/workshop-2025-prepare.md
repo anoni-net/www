@@ -18,7 +18,7 @@ description: Recruiting organizers and helpers for the August 2025 Anonymous Net
 
 ## <i data-icon="fontawesome-solid-users-gear"></i> Preparation Team
 
-This time, we will have a one-day track to conduct the workshop. Although COSCUP has not yet announced which day we'll be assigned, it does not affect the pre-workshop preparations. We will continue with the format of the workshop hosted by the [Tor and OONI teams in February 2025](docs:blog/2025/02/rightscon25-tor-tails-ooni/), with the only difference being localized adjustments and conducting it in Chinese.
+This time, we will have a one-day track to conduct the workshop. Although COSCUP has not yet announced which day we'll be assigned, it does not affect the pre-workshop preparations. We will continue with the format of the workshop hosted by the [Tor and OONI teams in February 2025](/updates/2025/02/rightscon25-tor-tails-ooni/), with the only difference being localized adjustments and conducting it in Chinese.
 Currently, we need the following roles, each of which can be cross-participatory. You only need to have basic skills, and there will be training activities to enhance them.
 
 <div class="grid cards" markdown>

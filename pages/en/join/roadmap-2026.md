@@ -17,7 +17,7 @@ The research track's entry point, article index, and current status are on [the 
 
 ### Tor relays on university campuses
 
-This track follows from the [Tor University Challenge](https://toruniversity.eff.org/), an EFF campaign to get stable relays running at higher education institutions. Taiwan already has one: the Computer Science and Information Engineering department's IT centre at National Taiwan Normal University operates a Tor relay, set up after a community member worked the proposal through faculty and staff. The account of how that went is in [an interview with NZ at NTNU](docs:blog/2025/12/ntnu-nz/).
+This track follows from the [Tor University Challenge](https://toruniversity.eff.org/), an EFF campaign to get stable relays running at higher education institutions. Taiwan already has one: the Computer Science and Information Engineering department's IT centre at National Taiwan Normal University operates a Tor relay, set up after a community member worked the proposal through faculty and staff. The account of how that went is in [an interview with NZ at NTNU](/updates/2025/12/ntnu-nz/).
 
 In 2025 we completed the Traditional Chinese translation of the Tor University Challenge site. In 2026 we are taking the process onto campuses.
 

@@ -63,7 +63,7 @@ The Taiwan case is also documented in English on the Tor Project blog, with NZ's
 
 The full long-form interview with NZ on anoni.net covers the year-long arc through the proposal process, and is the most complete record of how the first one went:
 
-- [Setting up a Tor relay at National Taiwan Normal University](docs:blog/2025/12/ntnu-nz/)
+- [Setting up a Tor relay at National Taiwan Normal University](/updates/2025/12/ntnu-nz/)
 
 ## Acknowledgements
 

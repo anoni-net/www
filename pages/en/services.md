@@ -15,7 +15,7 @@ Matrix and CryptPad need an account issued by a person, so write to <whisper@ano
 1. Use [Element](https://matrix.anoni.net/) on the web, or [download Element X](https://element.io/download) and set the homeserver to `im.anoni.net`. An existing `matrix.org` account works fine.
 2. Once registered, open the community's [public Space](https://matrix.to/#/#community:im.anoni.net) to join the community rooms in one go, or join individual rooms as you need them.
 
-For why we self-host Matrix and the privacy trade-offs behind it, see [From Discord’s Age Verification to Why We Self-Host Matrix](docs:blog/2026/02/2026-discord-matrix-statement/).
+For why we self-host Matrix and the privacy trade-offs behind it, see [From Discord’s Age Verification to Why We Self-Host Matrix](/updates/2026/02/2026-discord-matrix-statement/).
 
 ## Good to know
 

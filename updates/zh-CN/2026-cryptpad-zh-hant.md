@@ -72,7 +72,7 @@ CryptPad 由法国 [XWiki SAS](https://xwiki.com/) 开发，使用 [AGPLv3](http
 
 **AGPLv3 授权，加密协议公开可审视**：衍生服务都必须开源，我们自架时可以完整检查代码。加密协议与数据结构也对外公开，跟 Tor、Tails、OONI 一样，是可被验证的隐私。
 
-**由维护者与社区决定如何治理**：自架的好处跟 [自架 Matrix](docs:blog/2026/02/2026-discord-matrix-statement/) 的理由一致，记录保存策略、注册政策、频道规则由我们决定，可预期、可问责、可随社区需求调整。
+**由维护者与社区决定如何治理**：自架的好处跟 [自架 Matrix](/updates/2026/02/2026-discord-matrix-statement/) 的理由一致，记录保存策略、注册政策、频道规则由我们决定，可预期、可问责、可随社区需求调整。
 
 **有欧洲公部门与民间组织的真实部署经验**：CryptPad 在欧洲多个公部门项目、NGO 与研究单位内被采用，合规、可靠性、长期维护三方面都有实际使用记录，把它推给更多中文使用者时不必担心是 demo 漂亮的玩具。
 
@@ -119,6 +119,6 @@ CryptPad 本身是 E2EE 的，无论你的连线管道是 Tor、VPN 或直连，
 
 ## 相关阅读
 
-- [从 Discord 年龄验证谈起：我们为什么自架 Matrix](docs:blog/2026/02/2026-discord-matrix-statement/)
+- [从 Discord 年龄验证谈起：我们为什么自架 Matrix](/updates/2026/02/2026-discord-matrix-statement/)
 - [沟通与协作工具](/services/)
 - [中文化与文件翻译](docs:community/i18n/)

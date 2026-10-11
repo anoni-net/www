@@ -30,7 +30,7 @@ Tor 网络的匿名性靠**多元的中继节点**支撑。当绝大多数中继
 
 ## 相关文章
 
-- 案例：[在台师大架设 Tor Relay：一段与学校沟通、留下可能性的实现经验](docs:blog/2025/12/ntnu-nz/)
+- 案例：[在台师大架设 Tor Relay：一段与学校沟通、留下可能性的实现经验](/updates/2025/12/ntnu-nz/)
 - 国际参考：[Tor Project 客座文章：Setting Up a Tor University Relay in Taiwan](https://blog.torproject.org/setting-up-tor-university-relay-taiwan/)
 - 技术 how-to：[如何搭建 Tor Relay](docs:community/setup-tor-relay/)、[如何搭建 Tor WebTunnel 桥接](docs:community/setup-tor-webtunnel/)
 - 观测：[Tor 中继节点观测](/projects/pulse/)
@@ -43,7 +43,7 @@ Tor 网络的匿名性靠**多元的中继节点**支撑。当绝大多数中继
 - **Tor Project blog 客座文章**：把台师大案例写成英文版本，刊登于 [Tor Project blog](https://blog.torproject.org/setting-up-tor-university-relay-taiwan/)，登录到全球视野
 - **Tor University Challenge 中译**：完成 [EFF Tor University Challenge 网站](https://toruniversity.eff.org/zh-tw/) 的正体中文翻译，降低台湾其他学校接触计划的语言门槛
 - **Tor 中继节点观测上线**：[观测页](/projects/pulse/)每小时更新台湾与邻近地区共十五个地区的中继节点状况
-- **访谈企划**：把台师大架设过程整理成 [深度访谈](docs:blog/2025/12/ntnu-nz/)，公开给后续推动者参考
+- **访谈企划**：把台师大架设过程整理成 [深度访谈](/updates/2025/12/ntnu-nz/)，公开给后续推动者参考
 
 ## 进行中与待完成
 
