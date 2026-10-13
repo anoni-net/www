@@ -21,7 +21,7 @@ description: 2026 年匿名网络社群 anoni.net 的三大主题、文件站建
 
 2025 我们完成了 Tor University Challenge 网站的正体中文翻译，2026 将实际走进校园推动建置流程。
 
-研究专题入口、案例累积与如何加入请见 [Tor Relay 校园建立研究专题](/join/relay-on-campus/)。技术 how-to 见 [如何搭建 Tor Relay](docs:community/setup-tor-relay/)。
+研究专题入口、案例累积与如何加入请见 [Tor Relay 校园建立研究专题](/join/relay-on-campus/)。技术 how-to 见 [Tor Relay 架设指南](/join/setup-tor-relay/)。
 
 ### 匿名支付探索
 

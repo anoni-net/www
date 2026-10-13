@@ -10,7 +10,7 @@ date: 2026-05-28
 
     手上有一台 VPS（云端主机）或实体主机，再加一个域名，就能架一个 Tor WebTunnel 桥接，让被审查切断的人能连回外面的网络。架不了服务器也没关系，打开浏览器执行 [Snowflake](docs:tools/tor-snowflake/) 一样能贡献匿名流量。
 
-    服务器规格、法律考量与完整架设步骤，都整理在 [**如何搭建 Tor WebTunnel 桥接**](docs:community/setup-tor-webtunnel/)。
+    服务器规格、法律考量与完整架设步骤，都整理在 [**Tor WebTunnel 桥接架设指南**](/join/setup-tor-webtunnel/)。
 
 
 ## 封了 80 多天的网络
@@ -93,13 +93,13 @@ WebTunnel 的做法不同，它把 Tor 流量包进一个真正的 HTTPS 连接�
 
 门槛不高：
 
-- 一台 512MB 到 1GB 内存的小型 VPS 就足以支撑，成本和维护心力都比架 [Tor Relay](docs:community/setup-tor-relay/) 低。
+- 一台 512MB 到 1GB 内存的小型 VPS 就足以支撑，成本和维护心力都比架 [Tor Relay](/join/setup-tor-relay/) 低。
 - 需要一个域名（或子域名）和一张 TLS 证书（让网站能用 https 安全连接的证书），用 Let's Encrypt 免费就能申请。
 - 法律风险很低。桥接只是中转站，不会直接连到使用者最后要造访的网站，对外网站看到的是 Tor 网络的出口，不是你的服务器，比架设 Tor 出口节点安全得多。
 
 我们把完整的架设流程整理成一份指引，从准备域名、申请证书、把桥接架起来，到防火墙、伪装页、监控与后续维运都写进去了：
 
-- <i data-icon="tunnel-outline"></i> [**如何搭建 Tor WebTunnel 桥接**](docs:community/setup-tor-webtunnel/)
+- <i data-icon="tunnel-outline"></i> [**Tor WebTunnel 桥接架设指南**](/join/setup-tor-webtunnel/)
 
 如果没办法协助架设 WebTunnel，也可以打开浏览器执行 [Snowflake](docs:tools/tor-snowflake/)，开着分页就能贡献匿名流量，帮连不上 Tor 的人绕过审查。等你准备好投入一台服务器，再回来架 WebTunnel。
 
@@ -113,9 +113,9 @@ WebTunnel 的做法不同，它把 Tor 流量包进一个真正的 HTTPS 连接�
 
 ## 相关阅读
 
-- [如何搭建 Tor WebTunnel 桥接](docs:community/setup-tor-webtunnel/)
+- [Tor WebTunnel 桥接架设指南](/join/setup-tor-webtunnel/)
 - [Tor Snowflake 桥接点](docs:tools/tor-snowflake/)
-- [如何搭建 Tor Relay](docs:community/setup-tor-relay/)
+- [Tor Relay 架设指南](/join/setup-tor-relay/)
 - [网络自由为什么重要](docs:basics/internet-freedom/)
 - [2025 年 10 月国际网络自由观察](/updates/2025/10/internetfreedom-oct2025/)
 

@@ -10,7 +10,7 @@ For people in Iran, the outside internet barely existed for nearly three months.
 
     If you have a VPS (a small cloud server) or a physical machine, plus a domain name, you can run a Tor WebTunnel bridge and give people cut off by censorship a way back onto the open internet. Can't run a server? Open a browser tab and run [Snowflake](https://snowflake.torproject.org/) instead, it contributes anonymous traffic just the same.
 
-    Server specs, legal considerations, and the full setup steps are written up in [**How to set up a Tor WebTunnel bridge**](docs:community/setup-tor-webtunnel/).
+    Server specs, legal considerations, and the full setup steps are written up in [**Tor WebTunnel Bridge Setup Guide**](/join/setup-tor-webtunnel/).
 
 
 ## More than 80 days offline
@@ -99,7 +99,7 @@ The barrier really isn't high:
 
 We've written up the whole process, from preparing a domain and getting a certificate to standing the bridge up, plus the firewall, cover page, monitoring, and ongoing operations:
 
-- <i data-icon="tunnel-outline"></i> [**How to set up a Tor WebTunnel bridge**](docs:community/setup-tor-webtunnel/)
+- <i data-icon="tunnel-outline"></i> [**Tor WebTunnel Bridge Setup Guide**](/join/setup-tor-webtunnel/)
 
 If running a WebTunnel bridge isn't an option for you, you can still open a browser and run [Snowflake](https://snowflake.torproject.org/): leave the tab open and it contributes anonymous traffic, helping people who can't reach Tor get around censorship. When you're ready to commit a server, come back and set up a WebTunnel.
 
@@ -113,7 +113,7 @@ Community discussion happens on [Matrix](/contact/) (home server `im.anoni.net`)
 
 ## Related reading
 
-- [How to set up a Tor WebTunnel bridge](docs:community/setup-tor-webtunnel/)
+- [Tor WebTunnel Bridge Setup Guide](/join/setup-tor-webtunnel/)
 - [Snowflake (Tor Project)](https://snowflake.torproject.org/)
 - [Set up a Tor relay (Tor Project)](https://community.torproject.org/relay/)
 - [Why internet freedom matters](docs:basics/internet-freedom/)

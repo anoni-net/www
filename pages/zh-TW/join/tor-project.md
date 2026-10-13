@@ -74,7 +74,7 @@ Tor 的 IRC（OFTC 網路）與 Matrix 雙向橋接，用 Element 加入 Matrix 
 1. 在地化翻譯。門檻最低，不需要審核帳號，也不需要技術背景。個人就能在 Weblate 開始，同時改善正體中文的品質，也是累積社群貢獻紀錄最快的方式。流程與 Weblate 的連結見[中文化與文件翻譯](docs:community/i18n/)的「Tor 文件翻譯」一節，第一次參與先讀[成為 Tor 翻譯者](https://community.torproject.org/localization/becoming-tor-translator/)。
 2. 在 `#tor-project` 與論壇自我介紹。meetup、outreach 與社群事務都在這裡討論，之後的正式合作也從這裡開始。
 3. 舉辦在地 meetup。Tor 的 [Outreach](https://community.torproject.org/outreach/) 提供 Street Team Kit、簡報與舉辦 Tor meetup 的素材，官方鼓勵自主舉辦，不需要審核，需要講者時寫信到 <speaking@torproject.org>。
-4. 營運中繼或橋接。有機器與頻寬的成員可以在台灣架設中繼，增加亞太的節點，步驟見[如何搭建 Tor Relay](docs:community/setup-tor-relay/)。偽裝成 HTTPS 的橋接見[設置 Tor WebTunnel](docs:community/setup-tor-webtunnel/)，遇到問題可以到 `#tor-relays` 與 tor-relays 郵件列表詢問。
+4. 營運中繼或橋接。有機器與頻寬的成員可以在台灣架設中繼，增加亞太的節點，步驟見[Tor Relay 架設指南](/join/setup-tor-relay/)。偽裝成 HTTPS 的橋接見[Tor WebTunnel 橋接架設指南](/join/setup-tor-webtunnel/)，遇到問題可以到 `#tor-relays` 與 tor-relays 郵件列表詢問。
 5. 開發與回報問題。到 [anonticket.torproject.org](https://anonticket.torproject.org/) 可以匿名申請 GitLab 帳號或回報問題，取得帳號之後到對應的 repo 開 issue。新手可以從標了 first-contributors 的 issue 開始，技術討論在 `#tor-dev`。
 6. 成為 Training Partner。Tor 的 [training partners](https://community.torproject.org/training/partners/) 是組織與 Tor 之間最正式的合作形式，通常要先在前幾項累積貢獻紀錄，適合當作中長期的目標。
 
@@ -89,8 +89,8 @@ Tor 的 IRC（OFTC 網路）與 Matrix 雙向橋接，用 Element 加入 Matrix 
 ## 相關閱讀
 
 - [中文化與文件翻譯](docs:community/i18n/)：Tor 文件的翻譯流程與 Weblate 的使用方式
-- [如何搭建 Tor Relay](docs:community/setup-tor-relay/)：在台灣架設中繼的步驟
-- [設置 Tor WebTunnel](docs:community/setup-tor-webtunnel/)：把橋接流量偽裝成一般 HTTPS 的架設方式
+- [Tor Relay 架設指南](/join/setup-tor-relay/)：在台灣架設中繼的步驟
+- [Tor WebTunnel 橋接架設指南](/join/setup-tor-webtunnel/)：把橋接流量偽裝成一般 HTTPS 的架設方式
 - [如何參與與認領主題](/join/)：加入匿名網路社群、認領年度主題的方式
 
 [^1]: [Advancing digital rights in 2026](https://blog.torproject.org/advancing-digital-rights-in-2026/) - The Tor Project Blog

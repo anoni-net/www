@@ -30,7 +30,7 @@ Matrix、CryptPad、Send、Etherpad 与表单都由社群自架，用途与申�
 
 ### 媒体的收件渠道
 
-[公开的安全收件管道](docs:scenarios/journalist/#公开的安全收件管道)比较了几种入口的门槛与取舍，[如何搭建 .onion 服务](docs:community/setup-onion-service/)与 [OnionShare](docs:tools/onionshare/) 是其中两种的做法。照着文档架设时卡住，可以到 Matrix 或来信询问。
+[公开的安全收件管道](docs:scenarios/journalist/#公开的安全收件管道)比较了几种入口的门槛与取舍，[.onion 服务架设指南](/join/setup-onion-service/)与 [OnionShare](docs:tools/onionshare/) 是其中两种的做法。照着文档架设时卡住，可以到 Matrix 或来信询问。
 
 ### 网络观测与可引用的数据
 

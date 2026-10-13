@@ -74,7 +74,7 @@ These are ordered by how feasible each is for a regional community, with a link 
 1. **Localization**: The lowest barrier, needing no account review and no technical background. An individual can start on Weblate right away and improve the Traditional Chinese at the same time, and it is the fastest way to build a record of contributions. The process and the Weblate links are in the Tor translation section of [localization and translation](docs:community/i18n/); first-time contributors should read [becoming a Tor translator](https://community.torproject.org/localization/becoming-tor-translator/).
 2. **An introduction in `#tor-project` and on the forum**: Meetups, outreach, and community matters are discussed there, and any formal collaboration starts there too.
 3. **A local meetup**: Tor's [outreach programme](https://community.torproject.org/outreach/) provides a Street Team Kit, slides, and material for hosting a Tor meetup. The project encourages independent meetups and they need no approval. To request a speaker, write to <speaking@torproject.org>.
-4. **A relay or a bridge**: Members with a machine and bandwidth can run a relay and add to Asia-Pacific coverage; the steps are in [how to run a Tor relay](docs:community/setup-tor-relay/). For a bridge disguised as HTTPS, see [setting up Tor WebTunnel](docs:community/setup-tor-webtunnel/). Help is available in `#tor-relays` and on the tor-relays mailing list.
+4. **A relay or a bridge**: Members with a machine and bandwidth can run a relay and add to Asia-Pacific coverage; the steps are in the [Tor Relay Setup Guide](/join/setup-tor-relay/). For a bridge disguised as HTTPS, see the [Tor WebTunnel Bridge Setup Guide](/join/setup-tor-webtunnel/). Help is available in `#tor-relays` and on the tor-relays mailing list.
 5. **Development and bug reports**: [anonticket.torproject.org](https://anonticket.torproject.org/) lets you request a GitLab account or file a report anonymously; with an account, issues go on the relevant repository. Newcomers can start with issues labelled first-contributors, and technical discussion happens in `#tor-dev`.
 6. **Training partnership**: Tor's [training partners](https://community.torproject.org/training/partners/) programme is the most formal arrangement between an organization and the project. It usually follows a record of contributions in the areas above, and suits a medium-term goal.
 
@@ -89,8 +89,8 @@ How this work fits the community's annual plan is in the [2026 roadmap](/join/ro
 ## Related reading
 
 - [Localization and translation](docs:community/i18n/): how Tor's documentation is translated, and how to use Weblate
-- [How to run a Tor relay](docs:community/setup-tor-relay/): the steps for running a relay
-- [Setting up Tor WebTunnel](docs:community/setup-tor-webtunnel/): running a bridge disguised as ordinary HTTPS
+- [Tor Relay Setup Guide](/join/setup-tor-relay/): the steps for running a relay
+- [Tor WebTunnel Bridge Setup Guide](/join/setup-tor-webtunnel/): running a bridge disguised as ordinary HTTPS
 - [Take part](/join/): ways to join anoni.net and take on a yearly theme
 
 [^1]: [Advancing digital rights in 2026](https://blog.torproject.org/advancing-digital-rights-in-2026/), The Tor Project Blog

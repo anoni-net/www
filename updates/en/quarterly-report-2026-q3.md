@@ -34,7 +34,7 @@ The guide to asking an AI assistant about Tor relays has also moved from the doc
 
 - Mobile measurements: install [OONI Probe](https://ooni.org/install/mobile) on a phone that uses mobile data and open the community's [OONI Run link](https://run.ooni.org/v2/10328). The [OONI Run v2 guide](docs:tools/ooni-run-v2/) covers the risks to weigh first
 - Cable broadband: the report lists the [networks with no measurements all quarter](/projects/reports/2026-q3/#Networks-with-no-measurements-this-quarter), mostly cable TV broadband. If your home connection is on the list, you can add a network
-- Tor relays outside HiNet: university networks and other providers both help; see [how to set up a Tor relay](docs:community/setup-tor-relay/) and [Tor relays on campus](/join/relay-on-campus/)
+- Tor relays outside HiNet: university networks and other providers both help; see the [Tor Relay Setup Guide](/join/setup-tor-relay/) and [Tor relays on campus](/join/relay-on-campus/)
 - Upgrades: if you run a relay, move to 0.4.9.13 or later
 
 The report comes out every three months. The next one covers the fourth quarter and is planned for January 2027, and you can follow community updates by [RSS](/en/updates/feed.xml). Thoughts on the report, or a figure you think is wrong, are welcome at <whisper@anoni.net> or as an issue on [GitHub](https://github.com/anoni-net/www/issues).

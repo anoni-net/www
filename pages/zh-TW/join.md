@@ -34,6 +34,17 @@ lead: 隨時都可以參與，不需要先具備技術背景。
 
 這幾個工具的帳號申請與入口見[服務](/services/)。
 
+## 架設與營運
+
+架起一個 Tor 中繼節點或橋接，受審查地區的使用者就多一個連上 Tor 的入口。各篇從安裝寫到上線之後的維運，也說明在台灣架設時要留意的法規與網路環境。在學校架設中繼節點的提案與溝通，見 [Tor Relay 校園建立研究專題](/join/relay-on-campus/)。
+
+<ul class="rows">
+  <li><a class="row" href="/join/setup-tor-relay/"><span class="ic">ICON:server-network</span><span class="b"><span class="t">Tor Relay 架設指南</span><span class="d">中繼、橋接與出口節點的差別，安裝、設定與監控，以及架設前要評估的法律與行政事項。</span></span><span class="go">ICON:arrow-right</span></a></li>
+  <li><a class="row" href="/join/setup-tor-webtunnel/"><span class="ic">ICON:tunnel-outline</span><span class="b"><span class="t">Tor WebTunnel 橋接架設指南</span><span class="d">把 Tor 流量偽裝成一般的 HTTPS 連線，從網域、TLS、nginx 反向代理到 Docker 的步驟。</span></span><span class="go">ICON:arrow-right</span></a></li>
+  <li><a class="row" href="/join/setup-onion-service/"><span class="ic">ICON:web-box</span><span class="b"><span class="t">.onion 服務架設指南</span><span class="d">用 Tor 官方的方式架設 v3 onion 服務，接上 nginx 與子網域，以及上線之後的維運。</span></span><span class="go">ICON:arrow-right</span></a></li>
+  <li><a class="row" href="/join/pin-ipfs-mirror/"><span class="ic">ICON:server-network-outline</span><span class="b"><span class="t">文件站 IPFS 鏡像的 pin 節點</span><span class="d">用常駐的 IPFS 節點加排程腳本，替文件站的 IPFS 鏡像多保存一份副本。</span></span><span class="go">ICON:arrow-right</span></a></li>
+</ul>
+
 ## 其他參與方式
 
 <ul class="rows">

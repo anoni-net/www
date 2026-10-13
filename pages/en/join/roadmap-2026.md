@@ -21,7 +21,7 @@ This track follows from the [Tor University Challenge](https://toruniversity.eff
 
 In 2025 we completed the Traditional Chinese translation of the Tor University Challenge site. In 2026 we are taking the process onto campuses.
 
-The track entry point, the cases we have accumulated, and how to join are on [the campus relay track page](/join/relay-on-campus/). The technical how-to is in [Setting up a Tor relay](docs:community/setup-tor-relay/).
+The track entry point, the cases we have accumulated, and how to join are on [the campus relay track page](/join/relay-on-campus/). The technical how-to is in the [Tor Relay Setup Guide](/join/setup-tor-relay/).
 
 ### Anonymous payments
 

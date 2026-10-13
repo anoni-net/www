@@ -32,7 +32,7 @@ Tor 網路的匿名性靠**多元的中繼節點**支撐。當絕大多數中繼
 
 - 案例：[在台師大架設 Tor Relay：一段與學校溝通、留下可能性的實作經驗](/updates/2025/12/ntnu-nz/)
 - 國際參考：[Tor Project 客座文章：Setting Up a Tor University Relay in Taiwan](https://blog.torproject.org/setting-up-tor-university-relay-taiwan/)
-- 技術 how-to：[如何搭建 Tor Relay](docs:community/setup-tor-relay/)、[如何搭建 Tor WebTunnel 橋接](docs:community/setup-tor-webtunnel/)
+- 技術 how-to：[Tor Relay 架設指南](/join/setup-tor-relay/)、[Tor WebTunnel 橋接架設指南](/join/setup-tor-webtunnel/)
 - 觀測：[Tor 中繼節點觀測](/projects/pulse/)
 - 概念：[什麼是 Tor](docs:tools/what-is-tor/)、[Tor Snowflake 橋接點](docs:tools/tor-snowflake/)
 - 進階：[一個會遺忘的伺服器：探索無狀態中繼](docs:blog/2026/04/a-server-that-forgets-exploring-stateless-relays/)
@@ -84,7 +84,7 @@ Tor 網路的匿名性靠**多元的中繼節點**支撐。當絕大多數中繼
 - **法律專業**：能解讀中繼營運相關的法律疑慮（個資、刑事、學校規章）
 - **活動籌辦經驗**：能把架設工作整合進資安週、迎新等校園活動
 
-不需要架過 Tor Relay 也歡迎參與。「我想學」就是合理的加入動機，社群會搭配 [如何搭建 Tor Relay](docs:community/setup-tor-relay/) 文件協助你實際操作。
+不需要架過 Tor Relay 也歡迎參與。「我想學」就是合理的加入動機，社群會搭配 [Tor Relay 架設指南](/join/setup-tor-relay/) 文件協助你實際操作。
 
 ## 議題守則
 

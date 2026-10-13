@@ -34,7 +34,7 @@ What the community is building is a reproducible method: the full deployment pro
 
 - **The case**: [setting up a Tor relay at National Taiwan Normal University](/updates/2025/12/ntnu-nz/), an account of working the proposal through the institution
 - **International**: [our guest post on the Tor Project blog](https://blog.torproject.org/setting-up-tor-university-relay-taiwan/)
-- **Technical how-to**: [how to run a Tor relay](docs:community/setup-tor-relay/), [how to run a Tor WebTunnel bridge](docs:community/setup-tor-webtunnel/)
+- **Technical how-to**: [Tor Relay Setup Guide](/join/setup-tor-relay/), [Tor WebTunnel Bridge Setup Guide](/join/setup-tor-webtunnel/)
 - **Observation**: [Tor Relay Watch](/projects/pulse/)
 - **Concepts**: [what is Tor](docs:tools/what-is-tor/), [Tor Snowflake](docs:tools/tor-snowflake/)
 
@@ -83,7 +83,7 @@ Backgrounds we would particularly welcome:
 - **Legal expertise**: reading the questions relay operation raises, including personal data, criminal exposure, and institutional rules
 - **Event organizing**: folding deployment work into security weeks and orientation events
 
-Having run a relay before is not required. Wanting to learn is a sufficient reason, and [how to run a Tor relay](docs:community/setup-tor-relay/) is there to work through with you.
+Having run a relay before is not required. Wanting to learn is a sufficient reason, and the [Tor Relay Setup Guide](/join/setup-tor-relay/) is there to work through with you.
 
 If you are at Global Gathering 2026 in Estoril and your institution is weighing a relay, come and compare notes at our booth on 6 September. Details are in [the booth announcement](/updates/2026/08/2026-anoni-net-global-gathering/).
 

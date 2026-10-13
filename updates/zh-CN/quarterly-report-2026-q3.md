@@ -34,7 +34,7 @@ OONI 本季在台湾累积约 276 万笔网络审查测量，有测量的网络�
 
 - 移动网络的测量：手机用移动网络安装 [OONI Probe](https://ooni.org/install/mobile)，再打开社区的 [OONI Run 链接](https://run.ooni.org/v2/10328)。安装前的风险前提见 [OONI Run v2 操作说明](docs:tools/ooni-run-v2/)
 - 有线宽带：季报列出[整季没有测量的网络](/projects/reports/2026-q3/#整季没有测量的网络)，多半是有线电视宽带，家里的宽带在名单上的话，就能补上一个网络
-- HiNet 以外的 Tor 中继：学校或其他电信商的网络都可以，见[如何搭建 Tor Relay](docs:community/setup-tor-relay/) 与 [Tor Relay 校园建立研究专题](/join/relay-on-campus/)
+- HiNet 以外的 Tor 中继：学校或其他电信商的网络都可以，见[Tor Relay 架设指南](/join/setup-tor-relay/) 与 [Tor Relay 校园建立研究专题](/join/relay-on-campus/)
 - 中继的升级：运行中的中继请升级到 0.4.9.13 以后的版本
 
 季报每三个月一期，下一期整理第四季，预计 2027 年 1 月发布，可以用 [RSS](/zh-cn/updates/feed.xml) 订阅社区动态。看完季报的想法，或发现哪个数字有误，欢迎写信到 <whisper@anoni.net>，或在 [GitHub](https://github.com/anoni-net/www/issues) 开 Issue。
