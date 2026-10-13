@@ -713,3 +713,22 @@ ol.tl { list-style: none; margin: 1.25rem 0 1.5rem; padding: 0; }
   .dg-link { animation: pc-wipe-dash .8s ease-out both; }
 }
 @keyframes pc-wipe-dash { from { opacity: 0; } }
+
+/* 步驟流程（ol.flow）：編號圓點用一條細線串起來，每一步寫名稱、說明與結果（.out），
+   最後一步（.ok）用實心圓點。手機上條件與結果分兩行排在說明下方，桌機靠右對齊並加上箭頭，一眼看出每一步對應的值。
+   第一個用在 OONI 的封鎖判定方式，取代文件站搬來的 SVG 流程圖 */
+.prose ol.flow { list-style: none; margin: 1.25rem 0 1rem; padding: 0; }
+.flow > li { position: relative; display: grid; grid-template-columns: 2rem 1fr; gap: .75rem; margin: 0; padding: 0 0 1.1rem; }
+.flow > li:not(:last-child)::after { content: ""; position: absolute; left: calc(1rem - 1px); top: 2rem; bottom: 0; width: 2px; background: var(--c-hair); }
+.flow .n { width: 2rem; height: 2rem; border-radius: 50%; border: 1.5px solid var(--c-accent); color: var(--c-accent); display: grid; place-items: center; font-weight: 700; font-size: .9rem; background: var(--c-bg); }
+.flow .ok .n { background: var(--c-solid); border-color: var(--c-solid); color: #fff; }
+.flow .b { display: flex; flex-direction: column; gap: .15rem; padding-top: .2rem; }
+.flow .d { color: var(--c-muted); font-size: .9rem; line-height: 1.6; }
+.flow .out { display: flex; flex-direction: column; align-items: flex-start; gap: .1rem; margin-top: .2rem; font-size: .9rem; }
+.flow .if { color: var(--c-muted); }
+@media (min-width: 640px) {
+  .flow .b { display: grid; grid-template-columns: 1fr auto; column-gap: 1.25rem; }
+  .flow .b > b, .flow .d { grid-column: 1; }
+  .flow .out { grid-column: 2; grid-row: 1 / 3; align-items: flex-end; margin: 0; text-align: right; }
+  .flow .if::after { content: " →"; }
+}

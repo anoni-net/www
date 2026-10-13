@@ -157,3 +157,29 @@ docs = "community/tor-project-ecosystem.md"
 page = "join/tor-project"
 langs = ["zh-TW", "zh-CN", "en"]
 import = true
+
+# 2026-10-13 讀懂觀測資料四頁：OONI 資料的讀法與 ASN Coverage 的使用說明，寫給要自己讀資料的人，
+# 照文件站的新定位搬到 OONI 觀測涵蓋率底下（toomore/anoni-net-ws#406）
+[[moved]]
+docs = "community/ooni-data-format.md"
+page = "projects/asn-coverage/ooni-data-format"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
+
+[[moved]]
+docs = "community/ooni-blocking-determination.md"
+page = "projects/asn-coverage/ooni-blocking-determination"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
+
+[[moved]]
+docs = "community/ooni-nettests-map.md"
+page = "projects/asn-coverage/ooni-nettests-map"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
+
+[[moved]]
+docs = "community/asn-coverage-howto.md"
+page = "projects/asn-coverage/howto"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true

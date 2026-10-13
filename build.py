@@ -299,6 +299,18 @@ class Site:
         """頁面所屬的區塊，給導覽列標示目前位置。about/governance 屬於 about。"""
         return slug.split("/", 1)[0]
 
+    def trail_of(self, lang: Lang, slug: str) -> list[tuple[str, str]]:
+        """第三層以下的頁面，麵包屑在區塊與頁面之間加上中間那一層。
+        projects/asn-coverage/howto 顯示成「專案 › OONI 觀測涵蓋率 › 頁面」。"""
+        parts = slug.split("/")
+        trail = []
+        for i in range(2, len(parts)):
+            mid = "/".join(parts[:i])
+            if mid in self.slugs:
+                meta, _ = split_front_matter((PAGES / lang.code / f"{mid}.md").read_text(encoding="utf-8"), mid)
+                trail.append((meta["title"], self.page_path(lang, mid)))
+        return trail
+
     def page_path(self, lang: Lang, slug: str) -> str:
         """本站頁面的路徑，首頁是語系的根目錄。"""
         tail = "" if slug == "index" else f"{slug}/"
@@ -510,6 +522,7 @@ class Site:
                 "slug": slug,
                 "section": self.section_of(slug),
                 "parent": self.section_of(slug) if "/" in slug else None,
+                "trail": self.trail_of(lang, slug),
                 "path": self.page_path(lang, slug),
                 "alternates": [(other, self.page_path(other, slug)) for other in self.langs],
             }
