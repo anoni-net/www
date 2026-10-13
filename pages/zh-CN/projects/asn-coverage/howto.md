@@ -162,4 +162,4 @@ uv run python ripe.py save --loc=TW
 - [OONI 测项速查表](/projects/asn-coverage/ooni-nettests-map/)：各测项的测量对象
 - [ASN 自治网络观测数据分析](docs:taiwan/ooni-asn-coverage/)：台湾各 ASN 的观测覆盖率分析，覆盖率算式的范例数字取自该页引用的报告
 - [项目研究预先准备](docs:community/setup-repo/)：参与项目开发前的环境设置
-- [如何参与与认领主题](/join/)：加入社群、认领年度主题的方式
+- [如何参与与认领主题](/join/)：加入社区、认领年度主题的方式

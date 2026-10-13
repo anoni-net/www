@@ -16,7 +16,7 @@ lead: 此刻没办法直接参与也没关系，可以用这些方式跟我们�
 
 ## 邮箱与 PGP 公钥 {#pgp}
 
-- 匿名网络社群 anoni.net <whisper@anoni.net>
+- 匿名网络社区 anoni.net <whisper@anoni.net>
 - PGP：[B7DF84305C7911D90D59A66061F66CF36EE386D4](/B7DF84305C7911D90D59A66061F66CF36EE386D4.asc)
 
 <details markdown="1">

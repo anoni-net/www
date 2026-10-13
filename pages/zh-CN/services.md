@@ -25,4 +25,4 @@ Matrix 与 CryptPad 需要人工开账号，请来信 <whisper@anoni.net> 申请
 
 ## 在线会议（外部）
 
-在线会议用 [Jitsi](https://jitsi.goodmeet.asia/)，由第三方免费提供，不是社群自架，条款与可用性以对方为准。会议链接会在 Matrix 的房间公布。
+在线会议用 [Jitsi](https://jitsi.goodmeet.asia/)，由第三方免费提供，不是社区自架，条款与可用性以对方为准。会议链接会在 Matrix 的房间公布。

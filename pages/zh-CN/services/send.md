@@ -1,9 +1,9 @@
 ---
 title: send.anoni.net 的数据处理
-description: 社群自架的加密传文件服务 send.anoni.net 会保存哪些数据、保存多久、谁看得到。文件在浏览器中加密，服务器不保留一般的访问日志。
+description: 社区自架的加密传文件服务 send.anoni.net 会保存哪些数据、保存多久、谁看得到。文件在浏览器中加密，服务器不保留一般的访问日志。
 ---
 
-[send.anoni.net](https://send.anoni.net/) 是匿名网络社群 anoni.net 自架的加密传文件服务，程序是 [Send](https://github.com/anoni-net/send)。下面列出服务运行时，哪些数据会经过或留在服务器、保存多久、谁看得到，方便你判断它适不适合用来传自己的文件。程序的行为可以对照公开的源代码核实，服务器与 Cloudflare 的设置则是运营方的做法。
+[send.anoni.net](https://send.anoni.net/) 是匿名网络社区 anoni.net 自架的加密传文件服务，程序是 [Send](https://github.com/anoni-net/send)。下面列出服务运行时，哪些数据会经过或留在服务器、保存多久、谁看得到，方便你判断它适不适合用来传自己的文件。程序的行为可以对照公开的源代码核实，服务器与 Cloudflare 的设置则是运营方的做法。
 
 ## 服务器无法获取的内容
 

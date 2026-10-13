@@ -3,7 +3,7 @@ title: 文档站 IPFS 镜像的 pin 节点
 description: 用常驻的 IPFS 节点与定时脚本 pin anoni.net 文档站的 IPFS 镜像，包含 Windows、Linux、macOS 与 Docker 的安装、定时任务、验证与 peering 配置。
 ---
 
-anoni.net 文档站在主站之外另有一份 IPFS 镜像，主站被封锁或下架时仍可以读取文档。IPFS 上的内容需要有节点 pin 住才会留存。2026 年 8 月查询网络上的提供者，只有社群自己的一台节点，整份镜像目前是单点。每多一个节点协助 pin，网络上就多一份完整副本，社群那台机器被停用或故障时文档仍然留存。
+anoni.net 文档站在主站之外另有一份 IPFS 镜像，主站被封锁或下架时仍可以读取文档。IPFS 上的内容需要有节点 pin 住才会留存。2026 年 8 月查询网络上的提供者，只有社区自己的一台节点，整份镜像目前是单点。每多一个节点协助 pin，网络上就多一份完整副本，社区那台机器被停用或故障时文档仍然留存。
 
 协助的方式是架设一个常驻的 IPFS 节点，再用定时脚本定期 pin 最新版本。Windows、Linux、macOS 都适用，用不用 Docker 皆可。
 
@@ -13,7 +13,7 @@ anoni.net 文档站在主站之外另有一份 IPFS 镜像，主站被封锁或�
     - 安装好的 IPFS（安装方式见下方）
     - 一支每隔几小时自动 pin 最新版本的定时脚本
 
-    第一次要下载的整份镜像约 240 MB，来源目前只有社群那一台，建议一开始就配置[与社群节点的固定连接](#peering)，下载会顺利许多。无法常驻节点的话，文末有改用 pinning service 代 pin 的做法。
+    第一次要下载的整份镜像约 240 MB，来源目前只有社区那一台，建议一开始就配置[与社区节点的固定连接](#peering)，下载会顺利许多。无法常驻节点的话，文末有改用 pinning service 代 pin 的做法。
 
 ## CID、IPNS 与 pin 的关系
 
@@ -36,11 +36,11 @@ IPFS 有三种外观相近、用途不同的标识符，贴错字段时工具会
 | IPNS 名称 | `k51qzi…` | 固定 | 取得最新版，本页的 pin 用这个 |
 | Peer ID | `12D3KooW…` | 固定 | 指定要连到哪一个节点 |
 
-pin 文档站只需要 IPNS 名称，Peer ID 在配置[与社群节点的固定连接](#peering)时才会用到。
+pin 文档站只需要 IPNS 名称，Peer ID 在配置[与社区节点的固定连接](#peering)时才会用到。
 
 ## 定时 pin 的运作方式
 
-IPNS 是各节点共用的同步点，文档站发布新版时只更新 IPNS，社群不需要另外通知。节点这端每隔几小时解析一次 IPNS，发现 CID 改变就 pin 新版，全程不需要人工协调。
+IPNS 是各节点共用的同步点，文档站发布新版时只更新 IPNS，社区不需要另外通知。节点这端每隔几小时解析一次 IPNS，发现 CID 改变就 pin 新版，全程不需要人工协调。
 
 !!! info "文档站的 IPFS 坐标"
 
@@ -49,7 +49,7 @@ IPNS 是各节点共用的同步点，文档站发布新版时只更新 IPNS，�
     - IPNS 名称：`k51qzi5uqu5dlfm2jj0f70ex3r3babmwy8qh071inwknttr7wqa3uhdwvlmrmw`
     - 节点 Peer ID：`12D3KooWEzvBhnLa6NZnjnw22Yoqs56xq4pNCZdkkxw5yxvi1eV9`（配置 peering 时才会用到）
     - DNSLink：`_dnslink.anoni.net` 指向同一个 IPNS 名称，通过任何支持 DNSLink 的网关都能读取同一份内容
-    - 浏览器：社群自建的 [IPFS 网关](https://ipfs.anoni.net/)（`ipfs.anoni.net`）。旧网址 `anoni-net.ipns.dweb.link` 在 2026 年 9 月 30 日停止运营，见[2026 年 9 月之后的 IPFS 维护变化](#ipfs-maintenance-2026)
+    - 浏览器：社区自建的 [IPFS 网关](https://ipfs.anoni.net/)（`ipfs.anoni.net`）。旧网址 `anoni-net.ipns.dweb.link` 在 2026 年 9 月 30 日停止运营，见[2026 年 9 月之后的 IPFS 维护变化](#ipfs-maintenance-2026)
 
 脚本每次执行时依次解析 IPNS 取得当前 CID、pin 新 CID、unpin 上一版，最后回收空间。新版 pin 成功之后才会放掉旧版，解析失败或下载不到内容时，节点上现有的副本维持原状。
 
@@ -195,7 +195,7 @@ ipfs pin ls --type=recursive | grep "${CID#/ipfs/}"
 
 也可以从本机网关打开 `http://127.0.0.1:8080${CID}/`，内容正常显示即代表 pin 成功。Docker 用户把上面的 `ipfs` 换成 `docker exec ipfs_host ipfs`，上方的 compose 示例没有对外开放 8080，用命令确认即可。
 
-## 与社群节点的固定连接 { #peering }
+## 与社区节点的固定连接 { #peering }
 
 pin 只需要 IPNS 名称，内容通过 DHT 查找。第一次下载整份镜像时，DHT 查询缓慢或查不到来源都会拖长时间。配置 kubo 的 peering，可以让节点与来源节点维持固定连接。
 
@@ -217,7 +217,7 @@ pin 只需要 IPNS 名称，内容通过 DHT 查找。第一次下载整份镜�
 ipfs swarm peers | grep 12D3KooWEzvBhnLa6NZnjnw22Yoqs56xq4pNCZdkkxw5yxvi1eV9
 ```
 
-peering 是单向配置，社群节点没有对应的条目，维持连接由你的节点负责。[kubo 的配置文档](https://github.com/ipfs/kubo/blob/master/docs/config.md#peering)里写到，单向 peering 会占用对方节点的连接资源，镜像数量增加之后负担会集中在同一台机器。目前提供者只有一台，第一次的 240 MB 都要从它下载，所以建议一开始就配置 peering。协助 pin 的节点变多、来源不再集中在同一台之后，再移除配置即可。
+peering 是单向配置，社区节点没有对应的条目，维持连接由你的节点负责。[kubo 的配置文档](https://github.com/ipfs/kubo/blob/master/docs/config.md#peering)里写到，单向 peering 会占用对方节点的连接资源，镜像数量增加之后负担会集中在同一台机器。目前提供者只有一台，第一次的 240 MB 都要从它下载，所以建议一开始就配置 peering。协助 pin 的节点变多、来源不再集中在同一台之后，再移除配置即可。
 
 ## 2026 年 9 月之后的 IPFS 维护变化 { #ipfs-maintenance-2026 }
 
@@ -225,7 +225,7 @@ Interplanetary Shipyard 是过去几年维护 IPFS 主要软件的团队，Proto
 
 - **软件维护**：kubo、Helia、Boxo、IPFS Desktop、IPFS Companion 都已没有专职维护者，IPFS Foundation 改成对个别维护者发放 grant。程序继续运作，安全更新的节奏会变慢，安装前先确认版本的发布日期。
 - **公共网关与 bootstrap 节点**：ipfs.io、dweb.link 与 IPFS 的 bootstrap 节点在同一天停止运营。kubo 0.38 之后 `Bootstrap` 的默认值是 `auto`，展开后的列表就包含这些节点。
-- **本页的浏览网址**：旧的 `anoni-net.ipns.dweb.link` 属于 dweb.link，已换成社群自建的 [IPFS 网关](https://ipfs.anoni.net/)（`ipfs.anoni.net`）。两者读取同一个 IPNS 名称，通过 DNSLink 记录对应。pin 脚本使用 IPNS 名称，不受网关影响。
+- **本页的浏览网址**：旧的 `anoni-net.ipns.dweb.link` 属于 dweb.link，已换成社区自建的 [IPFS 网关](https://ipfs.anoni.net/)（`ipfs.anoni.net`）。两者读取同一个 IPNS 名称，通过 DNSLink 记录对应。pin 脚本使用 IPNS 名称，不受网关影响。
 
 下列命令可以查看节点目前取得的 bootstrap 节点，以及已连上的 peer 数量：
 
@@ -234,7 +234,7 @@ ipfs config Bootstrap --expand-auto
 ipfs swarm peers | wc -l
 ```
 
-`auto` 展开的节点停止运营之后，新安装的节点可能无法加入 DHT。最直接的做法是把社群节点设为固定连接对象（见[与社群节点的固定连接](#peering)），`Peering` 只需要填 Peer ID。
+`auto` 展开的节点停止运营之后，新安装的节点可能无法加入 DHT。最直接的做法是把社区节点设为固定连接对象（见[与社区节点的固定连接](#peering)），`Peering` 只需要填 Peer ID。
 
 ## 维护与注意事项
 

@@ -3,7 +3,7 @@ title: 校园 Tor Relay 提案范本
 description: 整理自国立台湾师范大学案例的校园 Tor Relay 提案文件、四封沟通邮件与行政时间线，可复制改写后提交到自己学校的审核流程。
 ---
 
-在大学架设 Tor Relay，耗时最多的通常是行政流程，从向指导教授说明到节点上线约需两个月。本页的提案文件、四封沟通邮件与行政时间线，整理自社群伙伴 NZ 在国立台湾师范大学的经验。NZ 在 TANet（台湾学术网络）体系内走完整套行政流程，架设了 TANet 上第一个 Tor 中继节点（过程见[在台师大架设 Tor Relay 的访谈](/updates/2025/12/ntnu-nz/)）。
+在大学架设 Tor Relay，耗时最多的通常是行政流程，从向指导教授说明到节点上线约需两个月。本页的提案文件、四封沟通邮件与行政时间线，整理自社区伙伴 NZ 在国立台湾师范大学的经验。NZ 在 TANet（台湾学术网络）体系内走完整套行政流程，架设了 TANet 上第一个 Tor 中继节点（过程见[在台师大架设 Tor Relay 的访谈](/updates/2025/12/ntnu-nz/)）。
 
 要在自己的学校推动，可以复制这份范本，把 `<placeholder>` 换成学校的信息，再附上[给校方与法务的校园 Tor Relay FAQ](/join/relay-on-campus/faq/)与[校园 Tor Relay 架设 SOP](/join/relay-on-campus/sop/)，就是一份完整的提案。
 
@@ -273,7 +273,7 @@ description: 整理自国立台湾师范大学案例的校园 Tor Relay 提案�
 
 ## 相关阅读
 
-- [Tor Relay 校园建立研究专题](/join/relay-on-campus/)：社群推动这个主题的入口
+- [Tor Relay 校园建立研究专题](/join/relay-on-campus/)：社区推动这个主题的入口
 - [给校方与法务的校园 Tor Relay FAQ](/join/relay-on-campus/faq/)：校方的常见疑虑
 - [校园 Tor Relay 架设 SOP](/join/relay-on-campus/sop/)：torrc、UFW、监控与事件处置的技术细节
 - [在台师大架设 Tor Relay 的访谈](/updates/2025/12/ntnu-nz/)：第一个案例的完整过程
@@ -282,7 +282,7 @@ description: 整理自国立台湾师范大学案例的校园 Tor Relay 提案�
 
 ## 资料来源与致谢
 
-范本的原始计划书与分享 slides 由社群伙伴**苏恩立（NZ）**提供，整理自他在国立台湾师范大学的实践经验。原始材料经 NZ 同意，以 [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.zh-hans) 授权发布，作为其他学校的参考范本。
+范本的原始计划书与分享 slides 由社区伙伴**苏恩立（NZ）**提供，整理自他在国立台湾师范大学的实践经验。原始材料经 NZ 同意，以 [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.zh-hans) 授权发布，作为其他学校的参考范本。
 
 !!! info "原始案例存档"
 
@@ -290,4 +290,4 @@ description: 整理自国立台湾师范大学案例的校园 Tor Relay 提案�
 
     在自己学校推动时，请用本页已换成 placeholder 的范本改写，不要直接复制原始的 Doc。原文件含有 NZ 的个人邮箱、指导教授信息与学校 IP 段，没有完整移除就提交，容易把这些信息一起交给校方。保留原始存档，是让读者对照真实版本的样子，学习写作结构与用语。
 
-如果用这份范本在自己学校架设了 Tor Relay，**欢迎告诉社群**，我们会把案例加进 [Tor Relay 校园建立研究专题](/join/relay-on-campus/)，让之后加入的学校有更多参考。联系方式见[社群自架服务](/services/)。
+如果用这份范本在自己学校架设了 Tor Relay，**欢迎告诉社区**，我们会把案例加进 [Tor Relay 校园建立研究专题](/join/relay-on-campus/)，让之后加入的学校有更多参考。联系方式见[社区自架服务](/services/)。

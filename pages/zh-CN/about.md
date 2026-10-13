@@ -1,6 +1,6 @@
 ---
 title: 关于我们
-description: 匿名网络社群 anoni.net 的缘起、关注范围与 2026 三大主题（个人隐私指引、Tor Relay 校园建设、匿名支付）。给想了解社区工作方向的读者。
+description: 匿名网络社区 anoni.net 的缘起、关注范围与 2026 三大主题（个人隐私指引、Tor Relay 校园建设、匿名支付）。给想了解社区工作方向的读者。
 lead: 关注匿名网络与网络自由的一群人。
 ---
 
@@ -39,7 +39,7 @@ lead: 关注匿名网络与网络自由的一群人。
 <ul class="rows">
   <li><a class="row" href="/about/governance/"><span class="ic">ICON:scale-balance</span><span class="b"><span class="t">治理方式</span><span class="d">决策方式、成员角色、争议处理与行为准则。</span></span><span class="go">ICON:arrow-right</span></a></li>
   <li><a class="row" href="/about/partners/"><span class="ic">ICON:handshake-outline</span><span class="b"><span class="t">组织合作</span><span class="d">给公民团体、倡议组织与新闻媒体的合作说明，社区能一起做的事与做不到的事。</span></span><span class="go">ICON:arrow-right</span></a></li>
-  <li><a class="row" href="/brand/"><span class="ic">ICON:palette-swatch-outline</span><span class="b"><span class="t">品牌素材</span><span class="d">logo、wordmark 与色票的下载和使用方式，制作活动文宣、简报与社群卡片时取用。</span></span><span class="go">ICON:arrow-right</span></a></li>
+  <li><a class="row" href="/brand/"><span class="ic">ICON:palette-swatch-outline</span><span class="b"><span class="t">品牌素材</span><span class="d">logo、wordmark 与色票的下载和使用方式，制作活动文宣、简报与社交卡片时取用。</span></span><span class="go">ICON:arrow-right</span></a></li>
 </ul>
 
 [关注我们](/contact/){ .btn }

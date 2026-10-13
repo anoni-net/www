@@ -32,7 +32,7 @@ description: 2025 年 8 月 9 日到 10 日在台科大，匿名网络社区 ano
 - 学习 [OONI Probe](https://ooni.org/install/) 如何测量网络审查与服务封锁，并回报全球开源数据库
 - 使用 [TorBrowser](https://www.torproject.org/zh-CN/download/) 和 [OnionShare](https://onionshare.org/) 进行安全的文件分享与协作
 
-**:jigsaw: 社群支持与持续学习**
+**:jigsaw: 社区支持与持续学习**
 
 - 认识台湾本地的[匿名网络社区](https://anoni.net/)
 - 了解如何参与国际开源项目（如 Tor/Tails 或 OONI）的贡献模式

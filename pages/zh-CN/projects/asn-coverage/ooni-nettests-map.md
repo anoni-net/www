@@ -120,9 +120,9 @@ description: ooni/spec 收录的 41 个网络测项的量测内容、数据产�
 
 S3 上的目录名与测项名称字段（`test_name`）的写法不同，目录名没有下划线（`webconnectivity`、`vanillator`、`facebookmessenger`）。API 查询要用下划线形式（`web_connectivity`、`vanilla_tor`、`facebook_messenger`），取用路径的细节见[ASN 观测数据的提取与分析](/projects/asn-coverage/howto/)。
 
-台湾目前的观测集中在 `web_connectivity`，其他测项的样本量偏小。扩充在地观测的涵盖面时，`tor` 与 `dnscheck` 是与社群既有主题最接近的两个方向。
+台湾目前的观测集中在 `web_connectivity`，其他测项的样本量偏小。扩充在地观测的涵盖面时，`tor` 与 `dnscheck` 是与社区既有主题最接近的两个方向。
 
-要执行特定测项，可以在 [OONI Probe](https://ooni.org/install/) 桌面版或移动版的设置中挑选启用的测项。要邀集他人共同测试固定的网址列表，则用 [OONI Run v2](docs:tools/ooni-run-v2/) 建立链接分享，社群目前运维的链接 ID 是 `10328`。
+要执行特定测项，可以在 [OONI Probe](https://ooni.org/install/) 桌面版或移动版的设置中挑选启用的测项。要邀集他人共同测试固定的网址列表，则用 [OONI Run v2](docs:tools/ooni-run-v2/) 建立链接分享，社区目前运维的链接 ID 是 `10328`。
 
 ## 相关阅读
 

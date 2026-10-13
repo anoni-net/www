@@ -41,7 +41,7 @@ og_image: https://assets.anoni.net/blog/tianjian-digital-privacy.webp
 
 | 笔记段落 | 延伸阅读 |
 |---|---|
-| 个人隐私检测 | [一般人平常该做到什么](docs:scenarios/everyday-baseline/)、[社群平台怎么收集你的数据](docs:basics/platform-tracking/) |
+| 个人隐私检测 | [一般人平常该做到什么](docs:scenarios/everyday-baseline/)、[社交平台怎么收集你的数据](docs:basics/platform-tracking/) |
 | 通讯录、日历 | [Metadata 是什么，为什么重要](docs:basics/metadata/) |
 | 账号与密码管理 | [密码管理器入门](docs:tools/password-manager/)、[Asian Diceware](docs:tools/asian-diceware/) |
 | WiFi 与移动设备 | [出差与研讨会的数字准备](docs:scenarios/asia-travel/)、[浏览器指纹是什么，为什么很难摆脱](docs:basics/browser-fingerprinting/) |

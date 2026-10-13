@@ -24,7 +24,7 @@ description: 校方信息中心、法务与网管对校园 Tor Relay 最常提�
 
     **台湾背景补充**
 
-    国立台湾师范大学资讯工程学系已完成台湾首例（2025 年 11 月上线），过程见 [Tor Project 博客的客座文章](https://blog.torproject.org/setting-up-tor-university-relay-taiwan/)与[社群访谈](/updates/2025/12/ntnu-nz/)。台湾的高等教育体系本来就承担计算机、信息安全与网络治理的教学，校园 Tor Relay 可以作为实际的教学案例。
+    国立台湾师范大学资讯工程学系已完成台湾首例（2025 年 11 月上线），过程见 [Tor Project 博客的客座文章](https://blog.torproject.org/setting-up-tor-university-relay-taiwan/)与[社区访谈](/updates/2025/12/ntnu-nz/)。台湾的高等教育体系本来就承担计算机、信息安全与网络治理的教学，校园 Tor Relay 可以作为实际的教学案例。
 
 ??? question "我们不想架设 Exit Relay，这样可以吗？"
 
@@ -50,7 +50,7 @@ description: 校方信息中心、法务与网管对校园 Tor Relay 最常提�
 
 ??? question "Tor 不是会让犯罪分子做坏事吗？"
 
-    Tor 的使命是促进人权，以自由、开源的技术协助用户抵抗大规模监控与网络审查。Tor 社群一向谴责把工具用于不法用途的行为。
+    Tor 的使命是促进人权，以自由、开源的技术协助用户抵抗大规模监控与网络审查。Tor 社区一向谴责把工具用于不法用途的行为。
 
     犯罪的意图在于人，不在工具，加密、电话、现金都可能被恶意使用，Tor 也一样。移除 Tor 之后，有恶意的人会改用其他工具，并不会因此停手。
 
@@ -62,7 +62,7 @@ description: 校方信息中心、法务与网管对校园 Tor Relay 最常提�
 
     台湾个人资料保护法第 2 条把个人资料定义为「得以直接或间接方式识别该个人之资料」。Middle Relay 处理的是 Tor 网络的加密 cell，没有可识别个人的数据，因此不涉及个人资料的处理。节点被选为入口节点（Guard）时，会看到连入客户端的 IP 地址，但不知道对方要连到哪里，Tor 默认的日志配置（`SafeLogging 1`）也会把地址遮掉。IP 地址是否构成个人资料，要看能否与其他数据比对、识别出特定个人，这一点建议一并咨询法律专业人员。
 
-    以上是社群整理的法律观点，并非正式的法律意见。个案的法律疑虑，建议咨询法律专业人员。
+    以上是社区整理的法律观点，并非正式的法律意见。个案的法律疑虑，建议咨询法律专业人员。
 
 ??? question "分布式拒绝服务攻击（DDoS）的风险呢？"
 
@@ -117,7 +117,7 @@ description: 校方信息中心、法务与网管对校园 Tor Relay 最常提�
 
 ??? question "如何回应 ISP 的投诉？"
 
-    Tor 社群已经整理出完整的回复范例，Relay 运营者可以照着模板回复 ISP，见 [EFF Tor Legal FAQ](https://community.torproject.org/relay/community-resources/eff-tor-legal-faq/) 与 [Tor abuse-templates](https://community.torproject.org/relay/community-resources/tor-abuse-templates/)。
+    Tor 社区已经整理出完整的回复范例，Relay 运营者可以照着模板回复 ISP，见 [EFF Tor Legal FAQ](https://community.torproject.org/relay/community-resources/eff-tor-legal-faq/) 与 [Tor abuse-templates](https://community.torproject.org/relay/community-resources/tor-abuse-templates/)。
 
     **台湾背景补充**
 
@@ -186,7 +186,7 @@ description: 校方信息中心、法务与网管对校园 Tor Relay 最常提�
 
     - 架设的是 Non-Exit Relay，法律上的性质与网络传输基础设施相近
     - 不接触用户内容，不识别个人资料
-    - 与台湾刑法妨害电脑使用罪章、个人资料保护法的构成要件无关（社群整理的观点，并非正式法律意见）
+    - 与台湾刑法妨害电脑使用罪章、个人资料保护法的构成要件无关（社区整理的观点，并非正式法律意见）
     - EFF 提供法律与技术资源
 
     **对学校的意义**
@@ -225,4 +225,4 @@ description: 校方信息中心、法务与网管对校园 Tor Relay 最常提�
 
 ## 资料来源与致谢
 
-本页十题的主体由社群伙伴**苏恩立（NZ）**提供，整理自他在台湾师范大学的计划书原始版本，台湾背景补充由匿名网络社群 anoni.net 整理。原始材料经 NZ 同意，以 [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.zh-hans) 授权发布。
+本页十题的主体由社区伙伴**苏恩立（NZ）**提供，整理自他在台湾师范大学的计划书原始版本，台湾背景补充由匿名网络社区 anoni.net 整理。原始材料经 NZ 同意，以 [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.zh-hans) 授权发布。
