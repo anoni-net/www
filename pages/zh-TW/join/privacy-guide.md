@@ -15,20 +15,20 @@ description: 匿名網路社群 2026 年三大主題之一，依日常、敏感�
 
 - **三級威脅模型框架**：把日常使用、敏感工作、高風險三種情境對應的工具與步驟整理成參考表
 - **從概念到實作的判斷流程**：在威脅模型與工具操作之間補上判斷的依據，例如何時該提高防護等級、何時不必過度防護
-- **常見誤區**：拆解 VPN ≠ 匿名、HTTPS ≠ 安全、私密模式 ≠ 隱私、去中心化 ≠ 匿名這類常見的誤解。VPN 與去中心化兩項已有專篇（[VPN 的風險與選擇](docs:tools/vpn-guide/)、[常被誤認為匿名的網路](docs:advanced/mistaken-for-anonymity/)），HTTPS 與私密模式還沒有
+- **常見誤區**：拆解 VPN ≠ 匿名、HTTPS ≠ 安全、私密模式 ≠ 隱私、去中心化 ≠ 匿名這類常見的誤解。VPN 與去中心化兩項已有專篇（[VPN 的風險與選擇](docs:tools/vpn-guide/)、[常被誤認為匿名的網路](docs:basics/mistaken-for-anonymity/)），HTTPS 與私密模式還沒有
 - **場景指引**：為記者、社運參與者、家暴受害者、LGBTQ+ 等角色整理實際操作的流程
 - **跨主題串接**：把連線層、個資與身分、金流三個面向（見[網路自由為什麼重要](docs:basics/internet-freedom/)）整合進個人的隱私規劃
 - **教材**：把研究成果整理成工作坊與小聚可用的教材
 
 ## 相關文章
 
-文章依文件站[指南](docs:guides/)的分層，分散在概念、工具、場景、進階與在地法規各區：
+文章依文件站[指南](docs:guides/)的分層，分散在概念、工具、場景與在地法規各區，原理說明在本站的技術文章：
 
-- 概念：[匿名、隱私、假名、機密性的差別](docs:basics/anonymity-vs-privacy/)、[威脅模型如何建立](docs:basics/threat-model/)、[Metadata 是什麼，為什麼重要](docs:basics/metadata/)、[社群平台怎麼收集你的資料](docs:basics/platform-tracking/)、[監控現在做得到什麼](docs:basics/surveillance-capability/)、[怎麼維持多個網路身分](docs:basics/multiple-identities/)、[瀏覽器指紋是什麼，為什麼很難擺脫](docs:basics/browser-fingerprinting/)
+- 概念：[匿名、隱私、假名、機密性的差別](docs:basics/anonymity-vs-privacy/)、[威脅模型如何建立](docs:basics/threat-model/)、[Metadata 是什麼，為什麼重要](docs:basics/metadata/)、[社群平台怎麼收集你的資料](docs:basics/platform-tracking/)、[監控現在做得到什麼](docs:basics/surveillance-capability/)、[怎麼維持多個網路身分](docs:basics/multiple-identities/)、[瀏覽器指紋是什麼，為什麼很難擺脫](docs:basics/browser-fingerprinting/)、[端對端加密的保護範圍](docs:basics/e2ee/)、[常被誤認為匿名的網路](docs:basics/mistaken-for-anonymity/)
 - 工具：[什麼是匿名網路？](docs:tools/what-is-anonymity-network/)、[什麼是 Tor](docs:tools/what-is-tor/)、[什麼是 Tails](docs:tools/what-is-tails/)、[Tor Browser 進階設定](docs:tools/tor-browser-advanced/)、[Tor Snowflake](docs:tools/tor-snowflake/)、[Tails、Whonix、Qubes 的差別](docs:tools/tails-vs-whonix-vs-qubes/)、[GrapheneOS：高度隱私的行動作業系統](docs:tools/grapheneos/)、[匿名通訊工具比較](docs:tools/messaging-comparison/)、[OnionShare](docs:tools/onionshare/)、[什麼是 CryptPad](docs:tools/what-is-cryptpad/)、[密碼管理器入門](docs:tools/password-manager/)、[郵件別名怎麼用，以及它把信任交給誰](docs:tools/email-alias/)、[Asian Diceware，帶亞洲味的英文密語字典](docs:tools/asian-diceware/)、[VPN 的風險與選擇](docs:tools/vpn-guide/)、[加密 DNS 怎麼選、怎麼確認真的生效](docs:tools/encrypted-dns/)、[用 AI 工作時怎麼避免資料外洩](docs:tools/ai-privacy/)、[手機隱私設定逐步指引](docs:tools/phone-privacy-settings/)
 - 小工具：[威脅模型清單](docs:utils/threat-model/)
 - 場景：[一般人平常該做到什麼](docs:scenarios/everyday-baseline/)、[記者保護消息來源](docs:scenarios/journalist/)、[社運行動者的數位準備](docs:scenarios/activist/)、[家暴受害者的數位準備](docs:scenarios/domestic-violence/)、[LGBTQ+ 與性少數的匿名社交](docs:scenarios/lgbtq/)、[選舉觀察員的自保](docs:scenarios/election-observer/)、[在中國大陸的公開平台傳播資訊](docs:scenarios/mainland-speech/)、[出差與研討會的數位準備（東亞與東南亞）](docs:scenarios/asia-travel/)、[出國的門號與網路連線](docs:scenarios/travel-connectivity/)、[出國前數位安全：用 AI 自助產生目的地概況](docs:scenarios/travel-ai-briefing/)
-- 進階：[端對端加密如何運作](docs:advanced/e2ee/)、[常被誤認為匿名的網路](docs:advanced/mistaken-for-anonymity/)、[後量子密碼概觀](docs:advanced/post-quantum/)、[去中心化網站發布](docs:advanced/dweb-ipfs-onion/)
+- 技術文章：[後量子密碼概觀](/articles/post-quantum/)、[去中心化網站發布](/articles/dweb-ipfs-onion/)
 - 在地：[台灣個資法 2025 修法](docs:taiwan/pdpa-2025/)、[揭弊者保護法的技術觀察](docs:taiwan/whistleblower-law/)
 
 各篇初稿大多已上線，之後依季度節奏校訂與補充。

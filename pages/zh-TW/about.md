@@ -34,7 +34,7 @@ lead: 開源技術人組成的社群，關注匿名網路、隱私與網路自�
 
 社群自己開發觀測工具，程式碼都以開源授權公開在 GitHub。[Tor 中繼節點觀測](/projects/pulse/)每小時更新台灣與鄰近共十五個地區的中繼節點，[OONI 觀測涵蓋率](/projects/asn-coverage/)對照 OONI 的測量數與各網路的使用者人數，[AI 助理的 Tor 節點查詢](/projects/onionoo-mcp/)讓 AI 助理直接查詢 Tor 中繼的公開資料。每一季的數字整理成[觀測季報](/projects/reports/)，全部專案見[專案](/projects/)。
 
-2026 年 8 月 13 日的北部行動網路降速演練，日期、時段、縣市與電信業者都事先公告，降速研究很少有這種已知條件。社群用 OONI 的資料整理了[這 30 分鐘的紀錄](docs:blog/2026/08/ooni-mobile-throttle-drill-results/)，文中每一則查詢都不需要 API 金鑰，任何人都能自行複驗。
+2026 年 8 月 13 日的北部行動網路降速演練，日期、時段、縣市與電信業者都事先公告，降速研究很少有這種已知條件。社群用 OONI 的資料整理了[8/13 北部行動網路降速 30 分鐘的 OONI 量測紀錄](/articles/ooni-mobile-throttle-results/)，文中每一則查詢都不需要 API 金鑰，任何人都能自行複驗。
 
 ## 治理、合作與品牌
 

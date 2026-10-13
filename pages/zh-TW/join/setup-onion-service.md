@@ -11,7 +11,7 @@ Onion 服務讓別人透過 Tor 直接連到你的伺服器，過程中不需要
 
     Onion 服務則是**用 Tor 架設自己的網站**，只提供自己的內容、不轉送他人的流量，也不增加 Tor 網路的容量。兩者的風險、法律處境與維運負擔都不同。
 
-onion 服務的設計原理、與 IPFS 的取捨，以及 anoni.net 文件站三軌部署的架構，見[去中心化網站發布](docs:advanced/dweb-ipfs-onion/)。只想臨時分享檔案或架設用完即丟的網站時，[OnionShare](docs:tools/onionshare/) 的成本比自行架設服務低。
+onion 服務的設計原理、與 IPFS 的取捨，以及 anoni.net 文件站三軌部署的架構，見[去中心化網站發布](/articles/dweb-ipfs-onion/)。只想臨時分享檔案或架設用完即丟的網站時，[OnionShare](docs:tools/onionshare/) 的成本比自行架設服務低。
 
 ## 事前準備
 
@@ -468,7 +468,7 @@ Caddy 預設會自動申請 TLS 憑證，用在 onion 服務上要關閉（理�
 
 ## 相關閱讀
 
-- [去中心化網站發布](docs:advanced/dweb-ipfs-onion/)：onion 服務的設計原理、與 IPFS 的取捨，以及 anoni.net 三軌部署的架構
+- [去中心化網站發布](/articles/dweb-ipfs-onion/)：onion 服務的設計原理、與 IPFS 的取捨，以及 anoni.net 三軌部署的架構
 - [文件站 IPFS 鏡像的 pin 節點](/join/pin-ipfs-mirror/)：另一種抗封鎖鏡像，歡迎協助 pin
 - [Tor Relay 架設指南](/join/setup-tor-relay/)：把頻寬貢獻給 Tor 網路，與本文是不同性質的工作
 - [OnionShare](docs:tools/onionshare/)：臨時分享檔案與架站，不需要自行維運服務

@@ -34,7 +34,7 @@ lead: 开源技术人员组成的社区，关注匿名网络、隐私与网络�
 
 社区自行开发观测工具，源代码都以开源许可证发布在 GitHub。[Tor 中继节点观测](/projects/pulse/)每小时更新台湾与邻近共十五个地区的中继节点，[OONI 观测覆盖率](/projects/asn-coverage/)对照 OONI 的测量数与各网络的用户数，[AI 助手的 Tor 节点查询](/projects/onionoo-mcp/)让 AI 助手直接查询 Tor 中继的公开数据。每一季的数字整理成[观测季报](/projects/reports/)，全部项目见[项目](/projects/)。
 
-2026 年 8 月 13 日的台湾北部移动网络降速演练，日期、时段、县市与运营商都事先公告，降速研究很少有这种已知条件。社区用 OONI 的数据整理了[这 30 分钟的记录](docs:blog/2026/08/ooni-mobile-throttle-drill-results/)，文中每一则查询都不需要 API 密钥，任何人都能自行复验。
+2026 年 8 月 13 日的台湾北部移动网络降速演练，日期、时段、县市与运营商都事先公告，降速研究很少有这种已知条件。社区用 OONI 的数据整理了[8/13 台湾北部移动网络降速 30 分钟的 OONI 测量记录](/articles/ooni-mobile-throttle-results/)，文中每一则查询都不需要 API 密钥，任何人都能自行复验。
 
 ## 治理、合作与品牌
 

@@ -1,0 +1,9 @@
+{# 技術文章列表，依年份分組 #}
+{% for year, items in articles | groupby(attribute='date.year') | reverse %}
+<h2>{{ year }}</h2>
+<ul class="rows updates">
+{% for item in items | sort(attribute='date', reverse=true) %}
+  <li><a class="row" href="{{ item.href }}"><span class="b"><span class="meta"><time datetime="{{ item.date.isoformat() }}">{{ item.date.strftime('%Y/%m/%d') }}</time></span><span class="t">{{ item.title }}</span><span class="d">{{ item.summary }}</span></span><span class="go">{{ icon('arrow-right') }}</span></a></li>
+{% endfor %}
+</ul>
+{% endfor %}

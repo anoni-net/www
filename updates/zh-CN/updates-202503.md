@@ -26,7 +26,7 @@ COSCUP 预计在 8/9、10 于台湾科技大学举办，我们会在这两天的
 
 ![Security without identification: transaction systems to make big brother obsolete](https://ooni.org/post/2025-probe-security-without-identification/images/chaum.png)
 
-最近我们翻译了一篇来自 OONI 团队如何计划改善与增强匿名数据提供的验证，如何在保有隐私与数据可信度上做出改进、抵御来自恶意上传脏数据影响整体数据库的解决方法。有兴趣的可以阅读[这篇文章](docs:blog/2025/03/2025-probe-security-without-identification/)。
+最近我们翻译了一篇来自 OONI 团队如何计划改善与增强匿名数据提供的验证，如何在保有隐私与数据可信度上做出改进、抵御来自恶意上传脏数据影响整体数据库的解决方法。有兴趣的可以阅读[这篇文章](/articles/ooni-anonymous-credentials/)。
 
 这篇文章提供了相关领域的文献回顾，以及未来 OONI 团队要如何实施「匿名凭证」的流程。这篇文章稍微有点专业硬领域，可能不太好阅读，但非常推荐稍微花点时间了解，或与我们讨论并提供建议！
 
@@ -34,7 +34,7 @@ COSCUP 预计在 8/9、10 于台湾科技大学举办，我们会在这两天的
 
 ## 翻译文章
 
-除了前面所提到的「匿名凭证」的文章外，我们也会针对 Tor、Tails、OONI 所发布较重要的文章进行翻译，例如：你知道吗？Tor 也打算用 Rust 来实现，其项目名称为 Arti。Tor 是使用 C 语言构建的，由于 C 语言在内存操作上的挑战，处理不好可能会造成资安问题，因此决定使用 Rust 语言来重新打造一个较为安全的 Tor 应用程序。Arti 项目目前也逐步实现 C 语言 Tor 的功能，有兴趣可以参考[这篇已翻译的文章](docs:blog/2025/03/arti_1_4_1_released/)。
+除了前面所提到的「匿名凭证」的文章外，我们也会针对 Tor、Tails、OONI 所发布较重要的文章进行翻译，例如：你知道吗？Tor 也打算用 Rust 来实现，其项目名称为 Arti。Tor 是使用 C 语言构建的，由于 C 语言在内存操作上的挑战，处理不好可能会造成资安问题，因此决定使用 Rust 语言来重新打造一个较为安全的 Tor 应用程序。Arti 项目目前也逐步实现 C 语言 Tor 的功能，有兴趣可以参考[这篇已翻译的文章](docs:changelog/arti/)。
 
 ![EFF, Tor University](https://assets.anoni.net/updates/eff-tor-university-8a41c328.png){ .shot }
 

@@ -66,6 +66,8 @@ ICON_TAG = re.compile(r'<i data-icon="([a-z0-9-]+)"></i>')
 PULSE_SLUG = "projects/pulse"
 ASN_SLUG = "projects/asn-coverage"
 REPORTS_SLUG = "projects/reports"
+# 技術文章，pages/<語系>/articles/ 底下的頁面，front matter 要有 date，列表由新到舊
+ARTICLES_SLUG = "articles"
 # 社群動態的標籤：新增（專案或服務上線）、活動、更新（工作進度）。觀點、立場與經驗不加標籤。
 # 顏色照品牌素材頁的「公告 tag」
 UPDATE_KINDS = ("new", "event", "update")
@@ -287,6 +289,18 @@ class Site:
                               "date": r.date, "note": labels.get("only_zh_tw", {}).get(lang.code, "")})
         return sorted(items, key=lambda i: i["href"].rstrip("/").rsplit("/", 1)[-1], reverse=True)
 
+    def articles_for(self, lang: Lang) -> list[dict]:
+        """技術文章列表，由新到舊。2026-10 文件站取消進階層，寫給技術讀者的文章搬到這裡（toomore/anoni-net-ws#406）。"""
+        items = []
+        for src in sorted((PAGES / lang.code / ARTICLES_SLUG).glob("*.md")):
+            where = src.relative_to(ROOT).as_posix()
+            meta, _ = split_front_matter(src.read_text(encoding="utf-8"), where)
+            if not isinstance(meta.get("date"), date):
+                raise SystemExit(f"{where}：技術文章的 front matter 要有 date，寫成 YYYY-MM-DD")
+            items.append({"date": meta["date"], "title": meta["title"], "summary": meta["description"],
+                          "href": self.page_path(lang, f"{ARTICLES_SLUG}/{src.stem}")})
+        return sorted(items, key=lambda i: (i["date"], i["href"]), reverse=True)
+
     def updates_for(self, lang: Lang) -> list[dict]:
         """動態列表，由新到舊。文件站部落格的舊社群文章 2026-10 全部搬到 updates/（#42）。"""
         items = [{"date": p.date, "title": p.meta["title"], "summary": p.meta["description"],
@@ -396,6 +410,7 @@ class Site:
             "pick": lambda value: value[lang.code] if isinstance(value, dict) else value,
             "service_url": lambda svc: self.service_url(svc, target),
             "updates": self.updates_for(lang),
+            "articles": self.articles_for(lang),
             "report_items": self.report_items(lang, target),
             "feed_url": f"{lang.prefix}/updates/feed.xml",
             "jsonld": lambda page: self.jsonld(lang, target, page),

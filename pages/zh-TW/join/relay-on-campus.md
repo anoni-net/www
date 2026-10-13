@@ -33,7 +33,7 @@ Tor 網路的匿名性仰賴多元的中繼節點，中繼集中在少數國家�
 - 架設指南：[Tor Relay 架設指南](/join/setup-tor-relay/)、[Tor WebTunnel 橋接架設指南](/join/setup-tor-webtunnel/)
 - 觀測：[Tor 中繼節點觀測](/projects/pulse/)
 - 概念：[什麼是 Tor](docs:tools/what-is-tor/)、[Tor Snowflake](docs:tools/tor-snowflake/)
-- 進階：[一台會遺忘的伺服器：探索 Stateless Relays](docs:blog/2026/04/a-server-that-forgets-exploring-stateless-relays/)
+- 技術文章：[無狀態 Tor Relay 的部署路線與開放問題](/articles/stateless-relays/)
 
 ## 已完成的工作
 

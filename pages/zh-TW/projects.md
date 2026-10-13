@@ -14,4 +14,8 @@ lead: 社群自己寫的內容與程式。
 
 <!-- tools -->
 
+## 技術文章
+
+協定與密碼學的原理說明、社群自己的量測分析，以及上游專案技術文章的導讀，收在[技術文章](/articles/)。
+
 各專案的原始碼都公開在 [GitHub 的 anoni-net 組織](https://github.com/anoni-net)。

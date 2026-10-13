@@ -17,7 +17,7 @@ anoni.net 文件站在主站之外另有一份 IPFS 鏡像，主站被封鎖或�
 
 ## CID、IPNS 與 pin 的關係
 
-需要排程的原因在於 CID 會隨內容改變。IPFS 的完整設計見[去中心化網站發布](docs:advanced/dweb-ipfs-onion/)，以下只整理 pin 會用到的概念。
+需要排程的原因在於 CID 會隨內容改變。IPFS 的完整設計見[去中心化網站發布](/articles/dweb-ipfs-onion/)，以下只整理 pin 會用到的概念。
 
 - IPFS 依檔案內容算出一段 hash，稱為 CID（Content Identifier），也就是內容在 IPFS 上的位址。內容相同則 CID 相同。
 - 內容一改，CID 就跟著改變。文件站每次更新、重新發布，都會產生新的 CID。
@@ -242,7 +242,7 @@ ipfs swarm peers | wc -l
 - **差異下載**：pin 新版時舊版的區塊仍在節點上，IPFS 只下載實際不同的區塊。第一次要下載整份，之後一般的內容更新通常只有幾 MB。改動導覽列或版型時例外，全站 HTML 會一起重寫，差異接近鏡像大小的一半。
 - **磁碟用量**：腳本 unpin 舊版後會執行一次垃圾回收，只保留最新版本。一份完整鏡像約 240 MB（2026 年 8 月實測）。
 - **停止協助**：unpin 目前的版本並移除排程即可，不影響其他節點。
-- **隱私與風險**：pin 的是公開文件，沒有隱私上的顧慮。提供 IPFS pin 的風險依司法管轄而不同，相關限制見[去中心化網站發布](docs:advanced/dweb-ipfs-onion/)的「已知限制與風險」。
+- **隱私與風險**：pin 的是公開文件，沒有隱私上的顧慮。提供 IPFS pin 的風險依司法管轄而不同，相關限制見[去中心化網站發布](/articles/dweb-ipfs-onion/)的「已知限制與風險」。
 
 ## pinning service 的替代做法
 
@@ -252,6 +252,6 @@ ipfs swarm peers | wc -l
 
 ## 相關閱讀
 
-- [去中心化網站發布](docs:advanced/dweb-ipfs-onion/)：IPFS 與 Onion 服務的設計核心，以及文件站的實際部署
+- [去中心化網站發布](/articles/dweb-ipfs-onion/)：IPFS 與 Onion 服務的設計核心，以及文件站的實際部署
 - [.onion 服務架設指南](/join/setup-onion-service/)：另一種抗封鎖鏡像的做法
 - [Tor Relay 架設指南](/join/setup-tor-relay/)：用自己的機器與頻寬增加 Tor 網路的中繼節點

@@ -11,7 +11,7 @@ An onion service lets people reach your server over Tor without the server's IP 
 
     An onion service **uses Tor to host your own site**. It serves only your content, carries nobody else's traffic, and adds nothing to the network's capacity. The risks, the legal position, and the operational burden all differ between the two.
 
-For how onion services are designed, how they compare with IPFS, and how anoni.net's docs site runs its three-track deployment, see [Decentralized Website Publishing](docs:advanced/dweb-ipfs-onion/). If you only want to share files or put up a throwaway site, [OnionShare](docs:tools/onionshare/) costs less than running your own service.
+For how onion services are designed, how they compare with IPFS, and how anoni.net's docs site runs its three-track deployment, see [Decentralized Website Publishing](/articles/dweb-ipfs-onion/). If you only want to share files or put up a throwaway site, [OnionShare](docs:tools/onionshare/) costs less than running your own service.
 
 ## Prerequisites
 
@@ -468,7 +468,7 @@ Caddy requests TLS certificates automatically by default, and that should be swi
 
 ## Related Reading
 
-- [Decentralized Website Publishing](docs:advanced/dweb-ipfs-onion/): how onion services are designed, the trade-offs with IPFS, and how anoni.net's three-track deployment fits together
+- [Decentralized Website Publishing](/articles/dweb-ipfs-onion/): how onion services are designed, the trade-offs with IPFS, and how anoni.net's three-track deployment fits together
 - [Pinning the Docs Site's IPFS Mirror](/join/pin-ipfs-mirror/): a different kind of censorship-resistant mirror, where help with pinning is welcome
 - [Tor Relay Setup Guide](/join/setup-tor-relay/): contributing bandwidth to the Tor network, a different kind of task from this one
 - [OnionShare](docs:tools/onionshare/): sharing files and hosting a site without operating a service yourself

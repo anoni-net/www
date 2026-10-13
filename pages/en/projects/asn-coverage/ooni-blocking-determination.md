@@ -106,7 +106,7 @@ Common sources of misreading group into a few kinds:
 - **Dynamic site content**: rotating ads, personalisation and A/B tests make the two sides differ by design.
 - **A failing control**: when `control_failure` has a value, the comparison has no basis.
 
-OONI handles the same class of problem at the dataset level, and the heuristics it uses to filter anomalous submissions are described in [OONI is guarding its data against bad measurements](docs:blog/2026/07/2026-ooni-faulty-measurements/).
+OONI handles the same class of problem at the dataset level, and the heuristics it uses to filter anomalous submissions are described in [Faulty Measurement Detection and Anonymous Credentials at OONI](/articles/ooni-faulty-measurements/).
 
 ## Corroboration beyond a single measurement
 

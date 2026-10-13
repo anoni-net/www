@@ -17,7 +17,7 @@ To help, run an always-on IPFS node with a scheduled script that pins the latest
 
 ## CIDs, IPNS and pins
 
-The schedule is needed because the CID changes with the content. The full design of IPFS is covered in [decentralized website publishing](docs:advanced/dweb-ipfs-onion/); what follows is only what pinning depends on.
+The schedule is needed because the CID changes with the content. The full design of IPFS is covered in [decentralized website publishing](/articles/dweb-ipfs-onion/); what follows is only what pinning depends on.
 
 - IPFS hashes a file's content into a CID (Content Identifier), and the CID is the content's address on IPFS. Identical content always has the same CID.
 - Change the content and the CID changes with it. Every update and republish of the docs site produces a new CID.
@@ -242,7 +242,7 @@ With the nodes behind `auto` shut down, a freshly installed node may fail to joi
 - **Incremental fetches**: while the new version is being pinned, the old version's blocks are still on your node, so IPFS only fetches the blocks that differ. The first sync pulls the whole mirror; ordinary content updates after that are usually a few MB. Changes to the navigation or the theme are the exception, since every page's HTML is rewritten and the difference comes close to half the mirror.
 - **Disk use**: after unpinning the old version the script runs a garbage collection, so only the latest version takes space. A full mirror is about 240 MB (measured August 2026).
 - **Stopping**: unpin the current version and remove the schedule. Other nodes are not affected.
-- **Privacy and risk**: what you pin is public documentation, so there is no privacy concern. The risk of offering IPFS pinning differs by jurisdiction; the limits are covered under "Known limits and risks" in [decentralized website publishing](docs:advanced/dweb-ipfs-onion/).
+- **Privacy and risk**: what you pin is public documentation, so there is no privacy concern. The risk of offering IPFS pinning differs by jurisdiction; the limits are covered under "Known limits and risks" in [decentralized website publishing](/articles/dweb-ipfs-onion/).
 
 ## Pinning services as an alternative
 
@@ -252,6 +252,6 @@ The trade-off is that the mirror's survival then depends on a third-party provid
 
 ## Related reading
 
-- [Decentralized website publishing](docs:advanced/dweb-ipfs-onion/): the design of IPFS and onion services, and how the docs site is actually deployed
+- [Decentralized Website Publishing](/articles/dweb-ipfs-onion/): the design of IPFS and onion services, and how the docs site is actually deployed
 - [Onion Service Setup Guide](/join/setup-onion-service/): another way to run a censorship-resistant mirror
 - [Tor Relay Setup Guide](/join/setup-tor-relay/): adding relays to the Tor network with your own machine and bandwidth

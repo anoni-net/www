@@ -22,10 +22,10 @@ In the future, this brochure will only be available at in-person events, with a 
 
 In August 2025, we are continuing to update information from the official websites of Tor/Tails and OONI. A significant amount of content was published this month, and we aim to have the articles translated, proofread, and published within a week. However, if you have research needs, you could also focus directly on the information releases from the official websites.
 
-- [Test 7.0~rc2](https://tails.net/news/test_7.0-rc2/)（[zh-TW](https://anoni.net/docs/blog/2025/08/tails-7-rc/), [zh-CN](https://anoni.net/docs/zh-cn/blog/2025/08/tails-7-rc/)） - 2025/08/29
-- [OMG! Summary of the 3rd Open Measurement Gathering (OMG) Ask Me Anything (AMA) event](https://ooni.org/post/2025-omg/)（[zh-TW](https://anoni.net/docs/blog/2025/08/ooni-omg-2025/), [zh-CN](https://anoni.net/docs/zh-cn/blog/2025/08/ooni-omg-2025/)）- 2025/08/29
+- [Test 7.0~rc2](https://tails.net/news/test_7.0-rc2/)（[zh-TW](https://anoni.net/docs/blog/2025/09/tails-7-released/), [zh-CN](https://anoni.net/docs/zh-cn/blog/2025/09/tails-7-released/)） - 2025/08/29
+- [OMG! Summary of the 3rd Open Measurement Gathering (OMG) Ask Me Anything (AMA) event](https://ooni.org/post/2025-omg/)- 2025/08/29
 - [Corruption and Control: How Turkmenistan turned internet censorship into a business](https://blog.torproject.org/Corruption-Control-Turkmenistan-internet-censorship-business/)（[zh-TW](https://anoni.net/docs/blog/2025/08/tor-corruption-control/), [zh-CN](https://anoni.net/docs/zh-cn/blog/2025/08/tor-corruption-control/)） - 2025/08/30
-- [New Release: Tails 6.18](https://blog.torproject.org/new-release-tails-6_18/)（[zh-TW](https://anoni.net/docs/blog/2025/07/tails-6-18-webtunnel/), [zh-CN](https://anoni.net/docs/zh-cn/blog/2025/07/tails-6-18-webtunnel/)） - 2025/07/31
+- [New Release: Tails 6.18](https://blog.torproject.org/new-release-tails-6_18/)（[zh-TW](https://anoni.net/docs/changelog/tails/), [zh-CN](https://anoni.net/docs/zh-cn/changelog/tails/)） - 2025/07/31
 
 Additionally, we noticed that [The MIT Press Reader](https://thereader.mitpress.mit.edu/) published a pretty good article. After obtaining permission from The MIT Press, we translated it into Mandarin. In this translation, we not only focused on translating the content but also added annotations to supplement the historical context mentioned in the article.
 

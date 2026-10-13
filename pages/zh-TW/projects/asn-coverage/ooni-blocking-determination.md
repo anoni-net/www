@@ -106,7 +106,7 @@ body_proportion: 0.9967
 - **網站的動態內容**：輪播廣告、個人化內容與 A/B 測試，會讓兩側的內容本來就不相同。
 - **對照組本身失敗**：`control_failure` 有值時，雙邊比對的前提不成立。
 
-OONI 在資料集層級也處理同一類問題，過濾異常投稿所用的啟發式規則整理在[OONI 如何分辨壞掉的量測資料](docs:blog/2026/07/2026-ooni-faulty-measurements/)。
+OONI 在資料集層級也處理同一類問題，過濾異常投稿所用的啟發式規則整理在[OONI 錯誤量測的辨識方法與匿名憑證](/articles/ooni-faulty-measurements/)。
 
 ## 單筆測量之外的補強
 

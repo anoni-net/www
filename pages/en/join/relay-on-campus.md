@@ -33,7 +33,7 @@ Universities are a good place to close that gap:
 - **Setup guides**: [Tor Relay Setup Guide](/join/setup-tor-relay/), [Tor WebTunnel Bridge Setup Guide](/join/setup-tor-webtunnel/)
 - **Observation**: [Tor Relay Watch](/projects/pulse/)
 - **Concepts**: [What Is Tor?](docs:tools/what-is-tor/), [Tor Snowflake](docs:tools/tor-snowflake/)
-- **Further reading**: [A Server That Forgets](docs:blog/2026/04/a-server-that-forgets-exploring-stateless-relays/), on stateless relays
+- **Articles**: [Deployment Paths and Open Problems for Stateless Tor Relays](/articles/stateless-relays/)
 
 ## Done so far
 

@@ -116,7 +116,7 @@ description: 匿名網路社群 anoni.net 2026 年 8 月 8、9 日在 COSCUP 202
 
     技術上，這個提問對應到資格驗證，也就是證明一個人符合某項條件，而不必一併揭露身分。W3C 的可驗證憑證（Verifiable Credentials，VC）等開放標準搭配選擇性揭露（selective disclosure），持有者可以只出示「已成年」這一項，其餘資料驗證方看不到。開放標準讓驗證規則不由單一廠商定義，任何人都能自行實作錢包或驗證端。使用者手上那一端是否開源、可供稽核，決定了使用者能否確認它沒有多送出資料。講者也區分了證明資格與證明身分，作為檢視各種實名制方案的依據。
 
-    OONI 採用同一類思路的匿名憑證（anonymous credentials），讓量測資料可信，又不追蹤回報者，設計與取捨見 [OONI 全新的匿名憑證系統](docs:blog/2026/02/ooni-全新的匿名憑證系統/)。講者在 8/09 的 Open Source Policy 議程軌另與黃豆泥 mashbean 合講[年齡驗證、數位監控、隱私權，討論這些以前，不妨先開源吧](https://pretalx.coscup.org/coscup-2026/talk/JSMGDZ/)，分析歐盟以開源方式開發的年齡驗證 App。適合關心數位身分、實名制爭議與匿名服務治理的聽眾，不需要密碼學背景。
+    OONI 採用同一類思路的匿名憑證（anonymous credentials），讓量測資料可信，又不追蹤回報者，設計與取捨見 [OONI Probe 匿名憑證系統的設計與實作](/articles/ooni-anonymous-credentials/)。講者在 8/09 的 Open Source Policy 議程軌另與黃豆泥 mashbean 合講[年齡驗證、數位監控、隱私權，討論這些以前，不妨先開源吧](https://pretalx.coscup.org/coscup-2026/talk/JSMGDZ/)，分析歐盟以開源方式開發的年齡驗證 App。適合關心數位身分、實名制爭議與匿名服務治理的聽眾，不需要密碼學背景。
 
     <i data-icon="open-in-new"></i> [COSCUP 官方議程頁](https://pretalx.coscup.org/coscup-2026/talk/WYGFAZ/)
 <!-- docs-style-lint: enable -->

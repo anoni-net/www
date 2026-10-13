@@ -47,7 +47,7 @@ What your organization runs into in practice can be sent anonymously to [whisper
 
 We can translate and adapt security guides, tool documentation, interface strings, and reports into Traditional Chinese written for Taiwan, or review a Chinese translation you already have. Terms follow a shared glossary (see the terminology section of [Localization and Translation](docs:community/i18n/#Terminology-and-glossary-consistency)), and we write 正體中文 rather than 繁體中文 for the reasons in [Why We Say "Orthodox Chinese" Rather Than "Complex Chinese"](docs:community/zh-hant-naming/).
 
-Our past translation work is public: upstream translations for the Tor Project, OONI, and CryptPad, the Traditional Chinese edition of the Tor University Challenge site, and full Traditional Chinese translations of two long-form regional reports, indexed in [Curated Reports](docs:reports/). Bringing regional research in the other direction, from Chinese into English, is part of the same work.
+Our past translation work is public: upstream translations for the Tor Project, OONI, and CryptPad, the Traditional Chinese edition of the Tor University Challenge site, and full Traditional Chinese translations of two long-form regional reports, indexed in [Translated Reports](docs:reports/). Bringing regional research in the other direction, from Chinese into English, is part of the same work.
 
 ### Local context review
 

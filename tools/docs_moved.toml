@@ -236,3 +236,87 @@ docs = "setup/index.md"
 page = "join"
 langs = ["zh-TW", "zh-CN", "en"]
 import = false
+
+# 2026-10-13 文件站取消進階層（toomore/anoni-net-ws#406）。原理與選型寫給技術讀者，搬到本站新開的技術文章。
+# 常被誤認為匿名的網路與端對端加密的入門部分留在文件站的概念層，端對端加密的協定機制另外寫成
+# articles/e2ee-protocols，舊網址轉到文件站的新位置，不經過這份
+[[moved]]
+docs = "advanced/dweb-ipfs-onion.md"
+page = "articles/dweb-ipfs-onion"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
+
+[[moved]]
+docs = "advanced/zk-identity-payments.md"
+page = "articles/zk-identity-payments"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
+
+[[moved]]
+docs = "advanced/post-quantum.md"
+page = "articles/post-quantum"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
+
+# 2026-10-13 部落格寫給技術讀者的文章搬到技術文章（#406）。網址由文章 front matter 的日期與 slug 組成，
+# 文件站刪掉之後工具讀刪除前的版本。只有正簡兩語的文章，英文版在本站新寫，舊網址只轉有的語系。
+# 2025 年的匿名憑證構想併進 2026 年上線的那一篇，OnionMasq 併進 oniux（OnionMasq 是它的底層），只轉址
+[[moved]]
+docs = "blog/posts/2026-a-server-that-forgets-exploring-stateless-relays.md"
+page = "articles/stateless-relays"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
+
+[[moved]]
+docs = "blog/posts/2026-ooni-faulty-measurements.md"
+page = "articles/ooni-faulty-measurements"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
+
+[[moved]]
+docs = "blog/posts/2026-ooni-run-v2-usage-patterns.md"
+page = "articles/ooni-run-v2-usage-patterns"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
+
+[[moved]]
+docs = "blog/posts/2026-ooni-anonymous-credentials.md"
+page = "articles/ooni-anonymous-credentials"
+langs = ["zh-TW", "zh-CN"]
+import = true
+
+[[moved]]
+docs = "blog/posts/ooni-mobile-throttle-drill-results.md"
+page = "articles/ooni-mobile-throttle-results"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
+
+[[moved]]
+docs = "blog/posts/keeping-the-doors-open.md"
+page = "articles/keeping-the-doors-open"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
+
+[[moved]]
+docs = "blog/posts/tpa-adr.md"
+page = "articles/tpa-adr"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
+
+[[moved]]
+docs = "blog/posts/oniux-kernel-level-tor.md"
+page = "articles/oniux"
+langs = ["zh-TW", "zh-CN"]
+import = true
+
+[[moved]]
+docs = "blog/posts/2025-probe-security-without-identification.md"
+page = "articles/ooni-anonymous-credentials"
+langs = ["zh-TW", "zh-CN"]
+import = false
+
+[[moved]]
+docs = "blog/posts/tor-sambent-onionmasq.md"
+page = "articles/oniux"
+langs = ["zh-TW", "zh-CN"]
+import = false
