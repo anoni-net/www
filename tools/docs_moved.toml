@@ -209,3 +209,30 @@ docs = "community/pin-ipfs-mirror.md"
 page = "join/pin-ipfs-mirror"
 langs = ["zh-TW", "zh-CN", "en"]
 import = true
+
+# 2026-10-13 架設與營運之二：校園 Tor Relay 的提案範本、架設 SOP 與給校方的 FAQ，掛在校園中繼專題底下。
+# 文件站只有正體與英文，簡體版在搬過來時新寫，簡體的舊網址原本轉到正體版，現在一起轉過來
+[[moved]]
+docs = "community/campus-tor-relay-proposal.md"
+page = "join/relay-on-campus/proposal"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
+
+[[moved]]
+docs = "community/campus-tor-relay-sop.md"
+page = "join/relay-on-campus/sop"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
+
+[[moved]]
+docs = "community/campus-relay-faq.md"
+page = "join/relay-on-campus/faq"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
+
+# 文件站「架設與營運」的索引頁，七頁都搬走之後改由參與頁的「架設與營運」一節取代，只轉址
+[[moved]]
+docs = "setup/index.md"
+page = "join"
+langs = ["zh-TW", "zh-CN", "en"]
+import = false

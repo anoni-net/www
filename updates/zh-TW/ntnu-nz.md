@@ -8,9 +8,9 @@ date: 2025-12-30
 
     這篇是案例訪談，記下「**如何被做成**」的過程。如果你想實際在自己學校推動，請直接使用 NZ 同意公開的[**範本工具包**](/join/relay-on-campus/)（[上線公告](/updates/2026/05/2026-campus-tor-relay-template-kit/)）：
 
-    - [校園 Tor Relay 提案範本](docs:community/campus-tor-relay-proposal/)：提案文件、四封溝通 email、行政時間軸
-    - [校園 Tor Relay 架設 SOP](docs:community/campus-tor-relay-sop/)：torrc、UFW、狀態網頁、監控
-    - [校園 Tor Relay：給校方與法務的 FAQ](docs:community/campus-relay-faq/)：校方常見疑慮 Q&A
+    - [校園 Tor Relay 提案範本](/join/relay-on-campus/proposal/)：提案文件、四封溝通 email、行政時間軸
+    - [校園 Tor Relay 架設 SOP](/join/relay-on-campus/sop/)：torrc、UFW、狀態網頁、監控
+    - [校園 Tor Relay：給校方與法務的 FAQ](/join/relay-on-campus/faq/)：校方常見疑慮 Q&A
 
 ## 前言：為什麼在校園談匿名網路？
 
