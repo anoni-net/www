@@ -149,3 +149,11 @@ docs = "community/onionoo-mcp.md"
 page = "projects/onionoo-mcp"
 langs = ["zh-TW", "zh-CN", "en"]
 import = true
+
+# 2026-10-13 文件站改定位成給非技術人員的工具包之後，寫給想參與 Tor 上游的人的頁面搬過來
+# （toomore/anoni-net-ws#406）
+[[moved]]
+docs = "community/tor-project-ecosystem.md"
+page = "join/tor-project"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
