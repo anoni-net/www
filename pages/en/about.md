@@ -58,7 +58,7 @@ We also publish measurement write-ups built from public data, so that others can
 The community works by consensus with little formal structure. The full rules are in the [Governance Charter](/about/governance/), which is still a draft under community review and serves as the working reference until it is ratified.
 
 - **Roles**: *core members* (long-term maintainers who operate the self-hosted services and can merge PRs), *contributors* (anyone with active output), *observers* (newsletter and Public Space participants) and *visitors* (anyone reading and writing to `whisper@anoni.net`).
-- **Decisions**: consensus by default, with a 3-day window for objections. A vote happens only when consensus is blocked or time is short. Major decisions, such as charter changes and adding core members, need a two-thirds majority of active contributors.
+- **Decisions**: consensus by default, with a 3-day window for objections. A vote happens only when consensus is blocked or time is short. Major decisions, such as charter changes and adding core members, need the support of two-thirds of all eligible voters, that is, contributors active in the last six months.
 - **Disputes**: substantive disputes go through the proposal process, and interpersonal disputes go to core members. Severe cases (harassment, threats) lead to immediate removal of access, with case-by-case support for the people affected.
 - **Code of conduct**: mutual respect across backgrounds, technical levels and politics, discussion about ideas rather than identities, transparency in public rooms, and an explicit refusal to assist illegal activity (money laundering, harassment, CSAM, foreign-state intelligence operations).
 

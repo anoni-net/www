@@ -78,7 +78,7 @@ Voting only happens when consensus is clearly stuck, or when time pressure calls
 - Eligible voters: all contributors (members with concrete output in the last 6 months)
 - Method: a public Matrix poll, or a semi-anonymous CryptPad form
 - Passing threshold: a simple majority (more than half)
-- Major decisions (charter amendments, adding or removing a core member) require a 2/3 majority of active contributors
+- Major decisions (charter amendments, adding or removing a core member) require the support of two-thirds of all eligible voters
 
 So far the community has rarely needed to vote, and consensus resolves most situations.
 
