@@ -11,29 +11,21 @@ Where each field sits in a measurement is described in [The Structure of an OONI
 
 Measurements from the Probe alone cannot separate "the site is being interfered with" from "the site is down". The Web Connectivity test (`web_connectivity`) therefore measures the same URL twice, once from the Probe's network and once via an OONI test helper on an unrestricted network, and the two results are then compared.
 
-A test helper is a measurement server OONI runs on an unrestricted network. Its observations are collected under `test_keys.control` and cover DNS resolution, TCP connection state and the HTTP response. Every verdict field is built on the difference between the two sides:
+A test helper is a measurement server OONI runs on an unrestricted network. Its observations are collected under `test_keys.control` and cover DNS resolution, TCP connection state and the HTTP response. Every verdict field is built on the difference between the two sides. The comparison runs stage by stage in the order below and stops at the first stage where the two sides differ:
 
-| Where the difference appears | Verdict |
-|---|---|
-| DNS resolution disagrees | `blocking: "dns"` |
-| DNS agrees, the Probe cannot connect but the test helper can | `blocking: "tcp_ip"` |
-| TCP connects, the HTTP stage fails | `blocking: "http-failure"` |
-| HTTP responds, the content differs from what the test helper got | `blocking: "http-diff"` |
-| Both sides fine and content matches | `blocking: false`, `accessible: true` |
+<ol class="flow" aria-label="The four verdict stages of the Web Connectivity test">
+  <li><span class="n" aria-hidden="true">1</span><span class="b"><b>DNS resolution</b><span class="d">Compares both sides' A and AAAA answers for the same domain</span><span class="out"><span class="if">Answers differ</span><code>blocking: "dns"</code></span></span></li>
+  <li><span class="n" aria-hidden="true">2</span><span class="b"><b>TCP connection</b><span class="d">Whether each side can connect to the target IP and port</span><span class="out"><span class="if">Only the Probe fails to connect</span><code>blocking: "tcp_ip"</code></span></span></li>
+  <li><span class="n" aria-hidden="true">3</span><span class="b"><b>HTTP request</b><span class="d">Whether an HTTP response comes back once connected</span><span class="out"><span class="if">The HTTP stage fails</span><code>blocking: "http-failure"</code></span></span></li>
+  <li><span class="n" aria-hidden="true">4</span><span class="b"><b>Response content</b><span class="d">Compares status code, title, headers and body length</span><span class="out"><span class="if">Content differs</span><code>blocking: "http-diff"</code></span></span></li>
+  <li class="ok"><span class="n" aria-hidden="true">✓</span><span class="b"><b>All four stages agree</b><span class="out"><code>blocking: false</code><code>accessible: true</code></span></span></li>
+</ol>
 
-The checks run from the top of the table to the bottom, and a failure at the DNS stage stops the comparison there. In the first three cases all four `*_match` fields are `null`, precisely because the comparison halted at an earlier stage.
+Because the comparison has already stopped at an earlier stage, all four `*_match` fields are `null` in the first three cases. Each of the four real measurements in the next section stops at one of these stages.
 
 !!! tip "Reading order for `control` and `blocking`"
 
     `blocking` is the result of a two-sided comparison, not an observation from the Probe alone. When reading any anomalous measurement, first check what the test helper recorded in `test_keys.control`, then go back to `blocking`. In the `tcp_ip` example in the next section, skipping `control` would turn a site's own problem into an apparent block.
-
-<figure markdown="span">
-    <img class="diagram-tall" src="https://assets.anoni.net/diagrams/ooni-blocking-decision-v4.en.svg"
-        alt="A decision flow. The same URL is measured once by the probe and once by an OONI test helper, and the two results are compared stage by stage. Stage one compares DNS answers; if they differ, blocking is dns. Stage two compares TCP: if the probe cannot connect while the test helper can, blocking is tcp_ip. Stage three checks the HTTP stage; a failure gives http-failure. Stage four compares the response body against what the test helper received; a difference gives http-diff. Passing all four gives blocking false and accessible true. Once a stage stops the comparison, nothing below it is compared, which is why all four match fields are null in the first three cases.">
-    <figcaption>Where the difference shows up is where the verdict stops</figcaption>
-</figure>
-
-The flow chart lays the verdicts out in the order they are compared, with the verdict fixed at the earliest stage where the two sides differ. Each of the four real measurements in the next section follows one path.
 
 The full verdict algorithm is defined upstream in [ts-017-web-connectivity](https://github.com/ooni/spec/blob/master/nettests/ts-017-web-connectivity.md), and the unified naming for failure strings is in [df-007-errors](https://github.com/ooni/spec/blob/master/data-formats/df-007-errors.md).
 

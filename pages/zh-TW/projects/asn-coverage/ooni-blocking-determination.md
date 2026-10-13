@@ -11,29 +11,21 @@ description: 網路連線測試（Web Connectivity）的 blocking 欄位如何�
 
 只靠 Probe 單方面測一個網站，無法區分「網站遭到干預」與「網站本身無法連線」。網路連線測試（`web_connectivity`）因此把同一個網址測兩次，分別從 Probe 所在的網路與 OONI 的 test helper 所在的外部網路發出，再比對兩邊的結果。
 
-test helper 是 OONI 架設在外部網路的測量伺服器，觀測結果放在 `test_keys.control` 底下，包含 DNS 解析結果、TCP 連線狀態與 HTTP 回應。判定欄位的值全部取決於兩邊的差異出現在哪個階段：
+test helper 是 OONI 架設在外部網路的測量伺服器，觀測結果放在 `test_keys.control` 底下，包含 DNS 解析結果、TCP 連線狀態與 HTTP 回應。判定欄位的值全部取決於兩邊的差異出現在哪個階段。比對依下列順序逐階段進行，停在第一個出現差異的階段：
 
-| 差異出現的位置 | 判定 |
-|---|---|
-| DNS 解析結果不一致 | `blocking: "dns"` |
-| DNS 一致，Probe 無法連線但 test helper 可以連線 | `blocking: "tcp_ip"` |
-| TCP 可以連線，HTTP 階段失敗 | `blocking: "http-failure"` |
-| HTTP 有回應，內容與 test helper 取得的不同 | `blocking: "http-diff"` |
-| 兩邊都正常且內容相符 | `blocking: false`、`accessible: true` |
+<ol class="flow" aria-label="網路連線測試的四個判定階段">
+  <li><span class="n" aria-hidden="true">1</span><span class="b"><b>DNS 解析</b><span class="d">比對兩邊對同一個網域的 A 與 AAAA 查詢結果</span><span class="out"><span class="if">解析結果不一致</span><code>blocking: "dns"</code></span></span></li>
+  <li><span class="n" aria-hidden="true">2</span><span class="b"><b>TCP 連線</b><span class="d">兩邊能否連上目標 IP 的連接埠</span><span class="out"><span class="if">只有 Probe 無法連線</span><code>blocking: "tcp_ip"</code></span></span></li>
+  <li><span class="n" aria-hidden="true">3</span><span class="b"><b>HTTP 請求</b><span class="d">連線建立之後，能否取得 HTTP 回應</span><span class="out"><span class="if">HTTP 階段失敗</span><code>blocking: "http-failure"</code></span></span></li>
+  <li><span class="n" aria-hidden="true">4</span><span class="b"><b>回應內容</b><span class="d">比對狀態碼、標題、標頭與內容長度</span><span class="out"><span class="if">內容與 test helper 不同</span><code>blocking: "http-diff"</code></span></span></li>
+  <li class="ok"><span class="n" aria-hidden="true">✓</span><span class="b"><b>四個階段都一致</b><span class="out"><code>blocking: false</code><code>accessible: true</code></span></span></li>
+</ol>
 
-判定依表格由上往下進行，DNS 階段出問題就不再往下比對。四個 `*_match` 欄位在前三種情況下全為 `null`，原因正是比對已在更早的階段中止。
+比對在更早的階段就已中止，所以前三種判定的四個 `*_match` 欄位全為 `null`。下一節的四筆實際測量各自對應一個階段。
 
 !!! tip "`control` 與 `blocking` 的判讀順序"
 
     `blocking` 是雙邊比對的結果，並非 Probe 單方面的觀測。判讀異常測量時，先確認 `test_keys.control` 裡 test helper 的觀測內容，再回頭讀 `blocking`。下一節的 `tcp_ip` 範例，就是忽略 `control` 而把網站自身的問題誤判成封鎖的情況。
-
-<figure markdown="span">
-    <img class="diagram-tall" src="https://assets.anoni.net/diagrams/ooni-blocking-decision-v4.zh-TW.svg"
-        alt="判定流程圖。同一個網址由 Probe 端與 test helper 各測一次，兩邊結果逐階段比對。第一階比 DNS 解析結果，不一致就判 blocking 為 dns。第二階比 TCP 連線，Probe 無法連線而 test helper 可以連線就判 tcp_ip。第三階比 HTTP 階段，失敗就判 http-failure。第四階比回應內容，與 test helper 取得的不同就判 http-diff。四階都通過就是 blocking 為 false、accessible 為 true。判定在任何一階中止之後就不再往下比對，因此四個 match 欄位在前三種情況下全是 null。">
-    <figcaption>差異出現在哪一階，判定就停在哪一階</figcaption>
-</figure>
-
-流程圖依比對的先後順序排列，判定停在差異最早出現的階段。下一節的四筆實際測量各自對應一條路徑。
 
 判定演算法的完整定義在上游的 [ts-017-web-connectivity](https://github.com/ooni/spec/blob/master/nettests/ts-017-web-connectivity.md)，失敗字串的統一命名在 [df-007-errors](https://github.com/ooni/spec/blob/master/data-formats/df-007-errors.md)。
 
