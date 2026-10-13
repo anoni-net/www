@@ -133,9 +133,18 @@ def convert(text: str, src: str, lang: str, moved: list[dict], where: str, blog_
     _, head, body = text.split("---\n", 2)
     meta = yaml.safe_load(head) or {}
     front = {k: meta[k] for k in ("title", "description") if k in meta}
+    # 搬到技術文章的部落格文章保留發表日期，列表依它排序（build.py 的 articles_for）
+    if src.startswith("blog/posts/"):
+        day = meta.get("date")
+        front["date"] = day.get("created") if isinstance(day, dict) else day
 
-    # 本站的模板用 title 產生 <h1>，原稿的第一個 # 標題拿掉
+    # 本站的模板用 title 產生 <h1>，原稿的第一個 # 標題拿掉。部落格文章的標題只寫在 H1，改放進 title
+    h1 = re.match(r"\A\s*# ([^\n]*)\n", body)
+    if h1 and "title" not in front:
+        front = {"title": ICON.sub("", h1[1]).strip(), **front}
     body = re.sub(r"\A\s*# [^\n]*\n", "", body, count=1)
+    # 部落格的摘要分隔線，本站的 <!-- 名稱 --> 是區塊佔位，留著會建置失敗
+    body = re.sub(r"^<!-- more -->\n\n?", "", body, flags=re.M)
     # admonition 與折疊區塊的標題是純文字，圖示拿掉
     body = TITLE_LINE.sub(lambda m: m[1] + ICON.sub("", m[2]).strip() + m[3], body)
     body = ICON.sub(lambda m: f'<i data-icon="{use_icon(m[1])}"></i>', body)
@@ -175,7 +184,7 @@ def convert(text: str, src: str, lang: str, moved: list[dict], where: str, blog_
                 if rest in posts:
                     return f"{m[1]}{posts[rest]}{anchor}{m[3]}"
                 for d, item in by_docs.items():
-                    if rest == docs_url_path(d):
+                    if rest == moved_url(d, lang, blog_url):
                         return f"{m[1]}/{item['page']}/{anchor}{m[3]}"
             # 本站同語系頁面的完整網址改成站內路徑，建置時再加語系前綴
             own = f"https://anoni.net{prefix}/"
@@ -203,6 +212,19 @@ def convert(text: str, src: str, lang: str, moved: list[dict], where: str, blog_
         print(f"  ! {where}：有本站不支援的語法 {found!r}，要手動改寫", file=sys.stderr)
     head = yaml.safe_dump(front, allow_unicode=True, sort_keys=False, width=1000)
     return f"---\n{head}---\n\n{body.lstrip()}"
+
+
+def moved_url(src: str, lang: str, blog_url=None) -> str | None:
+    """docs_moved.toml 一筆的文件站網址路徑。部落格文章的網址由 front matter 的日期與 slug 組成，
+    2026-10-13 起技術文章會從部落格搬過來（toomore/anoni-net-ws#406）。"""
+    if not src.startswith("blog/posts/"):
+        return docs_url_path(src)
+    if not blog_url:
+        return None
+    try:
+        return blog_url(lang, src)
+    except SystemExit:
+        return None
 
 
 def blog_resolver(docs: Path, ref: str):
@@ -392,6 +414,8 @@ def import_pages(pages: list[str], docs: Path, ref: str) -> int:
     moved = load_moved()
     blog_url = blog_resolver(docs, ref)
     by_page = {m["page"]: m for m in moved if m.get("import")}
+    # 連到已經搬到動態的部落格文章，改成本站的路徑
+    index = moved_posts_index(docs, ref, load_update_groups()[1])
     count = 0
     for page in pages:
         item = by_page.get(page)
@@ -405,7 +429,7 @@ def import_pages(pages: list[str], docs: Path, ref: str) -> int:
                 continue
             dest = ROOT / "pages" / lang / f"{page}.md"
             dest.parent.mkdir(parents=True, exist_ok=True)
-            out = convert(text, item["docs"], lang, moved, src, blog_url)
+            out = convert(text, item["docs"], lang, moved, src, blog_url, index[lang])
             check_docs_links(out, lang, docs, ref, src)
             dest.write_text(out, encoding="utf-8")
             print(f"  {src} → {dest.relative_to(ROOT)}")
@@ -452,7 +476,14 @@ def nginx_conf(docs: Path, ref: str) -> str:
                 if lang not in item["langs"]:
                     continue
                 prefix = LANGS[lang]
-                path = docs_url_path(item["docs"]).rstrip("/")
+                if item["docs"].startswith("blog/posts/"):
+                    # 部落格文章，文件站刪掉之後讀刪除前的版本
+                    info = post_info(docs, ref, lang, item["docs"].removeprefix("blog/posts/"))
+                    if not info:
+                        raise SystemExit(f"{item['docs']}（{lang}）：文件站的歷史裡找不到這篇，轉址表沒有寫入")
+                    path = info["url"].rstrip("/")
+                else:
+                    path = docs_url_path(item["docs"]).rstrip("/")
                 key = re.escape(f"{docs_root}{prefix}/{path}").replace("\\/", "/").replace("\\-", "-")
                 lines.append(f"    ~^{key}(/|/index\\.html)?$  {site}{prefix}/{item['page']}/;")
         if posts:

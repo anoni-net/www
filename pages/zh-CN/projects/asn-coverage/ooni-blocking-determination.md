@@ -106,7 +106,7 @@ body_proportion: 0.9967
 - **网站的动态内容**：轮播广告、个性化内容与 A/B 测试，会让两侧的内容本来就不相同。
 - **对照组本身失败**：`control_failure` 有值时，双边比对的前提不成立。
 
-OONI 在数据集层级也处理同一类问题，过滤异常提交所用的启发式规则整理在[OONI 如何分辨坏掉的测量数据](docs:blog/2026/07/2026-ooni-faulty-measurements/)。
+OONI 在数据集层级也处理同一类问题，过滤异常提交所用的启发式规则整理在[OONI 错误测量的识别方法与匿名凭证](/articles/ooni-faulty-measurements/)。
 
 ## 单笔测量之外的补强
 

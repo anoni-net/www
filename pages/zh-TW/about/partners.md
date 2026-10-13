@@ -47,7 +47,7 @@ SecureDrop、Signal、Tor 上的收件箱、PGP 公鑰與郵件別名等收件�
 
 社群可以把資安指南、工具文件、介面字串與報告翻譯成台灣用語的正體中文，也可以審閱組織既有的中文譯稿。翻譯流程與用詞照文件站的[中文化與文件翻譯](docs:community/i18n/)，語言名稱寫「正體中文」，原因見[為什麼我們用「正體中文」而非「繁體中文」](docs:community/zh-hant-naming/)。
 
-社群做過的翻譯包含 Tor Project、OONI 與 CryptPad 的上游翻譯、Tor University Challenge 網站的正體中文版，以及[嚴選報告](docs:reports/)裡兩份區域長篇報告的完整中譯，都可以公開查到。反方向把華語地區的研究整理成英文，也屬於同一項工作。
+社群做過的翻譯包含 Tor Project、OONI 與 CryptPad 的上游翻譯、Tor University Challenge 網站的正體中文版，以及[研究報告中譯](docs:reports/)裡兩份區域長篇報告的完整中譯，都可以公開查到。反方向把華語地區的研究整理成英文，也屬於同一項工作。
 
 ### 在地脈絡的審閱
 

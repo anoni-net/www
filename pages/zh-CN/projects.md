@@ -14,4 +14,8 @@ lead: 社区自己写的内容与程序。
 
 <!-- tools -->
 
+## 技术文章
+
+协议与密码学的原理说明、社区自己的测量分析，以及上游项目技术文章的导读，收在[技术文章](/articles/)。
+
 各项目的源代码都公开在 [GitHub 的 anoni-net 组织](https://github.com/anoni-net)。

@@ -39,6 +39,11 @@ moved = [
     "2026-discord-matrix-statement.md",
     "ntnu-nz.md",
     "hello-world.md",
+    # 2026-10-13 第二批（#406）
+    "ooni-mobile-throttle-drill.md",
+    "games-globe-open-data.md",
+    "report-madlink.md",
+    "report-the-internet-coup.md",
 ]
 
 # 活動公告與回顧，標籤「活動」
@@ -56,6 +61,7 @@ event = [
     "rightscon25-tor-tails-ooni-after.md",
     "g0v-hackath65n.md",
     "rightscon25-pre-event.md",
+    "ooni-mobile-throttle-drill.md",
 ]
 
 # 專案與服務上線，標籤「新增」
@@ -65,6 +71,9 @@ new = [
     "2026-cryptpad-zh-hant.md",
     "2026-campus-tor-relay-template-kit.md",
     "2026-onionoo-mcp-public.md",
+    "games-globe-open-data.md",
+    "report-madlink.md",
+    "report-the-internet-coup.md",
 ]
 
 # 工作進度，標籤「更新」

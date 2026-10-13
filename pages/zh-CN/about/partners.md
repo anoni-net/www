@@ -47,7 +47,7 @@ SecureDrop、Signal、Tor 上的收件箱、PGP 公钥与邮件别名等收件�
 
 社区可以把信息安全指南、工具文档、界面字符串与报告翻译成台湾用语的正体中文，也可以审阅组织既有的中文译稿。翻译流程与用词照文档站的[中文化与文件翻译](docs:community/i18n/)，语言名称写「正体中文」，原因见[为什么我们用「正体中文」而非「繁体中文」](docs:community/zh-hant-naming/)。
 
-社区做过的翻译包含 Tor Project、OONI 与 CryptPad 的上游翻译、Tor University Challenge 网站的正体中文版，以及[严选报告](docs:reports/)里两份区域长篇报告的完整中译，都可以公开查到。反方向把华语地区的研究整理成英文，也属于同一项工作。
+社区做过的翻译包含 Tor Project、OONI 与 CryptPad 的上游翻译、Tor University Challenge 网站的正体中文版，以及[研究报告中译](docs:reports/)里两份区域长篇报告的完整中译，都可以公开查到。反方向把华语地区的研究整理成英文，也属于同一项工作。
 
 ### 在地脉络的审阅
 

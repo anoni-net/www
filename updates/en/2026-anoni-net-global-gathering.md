@@ -32,7 +32,7 @@ Others across the Asia-Pacific work on the same problems, and so far each side h
 
 The other purpose is taking part in coordination across the region, since internet freedom work is rarely something a single community can finish, what any one of us can observe and maintain has limits, and most of these problems need more than one region to cover them properly. Establishing contact first is what makes working together possible later.
 
-For the 30 minutes of mobile throttling in northern Taiwan on 13 August, we turned OONI's public data into [a guided tour of what it recorded](docs:blog/2026/08/ooni-mobile-throttle-drill-results/). Taiwan logged 238 connection speed tests from 47 devices that day, one of which saw its median download fall from `132,096` kbit/s to `1,223` kbit/s, and every query in the write-up runs without a key so anyone can recheck it. That record comes along to Estoril, and if anyone there is working on shutdowns or throttling, it is available for comparison.
+For the 30 minutes of mobile throttling in northern Taiwan on 13 August, we turned OONI's public data into [a guided tour of what it recorded](/articles/ooni-mobile-throttle-results/). Taiwan logged 238 connection speed tests from 47 devices that day, one of which saw its median download fall from `132,096` kbit/s to `1,223` kbit/s, and every query in the write-up runs without a key so anyone can recheck it. That record comes along to Estoril, and if anyone there is working on shutdowns or throttling, it is available for comparison.
 
 ## We are bringing anonymous payment to the booth
 

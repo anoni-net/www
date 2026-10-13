@@ -20,7 +20,7 @@
 
 ## 狀態
 
-社群頁面在 2026-10 從文件站搬完，導覽列六項都是本站的頁面。文件站部落格裡 2026-10 以前的 31 篇社群文章也搬到了 `updates/`，舊網址由 nginx 轉過來（#42）。2026-10-13 依上面的分工，再把文件站裡寫給技術讀者的 12 頁搬過來：參與 Tor Project、OONI 觀測涵蓋率底下讀懂觀測資料的 4 頁、參與底下架設與營運的 4 份指南，以及校園中繼專題底下的 3 份範本（#56、#61、#62、#63）。
+社群頁面在 2026-10 從文件站搬完，導覽列六項都是本站的頁面。文件站部落格裡 2026-10 以前的 31 篇社群文章也搬到了 `updates/`，舊網址由 nginx 轉過來（#42）。2026-10-13 依上面的分工，再把文件站裡寫給技術讀者的 12 頁搬過來：參與 Tor Project、OONI 觀測涵蓋率底下讀懂觀測資料的 4 頁、參與底下架設與營運的 4 份指南，以及校園中繼專題底下的 3 份範本（#56、#61、#62、#63）。同一天文件站取消進階層，進階區與部落格的技術文章搬到新開的[技術文章](#技術文章)，部落格的 4 篇公告搬到 `updates/`。
 
 ## 建置
 
@@ -64,7 +64,15 @@ onion 版本在寫檔前把 `https://anoni.net/docs` 這類 clearnet 網址改�
 
 列表上每一則可以帶一個標籤：`新增`（專案或服務上線）、`活動`（活動公告與回顧）、`更新`（工作進度），顏色照品牌素材頁的「公告 tag」。在 front matter 寫 `kind: new`、`event` 或 `update`。社群的觀點、立場與經驗不加標籤，`kind` 不寫。
 
-翻譯、技術分析、觀測報告與文件站自己的更新回顧，照樣發在文件站的部落格。
+寫給技術讀者的分析與翻譯導讀放在下方的「技術文章」。寫給一般讀者的翻譯、分析、在地觀察與文件站自己的更新回顧，照樣發在文件站的部落格。
+
+## 技術文章
+
+`/articles/` 放寫給技術讀者的原理說明、社群自己的量測分析，以及上游專案技術文章的導讀。2026-10-13 文件站取消「進階」這一層，進階區的三頁與部落格裡需要先懂 Tor、密碼學或網路量測才讀得懂的文章搬到這裡（toomore/anoni-net-ws#406）。
+
+每一篇是 `pages/<語系>/articles/<slug>.md`，跟一般頁面一樣三個語系都要有。front matter 除了 `title`、`description`，還要寫 `date`（`YYYY-MM-DD`，原文或首次發表的日期），頁面在標題下顯示日期，結構化資料是 Article。列表頁 `pages/<語系>/articles.md` 用 `<!-- articles -->` 放進由新到舊的清單，依年份分組，清單由 `build.py` 的 `articles_for()` 掃目錄產生，新增文章不必改列表頁。
+
+文件站的圖表用 Vega-Lite 在瀏覽器裡畫，本站不載入 JavaScript，搬過來的圖表先在本機用 headless Chrome 算成 PNG，上傳到 assets.anoni.net 的 `www/articles/`，文章裡用圖片引用。
 
 ## 部署
 
@@ -88,7 +96,7 @@ uv run tools/import_from_docs.py --import about/governance  # 把文件站的原
 uv run tools/import_from_docs.py --nginx                    # 重新產生 tools/nginx-docs-moved.conf
 ```
 
-轉換工具讀的是文件站 clone 的 `origin/main`，站內連結依目標改寫：搬過來的頁面改成本站網址，其他的改成 `docs:` 簡寫，部落格文章從 front matter 組出網址。轉完會拿每個 `docs:` 連結比對文件站的網址合約，找不到或只是轉址都會印警告。卡片格線這類文件站特有的版面元件要手動改寫。
+部落格文章也可以登記在 `docs_moved.toml`（`docs = "blog/posts/<檔名>"`），舊網址從文章 front matter 的日期與 slug 組出來，轉換時把 H1 放進 `title`、保留 `date`，搬到技術文章用的就是這個方式。轉換工具讀的是文件站 clone 的 `origin/main`，站內連結依目標改寫：搬過來的頁面改成本站網址，其他的改成 `docs:` 簡寫，部落格文章從 front matter 組出網址。轉完會拿每個 `docs:` 連結比對文件站的網址合約，找不到或只是轉址都會印警告。卡片格線這類文件站特有的版面元件要手動改寫。
 
 轉換只處理機械性的部分，內容要照[寫作風格規範](https://anoni.net/join/writing-style/)逐句校稿，三個語系各照各的規則，工具每次搬完都會印出這個提醒。搬過來的多半是較早寫的頁面，linter 抓不到的口語、結論句加說明、動詞開頭的小標都要人工改。2026-10-13 搬 `/join/tor-project/` 時漏了這一步，上線前才整頁重寫（#56）。
 
@@ -253,7 +261,7 @@ This site and the docs site divide the work by reader (toomore/anoni-net-ws#406)
 
 ## Status
 
-The community pages finished moving over from the docs site in 2026-10, and all six items in the navigation bar now point to pages on this site. The 31 community posts published on the docs site's blog before 2026-10 have moved to `updates/` as well, with nginx redirecting their old addresses (#42). On 2026-10-13, following the division above, 12 more pages written for technical readers moved over from the docs site: Contributing to the Tor Project, the four pages on reading measurement data under OONI Coverage, the four setup guides under Take part, and the three campus relay templates under the campus track (#56, #61, #62, #63).
+The community pages finished moving over from the docs site in 2026-10, and all six items in the navigation bar now point to pages on this site. The 31 community posts published on the docs site's blog before 2026-10 have moved to `updates/` as well, with nginx redirecting their old addresses (#42). On 2026-10-13, following the division above, 12 more pages written for technical readers moved over from the docs site: Contributing to the Tor Project, the four pages on reading measurement data under OONI Coverage, the four setup guides under Take part, and the three campus relay templates under the campus track (#56, #61, #62, #63). The same day the docs site dropped its Advanced section: the Advanced pages and the blog's technical posts moved to the new [Articles](#articles) section, and four blog announcements moved to `updates/`.
 
 ## Building
 
@@ -297,7 +305,15 @@ The `/updates/` list, the "latest updates" section on the home page and each loc
 
 Each entry can carry a tag: `New` (a project or service going live), `Event` (event announcements and recaps) or `Update` (progress reports), coloured as the announcement tags on the brand assets page specify. Posts set `kind: new`, `event` or `update` in their front matter. Posts sharing the community's views, positions or experience carry no tag and leave `kind` out.
 
-Translations, technical analyses, measurement reports and the docs site's own update reviews are still published on the docs site's blog.
+Analyses and research guides written for technical readers go in "Articles" below. Translations, analysis and regional observations for a general audience, plus the docs site's own update reviews, are still published on the docs site's blog.
+
+## Articles
+
+`/articles/` holds protocol and cryptography explainers, the community's own measurement studies, and guides to technical writing from upstream projects. On 2026-10-13 the docs site dropped its Advanced section, and the three Advanced pages, together with the blog posts that only make sense once you know Tor, cryptography or network measurement, moved here (toomore/anoni-net-ws#406).
+
+Each article is `pages/<locale>/articles/<slug>.md` and, like any page, needs all three locales. Besides `title` and `description`, the front matter needs `date` (`YYYY-MM-DD`, when the piece or its original was first published); the page shows the date under the title and its structured data is an Article. The list page `pages/<locale>/articles.md` places a newest-first list, grouped by year, with `<!-- articles -->`. `articles_for()` in `build.py` builds the list by scanning the directory, so adding an article does not require editing the list page.
+
+The docs site draws its charts in the browser with Vega-Lite. This site loads no JavaScript, so charts that moved over were rendered to PNG locally with headless Chrome, uploaded to `www/articles/` on assets.anoni.net and referenced as images.
 
 ## Deployment
 
@@ -321,7 +337,7 @@ uv run tools/import_from_docs.py --import about/governance  # convert a docs sou
 uv run tools/import_from_docs.py --nginx                    # regenerate tools/nginx-docs-moved.conf
 ```
 
-The converter reads `origin/main` of a docs clone and rewrites internal links by destination: moved pages become URLs on this site, everything else becomes the `docs:` shorthand, and blog post URLs are built from their front matter. Afterwards it checks every `docs:` link against the docs site's URL contract and prints a warning for any link that is missing or only redirects. Layout components specific to the docs site, such as card grids, have to be rewritten by hand.
+Blog posts can be listed in `docs_moved.toml` too (`docs = "blog/posts/<file name>"`): the old address is built from the post's front matter date and slug, and the converter moves the H1 into `title` and keeps `date`. That is how posts moved into Articles. The converter reads `origin/main` of a docs clone and rewrites internal links by destination: moved pages become URLs on this site, everything else becomes the `docs:` shorthand, and blog post URLs are built from their front matter. Afterwards it checks every `docs:` link against the docs site's URL contract and prints a warning for any link that is missing or only redirects. Layout components specific to the docs site, such as card grids, have to be rewritten by hand.
 
 The converter only handles the mechanical part. The content has to be reviewed sentence by sentence against the [writing style guide](https://anoni.net/en/join/writing-style/), each locale under its own rules, and the tool prints this reminder after every import. Most moved pages were written earlier, and the linter misses colloquialisms, verdict-then-explanation sentences, and headings built on verbs, so those need a human pass. That step was skipped when `/join/tor-project/` moved on 2026-10-13, and the page had to be rewritten before it went live (#56).
 

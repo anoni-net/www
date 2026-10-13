@@ -107,7 +107,7 @@ All four `*_match` fields are `null` in the anomalous measurement, because the D
 
     A value in `blocking` only means this measurement's result differs from the control's. Establishing that network interference actually occurred takes more evidence. In the anomalous measurement above, the Probe's A and AAAA queries for `ntc.party` both returned `dns_nxdomain_error` (domain does not exist), yet when we checked at the time of writing, the domain resolved to an IPv6 address through several public resolvers. From a single measurement there is no way to tell network interference apart from a resolver's momentary state or a change in the domain's own configuration.
 
-    Concluding that something is blocked needs measurements cross-referenced over time, across ASNs and across resolvers. For the full breakdown of the verdict mechanism and where misreadings come from, see [OONI Blocking Verdicts](/projects/asn-coverage/ooni-blocking-determination/). For quality control at the dataset level, see [OONI is guarding its data against bad measurements](docs:blog/2026/07/2026-ooni-faulty-measurements/).
+    Concluding that something is blocked needs measurements cross-referenced over time, across ASNs and across resolvers. For the full breakdown of the verdict mechanism and where misreadings come from, see [OONI Blocking Verdicts](/projects/asn-coverage/ooni-blocking-determination/). For quality control at the dataset level, see [Faulty Measurement Detection and Anonymous Credentials at OONI](/articles/ooni-faulty-measurements/).
 
 ## Evidence records
 

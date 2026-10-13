@@ -107,7 +107,7 @@ curl -s "https://api.ooni.org/api/v1/raw_measurement?measurement_uid=<measuremen
 
     `blocking` 有值只代表该笔测量的结果与对照组不一致，要确认是否存在网络干预还需要更多佐证。以判定异常那笔为例，Probe 对 `ntc.party` 的 A 与 AAAA 查询结果都是 `dns_nxdomain_error`（域名不存在）。但我们撰稿时用多个公开 DNS 解析器查询，该域名可以解析到 IPv6 地址。仅凭单笔测量，无法区分网络干预、解析器的暂时状态与域名自身的设置变动。
 
-    认定封锁需要跨时间、跨 ASN、跨解析器的多笔测量交叉比对。判定机制的完整拆解与常见的误判来源见[OONI 的封锁判定方式](/projects/asn-coverage/ooni-blocking-determination/)，数据集层级的质量控制见[OONI 如何分辨坏掉的测量数据](docs:blog/2026/07/2026-ooni-faulty-measurements/)。
+    认定封锁需要跨时间、跨 ASN、跨解析器的多笔测量交叉比对。判定机制的完整拆解与常见的误判来源见[OONI 的封锁判定方式](/projects/asn-coverage/ooni-blocking-determination/)，数据集层级的质量控制见[OONI 错误测量的识别方法与匿名凭证](/articles/ooni-faulty-measurements/)。
 
 ## 证据层的原始记录
 

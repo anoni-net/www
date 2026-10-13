@@ -26,10 +26,10 @@ kind: update
 
 在 2025 年 8 月，我们仍在持续更新 Tor/Tails 和 OONI 官方网站的信息，不少内容在这个月发布。我们会尽可能在一周内将文章翻译、校对后上线。除非您有研究上的需求，也可以直接关注官方网站的信息发布。
 
-- [Tails 7.0 发布第二个最终测试版本（7.0~rc2）](docs:blog/2025/08/tails-7-rc/) - 2025/08/29
-- [OMG！第三届 Open Measurement Gathering（OMG）的有问必答（AMA）活动总结](docs:blog/2025/08/ooni-omg-2025/) - 2025/08/29
+- [Tails 7.0 发布第二个最终测试版本（7.0~rc2）](docs:blog/2025/09/tails-7-released/) - 2025/08/29
+- [OMG！第三届 Open Measurement Gathering（OMG）的有问必答（AMA）活动总结](https://ooni.org/post/2025-omg/) - 2025/08/29
 - [贪腐与管控：土库曼如何将网络审查变成一门生意](docs:blog/2025/08/tor-corruption-control/) - 2025/08/30
-- [Tails 6.18 支持 WebTunnel 桥接协议](docs:blog/2025/07/tails-6-18-webtunnel/) - 2025/07/31
+- [Tails 6.18 支持 WebTunnel 桥接协议](docs:changelog/tails/) - 2025/07/31
 
 此外，我们还看到 [The MIT Press Reader](https://thereader.mitpress.mit.edu/) 发布了一篇不错的文章，并在获得 The MIT Press 的同意后翻译成中文内容。这篇文章我们不仅仅翻译了内容，还通过注释的方式补充提及到的一些历史事件的背景。
 
