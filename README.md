@@ -4,11 +4,13 @@
 
 **正體中文** | [English](#en)
 
-`anoni.net` 首頁與社群頁面的原始碼，包含社群介紹、參與方式、專案與自架服務的目錄、活動與社群動態。由[匿名網路社群 anoni.net](https://anoni.net/) 維護。
+`anoni.net` 首頁與社群頁面的原始碼，包含社群介紹、參與方式、專案與自架服務的目錄、活動與社群動態，以及架設節點與服務的指南、觀測資料的讀法這類寫給技術讀者的頁面。由[匿名網路社群 anoni.net](https://anoni.net/) 維護。
 
 ## 跟其他 repo 的分工
 
-社群自己寫的內容與程式稱為專案，各自一個 repo，掛在 `anoni.net` 底下的路徑。社群架設、由其他開源專案開發的軟體稱為服務，各自一個子網域。這個 repo 只放社群本身的頁面，專案與服務的詳細介紹寫在各自的 repo。
+社群自己寫的內容與程式稱為專案，各自一個 repo，掛在 `anoni.net` 底下的路徑。社群架設、由其他開源專案開發的軟體稱為服務，各自一個子網域。專案與服務的開發說明寫在各自的 repo。
+
+本站與文件站依讀者分工（toomore/anoni-net-ws#406）。文件站寫給剛開始接觸匿名網路與隱私的人，讀者可能還不知道 Tor、.onion 是什麼，整站可以存進裝置離線閱讀。本站展現社群的技術能力，讀者是技術同好、開源與公民科技社群、Tor 上游與合作單位，讀完要知道社群做過什麼、技術能力在哪裡，進而合作或加入。判斷不了一頁該放哪裡時問一句：讀之前需要先懂 Tor 嗎？需要就放本站。
 
 | 網址 | repo |
 |---|---|
@@ -18,7 +20,7 @@
 
 ## 狀態
 
-社群頁面在 2026-10 從文件站搬完，導覽列六項都是本站的頁面。文件站部落格裡 2026-10 以前的 31 篇社群文章也搬到了 `updates/`，舊網址由 nginx 轉過來（#42）。
+社群頁面在 2026-10 從文件站搬完，導覽列六項都是本站的頁面。文件站部落格裡 2026-10 以前的 31 篇社群文章也搬到了 `updates/`，舊網址由 nginx 轉過來（#42）。2026-10-13 依上面的分工，再把文件站裡寫給技術讀者的 12 頁搬過來：參與 Tor Project、OONI 觀測涵蓋率底下讀懂觀測資料的 4 頁、參與底下架設與營運的 4 份指南，以及校園中繼專題底下的 3 份範本（#56、#61、#62、#63）。
 
 ## 建置
 
@@ -235,11 +237,13 @@ logo、wordmark 與色票的使用方式寫在本站的[品牌素材](https://an
 
 [正體中文](#zh-tw) | **English**
 
-Source for the `anoni.net` home page and community pages: who we are, how to take part, the directory of projects and self-hosted services, events and community updates. It is maintained by [anoni.net](https://anoni.net/), a community based in Taiwan.
+Source for the `anoni.net` home page and community pages: who we are, how to take part, the directory of projects and self-hosted services, events and community updates, plus pages written for technical readers, such as guides to running nodes and services and to reading measurement data. It is maintained by [anoni.net](https://anoni.net/), a community based in Taiwan.
 
 ## Division of work with the other repositories
 
-Content and code written by the community are called projects. Each has its own repository and is served from a path under `anoni.net`. Software developed by other open-source projects and run by the community is called a service, and each service has its own subdomain. This repository holds only the community's own pages; projects and services are described in detail in their own repositories.
+Content and code written by the community are called projects. Each has its own repository and is served from a path under `anoni.net`. Software developed by other open-source projects and run by the community is called a service, and each service has its own subdomain. Projects and services document their development in their own repositories.
+
+This site and the docs site divide the work by reader (toomore/anoni-net-ws#406). The docs site is written for people just starting out with anonymity networks and privacy, who may not yet know what Tor or .onion is, and the whole site can be saved for offline reading. This site shows the community's technical work, for technical peers, the open-source and civic-tech communities, Tor upstream and partner organisations, who should come away knowing what the community has built and where its skills lie, and then work with us or join. When you cannot tell where a page belongs, ask whether a reader needs to understand Tor before reading it. If so, it belongs here.
 
 | URL | Repository |
 |---|---|
@@ -249,7 +253,7 @@ Content and code written by the community are called projects. Each has its own 
 
 ## Status
 
-The community pages finished moving over from the docs site in 2026-10, and all six items in the navigation bar now point to pages on this site. The 31 community posts published on the docs site's blog before 2026-10 have moved to `updates/` as well, with nginx redirecting their old addresses (#42).
+The community pages finished moving over from the docs site in 2026-10, and all six items in the navigation bar now point to pages on this site. The 31 community posts published on the docs site's blog before 2026-10 have moved to `updates/` as well, with nginx redirecting their old addresses (#42). On 2026-10-13, following the division above, 12 more pages written for technical readers moved over from the docs site: Contributing to the Tor Project, the four pages on reading measurement data under OONI Coverage, the four setup guides under Take part, and the three campus relay templates under the campus track (#56, #61, #62, #63).
 
 ## Building
 
