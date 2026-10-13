@@ -140,7 +140,36 @@ def render_markdown(body: str) -> str:
             "pymdownx.emoji": {"emoji_index": twemoji, "emoji_generator": to_alt},
         },
     )
-    return md.convert(body)
+    return stack_tables(md.convert(body))
+
+
+TABLE = re.compile(r"<table>.*?</table>", re.S)
+TH = re.compile(r"<th[^>]*>(.*?)</th>", re.S)
+TR = re.compile(r"<tr>.*?</tr>", re.S)
+TAG = re.compile(r"<[^>]+>")
+# 寫作風格規範的對照表，欄名只有一個打叉或打勾的圖示，卡片上改用符號標出
+ICON_NAME = re.compile(r'data-icon="([^"]+)"')
+ICON_LABEL = {"close": "✗", "check": "✓"}
+
+
+def stack_tables(body: str) -> str:
+    """三欄以上的表格在手機上擠到一欄只剩三、四個字，加上 stack class，每一格帶上欄名
+    （data-label），窄螢幕時 CSS 把每一列排成一張卡片，欄名寫在每一格上方。兩欄的表格維持原樣。"""
+    def one(m: re.Match) -> str:
+        table = m[0]
+        labels = [html.escape(html.unescape(TAG.sub("", h)).strip() or ICON_LABEL.get(next(iter(ICON_NAME.findall(h)), ""), ""),
+                              quote=True) for h in TH.findall(table)]
+        if len(labels) < 3:
+            return table
+
+        def row(r: re.Match) -> str:
+            cells = iter(labels)
+            return re.sub(r"<td(?=[\s>])", lambda _: f'<td data-label="{next(cells, "")}"', r[0])
+
+        head, sep, rest = table.partition("</thead>")
+        return (head + sep + TR.sub(row, rest)).replace("<table>", '<table class="stack">', 1)
+
+    return TABLE.sub(one, body)
 
 
 @dataclass
