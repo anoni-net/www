@@ -6,7 +6,7 @@
 <title>{% if page.slug == "index" %}{{ t.site_name }}{% else %}{{ page.title }} · {{ t.title_suffix }}{% endif %}</title>
 <meta name="description" content="{{ page.description }}">
 <link rel="icon" href="/favicon.svg">
-<link rel="stylesheet" href="/css/site.css">
+<link rel="stylesheet" href="{{ asset('css/site.css') }}">
 {# hreflang 只列真的有翻譯的版本，沒有翻譯的社群動態，語言切換會回到列表，那不是同一頁 #}
 {% set hreflang = page.get('hreflang', page.alternates) %}
 <meta property="og:title" content="{{ page.title }}">

@@ -77,6 +77,8 @@ onion 版本在寫檔前把 `https://anoni.net/docs` 這類 clearnet 網址改�
 
 同一個 commit 每小時也重建一次，給 Tor 中繼節點觀測頁更新資料，見下方「Tor 中繼節點觀測」。腳本先執行 `--check`，通過之後建置到新的目錄，最後才切換 `current`，建置失敗時線上維持原本的版本。nginx 的 `anoni.net` 與根 onion 位址都讀 `current`，設定在 m6 的 `/etc/nginx/conf.d/anoninet.conf`，`error_page 404` 指到根目錄的 `404.html`。
 
+頁面引用 `static/` 底下的樣式時用模板的 `asset()`，網址後面接檔案內容的雜湊（`/css/site.css?v=<雜湊>`），跟新聞導讀的做法一樣。樣式改了網址就跟著變，瀏覽器與 Cloudflare 會抓新的檔案，部署後不必為了樣式清快取。2026-10-13 以前是固定的 `/css/site.css`，清了 Cloudflare 的快取，讀者的瀏覽器仍會用舊樣式最多 4 小時。
+
 從文件站搬過來的頁面記在 [`tools/docs_moved.toml`](./tools/docs_moved.toml)，搬內容、產生舊網址的轉址對照表都讀這一份：
 
 ```bash
@@ -301,6 +303,8 @@ The site is built on m6, not through GitHub Actions. m6's crontab runs [`tools/d
 | `/home/ubuntu/www-deploy.log` | A record of every release and failure |
 
 The same commit is also rebuilt every hour so the Tor Relay Watch pages get fresh data (see "Tor Relay Watch" below). The script runs `--check` first, builds into a new directory if it passes, and only then switches `current`, so a failed build leaves the live site on the previous version. nginx serves both `anoni.net` and the root onion address from `current`, configured in `/etc/nginx/conf.d/anoninet.conf` on m6, with `error_page 404` pointing to `404.html` at the root.
+
+Pages reference stylesheets under `static/` through the template's `asset()`, which appends a hash of the file's contents (`/css/site.css?v=<hash>`), the same approach as News. When the styles change the URL changes with them, so browsers and Cloudflare fetch the new file and no cache purge is needed after a deploy. Before 2026-10-13 the URL was a fixed `/css/site.css`, and even after purging Cloudflare, readers' browsers kept the old styles for up to 4 hours.
 
 Pages moved over from the docs site are recorded in [`tools/docs_moved.toml`](./tools/docs_moved.toml), which both the import and the redirect table for old URLs are generated from:
 

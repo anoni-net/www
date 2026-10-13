@@ -11,6 +11,7 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import html
 import json
 import re
@@ -107,6 +108,12 @@ def page_slugs(root: Path) -> list[str]:
 def icon(name: str, cls: str = "i") -> Markup:
     svg = (ICONS / f"{name}.svg").read_text(encoding="utf-8").strip()
     return Markup(svg.replace("<svg ", f'<svg class="{cls}" aria-hidden="true" ', 1))
+
+
+def asset(rel: str) -> str:
+    """static/ 底下檔案的網址，後面接內容的雜湊當版本號，跟新聞導讀的 static_version 同一個做法。
+    內容改了網址就跟著變，瀏覽器與 Cloudflare 會當成新檔案去抓，部署後不必為了樣式清快取。"""
+    return f"/{rel}?v={hashlib.sha256((STATIC / rel).read_bytes()).hexdigest()[:10]}"
 
 
 def logo(cls: str = "logo") -> Markup:
@@ -219,6 +226,7 @@ class Site:
         )
         self.env.globals["icon"] = icon
         self.env.globals["logo"] = logo
+        self.env.globals["asset"] = asset
         self.slugs = page_slugs(PAGES / self.langs[0].code)
         self.posts = {lang.code: self.load_posts(lang) for lang in self.langs}
         # Tor 中繼節點觀測：第一個國家是主頁，其他國家各一頁，路徑是 projects/pulse/<code>
