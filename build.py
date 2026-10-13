@@ -140,7 +140,57 @@ def render_markdown(body: str) -> str:
             "pymdownx.emoji": {"emoji_index": twemoji, "emoji_generator": to_alt},
         },
     )
-    return md.convert(body)
+    return stack_tables(md.convert(body))
+
+
+TABLE = re.compile(r"<table>.*?</table>", re.S)
+TH = re.compile(r"<th[^>]*>(.*?)</th>", re.S)
+TR = re.compile(r"<tr>.*?</tr>", re.S)
+TD = re.compile(r"<td([^>]*)>(.*?)</td>", re.S)
+TAG = re.compile(r"<[^>]+>")
+# 寫作風格規範的對照表，欄名只有一個打叉或打勾的圖示，卡片上改用符號標出
+ICON_NAME = re.compile(r'data-icon="([^"]+)"')
+ICON_LABEL = {"close": "✗", "check": "✓"}
+# 欄名的寬度（中日韓文字算 1，其他字元算 0.6）都小於這個值時，手機上把欄名放在內容左邊；
+# 否則不顯示欄名，第三欄以後改成灰色小字。「提案管道」是 4，「Proposal channel」是 9.6，
+# 「與匿名網路社群的關聯」是 10
+LABEL_MAX = 10
+
+
+def label_width(text: str) -> float:
+    return sum(1 if ord(c) > 0x2E80 else 0.6 for c in text)
+
+
+def stack_tables(body: str) -> str:
+    """三欄以上的表格在手機上擠到一欄只剩三、四個字，改成一列一塊，桌機維持表格。
+
+    欄名短的（stack--label）把欄名放在每一格左邊，像「提案管道　GitHub PR」；欄名長的
+    （stack--plain）不顯示欄名，第一格當標題、第二格是內文、之後的格子用灰色小字。
+    每一格帶上欄名（data-label），內容包一層 span，CSS 的 grid 才不會把文字與連結拆成兩格。"""
+    def one(m: re.Match) -> str:
+        table = m[0]
+        labels = [html.unescape(TAG.sub("", h)).strip() or ICON_LABEL.get(next(iter(ICON_NAME.findall(h)), ""), "")
+                  for h in TH.findall(table)]
+        if len(labels) < 3:
+            return table
+        width = max(label_width(t) for t in labels[1:])
+        attrs = (f'class="stack stack--label" style="--lw: {max(width, 1.5):.1f}"' if width < LABEL_MAX
+                 else 'class="stack stack--plain"')
+
+        def row(r: re.Match) -> str:
+            cells = iter(labels)
+
+            def cell(c: re.Match) -> str:
+                label = html.escape(next(cells, ""), quote=True)
+                inner = c[2] if not c[2].strip() else f'<span class="v">{c[2]}</span>'
+                return f'<td{c[1]} data-label="{label}">{inner}</td>'
+
+            return TD.sub(cell, r[0])
+
+        head, sep, rest = table.partition("</thead>")
+        return (head + sep + TR.sub(row, rest)).replace("<table>", f"<table {attrs}>", 1)
+
+    return TABLE.sub(one, body)
 
 
 @dataclass

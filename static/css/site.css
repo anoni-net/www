@@ -172,6 +172,21 @@ p { margin: .5rem 0 1rem; }
 .prose th, .prose td { border-bottom: 1px solid var(--c-hair); padding: .4rem .5rem; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
 /* 最窄的手機上，英文表格的欄位多又有長字，縮小間距與字級才不會撐破外框 */
 @media (max-width: 359px) { .prose table { font-size: .8rem; } .prose th, .prose td { padding: .35rem .3rem; } }
+/* 三欄以上的表格（build.py 的 stack_tables）在手機上一列排成一塊，第一格是標題。
+   stack--label 把欄名放在每一格左邊，欄寬用建置時算好的 --lw（最長欄名的字數）；
+   stack--plain 不顯示欄名，第三欄以後用灰色小字。表頭只對讀屏軟體保留 */
+@media (max-width: 559px) {
+  .prose table.stack, .prose table.stack tbody, .prose table.stack tr, .prose table.stack td { display: block; }
+  .prose table.stack thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .prose table.stack tr { border-bottom: 1px solid var(--c-hair); padding: .65rem 0; }
+  .prose table.stack td { border: 0; padding: 0; }
+  .prose table.stack td:first-child { font-weight: 700; margin-bottom: .2rem; }
+  .prose table.stack td:empty { display: none; }
+  .prose table.stack--label td:not(:first-child) { display: grid; grid-template-columns: calc(var(--lw) * .78rem) 1fr; column-gap: .75rem; align-items: baseline; margin-top: .1rem; }
+  .prose table.stack--label td:not(:first-child)::before { content: attr(data-label); font-size: .78rem; color: var(--c-muted); overflow-wrap: normal; }
+  .prose table.stack--plain td:nth-child(n+3) { font-size: .85rem; color: var(--c-muted); margin-top: .2rem; }
+}
+}
 .prose details { border: 1px solid var(--c-line); border-radius: var(--radius); padding: .5rem 1rem; margin: 1rem 0; }
 .prose summary { cursor: pointer; color: var(--c-accent); font-weight: 700; }
 .prose img { max-width: 100%; height: auto; }
@@ -288,6 +303,10 @@ p { margin: .5rem 0 1rem; }
 .footnote { font-size: .85rem; color: var(--c-muted); margin-top: 2rem; }
 .footnote hr { border: 0; border-top: 1px solid var(--c-hair); }
 .footnote-ref { font-size: .75em; }
+/* 每一條註腳包著 <p>，段落的上下間距疊起來條目之間有 30px，拿掉之後靠 li 的間距分開 */
+.footnote ol { margin-top: .75rem; }
+.footnote li { margin: .35rem 0; }
+.footnote li > p { margin: 0; }
 
 /* 議程表的標籤：類型實心、場地線框、強調文字粗體，都只用 cyan */
 .tag { display: inline-block; padding: 0 .4rem; border: 1px solid var(--c-line); border-radius: 4px; font-size: .8rem; line-height: 1.6; color: var(--c-accent); white-space: nowrap; }
