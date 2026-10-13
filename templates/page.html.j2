@@ -1,7 +1,8 @@
 {% extends "_layout.html.j2" %}
 {% block main %}
 {% if page.parent %}
-<p class="crumb"><a href="{{ page_url(page.parent) }}">{{ t['nav_' ~ page.parent] }}</a>{{ icon('chevron-right') }}</p>
+<p class="crumb"><a href="{{ page_url(page.parent) }}">{{ t['nav_' ~ page.parent] }}</a>{{ icon('chevron-right') }}
+{%- for name, path in page.get('trail', []) %}<a href="{{ path }}">{{ name }}</a>{{ icon('chevron-right') }}{% endfor %}</p>
 {% endif %}
 {% if page.get('topic') %}
 <p class="topic-tag topic-{{ page.topic.cat }}">{{ icon(page.topic.icon) }}{{ t.topic_tag }}</p>

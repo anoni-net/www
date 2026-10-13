@@ -43,3 +43,12 @@ The page is regenerated every hour and OONI's measurements are read every six ho
 - The community's OONI Run link `10328` sets everything up in one tap; see the [OONI Run v2 guide](docs:tools/ooni-run-v2/) for the risks to consider before installing and what the list contains
 - [ASN observation data analysis](docs:taiwan/ooni-asn-coverage/): why network diversity matters and how to read a single measurement
 - [ASN Coverage](https://github.com/anoni-net/asn-coverage): a command-line tool that downloads raw measurements and breaks them down by network type and blocking method
+
+## Reading the measurement data
+
+<ul class="rows">
+  <li><a class="row" href="/projects/asn-coverage/ooni-data-format/"><span class="ic">ICON:code-json</span><span class="b"><span class="t">The Structure of an OONI Measurement</span><span class="d">Which fields make up a measurement, and how to read where it was taken and what it found.</span></span><span class="go">ICON:arrow-right</span></a></li>
+  <li><a class="row" href="/projects/asn-coverage/ooni-blocking-determination/"><span class="ic">ICON:shield-search</span><span class="b"><span class="t">OONI Blocking Verdicts</span><span class="d">The evidence behind each of the four Web Connectivity verdicts, and why a verdict is not a confirmed block.</span></span><span class="go">ICON:arrow-right</span></a></li>
+  <li><a class="row" href="/projects/asn-coverage/ooni-nettests-map/"><span class="ic">ICON:table-search</span><span class="b"><span class="t">OONI Nettest Quick Reference</span><span class="d">What each of the 41 nettests measures, which still produce data, and which ones show up in Taiwan.</span></span><span class="go">ICON:arrow-right</span></a></li>
+  <li><a class="row" href="/projects/asn-coverage/howto/"><span class="ic">ICON:database-search</span><span class="b"><span class="t">ASN Observation Data Retrieval and Analysis</span><span class="d">Setting up the ASN Coverage command-line tool, the layout of the public S3 dataset, and the CSV fields it outputs.</span></span><span class="go">ICON:arrow-right</span></a></li>
+</ul>
