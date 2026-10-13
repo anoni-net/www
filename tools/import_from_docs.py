@@ -15,7 +15,8 @@ Material 的圖示（:material-*:、:octicons-*: 等）改成 <i data-icon="名�
 內嵌 SVG，用到的 SVG 從文件站的 mkdocs-material 套件複製到 icons/。用空標籤而不是文字
 佔位，是因為標題裡的佔位文字會被算進錨點。admonition 與折疊區塊的標題是純文字，
 那裡的圖示直接拿掉。.md-button 改成本站的 .btn，議程表的彩色標籤改成單色的 .tag。
-轉完要人工看一次，遇到這支不處理的寫法會印出警告。
+轉完要人工看一次，遇到這支不處理的寫法會印出警告。內容也要照寫作風格規範
+（pages/<語系>/join/writing-style.md）逐句校稿，見 REVIEW_NOTE。
 
 --import-post 把文件站部落格的社群文章搬成 updates/<語系>/<slug>.md（名單與分組在
 tools/docs_updates.toml，搬過的列在 moved）。標題取 H1，日期只取發布日，依組別帶上 kind，
@@ -464,6 +465,12 @@ def nginx_conf(docs: Path, ref: str) -> str:
     return "\n".join(lines)
 
 
+# 2026-10-13 搬 /join/tor-project/ 時只過了 linter 就交出去，舊稿裡的口語、結論句加說明、
+# 動詞開頭的小標都還在（#56）。每次搬完都印出來提醒
+REVIEW_NOTE = ("轉換只處理機械性的部分。搬過來的內容要照寫作風格規範（pages/<語系>/join/writing-style.md）"
+               "逐句校稿，三個語系各照各的規則，linter 沒有警告不代表通過")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--import", dest="pages", nargs="+", metavar="PAGE", help="要搬的頁面")
@@ -481,6 +488,8 @@ def main() -> int:
         print(f"搬了 {import_pages(args.pages, args.docs, args.ref)} 個檔案")
     if args.posts:
         print(f"搬了 {import_posts(args.posts, args.docs, args.ref)} 個檔案")
+    if args.pages or args.posts:
+        print(f"\n! {REVIEW_NOTE}")
     if args.nginx:
         NGINX.write_text(nginx_conf(args.docs, args.ref), encoding="utf-8")
         print(f"寫入 {NGINX.relative_to(ROOT)}")

@@ -88,6 +88,8 @@ uv run tools/import_from_docs.py --nginx                    # 重新產生 tools
 
 轉換工具讀的是文件站 clone 的 `origin/main`，站內連結依目標改寫：搬過來的頁面改成本站網址，其他的改成 `docs:` 簡寫，部落格文章從 front matter 組出網址。轉完會拿每個 `docs:` 連結比對文件站的網址合約，找不到或只是轉址都會印警告。卡片格線這類文件站特有的版面元件要手動改寫。
 
+轉換只處理機械性的部分，內容要照[寫作風格規範](https://anoni.net/join/writing-style/)逐句校稿，三個語系各照各的規則，工具每次搬完都會印出這個提醒。搬過來的多半是較早寫的頁面，linter 抓不到的口語、結論句加說明、動詞開頭的小標都要人工改。2026-10-13 搬 `/join/tor-project/` 時漏了這一步，上線前才整頁重寫（#56）。
+
 文件站部落格的社群文章在 2026-10-11 全部搬到 `/updates/`（#42）。搬的方式是在 `tools/docs_updates.toml` 的 `moved` 加上檔名，再執行 `--import-post`：標題取 H1、日期只取發布日、依名單的組別帶上 `kind`，文件站 repo 裡的圖片上傳到 assets.anoni.net 的 `updates/`，上傳目的地放在環境變數 `WWW_UPDATES_RSYNC`。分享圖不搬，改用 `tools/make_og_cards.py` 產生。`--nginx` 讀 `moved` 產生文章舊網址的 301，文件站已經刪掉的文章改讀刪除前的版本，所以 `moved` 不能拿掉，拿掉的話轉址也會跟著消失。
 
 ```bash
@@ -314,6 +316,8 @@ uv run tools/import_from_docs.py --nginx                    # regenerate tools/n
 ```
 
 The converter reads `origin/main` of a docs clone and rewrites internal links by destination: moved pages become URLs on this site, everything else becomes the `docs:` shorthand, and blog post URLs are built from their front matter. Afterwards it checks every `docs:` link against the docs site's URL contract and prints a warning for any link that is missing or only redirects. Layout components specific to the docs site, such as card grids, have to be rewritten by hand.
+
+The converter only handles the mechanical part. The content has to be reviewed sentence by sentence against the [writing style guide](https://anoni.net/en/join/writing-style/), each locale under its own rules, and the tool prints this reminder after every import. Most moved pages were written earlier, and the linter misses colloquialisms, verdict-then-explanation sentences, and headings built on verbs, so those need a human pass. That step was skipped when `/join/tor-project/` moved on 2026-10-13, and the page had to be rewritten before it went live (#56).
 
 The community posts on the docs site's blog all moved to `/updates/` on 2026-10-11 (#42). A post was moved by adding its file name to `moved` in `tools/docs_updates.toml` and running `--import-post`: the title comes from the H1, only the publication date is kept, and `kind` follows the post's group in the list. Images in the docs repository were uploaded to `updates/` on assets.anoni.net, with the destination in the `WWW_UPDATES_RSYNC` environment variable. Preview images were not moved; `tools/make_og_cards.py` generates new ones. `--nginx` reads `moved` to produce 301s for the posts' old URLs, falling back to the version before deletion for posts already removed from the docs site, so `moved` must stay; removing it would drop the redirects too.
 
