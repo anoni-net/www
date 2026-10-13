@@ -1,81 +1,89 @@
 ---
 title: Tor Relay 校园建立研究专题
-description: 2026 三大主题之一：与 EFF/Tor Project 推动校园 Tor 中继节点的计划、案例与如何加入。
+description: 匿名网络社群 2026 年三大主题之一，在大专院校架设 Tor 中继节点的推动目标、台师大案例、提案与架设范本，以及参与方式。
 ---
 
-Tor Relay 校园建立是匿名网络社群 anoni.net 2026 的三大主题之一，跟「个人隐私指引」、「匿名支付」并列为今年的重点推进项目。这页是专题的对外入口，整理推动目标、相关文章索引、案例累积，以及如何加入社群协作。
+Tor Relay 校园建立是匿名网络社群 anoni.net 2026 年的三大主题之一，与[个人隐私指引](/join/privacy-guide/)、[匿名支付](/join/payments-research/)并列。社群在大专院校推动架设 Tor 中继节点，并把提案、与校方沟通、技术配置与运维的过程整理成范本，让之后加入的学校更容易推动。欢迎在校学生、校友、教职员与有网络运维经验的人一起参与（见[参与方式](#参与方式)）。
 
-## 为什么把校园 Tor Relay 独立成一个主题
+## 选择校园的原因
 
-Tor 网络的匿名性靠**多元的中继节点**支撑。当绝大多数中继集中在少数国家或少数网络供应商时，Tor 对抗流量分析的能力就会降低。台湾目前在 Tor Metrics 上能看到的中继数量有限，截至 2026-06 约 15 个运行中的中继，相比德国上千、美国数千的规模差距明显，多元性还有很大成长空间（数字会随时间变动，即时观测见 [Tor Relays 观测点](/projects/pulse/)）。
+Tor 网络的匿名性依赖多元的中继节点，中继集中在少数国家或少数网络服务商时，Tor 对抗流量分析的能力就会降低。台湾在 Tor Metrics 上能看到的中继数量有限，截至 2026-06 约有 15 个运行中的中继，德国有上千个、美国有数千个，差距明显（数字会随时间变动，实时状况见 [Tor 中继节点观测](/projects/pulse/)）。
 
-大专院校是补上这个缺口的合适切入点：
+大专院校适合补上台湾中继数量的缺口：
 
 - **带宽稳定**：学术网络通常有充足且稳定的带宽
-- **技术人才在场**：资工、资管、资讯中心的师生有架设与维运能力
-- **法律与制度相对清晰**：学校有正式的提案与审核流程，比个人或小公司架设更容易说明用途、争取支持
-- **教育价值**：架设过程本身就是匿名网络、信息安全、开源治理的具体教学场景
-- **国际接轨**：对接 EFF 的 [Tor University Challenge](https://toruniversity.eff.org/zh-tw/) 计划，把台湾校园纳入全球架设网络
-
-社群想把校园架设的完整流程、跟学校沟通的应答范本、实际维运经验整理成可复制的方法论，让第二、第三所学校的推动成本明显降低。
+- **技术人才**：计算机、信息管理相关院系与学校信息中心的师生具备架设与运维的能力
+- **制度明确**：学校有正式的提案与审核流程，比个人或小公司架设更容易说明用途、争取支持
+- **教育价值**：架设过程本身就是匿名网络、信息安全与开源治理的教学场景
+- **国际计划**：参与 EFF 的 [Tor University Challenge](https://toruniversity.eff.org/zh-tw/)，把台湾的校园纳入全球的校园中继网络
 
 ## 2026 推动目标
 
-- **校园架设 SOP 文件**：从提案、跟学校沟通、技术设置、上线、后续维运的完整流程
-- **跟学校沟通的应答范本与案例库**：法律疑虑、带宽使用、用途说明等高频问题的回应参考
-- **第二、三所学校接洽**：以台师大为起点，向其他大专院校扩展
-- **EFF/Tor Project 对接**：建立稳定的国际对接管道，把台湾案例回馈给全球计划
-- **观测即时化**：透过 [Tor 中继节点观测](/projects/pulse/)持续追踪校园节点的运作状况
-- **跟信息安全教育活动的搭配**：把 Tor Relay 架设整合进校园信息安全宣传、迎新讲座等场合
+- **校园架设 SOP**：涵盖提案、与学校沟通、技术配置、上线与后续运维的完整流程（2026-05 随范本工具包公开）
+- **应答范本与案例库**：法律疑虑、带宽使用、用途说明等常见问题的回应参考
+- **其他学校的接洽**：以台师大为起点，扩展到其他大专院校
+- **与 EFF、Tor Project 的联系渠道**：建立稳定的国际联系，把台湾的案例反馈给全球计划
+- **实时观测**：用 [Tor 中继节点观测](/projects/pulse/)持续追踪校园节点的运行状况
+- **结合信息安全教育活动**：把 Tor Relay 架设纳入校园信息安全宣传、迎新讲座等场合
 
 ## 相关文章
 
 - 案例：[在台师大架设 Tor Relay：一段与学校沟通、留下可能性的实现经验](/updates/2025/12/ntnu-nz/)
-- 国际参考：[Tor Project 客座文章：Setting Up a Tor University Relay in Taiwan](https://blog.torproject.org/setting-up-tor-university-relay-taiwan/)
-- 技术 how-to：[Tor Relay 架设指南](/join/setup-tor-relay/)、[Tor WebTunnel 桥接架设指南](/join/setup-tor-webtunnel/)
+- 国际：Tor Project 博客的客座文章 [Setting Up a Tor University Relay in Taiwan](https://blog.torproject.org/setting-up-tor-university-relay-taiwan/)
+- 架设指南：[Tor Relay 架设指南](/join/setup-tor-relay/)、[Tor WebTunnel 桥接架设指南](/join/setup-tor-webtunnel/)
 - 观测：[Tor 中继节点观测](/projects/pulse/)
-- 概念：[什么是 Tor](docs:tools/what-is-tor/)、[Tor Snowflake 桥接点](docs:tools/tor-snowflake/)
-- 进阶：[一个会遗忘的服务器：探索无状态中继](docs:blog/2026/04/a-server-that-forgets-exploring-stateless-relays/)
+- 概念：[什么是 Tor](docs:tools/what-is-tor/)、[Tor Snowflake](docs:tools/tor-snowflake/)
+- 进阶：[一台会遗忘的服务器：探索 Stateless Relays](docs:blog/2026/04/a-server-that-forgets-exploring-stateless-relays/)
 
-## 已完成的事
+## 已完成的工作
 
-- **第一个校园案例上线**：国立台湾师范大学资讯工程学系资讯中心的 Tor Relay 已运行，由社群伙伴 NZ 透过教授与教职员提案、协调后完成建置
-- **Tor Project blog 客座文章**：把台师大案例写成英文版本，刊登于 [Tor Project blog](https://blog.torproject.org/setting-up-tor-university-relay-taiwan/)，登录到全球视野
-- **Tor University Challenge 中译**：完成 [EFF Tor University Challenge 网站](https://toruniversity.eff.org/zh-tw/) 的正体中文翻译，降低台湾其他学校接触计划的语言门槛
-- **Tor 中继节点观测上线**：[观测页](/projects/pulse/)每小时更新台湾与邻近地区共十五个地区的中继节点状况
-- **访谈企划**：把台师大架设过程整理成 [深度访谈](/updates/2025/12/ntnu-nz/)，公开给后续推动者参考
+- **第一个校园节点**：国立台湾师范大学资讯工程学系资讯中心的 Tor Relay 运行中，由社群伙伴 NZ 经教授与教职员提案、协调后完成建置
+- **Tor Project 博客客座文章**：台师大案例的英文版刊登在 [Tor Project 博客](https://blog.torproject.org/setting-up-tor-university-relay-taiwan/)，供其他国家的推动者参考
+- **Tor University Challenge 中译**：完成 [EFF Tor University Challenge 网站](https://toruniversity.eff.org/zh-tw/)的正体中文翻译，降低台湾其他学校接触计划的语言门槛
+- **Tor 中继节点观测上线**：[观测页](/projects/pulse/)每小时更新台湾与邻近共十五个地区的中继节点状况
+- **案例访谈**：台师大的架设过程整理成[深度访谈](/updates/2025/12/ntnu-nz/)，公开给后续的推动者参考
+- **范本工具包**：台师大的实践经验整理成提案文件、技术 SOP 与校方 FAQ 三份范本，其他学校可以直接套用（见下一节）
 
-## 进行中与待完成
+## 范本工具包
 
-- **校园架设 SOP 文件**：把零散的经验整理成可复制流程（预计 Q2-Q3）
-- **第二所学校接洽**：与其他大专院校的初步联系与评估
-- **信息安全活动搭配**：跟学校信息安全周、迎新讲座、Hackathon 等活动的合作模式
-- **政策沟通材料**：给校方/教育部层级的计划说明、法律疑虑回应、国际比较数据
-- 翻译候选报告（候选清单见下方）
+范本工具包整理自社群伙伴 NZ 在台师大的实践经验，其他学校的学生不必从零开始，可以复制范本、按学校的情况改写，再提交到自己学校的审核流程。
 
-## 待翻译与延伸阅读
+- [校园 Tor Relay 提案范本](/join/relay-on-campus/proposal/)：提案文件、四封沟通邮件、行政时间轴
+- [校园 Tor Relay 架设 SOP](/join/relay-on-campus/sop/)：torrc、UFW、状态网页、监控、事件处置 runbook
+- [给校方与法务的校园 Tor Relay FAQ](/join/relay-on-campus/faq/)：校方常见疑虑的问答与台湾背景的补充
 
-以下是社群已标记的候选外部资源，欢迎志工协助翻译或重点摘录：
+建议先读[台师大案例访谈](/updates/2025/12/ntnu-nz/)了解全貌，再按角色选读范本，提案者读提案范本、技术运维者读 SOP，与校方面谈时带上 FAQ。
 
-- [Tor Project Relay Operator Guides](https://community.torproject.org/relay/)：中继站营运官方指南
-- [Tor University Challenge case studies](https://toruniversity.eff.org/case-studies/)：国际校园案例研究
-- [EFF Legal FAQ for Tor relay operators](https://community.torproject.org/relay/community-resources/eff-tor-legal-faq/)：营运中继的法律常见问题
-- 各国校园 Tor Relay 政策案例（MIT、Stanford、CMU 等）
+## 进行中的工作
 
-## 如何加入讨论
+- **其他学校的接洽**：与其他大专院校初步联系、评估可行性
+- **信息安全活动的合作**：与学校信息安全周、迎新讲座、Hackathon 等活动的合作模式
+- **政策沟通材料**：给教育部层级的计划说明、跨国比较资料
+- **外部资源的翻译**：候选清单见下一节
 
-社群讨论在 Matrix（家服务器 `im.anoni.net`）。Tor Relay 校园主题目前以社群 Public Space 中的相关 room 为主要沟通管道。账号申请与服务入口请见 [社群自架服务](/services/)。
+## 翻译候选与延伸阅读
 
-如果你有以下任一背景，特别欢迎加入：
+社群标记了几份候选的外部资源，欢迎志愿者协助翻译或摘录重点：
 
-- **大学在学、校友、教职员**：对自家学校有理解，能评估推动可行性
-- **网络维运经验**：能参与技术设置与长期维运
-- **政策沟通能力**：能协助跟校方、资讯中心、法务单位沟通
-- **法律专业**：能解读中继营运相关的法律疑虑（个资、刑事、学校规章）
-- **活动筹办经验**：能把架设工作整合进信息安全周、迎新等校园活动
+- [Tor Project Relay Operator Guides](https://community.torproject.org/relay/)：Tor Project 官方的中继运营指南
+- [Tor University Challenge case studies](https://toruniversity.eff.org/case-studies/)：国际的校园案例研究
+- [EFF Legal FAQ for Tor relay operators](https://community.torproject.org/relay/community-resources/eff-tor-legal-faq/)：运营中继的法律常见问题
+- 各国校园 Tor Relay 的政策案例（MIT、Stanford、CMU 等）
 
-不需要架过 Tor Relay 也欢迎参与。「我想学」就是合理的加入动机，社群会搭配 [Tor Relay 架设指南](/join/setup-tor-relay/) 文件协助你实际操作。
+## 参与方式
+
+社群在 Matrix 讨论（主服务器 `im.anoni.net`），校园 Tor Relay 的讨论集中在社群 Public Space 里的相关 room，账号申请与各项服务的入口见[社群自建服务](/services/)。
+
+特别欢迎具备以下背景的人加入：
+
+- **大学在校生、校友、教职员**：了解自己的学校，能评估推动的可行性
+- **网络运维经验**：参与技术配置与长期运维
+- **政策沟通能力**：协助与校方、信息中心、法务部门沟通
+- **法律专业**：解读中继运营相关的法律疑虑（个人信息、刑事责任、学校规章）
+- **活动筹办经验**：把架设工作纳入信息安全周、迎新等校园活动
+
+没有架设过 Tor Relay 也欢迎参与，想学就足以成为加入的理由，社群会结合 [Tor Relay 架设指南](/join/setup-tor-relay/)协助你实际操作。
 
 ## 议题守则
 
-社群所有讨论以合法用途为前提。Tor Relay 校园主题会以教育、研究、基础建设参与为目的呈现，不协助任何违法行为。校园架设过程涉及学校资源使用，应走正式提案与审核流程，并充分告知校方节点用途与营运责任。
+社群的所有讨论以合法用途为前提，校园 Tor Relay 主题以教育、研究与参与网络基础设施建设为目的，不协助任何违法行为。校园架设会使用学校的资源，需走正式的提案与审核流程，并向校方充分说明节点的用途与运营责任。

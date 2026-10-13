@@ -20,9 +20,9 @@ Three documents cover the three roles in the rollout sequence: proposal author, 
 
     Each one marks its Taiwan-specific material in a separate regional note, covering TANet, the Criminal Code articles on unauthorized computer access, and the Personal Data Protection Act. Swap those notes for your own jurisdiction's equivalents. The proposal structure, the outreach emails, and the technical SOP carry over as they are. The Mandarin originals remain the authoritative source for the Taiwanese legal annotations.
 
-- **Proposal template** (school-facing document, four outreach email patterns, two-month administrative timeline): [Campus Tor relay proposal template](docs:community/campus-tor-relay-proposal/)
-- **Deployment SOP** (torrc, UFW, status page architecture, monitoring runbook, IPv6, handover): [Campus Tor relay deployment SOP](docs:community/campus-tor-relay-sop/)
-- **FAQ for university administration and legal counsel** (eleven questions with Taiwan-specific annotations, plus two one-page summaries): [Campus Tor relay FAQ](docs:community/campus-relay-faq/)
+- **Proposal template** (school-facing document, four outreach email patterns, two-month administrative timeline): [Campus Tor relay proposal template](/join/relay-on-campus/proposal/)
+- **Deployment SOP** (torrc, UFW, status page architecture, monitoring runbook, IPv6, handover): [Campus Tor relay deployment SOP](/join/relay-on-campus/sop/)
+- **FAQ for university administration and legal counsel** (eleven questions with Taiwan-specific annotations, plus two one-page summaries): [Campus Tor relay FAQ](/join/relay-on-campus/faq/)
 
 The hub page collects all three with case studies, project goals, and a backlog of external resources awaiting translation:
 

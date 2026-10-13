@@ -18,11 +18,11 @@ kind: new
 
 工具包分三份，對應推動 Tor Relay 過程中三個不同角色的需求。
 
-**[校園 Tor Relay 提案範本](docs:community/campus-tor-relay-proposal/)**：一份完整的「Tor University Challenge at <學校名>」提案計畫書、四封對外溝通 email（給指導教授、資訊中心網路組組長、系上網管申請主機/IP、對外開放 port 申請）、台師大實際走過的兩個月行政時間軸，以及提案前的準備清單與踩雷提醒。所有放在 `<placeholder>` 裡的欄位都標出來，複製出去把學校名、系所、IP 段、教授姓名填進去就能送進審核流程。
+**[校園 Tor Relay 提案範本](/join/relay-on-campus/proposal/)**：一份完整的「Tor University Challenge at <學校名>」提案計畫書、四封對外溝通 email（給指導教授、資訊中心網路組組長、系上網管申請主機/IP、對外開放 port 申請）、台師大實際走過的兩個月行政時間軸，以及提案前的準備清單與踩雷提醒。所有放在 `<placeholder>` 裡的欄位都標出來，複製出去把學校名、系所、IP 段、教授姓名填進去就能送進審核流程。
 
-**[校園 Tor Relay 架設 SOP](docs:community/campus-tor-relay-sop/)**：提案通過、取得機房位置與 IP 之後的技術部署文件。內容包含 torrc 參考設定（ContactInfo、Non-Exit 宣告、頻寬上限、MetricsPort 安全提醒）、UFW 防火牆設計（SSH 限校內 VPN 段、ORPort 9001 對外開放）、對外狀態網頁兩種架構選擇（Nginx + Onionoo 推薦，或 MetricsPort + Prometheus + Grafana）、監控與事件處置 runbook、IPv6 設定、畢業後交接清單。
+**[校園 Tor Relay 架設 SOP](/join/relay-on-campus/sop/)**：提案通過、取得機房位置與 IP 之後的技術部署文件。內容包含 torrc 參考設定（ContactInfo、Non-Exit 宣告、頻寬上限、MetricsPort 安全提醒）、UFW 防火牆設計（SSH 限校內 VPN 段、ORPort 9001 對外開放）、對外狀態網頁兩種架構選擇（Nginx + Onionoo 推薦，或 MetricsPort + Prometheus + Grafana）、監控與事件處置 runbook、IPv6 設定、畢業後交接清單。
 
-**[校園 Tor Relay：給校方與法務的 FAQ](docs:community/campus-relay-faq/)**：十題校方資訊中心、法務、網管最常擔心的問題，每題都有台灣脈絡補充，刑法妨害電腦使用罪章、個資法第 2 條、TANet 對外連線審核機制都已經對到具體條文。頁尾另外整理「給網管的一頁摘要」與「給校方行政與法務的一頁摘要」，30 秒讀完，可以直接複製貼進 mail 開頭或當會議 handout。
+**[校園 Tor Relay：給校方與法務的 FAQ](/join/relay-on-campus/faq/)**：十題校方資訊中心、法務、網管最常擔心的問題，每題都有台灣脈絡補充，刑法妨害電腦使用罪章、個資法第 2 條、TANet 對外連線審核機制都已經對到具體條文。頁尾另外整理「給網管的一頁摘要」與「給校方行政與法務的一頁摘要」，30 秒讀完，可以直接複製貼進 mail 開頭或當會議 handout。
 
 三份檔案的整體入口、推動目標、案例累積，以及「待翻譯延伸閱讀」清單，都收在 [Tor Relay 校園建立研究專題](/join/relay-on-campus/)。
 
