@@ -1,132 +1,131 @@
 ---
 title: COSCUP 2026 Call for Proposals
-description: Proposals for the anoni.net community track at COSCUP 2026, via Pretalx, on privacy and digital security with Tor, Tails, OONI and anonymous payments.
+description: The call for proposals for the anoni.net community track at COSCUP 2026, closed on 23 May 2026, with its topics, the joint review with ETHTaipei and how to submit.
 ---
 
-**Anonymity Networks Community** focuses on anonymity, privacy, and digital security. We work to build practical guidance for Chinese-speaking audiences and to support localized tooling and collaborative knowledge. Our outreach and documentation center on the open-source projects **Tor**, **Tails**, and **OONI**.
+!!! note "This call for proposals has closed"
 
-![Anonymity Networks Community 2026 call for proposals hero image](https://assets.anoni.net/event/anoni-net-eth-taipei.webp){ .shot }
+    The deadline was first set for 9 May 2026 and extended to 23 May (AoE) to give speakers more time. The track ran on 8 and 9 August at National Taiwan University of Science and Technology, and the full program is on [COSCUP 2026 Anonymity Networks Community track](/events/coscup-2026/). The call as it was published is kept below as a record.
 
-**COSCUP** has long organized an annual conference for open-source communities. Many anonymity and anti-censorship tools also grow as **free software**, relying on community review, documentation, and infrastructure work. This year our community was [accepted](https://blog.coscup.org/2026/03/coscup-x-ubucon-asia-2026-coscup-x.html) for a **COSCUP 2026 community track** (two days). Sessions and workshops will run on **August 8 and 9** at National Taiwan University of Science and Technology (NTUST). We are now accepting proposals. Researchers, practitioners, NGO staff, civic-tech developers, and community members are welcome to share observations, hands-on tool use, and field experience in line with the open-source conference setting.
+anoni.net is a community of open-source technologists based in Taiwan, working on anonymity, privacy and digital security. We write practical guidance for Chinese-speaking readers and support localized tooling and shared knowledge. Our outreach and documentation center on the open-source projects Tor, Tails and OONI.
 
-[Submit on Pretalx](https://pretalx.coscup.org/coscup-2026/cfp){ .btn .solid }
+![anoni.net 2026 call for proposals hero image](https://assets.anoni.net/event/anoni-net-eth-taipei.webp){ .shot }
 
-!!! note "CFP deadline extended to May 23, 2026 (AoE)"
+COSCUP has long organized an annual conference for open-source communities. Many anonymity and anti-censorship tools are developed as free software and rely on community review, documentation and infrastructure work. Our proposed track was [accepted](https://blog.coscup.org/2026/03/coscup-x-ubucon-asia-2026-coscup-x.html) as a two-day COSCUP 2026 community track, with sessions and workshops on 8 and 9 August at National Taiwan University of Science and Technology (NTUST). The call invited researchers, practitioners, NGO staff, civic-tech developers and community members to share observations, hands-on tool use and field experience in line with the open-source conference setting.
 
-    We have extended the CFP deadline to **May 23, 2026 (AoE)** so more speakers have time to prepare proposals. We will keep inviting researchers, practitioners, NGO staff, developers, and community members to submit, and we welcome readers to forward the call to anyone who fits. If you are still drafting a proposal, use this extra window to finish it. If you know someone who would be a good speaker, please pass along the call or make an introduction.
+[COSCUP 2026 Anonymity Networks Community track](/events/coscup-2026/){ .btn .solid }
 
 ## Event and timeline
 
-- **Dates**: August 8 and 9, 2026, National Taiwan University of Science and Technology (NTUST)
-- **Joint CFP deadline**: **May 23, 2026 (AoE)** (extended from May 9)
-- **Acceptance announcements**: June 9, 2026
-- **Schedule**: Pretalx scheduling to be completed by June 23, 2026
+- **Dates**: 8 and 9 August 2026, National Taiwan University of Science and Technology (NTUST)
+- **Joint CFP deadline**: **23 May 2026 (AoE)** (extended from 9 May)
+- **Acceptance announcements**: 9 June 2026
+- **Schedule**: Pretalx scheduling completed by 23 June 2026
 
-If the organizers publish updates, follow the latest posts on the [official COSCUP blog](https://blog.coscup.org/).
+The official dates are those on the [COSCUP blog](https://blog.coscup.org/).
 
 ## Goals for 2026
 
-- **Build shared knowledge**: Turn anonymity and privacy guidance into adoptable open documentation (with suitable open licensing) so everyday users face a lower barrier to practice.
-- **Connect tech communities with civic contexts**: Give developers, researchers, NGOs, journalists, civil-society groups, and tech community members a chance to meet and talk across domains.
-- **Keep local collaboration going**: Support campus relay nodes (Tor Relay), teaching and materials for the portable anonymous environment (Tails), personal privacy protection, censorship measurement (OONI), and lawful anonymous payments (including on-chain tools such as stablecoins) through local implementation and discussion.
+- **Shared knowledge**: turn anonymity and privacy guidance into openly licensed documentation that everyday users can adopt.
+- **Tech communities and civic settings**: give developers, researchers, NGOs, journalists, civil-society groups and tech community members a chance to meet and talk across domains.
+- **Local collaboration**: hands-on work and discussion in Taiwan on campus Tor relays, teaching and materials for Tails (the portable amnesic operating system), personal privacy protection, censorship measurement with OONI, and lawful anonymous payments (including on-chain tools such as stablecoins).
 
 ## Topics
 
-Use the following as orientation when you propose. Content is not limited to these bullets. Formats stay open: talks, blended teaching workshops, experience reports, and tool demos are all welcome. If your topic ties to **free software or open-source projects** (upstream contribution, issues, documentation, localization, licensing, reproducible builds, open data, open standards), say so briefly in the proposal to align with COSCUP’s open-source context. The main threads are **personal privacy**, **anonymous networks**, **anonymous payments**, and **international participation**. Cross-cutting proposals are encouraged.
+The topics served as orientation for proposals, and content was not limited to these bullets. Formats were open: talks, blended teaching workshops, experience reports and tool demos. Proposals tied to free software or open-source projects (upstream contribution, issues, documentation, localization, licensing, reproducible builds, open data, open standards) could say so briefly, to align with COSCUP's open-source context. The four main threads were personal privacy, anonymous networks, anonymous payments and international participation, and cross-cutting proposals were encouraged.
 
 ### Personal privacy
 
-Personal privacy matters because it shapes how safely people use the internet, manage identity data, and keep everyday autonomy. Under **cross-border travel, tourism, short stays, or migration**, device checks, network conditions, account and payment records, cloud sync, and data retention can sharply raise risk. We welcome proposals focused on personal privacy that share understandable, actionable methods for real situations.
+Personal privacy shapes how safely people use the internet, manage identity data and keep everyday autonomy. Under cross-border travel, tourism, short stays or migration, device checks, network conditions, account and payment records, cloud sync and data retention can sharply raise risk. This topic called for understandable, actionable methods drawn from real situations.
 
 ### Anonymous networks and internet freedom
 
-Anonymous networks and internet freedom are long-standing priorities for the community. They bear on whether people under surveillance, blocking, or differential routing can still connect reliably, communicate safely, and keep space for information flow and expression. We want proposals on practical anonymous connectivity, risk reading in censored environments, infrastructure participation, and experience with **Tor**, **Tails**, and **OONI**, including teaching design, measurement methods, and local outreach.
+Anonymous networks and internet freedom are long-standing priorities for the community. They bear on whether people under surveillance, blocking or differential routing can still connect reliably, communicate safely and keep space for information flow and expression. This topic called for practical anonymous connectivity, risk assessment in censored environments, infrastructure participation, and experience with Tor, Tails and OONI, including teaching design, measurement methods and local outreach.
 
 ### Anonymous payments
 
-Anonymous payments matter because financial records often tie to real identity, social ties, and movement, shaping safety for individuals and organizations. For **civil-society and advocacy groups**, this also covers how to protect supporters, donors, and beneficiaries under lawful conditions while balancing transparency and internal risk. We want proposals on anonymous donations and payment design, cryptocurrency tools in different contexts and their limits, and **cryptocurrency law and compliance** (regulatory compliance, accounting, cross-border rules, audit, and risk disclosure).
+Financial records often tie to real identity, social ties and movement, which shapes safety for individuals and organizations. Civil-society and advocacy groups also have to protect supporters, donors and beneficiaries under lawful conditions while balancing transparency and internal risk. This topic called for anonymous donation and payment design, cryptocurrency tools in different contexts and their limits, and cryptocurrency law and compliance (regulatory compliance, accounting, cross-border rules, audit and risk disclosure).
 
 ### International participation
 
-International participation matters because local communities can work with global organizations to turn tools, knowledge, and advocacy into action on the ground, while feeding experience from Taiwan back into international networks. We want proposals on collaborating with Tor Project, Tails, OONI, EFF, and related projects, and on linking volunteers, translation, documentation, relays, measurement, and outreach so cross-border work becomes real participation.
+Local communities working with global organizations can turn tools, knowledge and advocacy into action on the ground, and feed experience from Taiwan back into international networks. This topic called for experience collaborating with the Tor Project, Tails, OONI, EFF and related projects, and for how volunteers, translation, documentation, relays, measurement and outreach fit together across borders.
 
 ### Other related topics
 
-Below are further angles on anonymity, privacy, and internet freedom, including extensions of the themes above. Use them for ideas; content is not limited to this list.
+Further angles on anonymity, privacy and internet freedom, including extensions of the four topics above, offered as ideas rather than a closed list.
 
 ??? tip "Keywords for brainstorming (not exhaustive)"
 
-    - Privacy risk when traveling across borders, tourism, short stays, or migration: device checks, public Wi‑Fi, account recovery, cloud sync, data retention
-    - Personal privacy practice: identity and account management, two-factor authentication, DNS / VPN / proxy, separating work and personal identity
-    - De-identification and metadata in files, images, chat, and cloud collaboration; sources of accidental leaks and how to reduce risk
-    - Digital security and exercise design for NGOs, independent journalists, newsrooms, or frontline roles in high-risk settings
+    - Privacy risk when traveling across borders, tourism, short stays or migration: device checks, public Wi-Fi, account recovery, cloud sync, data retention
+    - Personal privacy practice: identity and account management, two-factor authentication, DNS, VPN, proxy, separating work and personal identity
+    - De-identification and metadata in files, images, chat and cloud collaboration, sources of accidental leaks and how to reduce risk
+    - Digital security and exercise design for NGOs, independent journalists, newsrooms or frontline roles in high-risk settings
     - Whistleblower protection, anonymous reporting, secure communication and file exchange workflows
-    - Tails (including integration with Tor and built-in tools), OnionShare, and related open anonymous toolchains: teaching, verifiable downloads, Chinese-language docs or curricula
-    - Snowflake, bridges, and relays in the global anonymous network: volunteering, risk communication, and policy conversations inside organizations
+    - Tails (including integration with Tor and built-in tools), [OnionShare](docs:tools/onionshare/) and related open anonymity toolchains: teaching, verifiable downloads, Chinese-language docs or curricula
+    - Snowflake, bridges and relays in the global anonymous network: volunteering, risk communication, and policy conversations inside organizations
     - OONI list maintenance, AS coverage and measurement gaps, local measurement and data collaboration, volunteer training and data storytelling
     - Anonymous connectivity and reading censored environments: Tor relay operations, circumvention strategy, observability, and explaining misuse risk
     - ISP blocking, network resilience, real-name rules and identity data, cross-border data exchange, and human-rights framing in internet freedom and policy advocacy (technical or advocacy)
     - Anonymous payments and donations: data exposure along payment paths, protecting supporters, organizational receipts and public communication
-    - Cryptocurrency law and compliance: regulatory compliance, accounting, cross-border rules, audit, risk disclosure, and jurisdiction-specific limits
-    - Making international collaboration concrete: working with Tor Project, Tails, OONI, EFF, and tying together translation, docs, relays, measurement, and local outreach
+    - Cryptocurrency law and compliance: regulatory compliance, accounting, cross-border rules, audit, risk disclosure and jurisdiction-specific limits
+    - International collaboration in practice: working with the Tor Project, Tails, OONI and EFF, and tying together translation, docs, relays, measurement and local outreach
     - Terminology and translation for anonymity and privacy in Chinese contexts, primers and handouts, local cases and culture, glossaries
     - Second devices, backups and destruction workflows, digital and physical security when devices are seized or inspected (within lawful bounds)
-    - Cypherpunk ideas, zero-knowledge proofs, privacy-enhancing protocols, and open-source project status and applications
-    - Open-source licensing, reproducible builds, supply chain and download verification, community trust, and governance
-    - Other topics closely tied to anonymity, privacy, internet freedom, and digital security that help participants take action
+    - Cypherpunk ideas, zero-knowledge proofs, privacy-enhancing protocols, and the status and applications of open-source projects
+    - Open-source licensing, reproducible builds, supply chain and download verification, community trust and governance
+    - Other topics closely tied to anonymity, privacy, internet freedom and digital security that help participants take action
 
-## Cross-community collaboration: Anonymity Networks Community × ETHTaipei { #anoni-netxETHTaipei }
+## Joint review with ETHTaipei { #anoni-netxETHTaipei }
 
-This year we are partnering with **ETHTaipei** ([Taipei Ethereum Community](https://ethtaipei.org/)) on program coordination. Both communities approach **anonymous payments** from different angles. To ensure submissions reach the most fitting audience, we will review proposals together:
+In 2026 we partnered with [ETHTaipei](https://ethtaipei.org/) (the Taipei Ethereum Community) on programming. The two communities approach anonymous payments from different angles, so to put each proposal in front of the most fitting audience, the call used a joint review:
 
-- **Application-oriented and introductory talks**: prioritized for the Anonymity Networks Community track
-- **Technical and protocol-level talks**: may be moved to the ETHTaipei blockchain track
+- **Application-oriented and introductory talks**: prioritized for the anoni.net community track
+- **Technical and protocol-level talks**: possibly moved to the ETHTaipei blockchain track
 
-You do not need to decide which track to submit to — we will discuss placement with speakers during the review process. Both communities will cross-promote their schedules, so attendees can move between tracks to follow related topics across the event.
+Speakers did not need to choose a track themselves, as placement was settled with them during review. Both communities cross-promoted their schedules, so attendees could move between the two tracks to follow related topics.
 
-On **Day 2 (Aug 9)**, both communities plan to co-organize a dedicated session on **Anonymous Payments**. Speakers and attendees interested in this topic are especially encouraged to take note. If you have a relevant proposal, feel free to mention in your submission notes that you are interested in being included in the cross-community session.
+At the time of the call, a joint anonymous payments session was planned for Day 2 (9 August), and speakers could note in their submission that they wanted to be part of it. The joint session finally ran on the afternoon of 8 August in room `TR-511`, as listed on [COSCUP 2026 Anonymity Networks Community track](/events/coscup-2026/).
 
 ## How to submit
 
-Submit through the **official COSCUP 2026 Pretalx**.
+Submissions went through the official COSCUP 2026 Pretalx.
 
-!!! info "Submitting to the Anonymity Networks Community track"
+!!! info "Track selection on the form"
 
-    In the form, set “**Proposal topic**” to “**匿名網路社群 anoni.net**” so your submission enters this community track for review.
+    In the form, set "Proposal topic" to "匿名網路社群 anoni.net" so the submission enters this community track for review.
 
 - **CFP and submission**: [COSCUP 2026 Pretalx CFP page](https://pretalx.coscup.org/coscup-2026/cfp)
-- **Event home** (optional): [pretalx.coscup.org/coscup-2026](https://pretalx.coscup.org/coscup-2026/)
-- **Direct submission form** (optional): [Submit a proposal](https://pretalx.coscup.org/coscup-2026/submit/)
+- **Event home**: [COSCUP 2026 on Pretalx](https://pretalx.coscup.org/coscup-2026/)
+- **Submission form**: [Submit a proposal](https://pretalx.coscup.org/coscup-2026/submit/)
 - **Organizer CFP reference**: [COSCUP x UbuCon Asia 2026 CFP details](https://blog.coscup.org/2026/03/coscup-x-ubucon-asia-2026-coscup-x.html)
 
-Please state clearly in your proposal:
+Proposals had to state:
 
-1. **Topic area**: which “Topics” section above it maps to
+1. **Topic area**: which of the topics above it maps to
 2. **Format**: talk, workshop, demo, other
 3. **Audience**: general public, technical community, NGO staff, or mixed
-4. **Duration**: expected length (30 or 50 minutes)
+4. **Duration**: 30 or 50 minutes
 5. **Demo needs** (if any): venue or equipment requirements
 
-Questions welcome at <mailto:whisper@anoni.net>.
-
-[Submit on Pretalx](https://pretalx.coscup.org/coscup-2026/cfp){ .btn .solid }
+Questions about the call or the track can go to <mailto:whisper@anoni.net>.
 
 ## Ethics and open licensing
 
-Everything we share assumes **lawful use**. Workshops and sessions do not support money laundering, tax evasion, or other illegal activity. Proposals involving cryptocurrency, coin mixers, or anonymity tools should aim at education and risk awareness, and remind audiences that laws differ by place; attendees must verify what is lawful where they are.
+Everything we share assumes lawful use. Workshops and sessions do not support money laundering, tax evasion or other illegal activity. Proposals involving cryptocurrency, coin mixers or anonymity tools were to aim at education and risk awareness, and to remind audiences that laws differ by place and that attendees must verify what is lawful where they are.
 
-**Aligned with COSCUP’s open-source and open collaboration values**: the conference expects speakers to release shareable materials, slides, and demos under **open licenses** per official rules so the community can preserve, redistribute, and adapt them. If your proposal includes third-party material, unpublished research, or sections that should not be public, note the scope and limits in the proposal or before the session. Actual license terms, delivery timing, and exceptions follow the [official COSCUP announcements](https://blog.coscup.org/) and the latest text on Pretalx.
+In keeping with COSCUP's open-source and open collaboration values, the conference expects speakers to release shareable materials, slides and demos under open licenses per official rules, so the community can preserve, redistribute and adapt them. Proposals including third-party material, unpublished research or sections that should not be public had to note the scope and limits in the proposal or before the session. Actual license terms, delivery timing and exceptions follow the [official COSCUP announcements](https://blog.coscup.org/) and the latest text on Pretalx.
 
 ## About COSCUP
 
-**COSCUP** (Conference for Open Source Coders, Users, and Promoters) is an annual conference run by Taiwan’s open-source communities, focused on open-source code and culture so developers, users, and promoters can meet in one place. See the [COSCUP website](https://coscup.org/) for more.
+COSCUP (Conference for Open Source Coders, Users, and Promoters) is an annual conference run by Taiwan's open-source communities, focused on open-source code and culture so developers, users and promoters can meet in one place. See the [COSCUP website](https://coscup.org/) for more.
 
-On this track, **Anonymity Networks Community anoni.net** wants **tech communities** and **civil-society groups, advocates, and frontline workers** to meet, talk, and keep collaborating, bringing tools and field experience back to their own contexts.
+With this track, anoni.net wanted tech communities and civil-society groups, advocates and frontline workers to meet, talk and keep collaborating, bringing tools and field experience back to their own contexts.
 
-The conference is **free to attend** and not run for ticket revenue, which keeps the barrier to entry relatively low. That setting suits sessions on anonymity and privacy within a welcoming open-source atmosphere, and helps attendees who prefer to participate **quietly, under a pseudonym, or with minimal personal data disclosure** (still subject to conference and venue rules).
+The conference is free to attend and not run for ticket revenue, which keeps the barrier to entry low. That setting suits sessions on anonymity and privacy within an open-source atmosphere, and it lets people who prefer to attend quietly, under a pseudonym or with minimal personal data walk straight in (still subject to conference and venue rules).
 
 ## Related links
 
-- [About us](/about/)
-- [From 2025 to 2026: privacy guidance, campus Tor relay contest, anonymous payments](/updates/2026/01/2025to2026/)
-- [Anonymous network workshop 2025 (event recap)](/events/workshop-2025/)
+- [COSCUP 2026 Anonymity Networks Community track](/events/coscup-2026/)
+- [About anoni.net](/about/)
+- [Continuing from 2025 into 2026: Personal Privacy Guidelines, Tor Relay Campus Deployment Competition, and Exploration of Anonymous Payments](/updates/2026/01/2025to2026/)
+- [Anonymous Network Workshop 2025/08](/events/workshop-2025/)

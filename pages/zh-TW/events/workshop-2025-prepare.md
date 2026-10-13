@@ -1,18 +1,18 @@
 ---
-title: 籌備：匿名網路工作坊 2025/08
-description: 2025 年 8 月匿名網路工作坊的工作人員招募，需要活動籌備人員與熟悉 Tor、Tails、OONI 的工作坊小幫手，附時程與各月份的工作任務。
+title: 匿名網路工作坊 2025/08 籌備與工作人員招募
+description: 2025 年 8 月匿名網路工作坊的籌備紀錄，包含工作人員招募、各月份的籌備工作、小幫手的技能分級（Tor、Tails、OONI），以及圓桌會議的候選議題。
 ---
 
 ![匿名網路工作坊招募工作人員與培訓小幫手](docs:assets/images/event-workshop-2025.png){ .shot }
 
 !!! info ""
 
-    - 我們即將在今年 08/09 ~ 08/10 的 [COSCUP 開源人年會](https://blog.coscup.org/2025/04/coscup-2025-call-for-proposals.html)上舉辦「匿名網路工作坊」活動。在活動開始前需要招募**工作夥伴**、**培訓小幫手**、**活動籌備志工**。如果你對於此活動有興趣，願意和我們一起籌備工作坊，請詳閱以下說明後、找到合適的參與方式加入我們！
-    - 目前是工作坊籌備中，我們預計在 2025/07 初宣傳與開放報名，如果您提前抵達這一頁面想要報名活動，可[加入群組信箱](/contact/)即時收到我們的活動報名通知！未來活動正式報名頁面請參考[此頁面](/events/workshop-2025/)。
+    - 本頁保留 2025 年匿名網路工作坊的籌備與工作人員招募紀錄，招募已經結束。
+    - 工作坊在 2025 年 8 月 9 日到 10 日的 [COSCUP 開源人年會](https://blog.coscup.org/2025/04/coscup-2025-call-for-proposals.html)舉行，地點是國立臺灣科技大學研揚教學大樓 TR-510 教室，活動內容與議程見[匿名網路工作坊 2025/08](/events/workshop-2025/)。
 
-這次我們會有一天的議程軌來舉辦工作坊活動，由於目前 COSCUP 還沒有公布被分配在哪一天，但不影響工作坊的前置準備。工作坊的進行方式會延續在 [2025/02 Tor、OONI 團隊所舉辦的工作坊形式](/updates/2025/02/rightscon25-tor-tails-ooni/)，唯一不同的是我們會**在地化調整**與使用**華語**的方式進行。
+籌備初期社群申請了一天的議程軌，當時 COSCUP 尚未公布分配的日期，前置準備先行展開。工作坊沿用 2025 年 2 月 Tor、OONI 團隊舉辦的[網路自由工作坊：Tor、Tails、OONI](/updates/2025/02/rightscon25-tor-tails-ooni/)的形式，課程依**在地**情況調整，以**華語**進行。
 
-目前需要以下角色的工作人員，每一個角色都能橫跨參與，只需要達到基本的技能即可，後續會有培訓活動來提升。
+招募的工作人員分成兩種角色，可以兩者都參與，具備基本技能即可報名，之後由社群安排培訓。
 
 <div class="grid cards" markdown>
 
@@ -26,42 +26,38 @@ description: 2025 年 8 月匿名網路工作坊的工作人員招募，需要�
 
     ---
 
-    需瞭解 Tor、Tails、OONI 基本知識，協助參與者在工作坊期間的問題解答、操作指引與一同規劃、準備工作坊課程教材。
+    具備 Tor、Tails、OONI 的基本知識，在工作坊期間回答參與者的問題、引導操作，並一起規劃與準備課程教材。
 
 </div>
 
-## 報名工作人員
+## 工作人員報名方式 {#報名工作人員}
 
-工作坊活動需要「活動籌備人員」、「工作坊小幫手」，沒有限定只能擇一參與，只要您的時間允許、想一起規劃工作坊活動，都歡迎把握這次機會一起參與！
+報名者寄信到 `匿名網路社群 anoni.net <whisper@anoni.net>`，依下列問題回答，也可以自行補充。從電子報得知招募的人，可以直接回覆電子報。
 
-報名方式請依照以下範例問題來回答，當然還可以隨意補充更多，或是您是透過電子報知悉此活動，也可以直接回覆電子報信件！
-
-    - 暱稱：（如何稱呼或顯示你的名稱）
-    - 自我介紹：（簡單快速介紹你自己，如果參與過之前的活動，也可提及，幫助我們喚起記憶！）
+    - 暱稱：（希望我們如何稱呼你）
+    - 自我介紹：（簡短介紹自己，參與過社群之前的活動也可以提及）
     - 想要報名的角色：[ ] 活動籌備人員、[ ] 工作坊小幫手。
-    - 在工作坊活動中可以貢獻與獲得的事項：（讓我們可以避免安排不好玩的事務給你！）
-
-報名信件請寄到：`匿名網路社群 anoni.net <whisper@anoni.net>`，期待與感謝你的參與！
+    - 在工作坊活動中可以貢獻與獲得的事項：（方便我們安排你有興趣的工作）
 
 ## <i data-icon="fontawesome-solid-clipboard-user"></i> 活動籌備人員
 
-工作坊活動籌備期間從 2025/05 ~ 2025/08 初，大約三個月的籌備期間。期間需要籌備工作人員協助針對工作坊的宣傳、報名、通知、場地協調等事宜安排。活動地點在臺灣科技大學研陽大樓教室中，目前確切的活動日還未公布，可能會在 2025/07/09 大會議程表公告時得知日期與教室位置。
+籌備期從 2025 年 5 月到 8 月初，約三個月，籌備人員負責工作坊的宣傳、報名、通知與場地協調。活動在國立臺灣科技大學研揚教學大樓舉行，招募時確切日期與教室尚未公布，預計隨 2025/07/09 公告的大會議程表確定。
 
-## 時程表
+### 時程表
 
 | 月份    | 目標                                 |
 | ------- | ------------------------------------ |
-| 2025/05 | 籌備團隊建立、招募小幫手與工作人員。 |
-| 2025/06 | 完成教材翻譯、課程在地化設計。       |
+| 2025/05 | 建立籌備團隊，招募小幫手與工作人員。 |
+| 2025/06 | 完成教材翻譯與課程的在地化設計。     |
 | 2025/07 | 活動宣傳與報名。                     |
-| 2025/08 | 活動日與會後紀錄與通知。             |
+| 2025/08 | 活動舉辦、會後紀錄與通知。           |
 
-## 各月份工作任務
+### 各月份工作任務
 
 === "2025/05"
 
     - [x] `公告`{style="color: red;"} 工作坊開始招募工作人員與小幫手。
-    - [x] `通知`{style="color: darkorange;"} 工作坊籌備已開始，歡迎加入！
+    - [x] `通知`{style="color: darkorange;"} 籌備開始的通知，邀請夥伴加入。
     - [x] `確認`{style="color: purple;"} 五月份線上啟動會議。
     - [x] `教材`{style="color: green;"} 翻譯 Tor/Tails 簡報。
 
@@ -69,29 +65,29 @@ description: 2025 年 8 月匿名網路工作坊的工作人員招募，需要�
 
     - [x] `公告`{style="color: red;"} 籌備進度與持續招募工作人員。
     - [x] `確認`{style="color: purple;"} 工作人員與小幫手名單。
-    - [x] `教材`{style="color: green;"} Tor/Tails 匿名網路工作坊課程細節。
-    - [x] `教材`{style="color: green;"} OONI 工作坊課程細節。
-    - [ ] `回饋`{style="color: dodgerblue;"} 給 Tor/Tails、OONI 團隊關於我們所設計的課程與教材。
+    - [x] `教材`{style="color: green;"} Tor/Tails 匿名網路工作坊的課程細節。
+    - [x] `教材`{style="color: green;"} OONI 工作坊的課程細節。
+    - [ ] `回饋`{style="color: dodgerblue;"} 向 Tor/Tails、OONI 團隊回饋社群設計的課程與教材。
 
 === "2025/07"
 
     - [x] `公告`{style="color: red;"} 工作坊課程內容與報名方式。
-    - [x] `通知`{style="color: darkorange;"} 報名者活動出席與時間。
-    - [x] `製作`{style="color: midnightblue;"} 少量活動傳單印製，於 OCF 攤位放置與佈告欄張貼。
-    - [x] `確認`{style="color: purple;"} 活動日當天工作人員的任務。
+    - [x] `通知`{style="color: darkorange;"} 向報名者確認出席與活動時間。
+    - [x] `製作`{style="color: midnightblue;"} 印製少量活動傳單，放在 COSCUP 會場的攤位並張貼在佈告欄。
+    - [x] `確認`{style="color: purple;"} 活動當天工作人員的任務。
 
 === "2025/08"
 
-    - [x] <code>:star2:</code> 活動日執行。
-    - [ ] `公告`{style="color: red;"} 工作坊活動後紀錄文章。
-    - [ ] `通知`{style="color: darkorange;"} 報名者意見回饋與活動後可延續參與的建議。
-    - [ ] `回饋`{style="color: dodgerblue;"} 給 Tor/Tails、OONI 團隊關於活動紀錄。
+    - [x] <code>:star2:</code> 活動舉辦。
+    - [ ] `公告`{style="color: red;"} 工作坊的會後紀錄文章。
+    - [ ] `通知`{style="color: darkorange;"} 向報名者蒐集意見，並提供會後持續參與的建議。
+    - [ ] `回饋`{style="color: dodgerblue;"} 向 Tor/Tails、OONI 團隊回饋活動紀錄。
 
-[報名參與「活動籌備人員」](#報名工作人員){ .btn .solid }
+[工作人員報名方式](#報名工作人員){ .btn .solid }
 
 ## <i data-icon="fontawesome-solid-clipboard-user"></i> 工作坊小幫手
 
-工作坊預計開設兩個課程：
+工作坊開設兩門課程：
 
 <div class="grid cards" markdown>
 
@@ -99,55 +95,55 @@ description: 2025 年 8 月匿名網路工作坊的工作人員招募，需要�
 
     ---
 
-    預計工作坊參與者來自新聞媒體、獨立調查記者、公民團體、人權捍衛者（HRDs）、科技社群，並協助瞭解透過 Tor、Tails 來增強工作任務於個人電腦中使用的隱私保護能力。
+    課程對象是新聞媒體、獨立調查記者、公民團體、人權捍衛者（HRDs）與科技社群，介紹如何用 Tor、Tails 在個人電腦上保護工作時的隱私。
 
 - **[<i data-icon="octicons-bookmark-16"></i> OONI 網路干預觀察](#OONI-網路干預觀察)**
 
     ---
 
-    協助透過 OONI 的觀察資料為亞太地區觀測是否有網路干預、大規模斷網事件，並協助參與觀測資料蒐集與網站檢測名單更新。
+    用 OONI 的觀測資料檢視亞太地區的網路干預與大規模斷網事件，並帶參與者蒐集觀測資料、更新網站檢測名單。
 
 </div>
 
 ### <i data-icon="octicons-bookmark-16"></i> Tor、Tails 匿名網路
 
-協助參與者瞭解 Tor 匿名網路的運作方式、洋蔥網路是什麼？如何透過 Tails 隨身碟作業系統方式使用。使用的情境有哪些？成為小幫手需要以下的基本能力，可以先評估自己目前在哪一個階段，我們預計努力培訓大家到 **Basic L3** 的等級。
+課程介紹 Tor 匿名網路與洋蔥網路的運作方式、Tails 隨身碟作業系統的用法，以及兩者的使用情境。小幫手的能力分成下列等級，報名者可以先評估自己在哪一個階段，培訓目標是 **Basic L3**。
 
 ??? Abstract "Tor 技能分級表"
 
     === "<i data-icon="checkbox-marked-circle-outline"></i> Tor: Basic L1"
 
         - [x] 瞭解 Tor 是什麼。
-        - [x] 瞭解網路自由為什麼重要、匿名網路是什麼。
-        - [x] 臺灣的網路自由嗎？
-        - [x] 我們周遭的國家目前的網路狀況。
+        - [x] 瞭解網路自由的重要性與匿名網路是什麼。
+        - [x] 台灣的網路自由程度。
+        - [x] 鄰近國家的網路現況。
 
     === "<i data-icon="checkbox-marked-circle-outline"></i> Tor: Basic L2"
 
         - [x] 瞭解 Tor 瀏覽器的連線方式。
         - [x] Tor 橋接（Bridge）類型：Bridge、Snowflake、WebTunnel。
-        - [x] 各連線的使用場景、使用時機。
-        - [x] 瞭解是否可以透過 VPN 方式連線 Tor。
+        - [x] 各種連線方式的使用場景與時機。
+        - [x] 瞭解能否透過 VPN 連線 Tor。
 
     === "<i data-icon="checkbox-marked-circle-outline"></i> Tor: Basic L3"
 
         - [x] 安裝 Tor 瀏覽器，並實際使用至少一週。
         - [x] 透過**直接連線**與**橋接方式**連線到 Tor 網路。
-        - [x] 操作切換目前的連線路徑。
+        - [x] 切換目前的連線路徑。
         - [x] 連線至 **.onion** 網域。
 
     === "<i data-icon="checkbox-marked-circle-auto-outline"></i> Tor: Advanced L1"
 
-        - [x] 清楚理解 Tor、Onion、Tor 瀏覽器分別所指的技術。
-        - [x] 使用 Snowflake 瀏覽器過充套件建立 Tor 橋接（Bridge）。
-        - [x] 啟動 Tor 並透過 SOCKS v5 方式連結。
-        - [x] 使用 [metrics.torproject.org](https://metrics.torproject.org) 查詢臺灣地區的中繼點。
+        - [x] 區分 Tor、Onion、Tor 瀏覽器各自指的技術。
+        - [x] 使用 Snowflake 瀏覽器擴充套件建立 Tor 橋接（Bridge）。
+        - [x] 啟動 Tor 並透過 SOCKS v5 連線。
+        - [x] 使用 [metrics.torproject.org](https://metrics.torproject.org) 查詢台灣的中繼點。
 
     === "<i data-icon="checkbox-marked-circle-auto-outline"></i> Tor: Advanced L2"
 
         - [x] 建立 Tor Relay 中繼點。
         - [x] 建立 Tor Bridge 橋接點。
-        - [x] 建立 WebTunnel 中繼點。
+        - [x] 建立 WebTunnel 橋接點。
         - [x] 建立 **.onion** 網站。
 
 ??? Abstract "Tails 技能分級表"
@@ -155,28 +151,28 @@ description: 2025 年 8 月匿名網路工作坊的工作人員招募，需要�
     === "<i data-icon="checkbox-marked-circle-outline"></i> Tails: Basic L1"
 
         - [x] 瞭解 Tails 是什麼與運作原理。
-        - [x] 瞭解網路自由為什麼重要、匿名網路是什麼。
-        - [x] 臺灣的網路自由嗎？
-        - [x] 我們周遭的國家目前的網路狀況。
+        - [x] 瞭解網路自由的重要性與匿名網路是什麼。
+        - [x] 台灣的網路自由程度。
+        - [x] 鄰近國家的網路現況。
 
     === "<i data-icon="checkbox-marked-circle-outline"></i> Tails: Basic L2"
 
-        - [x] 瞭解如何安裝、製作 Tails 作業系統隨身碟。
-        - [x] 瞭解電腦如何設定從隨身碟開機。
-        - [x] 瞭解 Mac 電腦哪些類型無法使用 Tails。
-        - [x] 瞭解 Tails 使用情境與限制。
+        - [x] 瞭解如何製作 Tails 作業系統隨身碟。
+        - [x] 瞭解如何設定電腦從隨身碟開機。
+        - [x] 瞭解哪些 Mac 機型無法使用 Tails。
+        - [x] 瞭解 Tails 的使用情境與限制。
 
     === "<i data-icon="checkbox-marked-circle-outline"></i> Tails: Basic L3"
 
         - [x] 安裝 Tails，並實際使用至少一週。
         - [x] 建立持久性加密磁區（Persistent Storage）。
-        - [x] 使用 Bridge 橋接設定 Tails 網路連線方式。
-        - [x] 使用 [OnionShare](docs:tools/onionshare/) 軟體分享檔案。
+        - [x] 設定 Tails 透過橋接（Bridge）連線。
+        - [x] 使用 [OnionShare](docs:tools/onionshare/) 分享檔案。
 
     === "<i data-icon="checkbox-marked-circle-auto-outline"></i> Tails: Advanced L1"
 
-        - [x] 透過 Thunderbird 建立連接 Gmail 信箱的接收與傳送（IMAP 協定）。
-        - [x] 更新 Tails 到下一個最新版本。
+        - [x] 在 Thunderbird 設定 Gmail 信箱的收發（IMAP 協定）。
+        - [x] 將 Tails 更新到最新版本。
         - [x] 瞭解 MAC 位址匿名化（MAC Address Anonymization）。
         - [x] 備份持久性加密磁區（Persistent Storage）。
 
@@ -184,12 +180,12 @@ description: 2025 年 8 月匿名網路工作坊的工作人員招募，需要�
 
         - [x] 使用密碼管理器 KeePassXC。
         - [x] 使用 GnuPG 與 Kleopatra 建立加密金鑰與加密檔案。
-        - [x] 透過 Thunderbird 寄送加密郵件到 `whisper@anoni.net`（取得公開金鑰請參考「[持續關注](/contact/)」）。
-        - [x] 安全的移除檔案操作流程。
+        - [x] 透過 Thunderbird 寄送加密郵件到 `whisper@anoni.net`（公開金鑰見[持續關注](/contact/)）。
+        - [x] 安全刪除檔案的流程。
 
 ### <i data-icon="octicons-bookmark-16"></i> OONI 網路干預觀察
 
-協助參與者瞭解 OONI 觀測資料內涵，如何使用 OONI Probe 檢測應用程式提供觀察結果、如何解讀線上觀測資料數據。成為小幫手需要以下的基本能力，可以先評估自己目前在哪一個階段，我們預計努力培訓大家到 **Basic L3** 的等級。
+課程介紹 OONI 觀測資料的內容、如何用 OONI Probe 檢測並提交觀測結果，以及如何解讀線上的觀測資料。小幫手的能力同樣分成下列等級，培訓目標是 **Basic L3**。
 
 ??? Abstract "OONI 技能分級表"
 
@@ -198,33 +194,33 @@ description: 2025 年 8 月匿名網路工作坊的工作人員招募，需要�
         - [x] 瞭解 OONI 是什麼。
         - [x] 瞭解網路監視（surveillance）與網路審查（censorship）是什麼。
         - [x] OONI 檢測的運作方式。
-        - [x] 臺灣與其他國家在網路監視與網路審查的差異。
+        - [x] 台灣與其他國家在網路監視與網路審查的差異。
 
     === "<i data-icon="checkbox-marked-circle-outline"></i> OONI: Basic L2"
 
         - [x] 安裝並使用 OONI Probe 產生檢測報告。
-        - [x] 瞭解是否可以使用 VPN 方式使用 OONI Probe 檢測。
-        - [x] 瞭解 OONI Probe 使用時的風險。
-        - [x] 瞭解 ASN 自治網路的運作。
+        - [x] 瞭解能否在 VPN 連線下使用 OONI Probe 檢測。
+        - [x] 瞭解使用 OONI Probe 的風險。
+        - [x] 瞭解 ASN（自治系統編號）與自治系統的運作。
 
-    === "<i data-icon="checkbox-marked-circle-outline"></i>OONI: Basic L3"
+    === "<i data-icon="checkbox-marked-circle-outline"></i> OONI: Basic L3"
 
-        - [x] 透過 OONI Explorer 整理臺灣近半年的觀測資料。
+        - [x] 透過 OONI Explorer 整理台灣近半年的觀測資料。
         - [x] 透過 OONI Explorer 比較三個國家的觀測資料。
-        - [x] 檢視目前網路封鎖的報告。
-        - [x] 建立 OONI Run 檢測連結並找到該連結的線上報告內容。
+        - [x] 檢視目前的網路封鎖報告。
+        - [x] 建立 OONI Run 檢測連結，並找到該連結的線上報告。
 
     === "<i data-icon="checkbox-marked-circle-auto-outline"></i> OONI: Advanced L1"
 
-        - [x] 使用命令列的方式啟動 OONI Probe。
-        - [x] 瞭解網站觀測名單收錄方式。
+        - [x] 用命令列啟動 OONI Probe。
+        - [x] 瞭解網站觀測名單的收錄方式。
 
     === "<i data-icon="checkbox-marked-circle-auto-outline"></i> OONI: Advanced L2"
 
-        - [x] 透過原始觀測資料（Raw Data）進行資料數據整理與分析。
-        - [x] 協助名單整理與修正。
+        - [x] 整理與分析原始觀測資料（Raw Data）。
+        - [x] 協助整理與修正觀測名單。
 
-[報名參與「工作坊小幫手」](#報名工作人員){ .btn .solid }
+[工作人員報名方式](#報名工作人員){ .btn .solid }
 
 ---
 
@@ -232,28 +228,26 @@ description: 2025 年 8 月匿名網路工作坊的工作人員招募，需要�
 
 <figure markdown="span">
   ![活動時程表](docs:assets/images/event_workshop_2025_schedule.svg)
-  <figcaption>活動二日當日預計的行程表。</figcaption>
+  <figcaption>活動兩天的預定行程。</figcaption>
 </figure>
 
-這一次活動我們順利爭取到二日的活動時間，工作坊預計安排在第一日（08/09）12:30 - 15:30，而第一日的前後時段、第二日全天預計採用**圓桌會議（Round-Table）**的方式進行，討論**匿名網路**、**網路審查**、**開源工具**相關議題。初步規劃三大類別、六個討論議題，涵蓋現況、技術、社群合作，目標參與者為新聞媒體、獨立記者、公民團體、開源科技社群，透過討論、問題發現與共識解決方案。
+活動最後取得兩天的時段，工作坊排在第一天（08/09）12:30 - 15:30，第一天的其他時段與第二天全天規劃為**圓桌會議（Round-Table）**，討論**匿名網路**、**網路審查**、**開源工具**相關議題。議題初步分成三大類、六項，涵蓋現況、技術與社群合作，邀請新聞媒體、獨立記者、公民團體與開源科技社群一起找出問題，形成解決方案的共識。
 
-圓桌會議（Round-Table）每一場預計不超過 25 人的討論，會議上指派 1 ~ 2 位的協調員（Facilitator）、1 位記錄員（Note-taker）。
+每場圓桌會議規劃不超過 25 人，配置 1 到 2 位協調員（Facilitator）與 1 位記錄員（Note-taker）。活動前社群邀請對下列議題有興趣的人擔任協調員，也接受推薦人選（聯絡方式見[持續關注](/contact/)）。
 
-在活動前我們會邀請對以下議題或是類型有興趣的、成為協調員。如果您或是您有推薦的人選，也歡迎[讓我們知道](/contact/)，一起拉入邀請、參與討論！
+??? tip "圓桌會議的角色"
 
-??? tip "角色與功用"
-
-    - **協調員（Facilitator）**：負責主持會議，確保議程按照計畫進行。主持人控制討論的節奏，維持時間管理，並確保每位參與者有機會發言。促進有效溝通，確保會議目標得以實現。
-    - **參與者（Participants）**：積極參與討論，分享自己的觀點和意見，並以建設性的方式貢獻於決策過程。透過集思廣益的方式，找出最佳解決方案或決議。
-    - **記錄員（Note-taker）**：詳細記錄會議中討論的重點、決策和行動項目。會後負責整理會議紀錄並分發給相關人員。提供準確的會議記錄，以利後續追蹤和執行。
-    - **觀察員（Observers）**`非必要`：旁聽會議過程，對會議主題和流程進行評估，但不積極參加討論或決策。為會後的反思或改進建議提供獨立的觀點。
-    - **專家或顧問（Experts or Consultants）**`非必要`：提供專業意見和技術知識，針對特定問題或議題給出可操作的建議。協助決策者在技術或專業領域做出更為精確和有效的決策。
+    - **協調員（Facilitator）**：主持會議，掌握討論的節奏與時間，確保議程照計畫進行、每位參與者都有機會發言。
+    - **參與者（Participants）**：參與討論、分享自己的觀點與意見，一起找出解決方案或決議。
+    - **記錄員（Note-taker）**：記錄討論重點、決策與待辦事項，會後整理會議紀錄並分送給相關人員，方便後續追蹤與執行。
+    - **觀察員（Observers）**`非必要`：旁聽會議並評估主題與流程，不參與討論或決策，會後提供反思與改進的建議。
+    - **專家或顧問（Experts or Consultants）**`非必要`：針對特定問題提供專業意見與可操作的建議，協助在技術或專業領域做出決策。
 
 ### 候選討論議題
 
-目前初步規劃三大類、六項討論議題，協調員加入時可能會有調整，或以協調員所設定的議題來討論。在活動前我們有一份議題討論的[問卷調查](https://form.anoni.net/s/cmaxjo2p40000o10131byw3do)，大約 2 分鐘的作答時間，請協助我們`（可匿名）`{style="color: purple;"}瞭解各議題的喜好程度，感謝！
+議題初步分成三大類、六項，協調員加入後可能調整，或改用協調員設定的議題。活動前另有一份約 2 分鐘、可匿名填答的問卷，調查大家對各議題的興趣。
 
-[協助填寫：議題討論問卷調查](https://form.anoni.net/s/cmaxjo2p40000o10131byw3do){ .btn .solid } [<i data-icon="qrcode-scan"></i> QRcode](docs:assets/images/workshop_form_zh.png)
+[議題討論問卷](https://form.anoni.net/s/cmaxjo2p40000o10131byw3do){ .btn .solid } [<i data-icon="qrcode-scan"></i> QR Code](docs:assets/images/workshop_form_zh.png)
 
 ??? abstract "主題一：開源技術與匿名工具的交集"
 
@@ -265,11 +259,11 @@ description: 2025 年 8 月匿名網路工作坊的工作人員招募，需要�
 
     #### 「從使用者到貢獻者：台灣如何建立 Tor/OONI 的社群節點與回饋模式」
 
-    - 臺灣有沒有 Tor relay、OONI Probe 等基礎節點？運作情況如何？
-    - 有哪些實際技術與行政、法律挑戰？（如主機費用、被封鎖、法律疑慮）
+    - 台灣有沒有 Tor relay、OONI Probe 等基礎節點？運作情況如何？
+    - 有哪些實際的技術、行政與法律挑戰？（如主機費用、被封鎖、法律疑慮）
     - 能不能以社群的方式協助運作與培訓新手？
 
-    [協助填寫：議題討論問卷調查](https://form.anoni.net/s/cmaxjo2p40000o10131byw3do){ .btn .solid }
+    [議題討論問卷](https://form.anoni.net/s/cmaxjo2p40000o10131byw3do){ .btn .solid }
 
 ??? abstract "主題二：開源精神與網路自由的社會連結"
 
@@ -277,28 +271,28 @@ description: 2025 年 8 月匿名網路工作坊的工作人員招募，需要�
 
     - 對記者、公民團體來說，開源為何重要？如何建立對工具的信任？
     - 探討「可驗證性（verifiability）」、「抵禦審查」與「社群治理」等核心價值。
-    - 開源 vs 封閉商業資安工具：我們該怎麼選擇？
+    - 開源與封閉的商業資安工具，我們該如何選擇？
 
     #### 「如何在地化一套開源匿名工具包？」
 
-    - 從日常瀏覽（Tor）到作業系統（Tails）到網路監測（OONI），有哪些開源工具還可以納入？
-    - 工具包該包含哪些內容？（如 Live USB image、本地語系包、手冊）？
-    - 推出「臺灣版本」的簡化套件（適合 NGO、記者、新手）
+    - 從日常瀏覽（Tor）、作業系統（Tails）到網路監測（OONI），還有哪些開源工具可以納入？
+    - 工具包該包含哪些內容（如 Live USB image、本地語系包、手冊）？
+    - 推出「台灣版本」的簡化套件（適合 NGO、記者、新手）。
 
-    [協助填寫：議題討論問卷調查](https://form.anoni.net/s/cmaxjo2p40000o10131byw3do){ .btn .solid }
+    [議題討論問卷](https://form.anoni.net/s/cmaxjo2p40000o10131byw3do){ .btn .solid }
 
 ??? abstract "主題三：在地社群與協作實踐"
 
     #### 「推動一個去中心、開源協作的匿名網路推廣計畫」
 
-    - 若以公民科技社群、開源社群協作模式進行推廣，我們可以怎麼分工？
-    - 是否能建立一個「開源維運小組」（工作小組模式）維護 Tor/OONI 伺服器、定期測試 ISP 封鎖狀況？
+    - 若以公民科技社群、開源社群的協作模式推廣，可以如何分工？
+    - 能否成立一個「開源維運小組」（工作小組模式），維護 Tor/OONI 伺服器、定期測試 ISP 的封鎖狀況？
     - 有哪些非技術角色（設計、翻譯、講師、寫手）可以參與？
 
     #### 「區域性開源協作的潛力：與亞洲其他匿名網路社群連線」
 
-    - 如東南亞區域、香港、中國、日本、韓國 … 等地也有類似的開源匿名專案或推廣團隊
-    - 能否建立跨地協作？例如協作翻譯 OONI 檢測結果、共寫教材
-    - 臺灣能否成為連結點？（安全性、言論自由、技術社群都具備）
+    - 東南亞、香港、中國、日本、韓國等地也有類似的開源匿名專案或推廣團隊。
+    - 能否建立跨地協作？例如協作翻譯 OONI 檢測結果、共寫教材。
+    - 台灣能否成為連結點？（安全性、言論自由、技術社群都具備）
 
-    [協助填寫：議題討論問卷調查](https://form.anoni.net/s/cmaxjo2p40000o10131byw3do){ .btn .solid }
+    [議題討論問卷](https://form.anoni.net/s/cmaxjo2p40000o10131byw3do){ .btn .solid }

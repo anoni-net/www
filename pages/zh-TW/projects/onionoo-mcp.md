@@ -1,123 +1,119 @@
 ---
 title: AI 助理的 Tor 節點查詢
-description: 社群自架的 Tor 中繼節點查詢服務，不必寫程式，在雲端 AI 助理貼上一個網址，就能用中文查各地有多少 Tor 節點、頻寬多大、集中在哪些電信網路。
-lead: 在雲端 AI 助理貼上一個網址，用中文查各地的 Tor 中繼節點。
+description: 社群開發並自架的 Tor 中繼節點查詢服務。在雲端 AI 助理加上一個網址，不必寫程式就能用中文查詢各地的 Tor 節點數、頻寬與所在的電信網路。
+lead: 在雲端 AI 助理貼上一個網址，就能用中文查詢各地的 Tor 中繼節點。
 ---
 
-想知道臺灣現在有幾個還在運作的 Tor 節點、半年來是變多還是變少、節點落在哪幾家電信業者底下嗎？答案都在 Tor Project 的公開資料裡，過去要回答得自己寫程式去抓、去算。onionoo MCP 把這一步變成一句中文問句。在 AI 助理（像 claude.ai）裡接上服務後，直接打「臺灣現在有幾個能用的 Tor 節點？」，它就會去查、算好、回一份能讀的報告。
+台灣現在有幾個運作中的 Tor 節點、半年來增加還是減少、節點分布在哪幾家電信業者，答案都在 Tor Project 的公開資料裡，過去需要自行寫程式抓取、計算。在 AI 助理（例如 claude.ai）接上 onionoo MCP 之後，輸入一句「台灣現在有幾個能用的 Tor 節點？」，AI 助理會查詢資料、計算，整理成一份可讀的報告。
 
-這頁前半寫給想查資料、但不寫程式的人（記者、公民團體、事實查核者），照著做就能上手。後半（[給工程師與想自架的人](#給工程師與想自架的人)）寫給要用程式呼叫、或想自行架設一份服務的人。
+前半頁寫給需要查資料、但不寫程式的讀者，例如記者、公民團體與事實查核者，照著步驟即可上手。後半的[程式呼叫與自架](#程式呼叫與自架)寫給要用程式呼叫服務，或想自行架設一份的工程師。
 
 <figure markdown="span">
     <a href="https://assets.anoni.net/docs/onionoo-mcp-tw-summary-result.png" target="_blank">
         <img src="https://assets.anoni.net/docs/onionoo-mcp-tw-summary-result.png"
-            alt="Claude Desktop 中對「整理臺灣 Tor 中繼節點現況」這段提問回出的彙整報告，顯示 13 個 running relay、總頻寬約 39.2 MiB/s（約 329 Mbps）、consensus weight 8,570，並列出前 5 大 ASN 表格（AS3462 中華電信 10 個、AS1659 TANet、AS9416 和信超媒體、AS18041 Taiwan Digital Streaming 各 1 個）"
-            title="AI 助理整理出的臺灣 Tor 中繼節點現況報告"
+            alt="Claude Desktop 針對「整理台灣 Tor 中繼節點現況」提問產生的彙整報告，顯示 13 個 running relay、總頻寬約 39.2 MiB/s（約 329 Mbps）、consensus weight 8,570，並列出前 5 大 ASN 表格（AS3462 中華電信 10 個、AS1659 TANet、AS9416 和信超媒體、AS18041 Taiwan Digital Streaming 各 1 個）"
+            title="AI 助理整理的台灣 Tor 中繼節點現況報告"
             class="shot">
     </a>
-    <figcaption>你會取得的東西：問一句中文，AI 助理回一份整理好的報告（運作中節點數、總頻寬、前五大電信網路）。底層數值來自 Tor Project 官方資料，這是查詢當下的快照，會隨時間變動。</figcaption>
+    <figcaption>用一句中文提問，AI 助理回傳整理好的報告，包含運作中節點數、總頻寬與前五大電信網路。數值來自 Tor Project 的官方資料，是查詢當下的快照，會隨時間變動。</figcaption>
 </figure>
 
-## 它能幫你回答什麼
+## 可以回答的問題
 
-- **事實查核**：有人說「臺灣的 Tor 量能很低」，你可以當場問出「現在有幾個運作中節點、總頻寬多少、跟某個時間點相比的變化」，取得能對照、能引用的數字。
-- **新聞報導**：寫某國網路封鎖或翻牆基礎建設的題目時，盤點某個國家有多少 Tor 中繼、出口節點（流量離開 Tor 連回一般網站的最後一站）集中在哪些網路供應商，做跨國比較。
-- **公民團體與倡議**：盤點某地區節點的分散程度（落在幾家電信業者，越分散越不容易被一次切斷），當作數位韌性的觀察指標。
+- **事實查核**：遇到「台灣的 Tor 量能很低」這類說法時，可以當場查詢運作中的節點數、總頻寬，以及與過去某個時間點相比的變化，取得能對照、能引用的數字。
+- **新聞報導**：報導某個國家的網路封鎖或翻牆基礎建設時，可以盤點當地有多少 Tor 中繼節點、出口節點（流量離開 Tor、連回一般網站的最後一個節點）集中在哪些網路供應商，再做跨國比較。
+- **公民團體與倡議**：盤點某個地區的節點分散在幾家電信業者（越分散越不容易被一次切斷），當作數位韌性的觀察指標。
 
-## 開始使用（不用寫程式）
+## 雲端 AI 助理的接法
 
-最低門檻的用法是把這個服務接到你平常用的雲端 AI 助理。不用安裝任何東西、不用編設定檔，在助理的設定裡新增一個「自訂連接器（custom connector）」，貼上以下網址就好：
+不寫程式的話，把服務接到平常使用的雲端 AI 助理最簡便，不需要安裝軟體或編輯設定檔。在助理的設定裡新增一個自訂連接器（custom connector），貼上以下網址：
 
 `https://onionoo.anoni.net/mcp`
 
-亞太地區常見的三家雲端 AI，目前的接法門檻不太一樣：
+亞太地區常見的三家雲端 AI 服務，目前的接法與門檻各不相同：
 
 <div class="tbl-names" markdown>
 
-| 雲端 AI | 能在 App 裡直接貼網址嗎 | 接法 |
+| 雲端 AI | App 內貼網址 | 接法 |
 |---|---|---|
-| **Claude（claude.ai）** | 可以，免費方案也行（限 1 個連接器） | 設定 → Connectors（連接器）→ Add custom connector，貼上網址 |
-| **ChatGPT** | 可以，但要付費方案（Plus 以上，免費版不支援） | 設定 → Apps → 進階設定 → 開啟「Developer Mode（開發者模式）」→ 新增自訂 connector，貼上網址 |
-| **Google Gemini** | 消費版聊天 App 目前還不行 | 要走 Gemini CLI（需要寫設定檔）或 Gemini Enterprise（需要 Google Cloud 管理權限），屬於工程或企業路徑，見[後半給工程師的段落](#給工程師與想自架的人) |
+| **Claude（claude.ai）** | 可以，免費方案也適用（限 1 個連接器） | 設定 → Connectors（連接器）→ Add custom connector，貼上網址 |
+| **ChatGPT** | 可以，需付費方案（Plus 以上，免費版不支援） | 設定 → Apps → 進階設定 → 開啟「Developer Mode（開發者模式）」→ 新增自訂 connector，貼上網址 |
+| **Google Gemini** | 消費版聊天 App 目前不支援 | 需透過 Gemini CLI（需編寫設定檔）或 Gemini Enterprise（需 Google Cloud 管理權限），屬於工程或企業的用法，見[程式呼叫與自架](#程式呼叫與自架) |
 
 </div>
 
-各家的方案門檻與設定位置可能會變動，請以各家官方說明為準（Claude[^connector]、ChatGPT[^chatgpt]、Gemini[^gemini]）。
+各家的方案門檻與設定位置可能變動，以官方說明為準（Claude[^connector]、ChatGPT[^chatgpt]、Gemini[^gemini]）。
 
-三家裡門檻最低的是 Claude，以它為例的完整步驟：
+以門檻最低的 Claude 為例，完整步驟如下：
 
-1. 打開 [claude.ai](https://claude.ai)（網頁版或桌面版都可以），登入。
-2. 進設定，找到「Connectors（連接器）」，點「Add custom connector（新增自訂連接器）」。
-3. 名稱填 `onionoo`，網址貼上 `https://onionoo.anoni.net/mcp`，按「Add」。
-4. 回到 AI 助理開一個新對話，直接用中文問（例句見下一節）。
+1. 開啟 [claude.ai](https://claude.ai)（網頁版或桌面版皆可）並登入。
+2. 進入設定，找到「Connectors（連接器）」，點選「Add custom connector（新增自訂連接器）」。
+3. 名稱填 `onionoo`，網址貼上 `https://onionoo.anoni.net/mcp`，按下「Add」。
+4. 回到 AI 助理開啟新對話，直接用中文提問（例句見下一節）。
 
-如果你用的是公司或團隊帳號，通常只有帳號管理者（Owner）能新增連接器，請找管理者代加。
+使用公司或團隊帳號時，通常只有帳號管理者（Owner）能新增連接器，需請管理者代為新增。
 
 <figure markdown="span">
     <a href="https://assets.anoni.net/docs/onionoo-mcp-claude-desktop.png" target="_blank">
         <img src="https://assets.anoni.net/docs/onionoo-mcp-claude-desktop.png"
             alt="Claude Desktop 的 Connectors 設定頁，onionoo 顯示為 CUSTOM connector、連到 https://onionoo.anoni.net/mcp，工具清單列出 aggregate_as、aggregate_countries、aggregate_flags、get_bandwidth、get_clients、get_details、get_summary、get_uptime、get_weights 等工具"
-            title="在 Connectors 設定頁貼上網址後的樣子"
+            title="貼上網址後的 Connectors 設定頁"
             class="shot">
     </a>
-    <figcaption>加好之後，Connectors 頁會出現 <code>onionoo</code> 這個自訂連接器，底下是它提供的查詢工具。AI 助理會自己挑工具，你只要用中文問就好。</figcaption>
+    <figcaption>新增完成後，Connectors 頁會列出 <code>onionoo</code> 自訂連接器與它提供的查詢工具。使用時不必指定工具，用中文提問，AI 助理會自行選用。</figcaption>
 </figure>
 
 ## 可以直接複製的問句
 
-不知道怎麼問的話，先複製下面這幾句，再依需要換成你想查的國家或地區。
+以下三句可以直接複製，再依需要換成想查的國家或地區。
 
-**想要可引用的數字（事實查核）**
+**可引用的數字（事實查核）**
 
-> 臺灣現在有幾個運作中的 Tor 中繼節點？總頻寬大約多少？幫我整理成一句我能直接引用的話。
+> 台灣現在有幾個運作中的 Tor 中繼節點？總頻寬大約多少？幫我整理成一句我能直接引用的話。
 
 **跨國比較（新聞報導）**
 
-> 幫我比較臺灣、香港、日本目前運作中的 Tor 中繼節點數量與總頻寬，做成一個表格。
+> 幫我比較台灣、香港、日本目前運作中的 Tor 中繼節點數量與總頻寬，做成一個表格。
 
-**看分散程度（公民團體）**
+**節點的分散程度（公民團體）**
 
-> 臺灣的 Tor 中繼節點分別由哪些電信業者（ASN）承載？前五大是哪些、各有幾個？
+> 台灣的 Tor 中繼節點分別由哪些電信業者（ASN）承載？前五大是哪些、各有幾個？
 
-問完覺得有用，可以追問「這些數字是什麼時候的？」、「資料來源是哪裡？」，讓它把出處交代清楚。
+得到答案後，可以追問「這些數字是什麼時候的？」、「資料來源是哪裡？」，請 AI 助理交代出處。
 
-??? info "幾個會用到的詞"
+??? info "名詞說明"
 
-    這頁會出現的幾個詞，第一次看到不用緊張，知道大概是什麼就好，要查的時候 AI 助理也會替你解釋。
+    第一次看到這些詞時，知道大概的意思即可，需要時也可以請 AI 助理解釋。
 
-    - **中繼節點（relay）**：Tor 網路裡幫忙轉送流量、由志工架設的伺服器，全球有上萬個。你連 Tor 時，流量會接力經過好幾個中繼節點。
-    - **橋接（bridge）**：沒有公開列出的中繼節點，給連不上一般 Tor 節點（例如被封鎖）的人繞道用。
-    - **出口節點（exit）**：流量離開 Tor 網路、連回一般網站時的最後一個節點。
-    - **ASN（自治系統編號）**：一家電信業者或網路供應商在網路上的編號。看節點落在哪些 ASN，就是看它們由哪些業者承載。
-    - **consensus weight（共識權重）**：Tor 分配流量時給每個節點的分量，大致反映它能承擔多少流量，數字越大越吃重。
+    - **中繼節點（relay）**：Tor 網路裡負責轉送流量的伺服器，由志工架設，全球近萬個。連上 Tor 時，流量會依序經過好幾個中繼節點。
+    - **橋接（bridge）**：沒有公開列出的中繼節點，供無法連上一般 Tor 節點（例如遭到封鎖）的使用者繞道連線。
+    - **出口節點（exit）**：流量離開 Tor 網路、連回一般網站時經過的最後一個節點。
+    - **ASN（自治系統編號）**：電信業者或網路供應商在網際網路上的編號。節點所在的 ASN 代表承載它的業者。
+    - **consensus weight（共識權重）**：Tor 分配流量時給每個節點的分量，大致反映節點能承擔的流量，數字越大，分到的流量越多。
 
-## 我查到的數字可靠嗎、能不能引用
+## 數字的可靠度與引用方式
 
-可以。底層資料來自 Tor Project 官方維護的 [Onionoo](https://metrics.torproject.org/onionoo.html)（Tor 的中繼節點公開資料服務），onionoo.anoni.net 只負責把它轉成比較好讀的格式，本身不另外儲存或加工數值。
+查到的數字可以引用，底層資料來自 Tor Project 官方維護的 [Onionoo](https://metrics.torproject.org/onionoo.html)（Tor 中繼節點的公開資料服務）。onionoo.anoni.net 只把資料轉成較易讀的格式，不另外儲存或加工數值。
 
-- **想交叉核對**：同樣的節點可以在 Tor Project 官方的 [Relay Search](https://metrics.torproject.org/rs.html) 查到，數字應該對得起來。
-- **注意時效**：服務為了減輕上游負擔會把回應快取約 5 分鐘，加上 Onionoo 本身也是定期更新，所以你取得的是「某個時間點的快照」，不是即時值。要引用時把查詢時間一起記下來。
+- **交叉核對**：同樣的節點可以在 Tor Project 官方的 [Relay Search](https://metrics.torproject.org/rs.html) 查到，兩邊的數字應該一致。
+- **時效**：為了減輕上游負擔，服務會把回應快取約 5 分鐘。Onionoo 本身也是定期更新，取得的數字是某個時間點的快照，不是即時值，引用時要一併記下查詢時間。
 - **引用寫法**：可以寫成「資料來源：Tor Project Onionoo（經 anoni.net onionoo 服務查詢，查詢時間 2026-06-09）」。
-
-以上就是一般查資料的用法，看到這裡就夠了。想用程式直接呼叫、或自己架一份服務，再往下讀。
 
 ---
 
-## 給工程師與想自架的人
+## 程式呼叫與自架
 
-以下技術性較高，寫給要在程式裡直接呼叫、或想自行架設一份服務的人。一般查資料用前半段就夠了。
-
-`onionoo-fastapi` 把 Onionoo API 包裝成兩種對工具與 AI 代理（agent）更友善的介面：
+`onionoo-fastapi` 把 Onionoo API 包裝成兩種介面，讓工具與 AI 代理（agent）更容易使用：
 
 - **語義化 HTTP API**（附 OpenAPI / Swagger）：把 Onionoo 的短欄位（`n`、`f`、`a`、`r` 等）轉成可讀的 `nickname`、`fingerprint`、`addresses`、`running`，並補上一份完整的 OpenAPI 規格。
-- **[Model Context Protocol（MCP）](https://modelcontextprotocol.io/) 伺服器**：讓 Claude Desktop、Cursor、Claude Code 等支援 MCP 的客戶端，直接用工具呼叫的方式查 Tor 中繼節點，不需要寫 HTTP 程式碼。
+- **[Model Context Protocol（MCP）](https://modelcontextprotocol.io/) 伺服器**：讓 Claude Desktop、Cursor、Claude Code 等支援 MCP 的客戶端以工具呼叫（tool call）查詢 Tor 中繼節點，不需要撰寫 HTTP 請求的程式碼。
 
-服務本身**不儲存**任何 Onionoo 資料，只負責轉發與重新包裝回應。上游資料來自 <https://onionoo.torproject.org>。
+服務本身**不儲存**任何 Onionoo 資料，只負責轉發與重新包裝回應，上游資料來自 Tor Project 的 [Onionoo 服務](https://onionoo.torproject.org)。
 
 - **服務網址**：<https://onionoo.anoni.net>
 - **Swagger UI**：<https://onionoo.anoni.net/docs>
 - **MCP 端點**：`https://onionoo.anoni.net/mcp`（Streamable HTTP）
-- **原始碼**：<https://github.com/anoni-net/onionoo-fastapi>（MIT 授權，目前版本 v1.0.0）
+- **原始碼**：<https://github.com/anoni-net/onionoo-fastapi>（MIT 授權，目前版本 v1.2.0）
 
 <figure markdown="span">
     <a href="https://assets.anoni.net/docs/onionoo-mcp-swagger.png" target="_blank">
@@ -126,30 +122,30 @@ lead: 在雲端 AI 助理貼上一個網址，用中文查各地的 Tor 中繼�
             title="onionoo.anoni.net 的 Swagger UI"
             class="shot">
     </a>
-    <figcaption><code>onionoo.anoni.net/docs</code> 的 Swagger UI 入口，所有 <code>/v1/*</code> 端點都有完整 schema 與「Try it out」可即時測試。</figcaption>
+    <figcaption><code>onionoo.anoni.net/docs</code> 的 Swagger UI，每個 <code>/v1/*</code> 端點都附完整 schema，可以用「Try it out」即時測試。</figcaption>
 </figure>
 
-### 為什麼做這個服務
+### 服務的緣起
 
-Onionoo 的規格本身很完整，但**沒有 OpenAPI 描述**，欄位也偏短碼（為了傳輸效率而設計）。對「人類工程師讀文件加自己寫 client」沒問題，但對 AI 代理或第三方工具就比較吃力：
+Onionoo 的規格完整，但**沒有 OpenAPI 描述**，欄位名稱也為了傳輸效率縮成短碼。工程師讀文件、自行撰寫 client 時不成問題，AI 代理與第三方工具使用起來就比較困難：
 
-- 沒有 OpenAPI 就無法被 Swagger UI、Postman、code generator 自動消化。
-- 短欄位名稱對語言模型不友善，模型容易誤解 `r` 是 `relay` 還是 `running`。
-- 一次查詢往往需要組合好幾個端點（`/details` 加 `/uptime` 加 `/bandwidth`），AI 代理重複拼湊容易出錯。
+- 沒有 OpenAPI，Swagger UI、Postman 與 code generator 就無法自動讀取規格。
+- 短欄位名稱容易讓語言模型誤判，例如分不清 `r` 是 `relay` 還是 `running`。
+- 一個問題往往要組合好幾個端點（`/details` 加 `/uptime` 加 `/bandwidth`），AI 代理每次重新拼湊，容易出錯。
 
-`onionoo-fastapi` 把這些事情做掉：補上 OpenAPI、改成語義化欄位、用 MCP 工具的形式把常見任務包成單一呼叫（例如「給我某中繼節點目前的健康狀況」一個工具就完成）。
+`onionoo-fastapi` 補上 OpenAPI 規格、改用語義化欄位，並把常見任務包成單一的 MCP 工具呼叫，例如查詢某個中繼節點目前的健康狀況，一個工具就能完成。
 
 ### API 與 MCP 的差別
 
-**API（Application Programming Interface，應用程式介面）** 是讓程式互相查詢資料的標準。Onionoo 本身就是一個 API：你發一個 HTTP 請求過去（例如「給我臺灣所有 running 的 relay」），它回一份 JSON。規格是給工程師讀的，取得的是原始資料，適合「已經知道要問什麼」的情境。
+**API（Application Programming Interface，應用程式介面）** 讓程式之間可以互相查詢資料。Onionoo 就是一個 API，送出一個 HTTP 請求（例如查詢台灣所有 running 的 relay），會收到一份 JSON。規格寫給工程師閱讀，回傳的是原始資料，適合已經知道要問什麼的情境。
 
-**MCP（Model Context Protocol，模型上下文協定）** 是 Anthropic 在 2024 年提出的開放協定，定義 AI 模型如何呼叫外部工具的標準格式。把現有 API 包裝成一個 MCP server，所有支援 MCP 的 AI 代理或客戶端就都能直接接上，模型能自己讀懂工具清單、決定何時呼叫哪一個，不必每次出現新客戶端就重做整合。
+**MCP（Model Context Protocol，模型上下文協定）** 是 Anthropic 在 2024 年提出的開放協定，定義 AI 模型呼叫外部工具的標準格式。現有的 API 包裝成 MCP server 之後，支援 MCP 的 AI 代理與客戶端都能直接接上，由模型讀取工具清單，自行決定何時呼叫哪個工具。每出現一個新的客戶端，也不必重做一次整合。
 
-對前期的資料探勘來說，MCP 特別有幫助：你不必先學會這份資料的 schema 才能開始問問題，AI 助理會替你做初步查詢與整理，看完報告再決定下一步。某些查詢之後要重複用、或要進到正式分析時，再切回 API 寫腳本即可，兩條路徑可以共存。
+資料探勘的初期透過 MCP 提問，不必先學會這份資料的 schema，由 AI 助理做初步查詢與整理，讀完報告再決定下一步。需要重複執行的查詢，或要進入正式分析時，再改用 API 撰寫腳本，兩種方式可以並用。
 
-### 接成 MCP 伺服器（設定檔）
+### MCP 伺服器的設定檔
 
-如果你的客戶端要用設定檔接（不走前半段的 Connectors UI），在 `mcpServers` 區塊加上：
+客戶端以設定檔連接時（不經過前半頁的 Connectors 介面），在 `mcpServers` 區塊加上：
 
 ```json
 {
@@ -162,9 +158,9 @@ Onionoo 的規格本身很完整，但**沒有 OpenAPI 描述**，欄位也偏�
 }
 ```
 
-存檔、重啟客戶端，工具清單就會出現 `onionoo` 這組工具。
+存檔並重新啟動客戶端後，工具清單會出現 `onionoo` 這組工具。
 
-如果要在本機執行（不依賴遠端服務），可以改用 stdio transport：
+要在本機執行、不依賴遠端服務時，改用 stdio transport：
 
 ```json
 {
@@ -177,30 +173,30 @@ Onionoo 的規格本身很完整，但**沒有 OpenAPI 描述**，欄位也偏�
 }
 ```
 
-需要先安裝 [`uv`](https://docs.astral.sh/uv/)（macOS 上 `brew install uv`，Linux 上請參考官方文件）。
+需先安裝 [`uv`](https://docs.astral.sh/uv/)（macOS 可用 `brew install uv`，Linux 見官方文件）。
 
-Gemini CLI 也是讀 `mcpServers` 設定（在它的 settings.json），格式與上面相近，把同一個遠端網址填進去即可。消費版的 Gemini 聊天 App 目前還沒有貼網址接遠端 MCP 的入口，這條路得等官方支援。
+Gemini CLI 同樣讀取 `mcpServers` 設定（位於它的 settings.json），格式與上面相近，填入同一個遠端網址即可。消費版的 Gemini 聊天 App 目前沒有貼上網址連接遠端 MCP 的入口，需等官方支援。
 
-### 當作 HTTP API 直接呼叫
+### HTTP API 的呼叫方式
 
-每個端點都會回傳語義化 JSON，加上 `_meta` 標示快取狀態：
+每個端點都回傳語義化的 JSON，並以 `_meta` 標示快取狀態：
 
 ```bash
-# 查 moria1 的詳細資訊（限制只回 nickname 與 fingerprint）
+# 查詢 moria1 的詳細資訊，只回傳 nickname 與 fingerprint
 curl -s 'https://onionoo.anoni.net/v1/details?search=moria&fields=nickname,fingerprint' | jq .
 
-# 列出臺灣的 relay，依 consensus weight 排序
+# 列出台灣的 relay，依 consensus weight 排序
 curl -s 'https://onionoo.anoni.net/v1/details?country=tw&running=true&order=-consensus_weight&limit=5' | jq .
 
-# 按國家彙整目前 running 的 relay 數量
+# 依國家彙整目前 running 的 relay 數量
 curl -s 'https://onionoo.anoni.net/v1/aggregate/countries?running=true' | jq .
 ```
 
-完整的端點、查詢參數與回應欄位請見 [Swagger UI](https://onionoo.anoni.net/docs)。查詢參數沿用 Onionoo 的 [官方規格](https://metrics.torproject.org/onionoo.html)。
+完整的端點、查詢參數與回應欄位見 [Swagger UI](https://onionoo.anoni.net/docs)，查詢參數沿用 Onionoo 的[官方規格](https://metrics.torproject.org/onionoo.html)。
 
-### 自架（Docker）
+### Docker 自架
 
-如果想自行架設一份（例如在 .onion 服務、內網或實驗環境）：
+要自行架設一份（例如架在 .onion 服務、內網或實驗環境）時：
 
 ```bash
 git clone https://github.com/anoni-net/onionoo-fastapi
@@ -208,16 +204,16 @@ cd onionoo-fastapi
 docker compose up -d --build
 ```
 
-預設監聽 `8000` port，OpenAPI 文件在 `http://localhost:8000/docs`，MCP 端點在 `http://localhost:8000/mcp`。
+預設監聽 `8000` 埠，OpenAPI 文件在 `http://localhost:8000/docs`，MCP 端點在 `http://localhost:8000/mcp`。
 
 常用設定（環境變數）：
 
 | 變數 | 用途 | 預設 |
 |---|---|---|
 | `ONIONOO_BASE_URL` | 上游 Onionoo 位址 | `https://onionoo.torproject.org` |
-| `CACHE_MAXSIZE` / `CACHE_DEFAULT_TTL_SECONDS` | 記憶體快取大小 / TTL | `1024` / `300` 秒 |
+| `CACHE_MAXSIZE` / `CACHE_DEFAULT_TTL_SECONDS` | 記憶體快取大小 / TTL | `128` / `300` 秒 |
 | `RATE_LIMIT_ENABLED` / `RATE_LIMIT_PER_MINUTE` | 是否啟用 IP 限流 | `false` / `120` |
-| `CORS_ALLOWED_ORIGINS` | 允許跨來源請求的網域清單 | 空（預設關閉） |
+| `CORS_ALLOW_ORIGINS` | 允許跨來源請求的網域清單，逗號分隔，設成空字串即關閉（1.0.0 的舊名 `CORS_ALLOWED_ORIGINS` 仍可使用） | `https://anoni.net`、文件站的 onion 鏡像與本機預覽 |
 | `LOG_FORMAT` | `json` 或 `console` | `json` |
 | `METRICS_ENABLED` | 是否啟用 `/metrics`（Prometheus 格式） | `true` |
 
@@ -225,56 +221,54 @@ docker compose up -d --build
 
 ### MCP 工具一覽
 
-任務導向（stdio transport 提供，推薦給代理使用）：
+任務導向的工具由 stdio transport 提供，建議代理使用：
 
 | 工具 | 用途 |
 |---|---|
 | `find_relay(query)` | 自由文字查詢，自動判斷輸入是 40 碼指紋、AS 號、IP，或暱稱子字串 |
-| `get_relay_health(fingerprint)` | 把 details / uptime / bandwidth 三個端點併成一個健康度快照 |
+| `get_relay_health(fingerprint)` | 合併 details、uptime、bandwidth 三個端點，產生一份健康度快照 |
 | `top_relays_by_bandwidth(country?, flag?, limit)` | 依 consensus weight 取前 N 名，可選國家或旗標過濾 |
-| `compare_relays(fingerprints)` | 平行抓多個 fingerprint 的 details 做並排比較 |
-| `country_summary(country)` | 單一國家的 running 數量、總頻寬、旗標分佈 |
-| `aggregate_relays(group_by, running, top)` | 依 country / AS / flag 做伺服器端 group-by |
+| `compare_relays(fingerprints)` | 平行取得多個 fingerprint 的 details 並排比較 |
+| `country_summary(country)` | 單一國家的 running 數量、總頻寬、旗標分布 |
+| `aggregate_relays(group_by, running, top)` | 在伺服器端依 country、AS 或 flag 做 group-by |
 
-低階透傳（兩種 transport 都提供）：
+對應 Onionoo 原生端點的低階透傳工具，兩種 transport 都有提供，名稱與參數不同。Streamable HTTP 端是 `get_summary`、`get_details`、`get_bandwidth`、`get_weights`、`get_clients`、`get_uptime`，查詢參數逐一列為工具參數，回傳語義化的 JSON。stdio 端是 `onionoo_summary`、`onionoo_details` 等同樣六個工具，接受一個 `params` dict，回傳 Onionoo 的原始回應。
 
-`get_summary` / `get_details` / `get_bandwidth` / `get_weights` / `get_clients` / `get_uptime`：對應 Onionoo 原生端點，吃一個 `params` dict，回傳語義化包裝後的 JSON。
+> Streamable HTTP 的 `/mcp` 提供六個低階工具加上三個 aggregate（countries、as、flags），任務導向工具與整合的 `aggregate_relays` 則由 stdio 端提供。兩種 transport 可以同時使用。
 
-> Streamable HTTP `/mcp` 提供六個低階端點加上三個 aggregate（countries、as、flags），任務導向工具與整合的 `aggregate_relays` 則在 stdio 端提供。兩種 transport 可同時使用。
+### 台灣 Tor 中繼節點的盤點範例
 
-### 用 AI 代理盤點臺灣的 Tor 貢獻
+onionoo MCP 接上 Claude Desktop 或 Claude Code 之後，可以直接提問：
 
-把 onionoo MCP 接上 Claude Desktop 或 Claude Code 後，可以直接問：
+> 「幫我整理一份台灣 Tor 中繼節點現況：總共多少個 running、總頻寬、前五大 ASN，順便挑出 consensus weight 最高的三個 relay，告訴我它們的 nickname 與所在 AS。」
 
-> 「幫我整理一份臺灣 Tor 中繼節點現況：總共多少個 running、總頻寬、前五大 ASN，順便挑出 consensus weight 最高的三個 relay，告訴我它們的 nickname 與所在 AS。」
-
-代理會自動把問題拆成幾個 MCP 工具呼叫，把結果彙整成一份報告（HTTP transport 下會用 `aggregate_countries` 加 `get_details`，stdio transport 下則可改用 `country_summary`、`aggregate_relays`、`top_relays_by_bandwidth` 等任務導向工具）。這類查詢以往需要手動湊 Onionoo 參數、合併 JSON，現在一句話就能完成。
+代理會把問題拆成幾個 MCP 工具呼叫，再把結果彙整成一份報告（HTTP transport 通常用 `aggregate_countries` 加 `get_details`，stdio transport 另有 `country_summary`、`aggregate_relays`、`top_relays_by_bandwidth` 等任務導向工具）。以往這類查詢需要手動組合 Onionoo 參數、合併 JSON，現在一句話即可完成。
 
 <figure markdown="span">
     <a href="https://assets.anoni.net/docs/onionoo-mcp-tool-use-detail.png" target="_blank">
         <img src="https://assets.anoni.net/docs/onionoo-mcp-tool-use-detail.png"
-            alt="Claude Opus 4.7 思考過程的截圖：先說「我要找臺灣的 relay 資訊」、列出可能工具、然後決定先呼叫 aggregate_countries 找臺灣那一列、再用 get_details 抓 country=tw 的 AS 資訊、最後依 consensus weight 拉前三名。可以看到 aggregate_countries 這個工具呼叫已展開、回傳 Result"
+            alt="Claude Opus 4.7 思考過程的截圖：先說「我要找臺灣的 relay 資訊」、列出可能工具、然後決定先呼叫 aggregate_countries 找台灣那一列、再用 get_details 抓 country=tw 的 AS 資訊、最後依 consensus weight 拉前三名。可以看到 aggregate_countries 這個工具呼叫已展開、回傳 Result"
             title="Claude Opus 4.7 的工具呼叫展開過程"
             class="shot">
     </a>
-    <figcaption>展開模型側的推理，可以看到代理一步一步說出要查什麼、選哪個工具、結果回來後下一步要做什麼。文字之間夾著實際的 <code>aggregate_countries</code>、<code>get_details</code> 工具呼叫，方便除錯或微調 prompt。</figcaption>
+    <figcaption>展開模型的推理過程，可以逐步看到代理打算查詢的內容、選用的工具，以及結果回傳後的下一步。推理文字之間穿插實際的 <code>aggregate_countries</code>、<code>get_details</code> 工具呼叫，方便除錯或調整 prompt。</figcaption>
 </figure>
 
 ### 觀測指標與運維
 
-- `/healthz`：靜態存活檢查，不打上游。
-- `/healthz/ready`：嘗試打 Onionoo（結果有快取），回 200 表示上游可達、503 表示不可達。
+- `/healthz`：靜態存活檢查，不連線上游。
+- `/healthz/ready`：嘗試連線 Onionoo（結果會快取），回傳 200 表示上游可以連線，503 表示無法連線。
 - `/metrics`：Prometheus 格式，含快取命中率（`onionoo_cache_hits_total` 與 `_misses_total`）、上游延遲（`onionoo_upstream_seconds`）與錯誤率。
-- 每個請求都有 `X-Request-ID`，可在 log 與回應 header 對應，方便除錯。
+- 每個請求都帶有 `X-Request-ID`，可以對照 log 與回應 header，方便除錯。
 
 ## 參與與貢獻
 
-- **回報問題 / 提建議**：<https://github.com/anoni-net/onionoo-fastapi/issues>
-- **想自行架設 Tor relay**：見 [Tor Relay 架設指南](/join/setup-tor-relay/)，相關觀測指標在 [Tor 中繼節點觀測](/projects/pulse/)。
-- **出國前評估**：[出國前數位安全：用 AI 自助產生目的地概況](docs:scenarios/travel-ai-briefing/)。記者、NGO 出國前要查目的地的 Tor 可達性時，接上 onionoo MCP 就能讓 AI 查到真實、可引用的 Onionoo 數字。
-- **延伸閱讀**：[什麼是 Tor？](docs:tools/what-is-tor/)、[ASN 自治網路觀測資料分析](docs:taiwan/ooni-asn-coverage/)。
+- **回報問題與建議**：[onionoo-fastapi 的 GitHub issues](https://github.com/anoni-net/onionoo-fastapi/issues)
+- **架設 Tor relay**：見[Tor Relay 架設指南](/join/setup-tor-relay/)，區域內中繼節點的觀測數字見[Tor 中繼節點觀測](/projects/pulse/)。
+- **出國前評估**：[出國前數位安全：用 AI 自助產生目的地概況](docs:scenarios/travel-ai-briefing/)，記者與公民團體出國前查詢目的地的 Tor 中繼節點狀況時，接上 onionoo MCP 可以取得能引用的 Onionoo 數字。
+- **延伸閱讀**：[什麼是 Tor](docs:tools/what-is-tor/)、[ASN 自治網路觀測資料分析](docs:taiwan/ooni-asn-coverage/)。
 
-服務目前以 v1.0.0 釋出，授權為 MIT。歡迎 issue、PR，或在 Matrix 上一起討論之後該補哪些任務導向工具。
+服務目前的版本是 v1.2.0，以 MIT 授權釋出。歡迎提出 issue、PR，也歡迎在 Matrix 一起討論接下來要補上哪些任務導向工具。
 
 [^connector]: [Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp) - Claude Help Center（自訂連接器在免費、Pro、Max、Team、Enterprise 方案皆可使用，免費方案限一個）。
 

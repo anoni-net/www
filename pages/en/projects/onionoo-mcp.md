@@ -1,12 +1,12 @@
 ---
 title: Tor relay lookup for AI assistants
-description: A community-run Tor relay lookup. Paste one URL into a cloud AI assistant and ask in plain language how many relays a country runs and on which networks.
+description: A Tor relay lookup service the community builds and hosts. Add one URL to a cloud AI assistant and ask, without writing code, how many relays a country runs, how much bandwidth they carry and which networks host them.
 lead: Paste one URL into a cloud AI assistant and ask about Tor relays anywhere in plain language.
 ---
 
-Want to know how many Tor relays Taiwan is running right now, whether that number has grown or shrunk over the past six months, and which telecoms host them? The answers are all in the Tor Project's public data — but getting them used to mean writing code to fetch and crunch it yourself. onionoo MCP turns that into a single plain-language question. Connect the service inside an AI assistant (such as claude.ai), type "How many working Tor relays does Taiwan have right now?", and it queries, computes, and hands back a readable report.
+The Tor Project's public data shows how many Tor relays Taiwan is running right now, whether that number has grown or shrunk over the past six months, and which telecoms host them, but getting those answers used to mean writing code to fetch and process the data yourself. Once onionoo MCP is connected to an AI assistant (such as claude.ai), you can type "How many working Tor relays does Taiwan have right now?" and the assistant queries the data, does the arithmetic, and returns a readable report.
 
-The first half of this page is for people who want to look up data but don't write code — journalists, civil-society groups, fact-checkers. The second half ([for engineers and self-hosters](#For-engineers-and-self-hosters)) is for people who want to call it from code or run their own copy.
+The first half of this page is for people who look up data but don't write code, such as journalists, civil-society groups and fact-checkers. The second half, [API access and self-hosting](#API-access-and-self-hosting), is for engineers who want to call the service from code or run their own copy.
 
 <figure markdown="span">
     <a href="https://assets.anoni.net/docs/onionoo-mcp-tw-summary-result-en.png" target="_blank">
@@ -15,41 +15,41 @@ The first half of this page is for people who want to look up data but don't wri
             title="Claude Desktop's summary of Taiwan's current Tor footprint"
             class="shot">
     </a>
-    <figcaption>What you get back: ask in plain language, and the assistant returns a tidy report (running relay count, total bandwidth, top networks). The underlying numbers come from the Tor Project's public data; this is a point-in-time snapshot that shifts as the network evolves.</figcaption>
+    <figcaption>A plain-language question returns a report with the running relay count, total bandwidth and top networks. The numbers come from the Tor Project's public data and are a snapshot taken at query time, so they change as the network does.</figcaption>
 </figure>
 
-## What it can answer for you
+## Use cases
 
 - **Fact-checking**: when someone claims "Taiwan's Tor capacity is tiny," you can ask on the spot how many relays are running, how much total bandwidth there is, and how that compares to an earlier point in time — numbers you can check and cite.
 - **Reporting**: when covering a country's network blocking or circumvention infrastructure, survey how many Tor relays it has and which providers its exit relays (the last hop, where traffic leaves Tor for the ordinary web) cluster in, for a cross-country comparison.
 - **Civil society and advocacy**: gauge how concentrated a region's relays are (across how many telecoms — the more spread out, the harder they are to cut off at once) as a digital-resilience indicator.
 
-## Getting started (no code required)
+## Setup in a cloud AI assistant
 
-The lowest-barrier way to use this is to connect the service to the cloud AI assistant you already use. Nothing to install, no config file to edit — you add a "custom connector" in the assistant's settings and point it at one URL:
+Without writing code, the simplest route is to connect the service to the cloud AI assistant you already use. There is nothing to install and no config file to edit: add a custom connector in the assistant's settings and paste in this URL:
 
 `https://onionoo.anoni.net/mcp`
 
-Three cloud AI assistants common across the Asia-Pacific region differ in how easy this is right now:
+Three cloud AI services common across the Asia-Pacific region currently differ in what this takes:
 
 <div class="tbl-names" markdown>
 
-| Cloud AI | Paste a URL in the app? | How to connect |
+| Cloud AI | URL in the app | How to connect |
 |---|---|---|
 | **Claude (claude.ai)** | Yes — even on the free plan (1 connector limit) | Settings → Connectors → Add custom connector, paste the URL |
 | **ChatGPT** | Yes, but needs a paid plan (Plus or above; not Free) | Settings → Apps → Advanced → turn on Developer Mode → add a custom connector, paste the URL |
-| **Google Gemini** | Not yet in the consumer chat app | Goes through Gemini CLI (config file) or Gemini Enterprise (Google Cloud admin) — an engineering or enterprise path; see [the engineer section](#For-engineers-and-self-hosters) |
+| **Google Gemini** | Not yet in the consumer chat app | Goes through Gemini CLI (config file) or Gemini Enterprise (Google Cloud admin) — an engineering or enterprise path; see [API access and self-hosting](#API-access-and-self-hosting) |
 
 </div>
 
 Plan tiers and the exact location of these settings can change; check each vendor's own docs (Claude[^connector], ChatGPT[^chatgpt], Gemini[^gemini]).
 
-Claude has the lowest barrier of the three, so here are the full steps using it:
+The full steps for Claude, which has the lowest barrier of the three:
 
 1. Open [claude.ai](https://claude.ai) (web or desktop) and sign in.
 2. Open Settings, find **Connectors**, and click **Add custom connector**.
 3. Name it `onionoo`, paste `https://onionoo.anoni.net/mcp` as the URL, and click **Add**.
-4. Go back to a new chat and just ask in plain language (examples below).
+4. Start a new chat and ask in plain language (examples below).
 
 If you are on a company or team (Team or Enterprise) account, usually only an account Owner can add connectors — ask your admin to add it.
 
@@ -60,12 +60,12 @@ If you are on a company or team (Team or Enterprise) account, usually only an ac
             title="The Connectors panel after pasting the URL"
             class="shot">
     </a>
-    <figcaption>Once added, the Connectors panel shows the <code>onionoo</code> custom connector and the query tools it provides. The assistant picks the tools itself — you just ask in plain language.</figcaption>
+    <figcaption>Once added, the Connectors panel shows the <code>onionoo</code> custom connector and the query tools it provides. You don't need to name a tool; the assistant chooses one based on your question.</figcaption>
 </figure>
 
-## Questions you can copy and paste
+## Example questions
 
-Not sure how to phrase it? Copy one of these and swap in the country or region you care about.
+Copy any of these three and swap in the country or region you care about.
 
 **Numbers you can cite (fact-checking)**
 
@@ -75,49 +75,45 @@ Not sure how to phrase it? Copy one of these and swap in the country or region y
 
 > Compare the number of running Tor relays and total bandwidth in Taiwan, Hong Kong, and Japan right now, as a table.
 
-**How concentrated is it (civil society)**
+**Relay concentration (civil society)**
 
 > Which telecom networks (ASNs) host Taiwan's Tor relays? What are the top five, and how many relays does each carry?
 
-If the answer looks useful, follow up with "When are these numbers from?" or "What's the source?" to make it spell out the provenance.
+If the answer looks useful, follow up with "When are these numbers from?" or "What's the source?" to have the assistant state its sources.
 
-??? info "A few terms you'll run into"
+??? info "Terms used on this page"
 
-    Don't worry if these are new — a rough sense is enough, and the assistant will explain them on request.
+    A rough sense of each is enough, and the assistant can explain any of them on request.
 
-    - **Relay**: a volunteer server in the Tor network that forwards traffic. There are tens of thousands worldwide; your traffic hops through several of them.
+    - **Relay**: a volunteer server in the Tor network that forwards traffic. There are close to ten thousand worldwide, and your traffic passes through several of them in turn.
     - **Bridge**: an unlisted relay, for people who can't reach the ordinary (publicly listed) Tor relays — for example, because they're blocked.
     - **Exit**: the last relay on the path, where traffic leaves the Tor network and connects to the ordinary web.
     - **ASN (Autonomous System Number)**: the number that identifies a telecom or network provider on the internet. Which ASNs the relays sit in tells you which providers carry them.
-    - **Consensus weight**: the share of traffic Tor assigns each relay, roughly proportional to how much it can carry. Higher means it pulls more weight.
+    - **Consensus weight**: the share of traffic Tor assigns each relay, roughly proportional to how much it can carry. A higher number means the relay is assigned more traffic.
 
-## Are the numbers reliable — can I cite them?
+## Reliability and citation
 
-Yes. The underlying data comes from the Tor Project's own [Onionoo](https://metrics.torproject.org/onionoo.html) (the public metadata service for Tor relays). onionoo.anoni.net only reshapes it into a friendlier format; it stores nothing and changes no values.
+The numbers are citable. They come from the Tor Project's own [Onionoo](https://metrics.torproject.org/onionoo.html) (the public metadata service for Tor relays), and onionoo.anoni.net only reshapes them into a friendlier format without storing or changing any values.
 
 - **Cross-check**: the same relays show up in the Tor Project's own [Relay Search](https://metrics.torproject.org/rs.html), and the figures should line up.
 - **Freshness**: the service caches responses for about five minutes, and Onionoo itself updates periodically, so what you get is a point-in-time snapshot, not a live value. Note the time you queried when you cite it.
 - **How to cite**: write it as `Source: Tor Project Onionoo (via anoni.net's onionoo service, queried 2026-06-09)`.
 
-That covers everyday lookups — you can stop here. If you want to call the service from code or run your own copy, read on.
-
 ---
 
-## For engineers and self-hosters
-
-The rest of this page is more technical, for calling the service from code or running your own instance. For everyday lookups, the first half is all you need.
+## API access and self-hosting
 
 `onionoo-fastapi` wraps the Onionoo API in two interfaces that are easier for tooling and AI agents to consume:
 
-- **Semantic HTTP API with OpenAPI / Swagger**: Onionoo's compact field names (`n`, `f`, `a`, `r`, and friends) are remapped to readable ones (`nickname`, `fingerprint`, `addresses`, `running`), with a full OpenAPI document on top.
+- **Semantic HTTP API with OpenAPI / Swagger**: Onionoo's compact field names (`n`, `f`, `a`, `r` and so on) are remapped to readable ones (`nickname`, `fingerprint`, `addresses`, `running`), with a full OpenAPI document on top.
 - **[Model Context Protocol (MCP)](https://modelcontextprotocol.io/) server**: Claude Desktop, Cursor, Claude Code, and other MCP clients can query relays through tool calls instead of hand-rolling HTTP requests.
 
-The service does **not** store any Onionoo data. It only forwards requests and reshapes responses. The upstream is <https://onionoo.torproject.org>.
+The service does **not** store any Onionoo data. It only forwards requests and reshapes responses. The upstream is the Tor Project's [Onionoo service](https://onionoo.torproject.org).
 
 - **Hosted instance**: <https://onionoo.anoni.net>
 - **Swagger UI**: <https://onionoo.anoni.net/docs>
 - **MCP endpoint**: `https://onionoo.anoni.net/mcp` (Streamable HTTP)
-- **Source code**: <https://github.com/anoni-net/onionoo-fastapi> (MIT, currently v1.0.0)
+- **Source code**: <https://github.com/anoni-net/onionoo-fastapi> (MIT, currently v1.2.0)
 
 <figure markdown="span">
     <a href="https://assets.anoni.net/docs/onionoo-mcp-swagger.png" target="_blank">
@@ -129,7 +125,7 @@ The service does **not** store any Onionoo data. It only forwards requests and r
     <figcaption>The Swagger UI at <code>onionoo.anoni.net/docs</code>. Every <code>/v1/*</code> endpoint has a full schema and a Try-it-out button for ad-hoc testing.</figcaption>
 </figure>
 
-### Why this service
+### Motivation
 
 Onionoo's specification is solid, but it ships **without an OpenAPI description**, and its field names are short (optimized for transfer size). That works for a human writing a client by hand, but it is less friendly to AI agents and third-party tooling:
 
@@ -145,9 +141,9 @@ An **API (Application Programming Interface)** is a standard way for programs to
 
 **MCP (Model Context Protocol)** is an open protocol Anthropic introduced in 2024 that defines a standard format for how AI models invoke external tools. Wrapping an existing API as an MCP server means every MCP-capable AI agent or client can connect directly; the model reads the tool list, decides when to call which tool, and you don't redo the integration each time a new client appears.
 
-For early-stage data exploration, MCP helps a lot: you don't have to learn the dataset's schema before asking questions. The assistant does the first pass of querying and summarizing, and you decide where to dig deeper after reading its report. When some queries need repeating or wiring into a formal analysis, drop back to the API and write a script — the two paths coexist.
+For early-stage data exploration, MCP means you don't have to learn the dataset's schema before asking questions. The assistant does the first pass of querying and summarizing, and you decide where to dig deeper after reading its report. When some queries need repeating or wiring into a formal analysis, drop back to the API and write a script — the two paths coexist.
 
-### Wire it up as an MCP server (config file)
+### MCP client configuration
 
 If your client connects via a config file (rather than the Connectors UI from the first half), add this to the `mcpServers` block:
 
@@ -181,7 +177,7 @@ You will need [`uv`](https://docs.astral.sh/uv/) installed (`brew install uv` on
 
 Gemini CLI also reads an `mcpServers` config (in its settings.json), in a similar shape — drop the same remote URL in. The consumer Gemini chat app doesn't yet have an in-app way to paste a remote MCP URL, so using it there waits on official support.
 
-### Call it as an HTTP API
+### HTTP API usage
 
 Every endpoint returns semantic JSON with a `_meta` envelope indicating cache state:
 
@@ -198,7 +194,7 @@ curl -s 'https://onionoo.anoni.net/v1/aggregate/countries?running=true' | jq .
 
 For the full list of endpoints, parameters, and response fields, see the [Swagger UI](https://onionoo.anoni.net/docs). Query parameters mirror Onionoo's [protocol specification](https://metrics.torproject.org/onionoo.html).
 
-### Self-host with Docker
+### Docker self-hosting
 
 If you want to run your own copy (for a `.onion` service, an internal network, or experimentation):
 
@@ -215,9 +211,9 @@ Common settings (via environment variables):
 | Variable | Purpose | Default |
 |---|---|---|
 | `ONIONOO_BASE_URL` | Upstream Onionoo URL | `https://onionoo.torproject.org` |
-| `CACHE_MAXSIZE` / `CACHE_DEFAULT_TTL_SECONDS` | In-memory cache size and TTL | `1024` / `300` s |
+| `CACHE_MAXSIZE` / `CACHE_DEFAULT_TTL_SECONDS` | In-memory cache size and TTL | `128` / `300` s |
 | `RATE_LIMIT_ENABLED` / `RATE_LIMIT_PER_MINUTE` | Per-IP rate limiting | `false` / `120` |
-| `CORS_ALLOWED_ORIGINS` | Allowed CORS origins | empty (CORS off) |
+| `CORS_ALLOW_ORIGINS` | Allowed CORS origins, comma-separated; an empty string turns CORS off (the 1.0.0 name `CORS_ALLOWED_ORIGINS` is still accepted) | `https://anoni.net`, the docs site's onion mirror and local preview |
 | `LOG_FORMAT` | `json` or `console` | `json` |
 | `METRICS_ENABLED` | Expose `/metrics` in Prometheus format | `true` |
 
@@ -236,13 +232,11 @@ Task-oriented tools (stdio transport, recommended for agents):
 | `country_summary(country)` | Running count, total bandwidth, and flag distribution for one country |
 | `aggregate_relays(group_by, running, top)` | Server-side group-by over country / AS / flag |
 
-Low-level pass-through (both transports):
+Both transports also offer low-level pass-through tools over the six native Onionoo endpoints, with different names and arguments. On Streamable HTTP they are `get_summary`, `get_details`, `get_bandwidth`, `get_weights`, `get_clients` and `get_uptime`; each exposes the query parameters as individual tool arguments and returns the semantically renamed JSON. On stdio the same six are `onionoo_summary`, `onionoo_details` and so on; each takes a `params` dict and returns Onionoo's raw response.
 
-`get_summary` / `get_details` / `get_bandwidth` / `get_weights` / `get_clients` / `get_uptime`: thin wrappers over the corresponding Onionoo endpoints. Each takes a `params` dict and returns the semantically renamed JSON.
+> The Streamable HTTP endpoint at `/mcp` exposes the six low-level tools plus three aggregate tools (countries, as, flags); the task-oriented tools and the unified `aggregate_relays` live on the stdio transport. The two transports can run side by side.
 
-> The Streamable HTTP endpoint at `/mcp` exposes the six low-level wrappers plus three aggregate tools (countries, as, flags); the task-oriented tools and the unified `aggregate_relays` live on the stdio transport. The two transports can run side by side.
-
-### Surveying Taiwan's Tor footprint with an agent
+### Example agent survey of Taiwan's relays
 
 Once `onionoo` MCP is wired into Claude Desktop or Claude Code, you can ask:
 
@@ -257,7 +251,7 @@ The agent breaks the question into a handful of MCP tool calls and assembles a s
             title="Claude Opus 4.7's expanded tool-use trace"
             class="shot">
     </a>
-    <figcaption>The agent narrates its plan — what to query, which tool to pick, what to do with the response — with the actual <code>aggregate_countries</code> and <code>get_details</code> tool calls inlined. The full MCP interaction is visible, which makes debugging and prompt tuning much easier.</figcaption>
+    <figcaption>The agent narrates its plan — what to query, which tool to pick, what to do with the response — with the actual <code>aggregate_countries</code> and <code>get_details</code> tool calls inlined. The full MCP interaction is visible, which helps with debugging and prompt tuning.</figcaption>
 </figure>
 
 ### Observability and operations
@@ -267,14 +261,14 @@ The agent breaks the question into a handful of MCP tool calls and assembles a s
 - `/metrics`: Prometheus format. Includes cache hit/miss counters (`onionoo_cache_hits_total` and `_misses_total`), upstream latency (`onionoo_upstream_seconds`), and error rates.
 - Every request gets an `X-Request-ID` echoed in the response header and bound into log records — handy for correlating issues.
 
-## Get involved
+## Contributing
 
 - **Report bugs or suggest tools**: <https://github.com/anoni-net/onionoo-fastapi/issues>
-- **Want to run your own Tor relay?** See the [Tor Relay Watch](/projects/pulse/) for the data we publish on relays in the region.
-- **Pre-travel checks**: [Pre-departure digital safety — brief yourself with AI prompts](docs:scenarios/travel-ai-briefing/). When a journalist or NGO needs to assess a destination's Tor reachability before a trip, connecting onionoo MCP lets the AI pull real, citable Onionoo numbers.
-- **Background reading**: the [About page](/about/) covers governance and how the wider site fits together; the [Regional Observatory](docs:regional/) is where this service's outputs feed back into public analysis.
+- **Running a Tor relay**: see the [Tor Relay Setup Guide](/join/setup-tor-relay/). The relay figures we publish for the region are in [Tor Relay Watch](/projects/pulse/).
+- **Pre-travel checks**: [Pre-departure digital safety — brief yourself with AI prompts](docs:scenarios/travel-ai-briefing/). Journalists and civil-society groups checking the Tor relay situation at a destination before a trip can connect onionoo MCP to get citable Onionoo figures.
+- **Background reading**: [What Is Tor?](docs:tools/what-is-tor/) and [ASN observation data analysis](docs:regional/ooni-asn-coverage/).
 
-Released as v1.0.0 under MIT. Issues, PRs, and Matrix discussion on which task-oriented tools to add next are all welcome.
+The current release is v1.2.0, under the MIT license. Issues, PRs, and Matrix discussion on which task-oriented tools to add next are all welcome.
 
 [^connector]: [Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp) — Claude Help Center (custom connectors work on the Free, Pro, Max, Team, and Enterprise plans; Free is limited to one).
 
