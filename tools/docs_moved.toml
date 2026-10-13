@@ -183,3 +183,29 @@ docs = "community/asn-coverage-howto.md"
 page = "projects/asn-coverage/howto"
 langs = ["zh-TW", "zh-CN", "en"]
 import = true
+
+# 2026-10-13 架設與營運之一：架設 Tor Relay、WebTunnel 橋接、.onion 服務與 pin IPFS 鏡像的指南，
+# 讀者是要營運節點的人，照文件站的新定位搬到參與底下（toomore/anoni-net-ws#406）
+[[moved]]
+docs = "community/setup-tor-relay.md"
+page = "join/setup-tor-relay"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
+
+[[moved]]
+docs = "community/setup-tor-webtunnel.md"
+page = "join/setup-tor-webtunnel"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
+
+[[moved]]
+docs = "community/setup-onion-service.md"
+page = "join/setup-onion-service"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
+
+[[moved]]
+docs = "community/pin-ipfs-mirror.md"
+page = "join/pin-ipfs-mirror"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true

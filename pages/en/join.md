@@ -38,6 +38,17 @@ The background is in [Continuing from 2025 into 2026](/updates/2026/01/2025to202
 
 Accounts and entry points for these tools are on the [services](/services/) page.
 
+## Running Infrastructure
+
+Every Tor relay or bridge gives people under censorship one more way into the Tor network. Each guide goes from installation to day-to-day operation, and notes what to watch for in Taiwan's legal and network environment. For proposing a relay to a university and working with its IT and legal staff, see [Tor Relays on Campus Track](/join/relay-on-campus/).
+
+<ul class="rows">
+  <li><a class="row" href="/join/setup-tor-relay/"><span class="ic">ICON:server-network</span><span class="b"><span class="t">Tor Relay Setup Guide</span><span class="d">How middle, bridge and exit relays differ, installation, configuration and monitoring, and the legal and administrative questions to settle first.</span></span><span class="go">ICON:arrow-right</span></a></li>
+  <li><a class="row" href="/join/setup-tor-webtunnel/"><span class="ic">ICON:tunnel-outline</span><span class="b"><span class="t">Tor WebTunnel Bridge Setup Guide</span><span class="d">Disguising Tor traffic as ordinary HTTPS, from the domain, TLS and nginx reverse proxy to running the bridge in Docker.</span></span><span class="go">ICON:arrow-right</span></a></li>
+  <li><a class="row" href="/join/setup-onion-service/"><span class="ic">ICON:web-box</span><span class="b"><span class="t">Onion Service Setup Guide</span><span class="d">Setting up a v3 onion service the way Tor documents it, wiring it to nginx and subdomains, and running it after launch.</span></span><span class="go">ICON:arrow-right</span></a></li>
+  <li><a class="row" href="/join/pin-ipfs-mirror/"><span class="ic">ICON:server-network-outline</span><span class="b"><span class="t">Pinning the Docs Site's IPFS Mirror</span><span class="d">An always-on IPFS node and a scheduled script that keep one more copy of the docs site's IPFS mirror.</span></span><span class="go">ICON:arrow-right</span></a></li>
+</ul>
+
 ## Other ways to take part
 
 <ul class="rows">

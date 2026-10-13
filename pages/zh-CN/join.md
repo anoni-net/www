@@ -34,6 +34,17 @@ lead: 随时都可以参与，不需要先具备技术背景。
 
 这几个工具的账号申请与入口见[服务](/services/)。
 
+## 架设与运营
+
+架起一个 Tor 中继节点或桥接，受审查地区的用户就多一个连上 Tor 的入口。各篇从安装写到上线之后的运维，也说明在台湾架设时要留意的法规与网络环境。在学校架设中继节点的提案与沟通，见 [Tor Relay 校园建立研究专题](/join/relay-on-campus/)。
+
+<ul class="rows">
+  <li><a class="row" href="/join/setup-tor-relay/"><span class="ic">ICON:server-network</span><span class="b"><span class="t">Tor Relay 架设指南</span><span class="d">中继、桥接与出口节点的区别，安装、配置与监控，以及架设前要评估的法律与行政事项。</span></span><span class="go">ICON:arrow-right</span></a></li>
+  <li><a class="row" href="/join/setup-tor-webtunnel/"><span class="ic">ICON:tunnel-outline</span><span class="b"><span class="t">Tor WebTunnel 桥接架设指南</span><span class="d">把 Tor 流量伪装成一般的 HTTPS 连接，从域名、TLS、nginx 反向代理到 Docker 的步骤。</span></span><span class="go">ICON:arrow-right</span></a></li>
+  <li><a class="row" href="/join/setup-onion-service/"><span class="ic">ICON:web-box</span><span class="b"><span class="t">.onion 服务架设指南</span><span class="d">用 Tor 官方的方式架设 v3 onion 服务，接上 nginx 与子域名，以及上线之后的运维。</span></span><span class="go">ICON:arrow-right</span></a></li>
+  <li><a class="row" href="/join/pin-ipfs-mirror/"><span class="ic">ICON:server-network-outline</span><span class="b"><span class="t">文档站 IPFS 镜像的 pin 节点</span><span class="d">用常驻的 IPFS 节点加定时脚本，替文档站的 IPFS 镜像多保存一份副本。</span></span><span class="go">ICON:arrow-right</span></a></li>
+</ul>
+
 ## 其他参与方式
 
 <ul class="rows">

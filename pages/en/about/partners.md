@@ -55,7 +55,7 @@ The community self-hosts Matrix, CryptPad, Send, Etherpad, and a forms service, 
 
 ### Newsroom intake channels
 
-The [first contact](docs:scenarios/journalist/#First-contact) section of the source-protection guide compares Signal, SecureDrop, onion inboxes, and email aliases. [Setting up a .onion service](docs:community/setup-onion-service/) and [OnionShare](docs:tools/onionshare/) cover two of them. If you get stuck following the documentation, ask on Matrix or by email.
+The [first contact](docs:scenarios/journalist/#First-contact) section of the source-protection guide compares Signal, SecureDrop, onion inboxes, and email aliases. The [Onion Service Setup Guide](/join/setup-onion-service/) and [OnionShare](docs:tools/onionshare/) cover two of them. If you get stuck following the documentation, ask on Matrix or by email.
 
 ### Security update alerts
 

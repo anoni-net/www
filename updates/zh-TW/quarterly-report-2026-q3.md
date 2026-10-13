@@ -34,7 +34,7 @@ OONI 本季在臺灣累積約 276 萬筆網路審查測量，有測量的網路�
 
 - 行動網路的測量：手機用行動網路安裝 [OONI Probe](https://ooni.org/install/mobile)，再打開社群的 [OONI Run 連結](https://run.ooni.org/v2/10328)。安裝前的風險前提見 [OONI Run v2 操作說明](docs:tools/ooni-run-v2/)
 - 有線寬頻：季報列出[整季沒有測量的網路](/projects/reports/2026-q3/#整季沒有測量的網路)，多半是有線電視寬頻，家裡的寬頻在名單上的話，就能補上一個網路
-- HiNet 以外的 Tor 中繼：學校或其他電信商的網路都可以，見[如何搭建 Tor Relay](docs:community/setup-tor-relay/) 與 [Tor Relay 校園建立](/join/relay-on-campus/)
+- HiNet 以外的 Tor 中繼：學校或其他電信商的網路都可以，見[Tor Relay 架設指南](/join/setup-tor-relay/) 與 [Tor Relay 校園建立](/join/relay-on-campus/)
 - 中繼的升級：營運中的中繼請升級到 0.4.9.13 以後的版本
 
 季報每三個月一期，下一期整理第四季，預計 2027 年 1 月發布，可以用 [RSS](/updates/feed.xml) 訂閱社群動態。看完季報的想法，或發現哪個數字有誤，歡迎寫信到 <whisper@anoni.net>，或在 [GitHub](https://github.com/anoni-net/www/issues) 開 Issue。

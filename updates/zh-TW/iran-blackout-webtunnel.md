@@ -10,7 +10,7 @@ date: 2026-05-28
 
     手上有一台 VPS（雲端主機）或實體主機，再加一個網域，就能架一個 Tor WebTunnel 橋接，讓被審查切斷的人能連回外面的網路。架不了伺服器也沒關係，打開瀏覽器執行 [Snowflake](docs:tools/tor-snowflake/) 一樣能貢獻匿名流量。
 
-    伺服器規格、法律考量與完整架設步驟，都整理在 [**如何搭建 Tor WebTunnel 橋接**](docs:community/setup-tor-webtunnel/)。
+    伺服器規格、法律考量與完整架設步驟，都整理在 [**Tor WebTunnel 橋接架設指南**](/join/setup-tor-webtunnel/)。
 
 
 ## 封了 80 多天的網路
@@ -93,13 +93,13 @@ WebTunnel 的做法不同，它把 Tor 流量包進一個真正的 HTTPS 連線�
 
 門檻不高：
 
-- 一台 512MB 到 1GB 記憶體的小型 VPS 就足以支撐，成本和維護心力都比架 [Tor Relay](docs:community/setup-tor-relay/) 低。
+- 一台 512MB 到 1GB 記憶體的小型 VPS 就足以支撐，成本和維護心力都比架 [Tor Relay](/join/setup-tor-relay/) 低。
 - 需要一個網域（或子網域）和一張 TLS 憑證（讓網站能用 https 安全連線的憑證），用 Let's Encrypt 免費就能申請。
 - 法律風險很低。橋接只是中轉站，不會直接連到使用者最後要造訪的網站，對外網站看到的是 Tor 網路的出口，不是你的伺服器，比架設 Tor 出口節點安全得多。
 
 我們把完整的架設流程整理成一份指引，從準備網域、申請憑證、把橋接架起來，到防火牆、偽裝頁、監控與後續維運都寫進去了：
 
-- <i data-icon="tunnel-outline"></i> [**如何搭建 Tor WebTunnel 橋接**](docs:community/setup-tor-webtunnel/)
+- <i data-icon="tunnel-outline"></i> [**Tor WebTunnel 橋接架設指南**](/join/setup-tor-webtunnel/)
 
 如果沒辦法協助架設 WebTunnel，也可以打開瀏覽器執行 [Snowflake](docs:tools/tor-snowflake/)，開著分頁就能貢獻匿名流量，幫連不上 Tor 的人繞過審查。等你準備好投入一台伺服器，再回來架 WebTunnel。
 
@@ -113,9 +113,9 @@ WebTunnel 的做法不同，它把 Tor 流量包進一個真正的 HTTPS 連線�
 
 ## 相關閱讀
 
-- [如何搭建 Tor WebTunnel 橋接](docs:community/setup-tor-webtunnel/)
+- [Tor WebTunnel 橋接架設指南](/join/setup-tor-webtunnel/)
 - [Tor Snowflake 橋接點](docs:tools/tor-snowflake/)
-- [如何搭建 Tor Relay](docs:community/setup-tor-relay/)
+- [Tor Relay 架設指南](/join/setup-tor-relay/)
 - [網路自由為什麼重要](docs:basics/internet-freedom/)
 - [2025 年 10 月國際網路自由觀察](/updates/2025/10/internetfreedom-oct2025/)
 

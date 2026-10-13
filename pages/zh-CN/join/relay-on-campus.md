@@ -32,7 +32,7 @@ Tor 网络的匿名性靠**多元的中继节点**支撑。当绝大多数中继
 
 - 案例：[在台师大架设 Tor Relay：一段与学校沟通、留下可能性的实现经验](/updates/2025/12/ntnu-nz/)
 - 国际参考：[Tor Project 客座文章：Setting Up a Tor University Relay in Taiwan](https://blog.torproject.org/setting-up-tor-university-relay-taiwan/)
-- 技术 how-to：[如何搭建 Tor Relay](docs:community/setup-tor-relay/)、[如何搭建 Tor WebTunnel 桥接](docs:community/setup-tor-webtunnel/)
+- 技术 how-to：[Tor Relay 架设指南](/join/setup-tor-relay/)、[Tor WebTunnel 桥接架设指南](/join/setup-tor-webtunnel/)
 - 观测：[Tor 中继节点观测](/projects/pulse/)
 - 概念：[什么是 Tor](docs:tools/what-is-tor/)、[Tor Snowflake 桥接点](docs:tools/tor-snowflake/)
 - 进阶：[一个会遗忘的服务器：探索无状态中继](docs:blog/2026/04/a-server-that-forgets-exploring-stateless-relays/)
@@ -74,7 +74,7 @@ Tor 网络的匿名性靠**多元的中继节点**支撑。当绝大多数中继
 - **法律专业**：能解读中继营运相关的法律疑虑（个资、刑事、学校规章）
 - **活动筹办经验**：能把架设工作整合进信息安全周、迎新等校园活动
 
-不需要架过 Tor Relay 也欢迎参与。「我想学」就是合理的加入动机，社群会搭配 [如何搭建 Tor Relay](docs:community/setup-tor-relay/) 文件协助你实际操作。
+不需要架过 Tor Relay 也欢迎参与。「我想学」就是合理的加入动机，社群会搭配 [Tor Relay 架设指南](/join/setup-tor-relay/) 文件协助你实际操作。
 
 ## 议题守则
 
