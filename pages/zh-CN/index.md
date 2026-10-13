@@ -1,8 +1,8 @@
 ---
-title: 匿名网络社群 anoni.net
-description: 匿名网络社群 anoni.net 是以台湾为据点的社区，关注匿名网络、隐私与网络自由，推广 Tor、Tails、OONI 等开源工具，并与 EFF、Tor Project、OONI 合作。
+title: 匿名网络社区 anoni.net
+description: 匿名网络社区 anoni.net 是以台湾为据点的社区，关注匿名网络、隐私与网络自由，推广 Tor、Tails、OONI 等开源工具，并与 EFF、Tor Project、OONI 合作。
 template: index
-hero: 匿名网络社群
+hero: 匿名网络社区
 hero_sub: anoni.net
 tagline: 把全球网络隐私议题，带回华语地区的脉络。
 ---

@@ -3,7 +3,7 @@ title: 校园 Tor Relay 架设 SOP
 description: 在台湾校园网络架设 Tor Relay 的技术步骤，包含 torrc 范例、UFW 防火墙规则、状态网页的两种方案、监控与事件处置 runbook、验收测试、IPv6 与交接。
 ---
 
-本页补充[Tor Relay 架设指南](/join/setup-tor-relay/)没有涵盖的校园网络情境，内容整理自社群伙伴 NZ 在台湾师范大学的实践经验，搭配[校园 Tor Relay 提案范本](/join/relay-on-campus/proposal/)与[给校方与法务的校园 Tor Relay FAQ](/join/relay-on-campus/faq/)使用。
+本页补充[Tor Relay 架设指南](/join/setup-tor-relay/)没有涵盖的校园网络情境，内容整理自社区伙伴 NZ 在台湾师范大学的实践经验，搭配[校园 Tor Relay 提案范本](/join/relay-on-campus/proposal/)与[给校方与法务的校园 Tor Relay FAQ](/join/relay-on-campus/faq/)使用。
 
 本页假设你已经取得学校的上线许可。还在评估是否要做、如何说服学校时，先从[校园 Tor Relay 提案范本](/join/relay-on-campus/proposal/)开始。
 
@@ -302,7 +302,7 @@ UFW 也要放行对应的 IPv6 流量。IPv6 虽然是可选项目，对 Tor 网
 
 !!! tip "上线之后"
 
-    - **回报案例**：通过[服务](/services/)页面的渠道联系匿名网络社群 anoni.net，我们会把你的案例加进[Tor Relay 校园建立研究专题](/join/relay-on-campus/)的「已完成的工作」，让之后加入的学校有更多参考
+    - **回报案例**：通过[服务](/services/)页面的渠道联系匿名网络社区 anoni.net，我们会把你的案例加进[Tor Relay 校园建立研究专题](/join/relay-on-campus/)的「已完成的工作」，让之后加入的学校有更多参考
     - **长期运维**：[Tor Relay 架设指南](/join/setup-tor-relay/)有 nyx 监控的配置，常见问题一节补充了软件更新与入口节点的选定方式
     - **其他贡献方式**：另外运行 [Tor Snowflake](docs:tools/tor-snowflake/) 的代理，协助受审查地区的用户连上 Tor
 
@@ -311,12 +311,12 @@ UFW 也要放行对应的 IPv6 流量。IPv6 虽然是可选项目，对 Tor 网
 - [Tor Relay 架设指南](/join/setup-tor-relay/)：个人与家庭环境的基础安装
 - [校园 Tor Relay 提案范本](/join/relay-on-campus/proposal/)：与学校沟通用的提案文档
 - [给校方与法务的校园 Tor Relay FAQ](/join/relay-on-campus/faq/)：校方常见的疑虑与回答
-- [Tor Relay 校园建立研究专题](/join/relay-on-campus/)：社群推动校园 Relay 的入口
+- [Tor Relay 校园建立研究专题](/join/relay-on-campus/)：社区推动校园 Relay 的入口
 - [Tor Project Relay Operator Guides](https://community.torproject.org/relay/)：官方的运营指南
 - [Tor Relay Post-install and good practices](https://community.torproject.org/relay/setup/post-install/)：上线后的注意事项
 
 ## 资料来源与致谢
 
-本页的原始设计文档与实践经验由社群伙伴 **苏恩立（NZ）** 提供，整理自他在台湾师范大学的部署过程。NZ 同意原始材料以 [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.zh-hans) 授权发布。
+本页的原始设计文档与实践经验由社区伙伴 **苏恩立（NZ）** 提供，整理自他在台湾师范大学的部署过程。NZ 同意原始材料以 [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.zh-hans) 授权发布。
 
 按照本页操作时，若发现步骤不适用于你的学校环境，或有可以补强的细节，欢迎通过[服务](/services/)页面列出的渠道反馈，我们会持续更新本页的内容。

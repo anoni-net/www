@@ -42,7 +42,7 @@ others = ["cn", "hk", "mo", "my", "sg"]
 label = { zh-TW = "社群關注的華語六地區", zh-CN = "社区关注的华语六地区", en = "The six Chinese-speaking regions the community follows" }
 legend_first = { zh-TW = "第一手經驗", zh-CN = "第一手经验", en = "First-hand experience" }
 legend_others = { zh-TW = "透過公開資料與當地聯絡人追蹤", zh-CN = "通过公开资料与当地联络人追踪", en = "Followed through public data and local contacts" }
-note = { zh-TW = "也關注在各地之間移動的華語離散社群（diaspora），沒有畫在地圖上。", zh-CN = "也关注在各地之间移动的华语离散社群（diaspora），没有画在地图上。", en = "We also follow the Chinese-speaking diaspora that moves between these places, which the map cannot show." }
+note = { zh-TW = "也關注在各地之間移動的華語離散社群（diaspora），沒有畫在地圖上。", zh-CN = "也关注在各地之间移动的华语离散社区（diaspora），没有画在地图上。", en = "We also follow the Chinese-speaking diaspora that moves between these places, which the map cannot show." }
 
 [regions.names]
 tw = { zh-TW = "臺灣", zh-CN = "台湾", en = "Taiwan" }

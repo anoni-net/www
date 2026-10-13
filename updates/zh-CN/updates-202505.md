@@ -69,4 +69,4 @@ kind: update
 
 !!! tip "网址说明"
 
-    `anoni.net` 与 `anoninetru5tflukgfaehun7q6khowgmymcff3gtk5oyesqazhmfxtyd.onion` 将是社群的工具建立使用的域名。`.onion` 结尾的域名必须通过 Tor 浏览器才可以浏览。
+    `anoni.net` 与 `anoninetru5tflukgfaehun7q6khowgmymcff3gtk5oyesqazhmfxtyd.onion` 将是社区的工具建立使用的域名。`.onion` 结尾的域名必须通过 Tor 浏览器才可以浏览。

@@ -1,9 +1,9 @@
 ---
 title: 品牌素材
-description: anoni.net logo 三变体（cyan tonal、mono white、mono black）的使用情境、下载链接与配色 token。社群成员制作活动文宣、SNS 卡片、简报、印刷品时取用。
+description: anoni.net logo 三变体（cyan tonal、mono white、mono black）的使用情境、下载链接与配色 token。社区成员制作活动文宣、SNS 卡片、简报、印刷品时取用。
 ---
 
-anoni.net 的 logo 由三个六角形组成，呼应「节点网络」与「多层级观测」的意象，从 Material `hexagon-multiple-outline` 图示衍生定色而成。三个六角形排列成上、中、下，分别对应社群关注的「概念」、「工具」与「在地脉络」三层阅读路径。
+anoni.net 的 logo 由三个六角形组成，呼应「节点网络」与「多层级观测」的意象，从 Material `hexagon-multiple-outline` 图示衍生定色而成。三个六角形排列成上、中、下，分别对应社区关注的「概念」、「工具」与「在地脉络」三层阅读路径。
 
 制作活动文宣、SNS 卡片、简报、印刷品时，请依背景色与情境从下方三个变体取用，避免另自定色或变形。
 
@@ -132,18 +132,18 @@ anoni.net 的 logo 由三个六角形组成，呼应「节点网络」与「多�
 
 ## <i data-icon="format-letter-case"></i> Wordmark（logo 加文字）
 
-上面三个变体只有图案，没有社群名称。需要让人一眼看到「anoni.net」的场合改用 wordmark，例如简报页首、名片、活动背板、海报、易拉宝。图案版留给空间很小、或旁边已经有社群名称的地方，例如 favicon、聊天室头像、投影片页角。
+上面三个变体只有图案，没有社区名称。需要让人一眼看到「anoni.net」的场合改用 wordmark，例如简报页首、名片、活动背板、海报、易拉宝。图案版留给空间很小、或旁边已经有社区名称的地方，例如 favicon、聊天室头像、投影片页角。
 
-wordmark 的文字已经转成路径，打开的设备有没有装字体都长一样，也不会因为缺字而换成别的字体。中文副标固定用正体的「匿名網路社群」，跟文件站三个语系共用的 site_name 一致，简体版不另做一份。
+wordmark 的文字已经转成路径，打开的设备有没有装字体都长一样，也不会因为缺字而换成别的字体。中文副标固定用正体的「匿名網路社区」，跟文件站三个语系共用的 site_name 一致，简体版不另做一份。
 
 ### 六种版型
 
 | 文件名 | 版型 | 建议场合 |
 |---|---|---|
 | `logo-wordmark-*` | 横式，logo 加 anoni.net | 默认版本。简报页首、网站 header、名片 |
-| `logo-wordmark-zh-*` | 横式加中文副标「匿名網路社群」 | 中文场合，需要让人知道社群中文名时 |
+| `logo-wordmark-zh-*` | 横式加中文副标「匿名網路社区」 | 中文场合，需要让人知道社区中文名时 |
 | `logo-wordmark-en-*` | 横式加英文副标 Anonymity Network Community | 国际场合，例如 Global Gathering、ETHTaipei |
-| `logo-wordmark-fullname-*` | 横式单行「匿名網路社群 anoni.net」 | 中文语境的长条横幅、活动背板顶部 |
+| `logo-wordmark-fullname-*` | 横式单行「匿名網路社区 anoni.net」 | 中文语境的长条横幅、活动背板顶部 |
 | `logo-wordmark-stack-*` | 直式堆叠，logo 在上、字在下 | 海报、易拉宝、展板主视觉 |
 | `logo-wordmark-stack-zh-*` | 直式堆叠加中文副标 | 同上，中文场合 |
 
@@ -289,7 +289,7 @@ wordmark 的文字已经转成路径，打开的设备有没有装字体都长�
 
 ### 网页上的深浅版本
 
-品牌的绿与橘在白底的对比不到 4.5，当文字、细线或白字按钮的底色都不够清楚。社群首页用下面的版本，文档站与其他网页也照这张表。`--accent-action` 是白字按钮的底色，两种模式相同。印刷、简报与大面积色块仍用上方的品牌原色。
+品牌的绿与橘在白底的对比不到 4.5，当文字、细线或白字按钮的底色都不够清楚。社区首页用下面的版本，文档站与其他网页也照这张表。`--accent-action` 是白字按钮的底色，两种模式相同。印刷、简报与大面积色块仍用上方的品牌原色。
 
 | Token | 品牌原色 | 浅色模式 | 深色模式 |
 |---|---|---|---|
@@ -330,7 +330,7 @@ wordmark 的文字已经转成路径，打开的设备有没有装字体都长�
 - 分类 tag、章节区隔的视觉标记
 - 不要用在一般 CTA 或装饰
 
-**公告 tag**（社群动态列表、首页「最新动态」与文档站 blog 公告区的 inline tag）
+**公告 tag**（社区动态列表、首页「最新动态」与文档站 blog 公告区的 inline tag）
 
 - `新增` → `--brand-cyan-600`（cyan 系强调），项目或服务上线
 - `活动` → `--accent-action`（橘），活动公告与回顾
@@ -352,7 +352,7 @@ anoni.net 底下有三个网站，共用同一组 logo 与上面的色票，各�
 
 ### 顶层网站的细线
 
-顶层网站（首页、关于、参与、项目、服务等社群页面）沿用 2026-10 改版前那一页首页的样式：白底、1px 细线、单一色相。之后新增的页型照这组规格，不要引入色块或第二个色相。
+顶层网站（首页、关于、参与、项目、服务等社区页面）沿用 2026-10 改版前那一页首页的样式：白底、1px 细线、单一色相。之后新增的页型照这组规格，不要引入色块或第二个色相。
 
 | 元素 | 规格 |
 |---|---|
@@ -372,7 +372,7 @@ anoni.net 底下有三个网站，共用同一组 logo 与上面的色票，各�
 
 新闻导读与顶层网站要用到 accent 的时候，照上面的「配色使用守则」，紧急红只用在紧急情境。
 
-指南分类色、Material 界面色、示意图用色与社群分享卡的规格写在[文档站的视觉规范](docs:community/visual-guide/)。
+指南分类色、Material 界面色、示意图用色与社交分享卡的规格写在[文档站的视觉规范](docs:community/visual-guide/)。
 
 ## <i data-icon="alert-octagon-outline"></i> 不要这样用
 
@@ -397,7 +397,7 @@ anoni.net 底下有三个网站，共用同一组 logo 与上面的色票，各�
 
 ## <i data-icon="link-variant"></i> 接下来
 
-- [文档站的视觉规范](docs:community/visual-guide/)：指南分类色、示意图的制作方式与社群分享卡
+- [文档站的视觉规范](docs:community/visual-guide/)：指南分类色、示意图的制作方式与社交分享卡
 - [贡献者百科](docs:community/contributor-handbook/)：整体贡献流程、PR 规范、翻译流程
-- [社群自架服务](/services/)：Matrix、Cryptpad、Etherpad、SearXNG、Send、Formbricks 的入口与账号需求
+- [社区自架服务](/services/)：Matrix、Cryptpad、Etherpad、SearXNG、Send、Formbricks 的入口与账号需求
 - [2026 年度路线图](/join/roadmap-2026/)：三大主题与时程
