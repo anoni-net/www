@@ -5,7 +5,7 @@
 # 社群在做的事：中間是 anoni.net，往外四個方向。topic 對應 data/topics.toml 的 cat，
 # 名稱、圖示與連結從那裡取。區域觀測不是年度主題，另外寫在這裡。
 [community]
-label = { zh-TW = "社群在做的事：三大主題與區域觀測", zh-CN = "社区在做的事：三大主题与区域观测", en = "What the community works on: three themes and regional observation" }
+label = { zh-TW = "社群的三大主題與區域觀測", zh-CN = "社区的三大主题与区域观测", en = "The community's three tracks and regional observation" }
 note = { zh-TW = "點圖上的項目開啟介紹頁。", zh-CN = "点图上的项目打开介绍页。", en = "Select an item to open its page." }
 
 [[community.nodes]]
@@ -45,7 +45,7 @@ legend_others = { zh-TW = "透過公開資料與當地聯絡人追蹤", zh-CN = 
 note = { zh-TW = "也關注在各地之間移動的華語離散社群（diaspora），沒有畫在地圖上。", zh-CN = "也关注在各地之间移动的华语离散社区（diaspora），没有画在地图上。", en = "We also follow the Chinese-speaking diaspora that moves between these places, which the map cannot show." }
 
 [regions.names]
-tw = { zh-TW = "臺灣", zh-CN = "台湾", en = "Taiwan" }
+tw = { zh-TW = "台灣", zh-CN = "台湾", en = "Taiwan" }
 cn = { zh-TW = "中國大陸", zh-CN = "中国大陆", en = "Mainland China" }
 hk = { zh-TW = "香港", zh-CN = "香港", en = "Hong Kong" }
 mo = { zh-TW = "澳門", zh-CN = "澳门", en = "Macao" }
@@ -62,7 +62,7 @@ when = "2023"
 kind = "origin"
 docs = "taiwan/ooni-asn-coverage/"
 title = { zh-TW = "OONI 的 ASN 涵蓋率調查", zh-CN = "OONI 的 ASN 覆盖率调查", en = "OONI coverage of Taiwan's networks" }
-desc = { zh-TW = "調查臺灣各 ASN 在 OONI 資料庫裡的觀測是否完整，社群從這裡開始。", zh-CN = "调查台湾各 ASN 在 OONI 数据库里的观测是否完整，社区从这里开始。", en = "A study of how well OONI's data covers each of Taiwan's networks (ASNs). The community grew from here." }
+desc = { zh-TW = "調查台灣各 ASN 在 OONI 資料庫裡的觀測是否完整，社群從這裡開始。", zh-CN = "调查台湾各 ASN 在 OONI 数据库里的观测是否完整，社区从这里开始。", en = "A study of how well OONI's data covers each of Taiwan's networks (ASNs). The community grew from here." }
 
 [[history.items]]
 when = "2025/01"
@@ -76,14 +76,14 @@ when = "2025/08"
 kind = "event"
 page = "events/workshop-2025"
 title = { zh-TW = "匿名網路工作坊", zh-CN = "匿名网络工作坊", en = "Anonymity networks workshop" }
-desc = { zh-TW = "在國立台灣科技大學舉辦兩天，招募到第一批社群夥伴。", zh-CN = "在台湾科技大学举办两天，招募到第一批社区伙伴。", en = "Two days at National Taiwan University of Science and Technology, where the first community members joined." }
+desc = { zh-TW = "在國立臺灣科技大學舉辦兩天，招募到第一批社群夥伴。", zh-CN = "在台湾科技大学举办两天，招募到第一批社区伙伴。", en = "Two days at National Taiwan University of Science and Technology, where the first community members joined." }
 
 [[history.items]]
 when = "2025/12"
 kind = "update"
 post = "ntnu-nz"
 title = { zh-TW = "台師大的校園 Tor Relay", zh-CN = "台师大的校园 Tor Relay", en = "A Tor relay at NTNU" }
-desc = { zh-TW = "第一個校園節點，架設與跟學校溝通的過程整理成訪談。", zh-CN = "第一个校园节点，架设与跟学校沟通的过程整理成访谈。", en = "The first campus relay, with an interview on how it was set up and agreed with the university." }
+desc = { zh-TW = "第一個校園節點，架設與校方溝通的過程整理成訪談。", zh-CN = "第一个校园节点，架设与校方沟通的过程整理成访谈。", en = "The first campus relay, with an interview on how it was set up and agreed with the university." }
 
 [[history.items]]
 when = "2026/01"
