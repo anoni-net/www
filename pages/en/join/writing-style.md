@@ -59,7 +59,7 @@ The English site is written for international peers, researchers, journalists, a
     - <i data-icon="check"></i> `The five utility groups`
 - This applies to article titles and to section headings at every level.
 - Keep an external source's original title as-is when the link text quotes it.
-- Existing articles do not need retrofitting. Apply this to new articles and substantial rewrites.
+- Existing posts on the docs site's blog do not need retrofitting. Apply this to new articles and substantial rewrites, and to every other page, including the docs site's guides, tools, and scenarios and any content moved to another site.
 
 ## Paragraph voice
 
