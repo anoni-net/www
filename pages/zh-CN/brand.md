@@ -1,15 +1,15 @@
 ---
 title: 品牌素材
-description: anoni.net logo 三变体（cyan tonal、mono white、mono black）的使用情境、下载链接与配色 token。社区成员制作活动文宣、SNS 卡片、简报、印刷品时取用。
+description: 匿名网络社区 anoni.net 的 logo 三种配色、wordmark 六种版式与配色 token，附使用场景、下载链接与错误用法，制作活动宣传材料、幻灯片、社交分享卡与印刷品时取用。
 ---
 
-anoni.net 的 logo 由三个六角形组成，呼应「节点网络」与「多层级观测」的意象，从 Material `hexagon-multiple-outline` 图示衍生定色而成。三个六角形排列成上、中、下，分别对应社区关注的「概念」、「工具」与「在地脉络」三层阅读路径。
+制作活动宣传材料、社交分享卡、幻灯片与印刷品时，从这一页取用 logo、wordmark 与色票，让三个网站与各种宣传材料保持一致的视觉识别。依背景色与用途选择下方的变体，不要自行改色或变形。
 
-制作活动文宣、SNS 卡片、简报、印刷品时，请依背景色与情境从下方三个变体取用，避免另自定色或变形。
+匿名网络社区 anoni.net 的 logo 由三个六角形组成，从 Material 的 `hexagon-multiple-outline` 图标改绘并定色，代表节点组成的网络与多层级的观测。三个六角形由上而下对应三层阅读路径：概念、工具与本地脉络。
 
 ## <i data-icon="palette-swatch-outline"></i> V3 cyan tonal（主视觉）
 
-三个六角形分别用 `cyan-300`、`cyan-500`、`cyan-700` 上色，营造节点层次感。默认使用情境：白底、浅底背景、文件站一般展示、简报内页。
+三个六角形由上而下分别用 `cyan-300`、`cyan-500`、`cyan-700` 上色，以深浅表现节点的层次。白底与浅色背景、文档站的一般页面与幻灯片内页都默认用这个版本。
 
 <div class="brand-row">
   <div class="brand-card">
@@ -48,9 +48,9 @@ anoni.net 的 logo 由三个六角形组成，呼应「节点网络」与「多�
 
 [<i data-icon="download"></i> 下载 logo-tonal.svg](/brand/logo-tonal.svg){ .btn }
 
-## <i data-icon="palette-swatch-outline"></i> V3 mono white（品牌色块上的露出）
+## <i data-icon="palette-swatch-outline"></i> V3 mono white（品牌色块与深色底）
 
-纯白色版本，用在品牌色（cyan-500、cyan-900）或深色背景块上时对比最高。文件站 header logo（蓝色 nav 底）就是用这个版本，OG 图、SNS 卡片、活动 banner 在 cyan 背景上也用它。
+纯白色版本，放在品牌色（`cyan-500`、`cyan-900`）或深色色块上时对比最高。文档站页首蓝底上的 logo 用的就是这个版本，cyan 底的 OG 图、社交分享卡与活动 banner 也用它。
 
 <div class="brand-row">
   <div class="brand-card">
@@ -91,7 +91,7 @@ anoni.net 的 logo 由三个六角形组成，呼应「节点网络」与「多�
 
 ## <i data-icon="palette-swatch-outline"></i> V3 mono black（印刷与单色场合）
 
-纯黑色版本，用在印刷品、传真、单色 stencil 等不能上色的场合。线上几乎不会用到，先收进素材库备用。
+纯黑色版本，用在印刷品、传真、单色 stencil 这类无法上色的场合。网页上几乎用不到，收在素材库备用。
 
 <div class="brand-row">
   <div class="brand-card">
@@ -132,24 +132,24 @@ anoni.net 的 logo 由三个六角形组成，呼应「节点网络」与「多�
 
 ## <i data-icon="format-letter-case"></i> Wordmark（logo 加文字）
 
-上面三个变体只有图案，没有社区名称。需要让人一眼看到「anoni.net」的场合改用 wordmark，例如简报页首、名片、活动背板、海报、易拉宝。图案版留给空间很小、或旁边已经有社区名称的地方，例如 favicon、聊天室头像、投影片页角。
+上面三个变体只有图案，没有社区名称。需要让人一眼读到 anoni.net 的场合改用 wordmark，例如幻灯片页首、名片、活动背板、海报与易拉宝。图案版留给空间很小或旁边已有社区名称的位置，例如 favicon、聊天室头像与幻灯片页角。
 
-wordmark 的文字已经转成路径，打开的设备有没有装字体都长一样，也不会因为缺字而换成别的字体。中文副标固定用正体的「匿名網路社区」，跟文件站三个语系共用的 site_name 一致，简体版不另做一份。
+wordmark 的文字已经转成路径，不论打开的设备有没有安装字体，显示结果都相同，也不会因为缺字而换成其他字体。中文副标固定用正体的「匿名網路社群」，简体版不另做一份。 <!-- docs-style-lint: disable-line -->
 
-### 六种版型
+### 六种版式
 
-| 文件名 | 版型 | 建议场合 |
+| 文件名 | 版式 | 建议场合 |
 |---|---|---|
-| `logo-wordmark-*` | 横式，logo 加 anoni.net | 默认版本。简报页首、网站 header、名片 |
-| `logo-wordmark-zh-*` | 横式加中文副标「匿名網路社区」 | 中文场合，需要让人知道社区中文名时 |
-| `logo-wordmark-en-*` | 横式加英文副标 Anonymity Network Community | 国际场合，例如 Global Gathering、ETHTaipei |
-| `logo-wordmark-fullname-*` | 横式单行「匿名網路社区 anoni.net」 | 中文语境的长条横幅、活动背板顶部 |
-| `logo-wordmark-stack-*` | 直式堆叠，logo 在上、字在下 | 海报、易拉宝、展板主视觉 |
-| `logo-wordmark-stack-zh-*` | 直式堆叠加中文副标 | 同上，中文场合 |
+| `logo-wordmark-*` | 横版，logo 加 anoni.net | 默认版本，用在幻灯片页首、网站页首与名片 |
+| `logo-wordmark-zh-*` | 横版加中文副标「匿名網路社群」 | 中文场合，需要呈现社区中文名称时 | <!-- docs-style-lint: disable-line -->
+| `logo-wordmark-en-*` | 横版加英文副标 Anonymity Network Community | 国际场合，例如 Global Gathering、ETHTaipei |
+| `logo-wordmark-fullname-*` | 横版单行「匿名網路社群 anoni.net」 | 中文场合的长条横幅、活动背板顶部 | <!-- docs-style-lint: disable-line -->
+| `logo-wordmark-stack-*` | 竖版堆叠，logo 在上、字在下 | 海报、易拉宝、展板主视觉 |
+| `logo-wordmark-stack-zh-*` | 竖版堆叠加中文副标 | 同上，中文场合 |
 
-每种版型都有 `tonal`、`white`、`black` 三个配色，选用规则跟上面的图案版一样。
+每种版式都有 `tonal`、`white`、`black` 三个配色，选用规则与上方的图案版相同。
 
-**横式四种，cyan tonal 在白底**
+**横版四种，cyan tonal 在白底**
 
 <div class="brand-row wm-row">
   <div class="brand-card wm-card">
@@ -191,7 +191,7 @@ wordmark 的文字已经转成路径，打开的设备有没有装字体都长�
   </div>
 </div>
 
-**直式堆叠，海报与易拉宝用**
+**竖版堆叠，海报与易拉宝用**
 
 <div class="brand-row wm-row">
   <div class="brand-card wm-card wm-stack">
@@ -214,52 +214,52 @@ wordmark 的文字已经转成路径，打开的设备有没有装字体都长�
 
 ### 几何比例与净空区
 
-比例固定，换尺寸时整份等比缩放就好，不要单独调某一边。
+比例固定，改变尺寸时整份等比缩放即可，不要单独调整某一边。
 
-- 横式：logo 高度是「anoni.net」字样视觉高度的 1.35 倍，两者间距是 logo 宽度的 0.40 倍
-- 直式：logo 高度是字级的 1.90 倍，字样对齐 logo 中线
-- 净空区：四周留 logo 高度的 0.25 倍。SVG 的 viewBox 已经含这段留白，取用时不要再往内裁
+- 横版：logo 高度是 anoni.net 字样视觉高度的 1.35 倍，两者间距是 logo 宽度的 0.40 倍
+- 竖版：logo 高度是字号的 1.90 倍，字样对齐 logo 中线
+- 净空区：四周留 logo 高度的 0.25 倍。SVG 的 viewBox 已包含这段留白，取用时不要再往内裁切
 
-字样是 Public Sans SemiBold，中文副标是 Noto Sans TC Medium，跟文件站英文版与正体中文版的内文字体同一套。`.net` 用 `cyan-700`，跟 logo 最下面那个六角形同色，单色版本则整组同一个颜色。
+字样用 Public Sans SemiBold，中文副标用 Noto Sans TC Medium，与文档站英文版、正体中文版社交分享卡的字体相同。cyan tonal 版的 `.net` 用 `cyan-700`，与 logo 最下方的六角形同色，单色版本整组只用一个颜色。
 
 ### 最小尺寸
 
-低于这个高度文字会糊掉，改用只有图案的版本。
+低于下表的高度时文字会模糊。带副标的版本改用无副标的版本，无副标的版本改用只有图案的 logo。
 
-| 版型 | 最小高度 |
+| 版式 | 最小高度 |
 |---|---|
 | 无副标（`logo-wordmark-*`、`logo-wordmark-fullname-*`） | 18 px |
 | 中文副标（`-zh-`） | 32 px |
 | 英文副标（`-en-`） | 40 px |
 
-印刷品换算：300 dpi 下 18 px 大约是 1.5 mm，实务上横式版印到 8 mm 高以上都很安全。
+印刷品的换算：300 dpi 下 18 px 约 1.5 mm，横版实际印到 8 mm 高以上都清晰可读。
 
 ### 下载
 
-| 版型 | cyan tonal | mono white | mono black |
+| 版式 | cyan tonal | mono white | mono black |
 |---|---|---|---|
-| 横式 | [SVG](/brand/logo-wordmark-tonal.svg) | [SVG](/brand/logo-wordmark-white.svg) | [SVG](/brand/logo-wordmark-black.svg) |
-| 横式加中文副标 | [SVG](/brand/logo-wordmark-zh-tonal.svg) | [SVG](/brand/logo-wordmark-zh-white.svg) | [SVG](/brand/logo-wordmark-zh-black.svg) |
-| 横式加英文副标 | [SVG](/brand/logo-wordmark-en-tonal.svg) | [SVG](/brand/logo-wordmark-en-white.svg) | [SVG](/brand/logo-wordmark-en-black.svg) |
-| 横式单行全名 | [SVG](/brand/logo-wordmark-fullname-tonal.svg) | [SVG](/brand/logo-wordmark-fullname-white.svg) | [SVG](/brand/logo-wordmark-fullname-black.svg) |
-| 直式堆叠 | [SVG](/brand/logo-wordmark-stack-tonal.svg) | [SVG](/brand/logo-wordmark-stack-white.svg) | [SVG](/brand/logo-wordmark-stack-black.svg) |
-| 直式堆叠加中文副标 | [SVG](/brand/logo-wordmark-stack-zh-tonal.svg) | [SVG](/brand/logo-wordmark-stack-zh-white.svg) | [SVG](/brand/logo-wordmark-stack-zh-black.svg) |
+| 横版 | [SVG](/brand/logo-wordmark-tonal.svg) | [SVG](/brand/logo-wordmark-white.svg) | [SVG](/brand/logo-wordmark-black.svg) |
+| 横版加中文副标 | [SVG](/brand/logo-wordmark-zh-tonal.svg) | [SVG](/brand/logo-wordmark-zh-white.svg) | [SVG](/brand/logo-wordmark-zh-black.svg) |
+| 横版加英文副标 | [SVG](/brand/logo-wordmark-en-tonal.svg) | [SVG](/brand/logo-wordmark-en-white.svg) | [SVG](/brand/logo-wordmark-en-black.svg) |
+| 横版单行全名 | [SVG](/brand/logo-wordmark-fullname-tonal.svg) | [SVG](/brand/logo-wordmark-fullname-white.svg) | [SVG](/brand/logo-wordmark-fullname-black.svg) |
+| 竖版堆叠 | [SVG](/brand/logo-wordmark-stack-tonal.svg) | [SVG](/brand/logo-wordmark-stack-white.svg) | [SVG](/brand/logo-wordmark-stack-black.svg) |
+| 竖版堆叠加中文副标 | [SVG](/brand/logo-wordmark-stack-zh-tonal.svg) | [SVG](/brand/logo-wordmark-stack-zh-white.svg) | [SVG](/brand/logo-wordmark-stack-zh-black.svg) |
 
 ## <i data-icon="palette"></i> 配色 Token
 
-制作衍生视觉时请对齐以下色票。文件站 `extra.css` 已将下方 token 写成 CSS 变量，内文用 `var(--brand-cyan-500)` 即可取用，不要 inline hex code。
+制作衍生视觉时对齐下列色票。文档站的 `extra.css` 已把这些 token 定义成 CSS 变量，页面里用 `var(--brand-cyan-500)` 取用，不要直接写 hex 色码。
 
 ### 品牌主色 cyan（9 阶）
 
 | Token | Hex | 用途 |
 |---|---|---|
 | `--brand-cyan-50`  | <span class="color-swatch" style="background:#e0f4ff"></span>`#e0f4ff` | 最淡背景、卡片底色、admonition 底 |
-| `--brand-cyan-100` | <span class="color-swatch" style="background:#b3e3ff"></span>`#b3e3ff` | 浅背景、选取状态 |
+| `--brand-cyan-100` | <span class="color-swatch" style="background:#b3e3ff"></span>`#b3e3ff` | 浅背景、选中状态 |
 | `--brand-cyan-200` | <span class="color-swatch" style="background:#80d1ff"></span>`#80d1ff` | 分隔线、边框、disabled 文字 |
 | `--brand-cyan-300` | <span class="color-swatch" style="background:#4dbfff"></span>`#4dbfff` | 次要链接、tag 边框、logo 上层六角 |
 | `--brand-cyan-400` | <span class="color-swatch" style="background:#26b3ff"></span>`#26b3ff` | hover 状态 |
 | `--brand-cyan-500` | <span class="color-swatch" style="background:#00aeff"></span>`#00aeff` | **品牌主色 BASE**、logo 中层六角 |
-| `--brand-cyan-600` | <span class="color-swatch" style="background:#009ee6"></span>`#009ee6` | 主色 hover / active、公告「新增」tag |
+| `--brand-cyan-600` | <span class="color-swatch" style="background:#009ee6"></span>`#009ee6` | 主色的 hover 与 active、公告的 `新增` tag |
 | `--brand-cyan-700` | <span class="color-swatch" style="background:#0089bf"></span>`#0089bf` | 主色文字（浅背景）、logo 下层六角 |
 | `--brand-cyan-800` | <span class="color-swatch" style="background:#006d99"></span>`#006d99` | 强调文字、深色版本 |
 | `--brand-cyan-900` | <span class="color-swatch" style="background:#003e57"></span>`#003e57` | 暗色模式背景对比 |
@@ -284,12 +284,12 @@ wordmark 的文字已经转成路径，打开的设备有没有装字体都长�
 | Token | Hex | 用途 |
 |---|---|---|
 | `--neutral-text`   | （Material default） | 一般文字 |
-| `--neutral-muted`  | <span class="color-swatch" style="background:#546e7a"></span>`#546e7a` | 次要文字、背景角色（如首页「我们关注的参与者」卡片） |
+| `--neutral-muted`  | <span class="color-swatch" style="background:#546e7a"></span>`#546e7a` | 次要文字、公告的 `更新` tag |
 | `--neutral-border` | <span class="color-swatch" style="background:#cdcdcd"></span>`#cdcdcd` | 图片、卡片边框 |
 
 ### 网页上的深浅版本
 
-品牌的绿与橘在白底的对比不到 4.5，当文字、细线或白字按钮的底色都不够清楚。社区首页用下面的版本，文档站与其他网页也照这张表。`--accent-action` 是白字按钮的底色，两种模式相同。印刷、简报与大面积色块仍用上方的品牌原色。
+品牌的绿与橙在白底上的对比不到 4.5:1，用在文字、细线或白字按钮的底色都不够清楚。社区首页采用下表的版本，文档站与其他网页也照这张表。`--accent-action` 是白字按钮的底色，所以浅色与深色模式相同。印刷、幻灯片与大面积色块仍用上方的品牌原色。
 
 | Token | 品牌原色 | 浅色模式 | 深色模式 |
 |---|---|---|---|
@@ -310,94 +310,94 @@ wordmark 的文字已经转成路径，打开的设备有没有装字体都长�
 
 **主色 cyan**
 
-- 品牌一致性露出（hero、logo 旁、主要 CTA 边框）
-- 主要链接、文件站 nav highlight
+- 需要呈现品牌一致性的位置，例如 hero、logo 旁与主要 CTA 的边框
+- 主要链接、文档站导航栏的 highlight
 
-**Accent action（橘 `#ef6c00`）**
+**Accent action（橙 `#ef6c00`）**
 
-- 「立即报名」、「订阅」、「加入」这类用户要采取行动的按钮
+- 读者要采取行动的按钮，例如「立即报名」、「订阅」、「加入」
 - 活动公告（COSCUP、工作坊）
 
 **Accent emergency（红 `#d32f2f`）**
 
 - 紧急求救页的入口
 - 安全警告（账号被盗、跟踪骚扰应对）
-- 不要用在「这个按钮请点」等非紧急情境
+- 不用在非紧急的场景，例如一般的「请点按钮」提示
 
-**结构性次色（绿 / 紫 / 橘）**
+**结构性次色（绿、紫、橙）**
 
-- 三大主题对应的卡片图示色
+- 三大主题对应的卡片图标色
 - 分类 tag、章节区隔的视觉标记
-- 不要用在一般 CTA 或装饰
+- 不用在一般 CTA 或装饰
 
 **公告 tag**（社区动态列表、首页「最新动态」与文档站 blog 公告区的 inline tag）
 
-- `新增` → `--brand-cyan-600`（cyan 系强调），项目或服务上线
-- `活动` → `--accent-action`（橘），活动公告与回顾
-- `更新` → `--neutral-muted`（灰），工作进度。原本跟个人隐私指引同用绿色，主网站同时有主题卡片，读者容易误以为两者有关，2026-10 改成灰色。文档站目前仍是绿色，之后调整配色时一起改
+- `新增` 用 `--brand-cyan-600`（cyan 系的强调色），标示项目或服务上线
+- `活动` 用 `--accent-action`（橙），标示活动公告与回顾
+- `更新` 用 `--neutral-muted`（灰），标示工作进度。原本与个人隐私指引同用绿色，由于主网站同时有主题卡片，读者容易误以为两者相关。2026-10 起改成灰色，文档站目前仍是绿色，之后调整配色时一并修改
 - 社区的观点、立场与经验不加标签
 - 网页上的小字用「网页上的深浅版本」那张表的色值，`新增` 的小字用 `--brand-cyan-800`
 
 ## <i data-icon="view-dashboard-outline"></i> 各站的视觉分工
 
-anoni.net 底下有三个网站，共用同一组 logo 与上面的色票，各自用页首的颜色区分，读者从一个网站换到另一个时可以看出自己在哪个网站。三个网站都只用 `--brand-cyan-*` 这一个色相当主色，不另外新增色相。
+anoni.net 底下有三个网站，共用同一组 logo 与上方的色票。三个网站以页首的颜色区分，读者换到另一个网站时可以看出自己的位置。三者都只用 `--brand-cyan-*` 一个色相当主色，不另外新增色相。
 
 | 网站 | 页首 | 版面 | 样式的位置 |
 |---|---|---|---|
-| [anoni.net](https://anoni.net/zh-cn/) | 白底，logo 加 `anoni.net` | 整页装在一张细线外框里，只用 cyan 一个色相 | `anoni-net/www` 的 `static/css/site.css` |
+| [anoni.net](https://anoni.net/zh-cn/) | 白底，logo 加 `anoni.net` | 整页放在一个细线外框里，只用 cyan 一个色相 | `anoni-net/www` 的 `static/css/site.css` |
 | [anoni.net/docs](docs:) | `--brand-cyan-800` 底、白字 | Material for MkDocs，侧栏用指南分类色 | `anoni-net/docs` 的 `docs/*/stylesheets/extra.css` |
-| [anoni.net/news](https://anoni.net/news/zh-cn/) | `--brand-cyan-900` 底、白字，墨色调 | 自己写的单栏版面，标题用宋体 | `anoni-net/news` 的 `static/css/news.css` |
+| [anoni.net/news](https://anoni.net/news/zh-cn/) | `--brand-cyan-900` 底、白字，墨色调 | 自行开发的单栏版面，标题用宋体 | `anoni-net/news` 的 `static/css/news.css` |
 
-颜色由浅到深是顶层、文档站、新闻导读，三者并排时可以一眼分辨。
+页首颜色由浅到深依次是顶层网站、文档站、新闻导读，三者并排时一眼就能分辨。
 
 ### 顶层网站的细线
 
-顶层网站（首页、关于、参与、项目、服务等社区页面）沿用 2026-10 改版前那一页首页的样式：白底、1px 细线、单一色相。之后新增的页型照这组规格，不要引入色块或第二个色相。
+顶层网站（首页、关于、参与、项目、服务等社区页面）沿用 2026-10 改版前首页的样式：白底、1px 细线、单一色相。之后新增的页型也照这组规格，不加入色块或第二个色相。
 
 | 元素 | 规格 |
 |---|---|
 | 外框 | 1px `--brand-cyan-500` 线，外加 4px `--brand-cyan-50` 外光晕，圆角 8px，最宽 42rem |
 | 分隔线 | 1px `--brand-cyan-100`，用在小标题右侧延伸的线、列表的上下线与页尾 |
 | 填色 | 只有 `--brand-cyan-50` 一种，只给文档与新闻导读两个项目的卡片 |
-| 滑过卡片 | 外围加一圈 3px、25% 透明度的 `--brand-cyan-500` |
-| 键盘焦点 | 2px `--brand-cyan-500` 外框，离元素 2px |
+| 悬停卡片 | 外围加一圈 3px、25% 透明度的 `--brand-cyan-500` |
+| 键盘焦点 | 2px `--brand-cyan-500` 外框，与元素相距 2px |
 | 文字 | 正文 `#1d2b31`，次要文字 `#52646b`，链接 `--brand-cyan-800` |
 | 深色模式 | 底色 `#00202d`，线改用 `--brand-cyan-600`，链接改用 `--brand-cyan-200` |
 
 ### 只在文档站用的颜色
 
-- **指南分类色**（`--guide-*`）是文档站侧栏的导览识别色，只在文档站出现
+- **指南分类色**（`--guide-*`）是文档站侧栏的导航识别色，只在文档站出现
 - **结构性次色**（`--cat-*`）的绿、紫、橙也限定在文档站。顶层网站要维持单色，三大主题在顶层用圆形线框图标区分，不套颜色
 - **Material 的界面色**（亮色模式页首改用 `--brand-cyan-800` 那组）只跟 Material 主题有关
 
-新闻导读与顶层网站要用到 accent 的时候，照上面的「配色使用守则」，紧急红只用在紧急情境。
+新闻导读与顶层网站需要 accent 时照上方的「配色使用守则」，紧急红只用在紧急场景。
 
 指南分类色、Material 界面色、示意图用色与社交分享卡的规格写在[文档站的视觉规范](docs:community/visual-guide/)。
 
-## <i data-icon="alert-octagon-outline"></i> 不要这样用
+## <i data-icon="alert-octagon-outline"></i> 错误用法
 
 **Logo**
 
-- 别在过饱和的荧光色或多色渐层背景上使用，会让六角形边界糊掉
-- 别跟 Tor、OONI、EFF 等合作对象的官方 logo 紧邻并排，视觉会打架
-- 别在白底场合用 mono white、别在 cyan 底用 cyan tonal，对比会消失
-- 不要把 mono black 拿来当主视觉、Web 用途，那是印刷专用版本
-- 别自行调整六角形的排列、间距、圆角，影响识别性
-- 不要把单个六角形抽出来当其他用途，三个是一组
-- 别自己重排 wordmark 里 logo 与文字的间距或大小，要改就整份等比缩放
-- 别把 wordmark 的副标换成活动名称或其他字串，需要那种组合请另外排版，把 wordmark 当一个组件摆进去
-- 带副标的 wordmark 低于最小尺寸就换成无副标版本，副标糊掉比没有副标更难看
+- 不要放在过饱和的荧光色或多色渐变背景上，六角形的边界会变得模糊
+- 不要与 Tor、OONI、EFF 等合作对象的官方 logo 紧邻并排，视觉上会互相干扰
+- 不要在白底上用 mono white，也不要在 cyan 底上用 cyan tonal，对比会消失
+- 不要把 mono black 当主视觉或用在网页上，那是印刷专用的版本
+- 不要自行调整六角形的排列、间距与圆角，会降低辨识度
+- 不要把单个六角形抽出来另作他用，三个六角形是一组
+- 不要单独调整 wordmark 里 logo 与文字的间距或大小，需要改尺寸时整份等比缩放
+- 不要把 wordmark 的副标换成活动名称或其他字符串。需要这种组合时另外排版，把 wordmark 当成一个组件放进去
+- 带副标的 wordmark 低于最小尺寸时换成无副标的版本，模糊的副标比没有副标更难辨识
 
 **色彩**
 
-- 别任意挑 Material 默认色（brown、lime、indigo）做装饰
-- 别用多色渐层作为背景（除非是经规划的 hero 视觉实验）
-- 别用过饱和的色（纯红 `#ff0000`、纯绿 `#00ff00`）
-- 别 inline `style="color: #...;"`，请改用 CSS 变量 `var(--brand-cyan-500)`
+- 不要任意选用 Material 的默认色（brown、lime、indigo）做装饰
+- 不要用多色渐变当背景（经过规划的 hero 视觉实验除外）
+- 不要用过饱和的颜色（纯红 `#ff0000`、纯绿 `#00ff00`）
+- 不要写 inline 的 `style="color: #...;"`，改用 CSS 变量，例如 `var(--brand-cyan-500)`
 
 ## <i data-icon="link-variant"></i> 接下来
 
 - [文档站的视觉规范](docs:community/visual-guide/)：指南分类色、示意图的制作方式与社交分享卡
 - [贡献者百科](docs:community/contributor-handbook/)：整体贡献流程、PR 规范、翻译流程
-- [社区自架服务](/services/)：Matrix、Cryptpad、Etherpad、SearXNG、Send、Formbricks 的入口与账号需求
+- [服务](/services/)：社区自架的 Matrix、CryptPad、Etherpad、SearXNG、Send、Formbricks 的入口与账号需求
 - [2026 年度路线图](/join/roadmap-2026/)：三大主题与时程

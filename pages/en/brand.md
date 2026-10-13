@@ -1,15 +1,15 @@
 ---
 title: Brand Assets
-description: The anoni.net logo in cyan tonal, mono white and mono black, when to use each, downloads and colour tokens, for event materials, slides and print.
+description: The anoni.net logo in three colourways, the six wordmark layouts and the colour tokens, with usage, downloads and what to avoid, for event materials, slides, social cards and print.
 ---
 
-The anoni.net logo is three hexagons, evoking a network of nodes and layered observation, derived and coloured from the Material `hexagon-multiple-outline` icon. The three hexagons sit top, middle, and bottom, corresponding to the three reading layers the community works across: concepts, tools, and regional context.
+Take the logo, wordmarks and colours from this page when making event materials, social cards, slides or print, so that the three sites and everything made around them share one visual identity. Choose a variant below by background colour and purpose, and do not recolour or reshape the mark.
 
-When making event materials, social cards, slides, or print, take one of the three variants below according to your background colour and situation, rather than recolouring or reshaping the mark.
+The anoni.net logo is three hexagons, redrawn and coloured from the Material `hexagon-multiple-outline` icon, standing for a network of nodes and layered observation. From top to bottom the hexagons correspond to the three reading layers the community works across: concepts, tools, and regional context.
 
 ## <i data-icon="palette-swatch-outline"></i> V3 cyan tonal (primary)
 
-The three hexagons in `cyan-300`, `cyan-500`, and `cyan-700`, giving the nodes depth. Default use: white and light backgrounds, general documentation, slide interiors.
+From top to bottom the hexagons are `cyan-300`, `cyan-500`, and `cyan-700`, and the shading gives the nodes depth. This is the default on white and light backgrounds, ordinary docs pages, and slide interiors.
 
 <div class="brand-row">
   <div class="brand-card">
@@ -48,9 +48,9 @@ The three hexagons in `cyan-300`, `cyan-500`, and `cyan-700`, giving the nodes d
 
 [<i data-icon="download"></i> Download logo-tonal.svg](/brand/logo-tonal.svg){ .btn }
 
-## <i data-icon="palette-swatch-outline"></i> V3 mono white (on brand colour)
+## <i data-icon="palette-swatch-outline"></i> V3 mono white (on brand colour and dark backgrounds)
 
-Pure white, for the highest contrast on brand colours (`cyan-500`, `cyan-900`) and dark blocks. The site header logo uses it against the blue navigation bar, as do OG images, social cards, and event banners on cyan.
+Pure white, for the highest contrast on brand colours (`cyan-500`, `cyan-900`) and dark blocks. The docs site uses it in its blue header, as do OG images, social cards, and event banners on cyan.
 
 <div class="brand-row">
   <div class="brand-card">
@@ -134,7 +134,7 @@ Pure black, for print, fax, and single-colour stencils where colour is unavailab
 
 The three variants above are the mark on its own, without the community name. Where the name needs to be read at a glance, use a wordmark instead: slide headers, business cards, event backdrops, posters, roll-up banners. Keep the icon-only versions for places that are either very small or already carry the name nearby, such as favicons, chat avatars, and slide corners.
 
-The lettering is converted to paths, so it renders identically whether or not the device has the fonts installed, and no character can silently fall back to a different typeface. The Chinese subtitle is fixed as 匿名網路社群 in Traditional Chinese, matching the site name shared across all three editions.
+The lettering is converted to paths, so it renders identically whether or not the device has the fonts installed, and no character can silently fall back to a different typeface. The Chinese subtitle is always the Traditional Chinese 匿名網路社群; there is no Simplified Chinese version.
 
 ### Six layouts
 
@@ -220,11 +220,11 @@ The proportions are fixed. To change the size, scale the whole lockup; do not ad
 - Stacked: the logo height is 1.90 times the type size, with the lettering centred under the mark
 - Clear space: 0.25 times the logo height on all four sides. The SVG viewBox already includes it, so do not crop inwards when placing the file
 
-The lettering is Public Sans SemiBold and the Chinese subtitle is Noto Sans TC Medium, the same faces as the body text on the English and Traditional Chinese editions. In the tonal variant, `.net` uses `cyan-700`, matching the lowest hexagon; the mono variants are a single colour throughout.
+The lettering is Public Sans SemiBold and the Chinese subtitle is Noto Sans TC Medium, the same faces as the social cards on the docs site's English and Traditional Chinese editions. In the tonal variant, `.net` uses `cyan-700`, matching the lowest hexagon; the mono variants are a single colour throughout.
 
 ### Minimum size
 
-Below these heights the lettering blurs, so switch to the icon-only mark.
+Below these heights the lettering blurs. Drop a wordmark with a subtitle to the version without one, and a wordmark without a subtitle to the icon-only mark.
 
 | Layout | Minimum height |
 |---|---|
@@ -247,7 +247,7 @@ In print terms, 18 px at 300 dpi is roughly 1.5 mm; in practice the horizontal v
 
 ## <i data-icon="palette"></i> Colour tokens
 
-Align derivative work to these values. The site's `extra.css` already defines them as CSS variables, so use `var(--brand-cyan-500)` rather than an inline hex code.
+Align derivative work to these values. The docs site's `extra.css` already defines them as CSS variables, so use `var(--brand-cyan-500)` rather than an inline hex code.
 
 ### Brand cyan, nine steps
 
@@ -259,7 +259,7 @@ Align derivative work to these values. The site's `extra.css` already defines th
 | `--brand-cyan-300` | <span class="color-swatch" style="background:#4dbfff"></span>`#4dbfff` | Secondary links, tag borders, top logo hexagon |
 | `--brand-cyan-400` | <span class="color-swatch" style="background:#26b3ff"></span>`#26b3ff` | Hover state |
 | `--brand-cyan-500` | <span class="color-swatch" style="background:#00aeff"></span>`#00aeff` | **Brand base**, middle logo hexagon |
-| `--brand-cyan-600` | <span class="color-swatch" style="background:#009ee6"></span>`#009ee6` | Primary hover and active, "new" announcement tag |
+| `--brand-cyan-600` | <span class="color-swatch" style="background:#009ee6"></span>`#009ee6` | Primary hover and active, the `New` announcement tag |
 | `--brand-cyan-700` | <span class="color-swatch" style="background:#0089bf"></span>`#0089bf` | Primary text on light backgrounds, bottom logo hexagon |
 | `--brand-cyan-800` | <span class="color-swatch" style="background:#006d99"></span>`#006d99` | Emphasis text, dark variants |
 | `--brand-cyan-900` | <span class="color-swatch" style="background:#003e57"></span>`#003e57` | Dark mode background contrast |
@@ -284,7 +284,7 @@ Align derivative work to these values. The site's `extra.css` already defines th
 | Token | Hex | Use |
 |---|---|---|
 | `--neutral-text`   | Material default | Body text |
-| `--neutral-muted`  | <span class="color-swatch" style="background:#546e7a"></span>`#546e7a` | Secondary text, background roles |
+| `--neutral-muted`  | <span class="color-swatch" style="background:#546e7a"></span>`#546e7a` | Secondary text, the `Update` announcement tag |
 | `--neutral-border` | <span class="color-swatch" style="background:#cdcdcd"></span>`#cdcdcd` | Image and card borders |
 
 ### Web variants
@@ -334,11 +334,11 @@ The brand green and orange fall short of 4.5:1 contrast on white, which is not e
 
 - `New` uses `--brand-cyan-600`, for a project or service going live
 - `Event` uses `--accent-action`, for event announcements and recaps
-- `Update` uses `--neutral-muted` (grey), for progress reports. It used to share the privacy track's green, but the community site also shows the track cards, so readers could take the two as related; it switched to grey in 2026-10. The docs site still uses green and will follow when its colours are revised
+- `Update` uses `--neutral-muted` (grey), for progress reports. It used to share the privacy track's green, but the community site also shows the track cards, so readers could take the two as related; it switched to grey in October 2026. The docs site still uses green and will follow when its colours are revised
 - Posts sharing the community's views, positions or experience carry no tag
 - Small text on the web uses the values in the web variants table; `New` in small text uses `--brand-cyan-800`
 
-## <i data-icon="view-dashboard-outline"></i> How each site uses the brand
+## <i data-icon="view-dashboard-outline"></i> Visual roles of the three sites
 
 Three sites live under anoni.net. They share the logo and the tokens above, and each is told apart by the colour of its header, so readers moving between them can see where they are. All three use `--brand-cyan-*` as the only main hue and add no others.
 
@@ -372,9 +372,9 @@ The top-level site (home, about, join, projects, services and the other communit
 
 When News or the top-level site needs an accent, follow "Using the colours" above, and keep the emergency red for emergencies.
 
-The guide category colours, the Material interface colours, the diagram palette and the social cards are specified in the docs site's [visual guide](docs:community/visual-guide/).
+The guide category colours, the Material interface colours, the diagram palette and the social cards are specified in the [Docs Visual Guide](docs:community/visual-guide/).
 
-## <i data-icon="alert-octagon-outline"></i> What not to do
+## <i data-icon="alert-octagon-outline"></i> Incorrect use
 
 **Logo**
 
@@ -393,11 +393,11 @@ The guide category colours, the Material interface colours, the diagram palette 
 - Do not pick arbitrary Material defaults (brown, lime, indigo) for decoration
 - Do not use multicolour gradients as backgrounds, outside a deliberate hero experiment
 - Do not use oversaturated colours such as pure red `#ff0000` or pure green `#00ff00`
-- Do not write `style="color: #...;"` inline. Use the CSS variable
+- Do not write `style="color: #...;"` inline. Use a CSS variable such as `var(--brand-cyan-500)`
 
 ## <i data-icon="link-variant"></i> Next
 
-- [Docs visual guide](docs:community/visual-guide/): guide category colours, how to make diagrams, and social cards
-- [Contributor handbook](docs:community/contributor-handbook/): the overall contribution process, PR conventions, and translation workflow
-- [Community services](/services/): Matrix, CryptPad, Etherpad, SearXNG, Send, and Formbricks
+- [Docs Visual Guide](docs:community/visual-guide/): guide category colours, how to make diagrams, and social cards
+- [Contributor Handbook](docs:community/contributor-handbook/): the overall contribution process, PR conventions, and translation workflow
+- [Services](/services/): the Matrix, CryptPad, Etherpad, SearXNG, Send, and Formbricks instances the community hosts, with entry points and account requirements
 - [2026 roadmap](/join/roadmap-2026/): the three tracks and the schedule

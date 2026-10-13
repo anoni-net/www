@@ -1,88 +1,88 @@
 ---
 title: 2026 年度路线图
-description: 2026 年匿名网络社区 anoni.net 的三大主题、文件站建设节奏、活动规划与如何加入。
+description: 匿名网络社区 anoni.net 2026 年的三大主题、文档站的季度规划、活动、对外协作、技术项目与参与方式。
 ---
 
-这页列出 2026 年匿名网络社区 anoni.net 的年度目标与季度交付物，是给伙伴、合作者与外部关注者的对外说明版。新的一年我们会持续以「匿名网络」为核心，除了延续 Tor、Tails、OONI 的在地推广，也会聚焦三个新的推进项目：个人隐私指引、Tor Relay 校园建立、匿名支付的应用与探索。每一季结束会检视交付状况，并调整下一季的安排。
+匿名网络社区 anoni.net 2026 年延续 Tor、Tails、OONI 的在地推广，另外推进三个新主题：个人隐私指引、Tor Relay 校园建立、匿名支付探索。每一季结束时检视交付状况，再调整下一季的安排。
 
-完整的 2025 回顾与 2026 起步背景请见 [延续 2025，走向 2026](/updates/2026/01/2025to2026/)。
+2025 年的回顾与 2026 年规划的背景见[延续 2025，走向 2026](/updates/2026/01/2025to2026/)。
 
 ## 三大主题
 
 ### 个人隐私指引
 
-在过去一年推广 Tor、Tails、OONI 的过程中，社区最常遇到的提问是「我下一步该怎么做才能让自己更安全」。这个提问背后缺的是一套可实际操作、依情境分级的隐私指引。我们会在这一年内逐步开展隐私主题，整理日常使用、敏感工作、高风险情境三种等级的工具与步骤，落地成 [概念](docs:basics/)、[工具](docs:tools/)、[场景](docs:scenarios/) 三个层次的文件。
+2025 年推广 Tor、Tails、OONI 时，社区最常被问到「下一步该怎么做才能更安全」，回答这个问题需要一套可以照着操作、依情境分级的隐私指引。个人隐私指引依日常使用、敏感工作、高风险情境三种等级整理工具与步骤，写成文档站的[概念层](docs:basics/)、[工具层](docs:tools/)、[场景层](docs:scenarios/)三层文档。
 
-研究专题入口、文章索引与目前进度请见 [个人隐私指引研究专题](/join/privacy-guide/)。
+文章索引与目前进度见[个人隐私指引研究专题](/join/privacy-guide/)。
 
 ### Tor Relay 校园建立
 
-这项计划源自 EFF 与 Tor Project 合作推动的 [Tor University Challenge](https://toruniversity.eff.org/zh-tw/)，目标在大专院校建置稳定的中继节点。台湾已有成功案例：国立台湾师范大学资讯工程学系资讯中心已运行一个 Tor Relay 中继，由社区伙伴透过教授与教职员提案、协调后完成。详细经过可参考 [台师大 NZ 访谈](/updates/2025/12/ntnu-nz/)。
+主题源自 EFF 与 Tor Project 合作推动的 [Tor University Challenge](https://toruniversity.eff.org/zh-tw/)，目标是在大专院校架设稳定运行的中继节点。国立台湾师范大学资讯工程学系的资讯中心已经在运行一个 Tor 中继节点，由社区伙伴向教授与教职员提案、协调后架设完成（经过见[在台师大架设 Tor Relay](/updates/2025/12/ntnu-nz/)）。
 
-2025 我们完成了 Tor University Challenge 网站的正体中文翻译，2026 将实际走进校园推动建置流程。
+社区在 2025 年完成 Tor University Challenge 网站的正体中文翻译，2026 年到校园推动架设。台师大的经验在 2026 年 5 月整理成提案范本、架设 SOP、校方 FAQ 三份范本，其他学校可以依自己的状况改写后沿用。
 
-研究专题入口、案例累积与如何加入请见 [Tor Relay 校园建立研究专题](/join/relay-on-campus/)。技术 how-to 见 [Tor Relay 架设指南](/join/setup-tor-relay/)。
+范本、案例与参与方式见[Tor Relay 校园建立研究专题](/join/relay-on-campus/)，架设的技术步骤见[Tor Relay 架设指南](/join/setup-tor-relay/)。
 
 ### 匿名支付探索
 
-现金是最成熟的匿名支付方式，但跨境、线上、组织收受捐款等情境下有明显限制。社区会在合法前提下探索链上工具的可行性，包含加密货币、稳定币、零知识身份验证、多重签署等实现面向。这个主题还在起步阶段，目前尚未看到完整且系统性的中文资源，社区想逐步把实现指引建构起来。
+现金是最成熟的匿名支付方式，用在跨境、线上与组织收受捐款时有明显的限制。社区在合法的前提下研究链上工具的可行性，包含加密货币、稳定币、零知识身份验证与多重签名的实现。中文资源里还没有完整、有系统的整理，社区从研究起步，逐步写成实现指引。
 
-研究专题入口、文章索引与目前进度请见 [匿名支付研究专题](/join/payments-research/)。
+文章索引与目前进度见[匿名支付研究专题](/join/payments-research/)。
 
-## 文件站建设节奏
+## 文档站的季度规划
 
-文件站是社区推广与沉淀的核心工具。架构已重整为 7 大分类加上指南 5 个子群组（概念、工具、场景、进阶、报告），一年的内容填补节奏与当前进度：
+文档站的指南分成概念、工具、场景、进阶、报告五个子群组，2026 年依这个架构逐季补齐内容。各季的范围与目前的状态：
 
-- **Q1（已完成）**：基础概念（[basics](docs:basics/)）优先补齐、在地法规类（[个资法 2025 修法](docs:taiwan/pdpa-2025/)、[VASP 2026](docs:taiwan/vasp-2026/)）、紧急求救页、社区治理与路线图
-- **Q2（进行中）**：工具层（Tor Browser 进阶、匿名操作系统比较、通讯工具比较、密码管理器、加密货币隐私光谱）、进阶层的端对端加密，各篇初稿已上线、持续校订
-- **Q3（待开始）**：场景层（记者、社运、家暴幸存者、LGBTQ+、选举观察员等）、进阶层的后量子与去中心化发布、揭弊者保护法观察
-- **Q4（待开始）**：社区治理章程、贡献者百科、年度回顾
+- **Q1（已完成）**：优先补齐[概念层](docs:basics/)，加上在地法规（[台湾个资法 2025 修法](docs:taiwan/pdpa-2025/)、[台湾 VASP 法 2026](docs:taiwan/vasp-2026/)）、[紧急求救](docs:help/)页、社区治理与路线图
+- **Q2（初稿已上线）**：工具层的 Tor Browser 进阶设置、匿名操作系统比较、通讯工具比较、密码管理器、加密货币的隐私光谱，以及进阶层的端到端加密，各篇持续校订
+- **Q3（初稿已上线）**：场景层的记者、社运行动者、家暴受害者、LGBTQ+、选举观察员等情境，进阶层的后量子密码与去中心化网站发布，以及揭弊者保护法的技术观察
+- **Q4（进行中）**：[治理章程](/about/governance/)草案与[贡献者百科](docs:community/contributor-handbook/)已上线，年度回顾在年底整理
 
-实际进度受撰稿志工人力影响。
+实际进度视撰稿志愿者的人力而定。
 
-## 活动规划
+## 活动
 
 ### COSCUP 2026
 
-社区延续 2025 年的 COSCUP 经验，2026 年再度开设社区议程轨，并与 [ETHTaipei](https://ethtaipei.org/) 合作匿名支付主题场次。8/08、8/09 两天在台科大举办，第一天（8/08）下午的匿名支付联合议程在 `TR-511`。完整议程见 [COSCUP 2026 议程](/events/coscup-2026/)，此前的征稿说明见 [COSCUP 2026 公开征稿](/events/coscup-2026-cfp/)。
+社区延续 2025 年参与 COSCUP 的经验，2026 年 8 月 8 日、9 日在国立台湾科技大学再度开设社区议程轨，并与 [ETHTaipei](https://ethtaipei.org/) 合办匿名支付主题场次，安排在 8 月 8 日下午的 `TR-511`。完整议程见[COSCUP 2026 匿名网络社区议程轨](/events/coscup-2026/)，议程开放投稿时的说明见[COSCUP 2026 公开征稿](/events/coscup-2026-cfp/)。
 
 ### 工作坊与小聚
 
-延续 2025 年 8 月在台科大举办的工作坊经验，2026 年会视议题进度与伙伴需求安排定点工作坊与线上小聚。对象包含新闻媒体、独立记者、公民团体、技术社区与一般关注者。
+延续 2025 年 8 月在台科大举办[匿名网络工作坊 2025/08](/events/workshop-2025/)的经验，2026 年视议题进度与伙伴的需求安排定点工作坊与线上小聚。对象包含新闻媒体、独立记者、公民团体、技术社区与一般关注者。
 
 ## 对外协作
 
 ### 研究与报告翻译
 
-2025 年下半年完成了 [InterSecLab 网络长城技术输出研究](https://anoni.net/docs/reports/interseclab-network-coup/) 的中译与分享（中译版仅在 zh-TW 维护）。2026 年会持续挑选对在地有参考价值的国际报告进行翻译与注释，并以「[严选报告](docs:reports/)」分类沉淀。
+社区在 2025 年下半年翻译并分享了 InterSecLab 研究中国审查技术输出的报告[网络政变 / The Internet Coup](https://anoni.net/docs/reports/interseclab-network-coup/)（中译只有正体中文版）。2026 年持续挑选对在地有参考价值的国际报告，翻译并加上注释，收在文档站的[严选报告](docs:reports/)。
 
 ### 外部活动参与
 
-社区成员会主动到在地的开源、公民、隐私相关活动现场（黑客松、年会、议题小聚、讲座），多数时候是以个人或社区代表身份交流、听议题、跟读脉络，并非正式的跨组织合作。具体的合作（议程联合征稿、报告翻译协作、活动共同筹办）会在有实际对接时，于 [活动参与](/events/) 另行公告。
+社区成员常参加在地开源、公民团体与隐私相关的活动，例如黑客松、年会、议题小聚与讲座。多半以个人或社区代表的身份交流、了解议题的脉络，属于非正式的往来。议程联合征稿、报告翻译协作、活动共同筹办这类正式合作，确定之后会在[活动参与](/events/)公告。
 
-## 技术维运项目
+## 技术项目
 
-文件站之外，社区也维运几个与 Tor、OONI、密码安全相关的技术子项目：
+社区也开发并运维几个与 Tor、OONI、密码安全相关的技术项目：
 
-- **Tor 中继节点观测（Pulse）**：Tor 中继的数据收集与 API（FastAPI + PostgreSQL），[观测页](/projects/pulse/)的数据来源
-- **OONI 观测覆盖率（ASN Coverage）**：OONI 公开数据的批次分析工具，搭配[观测页](/projects/asn-coverage/)与 [ASN 观测数据分析](docs:taiwan/ooni-asn-coverage/)
-- **Asian Diceware**：EFF 兼容的 7776 字密语词表，混入有字典背书的亚洲外来语，为社区未来自建类似 AnonTicket 的匿名服务平台、产生账号代码做准备，对应 [Asian Diceware 密语字典](docs:tools/asian-diceware/)
+- **[Tor 中继节点观测](/projects/pulse/)（Pulse）**：收集 Tor 中继节点的数据并提供 API，使用 FastAPI 与 PostgreSQL
+- **[OONI 观测覆盖率](/projects/asn-coverage/)（ASN Coverage）**：批次分析 OONI 的公开数据，相关文章见文档站的[ASNs 自治网络观测数据分析](docs:taiwan/ooni-asn-coverage/)
+- **Asian Diceware**：与 EFF 兼容的 7776 字密语词表，混入有字典背书的亚洲外来语。社区之后想自建类似 Tor Project [AnonTicket](https://anonticket.torproject.org/) 的匿名服务平台，词表也是生成账号代码的字源，介绍见[Asian Diceware，带亚洲味的英文密语字典](docs:tools/asian-diceware/)
 
-Pulse 与 ASN Coverage 的代码与议题追踪各自在 [GitHub anoni-net/pulse](https://github.com/anoni-net/pulse) 与 [GitHub anoni-net/asn-coverage](https://github.com/anoni-net/asn-coverage)，Asian Diceware 独立放在 [GitHub anoni-net/asian-diceware](https://github.com/anoni-net/asian-diceware)。两个观测工具如何对应到 Tor 上游的 network-health 方向，见 [Tor Project 生态与对接](docs:community/tor-project-ecosystem/)。
+三个项目的源代码与议题追踪分别在 GitHub 的 [anoni-net/pulse](https://github.com/anoni-net/pulse)、[anoni-net/asn-coverage](https://github.com/anoni-net/asn-coverage)、[anoni-net/asian-diceware](https://github.com/anoni-net/asian-diceware)。两个观测工具与 Tor 上游 network-health 团队工作的关联，见[参与 Tor Project](/join/tor-project/)。
 
-## 如何加入
+## 参与方式
 
-不需要技术背景就可以参与。可以从以下几个方向选一个入口：
+参与不需要技术背景，可以依兴趣选一个入口：
 
-- 想理解议题、跟读社区动态：订阅 [电子报](/contact/)、加入 Matrix
-- 想参与翻译与写作：见 [中文化与文件翻译](docs:community/i18n/)、[如何参与与认领主题](/join/)
-- 想评估自己的技术涉入程度：见 [自我技能评估表](docs:community/skill-level/)
-- 想了解沟通协作工具：见 [社区自架服务](/services/)
+- 了解议题、关注社区动态：订阅电子报（见[持续关注](/contact/)）、加入 Matrix
+- 参与翻译与写作：见[中文化与文件翻译](docs:community/i18n/)、[参与](/join/)
+- 评估自己的技术涉入程度：见[自我技能评估表](docs:community/skill-level/)
+- 了解沟通与协作工具：见社区的[服务](/services/)
 
-社区讨论主要在 Matrix（家服务器 `im.anoni.net`），共笔使用 Cryptpad，视频使用 Jitsi。账号申请与入口设定都整理在 [社区自架服务](/services/)。
+社区的讨论主要在 Matrix（家服务器 `im.anoni.net`），共笔用 CryptPad，在线会议用 Jitsi，账号申请与各服务的入口也整理在[服务](/services/)页。
 
 ## 路线图更新
 
-这份路线图是活文件，每季结束会检视并调整。重大调整会以社区提案流程进行讨论，并在 Matrix 公布。
+路线图每季结束时检视并调整，重大调整依社区的提案流程讨论，并在 Matrix 公布（提案流程见[治理章程](/about/governance/)）。
 
-**最后更新**：2026-06（Q2 进行中）。
+**最后更新**：2026-10（Q4 进行中）。

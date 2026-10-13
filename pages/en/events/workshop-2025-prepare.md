@@ -1,302 +1,292 @@
 ---
-title: Anonymous Network Workshop 2025/08 staff
-description: Recruiting organizers and helpers for the August 2025 Anonymous Network Workshop, with the schedule, monthly tasks and the Tor, Tails and OONI topics.
+title: Anonymous Network Workshop 2025/08, preparation and staff recruitment
+description: The preparation record of the August 2025 Anonymous Network Workshop, with staff recruitment, the monthly preparation work, the helpers' skill levels for Tor, Tails and OONI, and the proposed round-table topics.
 ---
 
 ![Recruiting staff to help organize the event!](docs:assets/images/event-workshop-2025.png){ .shot }
 
 !!! info ""
-    - We are organizing the "Anonymous Network Workshop" at the [COSCUP Open Source Annual Conference](https://blog.coscup.org/2025/04/coscup-2025-call-for-proposals.html) on 08/09 ~ 08/10. We need to recruit **partners**, **helpers**, and **event preparation volunteers** before the event starts. If you're interested in this event and willing to help organize the workshop, please read the following instructions and find a suitable way to join us!
-    - Registration information for **event participants** is expected to be established and updated on this page in July 2025.
 
-## Workshop Registration
+    - This page keeps the preparation and staff recruitment record of the 2025 Anonymous Network Workshop. Recruitment has closed.
+    - The workshop took place on 9 and 10 August 2025 at the [COSCUP Open Source Annual Conference](https://blog.coscup.org/2025/04/coscup-2025-call-for-proposals.html), in Room TR-510 of the Yan-Yang Teaching Building, National Taiwan University of Science and Technology. The programme and schedule are on [Anonymous Network Workshop 2025/08](/events/workshop-2025/).
 
-!!! warning "Preparation in Progress…"
-    - The workshop is currently in preparation. We expect to promote and open registration in early July 2025. If you arrive at this page early and want to register, you can [join the group email](/contact/) to receive our registration notifications instantly!
+Early in the preparation we applied for a one-day track, before COSCUP had announced which day each track would get, so the groundwork went ahead without a date. The workshop followed the format of the February 2025 event run by the Tor and OONI teams, [Internet Freedom Workshop: Tor、Tails、OONI](/updates/2025/02/rightscon25-tor-tails-ooni/), with the material adapted to local conditions and taught in Chinese.
 
----
-
-## <i data-icon="fontawesome-solid-users-gear"></i> Preparation Team
-
-This time, we will have a one-day track to conduct the workshop. Although COSCUP has not yet announced which day we'll be assigned, it does not affect the pre-workshop preparations. We will continue with the format of the workshop hosted by the [Tor and OONI teams in February 2025](/updates/2025/02/rightscon25-tor-tails-ooni/), with the only difference being localized adjustments and conducting it in Chinese.
-Currently, we need the following roles, each of which can be cross-participatory. You only need to have basic skills, and there will be training activities to enhance them.
+Staff were recruited for two roles. One person could take both, basic skills were enough to apply, and we ran training sessions afterwards.
 
 <div class="grid cards" markdown>
 
-- **[<i data-icon="fontawesome-solid-clipboard-user"></i> Event Organizer](#Event-Organizer)**
+- **[<i data-icon="fontawesome-solid-clipboard-user"></i> Event organizers](#Event-Organizer)**
 
     ---
 
-    Assist with event registration, notifications, promotion, and venue setup on the day of the event.
+    Event registration, notifications, promotion, and setting up the venue on the day.
 
-- **[<i data-icon="fontawesome-solid-clipboard-user"></i> Workshop Helper](#Workshop-Helper)**
+- **[<i data-icon="fontawesome-solid-clipboard-user"></i> Workshop helpers](#Workshop-Helper)**
 
     ---
 
-    Need to understand basic knowledge of Tor, Tails, and OONI, assist participants with questions and guidance during the workshop, and help plan and prepare workshop course materials.
+    Basic knowledge of Tor, Tails, and OONI. Helpers answered participants' questions and guided them through the exercises during the workshop, and helped plan and prepare the course materials.
 
 </div>
 
-### Registering Staff
+## Staff applications {#Registering-Staff}
 
-This workshop requires "Event Organizers" and "Workshop Helpers". There is no restriction to choose only one to participate, as long as your schedule permits and you wish to help organize the workshop, you are encouraged to take this opportunity to join!
-Please follow these sample questions to apply, and feel free to add more or reply directly to the newsletter if you heard about this event through it!
+Applicants wrote to `Anonymity Networks Community anoni.net <whisper@anoni.net>`, answering the questions below and adding anything else they wanted. People who heard about the call through the newsletter could reply to the newsletter directly.
 
-    - Nickname: (How you want to be called or displayed)
-    - Self-introduction: (Quickly introduce yourself. If you've participated in previous activities, feel free to mention them to help us recall!)
-    - Role you want to apply for: [ ] Event Organizer, [ ] Workshop Helper.
-    - Things you can contribute and gain from the workshop: (Tell us to avoid arranging unenjoyable tasks for you!)
+    - Nickname: (what you would like us to call you)
+    - Self-introduction: (a short introduction; mention any earlier community events you joined)
+    - Role you want to apply for: [ ] Event organizer, [ ] Workshop helper.
+    - What you could contribute to and gain from the workshop: (so we can give you work you enjoy)
 
-Send your application email to: `Anonymity Networks Community <whisper@anoni.net>`, looking forward to and thanking you for your participation!
+## <i data-icon="fontawesome-solid-clipboard-user"></i> Event organizers {#Event-Organizer}
 
-### <i data-icon="fontawesome-solid-clipboard-user"></i> Event Organizer
+Preparation ran from May to early August 2025, about three months. Organizers handled promotion, registration, notifications, and venue coordination. The venue was the Yan-Yang Teaching Building at National Taiwan University of Science and Technology（國立臺灣科技大學 研揚教學大樓）. At the time of recruitment the exact day and room had not been announced, and were expected with the conference schedule on 9 July 2025.
 
-The preparation period for the workshop runs from May 2025 to early August 2025, about three months. During this period, we need organizing staff to help arrange promotion, registration, notifications, venue coordination, and other matters related to the workshop. The event will be held at the **Taiwan University of Science and Technology Yan Yang building classroom**（國立臺灣科技大學 研揚大樓）. The exact event day has not yet been announced; it may be known on **July, 09<sup>th</sup>** when the conference schedule is published.
-
-#### Schedule
+### Schedule
 
 | Month   | Goal                                                        |
 | ------- | ----------------------------------------------------------- |
 | 2025/05 | Build the preparation team, recruit helpers and staff.      |
-| 2025/06 | Complete course translation and localization design.        |
+| 2025/06 | Complete the translation of materials and the localized course design. |
 | 2025/07 | Event promotion and registration.                           |
-| 2025/08 | Event day execution, post-event records, and notifications. |
+| 2025/08 | The event, post-event records, and notifications.           |
 
-#### Monthly Tasks
+### Monthly tasks {#Monthly-Tasks}
 
 === "2025/05"
 
     - [x] `Announcement`{style="color: red;"} Start recruiting staff and helpers for the workshop.
-    - [x] `Notification`{style="color: darkorange;"} Workshop preparations have begun, welcome to join!
+    - [x] `Notification`{style="color: darkorange;"} Announce that preparation has begun and invite people to join.
     - [x] `Confirmation`{style="color: purple;"} Online kickoff meeting in May.
-    - [x] `Materials`{style="color: green;"} Translate Tor/Tails presentation.
+    - [x] `Materials`{style="color: green;"} Translate the Tor/Tails slides.
 
 === "2025/06"
 
     - [x] `Announcement`{style="color: red;"} Preparation progress and ongoing staff recruitment.
     - [x] `Confirmation`{style="color: purple;"} List of staff and helpers.
-    - [x] `Materials`{style="color: green;"} Details of Tor/Tails workshop course.
-    - [x] `Materials`{style="color: green;"} Details of OONI workshop course.
-    - [ ] `Feedback`{style="color: dodgerblue;"} Provide course and material design feedback to Tor/Tails, OONI teams.
+    - [x] `Materials`{style="color: green;"} Details of the Tor/Tails workshop course.
+    - [x] `Materials`{style="color: green;"} Details of the OONI workshop course.
+    - [ ] `Feedback`{style="color: dodgerblue;"} Send feedback on our course and material design to the Tor/Tails and OONI teams.
 
 === "2025/07"
 
     - [x] `Announcement`{style="color: red;"} Workshop course content and registration method.
-    - [x] `Notification`{style="color: darkorange;"} Registrants' event attendance and timing.
-    - [x] `Production`{style="color: midnightblue;"} Print a small number of flyers to be placed at OCF booths and bulletin boards.
-    - [x] `Confirmation`{style="color: purple;"} Tasks of staff on the event day.
+    - [x] `Notification`{style="color: darkorange;"} Confirm attendance and timing with registrants.
+    - [x] `Production`{style="color: midnightblue;"} Print a small number of flyers for a booth and the bulletin boards at COSCUP.
+    - [x] `Confirmation`{style="color: purple;"} Staff tasks on the event day.
 
 === "2025/08"
 
-    - [x] <code>:star2:</code> Execute the event day.
+    - [x] <code>:star2:</code> The event.
     - [ ] `Announcement`{style="color: red;"} Post-event report article.
-    - [ ] `Notification`{style="color: darkorange;"} Feedback from registrants and suggestions for continued participation after the event.
-    - [ ] `Feedback`{style="color: dodgerblue;"} Provide feedback to the Tor/Tails, OONI teams about the event records.
+    - [ ] `Notification`{style="color: darkorange;"} Collect feedback from registrants and suggest ways to stay involved after the event.
+    - [ ] `Feedback`{style="color: dodgerblue;"} Send the event records to the Tor/Tails and OONI teams.
 
-[Register for "Event Organizer"](#Registering-Staff){ .btn .solid }
+[Staff applications](#Registering-Staff){ .btn .solid }
 
-### <i data-icon="fontawesome-solid-clipboard-user"></i> Workshop Helper
+## <i data-icon="fontawesome-solid-clipboard-user"></i> Workshop helpers {#Workshop-Helper}
 
-The workshop is expected to offer two courses:
+The workshop offered two courses:
 
 <div class="grid cards" markdown>
 
-- **[<i data-icon="octicons-bookmark-16"></i> Tor, Tails Anonymous Network](#Tor-Tails-Anonymous-Network)**
+- **[<i data-icon="octicons-bookmark-16"></i> Tor and Tails](#Tor-Tails-Anonymous-Network)**
 
     ---
 
-    Participants are expected from the media, independent investigative journalists, civic groups, human rights defenders (HRDs), and the tech community. Assist in understanding how to enhance privacy protection capabilities on personal computers through Tor and Tails.
+    For people from the news media, independent investigative journalists, civil society groups, human rights defenders (HRDs), and the tech community, on protecting the privacy of their work on a personal computer with Tor and Tails.
 
-- **[<i data-icon="octicons-bookmark-16"></i> OONI Network Interference Observation](#OONI-Network-Interference-Observation)**
+- **[<i data-icon="octicons-bookmark-16"></i> OONI network interference measurement](#OONI-Network-Interference-Observation)**
 
     ---
 
-    Assist in using OONI's observed data to monitor network interference or large-scale internet outages in the Asia-Pacific region and help collect observation data and update the website inspection list.
+    Using OONI data to look at network interference and large-scale shutdowns in the Asia-Pacific region, with participants contributing measurements and updating the website test lists.
 
 </div>
 
-#### <i data-icon="octicons-bookmark-16"></i> Tor, Tails Anonymous Network
+### <i data-icon="octicons-bookmark-16"></i> Tor and Tails {#Tor-Tails-Anonymous-Network}
 
-Help participants understand how the Tor anonymous network works, what the Onion network is, and how to use the Tails USB operating system. What are the usage scenarios? To become a helper, one needs the following basic capabilities, which we plan to train everyone up to **Basic L3** level.
+The course covers how the Tor anonymity network and onion services work, how to use the Tails USB operating system, and the situations each one suits. Helper skills are graded in the levels below. Applicants could place themselves first, and the training aimed to bring everyone to **Basic L3**.
 
-??? Abstract "Tor Skill Levels"
+??? Abstract "Tor skill levels"
 
     === "<i data-icon="checkbox-marked-circle-outline"></i> Tor: Basic L1"
 
         - [x] Understand what Tor is.
-        - [x] Understand why internet freedom is important, and what anonymous networks are.
-        - [x] Is the internet in Taiwan free?
-        - [x] Current internet conditions in neighboring countries.
+        - [x] Understand why internet freedom matters and what anonymity networks are.
+        - [x] The state of internet freedom in Taiwan.
+        - [x] Internet conditions in neighbouring countries.
 
     === "<i data-icon="checkbox-marked-circle-outline"></i> Tor: Basic L2"
 
-        - [x] Understand how Tor browser connects.
+        - [x] Understand how Tor Browser connects.
         - [x] Types of Tor bridges: Bridge, Snowflake, WebTunnel.
-        - [x] Use cases and timing for each connection.
-        - [x] Can you connect to Tor via VPN?
+        - [x] When and where to use each connection method.
+        - [x] Whether Tor can be used over a VPN.
 
     === "<i data-icon="checkbox-marked-circle-outline"></i> Tor: Basic L3"
 
-        - [x] Install the Tor browser and use it for at least one week.
-        - [x] Connect to the Tor network via **direct connection** and **bridge connection**.
-        - [x] Operate switching current connection paths.
-        - [x] Connect to **.onion** domain.
+        - [x] Install Tor Browser and use it for at least one week.
+        - [x] Connect to the Tor network with a **direct connection** and through a **bridge**.
+        - [x] Switch the current circuit.
+        - [x] Visit a **.onion** address.
 
     === "<i data-icon="checkbox-marked-circle-auto-outline"></i> Tor: Advanced L1"
 
-        - [x] Clearly understand what Tor, Onion, and Tor Browser each refer to in terms of technology.
-        - [x] Use the Snowflake browser add-on to set up a Tor bridge.
-        - [x] Start Tor and connect via SOCKS v5.
-        - [x] Use [metrics.torproject.org](https://metrics.torproject.org) to query relays in Taiwan.
+        - [x] Tell apart the technologies that Tor, Onion, and Tor Browser each refer to.
+        - [x] Use the Snowflake browser extension to run a Tor bridge.
+        - [x] Start Tor and connect through SOCKS v5.
+        - [x] Use [metrics.torproject.org](https://metrics.torproject.org) to look up relays in Taiwan.
 
     === "<i data-icon="checkbox-marked-circle-auto-outline"></i> Tor: Advanced L2"
 
-        - [x] Establish a Tor Relay.
-        - [x] Set up a Tor Bridge.
-        - [x] Create a WebTunnel relay.
-        - [x] Build a **.onion** website.
+        - [x] Set up a Tor relay.
+        - [x] Set up a Tor bridge.
+        - [x] Set up a WebTunnel bridge.
+        - [x] Set up a **.onion** website.
 
-??? Abstract "Tails Skill Levels"
+??? Abstract "Tails skill levels"
 
     === "<i data-icon="checkbox-marked-circle-outline"></i> Tails: Basic L1"
 
         - [x] Understand what Tails is and how it works.
-        - [x] Understand why internet freedom is important, and what anonymous networks are.
-        - [x] Is the internet in Taiwan free?
-        - [x] Current internet conditions in neighboring countries.
+        - [x] Understand why internet freedom matters and what anonymity networks are.
+        - [x] The state of internet freedom in Taiwan.
+        - [x] Internet conditions in neighbouring countries.
 
     === "<i data-icon="checkbox-marked-circle-outline"></i> Tails: Basic L2"
 
-        - [x] Understand how to install, make a Tails USB system.
+        - [x] Know how to make a Tails USB stick.
         - [x] Know how to set a computer to boot from USB.
-        - [x] Which types of Mac computers cannot use Tails.
-        - [x] Usage scenarios and limitations of Tails.
+        - [x] Know which Mac models cannot run Tails.
+        - [x] Know the use cases and limitations of Tails.
 
     === "<i data-icon="checkbox-marked-circle-outline"></i> Tails: Basic L3"
 
-        - [x] Install Tails, and use it for at least one week.
-        - [x] Establish persistent storage.
-        - [x] Use Bridge configuration for Tails network connection.
-        - [x] Share files using OnionShare.
+        - [x] Install Tails and use it for at least one week.
+        - [x] Create a Persistent Storage.
+        - [x] Configure Tails to connect through a bridge.
+        - [x] Share files with [OnionShare](docs:tools/onionshare/).
 
     === "<i data-icon="checkbox-marked-circle-auto-outline"></i> Tails: Advanced L1"
 
-        - [x] Use Thunderbird to set up reception and sending for a Gmail account (IMAP protocol).
+        - [x] Set up sending and receiving for a Gmail account in Thunderbird (IMAP).
         - [x] Update Tails to the latest version.
         - [x] Understand MAC address anonymization.
-        - [x] Backup persistent storage.
+        - [x] Back up the Persistent Storage.
 
     === "<i data-icon="checkbox-marked-circle-auto-outline"></i> Tails: Advanced L2"
 
         - [x] Use the KeePassXC password manager.
-        - [x] Create encryption keys and encrypt files using GnuPG and Kleopatra.
-        - [x] Send encrypted mail to `whisper@anoni.net` via Thunderbird (refer to [Stay Updated](/contact/) for public keys).
-        - [x] Secure file deletion procedures.
+        - [x] Create encryption keys and encrypt files with GnuPG and Kleopatra.
+        - [x] Send encrypted mail to `whisper@anoni.net` with Thunderbird (the public key is on [Stay informed](/contact/)).
+        - [x] Delete files securely.
 
-#### <i data-icon="octicons-bookmark-16"></i> OONI Network Interference Observation
+### <i data-icon="octicons-bookmark-16"></i> OONI network interference measurement {#OONI-Network-Interference-Observation}
 
-Help participants understand the content of OONI observation data, how to use the OONI Probe application to provide observation results, and how to interpret online observation data. To become a helper, one needs the following basic capabilities, which we plan to train everyone up to **Basic L3** level.
+The course covers what OONI measurements contain, how to run tests and submit results with OONI Probe, and how to read the measurement data published online. Helper skills follow the same levels, with **Basic L3** as the training goal.
 
-??? Abstract "OONI Skill Levels"
+??? Abstract "OONI skill levels"
 
     === "<i data-icon="checkbox-marked-circle-outline"></i> OONI: Basic L1"
 
         - [x] Understand what OONI is.
         - [x] Understand what network surveillance and censorship are.
-        - [x] How OONI tests operate.
+        - [x] How OONI tests work.
         - [x] Differences in network surveillance and censorship between Taiwan and other countries.
 
     === "<i data-icon="checkbox-marked-circle-outline"></i> OONI: Basic L2"
 
-        - [x] Install and use OONI Probe to generate test reports.
-        - [x] Can you use OONI Probe with VPN?
-        - [x] Risks of using OONI Probe.
-        - [x] How ASN Autonomous Networks work.
+        - [x] Install OONI Probe and use it to produce test reports.
+        - [x] Whether OONI Probe can be run over a VPN.
+        - [x] The risks of running OONI Probe.
+        - [x] How autonomous systems and ASNs (autonomous system numbers) work.
 
     === "<i data-icon="checkbox-marked-circle-outline"></i> OONI: Basic L3"
 
-        - [x] Use OONI Explorer to organize Taiwan's observation data for the past six months.
-        - [x] Compare observation data for three countries using OONI Explorer.
+        - [x] Use OONI Explorer to compile Taiwan's measurements from the past six months.
+        - [x] Use OONI Explorer to compare measurements from three countries.
         - [x] Review current internet blocking reports.
-        - [x] Create an OONI Run test link and find the online report content of that link.
+        - [x] Create an OONI Run link and find the online report for it.
 
     === "<i data-icon="checkbox-marked-circle-auto-outline"></i> OONI: Advanced L1"
 
-        - [x] Start OONI Probe using command line.
-        - [x] Understand how website observation lists are compiled.
+        - [x] Run OONI Probe from the command line.
+        - [x] Understand how websites are added to the test lists.
 
     === "<i data-icon="checkbox-marked-circle-auto-outline"></i> OONI: Advanced L2"
 
-        - [x] Sort and analyze data using raw observation data.
-        - [x] Assist in compiling and correcting lists.
+        - [x] Organize and analyze raw measurement data.
+        - [x] Help compile and correct the test lists.
 
-[Register for "Workshop Helper"](#Registering-Staff){ .btn .solid }
+[Staff applications](#Registering-Staff){ .btn .solid }
 
 ---
 
 ## Round-Table
 
 <figure markdown="span">
-  ![schedule](docs:assets/images/event_workshop_2025_schedule.svg)
-  <figcaption>The proposed itinerary for the two event days. </figcaption>
+  ![Event schedule](docs:assets/images/event_workshop_2025_schedule.svg)
+  <figcaption>The planned schedule for the two event days.</figcaption>
 </figure>
 
-We successfully secured a two-day schedule for this event. The workshop is planned for the first day (09, Aug.) from 12:30 PM to 3:30 PM. The remaining time on the first day, as well as the entire second day, will be conducted in a round-table format. We will discuss topics related to **anonymous networks**, **internet censorship**, and **open-source tools**. We have preliminarily planned three main categories with six discussion topics, covering current status, technology, and community collaboration. The target participants are members from the news media, independent journalists, civic groups, and the open-source technology community. The aim is to discover issues and reach consensus on solutions through discussion.
+The event was eventually given two days. The workshop was scheduled for the first day (9 August) from 12:30 to 15:30, and the rest of the first day and all of the second were planned as round-table sessions on **anonymity networks**, **internet censorship**, and **open source tools**. The topics were first drafted as six, in three groups covering the current situation, technology, and community collaboration. We invited people from the news media, independent journalists, civil society groups, and the open source technology community to identify problems together and work towards agreed solutions.
 
-Each round-table discussion is expected to have no more than 25 participants. We'll assign 1 to 2 facilitators and 1 note-taker per session.
+Each round-table was planned for no more than 25 people, with 1 to 2 facilitators and 1 note-taker. Before the event we invited people interested in the topics below to act as facilitators, and welcomed recommendations (contact details on [Stay informed](/contact/)).
 
-Before the event, we will invite those who are interested in the topics or roles to become facilitators. If you, or someone you recommend, are interested, please [let us know](/contact/) so we can send an invitation and get them involved in the discussion!
+??? tip "Round-table roles"
 
-??? tip "Roles and Functions"
+    - **Facilitator**: Chairs the session, keeps the pace and the time, makes sure the agenda runs as planned and that every participant has a chance to speak.
+    - **Participants**: Take part in the discussion, share their views, and work together towards solutions or resolutions.
+    - **Note-taker**: Records the key points, decisions, and action items, then organizes the notes after the session and sends them to the people concerned for follow-up.
+    - **Observers** (optional): Sit in on the session and assess the topics and process without taking part in the discussion or decisions, offering an outside view for reflection and improvement afterwards.
+    - **Experts or Consultants** (optional): Give specialist opinions and actionable advice on specific issues, supporting decisions in technical or specialized areas.
 
-    - **Facilitator**: Responsible for leading the meeting and ensuring the agenda proceeds as planned. The facilitator manages the pace of the discussion, maintains time management, and ensures that every participant has the opportunity to speak. They promote effective communication to achieve the meeting's objectives.
-    - **Participants**: Actively engage in discussions, sharing their perspectives and opinions, and contributing constructively to the decision-making process. Through brainstorming, they aim to identify the best solutions or resolutions.
-    - **Note-taker**: Records key points, decisions, and action items discussed during the meeting in detail. They are responsible for organizing and distributing the meeting notes to relevant parties post-meeting, providing accurate records for follow-up and implementation.
-    - **Observers** (optional): Attend the meeting to evaluate the topics and processes, but they do not actively participate in the discussion or decision-making. They offer independent perspectives for post-meeting reflection or improvement suggestions.
-    - **Experts or Consultants** (optional): Provide expert opinions and technical knowledge, offering actionable advice on specific issues or topics. They assist decision-makers in making more precise and effective decisions in technical or specialized areas.
+### Proposed discussion topics {#Proposed-Discussion-Topics}
 
-### Proposed Discussion Topics
+The six topics in three groups were a first draft, open to change when facilitators joined, or to be replaced by topics the facilitators set. Before the event, a two-minute anonymous survey (in Chinese) asked people which topics interested them.
 
-Currently, we have initially planned three main categories with six discussion topics. These may be adjusted when facilitators join, or the discussion may follow the topics set by the facilitators.
+[Topic survey](https://form.anoni.net/s/cmaxjo2p40000o10131byw3do){ .btn .solid }
 
-??? abstract "Intersection of Open-Source Technology and Anonymous Tools"
+??? abstract "Topic group 1: open source technology and anonymity tools"
 
-    #### "The Open-Source foundation and Local Participation Possibilities of Tor/Tails/OONI"
+    #### "The open source foundations of Tor/Tails/OONI and room for local participation" {#The-Open-Source-foundation-and-Local-Participation-Possibilities-of-TorTailsOONI}
 
-    - How do these tools operate? What free software and open-source protocols do they adopt?
-    - In what aspects can Taiwanese developers or cybersecurity researchers participate? (e.g., translation, bug reporting, creating tutorials)
-    - How can we reduce the "technical distance" to encourage more people to contribute?
+    - How do these tools work? Which free software and open source licences do they use?
+    - Which parts can developers and security researchers in Taiwan contribute to? (e.g., translation, bug reports, tutorials)
+    - How can we reduce the sense of "technical distance" so more people want to contribute?
 
-    #### "From User to Contributor: How Taiwan Can Establish Community Nodes and Feedback Models for Tor/OONI"
+    #### "From user to contributor: how Taiwan can build community nodes and feedback channels for Tor/OONI" {#From-User-to-Contributor-How-Taiwan-Can-Establish-Community-Nodes-and-Feedback-Models-for-TorOONI}
 
-    - Does Taiwan have foundational nodes like Tor relays or OONI Probe? How are they functioning?
-    - What are the practical technical, administrative, and legal challenges? (e.g., hosting costs, blockages, legal concerns)
-    - Can we operate and mentor newcomers through a community approach?
+    - Does Taiwan have foundational nodes such as Tor relays or OONI Probe? How are they doing?
+    - What are the practical technical, administrative, and legal challenges? (e.g., hosting costs, blocking, legal concerns)
+    - Can a community approach help run them and mentor newcomers?
 
-??? abstract "Social Connection between Open-Source Spirit and Internet Freedom"
+??? abstract "Topic group 2: open source values and internet freedom"
 
-    #### "Free Software and Digital Rights: Why Is Open Source Key to Anonymous Tools?"
+    #### "Free software and digital rights: why is open source key to anonymity tools?" {#Free-Software-and-Digital-Rights-Why-Is-Open-Source-Key-to-Anonymous-Tools}
 
-    - Why is open source important for journalists and civic groups? How can trust in these tools be established?
-    - Explore core values such as "verifiability," "censorship resistance," and "community governance."
-    - Open-source vs. closed commercial cybersecurity tools: How should we choose?
+    - Why does open source matter to journalists and civil society groups? How is trust in a tool established?
+    - Core values such as "verifiability", "censorship resistance", and "community governance".
+    - Open source or closed commercial security tools: how should we choose?
 
-    #### "How to Localize an Open-Source Anonymous Toolkit?"
+    #### "How to localize an open source anonymity toolkit?" {#How-to-Localize-an-Open-Source-Anonymous-Toolkit}
 
-    - From everyday browsing (Tor) to operating systems (Tails) and internet monitoring (OONI), what other open-source tools can be included?
-    - What does the toolkit look like? (e.g., Live USB image, local language packs, manuals)
-    - Launching a "Taiwan version" of a simplified kit (suitable for NGOs, journalists, beginners)
+    - From everyday browsing (Tor) to operating systems (Tails) and network measurement (OONI), which other open source tools could be included?
+    - What should the toolkit contain? (e.g., a Live USB image, local language packs, manuals)
+    - A simplified "Taiwan edition" of the kit (for NGOs, journalists, and beginners).
 
-??? abstract "Local Community and Collaborative Practices"
+??? abstract "Topic group 3: local community and collaboration in practice"
 
-    #### "Promoting a Decentralized, Open-Source Collaborative Anonymous Network Initiative"
+    #### "A decentralized, open source collaborative initiative to promote anonymity networks" {#Promoting-a-Decentralized-Open-Source-Collaborative-Anonymous-Network-Initiative}
 
-    - How can we delegate tasks if we use a civic tech community and open-source community collaboration model?
-    - Can we establish an "Open-Source Maintenance Team" (working group model) to maintain Tor/OONI servers and regularly test ISP blocking conditions?
-    - What non-technical roles (e.g., design, translation, instructors, writers) can participate?
+    - If we work in the way civic tech and open source communities collaborate, how should the work be divided?
+    - Could an "open source operations team" (a working group) maintain Tor/OONI servers and regularly test ISP blocking?
+    - Which non-technical roles (design, translation, teaching, writing) can take part?
 
-    #### "Potential for Regional Open-Source Collaboration: Connecting with Other Anonymous Network Communities in Asia"
+    #### "Potential for regional open source collaboration: connecting with anonymity network communities elsewhere in Asia" {#Potential-for-Regional-Open-Source-Collaboration-Connecting-with-Other-Anonymous-Network-Communities-in-Asia}
 
-    - In regions like Southeast Asia, Hong Kong, China, Japan, and South Korea, there are similar open-source anonymous projects or promotion teams.
-    - Can cross-border collaboration be established? For example, collaborating on the translation of OONI test results or co-authoring educational materials.
-    - Can Taiwan become a connection hub? (Given its security, freedom of speech, and technical community presence)
+    - Southeast Asia, Hong Kong, China, Japan, South Korea, and other places have similar open source anonymity projects or outreach teams.
+    - Can cross-border collaboration be built? For example, translating OONI test results together or co-writing teaching materials.
+    - Can Taiwan act as a connecting point? (Given its security, freedom of speech, and technical community)

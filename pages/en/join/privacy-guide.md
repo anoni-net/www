@@ -1,76 +1,79 @@
 ---
 title: Personal Privacy Guide Track
-description: One of the community's three 2026 tracks, with the goals of a situation-graded personal privacy guide, the article index, progress and how to join.
+description: One of anoni.net's three tracks for 2026, on privacy guidance graded by situation (everyday use, sensitive work, and high risk), with the goals, the related docs articles, progress, and how to take part.
 ---
 
-The personal privacy guide is one of anoni.net's three tracks for 2026, alongside [Tor relays on campus](/join/relay-on-campus/) and [anonymous payments](/join/payments-research/). This page is the track's public entry point, covering the research goals, the article index, current progress, and how to join the discussion. The annual plan and quarterly rhythm are in the [2026 roadmap](/join/roadmap-2026/).
+The personal privacy guide is one of anoni.net's three tracks for 2026, alongside [Tor relays on campus](/join/relay-on-campus/) and [anonymous payments](/join/payments-research/). We sort privacy tools and the steps for using them into three situations, everyday use, sensitive work, and high risk, and write them up as guidance people can follow. The material lives on the docs site, layered into concepts, tools, scenarios, and advanced topics. People with teaching, writing, translation, design, or security backgrounds are welcome to join (see [ways to take part](#Ways-to-take-part)), and the annual plan and quarterly progress are in the [2026 Roadmap](/join/roadmap-2026/).
 
-## Why this is a track of its own
+## Reasons for a separate track
 
-After years of advocating for Tor, Tails, and OONI, the question we hear most is "what do I actually do next to be safer". What sits behind it is the absence of an **operational guide graded by situation**.
+After years of advocating for Tor, Tails, and OONI, the question we hear most is "what do I actually do next to be safer". Answering it takes privacy guidance that is graded by situation and that people can act on.
 
-Existing Chinese-language material mostly stops at introducing a tool or listing techniques, without the bridge connecting concepts, tools, and situations. A reader finishes a tool page without knowing which risk it addresses, finishes a scenario without knowing where to start implementing, finishes a concept without knowing how to apply it. Connecting those three layers is what lets personal privacy move from knowing a tool's name to actually adopting it in your own circumstances.
+Existing Chinese-language material mostly stops at introducing a single tool or listing techniques, with nothing connecting concepts, tools, and situations. A reader often finishes a tool page without knowing which risk it addresses, and finishes a concept or scenario page without knowing where to start. We want to connect the three layers, so that a reader can get from knowing a tool's name to actually adopting it in their own circumstances.
 
 ## Research goals for 2026
 
 - **A three-level threat model framework**: reference tables mapping tools and steps to everyday use, sensitive work, and high-risk situations
-- **The bridge from concept to practice**: the decision process between threat modelling and operating a tool, covering when to escalate and when additional protection is unnecessary
-- **Common misconceptions**: unpacking the frequent ones, that a VPN is not anonymity, HTTPS is not safety, private browsing is not privacy, decentralization is not anonymity. Two have dedicated pages already ([VPN: risks and how to choose](docs:tools/vpn-guide/) and [networks mistaken for anonymity](docs:advanced/mistaken-for-anonymity/)), with HTTPS and private browsing still to come
+- **A decision process from concept to practice**: criteria between threat modelling and operating a tool, such as when to raise the level of protection and when more protection is unnecessary
+- **Common misconceptions**: unpacking the frequent ones, that a VPN is not anonymity, HTTPS is not safety, private browsing is not privacy, and decentralization is not anonymity. Two have dedicated pages already ([VPN: risks and how to choose](docs:tools/vpn-guide/) and [Networks Mistaken for Anonymity](docs:advanced/mistaken-for-anonymity/)), and HTTPS and private browsing do not yet
 - **Scenario guidance**: practical workflows for journalists, activists, domestic violence survivors, LGBTQ+ people, and other specific roles
-- **Connecting the threads**: integrating the connection layer, the identity and personal data layer, and the money layer (see [why networked freedom matters](docs:basics/internet-freedom/)) into a single personal plan
-- **Teaching material**: turning the output into material usable at workshops and meetups
+- **Connecting the threads**: integrating the connection layer, identity and personal data, and money (see [Why networked freedom matters](docs:basics/internet-freedom/)) into a single personal plan
+- **Teaching material**: turning the research output into material for workshops and meetups
 
 ## Related articles
 
-The material is distributed across the site's layers rather than collected in one place:
+The articles follow the layers of the docs site's [guides](docs:guides/), spread across concepts, tools, scenarios, advanced topics, and regional regulation:
 
-- **Concepts**: [anonymity, privacy, pseudonymity, and confidentiality](docs:basics/anonymity-vs-privacy/), [how to build a threat model](docs:basics/threat-model/), [what metadata is](docs:basics/metadata/), [how platforms collect your data](docs:basics/platform-tracking/), [what surveillance can currently do](docs:basics/surveillance-capability/), [maintaining multiple online identities](docs:basics/multiple-identities/)
-- **Tools**: [what is an anonymity network](docs:tools/what-is-anonymity-network/), [what is Tor](docs:tools/what-is-tor/), [what is Tails](docs:tools/what-is-tails/), [Tor Browser advanced settings](docs:tools/tor-browser-advanced/), [Tor Snowflake](docs:tools/tor-snowflake/), [Tails vs Whonix vs Qubes](docs:tools/tails-vs-whonix-vs-qubes/), [GrapheneOS](docs:tools/grapheneos/), [secure messaging compared](docs:tools/messaging-comparison/), [OnionShare](docs:tools/onionshare/), [what is CryptPad](docs:tools/what-is-cryptpad/), [password managers](docs:tools/password-manager/), [email aliases](docs:tools/email-alias/), [Asian Diceware](docs:tools/asian-diceware/), [VPN: risks and how to choose](docs:tools/vpn-guide/), [encrypted DNS](docs:tools/encrypted-dns/), [using AI at work without leaking data](docs:tools/ai-privacy/), [phone privacy settings, step by step](docs:tools/phone-privacy-settings/)
-- **Scenarios**: [an everyday baseline](docs:scenarios/everyday-baseline/), [protecting your sources as a journalist](docs:scenarios/journalist/), [digital preparation for activists](docs:scenarios/activist/), [digital preparation for domestic violence survivors](docs:scenarios/domestic-violence/), [LGBTQ+ anonymous social life](docs:scenarios/lgbtq/), [election observers](docs:scenarios/election-observer/), [publishing on Mainland Chinese platforms](docs:scenarios/mainland-speech/), [travel and conference preparation](docs:scenarios/asia-travel/), [phone numbers and connectivity abroad](docs:scenarios/travel-connectivity/), [generating a destination briefing with AI](docs:scenarios/travel-ai-briefing/)
-- **Advanced**: [how end-to-end encryption works](docs:advanced/e2ee/), [networks mistaken for anonymity](docs:advanced/mistaken-for-anonymity/), [post-quantum cryptography](docs:advanced/post-quantum/), [decentralized website publishing](docs:advanced/dweb-ipfs-onion/)
-- **Regional**: [Taiwan's 2025 data protection overhaul](docs:regional/taiwan-pdpa-2025/), [Taiwan's whistleblower protection act](docs:regional/taiwan-whistleblower-law/)
+- **Concepts**: [Anonymity, privacy, pseudonymity, and confidentiality](docs:basics/anonymity-vs-privacy/), [Threat modeling](docs:basics/threat-model/), [Metadata, and why it matters](docs:basics/metadata/), [How platforms collect your data, and the microphone question](docs:basics/platform-tracking/), [What surveillance can actually do](docs:basics/surveillance-capability/), [Maintaining multiple online identities](docs:basics/multiple-identities/), [A browser fingerprint cannot be cleared the way a cookie can](docs:basics/browser-fingerprinting/)
+- **Tools**: [What Is an Anonymity Network?](docs:tools/what-is-anonymity-network/), [What Is Tor?](docs:tools/what-is-tor/), [What Is Tails?](docs:tools/what-is-tails/), [Tor Browser advanced settings](docs:tools/tor-browser-advanced/), [Tor Snowflake](docs:tools/tor-snowflake/), [Tails vs Whonix vs Qubes](docs:tools/tails-vs-whonix-vs-qubes/), [GrapheneOS, a hardened mobile operating system](docs:tools/grapheneos/), [Secure messaging compared](docs:tools/messaging-comparison/), [OnionShare](docs:tools/onionshare/), [What Is CryptPad?](docs:tools/what-is-cryptpad/), [Getting Started with Password Managers](docs:tools/password-manager/), [Email aliases, and who you hand your trust to](docs:tools/email-alias/), [Asian Diceware, an Asian-flavored passphrase wordlist](docs:tools/asian-diceware/), [VPN: risks and how to choose](docs:tools/vpn-guide/), [How to choose encrypted DNS, and how to check it actually works](docs:tools/encrypted-dns/), [Using AI at work without leaking data](docs:tools/ai-privacy/), [Phone privacy settings, step by step](docs:tools/phone-privacy-settings/)
+- **Utilities**: [Threat model checklist](docs:utils/threat-model/)
+- **Scenarios**: [What an ordinary person should actually do](docs:scenarios/everyday-baseline/), [Journalists and source protection](docs:scenarios/journalist/), [Activists and protest digital safety](docs:scenarios/activist/), [Domestic violence and tech-enabled abuse — digital safety for survivors](docs:scenarios/domestic-violence/), [LGBTQ+ — anonymous social life across the Sinophone region](docs:scenarios/lgbtq/), [Election observer self-protection](docs:scenarios/election-observer/), [Posting on mainland Chinese platforms](docs:scenarios/mainland-speech/), [Device minimization and border crossings in Asia](docs:scenarios/asia-travel/), [Phone numbers and connectivity abroad](docs:scenarios/travel-connectivity/), [Pre-departure digital safety — brief yourself with AI prompts](docs:scenarios/travel-ai-briefing/)
+- **Advanced**: [How End-to-End Encryption Works](docs:advanced/e2ee/), [Networks Mistaken for Anonymity](docs:advanced/mistaken-for-anonymity/), [Post-Quantum Cryptography](docs:advanced/post-quantum/), [Decentralized Website Publishing](docs:advanced/dweb-ipfs-onion/)
+- **Regional**: [Taiwan's 2025 Data Protection Overhaul](docs:regional/taiwan-pdpa-2025/), [Taiwan's Whistleblower Protection Act, from a Technical Angle](docs:regional/taiwan-whistleblower-law/)
+
+Most first drafts are published, and they are revised and extended on a quarterly rhythm.
 
 ## Done so far
 
-- **Eight concept pages published**, establishing the vocabulary the rest of the track builds on
-- **The three-dimension framework**: [why networked freedom matters](docs:basics/internet-freedom/) sets out connection, identity and personal data, and money as the skeleton for the whole guide
-- **Regional regulatory references**: the [2025 data protection overhaul](docs:regional/taiwan-pdpa-2025/) and the [whistleblower protection act](docs:regional/taiwan-whistleblower-law/) are both complete
-- **Writing standards and taxonomy**: the seven-section sitemap landed, with clear reading paths
+- **Nine concept pages**: [Why networked freedom matters](docs:basics/internet-freedom/), [Anonymity, privacy, pseudonymity, and confidentiality](docs:basics/anonymity-vs-privacy/), [Threat modeling](docs:basics/threat-model/), [Metadata, and why it matters](docs:basics/metadata/), [Why anonymous payments matter](docs:basics/payments-anonymity/), [How platforms collect your data, and the microphone question](docs:basics/platform-tracking/), [What surveillance can actually do](docs:basics/surveillance-capability/), [Maintaining multiple online identities](docs:basics/multiple-identities/), [A browser fingerprint cannot be cleared the way a cookie can](docs:basics/browser-fingerprinting/)
+- **The three-dimension framework**: [Why networked freedom matters](docs:basics/internet-freedom/) sets out connection, identity and personal data, and money as the structure for the whole guide
+- **Regional regulatory references**: [Taiwan's 2025 Data Protection Overhaul](docs:regional/taiwan-pdpa-2025/) and [Taiwan's Whistleblower Protection Act, from a Technical Angle](docs:regional/taiwan-whistleblower-law/) are both complete
+- **Writing standards and taxonomy**: the [Writing Style](/join/writing-style/) rules, the docs site's seven-section structure, and the [guides](docs:guides/) entry page, which give readers a path through the layers
 
-## In progress
+## Work in progress
 
-- Drafts across the tools, scenarios, and advanced layers are published and being revised against reader feedback
-- The remaining misconceptions: HTTPS is not safety, private browsing is not privacy
-- **The consolidated three-level guide**, the track's core deliverable, planned to integrate the layers above
-- Workshop material: turning the research output into handouts for workshops and meetups
-- Translation candidates, listed below
+- **Revising each layer**: drafts across the tools, scenarios, and advanced layers are published and being revised against reader feedback
+- **The remaining misconceptions**: HTTPS is not safety, and private browsing is not privacy, still have no dedicated pages
+- **The consolidated three-level guide**: the track's core deliverable, originally planned for the third quarter of 2026 to integrate the layers above
+- **Workshop material**: turning the research output into handouts for workshops and meetups
+- **Translating outside resources**: candidates are listed in the next section
 
-## Reading and translation candidates
+## Translation candidates and further reading
 
-External resources the community has flagged, where help translating or summarizing is welcome:
+We have marked a few outside resources as translation candidates, and volunteers are welcome to translate them or summarize the key points:
 
 - [EFF Surveillance Self-Defense](https://ssd.eff.org/): a complete personal security guide with threat model tiers and tool instructions
 - [Privacy Guides](https://www.privacyguides.org/): a community-maintained list of privacy tool recommendations
-- [The Citizen Lab](https://citizenlab.ca/): concrete research on surveillance software and transnational threats
+- [The Citizen Lab](https://citizenlab.ca/): evidence-based research on surveillance software and transnational threats
 - [Security in a Box](https://securityinabox.org/): a digital security toolkit for NGOs and activists
-- The Tor Project's [user support documentation](https://support.torproject.org/)
+- [The Tor Project's user support documentation](https://support.torproject.org/)
 
-## How to join
+## Ways to take part
 
-Discussion happens on Matrix (homeserver `im.anoni.net`), in the relevant rooms of the community's public Space. Collaborative writing uses CryptPad, and regular calls use Jitsi. Account requests and service entry points are on [Community services](/services/).
+Discussion happens on Matrix (homeserver `im.anoni.net`), with the privacy guide conversations in the relevant rooms of the community's public Space. Collaborative writing uses CryptPad, and regular calls use Jitsi. Account requests and service entry points are on [Services](/services/).
 
 Backgrounds we would particularly welcome:
 
-- Education or workshop facilitation, turning technical concepts into something people can act on
-- Writing or translation, working through long technical resources
-- UX and design, making guidance visual through flowcharts and comparison tables
-- Front-line experience as a journalist, NGO worker, or activist, knowing what guidance usually leaves out
-- Security expertise, reviewing for technical accuracy
+- **Teaching or workshop facilitation**: turning technical concepts into something people can act on
+- **Writing or translation**: working through long technical resources
+- **UX or design**: making guidance visual through flowcharts and comparison tables
+- **Front-line experience** as a journalist, NGO worker, or activist: knowing what guidance usually leaves out
+- **Security expertise**: reviewing for technical accuracy
 
-No security background is required. Wanting to learn is a sufficient reason to join.
+No security background is required. Wanting to learn is reason enough to join.
 
-We are at Global Gathering 2026 in Estoril on 6 September, and guides that misread regional context are one of the things we want to hear about there. See [the booth announcement](/updates/2026/08/2026-anoni-net-global-gathering/).
+At our booth at [Global Gathering 2026](/events/gg2026/) in Estoril, Portugal, on 6 September 2026, one of the things we wanted to hear about was guidance that misreads the situation in a given region.
 
 ## Ground rules
 
-All discussion presumes lawful use. This track presents material for education and risk understanding, and does not assist evasion of legal responsibility, harassment, stalking, or other unlawful conduct. For legal questions about a specific situation, consult a professional. Community members' observations do not substitute for legal advice.
+All discussion presumes lawful use. This track presents material for education and understanding risk, and does not assist evasion of legal responsibility, harassment, stalking, or other unlawful conduct. For legal questions about a specific situation, consult a professional. Community members' observations do not substitute for legal advice.
