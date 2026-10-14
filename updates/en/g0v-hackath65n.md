@@ -23,21 +23,21 @@ There were still a few places left at the time of writing. If our projects inter
 
 Three projects on the day:
 
-1. [Updating the OONI website testing list](docs:regional/ooni-checklist/)
-2. [ASN observation data analysis](docs:regional/ooni-asn-coverage/)
+1. [Updating the OONI website testing list](/join/ooni-test-list/)
+2. [ASN observation data analysis](/projects/asn-coverage/asn-diversity/)
 3. [Localization and terminology review](docs:community/i18n/)
 
 ### Updating the OONI website testing list
 
 The list has not been substantially updated since 2017. Alongside continuing to update it, we plan to work on **establishing and adding** the URLs that should be under observation. What the inclusion criteria should be, and how to automate the maintenance, are questions we want to think through together on the day.
 
-[<i data-icon="arrow-right-circle-outline"></i> Background on this project](docs:regional/ooni-checklist/){ .btn }
+[<i data-icon="arrow-right-circle-outline"></i> Background on this project](/join/ooni-test-list/){ .btn }
 
 ### ASN observation data analysis
 
 Given that OONI's observation data for Taiwan lacks diversity, how do we monitor the quality of that data continuously? Can a quantitative indicator capture the state of it quickly? And how do we build that? At the hackathon we will work through the data pipeline architecture and the automated analysis. We also need to think about how to get more people contributing OONI observations in the first place.
 
-[<i data-icon="arrow-right-circle-outline"></i> Where this project currently stands](docs:regional/ooni-asn-coverage/){ .btn }
+[<i data-icon="arrow-right-circle-outline"></i> Where this project currently stands](/projects/asn-coverage/asn-diversity/){ .btn }
 
 ### Localization and terminology review
 
@@ -51,6 +51,6 @@ Our annual terminology alignment is due. The existing Traditional Chinese transl
 
 - [<i data-icon="fontawesome-regular-circle-question"></i> What is OONI?](docs:tools/what-is-ooni/)
 - [<i data-icon="fontawesome-regular-circle-question"></i> Why networked freedom matters](docs:basics/internet-freedom/)
-- [<i data-icon="octicons-mark-github-24"></i> Development environment setup](docs:community/setup-repo/)
+- [<i data-icon="octicons-mark-github-24"></i> Development environment setup](/join/dev-setup/)
 
 </div>

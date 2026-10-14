@@ -138,7 +138,7 @@ OONI 在数据集层级也处理同一类问题，过滤异常提交所用的启
 
 四种干预类型合计 564 笔，占全部测量的 2.55%。`none` 是缺少 `test_keys` 或 `blocking` 为 `null` 的测量，计算异常率前要先决定是否纳入分母。
 
-另外抽查 100 笔异常测量，`confirmed` 为 `true` 的有 0 笔，与[ASN 自治网络观测数据分析](docs:taiwan/ooni-asn-coverage/)长期以来的描述一致。
+另外抽查 100 笔异常测量，`confirmed` 为 `true` 的有 0 笔，与[ASN 多样性与台湾的观测缺口](/projects/asn-coverage/asn-diversity/)长期以来的描述一致。
 
 !!! warning "小样本的分布偏差"
 
@@ -159,12 +159,12 @@ curl -s "https://api.ooni.org/api/v1/measurements?probe_cc=TW&test_name=web_conn
   | python3 -m json.tool | head -40
 ```
 
-以上数字是单一 24 小时区间的快照，反映的是当日的形态，不足以作为长期趋势的结论。趋势分析需要涵盖更长的时间，台湾的观测本身也有 ASN 集中度过高的限制（细节见前述的[ASN 自治网络观测数据分析](docs:taiwan/ooni-asn-coverage/)）。
+以上数字是单一 24 小时区间的快照，反映的是当日的形态，不足以作为长期趋势的结论。趋势分析需要涵盖更长的时间，台湾的观测本身也有 ASN 集中度过高的限制（细节见前述的[ASN 多样性与台湾的观测缺口](/projects/asn-coverage/asn-diversity/)）。
 
 ## 相关阅读
 
 - [ASN 观测数据的提取与分析](/projects/asn-coverage/howto/)：跨时间、跨 ASN 比对的起点，含公开数据集的批量获取与覆盖率计算
 - [OONI 测量数据的结构](/projects/asn-coverage/ooni-data-format/)：一笔测量数据由哪些字段组成，以及各字段的读法
 - [OONI 测项速查表](/projects/asn-coverage/ooni-nettests-map/)：ooni/spec 收录的各个测项的测量内容与台湾的观测情况
-- [ASN 自治网络观测数据分析](docs:taiwan/ooni-asn-coverage/)：台湾各 ASN 的 OONI 观测覆盖率与集中度
-- [OONI 网站检测清单](docs:taiwan/ooni-checklist/)：OONI Probe 在台湾使用的网站清单如何维护
+- [ASN 多样性与台湾的观测缺口](/projects/asn-coverage/asn-diversity/)：台湾各 ASN 的 OONI 观测覆盖率与集中度
+- [OONI 网站检测清单的维护](/join/ooni-test-list/)：OONI Probe 在台湾使用的网站清单如何维护

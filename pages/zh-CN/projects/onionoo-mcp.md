@@ -266,7 +266,7 @@ onionoo MCP 接上 Claude Desktop 或 Claude Code 之后，可以直接提问：
 - **回报问题与建议**：[onionoo-fastapi 的 GitHub issues](https://github.com/anoni-net/onionoo-fastapi/issues)
 - **架设 Tor relay**：见[Tor Relay 架设指南](/join/setup-tor-relay/)，区域内中继节点的观测数字见[Tor 中继节点观测](/projects/pulse/)。
 - **出国前评估**：[出国前数字安全：用 AI 自助生成目的地概况](docs:scenarios/travel-ai-briefing/)，记者与公民团体出国前查询目的地的 Tor 中继节点状况时，接上 onionoo MCP 可以取得能引用的 Onionoo 数字。
-- **延伸阅读**：[什么是 Tor](docs:tools/what-is-tor/)、[ASNs 自治网络观测数据分析](docs:taiwan/ooni-asn-coverage/)。
+- **延伸阅读**：[什么是 Tor](docs:tools/what-is-tor/)、[ASN 多样性与台湾的观测缺口](/projects/asn-coverage/asn-diversity/)。
 
 服务目前的版本是 v1.2.0，以 MIT 许可证发布。欢迎提出 issue、PR，也欢迎在 Matrix 一起讨论接下来要补上哪些任务导向工具。
 

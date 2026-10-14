@@ -266,7 +266,7 @@ The agent breaks the question into a handful of MCP tool calls and assembles a s
 - **Report bugs or suggest tools**: <https://github.com/anoni-net/onionoo-fastapi/issues>
 - **Running a Tor relay**: see the [Tor Relay Setup Guide](/join/setup-tor-relay/). The relay figures we publish for the region are in [Tor Relay Watch](/projects/pulse/).
 - **Pre-travel checks**: [Pre-departure digital safety — brief yourself with AI prompts](docs:scenarios/travel-ai-briefing/). Journalists and civil-society groups checking the Tor relay situation at a destination before a trip can connect onionoo MCP to get citable Onionoo figures.
-- **Background reading**: [What Is Tor?](docs:tools/what-is-tor/) and [ASN observation data analysis](docs:regional/ooni-asn-coverage/).
+- **Background reading**: [What Is Tor?](docs:tools/what-is-tor/) and [ASN Diversity and Gaps in Taiwan's OONI Coverage](/projects/asn-coverage/asn-diversity/).
 
 The current release is v1.2.0, under the MIT license. Issues, PRs, and Matrix discussion on which task-oriented tools to add next are all welcome.
 

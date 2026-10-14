@@ -90,7 +90,7 @@ OONI Run 在建立新名单时也可以指定一组关联号码（Link ID），�
     2. 活动当天建立的 OONI Run Link ID 为 [10137](https://explorer.ooni.org/chart/mat?since=2025-02-22&until=2025-03-07&time_grain=day&axis_x=measurement_start_day&test_name=web_connectivity&ooni_run_link_id=10137)，可以看到临时建立的名单通过众人[协助检测](https://explorer.ooni.org/search?since=2025-02-23&until=2025-02-24&test_name=web_connectivity&failure=true&ooni_run_link_id=10137)快速了解网络状况。
     3. [Probe Security Without Identification, Michele Orrù, 2025-02-20](https://ooni.org/post/2025-probe-security-without-identification/)：随着 OONI 探测网络状况的增进，但也存在一些风险，例如用户可能会故意或无意地上传错误的观察数据，这可能影响 OONI 观测的可信度。文章提到攻击者可能会利用假数据来污染 OONI 的观察数据库，以试图打击平台的信任，通过增加透明度并揭露数字权利的侵害。
     4. 2024 OONI 回顾：<https://ooni.org/post/2024-year-in-review/>
-    5. [于 OONI 观测数据中台湾 ASNs 状况（2023/12）](docs:taiwan/ooni-asn-coverage/)
+    5. [于 OONI 观测数据中台湾 ASNs 状况（2023/12）](/projects/asn-coverage/asn-diversity/)
 
 ## Roger's Talk
 

@@ -138,7 +138,7 @@ OONI 在資料集層級也處理同一類問題，過濾異常投稿所用的啟
 
 四種干預類型合計 564 筆，佔全部測量的 2.55%。`none` 是缺少 `test_keys` 或 `blocking` 為 `null` 的測量，計算異常率前要先決定是否納入分母。
 
-另外抽查 100 筆異常測量，`confirmed` 為 `true` 的有 0 筆，與[ASN 自治網路觀測資料分析](docs:taiwan/ooni-asn-coverage/)長期以來的描述一致。
+另外抽查 100 筆異常測量，`confirmed` 為 `true` 的有 0 筆，與[ASN 多樣性與台灣的觀測缺口](/projects/asn-coverage/asn-diversity/)長期以來的描述一致。
 
 !!! warning "小樣本的分布偏差"
 
@@ -159,12 +159,12 @@ curl -s "https://api.ooni.org/api/v1/measurements?probe_cc=TW&test_name=web_conn
   | python3 -m json.tool | head -40
 ```
 
-以上數字是單一 24 小時區間的快照，反映的是當日的樣態，不足以作為長期趨勢的結論。趨勢分析需要涵蓋更長的時間，台灣的觀測本身也有 ASN 集中度過高的限制（細節見前述的[ASN 自治網路觀測資料分析](docs:taiwan/ooni-asn-coverage/)）。
+以上數字是單一 24 小時區間的快照，反映的是當日的樣態，不足以作為長期趨勢的結論。趨勢分析需要涵蓋更長的時間，台灣的觀測本身也有 ASN 集中度過高的限制（細節見前述的[ASN 多樣性與台灣的觀測缺口](/projects/asn-coverage/asn-diversity/)）。
 
 ## 相關閱讀
 
 - [ASN 觀測資料的擷取與分析](/projects/asn-coverage/howto/)：跨時間、跨 ASN 比對的起點，含公開資料集的批次取用與覆蓋率計算
 - [OONI 測量資料的結構](/projects/asn-coverage/ooni-data-format/)：一筆測量資料由哪些欄位組成，以及各欄位的讀法
 - [OONI 測項速查表](/projects/asn-coverage/ooni-nettests-map/)：ooni/spec 收錄的各個測項的量測內容與台灣的觀測情形
-- [ASN 自治網路觀測資料分析](docs:taiwan/ooni-asn-coverage/)：台灣各 ASN 的 OONI 觀測覆蓋率與集中度
-- [OONI 網站檢測清單](docs:taiwan/ooni-checklist/)：OONI Probe 在台灣使用的網站清單如何維護
+- [ASN 多樣性與台灣的觀測缺口](/projects/asn-coverage/asn-diversity/)：台灣各 ASN 的 OONI 觀測覆蓋率與集中度
+- [OONI 網站檢測清單的維護](/join/ooni-test-list/)：OONI Probe 在台灣使用的網站清單如何維護

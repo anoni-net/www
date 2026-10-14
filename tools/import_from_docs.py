@@ -413,15 +413,19 @@ def check_docs_links(text: str, lang: str, docs: Path, ref: str, where: str) -> 
 def import_pages(pages: list[str], docs: Path, ref: str) -> int:
     moved = load_moved()
     blog_url = blog_resolver(docs, ref)
-    by_page = {m["page"]: m for m in moved if m.get("import")}
+    # 同一頁在不同語系的原始路徑可能不同（英文版在 regional/），一頁可以對應好幾筆
+    by_page: dict[str, list[dict]] = {}
+    for m in moved:
+        if m.get("import"):
+            by_page.setdefault(m["page"], []).append(m)
     # 連到已經搬到動態的部落格文章，改成本站的路徑
     index = moved_posts_index(docs, ref, load_update_groups()[1])
     count = 0
     for page in pages:
-        item = by_page.get(page)
-        if not item:
+        items = by_page.get(page)
+        if not items:
             raise SystemExit(f"{page} 不在 docs_moved.toml 裡，或 import 不是 true")
-        for lang in item["langs"]:
+        for item, lang in ((i, l) for i in items for l in i["langs"]):
             src = f"docs/{lang}/{item['docs']}"
             text = git_show(docs, ref, src)
             if text is None:
@@ -514,7 +518,7 @@ def main() -> int:
     args = parser.parse_args()
     MATERIAL_ICONS[:] = sorted(args.docs.glob("docs/.venv/lib/python*/site-packages/material/templates/.icons"))
     if args.import_all:
-        args.pages = [m["page"] for m in load_moved() if m.get("import")]
+        args.pages = list(dict.fromkeys(m["page"] for m in load_moved() if m.get("import")))
     if args.pages:
         print(f"搬了 {import_pages(args.pages, args.docs, args.ref)} 個檔案")
     if args.posts:

@@ -224,7 +224,7 @@ M-Lab 的[隐私政策](https://www.measurementlab.net/privacy/)载明测试数�
 - **Measurements API**：`https://api.ooni.org/api/v1/measurements`，同样免验证，接受精确到秒的时间窗，返回逐条记录。本文中部场 30 分钟的表格出自此端点。
 - **AWS S3 公开数据集**：`ooni-data-eu-fra`，逐条原始 JSON，适合需要检视测量细节或做大规模分析的研究。原始数据以整点批次上传，落地 S3 的延迟约在半小时到一两小时之间。取用方式与 CSV 输出格式写在 [ASN 观测数据的提取与分析](/projects/asn-coverage/howto/)，社区维护的提取程序也在该页。
 
-以本次演练为例，30 分钟的时间窗要用 measurements 端点，参数是 `probe_cc=TW`、`test_name=ndt`（或 `dash`）、`since=2026-08-13T06:00:00Z`、`until=2026-08-13T08:00:00Z`。返回的每一条都带 `probe_asn`，再自行归到 `24158`、`17421`、`9674` 三组。所有时间一律使用 UTC，台湾时间需减 8 小时。要判断某个问题该用哪个测项，[OONI 测项速查表](/projects/asn-coverage/ooni-nettests-map/)整理了每个测项测量什么、规格状态，以及台湾是否有数据。台湾的 ASN 覆盖现况见 [ASN 自治网络观测数据分析](docs:taiwan/ooni-asn-coverage/)。
+以本次演练为例，30 分钟的时间窗要用 measurements 端点，参数是 `probe_cc=TW`、`test_name=ndt`（或 `dash`）、`since=2026-08-13T06:00:00Z`、`until=2026-08-13T08:00:00Z`。返回的每一条都带 `probe_asn`，再自行归到 `24158`、`17421`、`9674` 三组。所有时间一律使用 UTC，台湾时间需减 8 小时。要判断某个问题该用哪个测项，[OONI 测项速查表](/projects/asn-coverage/ooni-nettests-map/)整理了每个测项测量什么、规格状态，以及台湾是否有数据。台湾的 ASN 覆盖现况见 [ASN 自治网络观测数据分析](/projects/asn-coverage/asn-diversity/)。
 
 最常见的误解是把异常（anomaly）当成封锁。OONI 的 `anomaly` 只代表测试未照预期完成，成因包含审查、网络不稳、ISP 暂时故障，以及测试程序本身的问题，将 `anomaly` 比率直接视为封锁率会产生假指控。以 `tor` 测项的实测为例，取 2026-07-12 到 2026-08-12 这 30 天，加拿大 `16.3%`（母数 14,042）、瑞士 `22.1%`（母数 3,231）、新西兰 `20.1%`（母数 562），皆为没有审查的国家。前一段 90 天的 `ndt` 与 `dash` 用的是另一个时间窗，复查三国的比率要换成 30 天的参数。中段数值属于噪声，只有比率极端高的少数国家与现实相符。
 

@@ -153,7 +153,7 @@ OONI 的公開資料目前沒有被大量惡意污染，看到的異常多半來
 - [OONI 觀測涵蓋率](/projects/asn-coverage/)
 - [OONI 的封鎖判定方式](/projects/asn-coverage/ooni-blocking-determination/)
 - [什麼是 OONI](docs:tools/what-is-ooni/)
-- [台灣 OONI ASN 涵蓋觀測](docs:taiwan/ooni-asn-coverage/)
+- [ASN 多樣性與台灣的觀測缺口](/projects/asn-coverage/asn-diversity/)
 
 [^1]: [From Heuristics to Anonymous Credentials: Assessing OONI's Approach to Bad Measurements, OONI 2026-07-06](https://ooni.org/post/2026-faulty-measurements/)
 [^2]: [Requirements for OONI's anonymous credentials, OONI](https://ooni.org/post/2025-requirements-for-oonis-anonymous-credentials/)

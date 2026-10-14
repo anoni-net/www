@@ -65,7 +65,7 @@ description: 匿名网络社区 anoni.net 2026 年的三大主题、文档站的
 社区也开发并运维几个与 Tor、OONI、密码安全相关的技术项目：
 
 - **[Tor 中继节点观测](/projects/pulse/)（Pulse）**：收集 Tor 中继节点的数据并提供 API，使用 FastAPI 与 PostgreSQL
-- **[OONI 观测覆盖率](/projects/asn-coverage/)（ASN Coverage）**：批次分析 OONI 的公开数据，相关文章见文档站的[ASNs 自治网络观测数据分析](docs:taiwan/ooni-asn-coverage/)
+- **[OONI 观测覆盖率](/projects/asn-coverage/)（ASN Coverage）**：批次分析 OONI 的公开数据，背景说明见[ASN 多样性与台湾的观测缺口](/projects/asn-coverage/asn-diversity/)
 - **Asian Diceware**：与 EFF 兼容的 7776 字密语词表，混入有字典背书的亚洲外来语。社区之后想自建类似 Tor Project [AnonTicket](https://anonticket.torproject.org/) 的匿名服务平台，词表也是生成账号代码的字源，介绍见[Asian Diceware，带亚洲味的英文密语字典](docs:tools/asian-diceware/)
 
 三个项目的源代码与议题追踪分别在 GitHub 的 [anoni-net/pulse](https://github.com/anoni-net/pulse)、[anoni-net/asn-coverage](https://github.com/anoni-net/asn-coverage)、[anoni-net/asian-diceware](https://github.com/anoni-net/asian-diceware)。两个观测工具与 Tor 上游 network-health 团队工作的关联，见[参与 Tor Project](/join/tor-project/)。
