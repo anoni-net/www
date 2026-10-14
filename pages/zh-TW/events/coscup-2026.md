@@ -15,7 +15,8 @@ description: 匿名網路社群 anoni.net 2026 年 8 月 8、9 日在 COSCUP 202
     - 地點：國立臺灣科技大學（NTUST），社群議程軌在 `TR-510`，8/08 下午與 ETHTaipei 合辦場在 `TR-511`
     - 形式：社群議程、實作工作坊，以及與 ETHTaipei 合辦的匿名支付場
     - 入場：COSCUP 免費入場，社群議程軌不需另外報名（實際時間以 [COSCUP 官方議程](https://pretalx.coscup.org/coscup-2026/) 為準）
-    - 狀態：活動已經結束，本頁保留議程與各場介紹作為紀錄
+    - 狀態：活動已經結束，本頁保留議程、各場介紹與講者簡報作為紀錄
+    - 簡報：講者提供的簡報與錄影附在[議程總覽](#議程總覽)各場的說明下方，著作權屬於各講者，轉載或改作前請先取得講者同意（另外標示授權的依標示）
 
 [前往 COSCUP 2026 議程](#議程總覽){ .btn .solid }
 
@@ -53,8 +54,8 @@ description: 匿名網路社群 anoni.net 2026 年 8 月 8、9 日在 COSCUP 202
 | 13:00-13:30<br>30 分鐘 | <span class="tag">匿名支付</span> <i data-icon="card-account-details-outline"></i> **零知識證明與自然人憑證身份驗證**<br><i data-icon="arrow-right-bottom"></i> 不必交出任何個資，就能用自然人憑證向網站證明自己是台灣公民 | Ya-wen Jeng |
 | 13:40-14:10<br>30 分鐘 | <span class="tag">匿名支付</span> <i data-icon="account-check-outline"></i> **The Privacy-preserving Identity Pipeline in KYC**<br><i data-icon="arrow-right-bottom"></i> 以一組密碼學原語組合出可通過 KYC、伺服器卻看不到身分資料的流程 | ryanycw（Ryan Wang） |
 | 14:20-14:50<br>30 分鐘 | <span class="tag">匿名支付</span> <i data-icon="link-off"></i> **從不可連結性出發：隱匿地址如何解決鏈上金融隱私（以 Fluidkey 為例）**<br><i data-icon="arrow-right-bottom"></i> 隱匿地址讓同一人每次收款都落在互不相關的地址，外部無法串連成同一身分 | Jennifer HSU |
-| 15:00-15:30<br>30 分鐘 | <span class="tag">匿名支付</span> <i data-icon="bitcoin"></i> **我不洗錢，為何要理解匿名支付？從零開始介紹隱私加密金流交易**<br><i data-icon="arrow-right-bottom"></i> 倡議組織與捐款人為何需要了解加密貨幣金流的隱私風險，並以白話介紹幾套解法 | 黃豆泥 mashbean |
-| 15:40-16:30<br>50 分鐘 | <span class="tag">匿名支付</span> <i data-icon="hammer-wrench"></i> **隱私支付實作工作坊：從龍捲風現金到隱私池**<br><i data-icon="arrow-right-bottom"></i> 以道具與實機示範 Tornado Cash 與 Privacy Pool 的用法，現場備有模擬網路，聽眾可自備電腦操作 | Liangcc |
+| 15:00-15:30<br>30 分鐘 | <span class="tag">匿名支付</span> <i data-icon="bitcoin"></i> **我不洗錢，為何要理解匿名支付？從零開始介紹隱私加密金流交易**<br><i data-icon="arrow-right-bottom"></i> 倡議組織與捐款人為何需要了解加密貨幣金流的隱私風險，並以白話介紹幾套解法<br><i data-icon="presentation"></i> [簡報（網頁）](https://mashbean.net/decks/coscup-2026-privacy-money/) | 黃豆泥 mashbean |
+| 15:40-16:30<br>50 分鐘 | <span class="tag">匿名支付</span> <i data-icon="hammer-wrench"></i> **隱私支付實作工作坊：從龍捲風現金到隱私池**<br><i data-icon="arrow-right-bottom"></i> 以道具與實機示範 Tornado Cash 與 Privacy Pool 的用法，現場備有模擬網路，聽眾可自備電腦操作<br><i data-icon="presentation"></i> [簡報（網頁）](https://chihchengliang.github.io/notes/2026-07-27_privacy_pools/slides.html) | Liangcc |
 
 ### Day 2：2026/08/09（日）
 
@@ -64,8 +65,8 @@ description: 匿名網路社群 anoni.net 2026 年 8 月 8、9 日在 COSCUP 202
 
 | 時間 | 議程 | 講者 |
 |------|------|------|
-| 10:00-10:50<br>50 分鐘 | <span class="tag">通用</span> <i data-icon="web"></i> **The Workings of the Internet：網路如何運作、審查如何擋住你（英文進行）**<br><i data-icon="arrow-right-bottom"></i> 以寄明信片比喻連線過程，說明從裝置到網站的路上有哪些角色能偷看或竄改內容，英文不熟的聽眾也能掌握大意 | Raghu |
-| 10:55-11:25<br>30 分鐘 | <span class="tag">通用</span> <i data-icon="router-network"></i> **以 OpenWRT 等開源軟體建立家用網路環境**<br><i data-icon="arrow-right-bottom"></i> 在家用路由器上完成一般機種沒有的進階設定，包含 VLAN 隔離、多 WAN、site-to-site VPN 與 Tor 上游 | Pellaeon Lin |
+| 10:00-10:50<br>50 分鐘 | <span class="tag">通用</span> <i data-icon="web"></i> **The Workings of the Internet：網路如何運作、審查如何擋住你（英文進行）**<br><i data-icon="arrow-right-bottom"></i> 以寄明信片比喻連線過程，說明從裝置到網站的路上有哪些角色能偷看或竄改內容，英文不熟的聽眾也能掌握大意<br><i data-icon="presentation"></i> [簡報（PDF）](https://saxrag.com/bucket/random/workings_of_the_internet.pdf)（CC BY 4.0） | Raghu |
+| 10:55-11:25<br>30 分鐘 | <span class="tag">通用</span> <i data-icon="router-network"></i> **以 OpenWRT 等開源軟體建立家用網路環境**<br><i data-icon="arrow-right-bottom"></i> 在家用路由器上完成一般機種沒有的進階設定，包含 VLAN 隔離、多 WAN、site-to-site VPN 與 Tor 上游<br><i data-icon="presentation"></i> [簡報（PDF）](https://assets.anoni.net/event/coscup-2026/pellaeon-openwrt-home-network.pdf)（講者保留所有權利，僅供閱覽） | Pellaeon |
 | 11:30-12:00<br>30 分鐘 | <span class="tag">匿名支付</span> <i data-icon="fingerprint"></i> **區塊鏈網路上基於開放標準的實體身份識別方法**<br><i data-icon="arrow-right-bottom"></i> 虛擬資產服務法通過後，哪些開放標準會被用來在區塊鏈上定位台灣使用者的身分 | Yusef Schultz |
 
 （12:00-13:00 午休）
@@ -74,10 +75,10 @@ description: 匿名網路社群 anoni.net 2026 年 8 月 8、9 日在 COSCUP 202
 
 | 時間 | 議程 | 講者 |
 |------|------|------|
-| 13:00-13:30<br>30 分鐘 | <span class="tag">Tor Relay</span> <i data-icon="simple-torproject"></i> **在學校種洋蔥？臺師大 Tor 節點建立實務與 EFF Tor University Challenge 經驗談**<br><i data-icon="arrow-right-bottom"></i> 在臺師大架設學術 Tor 節點的完整歷程，從技術配置到校內政策協調 | NZ |
-| 13:35-14:25<br>50 分鐘 | <span class="tag">個人隱私</span> <i data-icon="eye-off-outline"></i> **瀏覽器追蹤技術、反追蹤策略和使用者自主**<br><i data-icon="arrow-right-bottom"></i> 日常使用的瀏覽器如何被指紋追蹤、如何洩漏聯繫對象，以及反追蹤的做法 | Pellaeon Lin |
-| 14:30-15:00<br>30 分鐘 | <span class="tag">個人隱私</span> <i data-icon="database-lock"></i> **健保資料庫案之後：停止利用權如何實踐？以及其他大型資料庫**<br><i data-icon="arrow-right-bottom"></i> 健保資料庫從退出權訴訟到修法的經過，以及停止利用權的申請方式 | Kuan-Ju Chou |
-| 15:05-15:55<br>50 分鐘 | <span class="tag">個人隱私</span> <i data-icon="shield-account-outline"></i> **隱私指南 2026**<br><i data-icon="arrow-right-bottom"></i> 從個人隱私風險矩陣、NGO 與媒體面對法律調取資料的準備，到門檻簽章、MPC 等組織級進階工具 | Justyn |
+| 13:00-13:30<br>30 分鐘 | <span class="tag">Tor Relay</span> <i data-icon="simple-torproject"></i> **在學校種洋蔥？臺師大 Tor 節點建立實務與 EFF Tor University Challenge 經驗談**<br><i data-icon="arrow-right-bottom"></i> 在臺師大架設學術 Tor 節點的完整歷程，從技術配置到校內政策協調<br><i data-icon="presentation"></i> [簡報（PDF）](https://assets.anoni.net/event/coscup-2026/nz-tor-relay-on-campus.pdf) <i data-icon="video-outline"></i> [錄影（Google Drive）](https://drive.google.com/file/d/1bAzgU6rSNg9hXSrDhDIXYd4PM-P8Dxte/view?usp=sharing) | NZ |
+| 13:35-14:25<br>50 分鐘 | <span class="tag">個人隱私</span> <i data-icon="eye-off-outline"></i> **瀏覽器追蹤技術、反追蹤策略和使用者自主**<br><i data-icon="arrow-right-bottom"></i> 日常使用的瀏覽器如何被指紋追蹤、如何洩漏聯繫對象，以及反追蹤的做法<br><i data-icon="presentation"></i> [簡報（PDF）](https://assets.anoni.net/event/coscup-2026/pellaeon-browser-tracking-and-user-autonomy.pdf)（講者保留所有權利，僅供閱覽） | Pellaeon |
+| 14:30-15:00<br>30 分鐘 | <span class="tag">個人隱私</span> <i data-icon="database-lock"></i> **健保資料庫案之後：停止利用權如何實踐？以及其他大型資料庫**<br><i data-icon="arrow-right-bottom"></i> 健保資料庫從退出權訴訟到修法的經過，以及停止利用權的申請方式<br><i data-icon="presentation"></i> [簡報（PDF）](https://assets.anoni.net/event/coscup-2026/kuan-nhi-database-right-to-opt-out.pdf) | Kuan-Ju Chou |
+| 15:05-15:55<br>50 分鐘 | <span class="tag">個人隱私</span> <i data-icon="shield-account-outline"></i> **隱私指南 2026**<br><i data-icon="arrow-right-bottom"></i> 從個人隱私風險矩陣、NGO 與媒體面對法律調取資料的準備，到門檻簽章、MPC 等組織級進階工具<br><i data-icon="presentation"></i> [簡報（PDF）](https://assets.anoni.net/event/coscup-2026/justyn-privacy-guides-2026.pdf) | Justyn |
 
 ## <i data-icon="text-box-multiple-outline"></i> 議程介紹 { #議程介紹 }
 
@@ -177,7 +178,7 @@ description: 匿名網路社群 anoni.net 2026 年 8 月 8、9 日在 COSCUP 202
 
     <i data-icon="open-in-new"></i> [COSCUP 官方議程頁](https://pretalx.coscup.org/coscup-2026/talk/UY8UQN/)
 
-??? abstract "以 OpenWRT 等開源軟體建立家用網路環境（Pellaeon Lin，30 分鐘）"
+??? abstract "以 OpenWRT 等開源軟體建立家用網路環境（Pellaeon，30 分鐘）"
 
     OpenWRT 是一套開源的路由器作業系統，講者跳過基本網路設定，直接示範一般家用路由器不提供、透過 OpenWRT 設定即可達成的便利、安全與隱私功能。
 
@@ -201,11 +202,11 @@ description: 匿名網路社群 anoni.net 2026 年 8 月 8、9 日在 COSCUP 202
 
     <i data-icon="open-in-new"></i> [COSCUP 官方議程頁](https://pretalx.coscup.org/coscup-2026/talk/7AP8HY/)
 
-??? abstract "瀏覽器追蹤技術、反追蹤策略和使用者自主（Pellaeon Lin，50 分鐘）"
+??? abstract "瀏覽器追蹤技術、反追蹤策略和使用者自主（Pellaeon，50 分鐘）"
 
     現代瀏覽器提供許多看似不屬於網頁的 API：WebGL 讓網頁使用圖形加速、WebAudio 讓網頁執行複雜的音訊合成、WebAssembly 讓網頁直接執行低階指令碼。與硬體緊密結合的 API 讓網頁能做的事變多，網頁也因此能蒐集更多使用者資料，更精準地追蹤與識別使用者。網頁要求時，API 就自動啟用，不會徵詢使用者同意。
 
-    Pellaeon Lin 分享他在瀏覽器指紋（browser fingerprint）與反追蹤方面的研究，說明瀏覽器可能如何洩漏使用者的行蹤，以及 Tor Browser、Brave、VPN 等軟體各自的反追蹤策略、潛在解法與實際使用心得。
+    Pellaeon 分享他在瀏覽器指紋（browser fingerprint）與反追蹤方面的研究，說明瀏覽器可能如何洩漏使用者的行蹤，以及 Tor Browser、Brave、VPN 等軟體各自的反追蹤策略、潛在解法與實際使用心得。
 
     <i data-icon="open-in-new"></i> [COSCUP 官方議程頁](https://pretalx.coscup.org/coscup-2026/talk/KSWEDB/)
 
@@ -235,7 +236,7 @@ description: 匿名網路社群 anoni.net 2026 年 8 月 8、9 日在 COSCUP 202
 
 ## <i data-icon="account-voice"></i> 講者簡介 { #講者簡介 }
 
-8/08 上午的前三場導論由 anoni.net 社群成員主講，他們實際維運 Tor 中繼節點，也參與 Tails 與 OONI 的正體中文化與問題回報（社群背景見[關於我們](/about/)）。邀請、合辦與錄取議程的講者依議程順序列在下方，點選名字可以前往 COSCUP pretalx 上講者本人提供的完整簡介。
+8/08 上午的前三場導論由 anoni.net 社群成員主講，他們實際維運 Tor 中繼節點，也參與 Tails 與 OONI 的正體中文化與問題回報（社群背景見[關於我們](/about/)）。邀請、合辦與錄取議程的講者依議程順序列在下方，點選名字可以前往 COSCUP pretalx 上講者本人提供的完整簡介，Raghu 與 Pellaeon 依講者意願改連到個人網站與部落格。
 
 **8/08 上午 邀請議程**
 
@@ -251,8 +252,8 @@ description: 匿名網路社群 anoni.net 2026 年 8 月 8、9 日在 COSCUP 202
 
 **8/09 Day 2 議程**
 
-- **[Raghu](https://pretalx.coscup.org/coscup-2026/speaker/X3GX3V/)**：後端工程師，投入 IP、TCP、封包分析與資安研究。主講「The Workings of the Internet」（英文進行）。
-- **[Pellaeon Lin](https://pretalx.coscup.org/coscup-2026/speaker/BJYRYX/)**：數位安全研究員與講師，關注數位人權與自由軟體。主講「以 OpenWRT 等開源軟體建立家用網路環境」與「瀏覽器追蹤技術、反追蹤策略和使用者自主」兩場。
+- **[Raghu](https://saxrag.com/)**：後端工程師，投入 IP、TCP、封包分析與資安研究。主講「The Workings of the Internet」（英文進行）。
+- **[Pellaeon](https://nyllep.wordpress.com/)**：數位安全研究員與講師，關注數位人權與自由軟體。主講「以 OpenWRT 等開源軟體建立家用網路環境」與「瀏覽器追蹤技術、反追蹤策略和使用者自主」兩場。
 - **[Yusef Schultz](https://pretalx.coscup.org/coscup-2026/speaker/FAGUY7/)**：主講「區塊鏈網路上基於開放標準的實體身份識別方法」，完整簡介見 pretalx 講者頁。
 - **[NZ（蘇恩立）](https://pretalx.coscup.org/coscup-2026/speaker/WCJNBL/)**：臺師大資工系學生，維運臺灣學術網路（TANet）首個 Tor 節點，關注資安與網路治理。主講「在學校種洋蔥？臺師大 Tor 節點建立實務與 EFF Tor University Challenge 經驗談」。
 - **[Kuan-Ju Chou](https://pretalx.coscup.org/coscup-2026/speaker/UAREZS/)**：在台灣人權促進會服務，負責數位人權。主講「健保資料庫案之後：停止利用權如何實踐？」。
