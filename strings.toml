@@ -2,6 +2,7 @@
 
 [zh-TW]
 all_updates = "所有動態"
+all_articles = "所有技術文章"
 kind_new = "新增"
 kind_event = "活動"
 kind_update = "更新"
@@ -46,6 +47,7 @@ join_how = "參與方式"
 
 [zh-CN]
 all_updates = "所有动态"
+all_articles = "所有技术文章"
 kind_new = "新增"
 kind_event = "活动"
 kind_update = "更新"
@@ -90,6 +92,7 @@ join_how = "参与方式"
 
 [en]
 all_updates = "All updates"
+all_articles = "All articles"
 kind_new = "New"
 kind_event = "Event"
 kind_update = "Update"
