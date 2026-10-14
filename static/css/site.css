@@ -366,6 +366,10 @@ p { margin: .5rem 0 1rem; }
   .prose table.stack:has(td .tag) :is(th, td):last-child { width: 8.5em; overflow-wrap: normal; }
 }
 .prose .i { color: var(--c-icon); }
+/* 連結與按鈕裡的圖示跟著文字的顏色：實心按鈕的圖示是白色，「全部專案」這類連結的箭頭與
+   列表右側的箭頭是連結色。:where() 讓權重跟上一條相同，後面的 .toolrow .i 這類刻意用灰色
+   的規則仍然有效 */
+.prose :where(a) .i { color: inherit; }
 
 /* 首頁主視覺 */
 .hero h1 { display: flex; align-items: center; gap: .5rem; font-size: 2rem; margin-top: 1.75rem; }
