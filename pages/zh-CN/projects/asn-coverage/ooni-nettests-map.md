@@ -42,7 +42,7 @@ description: ooni/spec 收录的 41 个网络测项的量测内容、数据产�
 | 测项 | 量测内容 | spec 状态 | 台湾 |
 |---|---|---|---|
 | [`web_connectivity`](https://github.com/ooni/spec/blob/master/nettests/ts-017-web-connectivity.md) | 网站可达性与封锁判定，数据量最大的测项 | current | 有 |
-| [`tor`](https://github.com/ooni/spec/blob/master/nettests/ts-023-tor.md) | Tor 目录权威节点与桥接的可达性 | current | 有 |
+| [`tor`](https://github.com/ooni/spec/blob/master/nettests/ts-023-tor.md) | Tor 目录权威节点与网桥的可达性 | current | 有 |
 | [`vanilla_tor`](https://github.com/ooni/spec/blob/master/nettests/ts-016-vanilla-tor.md) | 未经伪装的 Tor 能否顺利启动连接 | experimental | 有 |
 | [`torsf`](https://github.com/ooni/spec/blob/master/nettests/ts-030-torsf.md) | 通过 Snowflake 传输层的 Tor 连接 | experimental | 无 |
 | [`telegram`](https://github.com/ooni/spec/blob/master/nettests/ts-020-telegram.md) | Telegram 网页版与数据中心端点可达性 | current | 有 |

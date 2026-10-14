@@ -137,7 +137,7 @@ anoni.net 文档站同时发布标准网站、onion 与 IPFS 三份，内容相�
 
 - [文档站 IPFS 镜像的 pin 节点](/join/pin-ipfs-mirror/)：用常驻的 IPFS 节点为文档站的 IPFS 镜像多保存一份
 - [.onion 服务架设指南](/join/setup-onion-service/)：架设 v3 onion 服务、接上 nginx，以及上线之后的运维
-- [Tor Relay 架设指南](/join/setup-tor-relay/)：中继、桥接与出口节点的架设与运维
+- [Tor Relay 架设指南](/join/setup-tor-relay/)：中继、网桥与出口节点的架设与运维
 - [Tor Relay 校园建立研究专题](/join/relay-on-campus/)：在学校架设中继节点的提案与沟通
 - [中文化与文件翻译](docs:community/i18n/)：文档站与 Tor 文档的翻译流程
 

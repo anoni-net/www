@@ -121,29 +121,29 @@ description: 2025 年 8 月匿名网络工作坊的筹备记录，包含工作�
     === "<i data-icon="checkbox-marked-circle-outline"></i> Tor: Basic L2"
 
         - [x] 了解 Tor 浏览器的连接方式。
-        - [x] Tor 桥接（Bridge）类型：Bridge、Snowflake、WebTunnel。
+        - [x] Tor 网桥（Bridge）类型：Bridge、Snowflake、WebTunnel。
         - [x] 各种连接方式的使用场景与时机。
         - [x] 了解能否通过 VPN 连接 Tor。
 
     === "<i data-icon="checkbox-marked-circle-outline"></i> Tor: Basic L3"
 
         - [x] 安装 Tor 浏览器，并实际使用至少一周。
-        - [x] 通过**直接连接**与**桥接方式**连接到 Tor 网络。
+        - [x] 通过**直接连接**与**网桥方式**连接到 Tor 网络。
         - [x] 切换当前的连接路径。
         - [x] 连接至 **.onion** 域名。
 
     === "<i data-icon="checkbox-marked-circle-auto-outline"></i> Tor: Advanced L1"
 
         - [x] 区分 Tor、Onion、Tor 浏览器各自指的技术。
-        - [x] 使用 Snowflake 浏览器扩展建立 Tor 桥接（Bridge）。
+        - [x] 使用 Snowflake 浏览器扩展建立 Tor 网桥（Bridge）。
         - [x] 启动 Tor 并通过 SOCKS v5 连接。
         - [x] 使用 [metrics.torproject.org](https://metrics.torproject.org) 查询台湾的中继点。
 
     === "<i data-icon="checkbox-marked-circle-auto-outline"></i> Tor: Advanced L2"
 
         - [x] 建立 Tor Relay 中继点。
-        - [x] 建立 Tor Bridge 桥接点。
-        - [x] 建立 WebTunnel 桥接点。
+        - [x] 建立 Tor Bridge 网桥。
+        - [x] 建立 WebTunnel 网桥。
         - [x] 建立 **.onion** 网站。
 
 ??? Abstract "Tails 技能分级表"
@@ -166,7 +166,7 @@ description: 2025 年 8 月匿名网络工作坊的筹备记录，包含工作�
 
         - [x] 安装 Tails，并实际使用至少一周。
         - [x] 建立持久性加密磁区（Persistent Storage）。
-        - [x] 设置 Tails 通过桥接（Bridge）连接。
+        - [x] 设置 Tails 通过网桥（Bridge）连接。
         - [x] 使用 [OnionShare](docs:tools/onionshare/) 分享文件。
 
     === "<i data-icon="checkbox-marked-circle-auto-outline"></i> Tails: Advanced L1"

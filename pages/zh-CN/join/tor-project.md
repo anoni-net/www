@@ -29,7 +29,7 @@ Tor 的 GitLab 上有两百多个项目，活跃程度差异很大。2026 年 6 
 
 ### 技术主线
 
-- 抗审查的三种连接方式。WebTunnel 把桥接流量伪装成普通的 HTTPS，2025 年在俄罗斯是重要的规避工具。Snowflake 用志愿者浏览器的 WebRTC（浏览器之间建立实时连接的技术）当临时代理，目前稳定运作，介绍见 [Tor Snowflake 桥接点](docs:tools/tor-snowflake/)。Conjure 利用 ISP 没有使用的地址空间，对抗审查者逐一列出已知代理 IP 再封锁的手法，官方规划从 2026 年起逐步推出[^9]。
+- 抗审查的三种连接方式。WebTunnel 把网桥流量伪装成普通的 HTTPS，2025 年在俄罗斯是重要的规避工具。Snowflake 用志愿者浏览器的 WebRTC（浏览器之间建立实时连接的技术）当临时代理，目前稳定运作，介绍见 [Tor Snowflake 网桥](docs:tools/tor-snowflake/)。Conjure 利用 ISP 没有使用的地址空间，对抗审查者逐一列出已知代理 IP 再封锁的手法，官方规划从 2026 年起逐步推出[^9]。
 - Arti，用 Rust 重写的 Tor。客户端核心、circuit 与 Onion Service 已经稳定，relay 与 directory authority（维护中继名册的核心服务器）还在开发，官方没有承诺与旧版 C 实现功能一致的时程。
 - Counter Galois Onion（CGO），新的对称加密方式，修补旧加密可以被篡改、被用来追踪连接的弱点。目前在 Arti 里标为实验功能，测试完成后才会默认启用。
 - Android 版的 Tor VPN，底层使用 Arti，2025 年 9 月推出 beta 版，官方标明仍属实验、不适合高风险的情境。iOS 上仍然使用 Orbot。
@@ -41,10 +41,10 @@ Tor 的 GitLab 上有两百多个项目，活跃程度差异很大。2026 年 6 
 
 | 资助案 | 方向 | 与匿名网络社区的关联 |
 |---|---|---|
-| `S96` | 中国、香港、西藏的审查规避，包含新的 pluggable transport、更难封锁的桥接、改善桥接的分发 | 社区关注的审查规避 |
+| `S96` | 中国、香港、西藏的审查规避，包含新的 pluggable transport、更难封锁的网桥、改善网桥的分发 | 社区关注的审查规避 |
 | `S112` | 对抗恶意中继、改善网络健康，包含监控工具、中继运营者的行为准则、抵御中继攻击 | 社区的观测工作 |
 | `S119` | Arti，用 Rust 重写的 Tor | 下一代的技术基础 |
-| `S150` | 淘汰 BridgeDB，全面改用 RDSys 分发桥接 | 桥接的分发方式 |
+| `S150` | 淘汰 BridgeDB，全面改用 RDSys 分发网桥 | 网桥的分发方式 |
 | `S101` | Android 版的 Tor VPN | 给一般用户的产品 |
 | `S131` | Mullvad Browser 与 Tor Browser 的重构 | 浏览器 |
 
@@ -52,7 +52,7 @@ Tor 的 GitLab 上有两百多个项目，活跃程度差异很大。2026 年 6 
 
 ## 官方沟通渠道
 
-Tor 的 IRC（OFTC 网络）与 Matrix 双向桥接，用 Element 加入 Matrix 或用 IRC，都会进到同一个频道[^10]。Tor 官方的频道在 `matrix.org`，与匿名网络社区自建的 `im.anoni.net` 分开。
+Tor 的 IRC（OFTC 网络）与 Matrix 双向互通，用 Element 加入 Matrix 或用 IRC，都会进到同一个频道[^10]。Tor 官方的频道在 `matrix.org`，与匿名网络社区自建的 `im.anoni.net` 分开。
 
 | 频道 | 用途 |
 |---|---|
@@ -74,7 +74,7 @@ Tor 的 IRC（OFTC 网络）与 Matrix 双向桥接，用 Element 加入 Matrix 
 1. 本地化翻译。门槛最低，不需要审核账号，也不需要技术背景。个人就能在 Weblate 开始，同时改善正体中文的质量，也是累积社区贡献记录最快的方式。流程与 Weblate 的链接见[中文化与文件翻译](docs:community/i18n/)的「Tor 文件翻译」一节，第一次参与先读[成为 Tor 翻译者](https://community.torproject.org/localization/becoming-tor-translator/)。
 2. 在 `#tor-project` 与论坛自我介绍。meetup、outreach 与社区事务都在这里讨论，之后的正式合作也从这里开始。
 3. 举办在地 meetup。Tor 的 [Outreach](https://community.torproject.org/outreach/) 提供 Street Team Kit、幻灯片与举办 Tor meetup 的素材，官方鼓励自主举办，不需要审核，需要讲者时写信到 <speaking@torproject.org>。
-4. 运营中继或桥接。有机器与带宽的成员可以架设中继，增加亚太的节点，步骤见[Tor Relay 架设指南](/join/setup-tor-relay/)。伪装成 HTTPS 的桥接见[Tor WebTunnel 桥接架设指南](/join/setup-tor-webtunnel/)，遇到问题可以到 `#tor-relays` 与 tor-relays 邮件列表询问。
+4. 运营中继或网桥。有机器与带宽的成员可以架设中继，增加亚太的节点，步骤见[Tor Relay 架设指南](/join/setup-tor-relay/)。伪装成 HTTPS 的网桥见[Tor WebTunnel 网桥架设指南](/join/setup-tor-webtunnel/)，遇到问题可以到 `#tor-relays` 与 tor-relays 邮件列表询问。
 5. 开发与报告问题。到 [anonticket.torproject.org](https://anonticket.torproject.org/) 可以匿名申请 GitLab 账号或报告问题，取得账号之后到对应的 repo 开 issue。新手可以从标了 first-contributors 的 issue 开始，技术讨论在 `#tor-dev`。
 6. 成为 Training Partner。Tor 的 [training partners](https://community.torproject.org/training/partners/) 是组织与 Tor 之间最正式的合作形式，通常要先在前几项累积贡献记录，适合当作中长期的目标。
 
@@ -90,7 +90,7 @@ Tor 的 IRC（OFTC 网络）与 Matrix 双向桥接，用 Element 加入 Matrix 
 
 - [中文化与文件翻译](docs:community/i18n/)：Tor 文档的翻译流程与 Weblate 的使用方式
 - [Tor Relay 架设指南](/join/setup-tor-relay/)：架设中继的步骤
-- [Tor WebTunnel 桥接架设指南](/join/setup-tor-webtunnel/)：把桥接流量伪装成普通 HTTPS 的架设方式
+- [Tor WebTunnel 网桥架设指南](/join/setup-tor-webtunnel/)：把网桥流量伪装成普通 HTTPS 的架设方式
 - [如何参与与认领主题](/join/)：加入匿名网络社区、认领年度主题的方式
 
 [^1]: [Advancing digital rights in 2026](https://blog.torproject.org/advancing-digital-rights-in-2026/) - The Tor Project Blog

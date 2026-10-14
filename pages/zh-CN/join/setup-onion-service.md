@@ -5,9 +5,9 @@ description: 用 Tor 官方的方式架设 v3 onion 服务，含 nginx 导流、
 
 Onion 服务让别人通过 Tor 直接连到你的服务器，过程中不需要公开服务器的 IP，也不需要向任何证书机构注册域名。连接两端都在 Tor 网络内完成，加密由 Tor 本身处理。
 
-!!! info "与中继、桥接的区别"
+!!! info "与中继、网桥的区别"
 
-    运营 [Tor 中继节点](/join/setup-tor-relay/)、[WebTunnel 桥接](/join/setup-tor-webtunnel/)与 [Snowflake](docs:tools/tor-snowflake/)，是**把带宽贡献给 Tor 网络**、替别人转发流量。
+    运营 [Tor 中继节点](/join/setup-tor-relay/)、[WebTunnel 网桥](/join/setup-tor-webtunnel/)与 [Snowflake](docs:tools/tor-snowflake/)，是**把带宽贡献给 Tor 网络**、替别人转发流量。
 
     Onion 服务则是**用 Tor 架设自己的网站**，只提供自己的内容、不转发他人的流量，也不增加 Tor 网络的容量。两者的风险、法律处境与运维负担都不同。
 

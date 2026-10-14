@@ -93,9 +93,9 @@ The Executive Yuan (Taiwan's cabinet) described the method as core-network rate 
 
 ## Comparison measurements without a throttle signal
 
-Of the 47 devices, 46 measured normal speeds during the window. Across the three mobile carriers, the median download was `53.2` Mbps before the throttle, `42.2` Mbps during it, and `58.5` Mbps after, all in the same band.
+During the window 32 devices ran the speed test. Apart from the handset above, 30 measured normal speeds, and the remaining one left an incomplete measurement (see "false positives" below). Across the three mobile carriers, the median download was `53.2` Mbps before the throttle, `42.2` Mbps during it, and `58.5` Mbps after, all in the same band.
 
-With a whole batch of normal figures as the baseline, a single device's `788` kbit/s can be identified as the exception. Had everyone measured low speeds that day, the reasonable reading would be a nationwide slowdown or ordinary variation. Had only one phone been measuring, the low figure could equally have come from that handset's own situation, such as poor signal or a background app consuming bandwidth. With 32 devices running the same tests in the same window and 31 of them normal, a single device's anomaly holds up.
+With a whole batch of normal figures as the baseline, a single device's `788` kbit/s can be identified as the exception. Had everyone measured low speeds that day, the reasonable reading would be a nationwide slowdown or ordinary variation. Had only one phone been measuring, the low figure could equally have come from that handset's own situation, such as poor signal or a background app consuming bandwidth. With 32 devices running the same tests in the same window and 30 of them normal, a single device's anomaly holds up.
 
 That is why the call asked people outside the throttled area to measure as well: whether the figures from inside the area can be read at all depends on the measurements from outside it. Someone in Tainan, in Kaohsiung, or not in Taiwan at all could take part. A run at the same moment lands in the same public database and becomes part of the comparison.
 
@@ -168,9 +168,11 @@ Handset model, location, and signal strength all differ, so a single measurement
 
 ### Step five, false positives
 
-Two cases came up on the day.
+Three cases came up on the day.
 
 A Taiwan Mobile device measured `3,124` kbit/s at 14:54, which looks like throttling. But it measured `3,126` kbit/s again at 20:11 the same day, and its streaming bitrate stayed between `2,072` and `2,909` kbit/s throughout. The figures are stable all day and come from that subscription's own speed cap, unrelated to the drill. Looking only at the throttle window, it would easily have been counted as evidence.
+
+Another Chunghwa Telecom mobile device recorded `76` kbit/s at 14:49, but the same measurement shows `0` for upload, minimum round-trip time and MSS, meaning the test never ran to completion. It was that device's only measurement of the day, so there is no telling whether the low figure came from the throttle, and it is left out.
 
 Another 5 measurements failed outright during the window, with connection timeouts, a DNS lookup failure, and a refused connection. The cause of a failure cannot be determined from a single result — it might come from the throttle, or from ordinary connection trouble — so none are included.
 

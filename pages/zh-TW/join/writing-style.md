@@ -183,6 +183,8 @@ python3 tools/docs_style_lint.py /path/to/www/pages/zh-TW/about.md
     | 志願者 | 志工。法律用語「志願服務」不在此限 |
     | 社区 | 社群。反過來，簡體版指 community 寫「社区」，指社交平台寫「社交」（社交媒体、社交分享卡），不寫「社群」 |
 
+    Tor 的 bridge 在正體版寫「橋接」，簡體版寫「网桥」，跟 Tor Browser 簡體介面的用詞一致，不寫「桥接」。
+
 - 譯名分三種處理：
     - 工具、協定、產品名保持英文原文（Tor、OONI、Tails、CryptPad）。
     - 學術或概念性名詞用中文譯名，首次出現在括號附原文，之後用中文。例：`Lorenz 曲線` 首次寫成 `羅倫茲曲線（Lorenz curve）`。

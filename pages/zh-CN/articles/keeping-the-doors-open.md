@@ -1,6 +1,6 @@
 ---
 title: Unredacted 的抗审查基础设施与台湾的对照
-description: Unredacted 在 Tor Blog 客座文章的全文翻译，介绍他们用 300 多台服务器运行的 FreeSocks、Tor 桥接与 Snowflake，以及用约 400W 运行 123 个出口节点的 GreenWare，文末对照台湾的 Tor 中继节点现况与参与方式。
+description: Unredacted 在 Tor Blog 客座文章的全文翻译，介绍他们用 300 多台服务器运行的 FreeSocks、Tor 网桥与 Snowflake，以及用约 400W 运行 123 个出口节点的 GreenWare，文末对照台湾的 Tor 中继节点现况与参与方式。
 date: 2026-06-01
 ---
 
@@ -24,7 +24,7 @@ date: 2026-06-01
 
 名称就是字面上的意思，通往开放网络的入口被墙封住时，人们需要另一条进去的路。
 
-Unredacted Door 整合了我们几项绕过审查的服务，包括 FreeSocks、Signal 与 Telegram 的消息代理、Tor 桥接与 Snowflake 代理。最近 30 天内，这些服务为数万名在自己国家绕过审查的用户承载了将近 300 TiB 的流量，大约相当于播放数万小时 4K 视频的带宽。需求没有减缓，我们需要继续扩建。每一道新的过滤规则、每一条新法律、每一次打着「为了你的安全」名义推出的措施，都让更多人去找审查者还没发现的路。
+Unredacted Door 整合了我们几项绕过审查的服务，包括 FreeSocks、Signal 与 Telegram 的消息代理、Tor 网桥与 Snowflake 代理。最近 30 天内，这些服务为数万名在自己国家绕过审查的用户承载了将近 300 TiB 的流量，大约相当于播放数万小时 4K 视频的带宽。需求没有减缓，我们需要继续扩建。每一道新的过滤规则、每一条新法律、每一次打着「为了你的安全」名义推出的措施，都让更多人去找审查者还没发现的路。
 
 Unredacted Door 里规模最大的是 FreeSocks，提供给审查严重地区的免费代理。代理是一个中转点，你的应用程序连到中转的服务器，由它把连接带过你与外部网络之间的过滤设备，再接到被封锁的服务。
 
@@ -42,7 +42,7 @@ Tor Browser 提供强度足够的浏览隐私与匿名性。Snowflake 在 Tor �
 
 ## GreenWare 与低耗电硬件
 
-Tor 中继、桥接与代理都在数据中心的硬件上运行，硬件有实际的成本，包括财务、运营与环境。如果希望隐私基础设施能长期维持，就要问什么样的运维方式才真的能持续。
+Tor 中继、网桥与代理都在数据中心的硬件上运行，硬件有实际的成本，包括财务、运营与环境。如果希望隐私基础设施能长期维持，就要问什么样的运维方式才真的能持续。
 
 GreenWare 是我们在不减少承载量的前提下缩小成本的尝试。大多数 Tor 中继的流量，并不需要一台耗电像取暖器的服务器。中继需要的是稳定的网络、可预测的 CPU，以及足够存放状态的内存，只要机箱设计得够扎实，单板计算机就能处理这种规模的工作量。
 
@@ -62,7 +62,7 @@ Tor 网络依赖愿意为它运维基础设施的个人与组织。出口节点�
 
 ## 台湾的对照
 
-Unredacted 引用的那段用户留言格外少见，身处审查环境的人多半没有渠道，也难以安全地对外发声。台湾的网络环境相对自由，没有防火长城，不要求 VPN 登记，ISP 也没有接到国家的审查命令。正因如此，台湾有条件为被封锁的地区架设 Tor 中继与桥接，分担一部分抗审查基础设施的工作。
+Unredacted 引用的那段用户留言格外少见，身处审查环境的人多半没有渠道，也难以安全地对外发声。台湾的网络环境相对自由，没有防火长城，不要求 VPN 登记，ISP 也没有接到国家的审查命令。正因如此，台湾有条件为被封锁的地区架设 Tor 中继与网桥，分担一部分抗审查基础设施的工作。
 
 anoni.net 社区通过 [Tor 中继节点观测](/projects/pulse/)追踪台湾 Tor 中继节点的数量与分布。截至 2026-05-31，Onionoo（Tor 官方的中继数据查询服务）的数据里，位于台湾、正在运行的中继节点有 12 个，其中带 Exit 标记的只有 3 个。Unredacted 一个组织就运行 123 个出口节点，30 天承载近 300 TiB 流量，台湾全境的出口节点数量还不到他们的 3%。最新的数字见 [Tor 中继节点观测](/projects/pulse/)，页面上的数据持续更新。台湾各 ASN 的 OONI 观测覆盖率另见 [ASN 自治网络观测数据分析](docs:taiwan/ooni-asn-coverage/)。
 
@@ -84,7 +84,7 @@ Tor Relay 校园建立是 anoni.net 2026 年的三大主题之一，社区正把
 
 - **了解 Unredacted**：到 [unredacted.org](https://unredacted.org/) 查看服务与透明度信息，再决定是否通过官方渠道支持服务器、带宽与人力成本。
 - **运行 Snowflake**：门槛最低的参与方式，用浏览器扩展或 Docker 即可运行（见 [Tor Snowflake](docs:tools/tor-snowflake/)）。
-- **架设 Tor relay 或 bridge**：需要稳定的网络与一些运维时间，步骤见 [Tor Relay 架设指南](/join/setup-tor-relay/)与 [Tor WebTunnel 桥接架设指南](/join/setup-tor-webtunnel/)。
+- **架设 Tor relay 或 bridge**：需要稳定的网络与一些运维时间，步骤见 [Tor Relay 架设指南](/join/setup-tor-relay/)与 [Tor WebTunnel 网桥架设指南](/join/setup-tor-webtunnel/)。
 - **校园 Tor Relay**：在大专院校工作或就读的人，可以从 [Tor Relay 校园建立研究专题](/join/relay-on-campus/)开始评估。
 - **加入社区讨论**：在 Matrix 与其他社区成员交流经验，入口见[参与](/join/)，其他联系渠道见[持续关注](/contact/)。
 
@@ -92,7 +92,7 @@ Tor Relay 校园建立是 anoni.net 2026 年的三大主题之一，社区正把
 
 - [什么是 Tor](docs:tools/what-is-tor/)
 - [什么是 OONI](docs:tools/what-is-ooni/)
-- [伊朗断网后涌进社区 Tor WebTunnel 桥接的流量](/updates/2026/05/iran-blackout-webtunnel/)
+- [伊朗断网后涌进社区 Tor WebTunnel 网桥的流量](/updates/2026/05/iran-blackout-webtunnel/)
 - [台师大架设 Tor Relay 的经验](/updates/2025/12/ntnu-nz/)
 - [Tor 中继节点观测](/projects/pulse/)
 - 同系列：[Defending the public's right to know（OONI）](https://blog.torproject.org/Defending-the-right-to-know/)、[Preserving evidence: How OpenArchive fosters accountability and media sovereignty](https://blog.torproject.org/preserving-evidence-openarchive-fosters-accountability-media-sovereignty/)
