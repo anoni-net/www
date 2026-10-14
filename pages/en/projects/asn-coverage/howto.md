@@ -155,6 +155,20 @@ coverage = distinct ASNs appearing in observation data ÷ total ASNs registered 
 
 In the community's December 2023 analysis (see [ASN Diversity and Gaps in Taiwan's OONI Coverage](/projects/asn-coverage/asn-diversity/)), Taiwan had roughly 437 ASNs at the time, and the observation data covered 7.32% of them as distinct ASNs. You can rerun the same formula over a recent range to see whether coverage has improved.
 
+## miniooni and OONI Run v2 lists {#miniooni}
+
+[miniooni](https://github.com/ooni/probe-cli), the command-line build of OONI Probe, can run an OONI Run v2 list on a server, in a research script or on a schedule. Its `-i` flag needs the API's descriptor URL; the `run.ooni.org` web URL fails:
+
+```bash
+# Fails: the CLI gets HTML and JSON parsing breaks
+miniooni oonirun -i https://run.ooni.org/v2/10328
+
+# Works: point at the API's descriptor JSON
+miniooni oonirun -i https://api.ooni.org/api/v2/oonirun/links/10328
+```
+
+miniooni GETs whatever URL `-i` is given and expects descriptor JSON back, but `run.ooni.org/v2/<ID>` is a page for browsers and returns HTML. The descriptor lives at `https://api.ooni.org/api/v2/oonirun/links/<LINK_ID>`, where `<LINK_ID>` is the last segment of the web URL; the community's list is `10328`. Desktop and mobile apps are unaffected, since the operating system hands the web URL to OONI Probe. Upstream has a [TODO note](https://github.com/ooni/probe-cli/blob/master/internal/oonirun/link.go) in the code, so the conversion may become automatic later.
+
 ## Related reading
 
 - [The Structure of an OONI Measurement](/projects/asn-coverage/ooni-data-format/): the fields in a single measurement and how to read them

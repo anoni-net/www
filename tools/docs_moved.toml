@@ -353,3 +353,23 @@ docs = "community/setup-repo.md"
 page = "join/dev-setup"
 langs = ["zh-TW", "zh-CN", "en"]
 import = true
+
+# 2026-10-14 #406 剩下四頁的盤點：台灣 Tor 使用者數是資料分析，接在 Tor 中繼節點觀測底下看使用者端，
+# Brave GPU 指紋的技術分析搬到技術文章（寫給一般讀者的部分文件站的瀏覽器指紋頁已有）
+[[moved]]
+docs = "taiwan/tor-users.md"
+page = "projects/pulse/tor-users"
+langs = ["zh-TW", "zh-CN"]
+import = true
+
+[[moved]]
+docs = "regional/taiwan-tor-users.md"
+page = "projects/pulse/tor-users"
+langs = ["en"]
+import = true
+
+[[moved]]
+docs = "blog/posts/brave-gpu-fingerprinting.md"
+page = "articles/brave-gpu-fingerprinting"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true

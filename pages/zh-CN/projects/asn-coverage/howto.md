@@ -155,6 +155,20 @@ uv run python ripe.py save --loc=TW
 
 以社区 2023-12 的分析为例（见[ASN 多样性与台湾的观测缺口](/projects/asn-coverage/asn-diversity/)），台湾当时约有 437 组 ASN，观测数据涵盖的不重复 ASN 占 7.32%。同一算式也可以套用在近期的区间，对照覆盖率是否改善。
 
+## miniooni 与 OONI Run v2 清单 {#miniooni}
+
+OONI Probe 的命令行版本 [miniooni](https://github.com/ooni/probe-cli) 可以在服务器、研究脚本或定时任务里运行 OONI Run v2 清单。`-i` 参数要给 API 的 descriptor 网址，给 `run.ooni.org` 的网页网址会失败：
+
+```bash
+# 错误：取得的是 HTML，JSON 解析失败
+miniooni oonirun -i https://run.ooni.org/v2/10328
+
+# 正确：指向 API 的 descriptor JSON
+miniooni oonirun -i https://api.ooni.org/api/v2/oonirun/links/10328
+```
+
+miniooni 会把 `-i` 的网址当成 descriptor 端点直接 GET，`run.ooni.org/v2/<ID>` 是给浏览器的网页，响应是 HTML。descriptor 的网址格式是 `https://api.ooni.org/api/v2/oonirun/links/<LINK_ID>`，`<LINK_ID>` 取自网页网址的最后一段，社区维护的清单是 `10328`。桌面版与移动 App 由操作系统把网页网址交给 OONI Probe 处理，不受影响。上游的代码里已有 [TODO 注记](https://github.com/ooni/probe-cli/blob/master/internal/oonirun/link.go)，之后可能会改成自动转换。
+
 ## 相关阅读
 
 - [OONI 测量数据的结构](/projects/asn-coverage/ooni-data-format/)：一笔测量的各个字段与判读方式
