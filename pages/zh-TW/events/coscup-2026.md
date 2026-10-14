@@ -42,20 +42,20 @@ description: 匿名網路社群 anoni.net 2026 年 8 月 8、9 日在 COSCUP 202
 
 | 時間 | 議程 | 講者 |
 |------|------|------|
-| 09:30-10:00<br>30 分鐘 | <span class="tag">通用</span> <i data-icon="account-group"></i> **匿名網路社群 anoni.net 介紹：開源匿名工具、社群實踐與 2026 三大主題**<br><i data-icon="arrow-right-bottom"></i> 社群在台灣將 Tor、Tails、OONI 等隱私工具中文化並推廣，場次介紹社群的組成與工作，以及高風險工作為何需要能檢驗原始碼的開源工具 | anoni.net 社群 |
-| 10:10-10:40<br>30 分鐘 | <span class="tag">通用</span> <i data-icon="target-account"></i> **威脅模型與 Metadata 入門：認識你的對手，以及為什麼匿名工具要開源才可信**<br><i data-icon="arrow-right-bottom"></i> 就算通話內容沒有被監聽，誰在什麼時間聯繫了誰，往往就足以讓消息來源曝光。內容包括如何判斷要防範誰、防到什麼程度 | anoni.net 社群 |
-| 10:50-11:20<br>30 分鐘 | <span class="tag">通用</span> <i data-icon="toolbox-outline"></i> **現實世界的開源隱私工具：公民團體、獨立記者與個人隱私防護的實際運用**<br><i data-icon="arrow-right-bottom"></i> 整理記者、NGO 與在意隱私的一般人實際使用的免費開源工具，原始碼公開、可供檢驗，聽眾可以從中挑一兩個先用 | anoni.net 社群 |
-| 11:30-12:00<br>30 分鐘 | <span class="tag">通用</span> <i data-icon="scale-balance"></i> **毒品非毒、洗錢非洗錢—淺談匿名的資格驗證**<br><i data-icon="arrow-right-bottom"></i> 同一件事換一套規則就被歸成兩種性質，誰有權定義合法與非法？講者在實名與匿名之外尋找第三條路，聽眾不需要密碼學背景 | Denken Chen | <!-- docs-style-lint: disable-line -->
+| 09:30-10:00<br>30 分鐘 | <span class="tag tag--basic">通用</span> <i data-icon="account-group"></i> **匿名網路社群 anoni.net 介紹：開源匿名工具、社群實踐與 2026 三大主題**<br><i data-icon="arrow-right-bottom"></i> 社群在台灣將 Tor、Tails、OONI 等隱私工具中文化並推廣，場次介紹社群的組成與工作，以及高風險工作為何需要能檢驗原始碼的開源工具 | anoni.net 社群 |
+| 10:10-10:40<br>30 分鐘 | <span class="tag tag--basic">通用</span> <i data-icon="target-account"></i> **威脅模型與 Metadata 入門：認識你的對手，以及為什麼匿名工具要開源才可信**<br><i data-icon="arrow-right-bottom"></i> 就算通話內容沒有被監聽，誰在什麼時間聯繫了誰，往往就足以讓消息來源曝光。內容包括如何判斷要防範誰、防到什麼程度 | anoni.net 社群 |
+| 10:50-11:20<br>30 分鐘 | <span class="tag tag--basic">通用</span> <i data-icon="toolbox-outline"></i> **現實世界的開源隱私工具：公民團體、獨立記者與個人隱私防護的實際運用**<br><i data-icon="arrow-right-bottom"></i> 整理記者、NGO 與在意隱私的一般人實際使用的免費開源工具，原始碼公開、可供檢驗，聽眾可以從中挑一兩個先用 | anoni.net 社群 |
+| 11:30-12:00<br>30 分鐘 | <span class="tag tag--basic">通用</span> <i data-icon="scale-balance"></i> **毒品非毒、洗錢非洗錢—淺談匿名的資格驗證**<br><i data-icon="arrow-right-bottom"></i> 同一件事換一套規則就被歸成兩種性質，誰有權定義合法與非法？講者在實名與匿名之外尋找第三條路，聽眾不需要密碼學背景 | Denken Chen | <!-- docs-style-lint: disable-line -->
 
 **下午 13:00-16:30　ETHTaipei 合辦「匿名支付」場（教室 `TR-511`，議程由 ETHTaipei 安排）**
 
 | 時間 | 議程 | 講者 |
 |------|------|------|
-| 13:00-13:30<br>30 分鐘 | <span class="tag">匿名支付</span> <i data-icon="card-account-details-outline"></i> **零知識證明與自然人憑證身份驗證**<br><i data-icon="arrow-right-bottom"></i> 不必交出任何個資，就能用自然人憑證向網站證明自己是台灣公民 | Ya-wen Jeng |
-| 13:40-14:10<br>30 分鐘 | <span class="tag">匿名支付</span> <i data-icon="account-check-outline"></i> **The Privacy-preserving Identity Pipeline in KYC**<br><i data-icon="arrow-right-bottom"></i> 以一組密碼學原語組合出可通過 KYC、伺服器卻看不到身分資料的流程 | ryanycw（Ryan Wang） |
-| 14:20-14:50<br>30 分鐘 | <span class="tag">匿名支付</span> <i data-icon="link-off"></i> **從不可連結性出發：隱匿地址如何解決鏈上金融隱私（以 Fluidkey 為例）**<br><i data-icon="arrow-right-bottom"></i> 隱匿地址讓同一人每次收款都落在互不相關的地址，外部無法串連成同一身分 | Jennifer HSU |
-| 15:00-15:30<br>30 分鐘 | <span class="tag">匿名支付</span> <i data-icon="bitcoin"></i> **我不洗錢，為何要理解匿名支付？從零開始介紹隱私加密金流交易**<br><i data-icon="arrow-right-bottom"></i> 倡議組織與捐款人為何需要了解加密貨幣金流的隱私風險，並以白話介紹幾套解法<br><i data-icon="presentation"></i> [簡報（網頁）](https://mashbean.net/decks/coscup-2026-privacy-money/) | 黃豆泥 mashbean |
-| 15:40-16:30<br>50 分鐘 | <span class="tag">匿名支付</span> <i data-icon="hammer-wrench"></i> **隱私支付實作工作坊：從龍捲風現金到隱私池**<br><i data-icon="arrow-right-bottom"></i> 以道具與實機示範 Tornado Cash 與 Privacy Pool 的用法，現場備有模擬網路，聽眾可自備電腦操作<br><i data-icon="presentation"></i> [簡報（網頁）](https://chihchengliang.github.io/notes/2026-07-27_privacy_pools/slides.html) | Liangcc |
+| 13:00-13:30<br>30 分鐘 | <span class="tag tag--payments">匿名支付</span> <i data-icon="card-account-details-outline"></i> **零知識證明與自然人憑證身份驗證**<br><i data-icon="arrow-right-bottom"></i> 不必交出任何個資，就能用自然人憑證向網站證明自己是台灣公民 | Ya-wen Jeng |
+| 13:40-14:10<br>30 分鐘 | <span class="tag tag--payments">匿名支付</span> <i data-icon="account-check-outline"></i> **The Privacy-preserving Identity Pipeline in KYC**<br><i data-icon="arrow-right-bottom"></i> 以一組密碼學原語組合出可通過 KYC、伺服器卻看不到身分資料的流程 | ryanycw（Ryan Wang） |
+| 14:20-14:50<br>30 分鐘 | <span class="tag tag--payments">匿名支付</span> <i data-icon="link-off"></i> **從不可連結性出發：隱匿地址如何解決鏈上金融隱私（以 Fluidkey 為例）**<br><i data-icon="arrow-right-bottom"></i> 隱匿地址讓同一人每次收款都落在互不相關的地址，外部無法串連成同一身分 | Jennifer HSU |
+| 15:00-15:30<br>30 分鐘 | <span class="tag tag--payments">匿名支付</span> <i data-icon="bitcoin"></i> **我不洗錢，為何要理解匿名支付？從零開始介紹隱私加密金流交易**<br><i data-icon="arrow-right-bottom"></i> 倡議組織與捐款人為何需要了解加密貨幣金流的隱私風險，並以白話介紹幾套解法<br><i data-icon="presentation"></i> [簡報（網頁）](https://mashbean.net/decks/coscup-2026-privacy-money/) | 黃豆泥 mashbean |
+| 15:40-16:30<br>50 分鐘 | <span class="tag tag--payments">匿名支付</span> <i data-icon="hammer-wrench"></i> **隱私支付實作工作坊：從龍捲風現金到隱私池**<br><i data-icon="arrow-right-bottom"></i> 以道具與實機示範 Tornado Cash 與 Privacy Pool 的用法，現場備有模擬網路，聽眾可自備電腦操作<br><i data-icon="presentation"></i> [簡報（網頁）](https://chihchengliang.github.io/notes/2026-07-27_privacy_pools/slides.html) | Liangcc |
 
 ### Day 2：2026/08/09（日）
 
@@ -65,9 +65,9 @@ description: 匿名網路社群 anoni.net 2026 年 8 月 8、9 日在 COSCUP 202
 
 | 時間 | 議程 | 講者 |
 |------|------|------|
-| 10:00-10:50<br>50 分鐘 | <span class="tag">通用</span> <i data-icon="web"></i> **The Workings of the Internet：網路如何運作、審查如何擋住你（英文進行）**<br><i data-icon="arrow-right-bottom"></i> 以寄明信片比喻連線過程，說明從裝置到網站的路上有哪些角色能偷看或竄改內容，英文不熟的聽眾也能掌握大意<br><i data-icon="presentation"></i> [簡報（PDF）](https://saxrag.com/bucket/random/workings_of_the_internet.pdf)（CC BY 4.0） | Raghu |
-| 10:55-11:25<br>30 分鐘 | <span class="tag">通用</span> <i data-icon="router-network"></i> **以 OpenWRT 等開源軟體建立家用網路環境**<br><i data-icon="arrow-right-bottom"></i> 在家用路由器上完成一般機種沒有的進階設定，包含 VLAN 隔離、多 WAN、site-to-site VPN 與 Tor 上游<br><i data-icon="presentation"></i> [簡報（PDF）](https://assets.anoni.net/event/coscup-2026/pellaeon-openwrt-home-network.pdf)（講者保留所有權利，僅供閱覽） | Pellaeon |
-| 11:30-12:00<br>30 分鐘 | <span class="tag">匿名支付</span> <i data-icon="fingerprint"></i> **區塊鏈網路上基於開放標準的實體身份識別方法**<br><i data-icon="arrow-right-bottom"></i> 虛擬資產服務法通過後，哪些開放標準會被用來在區塊鏈上定位台灣使用者的身分 | Yusef Schultz |
+| 10:00-10:50<br>50 分鐘 | <span class="tag tag--basic">通用</span> <i data-icon="web"></i> **The Workings of the Internet：網路如何運作、審查如何擋住你（英文進行）**<br><i data-icon="arrow-right-bottom"></i> 以寄明信片比喻連線過程，說明從裝置到網站的路上有哪些角色能偷看或竄改內容，英文不熟的聽眾也能掌握大意<br><i data-icon="presentation"></i> [簡報（PDF）](https://saxrag.com/bucket/random/workings_of_the_internet.pdf)（CC BY 4.0） | Raghu |
+| 10:55-11:25<br>30 分鐘 | <span class="tag tag--basic">通用</span> <i data-icon="router-network"></i> **以 OpenWRT 等開源軟體建立家用網路環境**<br><i data-icon="arrow-right-bottom"></i> 在家用路由器上完成一般機種沒有的進階設定，包含 VLAN 隔離、多 WAN、site-to-site VPN 與 Tor 上游<br><i data-icon="presentation"></i> [簡報（PDF）](https://assets.anoni.net/event/coscup-2026/pellaeon-openwrt-home-network.pdf)（講者保留所有權利，僅供閱覽） | Pellaeon |
+| 11:30-12:00<br>30 分鐘 | <span class="tag tag--payments">匿名支付</span> <i data-icon="fingerprint"></i> **區塊鏈網路上基於開放標準的實體身份識別方法**<br><i data-icon="arrow-right-bottom"></i> 虛擬資產服務法通過後，哪些開放標準會被用來在區塊鏈上定位台灣使用者的身分 | Yusef Schultz |
 
 （12:00-13:00 午休）
 
@@ -75,10 +75,10 @@ description: 匿名網路社群 anoni.net 2026 年 8 月 8、9 日在 COSCUP 202
 
 | 時間 | 議程 | 講者 |
 |------|------|------|
-| 13:00-13:30<br>30 分鐘 | <span class="tag">Tor Relay</span> <i data-icon="simple-torproject"></i> **在學校種洋蔥？臺師大 Tor 節點建立實務與 EFF Tor University Challenge 經驗談**<br><i data-icon="arrow-right-bottom"></i> 在臺師大架設學術 Tor 節點的完整歷程，從技術配置到校內政策協調<br><i data-icon="presentation"></i> [簡報（PDF）](https://assets.anoni.net/event/coscup-2026/nz-tor-relay-on-campus.pdf) <i data-icon="video-outline"></i> [錄影（Google Drive）](https://drive.google.com/file/d/1bAzgU6rSNg9hXSrDhDIXYd4PM-P8Dxte/view?usp=sharing) | NZ |
-| 13:35-14:25<br>50 分鐘 | <span class="tag">個人隱私</span> <i data-icon="eye-off-outline"></i> **瀏覽器追蹤技術、反追蹤策略和使用者自主**<br><i data-icon="arrow-right-bottom"></i> 日常使用的瀏覽器如何被指紋追蹤、如何洩漏聯繫對象，以及反追蹤的做法<br><i data-icon="presentation"></i> [簡報（PDF）](https://assets.anoni.net/event/coscup-2026/pellaeon-browser-tracking-and-user-autonomy.pdf)（講者保留所有權利，僅供閱覽） | Pellaeon |
-| 14:30-15:00<br>30 分鐘 | <span class="tag">個人隱私</span> <i data-icon="database-lock"></i> **健保資料庫案之後：停止利用權如何實踐？以及其他大型資料庫**<br><i data-icon="arrow-right-bottom"></i> 健保資料庫從退出權訴訟到修法的經過，以及停止利用權的申請方式<br><i data-icon="presentation"></i> [簡報（PDF）](https://assets.anoni.net/event/coscup-2026/kuan-nhi-database-right-to-opt-out.pdf) | Kuan-Ju Chou |
-| 15:05-15:55<br>50 分鐘 | <span class="tag">個人隱私</span> <i data-icon="shield-account-outline"></i> **隱私指南 2026**<br><i data-icon="arrow-right-bottom"></i> 從個人隱私風險矩陣、NGO 與媒體面對法律調取資料的準備，到門檻簽章、MPC 等組織級進階工具<br><i data-icon="presentation"></i> [簡報（PDF）](https://assets.anoni.net/event/coscup-2026/justyn-privacy-guides-2026.pdf) | Justyn |
+| 13:00-13:30<br>30 分鐘 | <span class="tag tag--relay">Tor Relay</span> <i data-icon="simple-torproject"></i> **在學校種洋蔥？臺師大 Tor 節點建立實務與 EFF Tor University Challenge 經驗談**<br><i data-icon="arrow-right-bottom"></i> 在臺師大架設學術 Tor 節點的完整歷程，從技術配置到校內政策協調<br><i data-icon="presentation"></i> [簡報（PDF）](https://assets.anoni.net/event/coscup-2026/nz-tor-relay-on-campus.pdf) <i data-icon="video-outline"></i> [錄影（Google Drive）](https://drive.google.com/file/d/1bAzgU6rSNg9hXSrDhDIXYd4PM-P8Dxte/view?usp=sharing) | NZ |
+| 13:35-14:25<br>50 分鐘 | <span class="tag tag--privacy">個人隱私</span> <i data-icon="eye-off-outline"></i> **瀏覽器追蹤技術、反追蹤策略和使用者自主**<br><i data-icon="arrow-right-bottom"></i> 日常使用的瀏覽器如何被指紋追蹤、如何洩漏聯繫對象，以及反追蹤的做法<br><i data-icon="presentation"></i> [簡報（PDF）](https://assets.anoni.net/event/coscup-2026/pellaeon-browser-tracking-and-user-autonomy.pdf)（講者保留所有權利，僅供閱覽） | Pellaeon |
+| 14:30-15:00<br>30 分鐘 | <span class="tag tag--privacy">個人隱私</span> <i data-icon="database-lock"></i> **健保資料庫案之後：停止利用權如何實踐？以及其他大型資料庫**<br><i data-icon="arrow-right-bottom"></i> 健保資料庫從退出權訴訟到修法的經過，以及停止利用權的申請方式<br><i data-icon="presentation"></i> [簡報（PDF）](https://assets.anoni.net/event/coscup-2026/kuan-nhi-database-right-to-opt-out.pdf) | Kuan-Ju Chou |
+| 15:05-15:55<br>50 分鐘 | <span class="tag tag--privacy">個人隱私</span> <i data-icon="shield-account-outline"></i> **隱私指南 2026**<br><i data-icon="arrow-right-bottom"></i> 從個人隱私風險矩陣、NGO 與媒體面對法律調取資料的準備，到門檻簽章、MPC 等組織級進階工具<br><i data-icon="presentation"></i> [簡報（PDF）](https://assets.anoni.net/event/coscup-2026/justyn-privacy-guides-2026.pdf) | Justyn |
 
 ## <i data-icon="text-box-multiple-outline"></i> 議程介紹 { #議程介紹 }
 
