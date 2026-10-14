@@ -70,7 +70,7 @@ onion 版本在寫檔前把 `https://anoni.net/docs` 這類 clearnet 網址改�
 
 `/articles/` 放寫給技術讀者的原理說明、社群自己的量測分析，以及上游專案技術文章的導讀。2026-10-13 文件站取消「進階」這一層，進階區的三頁與部落格裡需要先懂 Tor、密碼學或網路量測才讀得懂的文章搬到這裡（toomore/anoni-net-ws#406）。
 
-每一篇是 `pages/<語系>/articles/<slug>.md`，跟一般頁面一樣三個語系都要有。front matter 除了 `title`、`description`，還要寫 `date`（`YYYY-MM-DD`，原文或首次發表的日期），頁面在標題下顯示日期，結構化資料是 Article。列表頁 `pages/<語系>/articles.md` 用 `<!-- articles -->` 放進由新到舊的清單，依年份分組，清單由 `build.py` 的 `articles_for()` 掃目錄產生，新增文章不必改列表頁。
+每一篇是 `pages/<語系>/articles/<slug>.md`，跟一般頁面一樣三個語系都要有。front matter 除了 `title`、`description`，還要寫 `date`（`YYYY-MM-DD`，原文或首次發表的日期），頁面在標題下顯示日期，結構化資料是 Article。列表頁 `pages/<語系>/articles.md` 用 `<!-- articles -->` 放進由新到舊的清單，依年份分組，清單由 `build.py` 的 `articles_for()` 掃目錄產生，新增文章不必改列表頁。首頁的「技術文章」一節用 `<!-- latest-articles -->` 列出最新三篇，連到列表頁，導覽列沒有這一區的入口。
 
 文件站的圖表用 Vega-Lite 在瀏覽器裡畫，本站不載入 JavaScript，搬過來的圖表先在本機用 headless Chrome 算成 PNG，上傳到 assets.anoni.net 的 `www/articles/`，文章裡用圖片引用。
 
@@ -311,7 +311,7 @@ Analyses and research guides written for technical readers go in "Articles" belo
 
 `/articles/` holds protocol and cryptography explainers, the community's own measurement studies, and guides to technical writing from upstream projects. On 2026-10-13 the docs site dropped its Advanced section, and the three Advanced pages, together with the blog posts that only make sense once you know Tor, cryptography or network measurement, moved here (toomore/anoni-net-ws#406).
 
-Each article is `pages/<locale>/articles/<slug>.md` and, like any page, needs all three locales. Besides `title` and `description`, the front matter needs `date` (`YYYY-MM-DD`, when the piece or its original was first published); the page shows the date under the title and its structured data is an Article. The list page `pages/<locale>/articles.md` places a newest-first list, grouped by year, with `<!-- articles -->`. `articles_for()` in `build.py` builds the list by scanning the directory, so adding an article does not require editing the list page.
+Each article is `pages/<locale>/articles/<slug>.md` and, like any page, needs all three locales. Besides `title` and `description`, the front matter needs `date` (`YYYY-MM-DD`, when the piece or its original was first published); the page shows the date under the title and its structured data is an Article. The list page `pages/<locale>/articles.md` places a newest-first list, grouped by year, with `<!-- articles -->`. `articles_for()` in `build.py` builds the list by scanning the directory, so adding an article does not require editing the list page. The home page's Articles section lists the newest three with `<!-- latest-articles -->` and links to the list page; the navigation bar has no entry for this section.
 
 The docs site draws its charts in the browser with Vega-Lite. This site loads no JavaScript, so charts that moved over were rendered to PNG locally with headless Chrome, uploaded to `www/articles/` on assets.anoni.net and referenced as images.
 
