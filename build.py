@@ -152,6 +152,15 @@ def render_markdown(body: str) -> str:
     return stack_tables(md.convert(body))
 
 
+H2 = re.compile(r'<h2[^>]*\bid="([^"]+)"[^>]*>(.*?)</h2>', re.S)
+
+
+def toc(body: str) -> list[tuple[str, str]]:
+    """文件頁側欄的「本頁內容」：內文與插入的區塊裡帶 id 的 h2，依出現順序。標題裡的圖示
+    與標籤拿掉，只留文字。"""
+    return [(m[1], html.unescape(TAG.sub("", m[2])).strip()) for m in H2.finditer(str(body))]
+
+
 TABLE = re.compile(r"<table>.*?</table>", re.S)
 TH = re.compile(r"<th[^>]*>(.*?)</th>", re.S)
 TR = re.compile(r"<tr>.*?</tr>", re.S)
@@ -229,6 +238,7 @@ class Site:
         self.env.globals["icon"] = icon
         self.env.globals["logo"] = logo
         self.env.globals["asset"] = asset
+        self.env.filters["toc"] = toc
         self.slugs = page_slugs(PAGES / self.langs[0].code)
         self.posts = {lang.code: self.load_posts(lang) for lang in self.langs}
         # Tor 中繼節點觀測：第一個國家是主頁，其他國家各一頁，路徑是 projects/pulse/<code>

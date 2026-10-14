@@ -1,0 +1,27 @@
+{# 文件頁：左邊內容欄，右邊「本頁內容」。小節少於兩個時不放目錄，內容欄單獨一欄。
+   手機上側欄收進標題下方的 details，桌機的側欄固定在畫面上 #}
+{% macro toc_list(items) %}
+<ol>
+{% for id, label in items %}
+  <li><a href="#{{ id }}">{{ label }}</a></li>
+{% endfor %}
+</ol>
+{% endmacro %}
+
+{% macro toc_mobile(items) %}
+{% if items|length >= 2 %}
+<details class="toc-m">
+  <summary>{{ t.toc_label }}</summary>
+{{ toc_list(items) }}
+</details>
+{% endif %}
+{% endmacro %}
+
+{% macro toc_aside(items) %}
+{% if items|length >= 2 %}
+<aside class="toc" aria-label="{{ t.toc_label }}">
+  <p class="toc-h">{{ t.toc_label }}</p>
+{{ toc_list(items) }}
+</aside>
+{% endif %}
+{% endmacro %}
