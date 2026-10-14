@@ -1,0 +1,44 @@
+# 台灣的 Tor 使用者數（/projects/pulse/tor-users/）頁上的三張圖。
+# 長期曲線讀 data/tor-users/tw-relay.csv 的快照，兩張地區比較是正文表格的數字，改正文時一起改。
+
+# 四年變化（%），正文「四年來的緩慢成長」的表格
+growth = [["GB", 92.9], ["AU", 56.2], ["SG", 55.3], ["KR", 44.9], ["TW", 28.6], ["HK", 7.6], ["US", 4.2], ["JP", -6.9]]
+
+# 每十萬人的使用者數，正文「亞太區的中段位置」的表格
+density = [["SG", 437], ["DE", 371], ["GB", 177], ["US", 164], ["AU", 139], ["IR", 94], ["HK", 91], ["RU", 78], ["KR", 55],
+           ["TW", 43], ["MY", 37], ["TH", 31], ["JP", 26], ["VN", 23], ["ID", 22], ["PH", 21], ["IN", 9], ["CN", 0.3]]
+
+[trend]
+cap = 20000
+bug_start = "2025-09-01"
+bug_end = "2026-06-30"
+fix = "2026-01-28"
+
+[labels]
+trend = { zh-TW = "台灣每天平均同時上線的 Tor 客戶端（直連）", zh-CN = "台湾每天平均同时在线的 Tor 客户端（直连）", en = "Average concurrent Tor clients in Taiwan per day (direct)" }
+trend_note = { zh-TW = "2023-01 到 2026-09-17，縱軸上限 2 萬，計數錯誤期間超出的部分壓在上緣", zh-CN = "2023-01 到 2026-09-17，纵轴上限 2 万，计数错误期间超出的部分压在上缘", en = "January 2023 to 17 September 2026. The axis stops at 20,000; values above it during the counting bug sit on the top edge" }
+bug = { zh-TW = "計數錯誤期間", zh-CN = "计数错误期间", en = "Counting bug" }
+fix = { zh-TW = "修正釋出", zh-CN = "修正发布", en = "Fix released" }
+peak = { zh-TW = "最高 {n}（{d}）", zh-CN = "最高 {n}（{d}）", en = "Peak {n} ({d})" }
+growth = { zh-TW = "四年變化，2023 年 6 到 8 月對 2026 年 8 到 9 月", zh-CN = "四年变化，2023 年 6 到 8 月对 2026 年 8 到 9 月", en = "Four-year change, June–August 2023 against August–September 2026" }
+density = { zh-TW = "每十萬人的使用者數，直連加橋接，2026-08-01 到 09-17", zh-CN = "每十万人的用户数，直连加网桥，2026-08-01 到 09-17", en = "Users per 100,000 people, direct plus bridge, 1 August to 17 September 2026" }
+
+[names]
+GB = { zh-TW = "英國", zh-CN = "英国", en = "United Kingdom" }
+AU = { zh-TW = "澳洲", zh-CN = "澳大利亚", en = "Australia" }
+SG = { zh-TW = "新加坡", zh-CN = "新加坡", en = "Singapore" }
+KR = { zh-TW = "韓國", zh-CN = "韩国", en = "South Korea" }
+TW = { zh-TW = "台灣", zh-CN = "台湾", en = "Taiwan" }
+HK = { zh-TW = "香港", zh-CN = "香港", en = "Hong Kong" }
+US = { zh-TW = "美國", zh-CN = "美国", en = "United States" }
+JP = { zh-TW = "日本", zh-CN = "日本", en = "Japan" }
+DE = { zh-TW = "德國", zh-CN = "德国", en = "Germany" }
+IR = { zh-TW = "伊朗", zh-CN = "伊朗", en = "Iran" }
+RU = { zh-TW = "俄羅斯", zh-CN = "俄罗斯", en = "Russia" }
+MY = { zh-TW = "馬來西亞", zh-CN = "马来西亚", en = "Malaysia" }
+TH = { zh-TW = "泰國", zh-CN = "泰国", en = "Thailand" }
+VN = { zh-TW = "越南", zh-CN = "越南", en = "Vietnam" }
+ID = { zh-TW = "印尼", zh-CN = "印尼", en = "Indonesia" }
+PH = { zh-TW = "菲律賓", zh-CN = "菲律宾", en = "Philippines" }
+IN = { zh-TW = "印度", zh-CN = "印度", en = "India" }
+CN = { zh-TW = "中國", zh-CN = "中国大陆", en = "Mainland China" }

@@ -164,6 +164,55 @@ def lines(days: list[date], series: list[tuple[str, dict, str]], label: str) -> 
     return Markup("".join(parts))
 
 
+def timeline(points: list[tuple[date, float]], cap: float, label: str, bands=(), markers=(),
+             peak: str | None = None, height: int = 240) -> Markup:
+    """幾年長的每日曲線，不畫資料點，橫軸標年份。
+
+    cap 是縱軸上限，超過的部分壓在上緣，用 peak 標出實際的最高值，讓短期的異常不會把長期的
+    小幅變化壓扁。bands 是 (開始, 結束, 文字) 的底色區間，markers 是 (日期, 文字) 的垂直虛線。
+    """
+    if len(points) < 2:
+        return Markup("")
+    first, last = points[0][0], points[-1][0]
+    span = (last - first).days or 1
+    plot_w, plot_h = W - LEFT - RIGHT, height - TOP - BOTTOM
+
+    def x(d: date) -> float:
+        return LEFT + plot_w * (d - first).days / span
+
+    def y(v: float) -> float:
+        return TOP + plot_h - (min(v, cap) / cap) * plot_h
+
+    parts = [f'<svg class="pc pc-timeline" viewBox="0 0 {W} {height}" role="img" aria-label="{escape(label)}">']
+    for start, end, text in bands:
+        x0, x1 = x(max(start, first)), x(min(end, last))
+        parts.append(f'<rect class="pc-band" x="{x0:.1f}" y="{TOP}" width="{x1 - x0:.1f}" height="{plot_h}"/>')
+        parts.append(f'<text class="pc-note" x="{x0 + 4:.1f}" y="{TOP + plot_h - 8}">{escape(text)}</text>')
+    for frac in (0, 0.5, 1):
+        gy = y(cap * frac)
+        parts.append(f'<line class="pc-grid" x1="{LEFT}" x2="{W - RIGHT}" y1="{gy:.1f}" y2="{gy:.1f}"/>')
+        parts.append(f'<text class="pc-tick" x="{LEFT - 6}" y="{gy + 4:.1f}" text-anchor="end">{tick(cap * frac)}</text>')
+    # 每年一月一日畫一條直線，年份標在該年落在圖內那一段的中間
+    for year in range(first.year, last.year + 1):
+        jan, dec = date(year, 1, 1), date(year, 12, 31)
+        if jan > first:
+            parts.append(f'<line class="pc-grid" x1="{x(jan):.1f}" x2="{x(jan):.1f}" y1="{TOP}" y2="{TOP + plot_h}"/>')
+        mid = (x(max(jan, first)) + x(min(dec, last))) / 2
+        parts.append(f'<text class="pc-tick" x="{mid:.1f}" y="{height - 6}" text-anchor="middle">{year}</text>')
+    for d, text in markers:
+        mx = x(d)
+        parts.append(f'<line class="pc-mark" x1="{mx:.1f}" x2="{mx:.1f}" y1="{TOP}" y2="{TOP + plot_h}"/>')
+        parts.append(f'<text class="pc-note" x="{mx + 4:.1f}" y="{TOP + 56}">{escape(text)}</text>')
+    pts = " ".join(f"{x(d):.1f},{y(v):.1f}" for d, v in points)
+    parts.append(f'<g class="pc-marks pc-trace"><polyline class="pc-line pc-thin" points="{pts}"/></g>')
+    if peak:
+        # 放在第一段底色的左邊，曲線在那裡還在縱軸中段，上方是空的，手機上也不會跟事件的註記疊在一起
+        px = x(max(bands[0][0], first)) - 6 if bands else W - RIGHT
+        parts.append(f'<text class="pc-note pc-peak" x="{px:.1f}" y="{TOP + 24}" text-anchor="end">{escape(peak)}</text>')
+    parts.append("</svg>")
+    return Markup("".join(parts))
+
+
 def share_bars(days: list[date], series: list[tuple[str, dict, str]], label: str) -> Markup:
     """每天的長條疊滿 100%，看各系列的占比變化。"""
     parts, x, y = _frame(days, 100, label)
