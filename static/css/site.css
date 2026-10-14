@@ -51,6 +51,16 @@
   --topic-privacy: #2e7d32;
   --topic-relay: #7b1fa2;
   --topic-payments: #c25400;
+  /* 圓形圖示的分類色，2026-10 從三大主題擴充成八類，只用在社群首頁（文件站用 Material 的配色）。
+     後五類在 OKLCH 用相近的明度與彩度補出色相，白底與深色底的對比都在 4.5 以上 */
+  --cat-privacy: var(--topic-privacy);
+  --cat-relay: var(--topic-relay);
+  --cat-payments: var(--topic-payments);
+  --cat-observe: #026a9d;
+  --cat-content: #02736e;
+  --cat-dev: #4d57b7;
+  --cat-secure: #a53453;
+  --cat-community: #786101;
 
   /* 品牌的 --accent-action（橘）與 --accent-emergency（紅）。按鈕是白字，品牌的橘 #ef6c00
      對比只有 3.1，用深一階的版本 */
@@ -101,6 +111,11 @@
     --topic-privacy: #81c784;
     --topic-relay: #ce93d8;
     --topic-payments: #ffa040;
+    --cat-observe: #69c1fc;
+    --cat-content: #3ed0c8;
+    --cat-dev: #a3b2fe;
+    --cat-secure: #f996a9;
+    --cat-community: #d3b555;
     --danger: #e57373;
     --ut-new: var(--brand-cyan-300);
     --ut-event: #ffa040;
@@ -382,7 +397,7 @@ p { margin: .5rem 0 1rem; }
 .rows li:first-child { border-top: 1px solid var(--c-hair); }
 .row { display: flex; gap: .9rem; align-items: flex-start; padding: .85rem .1rem; text-decoration: none; color: inherit; }
 .row:hover .t { color: var(--c-accent); }
-.row .ic { flex: none; display: grid; place-items: center; width: 2.4rem; height: 2.4rem; border: 1px solid var(--c-border); border-radius: 50%; color: var(--c-icon); }
+.row .ic { flex: none; display: grid; place-items: center; width: 2.4rem; height: 2.4rem; border-width: 1px; border-style: solid; border-radius: 50%; }
 .row .b { flex: 1; min-width: 0; }
 .row .t { display: block; font-weight: 700; color: var(--c-strong); }
 /* 專案代號縮小放在名稱下方，名稱長短不一，放旁邊時換行的位置會不一致 */
@@ -390,11 +405,18 @@ p { margin: .5rem 0 1rem; }
 .row .d { display: block; color: var(--c-muted); font-size: .9rem; line-height: 1.6; }
 /* 右邊的箭頭代表可以點，用連結色 */
 .row .go { align-self: center; color: var(--c-link); }
-/* 主題卡片的圖示圈用主題色，其餘用中性灰 */
-.topic-privacy { --topic: var(--topic-privacy); }
-.topic-relay { --topic: var(--topic-relay); }
-.topic-payments { --topic: var(--topic-payments); }
-.row .ic[class*="topic-"] { color: var(--topic); border-color: var(--topic); background: color-mix(in srgb, var(--topic) 8%, var(--c-bg)); }
+/* 圖示圈的分類色。.cat-* 可以加在圖示、整個列表或卡片上，底下的圖示圈都套用，沒有分類的維持中性灰。
+   .topic-* 是三大主題原本的名稱，主題標籤還在用 */
+.cat-privacy, .topic-privacy { --topic: var(--cat-privacy); }
+.cat-relay, .topic-relay { --topic: var(--cat-relay); }
+.cat-payments, .topic-payments { --topic: var(--cat-payments); }
+.cat-observe, .topic-observe { --topic: var(--cat-observe); }
+.cat-content { --topic: var(--cat-content); }
+.cat-dev { --topic: var(--cat-dev); }
+.cat-secure { --topic: var(--cat-secure); }
+.cat-community { --topic: var(--cat-community); }
+.row .ic, .card .ic { color: var(--topic, var(--c-icon)); border-color: var(--topic, var(--c-border)); }
+:is(.row, .card) .ic:is([class*="cat-"], [class*="topic-"]), [class*="cat-"] :is(.row, .card) .ic, :is(.row, .card)[class*="cat-"] .ic { background: color-mix(in srgb, var(--topic) 8%, var(--c-bg)); }
 .topic-tag { display: inline-flex; align-items: center; gap: .35rem; margin: 1.25rem 0 -.75rem; padding: .1rem .65rem .1rem .5rem; border: 1px solid var(--topic); border-radius: 999px; color: var(--topic); background: color-mix(in srgb, var(--topic) 8%, var(--c-bg)); font-size: .8rem; font-weight: 600; }
 /* 麵包屑的下邊距是 -1rem（讓標題貼近），標籤是行內元素不會跟它摺疊，上邊距要多抵銷那 1rem */
 .crumb + .topic-tag { margin-top: 1.6rem; }
@@ -415,7 +437,7 @@ p { margin: .5rem 0 1rem; }
 .card { position: relative; display: flex; flex-direction: column; padding: 1rem 1.1rem .8rem; border: 1px solid var(--c-border); border-radius: var(--radius); background: var(--c-bg); transition: background-color .15s, border-color .15s; }
 .card:hover { background: var(--c-fill); border-color: var(--c-line); }
 .card-h { display: flex; align-items: center; gap: .7rem; }
-.card .ic { flex: none; display: grid; place-items: center; width: 2.4rem; height: 2.4rem; border: 1px solid var(--c-border); border-radius: 50%; color: var(--c-icon); }
+.card .ic { flex: none; display: grid; place-items: center; width: 2.4rem; height: 2.4rem; border-width: 1px; border-style: solid; border-radius: 50%; }
 .card a.n { color: var(--c-strong); font-weight: 700; font-size: 1.1rem; text-decoration: none; }
 .card a.n::after { content: ""; position: absolute; inset: 0; border-radius: var(--radius); }
 .card .p { display: block; color: var(--c-muted); font-size: .8rem; line-height: 1.4; }
@@ -723,7 +745,6 @@ footer .license { font-size: .75rem; }
 
 /* 示意圖（diagrams.py）：關於頁的社群全貌、關注地區與時間軸。SVG 的畫布照手機寬度設計，
    桌機用 max-width 限制放大的倍數，圖上的字才跟內文差不多大 */
-.topic-observe { --topic: var(--c-accent); }
 /* 內文的 figure 左右邊距是 0（見上方 .prose figure），示意圖要寫到同樣的權重才能置中 */
 .prose figure.dg-fig, .dg-fig { margin: 1.25rem auto 1.5rem; }
 .dg-fig figcaption { margin-top: .4rem; font-size: .8rem; line-height: 1.6; color: var(--c-muted); text-align: center; }

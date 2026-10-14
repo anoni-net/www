@@ -326,7 +326,7 @@ wordmark 的文字已經轉成路徑，不論開啟的裝置有沒有安裝字�
 
 **結構性次色（綠、紫、橘）**
 
-- 三大主題對應的卡片圖示色
+- 三大主題對應的卡片圖示色，社群首頁另外擴充成八類（見「圖示的分類色」）
 - 分類 tag、章節區隔的視覺標記
 - 不用在一般 CTA 或裝飾
 
@@ -360,7 +360,7 @@ anoni.net 底下有三個網站，共用同一組 logo 與上方的色票。三�
 | 層級 | 標題 `#13232a`，內文 `#1d2b31`，次要文字 `#52646b` | 標題、小標題、導言 |
 | 互動 | 連結 `--brand-cyan-800`，目前位置 `--brand-cyan-600`，焦點與滑過 `--brand-cyan-500` | 連結、線框按鈕、導覽列的目前位置、鍵盤焦點、滑過的卡片 |
 | 識別 | cyan tonal 的 logo 與 `--brand-cyan-700` | 頁首與首頁主視覺 |
-| 分類與資料 | 結構性次色、公告 tag、cyan 九階 | 三大主題的圖示與議程標籤、動態標籤、觀測圖表 |
+| 分類與資料 | 結構性次色、圖示的分類色、公告 tag、cyan 九階 | 圖示圈與議程標籤、動態標籤、觀測圖表 |
 
 中性灰階從 `--neutral-muted`（`#546e7a`）那一系延伸，帶一點藍，跟 cyan 放在一起不顯得髒。區塊之間靠淡底色區分，少用線框。
 
@@ -382,6 +382,23 @@ anoni.net 底下有三個網站，共用同一組 logo 與上方的色票。三�
 | 滑過卡片 | 框線換成 `--brand-cyan-500` |
 | 鍵盤焦點 | 2px `--brand-cyan-500` 外框，與元素相距 2px |
 | 深色模式 | 底色 `#00202d`，連結 `--brand-cyan-200`，目前位置與焦點 `--brand-cyan-400`，灰階用上表的深色模式 |
+
+### 圖示的分類色
+
+首頁、參與、關於與專案頁的列表與卡片，前面有一個圓形圖示，圖示圈的顏色代表這一項屬於哪一類工作。2026-10 以前只有三大主題有顏色，其他項目一律灰色，看不出灰色代表什麼，所以擴充成八類。前三類沿用三大主題的結構性次色，後五類在 OKLCH 色彩空間用相近的明度與彩度補出色相，八色在白底與深色底的對比都在 4.5 以上。這組顏色只用在社群首頁，文件站沿用 Material 的配色。
+
+| Token | 類別 | 淺色模式 | 深色模式 | 用在哪裡 |
+|---|---|---|---|---|
+| `--cat-privacy` | 個人隱私 | <span class="color-swatch" style="background:#2e7d32"></span>`#2e7d32` | <span class="color-swatch" style="background:#81c784"></span>`#81c784` | 個人隱私指引、文件站 |
+| `--cat-relay` | Tor 與中繼 | <span class="color-swatch" style="background:#7b1fa2"></span>`#7b1fa2` | <span class="color-swatch" style="background:#ce93d8"></span>`#ce93d8` | Tor Relay 校園建立，架設 Relay、WebTunnel 與 .onion 服務的指南，參與 Tor Project |
+| `--cat-payments` | 匿名支付 | <span class="color-swatch" style="background:#c25400"></span>`#c25400` | <span class="color-swatch" style="background:#ffa040"></span>`#ffa040` | 匿名支付 |
+| `--cat-observe` | 網路觀測 | <span class="color-swatch" style="background:#026a9d"></span>`#026a9d` | <span class="color-swatch" style="background:#69c1fc"></span>`#69c1fc` | Tor 中繼節點觀測、OONI 觀測涵蓋率、觀測季報、AI 助理的 Tor 節點查詢、OONI 網站檢測清單 |
+| `--cat-content` | 內容與寫作 | <span class="color-swatch" style="background:#02736e"></span>`#02736e` | <span class="color-swatch" style="background:#3ed0c8"></span>`#3ed0c8` | 新聞導讀、寫作風格規範、文件站的寫作與翻譯 |
+| `--cat-dev` | 開發與技術 | <span class="color-swatch" style="background:#4d57b7"></span>`#4d57b7` | <span class="color-swatch" style="background:#a3b2fe"></span>`#a3b2fe` | 參與開發的環境準備、IPFS 鏡像的 pin 節點 |
+| `--cat-secure` | 機敏與安全 | <span class="color-swatch" style="background:#a53453"></span>`#a53453` | <span class="color-swatch" style="background:#f996a9"></span>`#f996a9` | 提供機敏資料 |
+| `--cat-community` | 社群與治理 | <span class="color-swatch" style="background:#786101"></span>`#786101` | <span class="color-swatch" style="background:#d3b555"></span>`#d3b555` | 治理章程、組織合作、品牌素材 |
+
+在圖示、整個列表或卡片加上 `cat-<類別>` 的 class 就會套用，資料檔用 `cat` 欄位指定。不屬於任何一類的項目不加，維持中性灰。顏色只是輔助，每一項都要有圖示與標題，不能只靠顏色分辨。
 
 ### 只在文件站用的顏色
 

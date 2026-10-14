@@ -39,9 +39,9 @@ lead: 開源技術人組成的社群，關注匿名網路、隱私與網路自�
 ## 治理、合作與品牌
 
 <ul class="rows">
-  <li><a class="row" href="/about/governance/"><span class="ic">ICON:scale-balance</span><span class="b"><span class="t">治理章程</span><span class="d">決策方式、成員角色、爭議處理與行為準則。</span></span><span class="go">ICON:arrow-right</span></a></li>
-  <li><a class="row" href="/about/partners/"><span class="ic">ICON:handshake-outline</span><span class="b"><span class="t">組織合作</span><span class="d">給公民團體、倡議組織與新聞媒體的合作說明，社群能一起做的事與做不到的事。</span></span><span class="go">ICON:arrow-right</span></a></li>
-  <li><a class="row" href="/brand/"><span class="ic">ICON:palette-swatch-outline</span><span class="b"><span class="t">品牌素材</span><span class="d">logo、wordmark 與色票的下載和使用方式，製作活動文宣、簡報與社群卡片時取用。</span></span><span class="go">ICON:arrow-right</span></a></li>
+  <li><a class="row" href="/about/governance/"><span class="ic cat-community">ICON:scale-balance</span><span class="b"><span class="t">治理章程</span><span class="d">決策方式、成員角色、爭議處理與行為準則。</span></span><span class="go">ICON:arrow-right</span></a></li>
+  <li><a class="row" href="/about/partners/"><span class="ic cat-community">ICON:handshake-outline</span><span class="b"><span class="t">組織合作</span><span class="d">給公民團體、倡議組織與新聞媒體的合作說明，社群能一起做的事與做不到的事。</span></span><span class="go">ICON:arrow-right</span></a></li>
+  <li><a class="row" href="/brand/"><span class="ic cat-community">ICON:palette-swatch-outline</span><span class="b"><span class="t">品牌素材</span><span class="d">logo、wordmark 與色票的下載和使用方式，製作活動文宣、簡報與社群卡片時取用。</span></span><span class="go">ICON:arrow-right</span></a></li>
 </ul>
 
 [持續關注](/contact/){ .btn }
