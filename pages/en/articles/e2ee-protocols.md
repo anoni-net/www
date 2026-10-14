@@ -87,7 +87,7 @@ Their trade-offs:
 - **Signal**: mature, widely adopted, with an experience close to mainstream messaging. Sealed Sender hides the sender of an individual message rather than the account's metadata. Registration is mainly by phone number, and since September 2026 the Android beta has offered Signal Login, a paid registration without a number[^7], whose payment date stays attached to the account (see [Signal Login and the payment trail it leaves](docs:blog/2026/09/2026-signal-login-numberless/))
 - **MLS**: standardized at the protocol layer and being adopted, with few complete client implementations so far. It suits organizational settings
 - **SimpleX**: having no user identifier is its largest design difference, and it holds up well against metadata surveillance. The costs are a small ecosystem and an evolving user experience
-- **Session**: routing over a Tor-like network reduces metadata, and a mnemonic makes multi-device access easy. The costs are higher message latency and the missing forward secrecy: the move from the Signal Protocol to its own Session Protocol removed it, the released versions still lack it, and the revised protocol that restores it has not shipped[^8]
+- **Session**: routing over a Tor-like network reduces metadata, and a mnemonic makes multi-device access easy. The costs are higher message latency and the missing forward secrecy: the move from the Signal Protocol to its own Session Protocol removed it, the released versions still lack it, and the revised protocol that restores it has not shipped, and the August 2026 development update puts it behind Session Pro[^8][^9]
 
 ## Related reading
 
@@ -105,3 +105,4 @@ Their trade-offs:
 [^6]: [Introducing Signal Secure Backups](https://signal.org/blog/introducing-secure-backups/), Signal
 [^7]: [Phone Numberless Registration for Android](https://support.signal.org/hc/en-us/articles/11197884108826-Phone-Numberless-Registration-for-Android), Signal Support
 [^8]: [Session Protocol V2](https://getsession.org/session-protocol-v2), Session
+[^9]: [Session Development Update - Pro Beta and Protocol v2](https://getsession.org/session-development-update-pro-beta-protocol-v2), Session

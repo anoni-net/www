@@ -87,7 +87,7 @@ Signal 在 2025 年 9 月于 Android 的 beta 版推出加密备份（Secure Bac
 - **Signal**：成熟、用户多，使用体验接近主流通讯软件。Sealed Sender 只隐藏单条消息的发件人，账号本身的 metadata 仍在服务器上。注册以手机号为主，2026 年 9 月起 Android 的 beta 版开放付费、免手机号的 Signal Login[^7]，付款日期仍跟着账号保存（见[Signal 免手机号注册与付款记录](docs:blog/2026/09/2026-signal-login-numberless/)）
 - **MLS**：协议层已经标准化，业界正在采用，完整的 MLS 客户端还不多，较适合企业或机构的场景
 - **SimpleX**：没有用户标识符是设计上最大的差异，对 metadata 监控的抵抗力强。代价是生态小、使用体验仍在演进
-- **Session**：流量走类似 Tor 的网络降低 metadata，跨设备只靠一组助记词，门槛低。代价是消息延迟较高。Session 从 Signal Protocol 改用自己的 Session Protocol 时去掉了前向保密，目前的正式版仍然没有，具前向保密的新版协议还没有发布[^8]
+- **Session**：流量走类似 Tor 的网络降低 metadata，跨设备只靠一组助记词，门槛低。代价是消息延迟较高。Session 从 Signal Protocol 改用自己的 Session Protocol 时去掉了前向保密，目前的正式版仍然没有，具前向保密的新版协议还没有发布，2026-08 的开发进度把它排在 Session Pro 之后[^8][^9]
 
 ## 相关阅读
 
@@ -105,3 +105,4 @@ Signal 在 2025 年 9 月于 Android 的 beta 版推出加密备份（Secure Bac
 [^6]: [Introducing Signal Secure Backups](https://signal.org/blog/introducing-secure-backups/) - Signal
 [^7]: [Phone Numberless Registration for Android](https://support.signal.org/hc/en-us/articles/11197884108826-Phone-Numberless-Registration-for-Android) - Signal Support
 [^8]: [Session Protocol V2](https://getsession.org/session-protocol-v2) - Session
+[^9]: [Session Development Update - Pro Beta and Protocol v2](https://getsession.org/session-development-update-pro-beta-protocol-v2) - Session

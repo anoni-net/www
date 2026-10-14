@@ -18,7 +18,7 @@ The risk is highest in these cases:
 
 Personal real-time chat and short-lived session tokens lose their value quickly, so their HNDL risk is low. Bank KYC documents, medical imaging, and a human rights worker's interview records carry high risk.
 
-NIST's IR 8547, published as an initial public draft in November 2024 and still not finalized as of October 2026, proposes deprecating the old public-key algorithms from 2030 and disallowing them from 2035. ENISA's roadmap works to the same two years, and the NSA's CNSA 2.0 sets its own deadlines of 2030 and 2033[^1]. New deployments should be planning a PQC path now.
+NIST's IR 8547, published as an initial public draft in November 2024 and still not finalized as of October 2026, proposes deprecating the old public-key algorithms from 2030 and disallowing them from 2035[^1]. The coordinated roadmap EU member states published in June 2025 asks for high-risk use cases to be migrated by the end of 2030 and everything else by the end of 2035[^17]. The NSA's CNSA 2.0 sets deadlines of 2030 and 2033 depending on the type of system, with national security systems as a whole due by 2035[^18]. New deployments should be planning a PQC path now.
 
 <ol class="tl" aria-label="Post-quantum migration timeline">
   <li><span class="tl-when">2022-10</span><span class="tl-b"><span class="tl-t">Cloudflare</span><span class="tl-d">Sites served through Cloudflare support hybrid post-quantum key agreement by default, then using the Kyber draft</span></span></li>
@@ -75,7 +75,7 @@ Hybrid means performing both a classical ECDH exchange and an ML-KEM exchange an
 
 - Since October 2022, Cloudflare has supported hybrid post-quantum key agreement by default for every website and API it serves, initially with draft Kyber[^8] and now with X25519MLKEM768[^5]
 - AWS added ML-KEM support to the TLS endpoints of KMS, ACM, and Secrets Manager in April 2025, with clients opting in through their SDK[^9]
-- Google Cloud offers PQC options to enterprise customers
+- Google Cloud made ML-KEM key encapsulation and ML-DSA and SLH-DSA signatures generally available in Cloud KMS in July 2026[^19]
 
 ### Signal Protocol
 
@@ -88,7 +88,8 @@ Apple introduced the PQ3 protocol for iMessage in iOS 17.4 (March 2024), adding 
 ### SSH and PGP
 
 - OpenSSH 9.0 (April 2022) made the `sntrup761x25519` hybrid the default, 9.9 (September 2024) added the ML-KEM-based `mlkem768x25519-sha256`, 10.0 (April 2025) made that the default, and 10.1 (October 2025) warns when a connection negotiates a non-post-quantum algorithm[^11]
-- Newer tools such as age and Sequoia PGP have begun experimenting with PQC, while traditional GnuPG has moved more slowly
+- age 1.3.0 (December 2025) added hybrid post-quantum recipients based on ML-KEM-768[^20]
+- The post-quantum extension to OpenPGP was published as RFC 9980 in June 2026[^21], and Sequoia PGP supports it from sequoia-openpgp 2.4.0 (July 2026)[^22]. GnuPG added Kyber encryption earlier, in 2.5.0 (July 2024), and the 2.5 series is now ready for production use, though without post-quantum signatures[^23][^24]. GnuPG follows the LibrePGP specification, which differs from the IETF one in details such as algorithm identifiers[^25]
 
 ### Blockchains and cryptocurrencies
 
@@ -102,7 +103,7 @@ The migration in Signal and the major browsers arrives with ordinary software up
 
 Needing active planning:
 
-- **Enterprise PKI and certificates**: certificates used for signing, authentication, and long-term attestation need an ML-DSA or SLH-DSA path. The CA/Browser Forum has begun discussing PQC certificate standards
+- **Enterprise PKI and certificates**: certificates used for signing, authentication, and long-term attestation need an ML-DSA or SLH-DSA path. The CA/Browser Forum's Server Certificate Working Group is discussing a ballot to allow ML-DSA certificates, and the draft was still being revised as of its May 2026 minutes[^26]
 - **VPN and IPsec**: commercial VPN support for PQC is inconsistent and belongs in the evaluation when planning a corporate network
 - **Long-term document encryption**: for legal documents, medical records, and research data, ask whether the document still has to be confidential in ten years. If it does, encrypt it with PQC
 - **Hardware security modules (HSMs)**: HSMs in finance and healthcare depend on vendors shipping PQC algorithms, and the refresh cycle is long
@@ -115,7 +116,7 @@ Individuals and ordinary organizations have no need to deploy PQC by hand yet. T
 
 ## Compliance timelines in Taiwan, Hong Kong, and Singapore
 
-Regulatory timelines in the region largely follow NIST and ENISA. The status below was checked against regulators' announcements in October 2026.
+Regulatory timelines in the region largely follow NIST and the EU. The status below was checked against regulators' announcements in October 2026.
 
 In Taiwan, the picture differs by sector:
 
@@ -127,7 +128,7 @@ The Hong Kong Monetary Authority (HKMA) published a white paper on quantum prepa
 
 The Monetary Authority of Singapore (MAS) issued an advisory to financial institutions on the cybersecurity risks of quantum computing in February 2024. It centres on crypto-agility, is advisory in nature, and sets no migration deadline[^16].
 
-Across jurisdictions, the transferable judgement stays the same: follow the NIST and ENISA timelines, and handle long-lived data with high HNDL exposure first.
+Across jurisdictions, the transferable judgement stays the same: follow the NIST and EU timelines, and handle long-lived data with high HNDL exposure first.
 
 ## Related reading
 
@@ -153,3 +154,13 @@ Across jurisdictions, the transferable judgement stays the same: follow the NIST
 [^14]: [金管會發布「金融業後量子密碼遷移參考指引」 引導金融機構強化量子風險整備](https://www.fsc.gov.tw/ch/home.jsp?id=96&parentpath=0%2C2&mcustomize=news_view.jsp&dataserno=202606180001&dtable=News) (in Chinese), Financial Supervisory Commission
 [^15]: [HKMA launches quantum preparedness whitepaper and index to support banking sector's readiness for quantum era](https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/07/20260727-3/), Hong Kong Monetary Authority
 [^16]: [Advisory on Addressing the Cybersecurity Risks Associated with Quantum](https://www.mas.gov.sg/regulation/circulars/advisory-on-addressing-the-cybersecurity-risks-associated-with-quantum), Monetary Authority of Singapore
+[^17]: [A Coordinated Implementation Roadmap for the Transition to Post-Quantum Cryptography](https://digital-strategy.ec.europa.eu/en/library/coordinated-implementation-roadmap-transition-post-quantum-cryptography), European Commission
+[^18]: [The Commercial National Security Algorithm Suite 2.0 and Quantum Computing FAQ](https://media.defense.gov/2022/Sep/07/2003071836/-1/-1/0/CSI_CNSA_2.0_FAQ_.PDF), National Security Agency
+[^19]: [Future-proofing data integrity: Quantum-safe digital signatures in Cloud KMS](https://cloud.google.com/blog/products/identity-security/future-proofing-data-integrity-quantum-safe-digital-signatures-in-cloud-kms), Google Cloud
+[^20]: [age v1.3.0](https://github.com/FiloSottile/age/releases/tag/v1.3.0), age
+[^21]: [RFC 9980: Post-Quantum Cryptography in OpenPGP](https://www.rfc-editor.org/info/rfc9980/), IETF / RFC Editor
+[^22]: [sequoia-openpgp NEWS](https://gitlab.com/sequoia-pgp/sequoia/-/blob/main/openpgp/NEWS), Sequoia PGP
+[^23]: [GnuPG 2.5.0 released for public testing](https://lists.gnupg.org/pipermail/gnupg-announce/2024q3/000484.html), [GnuPG 2.5.13 released](https://lists.gnupg.org/pipermail/gnupg-announce/2025q4/000498.html), GnuPG
+[^24]: [Plans for Post-Quantum Cryptography in GnuPG](https://lists.gnupg.org/pipermail/gnupg-users/2026-April/068249.html), gnupg-users
+[^25]: [Specification for Kyber in GnuPG](https://lists.gnupg.org/pipermail/gnupg-devel/2024-May/035558.html), gnupg-devel
+[^26]: [2026-05-21 Minutes of the Server Certificate Working Group](https://cabforum.org/2026/05/21/2026-05-21-minutes-of-the-server-certificate-working-group/), CA/Browser Forum

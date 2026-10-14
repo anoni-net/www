@@ -18,7 +18,7 @@ date: 2026-05-01
 
 个人的即时聊天与短期的 session token 很快就失去价值，HNDL 风险低。银行的 KYC 文件、医疗影像、人权工作者的访谈记录，风险高。
 
-NIST IR 8547 的初稿（2024-11 公开征求意见，截至 2026-10 尚未定稿）提出 2030 年起弃用旧的公钥算法、2035 年起全面禁用的时间表，ENISA 的路线图也以这两个年份为准，NSA 的 CNSA 2.0 另订 2030 与 2033 年的期限[^1]。新部署从现在起就应该规划 PQC 的迁移路径。
+NIST IR 8547 的初稿（2024-11 公开征求意见，截至 2026-10 尚未定稿）提出 2030 年起弃用旧的公钥算法、2035 年起全面禁用的时间表[^1]。欧盟成员国在 2025-06 发布的协调路线图要求高风险用途在 2030 年底前完成迁移、其余在 2035 年底前完成[^17]，NSA 的 CNSA 2.0 依系统类型订出 2030 与 2033 年的期限，国家安全系统整体在 2035 年前完成[^18]。新部署从现在起就应该规划 PQC 的迁移路径。
 
 <ol class="tl" aria-label="后量子密码的转换时程">
   <li><span class="tl-when">2022-10</span><span class="tl-b"><span class="tl-t">Cloudflare</span><span class="tl-d">经由 Cloudflare 提供的网站默认支持混合后量子密钥交换，当时用 Kyber 草案</span></span></li>
@@ -75,7 +75,7 @@ NIST 第四轮继续评估以编码理论（code-based）为基础的算法，20
 
 - Cloudflare 从 2022-10 起让所有经由它提供的网站与 API 默认支持混合后量子密钥协商，当时用的是 Kyber 草案版本[^8]，现在改用 X25519MLKEM768[^5]。
 - AWS 在 2025-04 让 KMS、ACM、Secrets Manager 的 TLS 端点支持 ML-KEM，客户端需要在 SDK 另外开启[^9]。
-- Google Cloud 为企业客户提供 PQC 选项。
+- Google Cloud 在 2026-07 让 Cloud KMS 的 ML-KEM 密钥封装与 ML-DSA、SLH-DSA 签名正式上线[^19]。
 
 ### Signal Protocol
 
@@ -88,7 +88,8 @@ Apple 在 iOS 17.4（2024-03）为 iMessage 导入 PQ3 协议，在消息的密�
 ### SSH 与 PGP
 
 - OpenSSH 9.0（2022-04）把 sntrup761x25519 混合密钥交换设为默认，9.9（2024-09）加入以 ML-KEM 为基础的 mlkem768x25519-sha256，10.0（2025-04）改以它为默认，10.1（2025-10）在协商到非后量子算法时显示警告[^11]。
-- age、Sequoia PGP 等较新的工具开始试验 PQC，传统的 GnuPG 进度较慢。
+- age 在 2025-12 的 1.3.0 版加入以 ML-KEM-768 为基础的混合后量子收件人[^20]。
+- OpenPGP 的后量子扩展在 2026-06 发布为 RFC 9980[^21]，Sequoia PGP 从 2026-07 的 sequoia-openpgp 2.4.0 起支持[^22]。GnuPG 在 2024-07 的 2.5.0 就加入 Kyber 加密，2.5 系列已可用于生产环境，还不支持后量子签名[^23][^24]。GnuPG 依循的是 LibrePGP 规范，算法编号等细节跟 IETF 的版本不同[^25]。
 
 ### 区块链与加密货币
 
@@ -102,7 +103,7 @@ Signal 与主流浏览器的迁移随软件更新自动完成，一般用户需�
 
 需要主动规划的项目：
 
-- **企业 PKI 与证书**：用于签名、认证与长期存证的证书，需要规划 ML-DSA 或 SLH-DSA 的迁移路径。CA/Browser Forum 已开始讨论 PQC 证书标准。
+- **企业 PKI 与证书**：用于签名、认证与长期存证的证书，需要规划 ML-DSA 或 SLH-DSA 的迁移路径。CA/Browser Forum 的服务器证书工作组正在讨论允许 ML-DSA 证书的提案，2026-05 的会议纪要里草案仍在修订[^26]。
 - **VPN 与 IPsec**：商用 VPN 对 PQC 的支持程度不一，企业网络规划时要纳入评估。
 - **长期文件加密**：法务文件、医疗记录与研究数据要先确认十年后是否仍须保密，需要的话就改用 PQC 加密。
 - **硬件安全模块（HSM）**：金融与医疗领域的 HSM 需要供应商提供 PQC 算法，更新周期长。
@@ -115,7 +116,7 @@ Signal 与主流浏览器的迁移随软件更新自动完成，一般用户需�
 
 ## 台湾、香港与新加坡的合规时间表
 
-各地的监管时间表大致跟随 NIST 与 ENISA。以下状态在 2026-10 依主管机关的公告核查。
+各地的监管时间表大致跟随 NIST 与欧盟。以下状态在 2026-10 依主管机关的公告核查。
 
 台湾的情况分三个领域：
 
@@ -127,7 +128,7 @@ Signal 与主流浏览器的迁移随软件更新自动完成，一般用户需�
 
 新加坡金融管理局（MAS）在 2024-02 向金融机构发布量子相关网络安全风险的建议（advisory），重点是提升加密敏捷性，属建议性质，没有订出迁移期限[^16]。
 
-跨地区通用的判断仍是依循 NIST 与 ENISA 的时间表，先处理 HNDL 风险高的长期数据。
+跨地区通用的判断仍是依循 NIST 与欧盟的时间表，先处理 HNDL 风险高的长期数据。
 
 ## 相关阅读
 
@@ -153,3 +154,13 @@ Signal 与主流浏览器的迁移随软件更新自动完成，一般用户需�
 [^14]: [金管會發布「金融業後量子密碼遷移參考指引」 引導金融機構強化量子風險整備](https://www.fsc.gov.tw/ch/home.jsp?id=96&parentpath=0%2C2&mcustomize=news_view.jsp&dataserno=202606180001&dtable=News) - 台湾金融监督管理委员会
 [^15]: [HKMA launches quantum preparedness whitepaper and index to support banking sector's readiness for quantum era](https://www.hkma.gov.hk/eng/news-and-media/press-releases/2026/07/20260727-3/) - 香港金融管理局
 [^16]: [Advisory on Addressing the Cybersecurity Risks Associated with Quantum](https://www.mas.gov.sg/regulation/circulars/advisory-on-addressing-the-cybersecurity-risks-associated-with-quantum) - 新加坡金融管理局
+[^17]: [A Coordinated Implementation Roadmap for the Transition to Post-Quantum Cryptography](https://digital-strategy.ec.europa.eu/en/library/coordinated-implementation-roadmap-transition-post-quantum-cryptography) - 欧盟委员会
+[^18]: [The Commercial National Security Algorithm Suite 2.0 and Quantum Computing FAQ](https://media.defense.gov/2022/Sep/07/2003071836/-1/-1/0/CSI_CNSA_2.0_FAQ_.PDF) - 美国国家安全局
+[^19]: [Future-proofing data integrity: Quantum-safe digital signatures in Cloud KMS](https://cloud.google.com/blog/products/identity-security/future-proofing-data-integrity-quantum-safe-digital-signatures-in-cloud-kms) - Google Cloud
+[^20]: [age v1.3.0](https://github.com/FiloSottile/age/releases/tag/v1.3.0) - age
+[^21]: [RFC 9980: Post-Quantum Cryptography in OpenPGP](https://www.rfc-editor.org/info/rfc9980/) - IETF / RFC Editor
+[^22]: [sequoia-openpgp NEWS](https://gitlab.com/sequoia-pgp/sequoia/-/blob/main/openpgp/NEWS) - Sequoia PGP
+[^23]: [GnuPG 2.5.0 released for public testing](https://lists.gnupg.org/pipermail/gnupg-announce/2024q3/000484.html)、[GnuPG 2.5.13 released](https://lists.gnupg.org/pipermail/gnupg-announce/2025q4/000498.html) - GnuPG
+[^24]: [Plans for Post-Quantum Cryptography in GnuPG](https://lists.gnupg.org/pipermail/gnupg-users/2026-April/068249.html) - gnupg-users
+[^25]: [Specification for Kyber in GnuPG](https://lists.gnupg.org/pipermail/gnupg-devel/2024-May/035558.html) - gnupg-devel
+[^26]: [2026-05-21 Minutes of the Server Certificate Working Group](https://cabforum.org/2026/05/21/2026-05-21-minutes-of-the-server-certificate-working-group/) - CA/Browser Forum
