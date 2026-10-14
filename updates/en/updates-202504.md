@@ -25,4 +25,4 @@ We also hope to enhance the knowledge of those interested in Tor/Tails and OONI 
 
 [Learn about the details!](/events/workshop-2025-prepare/){ .btn .solid }
 
-If you're interested in preparing for the workshop and training helpers, feel free to reply to me directly. The recruitment information for the workshop is also [simultaneously announced](https://volunteer.ocf.tw/blog/) by the Open Culture Foundation's volunteer recruitment.
+If you're interested in preparing for the workshop and training helpers, feel free to reply to me directly.

@@ -1,6 +1,6 @@
 ---
 title: 网络自由工作坊：Tor、Tails、OONI
-description: 邀请您于 2025 年 2 月 23 日在台北参加一场全天活动，专注于线上隐私、规避审查及审查监测。本次免费的前期活动由开放文化基金会、OONI 和 The Tor Project 合办，包含实现工作坊及 The Tor Project 共同创办人 Roger Dingledine 的公开主题演讲。
+description: 邀请您于 2025 年 2 月 23 日在台北参加一场全天活动，专注于线上隐私、规避审查及审查监测。本次免费的前期活动由社区与 OONI、The Tor Project 合办，包含实现工作坊及 The Tor Project 共同创办人 Roger Dingledine 的公开主题演讲。
 date: 2025-02-05
 kind: event
 ---
@@ -21,16 +21,9 @@ kind: event
 2. 工作坊 18:00 – 19:00 如何使用 OONI 检测与观察网络审查状况
 3. 演讲座 19:30 – 21:00 Tor 在网络监控的世界中捍卫个人线上隐私权
 
-[<i data-icon="arrow-right-circle-outline"></i> 前往报名页面](https://kktix.com/events/internetfreedom-tor-tails-ooni-2025/registrations/new){ .btn }
-
 !!! info ""
 
     这次活动将有两场工作坊与一场演讲，请通过不同票种的方式报名要参加的议程。由于活动场地限制关系，部分议程有人数限制，请尽早报名，活动确切地点将会在活动前另行通知。
-
-!!! tip "招募活动工作人员"
-
-    活动目前招募现场工作人员，预计需要 10 位伙伴的帮助，当天如果有空（不一定全程参与也没问题）也请到 [OCF Volunteer](https://volunteer.ocf.tw/) 登记一下，我们预计将开始分配任务，感谢！
-
 
 ## 工作坊
 
@@ -56,8 +49,6 @@ kind: event
 - Tails 官方网站：<https://tails.net/>
 - [Tails：安全、可携式的操作系统，将工作与个人活动分开。](https://safety.rsf.org/tails-a-secure-portable-os-to-separate-professional-from-personal-activities/)
 
-[<i data-icon="arrow-right-circle-outline"></i> 前往报名页面](https://kktix.com/events/internetfreedom-tor-tails-ooni-2025/registrations/new){ .btn }
-
 !!! warning "推荐、保留名额"
     这场工作坊有保留名额给从事**新闻记者**与**公民团体**的伙伴，请注意！在 KKTIX 平台完成注册此议程后，请稍候，我们会手动审核申请。对参加者进行基本的资格确认，以确保参与者都有一个舒适的体验。我们将优先考虑人权捍卫者（HRDs）、新闻记者相关领域的参与者，请在报名时使用所服务单位的邮件信箱注明或其他可证明的方式，非常感谢！
 
@@ -78,8 +69,6 @@ kind: event
 - 使用 OONI Probe 测试网络审查。
 - 分析 OONI 数据以追踪审查情势状况。
 
-[<i data-icon="arrow-right-circle-outline"></i> 前往报名页面](https://kktix.com/events/internetfreedom-tor-tails-ooni-2025/registrations/new){ .btn }
-
 ## 讲座
 
 ### 演讲座：Tor 在网络监控的世界中捍卫个人线上隐私权
@@ -92,4 +81,3 @@ kind: event
 
 Roger Dingledine 是 Tor Project 的共同创办人，Tor Project 是一个开发自由且开源软件的非营利组织，关注在保护人们不受追踪、审查和监控的影响。他在推动数字权利方面扮演了关键角色，支持全球的记者、社运团体及人权捍卫者。
 
-[<i data-icon="arrow-right-circle-outline"></i> 前往报名页面](https://kktix.com/events/internetfreedom-tor-tails-ooni-2025/registrations/new){ .btn }

@@ -1,6 +1,6 @@
 ---
 title: 網路自由工作坊：Tor、Tails、OONI
-description: 邀請您於 2025 年 2 月 23 日在台北參加一場全天活動，專注於線上隱私、規避審查及審查監測。本次免費的前期活動由開放文化基金會、OONI 和 The Tor Project 合辦，包含實作工作坊及 The Tor Project 共同創辦人 Roger Dingledine 的公開主題演講。
+description: 邀請您於 2025 年 2 月 23 日在台北參加一場全天活動，專注於線上隱私、規避審查及審查監測。本次免費的前期活動由社群與 OONI、The Tor Project 合辦，包含實作工作坊及 The Tor Project 共同創辦人 Roger Dingledine 的公開主題演講。
 date: 2025-02-05
 kind: event
 ---
@@ -21,16 +21,9 @@ kind: event
 2. 工作坊 18:00 – 19:00 如何使用 OONI 偵測與觀察網路審查狀況
 3. 演講座 19:30 – 21:00 Tor 在網路監控的世界中捍衛個人線上隱私權
 
-[<i data-icon="arrow-right-circle-outline"></i> 前往報名頁面](https://kktix.com/events/internetfreedom-tor-tails-ooni-2025/registrations/new){ .btn }
-
 !!! info ""
 
     這次活動將有二場工作坊與一場演講，請透過不同票種的方式報名要參加的議程。由於活動場地限制關係，部分議程有人數限制，請盡早報名，活動確切地點將會在活動前另行通知。
-
-!!! tip "招募活動工作人員"
-
-    活動目前招募現場工作人員，預計需要 10 位夥伴的幫忙，當天如果有空（不一定全場參與也沒問題）也請到 [OCF Volunteer](https://volunteer.ocf.tw/) 登記一下，我們預計將開始分配任務，感謝！
-
 
 ## 工作坊
 
@@ -56,8 +49,6 @@ kind: event
 - Tails 官方網站：<https://tails.net/>
 - [Tails：安全、可攜式的作業系統，將工作與個人活動分開。](https://safety.rsf.org/tails-a-secure-portable-os-to-separate-professional-from-personal-activities/)
 
-[<i data-icon="arrow-right-circle-outline"></i> 前往報名頁面](https://kktix.com/events/internetfreedom-tor-tails-ooni-2025/registrations/new){ .btn }
-
 !!! warning "推薦、保留名額"
 
     這場工作坊有保留名額給從事**新聞記者**與**公民團體**的夥伴，請注意！在 KKTIX 平台完成註冊此議程後，請稍候，我們會手動審核申請。對參加者進行基本的資格確認，以確保參與者都有一個舒適的體驗。我們將優先考量人權捍衛者（HRDs）、新聞記者相關領域的參與者，請在報名時使用所服務單位的郵件信箱註或其他可證明的方式，非常感謝！
@@ -79,8 +70,6 @@ kind: event
 - 使用 OONI Probe 測試網路審查。
 - 分析 OONI 資料以追蹤審查情勢狀況。
 
-[<i data-icon="arrow-right-circle-outline"></i> 前往報名頁面](https://kktix.com/events/internetfreedom-tor-tails-ooni-2025/registrations/new){ .btn }
-
 ## 講座
 
 ### 演講座：Tor 在網路監控的世界中捍衛個人線上隱私權
@@ -93,4 +82,3 @@ kind: event
 
 Roger Dingledine 是 Tor Project 的共同創辦人，Tor Project 是一個開發自由且開源軟體的非營利組織，關注在保護人們不受追蹤、審查和監控的影響。他在推動數位權利方面扮演了關鍵角色，支持全球的記者、社運團體及人權捍衛者。
 
-[<i data-icon="arrow-right-circle-outline"></i> 前往報名頁面](https://kktix.com/events/internetfreedom-tor-tails-ooni-2025/registrations/new){ .btn }

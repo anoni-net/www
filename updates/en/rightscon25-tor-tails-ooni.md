@@ -1,6 +1,6 @@
 ---
 title: 'Internet Freedom Workshop: Tor、Tails、OONI'
-description: Join us on February 23rd, 2025, in Taipei, Taiwan, for a full-day event focused on online privacy, censorship circumvention, and monitoring. Hosted in partnership with the Open Culture Foundation, OONI, and The Tor Project, this free pre-event includes hands-on workshops and a keynote by Roger Dingledine, co-founder of The Tor Project.
+description: Join us on February 23rd, 2025, in Taipei, Taiwan, for a full-day event focused on online privacy, censorship circumvention, and monitoring. Hosted in partnership with OONI and The Tor Project, this free pre-event includes hands-on workshops and a keynote by Roger Dingledine, co-founder of The Tor Project.
 date: 2025-02-05
 kind: event
 ---
@@ -11,7 +11,7 @@ kind: event
 
 ![Pre-event - Tor, Tails, OONI](https://assets.anoni.net/updates/tor-pre-event-d2d82fa9.webp)
 
-We are thrilled to invite you to a full-day event dedicated to online privacy, censorship circumvention, and censorship monitoring, hosted in partnership with Open Culture Foundation, the Open Observatory of Network Interference (OONI), and The Tor Project on February 23rd, 2025, in Taipei, Taiwan.
+We are thrilled to invite you to a full-day event dedicated to online privacy, censorship circumvention, and censorship monitoring, hosted in partnership with the Open Observatory of Network Interference (OONI) and The Tor Project on February 23rd, 2025, in Taipei, Taiwan.
 
 This free pre-event will feature hands-on workshops and a public keynote by Roger Dingledine, co-founder of The Tor Project.
 
@@ -20,16 +20,9 @@ Thie event will feature:
 - Two hands-on workshops for journalists, activists, and human rights defenders focused on digital security and censorship resistance.
 - A public keynote by Roger Dingledine, co-founder of The Tor Project, on defending online privacy in an era of mass surveillance.
 
-[<i data-icon="arrow-right-circle-outline"></i> Register for Event](https://kktix.com/events/internetfreedom-tor-tails-ooni-2025/registrations/new){ .btn }
-
 !!! info ""
 
     Please register for the sessions you wish to attend by selecting the appropriate type of ticket. Due to venue limitations, some sessions have a cap on the number of participants, so please register early. The exact location of the event will be announced separately closer to the date.
-
-!!! tip "Recruiting Volunteers"
-
-    We are currently recruiting on-site volunteers for the event and expect to need help from 10 volunteers. If you're available on the day (even if you can't participate the entire time), please register at [OCF Volunteer](https://volunteer.ocf.tw/). We plan to begin assigning tasks soon. Thank you!
-
 
 ## Workshops
 
@@ -56,8 +49,6 @@ Read more:
 - Tails official website: <https://tails.net/>
 - [Tails: a secure, portable OS to separate professional from personal activities](https://safety.rsf.org/tails-a-secure-portable-os-to-separate-professional-from-personal-activities/)
 
-[<i data-icon="arrow-right-circle-outline"></i> Register for Event](https://kktix.com/events/internetfreedom-tor-tails-ooni-2025/registrations/new){ .btn }
-
 !!! warning ""
 
     This workshop reserves spots for partners who are **journalists** and **CSOs members**. Please use your organization's email address when registering.
@@ -80,8 +71,6 @@ In this workshop, participants will gain hands-on experience using OONI (Open Ob
 - Use OONI Probe to test internet censorship.
 - How to analyze OONI data to track censorship trends.
 
-[<i data-icon="arrow-right-circle-outline"></i> Register for Event](https://kktix.com/events/internetfreedom-tor-tails-ooni-2025/registrations/new){ .btn }
-
 ## Keynote
 
 ### Keynote: Tor: Defending your online privacy in a surveillance world
@@ -95,4 +84,3 @@ In this keynote, Roger Dingledine will discuss the growing threats to online pri
 
 Roger Dingledine is the co-founder of the Tor Project, a nonprofit that develops free and open source software to protect people from tracking, censorship, and surveillance online. He has played a key role in advancing digital rights, supporting journalists, activists, and human rights defenders worldwide.
 
-[<i data-icon="arrow-right-circle-outline"></i> Register for Event](https://kktix.com/events/internetfreedom-tor-tails-ooni-2025/registrations/new){ .btn }

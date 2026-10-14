@@ -13,6 +13,6 @@ Thanks to this workshop event, we have been fortunate to gather partners from va
 - Community Name: **Anonymity Network Community**
 - Community Website: [https://anoni.net/](https://anoni.net/)
 
-The original [OONI-Research](https://ooni-research.ocf.tw/) website will automatically redirect to [https://anoni.net/docs/](https://anoni.net/docs/). We plan to host a meeting after the "[Anonymous Network Workshop](/events/workshop-2025/)" to discuss our visions for the community's future. If interested, you can continue to [follow us](/contact/) or [subscribe](https://form.anoni.net/s/w21855zpca072rvgp0s2govj) to our newsletter.
+The original OONI-Research website will automatically redirect to [https://anoni.net/docs/](https://anoni.net/docs/). We plan to host a meeting after the "[Anonymous Network Workshop](/events/workshop-2025/)" to discuss our visions for the community's future. If interested, you can continue to [follow us](/contact/) or [subscribe](https://form.anoni.net/s/w21855zpca072rvgp0s2govj) to our newsletter.
 
 Thank you!

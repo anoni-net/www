@@ -13,6 +13,6 @@ date: 2025-07-03
 - 社群名稱：**匿名網路社群**
 - 社群網址：[https://anoni.net/](https://anoni.net/)
 
-原本的 [OONI-Research](https://ooni-research.ocf.tw/) 網站也會自動轉指到 [https://anoni.net/docs/](https://anoni.net/docs/) 底下。我們預計在「[匿名網路工作坊](/events/workshop-2025/)」結束後舉辦會議，一同討論對於社群未來的想像，有興趣可以持續[關注我們](/contact/)或是[訂閱](https://form.anoni.net/s/cmc9ceju1000dlj017fiathzq)訊息電子報。
+原本的 OONI-Research 網站也會自動轉指到 [https://anoni.net/docs/](https://anoni.net/docs/) 底下。我們預計在「[匿名網路工作坊](/events/workshop-2025/)」結束後舉辦會議，一同討論對於社群未來的想像，有興趣可以持續[關注我們](/contact/)或是[訂閱](https://form.anoni.net/s/cmc9ceju1000dlj017fiathzq)訊息電子報。
 
 感謝！

@@ -5,15 +5,9 @@ date: 2025-10-18
 kind: event
 ---
 
-<figure markdown="span">
-  ![網路自由小聚 2025/10](https://assets.kktix.io/upload_images/244247/%E7%B6%B2%E8%B7%AF%E8%87%AA%E7%94%B1%E5%B0%8F%E8%81%9A_large.png){ .shot }
-  <figcaption>圖片引用自網路自由小聚 10 月：https://ocftw.kktix.cc/events/internetfreedom-oct2025 活動。</figcaption>
-</figure>
-
-在「[網路自由小聚](https://ocftw.kktix.cc/events/internetfreedom-oct2025)」分享 [InterSecLab](https://interseclab.org/) 針對中國防火長城資料外洩的[報告](docs:reports/)後，在活動當天後半段有許多討論，問題圍繞在面對國家級的監控手段與能力時，我們最後還可以做什麼？過往給予的資安防護建議也需要重新檢視與修正。
+在「網路自由小聚」分享 [InterSecLab](https://interseclab.org/) 針對中國防火長城資料外洩的[報告](docs:reports/)後，在活動當天後半段有許多討論，問題圍繞在面對國家級的監控手段與能力時，我們最後還可以做什麼？過往給予的資安防護建議也需要重新檢視與修正。
 
 以下我們將針對當天有討論到的部分，透過文字再幫大家回顧一下，我們也建議這份報告值得花點時間閱讀，會有一個更清晰的輪廓勾勒我們所要面對的風險與挑戰。
-
 
 ## 開源軟體的濫用
 
@@ -35,6 +29,6 @@ kind: event
 
 ---
 
-以上是「網路自由小聚」活動當晚的快速回顧，也感謝[開放文化基金會](https://ocf.tw/)的邀約，給予「[匿名網路社群](/about/)」一個分享的機會。如果您還未閱讀我們已翻譯的報告，請透過[這裡閱讀](docs:reports/)！我們也準備針對報告中的發現，嘗試建立一個一般大眾可以上手的抵禦能力，或許會先從**隱私保護**開始，有興趣的夥伴也可以透過[這個頻道](https://matrix.to/#/#interseclab-the-internet-coup:im.anoni.net)來討論。
+以上是「網路自由小聚」活動當晚的快速回顧。如果您還未閱讀我們已翻譯的報告，請透過[這裡閱讀](docs:reports/)！我們也準備針對報告中的發現，嘗試建立一個一般大眾可以上手的抵禦能力，或許會先從**隱私保護**開始，有興趣的夥伴也可以透過[這個頻道](https://matrix.to/#/#interseclab-the-internet-coup:im.anoni.net)來討論。
 
 當然，也可以直接寄信給[我們](/contact/)！

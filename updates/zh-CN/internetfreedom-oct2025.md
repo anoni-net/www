@@ -5,15 +5,9 @@ date: 2025-10-18
 kind: event
 ---
 
-<figure markdown="span">
-  ![网络自由小聚 2025/10](https://assets.kktix.io/upload_images/244247/%E7%B6%B2%E8%B7%AF%E8%87%AA%E7%94%B1%E5%B0%8F%E8%81%9A_large.png){ .shot }
-  <figcaption>图片引用自网络自由小聚 10 月：https://ocftw.kktix.cc/events/internetfreedom-oct2025 活动。</figcaption>
-</figure>
-
-在「[网络自由小聚](https://ocftw.kktix.cc/events/internetfreedom-oct2025)」上，分享了 [InterSecLab](https://interseclab.org/) 针对中国防火长城数据泄露的[报告](https://anoni.net/docs/report/interseclab-the-internet-coup/)后，活动当天后半段展开了许多讨论。大家关注的问题主要是，当我们面对国家级的监控手段与能力时，还有什么是我们可以做的？过往提供的网络安全防护建议是否也需要重新检视与调整。
+在「网络自由小聚」上，分享了 [InterSecLab](https://interseclab.org/) 针对中国防火长城数据泄露的[报告](https://anoni.net/docs/report/interseclab-the-internet-coup/)后，活动当天后半段展开了许多讨论。大家关注的问题主要是，当我们面对国家级的监控手段与能力时，还有什么是我们可以做的？过往提供的网络安全防护建议是否也需要重新检视与调整。
 
 以下是我们根据当天讨论的内容为大家进行的文字回顾，同时建议大家花时间阅读这份报告，它将更清晰地勾勒出我们所面临的风险与挑战。
-
 
 ## 开源软件的滥用
 
@@ -35,6 +29,6 @@ kind: event
 
 ---
 
-以上是 “网络自由小聚” 当晚的快速回顾，也感谢[开放文化基金会](https://ocf.tw/)的邀请，给予 “[匿名网络社区](/about/)” 一个分享的机会。如果您还未阅读我们已翻译的报告，请通过[这里阅读](https://anoni.net/docs/report/interseclab-the-internet-coup/)！我们也计划针对报告中的发现，尝试建立一套大众可以掌握的抵御能力，或许会先从**隐私保护**开始。有兴趣的伙伴可以通过[这个频道](https://matrix.to/#/#interseclab-the-internet-coup:im.anoni.net)来讨论。
+以上是 “网络自由小聚” 当晚的快速回顾。如果您还未阅读我们已翻译的报告，请通过[这里阅读](https://anoni.net/docs/report/interseclab-the-internet-coup/)！我们也计划针对报告中的发现，尝试建立一套大众可以掌握的抵御能力，或许会先从**隐私保护**开始。有兴趣的伙伴可以通过[这个频道](https://matrix.to/#/#interseclab-the-internet-coup:im.anoni.net)来讨论。
 
 当然，也可以直接给[我们](/contact/)发邮件！

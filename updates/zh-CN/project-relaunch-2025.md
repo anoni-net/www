@@ -13,7 +13,7 @@ anoni.net Docs 计划目前包含三个子项目，涵盖数据分析、检测�
 
 ### ASNs 自治网络观测数据分析
 
-延续 2023、2024 所研究的「[ASNs 自治网络观察数据涵盖率](https://ocf.tw/p/ooni/report/202312.html)」，报告将持续针对 ASNs 自治网络系统与网络审查、干预等因素寻找其关联性。另外也持续研究其他区域的 ASNs 覆盖状况，是否会因为数据的多样性不足而影响 OONI 观测数据的解释能力。预计也将建立数据流程基础架构（data pipeline architecture），在研究过程中的数据收集与整理，通过程序自动化完成，能够与 OONI Data 实现即时呈现结果的可能。
+延续 2023、2024 所研究的「[ASNs 自治网络观察数据涵盖率](/projects/asn-coverage/)」，报告将持续针对 ASNs 自治网络系统与网络审查、干预等因素寻找其关联性。另外也持续研究其他区域的 ASNs 覆盖状况，是否会因为数据的多样性不足而影响 OONI 观测数据的解释能力。预计也将建立数据流程基础架构（data pipeline architecture），在研究过程中的数据收集与整理，通过程序自动化完成，能够与 OONI Data 实现即时呈现结果的可能。
 
 [<i data-icon="arrow-right-circle-outline"></i> 了解更多此项目的说明](/projects/asn-coverage/asn-diversity/){ .btn }
 
