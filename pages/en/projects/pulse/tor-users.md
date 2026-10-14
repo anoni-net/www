@@ -37,6 +37,8 @@ Single days have wider intervals: the estimate for 2026-09-15 is 8,312, with an 
 
 ## Four Years of Slow Growth
 
+<!-- tu-trend -->
+
 Excluding the period affected by the counting bug from September 2025, and taking the same months each year[^3]:
 
 | Period | Average concurrent clients | Per 100,000 residents |
@@ -58,12 +60,7 @@ The two answers do not conflict, because a large part of the official interval c
 
 The same windows applied to nearby jurisdictions and a few reference countries put Taiwan's 28.6% in the middle of the range[^12]:
 
-| Region | Four-year change | Region | Four-year change |
-|---|---|---|---|
-| United Kingdom | +92.9% | Taiwan | +28.6% |
-| Australia | +56.2% | Hong Kong | +7.6% |
-| Singapore | +55.3% | United States | +4.2% |
-| South Korea | +44.9% | Japan | −6.9% |
+<!-- tu-growth -->
 
 The median across those eight is 26.3%, which puts Taiwan almost exactly in the middle. Tor use has grown gradually across most open network environments in these years, and Taiwan is neither leading nor lagging.
 
@@ -158,17 +155,7 @@ Europe, North America, and Japan sit at or above 1.0, where Tor is closer to par
 
 Converted to users per 100,000 residents[^8]:
 
-| Region | Per 100,000 | Region | Per 100,000 |
-|---|---|---|---|
-| Singapore | 437 | Taiwan | 43 |
-| Germany | 371 | Malaysia | 37 |
-| United Kingdom | 177 | Thailand | 31 |
-| United States | 164 | Japan | 26 |
-| Australia | 139 | Vietnam | 23 |
-| Iran | 94 | Indonesia | 22 |
-| Hong Kong | 91 | Philippines | 21 |
-| Russia | 78 | India | 9 |
-| South Korea | 55 | Mainland China | 0.3 |
+<!-- tu-density -->
 
 Taiwan sits above Japan, Southeast Asia, and India, and below South Korea, Hong Kong, Europe, and North America. Singapore's and Germany's high values need the hosting factor taken into account. Both host large volumes of cloud servers, and clients running on VPS instances count toward the country where the server is located.
 

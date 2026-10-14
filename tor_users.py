@@ -1,8 +1,8 @@
 """Tor 中繼節點觀測頁（/projects/pulse/）的使用者估計。
 
 Tor Metrics 從中繼收到的目錄請求推算每個地區每天平均同時上線的 Tor 客戶端，直接連線與透過
-橋接（bridge）的分開計算。這是平均同時上線的數量，不是不重複的人數，方法與限制見文件站的
-「台灣有多少人在用 Tor」。橋接的比例高，通常代表直接連上 Tor 受到阻擋。
+橋接（bridge）的分開計算。這是平均同時上線的數量，不是不重複的人數，方法與限制見本站的
+「台灣的 Tor 使用者數」（/projects/pulse/tor-users/）。橋接的比例高，通常代表直接連上 Tor 受到阻擋。
 
 建置時讀 Tor Metrics 的公開 CSV（CC0），每個地區兩份，加上全球（all）兩份當分母，
 都寫進 .cache/tor-users/。Tor Metrics 每天更新一次、晚兩三天，十二小時內的建置直接用快取。
@@ -138,3 +138,9 @@ def view(raw: dict, world: dict | None, labels: dict, pick, recent_days: int = 3
         "chart_bridge": lines(days, [(pick(labels["bridge_share"]), bridge_pct, "pc-s2")],
                               pick(labels["chart_bridge"])),
     }
+
+
+def snapshot(path: Path) -> list[tuple[date, float]]:
+    """台灣的 Tor 使用者數那頁的長期曲線，讀 data/tor-users/ 底下存好的快照，建置時不重抓。"""
+    rows = [line for line in path.read_text(encoding="utf-8").splitlines() if line and not line.startswith("#")]
+    return [(date.fromisoformat(d), float(v)) for d, v in (r.split(",") for r in rows[1:])]

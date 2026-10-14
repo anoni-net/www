@@ -369,7 +369,45 @@ class Site:
         names = [p.name.removeprefix("_block-").removesuffix(".html.j2")
                  for p in TEMPLATES.glob("_block-*.html.j2") if p.name not in regional]
         blocks = {n: self.env.get_template(f"_block-{n}.html.j2").render(**ctx) for n in names}
-        return {**blocks, **self.diagram_blocks(lang, ctx)}
+        return {**blocks, **self.diagram_blocks(lang, ctx), **self.tor_users_blocks(lang)}
+
+    def tor_users_blocks(self, lang: Lang) -> dict[str, str]:
+        """台灣的 Tor 使用者數那頁的三張圖，<!-- tu-trend -->、<!-- tu-growth -->、<!-- tu-density -->，
+        資料在 data/tor-users.toml 與 data/tor-users/ 的快照。"""
+        conf = self.data.get("tor-users")
+        if not conf:
+            return {}
+        pick = lambda value: value[lang.code] if isinstance(value, dict) else value  # noqa: E731
+        L = {k: pick(v) for k, v in conf["labels"].items()}
+        tr = conf["trend"]
+        points = tor_users.snapshot(DATA / "tor-users" / "tw-relay.csv")
+        top = max(points, key=lambda p: p[1])
+        svg = charts.timeline(
+            points, tr["cap"], L["trend"],
+            bands=[(date.fromisoformat(tr["bug_start"]), date.fromisoformat(tr["bug_end"]), L["bug"])],
+            markers=[(date.fromisoformat(tr["fix"]), L["fix"])],
+            peak=L["peak"].format(n=charts.num(top[1]), d=f"{top[0]:%Y-%m-%d}"))
+
+        def figure(title: str, body: str, note: str = "") -> str:
+            lg = f'<span class="lg">{html.escape(note)}</span>' if note else ""
+            return f'<div class="pulse"><figure class="pulse-chart"><figcaption>{html.escape(title)}{lg}</figcaption>{body}</figure></div>'
+
+        def bars(rows: list, unit: str, title: str) -> str:
+            hi = max(abs(v) for _, v in rows)
+            items = []
+            for code, v in rows:
+                shown = (f"{v:+.1f}".replace("-", "−") if unit == "%" else f"{v:g}") + unit
+                me = ' class="me"' if code == "TW" else ""
+                items.append(f'<li{me}><span class="l">{html.escape(pick(conf["names"][code]))}</span>'
+                             f'<span class="bar"><span style="width:{max(v, 0) / hi * 100:.2f}%"></span></span>'
+                             f'<span class="n">{shown}</span></li>')
+            return f'<ul class="pulse-bars tu-bars" aria-label="{html.escape(title)}">{"".join(items)}</ul>'
+
+        return {
+            "tu-trend": figure(L["trend"], str(svg), L["trend_note"]),
+            "tu-growth": figure(L["growth"], bars(conf["growth"], "%", L["growth"])),
+            "tu-density": figure(L["density"], bars(conf["density"], "", L["density"])),
+        }
 
     def diagram_blocks(self, lang: Lang, ctx: dict) -> dict[str, str]:
         """關於頁的示意圖，Markdown 寫 <!-- diagram-community --> 這類標記，內容在 data/diagrams.toml。"""

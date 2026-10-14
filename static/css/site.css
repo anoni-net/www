@@ -542,6 +542,14 @@ svg.pc { display: block; width: 100%; height: auto; overflow: visible; }
 .pc-tick { fill: var(--c-muted); font-size: 11px; font-family: var(--font); }
 /* SVG 跟著外框縮放，手機上整張圖縮到一半左右，刻度字用 viewBox 的單位放大回來 */
 @media (max-width: 560px) { .pc-tick { font-size: 21px; } }
+/* 幾年長的時間軸：計數異常的期間用琥珀底色，事件用虛線，註記字跟刻度一樣在手機上放大 */
+svg.pc rect.pc-band { fill: color-mix(in srgb, var(--oc-anomaly) 16%, transparent); }
+svg.pc rect.pc-band:hover { opacity: 1; }
+.pc-mark { stroke: var(--c-muted); stroke-width: 1; stroke-dasharray: 4 4; }
+.pc-note { fill: var(--c-muted); font-size: 11px; font-family: var(--font); }
+.pc-peak { fill: var(--c-strong); font-weight: 700; }
+.pc-line.pc-thin { stroke-width: 1.3; }
+@media (max-width: 560px) { .pc-note { font-size: 20px; } }
 /* 顏色類別只設定變數，長條、線、點各自讀變數，彼此不會互相覆蓋 */
 .pc-s1 { --pcc: var(--pc1); }
 .pc-s2 { --pcc: var(--pc2); }
@@ -592,6 +600,11 @@ svg.pc rect:hover, svg.pc circle:hover { opacity: .7; }
 .pulse-bars .l { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .pulse-bars .bar { height: .6rem; margin: 0; }
 .pulse-bars .n { text-align: right; font-variant-numeric: tabular-nums; }
+/* 台灣的 Tor 使用者數的地區比較，台灣那一列加粗、用主色 */
+.tu-bars li { grid-template-columns: 4.5rem 1fr 3.2rem; }
+:lang(en) .tu-bars li { grid-template-columns: 8.5rem 1fr 3.2rem; }
+.tu-bars li.me .l, .tu-bars li.me .n { font-weight: 700; color: var(--c-strong); }
+.tu-bars li.me .bar span { background: var(--pc1); }
 /* Tor 標記的說明放在名稱下面，橫跨整列 */
 .pulse-flags li { row-gap: .1rem; }
 .pulse-flags .d { grid-column: 1 / -1; font-size: .72rem; line-height: 1.4; color: var(--c-muted); }
