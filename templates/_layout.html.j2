@@ -79,12 +79,12 @@
     <a href="mailto:whisper@anoni.net">{{ icon('email-outline') }}{{ t.footer_email }}</a>
     <a href="{{ page_url('contact') }}#pgp">{{ icon('key-variant') }}{{ t.footer_pgp }}</a>
     <a href="{{ t.newsletter_url }}">{{ icon('rss') }}{{ t.footer_newsletter }}</a>
-    <a href="{{ page_url('contact') }}">{{ t.footer_contact }}</a>
-    <a href="{{ docs_url() }}">{{ t.footer_docs }}</a>
-    <a href="{{ news_url() }}">{{ t.footer_news }}</a>
+    <a href="{{ page_url('contact') }}">{{ icon('card-account-mail-outline') }}{{ t.footer_contact }}</a>
+    <a href="{{ docs_url() }}">{{ icon('folder-open-outline') }}{{ t.footer_docs }}</a>
+    <a href="{{ news_url() }}">{{ icon('newspaper-variant-outline') }}{{ t.footer_news }}</a>
   </div>
-  <p class="onion">{{ t.footer_onion }}{{ onion_host }}</p>
-  <p class="license">{{ t.footer_license }}</p>
+  <p class="onion">{{ icon('simple-torproject') }}{{ t.footer_onion }}{{ onion_host }}</p>
+  <p class="license">{{ icon('creative-commons') }}{{ t.footer_license }}</p>
 </footer>
 </div>
 </body>

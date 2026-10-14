@@ -701,7 +701,8 @@ footer .cols { display: grid; gap: .1rem 1.5rem; grid-template-columns: 1fr; }
 @media (min-width: 520px) { footer .cols { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 900px) { footer .cols { grid-template-columns: repeat(3, auto); justify-content: start; gap: .1rem 3rem; } }
 footer .cols a { color: var(--c-muted); white-space: nowrap; }
-footer .cols .i { margin-right: .3rem; }
+/* 頁尾每一項都是圖示加文字，文件與新聞導讀用專案卡片的同一個圖示 */
+footer .i { margin-right: .3rem; }
 footer p { margin: .5rem 0 0; }
 footer .onion { word-break: break-all; font-size: .75rem; margin-top: .75rem; }
 footer .license { font-size: .75rem; }
