@@ -42,9 +42,9 @@ description: 匿名網路社群 anoni.net 2026 年 8 月 8、9 日在 COSCUP 202
 
 | 時間 | 議程 | 講者 |
 |------|------|------|
-| 09:30-10:00<br>30 分鐘 | <span class="tag tag--basic">通用</span> <i data-icon="account-group"></i> **匿名網路社群 anoni.net 介紹：開源匿名工具、社群實踐與 2026 三大主題**<br><i data-icon="arrow-right-bottom"></i> 社群在台灣將 Tor、Tails、OONI 等隱私工具中文化並推廣，場次介紹社群的組成與工作，以及高風險工作為何需要能檢驗原始碼的開源工具 | anoni.net 社群 |
-| 10:10-10:40<br>30 分鐘 | <span class="tag tag--basic">通用</span> <i data-icon="target-account"></i> **威脅模型與 Metadata 入門：認識你的對手，以及為什麼匿名工具要開源才可信**<br><i data-icon="arrow-right-bottom"></i> 就算通話內容沒有被監聽，誰在什麼時間聯繫了誰，往往就足以讓消息來源曝光。內容包括如何判斷要防範誰、防到什麼程度 | anoni.net 社群 |
-| 10:50-11:20<br>30 分鐘 | <span class="tag tag--basic">通用</span> <i data-icon="toolbox-outline"></i> **現實世界的開源隱私工具：公民團體、獨立記者與個人隱私防護的實際運用**<br><i data-icon="arrow-right-bottom"></i> 整理記者、NGO 與在意隱私的一般人實際使用的免費開源工具，原始碼公開、可供檢驗，聽眾可以從中挑一兩個先用 | anoni.net 社群 |
+| 09:30-10:00<br>30 分鐘 | <span class="tag tag--basic">通用</span> <i data-icon="account-group"></i> **匿名網路社群 anoni.net 介紹：開源匿名工具、社群實踐與 2026 三大主題**<br><i data-icon="arrow-right-bottom"></i> 社群在台灣將 Tor、Tails、OONI 等隱私工具中文化並推廣，場次介紹社群的組成與工作，以及高風險工作為何需要能檢驗原始碼的開源工具<br><i data-icon="presentation"></i> [簡報（PDF）](https://assets.anoni.net/event/coscup-2026/anoni-net-intro.pdf) | anoni.net 社群 |
+| 10:10-10:40<br>30 分鐘 | <span class="tag tag--basic">通用</span> <i data-icon="target-account"></i> **威脅模型與 Metadata 入門：認識你的對手，以及為什麼匿名工具要開源才可信**<br><i data-icon="arrow-right-bottom"></i> 就算通話內容沒有被監聽，誰在什麼時間聯繫了誰，往往就足以讓消息來源曝光。內容包括如何判斷要防範誰、防到什麼程度<br><i data-icon="presentation"></i> [簡報（PDF）](https://assets.anoni.net/event/coscup-2026/anoni-net-threat-model.pdf) | anoni.net 社群 |
+| 10:50-11:20<br>30 分鐘 | <span class="tag tag--basic">通用</span> <i data-icon="toolbox-outline"></i> **現實世界的開源隱私工具：公民團體、獨立記者與個人隱私防護的實際運用**<br><i data-icon="arrow-right-bottom"></i> 整理記者、NGO 與在意隱私的一般人實際使用的免費開源工具，原始碼公開、可供檢驗，聽眾可以從中挑一兩個先用<br><i data-icon="presentation"></i> [簡報（PDF）](https://assets.anoni.net/event/coscup-2026/anoni-net-realworld-tools.pdf) | anoni.net 社群 |
 | 11:30-12:00<br>30 分鐘 | <span class="tag tag--basic">通用</span> <i data-icon="scale-balance"></i> **毒品非毒、洗錢非洗錢—淺談匿名的資格驗證**<br><i data-icon="arrow-right-bottom"></i> 同一件事換一套規則就被歸成兩種性質，誰有權定義合法與非法？講者在實名與匿名之外尋找第三條路，聽眾不需要密碼學背景 | Denken Chen | <!-- docs-style-lint: disable-line -->
 
 **下午 13:00-16:30　ETHTaipei 合辦「匿名支付」場（教室 `TR-511`，議程由 ETHTaipei 安排）**
