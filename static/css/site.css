@@ -312,6 +312,27 @@ p { margin: .5rem 0 1rem; }
 .tag { display: inline-block; padding: 0 .4rem; border: 1px solid var(--c-line); border-radius: 4px; font-size: .8rem; line-height: 1.6; color: var(--c-accent); white-space: nowrap; }
 .tag--solid { background: var(--c-solid); border-color: var(--c-solid); color: #fff; }
 .tag-text { color: var(--c-accent); font-weight: 700; }
+/* 議程的主題分類，對應文件站的 .sess-tag：通用是 cyan，三大主題用 --topic-*。
+   同一格的場次圖示與標題跟著標籤上色，描述列的箭頭維持中性。
+   維持線框不加底色，淡底會讓淺色模式的綠與橘掉到 4.5 以下。通用用 --c-link
+   而不是 .tag 預設的 --c-accent，cyan-700 在白底只有 3.9 */
+.tag--basic { --tag-c: var(--c-link); }
+.tag--privacy { --tag-c: var(--topic-privacy); }
+.tag--relay { --tag-c: var(--topic-relay); }
+.tag--payments { --tag-c: var(--topic-payments); }
+.tag--basic, .tag--privacy, .tag--relay, .tag--payments { border-color: var(--tag-c); color: var(--tag-c); }
+.prose td:has(.tag--basic) { --row-c: var(--c-link); }
+.prose td:has(.tag--privacy) { --row-c: var(--topic-privacy); }
+.prose td:has(.tag--relay) { --row-c: var(--topic-relay); }
+.prose td:has(.tag--payments) { --row-c: var(--topic-payments); }
+.prose td:has(.tag--basic, .tag--privacy, .tag--relay, .tag--payments) :is(strong, .i:has(+ strong)) { color: var(--row-c); }
+/* 桌機的議程表（時間、議程、講者三欄）。表格預設 overflow-wrap: anywhere，議程欄
+   字多，時間被壓成「09:30- / 10:00 / 30 分 / 鐘」、講者從 anoni.n|et 中間斷開。
+   時間不換行，講者給固定寬度並只在詞與詞之間換行。手機版是一列一塊，不受影響 */
+@media (min-width: 560px) {
+  .prose table.stack:has(td .tag) :is(th, td):first-child { white-space: nowrap; width: 1%; }
+  .prose table.stack:has(td .tag) :is(th, td):last-child { width: 8.5em; overflow-wrap: normal; }
+}
 .prose .i { color: var(--c-icon); }
 
 /* 首頁主視覺 */

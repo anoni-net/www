@@ -68,12 +68,13 @@ ICON_DIR = ROOT / "icons"
 # 文件站的 mkdocs-material 隨附的圖示，跟文件站用同一套
 MATERIAL_ICONS: list[Path] = []
 
-# 議程表的彩色標籤。頂層網站只用 cyan 一個色相，類型用實心、場地用線框、強調文字用粗體
+# 議程表的彩色標籤。類型用實心、場地用線框、強調文字用粗體，都只用 cyan。主題分類例外，對應三大主題的顏色
 STYLE_SPANS = [
     (re.compile(r'<span style="background-color:\s*(?:green|purple|dodgerblue|#[0-9a-f]{3,6});\s*color:\s*#fff(?:fff)?;[^"]*">', re.I), '<span class="tag tag--solid">'),
     (re.compile(r'<span style="background-color:\s*#fefefe;[^"]*">', re.I), '<span class="tag">'),
     (re.compile(r'<span style="color:\s*(?:green|purple|dodgerblue|#[0-9a-f]{3,6});\s*font-weight:\s*bold;?">', re.I), '<span class="tag-text">'),
-    (re.compile(r'<span class="sess-tag sess-tag--[a-z]+">'), '<span class="tag">'),
+    # 活動頁的主題分類保留分類，顏色由 site.css 的 .tag--* 接上 --topic-*
+    (re.compile(r'<span class="sess-tag sess-tag--([a-z]+)">'), r'<span class="tag tag--\1">'),
     # 籌備頁待辦清單的狀態標籤（公告、報名等）寫成帶顏色的 code，顏色拿掉
     (re.compile(r'<code style="[^"]*">'), '<code>'),
 ]
