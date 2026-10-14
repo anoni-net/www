@@ -1,5 +1,11 @@
 {% extends "_layout.html.j2" %}
+{% from "_doc.html.j2" import toc_mobile, toc_aside with context %}
+{# 目錄頁（各區的入口）整個外框排成格狀，其餘是文件頁：內容欄加右側的「本頁內容」 #}
+{% set index = page.slug in ('projects', 'services', 'events', 'articles', 'join', 'updates', 'projects/reports') %}
+{% set items = [] if index else body|toc %}
 {% block main %}
+<div class="{{ 'index' if index else 'doc' }}{% if items|length >= 2 %} has-toc{% endif %}">
+<div class="doc-main">
 {% if page.parent %}
 <p class="crumb"><a href="{{ page_url(page.parent) }}">{{ t['nav_' ~ page.parent] }}</a>{{ icon('chevron-right') }}
 {%- for name, path in page.get('trail', []) %}<a href="{{ path }}">{{ name }}</a>{{ icon('chevron-right') }}{% endfor %}</p>
@@ -14,7 +20,11 @@
 {% if page.lead is defined %}
 <p class="lead">{{ page.lead }}</p>
 {% endif %}
+{{ toc_mobile(items) }}
 <div class="prose">
 {{ body }}
+</div>
+</div>
+{{ toc_aside(items) }}
 </div>
 {% endblock %}

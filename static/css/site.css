@@ -1,6 +1,12 @@
-/* anoni.net 首頁與社群頁面。白底、1px cyan 細線、只用 cyan 一個色相。
-   色票照抄文件站 docs/zh-TW/stylesheets/extra.css 的 --brand-cyan-*，不自己調。
-   版面規格見 toomore/anoni-net-ws#397 的「版面」。 */
+/* anoni.net 首頁與社群頁面。品牌色只有 cyan，依用途分工：
+   - 結構：中性灰階（--n-*），分隔線、邊框與區塊底色。區塊靠淡底色區分，少用線框
+   - 層級：深色文字，靠字重與大小
+   - 互動：cyan，連結、按鈕、目前位置、焦點、滑過
+   - 識別：logo 與首頁主視覺
+   - 分類與資料：三大主題色、動態標籤、觀測圖表的 cyan 色階
+   2026-10 以前 cyan 同時負責上面全部，標題、導言、連結與邊框都是同一種藍，讀者分不出哪裡
+   可以點、哪裡是區塊的邊界，看久了也累。規格寫在品牌素材頁的「社群首頁的配色與版面」。
+   色票照抄文件站 docs/zh-TW/stylesheets/extra.css 的 --brand-cyan-*，不自己調。 */
 
 :root {
   --brand-cyan-50: #e0f4ff;
@@ -14,17 +20,31 @@
   --brand-cyan-800: #006d99;
   --brand-cyan-900: #003e57;
 
+  /* 中性灰階，從品牌的 --neutral-muted（#546e7a）那一系延伸，帶一點藍，跟 cyan 放在一起
+     不顯得髒 */
+  --n-50: #f3f6f7;
+  --n-100: #e3e9ec;
+  --n-200: #cdd6da;
+  --n-300: #a7b5bb;
+
   --c-bg: #ffffff;
   --c-text: #1d2b31;
-  --c-strong: var(--brand-cyan-900);
+  --c-strong: #13232a;
   --c-muted: #52646b;
+  --c-icon: #5b6e76;
+  /* 結構 */
+  --c-hair: var(--n-100);
+  --c-border: var(--n-200);
+  --c-border-strong: var(--n-300);
+  --c-surface: var(--n-50);
+  --c-fill: var(--n-50);
+  /* 互動與識別：線框按鈕、地區切換、滑過的卡片用 --c-line，目前位置與焦點另有一組 */
   --c-line: var(--brand-cyan-500);
-  --c-hair: var(--brand-cyan-100);
-  --c-fill: var(--brand-cyan-50);
   --c-link: var(--brand-cyan-800);
   --c-accent: var(--brand-cyan-700);
-  --c-icon: var(--brand-cyan-600);
   --c-solid: var(--brand-cyan-800);
+  --c-active: var(--brand-cyan-600);
+  --c-focus: var(--brand-cyan-500);
 
   /* 2026 三大主題的分類色，對應品牌素材的 --cat-privacy、--cat-relay、--cat-payments。
      品牌的綠與橘在白底對比不到 4.5，這裡用深一階的版本，深色模式另用淺色 */
@@ -49,8 +69,11 @@
   --oc-failure: #a3b1b7;
 
   --radius: 8px;
-  /* 外框最寬 42rem，內文 17px（手機與桌機相同，跟新聞導讀一致），桌機一行約 37 個中文字 */
-  --sheet: 42rem;
+  /* 外框由文件頁反推：內容欄 42rem（內文 17px，一行約 42 個中文字）+ 間距 + 本頁內容。
+     頁首、內容、頁尾在每一頁都對齊這組左右邊界，見下方「版面」 */
+  --toc-w: 13rem;
+  --toc-gap: 3.5rem;
+  --frame: calc(42rem + var(--toc-gap) + var(--toc-w));
   --font: system-ui, -apple-system, "Segoe UI", "Noto Sans TC", "Noto Sans CJK TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
 }
 
@@ -60,17 +83,21 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --n-50: #082b3a;
+    --n-100: #133847;
+    --n-200: #234757;
+    --n-300: #3c6070;
     --c-bg: #00202d;
     --c-text: #d8eef7;
     --c-strong: #ffffff;
     --c-muted: #9db7c2;
+    --c-icon: #9db7c2;
     --c-line: var(--brand-cyan-600);
-    --c-hair: #0b4a63;
-    --c-fill: #002f42;
     --c-link: var(--brand-cyan-200);
     --c-accent: var(--brand-cyan-300);
-    --c-icon: var(--brand-cyan-300);
     --c-solid: var(--brand-cyan-700);
+    --c-active: var(--brand-cyan-400);
+    --c-focus: var(--brand-cyan-400);
     --topic-privacy: #81c784;
     --topic-relay: #ce93d8;
     --topic-payments: #ffa040;
@@ -85,22 +112,17 @@
 
 * { box-sizing: border-box; }
 html { background: var(--c-bg); color: var(--c-text); font: 17px/1.75 var(--font); }
-body { margin: 0; padding: 1.25rem .75rem 2rem; }
+body { margin: 0; padding: 0 1rem; }
 a { color: var(--c-link); text-underline-offset: .2em; }
-a:focus-visible { outline: 2px solid var(--c-line); outline-offset: 2px; border-radius: 2px; }
+a:focus-visible { outline: 2px solid var(--c-focus); outline-offset: 2px; border-radius: 2px; }
 .i { width: 1.25em; height: 1.25em; fill: currentColor; vertical-align: -.25em; flex: none; }
 
-/* 外框：每一頁裝在同一張紙裡 */
-.sheet {
-  max-width: var(--sheet);
-  margin: 0 auto;
-  border: 1px solid var(--c-line);
-  border-radius: var(--radius);
-  box-shadow: 0 0 0 4px var(--c-fill);
-  padding: 1rem 1.25rem 1.5rem;
-}
+/* 外框：沒有框線，只是一組左右邊界。2026-10 以前整頁裝在 42rem 的線框裡，表格、圖表與
+   卡片都擠在同一個窄欄 */
+.sheet { max-width: var(--frame); margin: 0 auto; }
 
-/* 頁首 */
+/* 頁首：手機兩列（品牌與語言、導覽列），桌機併成一列，下面一條細線 */
+header { padding-top: 1rem; }
 .top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .brand { display: flex; align-items: center; gap: .4rem; font-weight: 700; color: var(--c-strong); text-decoration: none; font-size: 1.05rem; }
 .brand .logo { width: 1.6rem; height: 1.6rem; }
@@ -110,7 +132,7 @@ a:focus-visible { outline: 2px solid var(--c-line); outline-offset: 2px; border-
 nav.main {
   display: flex;
   justify-content: space-between;
-  margin: .6rem -.25rem 0;
+  margin: .6rem 0 0;
   border-top: 1px solid var(--c-hair);
   border-bottom: 1px solid var(--c-hair);
 }
@@ -125,12 +147,20 @@ nav.main a {
   border-bottom: 2px solid transparent;
   margin-bottom: -1px;
 }
-nav.main a[aria-current] { color: var(--c-strong); font-weight: 700; border-bottom-color: var(--c-line); }
+nav.main a[aria-current] { color: var(--c-strong); font-weight: 700; border-bottom-color: var(--c-active); }
 nav.main a:hover { color: var(--c-accent); }
 /* 英文的項目比較長，手機上縮小一點才放得進一列 */
 :lang(en) nav.main a { font-size: .82rem; }
 /* 320px 的手機上英文六項仍差十幾 px，再縮一點，項目間距也收窄 */
 @media (max-width: 359px) { :lang(en) nav.main a { font-size: .74rem; padding-left: .05rem; padding-right: .05rem; } }
+@media (min-width: 768px) {
+  header { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 0 2rem; padding-top: 1.1rem; border-bottom: 1px solid var(--c-hair); }
+  header .top { display: contents; }
+  header .brand { grid-column: 1; grid-row: 1; }
+  header .lang { grid-column: 3; grid-row: 1; }
+  nav.main { grid-column: 2; grid-row: 1; justify-content: center; gap: .25rem 1.75rem; margin: 0; border: 0; }
+  nav.main a { flex: none; padding: .9rem .1rem; }
+}
 
 /* 標題與段落 */
 /* 麵包屑：上一層的名稱接一個箭頭，指向下方的標題。平常不加底線，滑鼠移上去才出現 */
@@ -140,18 +170,20 @@ nav.main a:hover { color: var(--c-accent); }
 .crumb .i { width: 1.15em; height: 1.15em; vertical-align: 0; color: var(--c-muted); opacity: .7; }
 .crumb + h1 { margin-top: 1.25rem; }
 h1 { color: var(--c-strong); font-size: 1.8rem; line-height: 1.3; margin: 1.5rem 0 .5rem; }
-.lead { color: var(--c-accent); font-size: 1.1rem; font-weight: 500; margin: 0 0 1rem; }
+.lead { color: var(--c-text); font-size: 1.1rem; font-weight: 500; margin: 0 0 1rem; }
 h2 {
   display: flex;
   align-items: center;
   gap: .6rem;
-  color: var(--c-accent);
+  color: var(--c-strong);
   font-size: .95rem;
   font-weight: 700;
   letter-spacing: .05em;
   margin: 2.25rem 0 .75rem;
 }
 h2::after { content: ""; flex: 1; border-top: 1px solid var(--c-hair); }
+/* 從「本頁內容」跳過來時，標題不要貼齊視窗上緣 */
+h2[id] { scroll-margin-top: 1rem; }
 h3 { color: var(--c-strong); font-size: 1.1rem; margin: 1.5rem 0 .25rem; }
 p { margin: .5rem 0 1rem; }
 /* 標題與導言避免最後一行只剩一兩個字，Firefox 不支援時照一般方式斷行。內文段落與列表不用：
@@ -165,11 +197,13 @@ p { margin: .5rem 0 1rem; }
 .prose a, .prose code { overflow-wrap: anywhere; }
 .prose li > ul { margin: .25rem 0; }
 .prose hr { border: 0; border-top: 1px solid var(--c-hair); margin: 2rem 0; }
-.prose code { font-size: .88em; color: var(--c-accent); overflow-wrap: anywhere; }
-.prose pre { overflow-x: auto; border: 1px solid var(--c-hair); border-radius: var(--radius); padding: .75rem 1rem; font-size: .8rem; line-height: 1.5; }
-.prose pre code { color: var(--c-text); }
+/* 行內程式碼用淡底色，不用 cyan 字，才不會被當成連結 */
+.prose code { font-size: .88em; color: var(--c-text); background: var(--c-surface); padding: .05em .3em; border-radius: 4px; overflow-wrap: anywhere; }
+.prose pre { overflow-x: auto; background: var(--c-surface); border-radius: var(--radius); padding: .75rem 1rem; font-size: .8rem; line-height: 1.5; }
+.prose pre code { color: var(--c-text); background: none; padding: 0; }
 .prose table { border-collapse: collapse; width: 100%; font-size: .92rem; margin: 1rem 0; }
 .prose th, .prose td { border-bottom: 1px solid var(--c-hair); padding: .4rem .5rem; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
+.prose th { background: var(--c-surface); }
 /* 最窄的手機上，英文表格的欄位多又有長字，縮小間距與字級才不會撐破外框 */
 @media (max-width: 359px) { .prose table { font-size: .8rem; } .prose th, .prose td { padding: .35rem .3rem; } }
 /* 三欄以上的表格（build.py 的 stack_tables）在手機上一列排成一塊，第一格是標題。
@@ -186,27 +220,24 @@ p { margin: .5rem 0 1rem; }
   .prose table.stack--label td:not(:first-child)::before { content: attr(data-label); font-size: .78rem; color: var(--c-muted); overflow-wrap: normal; }
   .prose table.stack--plain td:nth-child(n+3) { font-size: .85rem; color: var(--c-muted); margin-top: .2rem; }
 }
-}
-.prose details { border: 1px solid var(--c-line); border-radius: var(--radius); padding: .5rem 1rem; margin: 1rem 0; }
-.prose summary { cursor: pointer; color: var(--c-accent); font-weight: 700; }
 .prose img { max-width: 100%; height: auto; }
-/* 操作步驟的截圖，跟外框同一組線 */
-.prose img.shot { display: block; border: 1px solid var(--c-line); border-radius: var(--radius); margin: .5rem 0 1rem; }
+/* 操作步驟的截圖加一圈中性灰細框，白底的截圖才不會跟頁面混在一起 */
+.prose img.shot { display: block; border: 1px solid var(--c-border); border-radius: var(--radius); margin: .5rem 0 1rem; }
 /* 從文件站搬過來的頁面用 <figure> 包截圖，瀏覽器預設左右各縮 40px，手機上太窄 */
 .prose figure:not(.pulse-chart) { margin: 1rem 0 1.25rem; }
 .prose figure:not(.pulse-chart) figcaption { font-size: .85rem; line-height: 1.6; color: var(--c-muted); }
 /* 產品名稱與設定步驟的表格：英文只在詞與詞之間斷行，真的放不下才拆開單字 */
 .prose .tbl-names td, .prose .tbl-names th { overflow-wrap: break-word; }
-/* admonition 用線框，不填色 */
-.admonition { border: 1px solid var(--c-line); border-radius: var(--radius); padding: .25rem 1.1rem; margin: 1rem 0; }
-.admonition-title { color: var(--c-accent); font-weight: 700; margin-bottom: .25rem; }
-/* danger 只用在安全警告，照品牌的配色守則用紅色，一般的提醒用 warning、維持 cyan */
-.admonition.danger { border-color: var(--danger); background: color-mix(in srgb, var(--danger) 6%, var(--c-bg)); }
+/* admonition 用淡底色，不加框線 */
+.admonition { background: var(--c-surface); border-radius: var(--radius); padding: .25rem 1.1rem; margin: 1rem 0; }
+.admonition-title { color: var(--c-strong); font-weight: 700; margin-bottom: .25rem; }
+/* danger 只用在安全警告，照品牌的配色守則用紅色，一般的提醒用 warning、維持中性底色 */
+.admonition.danger { background: color-mix(in srgb, var(--danger) 8%, var(--c-bg)); }
 .admonition.danger .admonition-title { color: var(--danger); }
 
 /* 從文件站搬過來的頁面用到的元件：折疊區塊、分頁、待辦清單、卡片格線、註腳、議程標籤。
-   照細線單色的規格：線框不填色，強調用 cyan，不用其他色相。 */
-.prose details { border: 1px solid var(--c-line); border-radius: var(--radius); padding: .5rem 1rem; margin: 1rem 0; }
+   結構用中性灰階，互動與目前位置用 cyan。 */
+.prose details { background: var(--c-surface); border-radius: var(--radius); padding: .5rem 1rem; margin: 1rem 0; }
 .prose details[open] > summary { margin-bottom: .5rem; }
 .prose summary { cursor: pointer; color: var(--c-strong); font-weight: 700; line-height: 1.5; }
 .prose summary::marker { color: var(--c-icon); }
@@ -247,8 +278,8 @@ p { margin: .5rem 0 1rem; }
 .tabbed-set > input:nth-child(27):checked ~ .tabbed-labels > label:nth-child(27),
 .tabbed-set > input:nth-child(28):checked ~ .tabbed-labels > label:nth-child(28),
 .tabbed-set > input:nth-child(29):checked ~ .tabbed-labels > label:nth-child(29),
-.tabbed-set > input:nth-child(30):checked ~ .tabbed-labels > label:nth-child(30) { color: var(--c-strong); font-weight: 700; border-bottom-color: var(--c-line); }
-.tabbed-set > input:focus-visible ~ .tabbed-labels { outline: 2px solid var(--c-line); outline-offset: 2px; }
+.tabbed-set > input:nth-child(30):checked ~ .tabbed-labels > label:nth-child(30) { color: var(--c-strong); font-weight: 700; border-bottom-color: var(--c-active); }
+.tabbed-set > input:focus-visible ~ .tabbed-labels { outline: 2px solid var(--c-focus); outline-offset: 2px; }
 .tabbed-content { width: 100%; }
 .tabbed-block { display: none; padding-top: .5rem; }
 .tabbed-set > input:nth-child(1):checked ~ .tabbed-content > .tabbed-block:nth-child(1),
@@ -286,14 +317,15 @@ p { margin: .5rem 0 1rem; }
 .task-list { list-style: none; padding-left: .2rem !important; }
 .task-list-item { position: relative; padding-left: 1.6rem; }
 .task-list-control input { position: absolute; opacity: 0; }
-.task-list-indicator { position: absolute; left: 0; top: .35em; width: 1rem; height: 1rem; border: 1px solid var(--c-line); border-radius: 3px; }
+.task-list-indicator { position: absolute; left: 0; top: .35em; width: 1rem; height: 1rem; border: 1px solid var(--c-border-strong); border-radius: 3px; }
 .task-list-control input:checked + .task-list-indicator { background: var(--c-solid); border-color: var(--c-solid); }
 .task-list-control input:checked + .task-list-indicator::after { content: ""; position: absolute; left: .3rem; top: .08rem; width: .3rem; height: .55rem; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg); }
 
 /* 卡片格線（md_in_html 的 grid cards）：線框卡，手機一欄、桌機兩欄 */
 .grid.cards > ul { list-style: none; padding: 0 !important; margin: 1rem 0; display: grid; gap: .75rem; }
 @media (min-width: 640px) { .grid.cards > ul { grid-template-columns: 1fr 1fr; } }
-.grid.cards > ul > li { border: 1px solid var(--c-line); border-radius: var(--radius); padding: .8rem 1rem; margin: 0; }
+@media (min-width: 900px) { .grid.cards > ul { grid-template-columns: repeat(3, 1fr); } }
+.grid.cards > ul > li { border: 1px solid var(--c-border); border-radius: var(--radius); padding: .8rem 1rem; margin: 0; }
 .grid.cards > ul > li > :first-child { margin-top: 0; }
 .grid.cards > ul > li > :last-child { margin-bottom: 0; }
 .grid.cards hr { border: 0; border-top: 1px solid var(--c-hair); margin: .6rem 0; }
@@ -308,14 +340,14 @@ p { margin: .5rem 0 1rem; }
 .footnote li { margin: .35rem 0; }
 .footnote li > p { margin: 0; }
 
-/* 議程表的標籤：類型實心、場地線框、強調文字粗體，都只用 cyan */
-.tag { display: inline-block; padding: 0 .4rem; border: 1px solid var(--c-line); border-radius: 4px; font-size: .8rem; line-height: 1.6; color: var(--c-accent); white-space: nowrap; }
+/* 議程表的標籤：類型用 cyan 實心，場地用中性灰線框，強調文字用深色粗體 */
+.tag { display: inline-block; padding: 0 .4rem; border: 1px solid var(--c-border); border-radius: 4px; font-size: .8rem; line-height: 1.6; color: var(--c-muted); white-space: nowrap; }
 .tag--solid { background: var(--c-solid); border-color: var(--c-solid); color: #fff; }
-.tag-text { color: var(--c-accent); font-weight: 700; }
+.tag-text { color: var(--c-strong); font-weight: 700; }
 /* 議程的主題分類，對應文件站的 .sess-tag：通用是 cyan，三大主題用 --topic-*。
    同一格的場次圖示與標題跟著標籤上色，描述列的箭頭維持中性。
-   維持線框不加底色，淡底會讓淺色模式的綠與橘掉到 4.5 以下。通用用 --c-link
-   而不是 .tag 預設的 --c-accent，cyan-700 在白底只有 3.9 */
+   維持線框不加底色，淡底會讓淺色模式的綠與橘掉到 4.5 以下。通用用 --c-link（cyan-800），
+   cyan-700 在白底只有 3.9 */
 .tag--basic { --tag-c: var(--c-link); }
 .tag--privacy { --tag-c: var(--topic-privacy); }
 .tag--relay { --tag-c: var(--topic-relay); }
@@ -346,14 +378,15 @@ p { margin: .5rem 0 1rem; }
 .rows li:first-child { border-top: 1px solid var(--c-hair); }
 .row { display: flex; gap: .9rem; align-items: flex-start; padding: .85rem .1rem; text-decoration: none; color: inherit; }
 .row:hover .t { color: var(--c-accent); }
-.row .ic { flex: none; display: grid; place-items: center; width: 2.4rem; height: 2.4rem; border: 1px solid var(--c-line); border-radius: 50%; color: var(--c-icon); }
+.row .ic { flex: none; display: grid; place-items: center; width: 2.4rem; height: 2.4rem; border: 1px solid var(--c-border); border-radius: 50%; color: var(--c-icon); }
 .row .b { flex: 1; min-width: 0; }
 .row .t { display: block; font-weight: 700; color: var(--c-strong); }
 /* 專案代號縮小放在名稱下方，名稱長短不一，放旁邊時換行的位置會不一致 */
 .row .t .code { display: block; margin-top: .1rem; font-size: .75rem; font-weight: 400; color: var(--c-muted); font-family: ui-monospace, monospace; white-space: nowrap; }
 .row .d { display: block; color: var(--c-muted); font-size: .9rem; line-height: 1.6; }
-.row .go { align-self: center; color: var(--c-icon); }
-/* 主題卡片的圖示圈用主題色，其餘維持 cyan */
+/* 右邊的箭頭代表可以點，用連結色 */
+.row .go { align-self: center; color: var(--c-link); }
+/* 主題卡片的圖示圈用主題色，其餘用中性灰 */
 .topic-privacy { --topic: var(--topic-privacy); }
 .topic-relay { --topic: var(--topic-relay); }
 .topic-payments { --topic: var(--topic-payments); }
@@ -371,17 +404,17 @@ p { margin: .5rem 0 1rem; }
 .rows.updates .d { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; overflow: hidden; }
 .post-date { color: var(--c-muted); font-size: .9rem; margin: -.25rem 0 1.25rem; font-variant-numeric: tabular-nums; }
 
-/* 填色卡：只給 docs 與 news 兩個內容專案 */
-/* 內容專案的卡片（文件、新聞導讀）：白底細框，單欄滿版，簡介才有足夠的寬度。整張卡片可以點，
+/* 內容專案的卡片（文件、新聞導讀）：白底中性灰細框，滑過時框線變 cyan。桌機兩欄。整張卡片可以點，
    卡片裡的最新文章、語系與「關於這個專案」是另外的連結，z-index 疊在整張卡片的連結上面 */
 .cards { display: grid; gap: .75rem; margin: 1rem 0; }
-.card { position: relative; display: flex; flex-direction: column; padding: 1rem 1.1rem .8rem; border: 1px solid var(--c-line); border-radius: var(--radius); background: var(--c-bg); transition: background-color .15s; }
-.card:hover { background: var(--c-fill); }
+@media (min-width: 768px) { .cards { grid-template-columns: repeat(2, 1fr); } }
+.card { position: relative; display: flex; flex-direction: column; padding: 1rem 1.1rem .8rem; border: 1px solid var(--c-border); border-radius: var(--radius); background: var(--c-bg); transition: background-color .15s, border-color .15s; }
+.card:hover { background: var(--c-fill); border-color: var(--c-line); }
 .card-h { display: flex; align-items: center; gap: .7rem; }
-.card .ic { flex: none; display: grid; place-items: center; width: 2.4rem; height: 2.4rem; border: 1px solid var(--c-line); border-radius: 50%; color: var(--c-icon); }
+.card .ic { flex: none; display: grid; place-items: center; width: 2.4rem; height: 2.4rem; border: 1px solid var(--c-border); border-radius: 50%; color: var(--c-icon); }
 .card a.n { color: var(--c-strong); font-weight: 700; font-size: 1.1rem; text-decoration: none; }
 .card a.n::after { content: ""; position: absolute; inset: 0; border-radius: var(--radius); }
-.card .p { display: block; color: var(--c-accent); font-size: .8rem; line-height: 1.4; }
+.card .p { display: block; color: var(--c-muted); font-size: .8rem; line-height: 1.4; }
 /* 全站的段落用 text-wrap: pretty。Safari 會重排整段讓每行等長，卡片的簡介每行都提早斷行，
    右邊空出好幾個字，這裡改回一般的換行 */
 .card p { margin: .65rem 0 .6rem; font-size: .92rem; line-height: 1.7; text-wrap: wrap; }
@@ -399,10 +432,12 @@ p { margin: .5rem 0 1rem; }
 .card .tags a:hover { color: var(--c-link); text-decoration: underline; }
 .card .tags a.about { color: var(--c-link); }
 
-/* 線框卡：自架服務，只有線不填色 */
+/* 線框卡：自架服務，中性灰框不填色，滑過時框線變 cyan。手機一欄、平板兩欄、桌機三欄 */
 .svc { display: grid; gap: .75rem; margin: 1rem 0; }
 @media (min-width: 640px) { .svc { grid-template-columns: 1fr 1fr; } }
-.svc article { border: 1px solid var(--c-line); border-radius: var(--radius); padding: .9rem 1rem; }
+@media (min-width: 900px) { .svc { grid-template-columns: repeat(3, 1fr); } }
+.svc article { border: 1px solid var(--c-border); border-radius: var(--radius); padding: .9rem 1rem; }
+.svc article:has(a:hover) { border-color: var(--c-line); }
 .svc h3 { display: flex; align-items: center; gap: .45rem; margin: 0; }
 .svc h3 .i { color: var(--c-icon); }
 .svc h3 a { color: var(--c-strong); }
@@ -453,8 +488,8 @@ p { margin: .5rem 0 1rem; }
 .pulse-regions a { padding: .15rem .75rem; border: 1px solid var(--c-line); border-radius: 999px; font-size: .85rem; text-decoration: none; }
 .pulse-regions a[aria-current] { background: var(--c-solid); border-color: var(--c-solid); color: #fff; }
 .pulse-meta { margin: .25rem 0 0; font-size: .8rem; color: var(--c-muted); }
-.pulse-stale { margin-left: .5rem; padding: 0 .4rem; border: 1px solid var(--c-line); border-radius: 4px; }
-.pulse-empty { padding: 1rem; border: 1px dashed var(--c-line); border-radius: var(--radius); color: var(--c-muted); }
+.pulse-stale { margin-left: .5rem; padding: 0 .4rem; border: 1px solid var(--c-border); border-radius: 4px; }
+.pulse-empty { padding: 1rem; border: 1px dashed var(--c-border-strong); border-radius: var(--radius); color: var(--c-muted); }
 .pulse-note { color: var(--c-muted); font-size: .9rem; }
 
 /* 大數字卡片：數值、跟一個月前的差、近期走勢 */
@@ -464,7 +499,7 @@ p { margin: .5rem 0 1rem; }
 .pulse-stat .k { display: block; font-size: .75rem; color: var(--c-muted); }
 .pulse-stat .v { display: block; white-space: nowrap; font-size: 1.6rem; font-weight: 700; line-height: 1.25; color: var(--c-strong); font-variant-numeric: tabular-nums; }
 .pulse-stat .v small { margin-left: .2rem; font-size: .55em; font-weight: 400; color: var(--c-muted); }
-.pulse-stat .dl { display: block; font-size: .75rem; color: var(--c-accent); font-variant-numeric: tabular-nums; }
+.pulse-stat .dl { display: block; font-size: .75rem; color: var(--c-muted); font-variant-numeric: tabular-nums; }
 .pulse-stat .dl.down, .pulse-stat .dl.flat { color: var(--c-muted); }
 .pulse-stat .dl small { margin-left: .3rem; color: var(--c-muted); font-size: 1em; }
 .pc-spark { display: block; width: 100%; height: 28px; margin-top: .35rem; overflow: visible; }
@@ -655,20 +690,17 @@ svg.pc rect:hover, svg.pc circle:hover { opacity: .7; }
 .not-found + .not-found { border-top: 1px solid var(--c-hair); margin-top: 1.5rem; }
 .not-found h1 { font-size: 1.4rem; }
 
-/* 頁尾 */
-footer { margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--c-hair); font-size: .85rem; color: var(--c-muted); line-height: 1.9; }
+/* 頁尾：整列淡底色，頁面在哪裡結束一眼看得出來。底色用 box-shadow 往兩側延伸到視窗邊緣，
+   clip-path 切掉上下，不會撐出橫向捲軸 */
+footer { margin-top: 3.5rem; padding: 1.5rem 0 2.5rem; background: var(--c-surface); box-shadow: 0 0 0 100vmax var(--c-surface); clip-path: inset(0 -100vmax); font-size: .85rem; color: var(--c-muted); line-height: 1.9; }
 footer .cols { display: grid; gap: .1rem 1.5rem; grid-template-columns: 1fr; }
 @media (min-width: 520px) { footer .cols { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 900px) { footer .cols { grid-template-columns: repeat(3, auto); justify-content: start; gap: .1rem 3rem; } }
 footer .cols a { color: var(--c-muted); white-space: nowrap; }
 footer .cols .i { margin-right: .3rem; }
 footer p { margin: .5rem 0 0; }
 footer .onion { word-break: break-all; font-size: .75rem; margin-top: .75rem; }
 footer .license { font-size: .75rem; }
-
-@media (min-width: 768px) {
-  body { padding-top: 2.5rem; }
-  .sheet { padding: 1.5rem 2.25rem 2rem; }
-}
 
 /* 觀測圖表的出場動畫：長條從基線長出來，折線與面積由左往右畫出，地圖的分級色淡入。
    純 CSS，沒有 JavaScript 也會動，結束之後跟靜態的圖一樣。系統設定要求減少動態效果時不播放 */
@@ -694,7 +726,7 @@ footer .license { font-size: .75rem; }
 .dg-fig-community { max-width: 30rem; }
 .dg { display: block; width: 100%; height: auto; overflow: visible; font-family: var(--font); }
 .dg-link { stroke: var(--topic); stroke-width: 1.5; stroke-dasharray: 4 4; opacity: .7; }
-.dg-hub { fill: var(--c-fill); stroke: var(--c-line); stroke-width: 1; }
+.dg-hub { fill: var(--c-fill); stroke: var(--c-border); stroke-width: 1; }
 .dg-hub-t { fill: var(--c-strong); font-size: 14px; font-weight: 700; }
 .dg-dot { fill: var(--topic); }
 .dg-ic { fill: var(--c-bg); }
@@ -741,7 +773,7 @@ ol.tl { list-style: none; margin: 1.25rem 0 1.5rem; padding: 0; }
 .prose ol.flow { list-style: none; margin: 1.25rem 0 1rem; padding: 0; }
 .flow > li { position: relative; display: grid; grid-template-columns: 2rem 1fr; gap: .75rem; margin: 0; padding: 0 0 1.1rem; }
 .flow > li:not(:last-child)::after { content: ""; position: absolute; left: calc(1rem - 1px); top: 2rem; bottom: 0; width: 2px; background: var(--c-hair); }
-.flow .n { width: 2rem; height: 2rem; border-radius: 50%; border: 1.5px solid var(--c-accent); color: var(--c-accent); display: grid; place-items: center; font-weight: 700; font-size: .9rem; background: var(--c-bg); }
+.flow .n { width: 2rem; height: 2rem; border-radius: 50%; border: 1.5px solid var(--c-border-strong); color: var(--c-strong); display: grid; place-items: center; font-weight: 700; font-size: .9rem; background: var(--c-bg); }
 .flow .ok .n { background: var(--c-solid); border-color: var(--c-solid); color: #fff; }
 .flow .b { display: flex; flex-direction: column; gap: .15rem; padding-top: .2rem; }
 .flow .d { color: var(--c-muted); font-size: .9rem; line-height: 1.6; }
@@ -752,4 +784,42 @@ ol.tl { list-style: none; margin: 1.25rem 0 1.5rem; padding: 0; }
   .flow .b > b, .flow .d { grid-column: 1; }
   .flow .out { grid-column: 2; grid-row: 1 / 3; align-items: flex-end; margin: 0; text-align: right; }
   .flow .if::after { content: " →"; }
+}
+
+/* ==========================================================================
+   版面：兩種頁型
+
+   - 文件頁（文章、指南、活動、動態、觀測資料、季報）：左邊內容欄，右邊固定的「本頁內容」。
+     全站多半是一兩千到八千字、八到十四個小節的長文，側欄讓讀者看得到整頁的結構。
+     內容欄的寬度就是閱讀寬度，段落、標題的細線、表格與圖表都填滿所在的欄，不另外限制
+     文字的寬度，換行的位置才會對齊版面上的邊界
+   - 目錄頁（首頁與各區入口）：整個外框排成格狀
+   手機一律單欄，「本頁內容」收在標題下方。判斷頁型與產生目錄的是 templates/_doc.html.j2
+   與 build.py 的 toc()。目前讀到哪一節不另外標示，那需要 JavaScript
+   ========================================================================== */
+@media (min-width: 1080px) {
+  .doc { display: grid; grid-template-columns: minmax(0, 1fr) var(--toc-w); gap: var(--toc-gap); align-items: start; }
+  .doc:not(.has-toc) .doc-main { grid-column: 1; }
+  .toc { position: sticky; top: 1.5rem; margin-top: 2.5rem; max-height: calc(100vh - 3rem); overflow-y: auto; padding-left: 1rem; border-left: 1px solid var(--c-hair); font-size: .85rem; line-height: 1.5; }
+  .toc-m { display: none; }
+}
+@media (max-width: 1079px) { .toc { display: none; } }
+.toc-h { margin: 0 0 .6rem; color: var(--c-muted); font-size: .8rem; font-weight: 700; letter-spacing: .05em; }
+.toc ol { list-style: none; margin: 0; padding: 0; }
+.toc ol + .toc-h { margin-top: 1.5rem; }
+.toc li { margin: 0 0 .55rem; }
+.toc a { color: var(--c-muted); text-decoration: none; }
+.toc a:hover { color: var(--c-link); text-decoration: underline; }
+/* 社群動態的側欄在目錄下面接其他三篇動態 */
+.toc-posts time { display: block; font-size: .75rem; font-variant-numeric: tabular-nums; }
+.toc-m { margin: 1rem 0 1.25rem; padding: .55rem .9rem; border: 1px solid var(--c-hair); border-radius: var(--radius); font-size: .9rem; }
+.toc-m summary { cursor: pointer; color: var(--c-strong); font-weight: 700; }
+.toc-m ol { margin: .5rem 0 .2rem; padding-left: 1.3rem; }
+.toc-m li { margin: .2rem 0; }
+
+/* 目錄頁與首頁的列表：每格至少 17rem，外框寬度下排成三欄。三大主題這類三項的列表剛好
+   一列，項目多的列表依序往下排 */
+@media (min-width: 900px) {
+  :is(.index, main:has(> .hero)) .prose > .rows { display: grid; grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr)); gap: 0 1.5rem; }
+  :is(.index, main:has(> .hero)) .prose > .rows li { border-top: 1px solid var(--c-hair); }
 }

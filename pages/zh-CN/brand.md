@@ -344,30 +344,48 @@ anoni.net 底下有三个网站，共用同一组 logo 与上方的色票。三�
 
 | 网站 | 页首 | 版面 | 样式的位置 |
 |---|---|---|---|
-| [anoni.net](https://anoni.net/zh-cn/) | 白底，logo 加 `anoni.net` | 整页放在一个细线外框里，只用 cyan 一个色相 | `anoni-net/www` 的 `static/css/site.css` |
+| [anoni.net](https://anoni.net/zh-cn/) | 白底，logo 加 `anoni.net` | 全站对齐同一组左右边界，文档页右侧放本页内容。结构用中性灰阶，cyan 留给交互与识别 | `anoni-net/www` 的 `static/css/site.css` |
 | [anoni.net/docs](docs:) | `--brand-cyan-800` 底、白字 | Material for MkDocs，侧栏用指南分类色 | `anoni-net/docs` 的 `docs/*/stylesheets/extra.css` |
 | [anoni.net/news](https://anoni.net/news/zh-cn/) | `--brand-cyan-900` 底、白字，墨色调 | 自行开发的单栏版面，标题用宋体 | `anoni-net/news` 的 `static/css/news.css` |
 
 页首颜色由浅到深依次是顶层网站、文档站、新闻导读，三者并排时一眼就能分辨。
 
-### 顶层网站的细线
+### 社区首页的配色与版面
 
-顶层网站（首页、关于、参与、项目、服务等社区页面）沿用 2026-10 改版前首页的样式：白底、1px 细线、单一色相。之后新增的页型也照这组规格，不加入色块或第二个色相。
+顶层网站（首页、关于、参与、项目、服务等社区页面）的品牌色只有 cyan，依用途分工。2026-10 以前 cyan 同时用在标题、导言、链接与所有边框，读者分不出哪里可以点、哪里是区块的边界，看久了也累，之后改成下表的分工。
+
+| 用途 | 颜色 | 用在哪里 |
+|---|---|---|
+| 结构 | 中性灰阶 `--n-50` 到 `--n-300` | 分隔线、卡片与截图的边框，提示框、折叠区、代码、表头与页尾的底色 |
+| 层级 | 标题 `#13232a`，正文 `#1d2b31`，次要文字 `#52646b` | 标题、小标题、导言 |
+| 交互 | 链接 `--brand-cyan-800`，当前位置 `--brand-cyan-600`，焦点与悬停 `--brand-cyan-500` | 链接、线框按钮、导航栏的当前位置、键盘焦点、悬停的卡片 |
+| 识别 | cyan tonal 的 logo 与 `--brand-cyan-700` | 页首与首页主视觉 |
+| 分类与数据 | 结构性次色、公告 tag、cyan 九阶 | 三大主题的图标与议程标签、动态标签、观测图表 |
+
+中性灰阶从 `--neutral-muted`（`#546e7a`）那一系延伸，带一点蓝，跟 cyan 放在一起不显得脏。区块之间靠淡底色区分，少用线框。
+
+| Token | 浅色模式 | 深色模式 | 用途 |
+|---|---|---|---|
+| `--n-50` | <span class="color-swatch" style="background:#f3f6f7"></span>`#f3f6f7` | <span class="color-swatch" style="background:#082b3a"></span>`#082b3a` | 提示框、折叠区、代码、表头与页尾的底色 |
+| `--n-100` | <span class="color-swatch" style="background:#e3e9ec"></span>`#e3e9ec` | <span class="color-swatch" style="background:#133847"></span>`#133847` | 分隔线 |
+| `--n-200` | <span class="color-swatch" style="background:#cdd6da"></span>`#cdd6da` | <span class="color-swatch" style="background:#234757"></span>`#234757` | 卡片与截图的边框 |
+| `--n-300` | <span class="color-swatch" style="background:#a7b5bb"></span>`#a7b5bb` | <span class="color-swatch" style="background:#3c6070"></span>`#3c6070` | 待办清单的勾选框、步骤的编号圈 |
 
 | 元素 | 规格 |
 |---|---|
-| 外框 | 1px `--brand-cyan-500` 线，外加 4px `--brand-cyan-50` 外光晕，圆角 8px，最宽 42rem |
-| 分隔线 | 1px `--brand-cyan-100`，用在小标题右侧延伸的线、列表的上下线与页尾 |
-| 填色 | 只有 `--brand-cyan-50` 一种，只给文档与新闻导读两个项目的卡片 |
-| 悬停卡片 | 外围加一圈 3px、25% 透明度的 `--brand-cyan-500` |
+| 外框 | 没有框线，页首、内容与页尾在每一页对齐同一组左右边界，最宽 58.5rem |
+| 文档页 | 文章、指南、活动、动态与观测数据，内容栏 42rem 加右侧 13rem 的「本页内容」。段落、表格与图表填满内容栏，文字不另外限制宽度 |
+| 目录页 | 首页与各区入口用满整个外框，卡片与列表在桌面排成两到三栏 |
+| 页首 | 桌面排成一行，下方一条 `--n-100` 细线 |
+| 页尾 | 整行 `--n-50` 底色 |
+| 手机 | 一律单栏，「本页内容」收在标题下方 |
+| 悬停卡片 | 框线换成 `--brand-cyan-500` |
 | 键盘焦点 | 2px `--brand-cyan-500` 外框，与元素相距 2px |
-| 文字 | 正文 `#1d2b31`，次要文字 `#52646b`，链接 `--brand-cyan-800` |
-| 深色模式 | 底色 `#00202d`，线改用 `--brand-cyan-600`，链接改用 `--brand-cyan-200` |
+| 深色模式 | 底色 `#00202d`，链接 `--brand-cyan-200`，当前位置与焦点 `--brand-cyan-400`，灰阶用上表的深色模式 |
 
 ### 只在文档站用的颜色
 
 - **指南分类色**（`--guide-*`）是文档站侧栏的导航识别色，只在文档站出现
-- **结构性次色**（`--cat-*`）的绿、紫、橙也限定在文档站。顶层网站要维持单色，三大主题在顶层用圆形线框图标区分，不套颜色
 - **Material 的界面色**（亮色模式页首改用 `--brand-cyan-800` 那组）只跟 Material 主题有关
 
 新闻导读与顶层网站需要 accent 时照上方的「配色使用守则」，紧急红只用在紧急场景。

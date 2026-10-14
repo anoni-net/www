@@ -1,10 +1,32 @@
 {% extends "_layout.html.j2" %}
+{% from "_doc.html.j2" import toc_mobile, toc_list with context %}
+{# 社群動態一律有側欄：有小節時先列「本頁內容」，下面接其他三篇動態。沒有小節的短文
+   也有側欄，讀完有地方接著看，版面跟其他文件頁一致 #}
+{% set items = body|toc %}
+{% set others = updates|rejectattr('href', 'equalto', page.path)|list %}
 {% block main %}
+<div class="doc has-toc">
+<div class="doc-main">
 <p class="crumb"><a href="{{ page_url('updates') }}">{{ t.nav_updates }}</a>{{ icon('chevron-right') }}</p>
 <h1>{{ page.title }}</h1>
 <p class="post-date"><time datetime="{{ page.date.isoformat() }}">{{ page.date.strftime('%Y/%m/%d') }}</time></p>
+{{ toc_mobile(items) }}
 <div class="prose">
 {{ body }}
 </div>
 <p><a class="more" href="{{ page_url('updates') }}">{{ t.all_updates }} {{ icon('arrow-right') }}</a></p>
+</div>
+<aside class="toc" aria-label="{{ t.toc_label if items|length >= 2 else t.latest_updates }}">
+{% if items|length >= 2 %}
+  <p class="toc-h">{{ t.toc_label }}</p>
+{{ toc_list(items) }}
+{% endif %}
+  <p class="toc-h">{{ t.latest_updates }}</p>
+  <ol class="toc-posts">
+{% for item in others[:3] %}
+    <li><a href="{{ item.href }}"><time datetime="{{ item.date.isoformat() }}">{{ item.date.strftime('%Y/%m/%d') }}</time>{{ item.title }}</a></li>
+{% endfor %}
+  </ol>
+</aside>
+</div>
 {% endblock %}

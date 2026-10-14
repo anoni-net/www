@@ -344,30 +344,48 @@ Three sites live under anoni.net. They share the logo and the tokens above, and 
 
 | Site | Header | Layout | Where the styles live |
 |---|---|---|---|
-| [anoni.net](https://anoni.net/en/) | White, logo plus `anoni.net` | Each page sits inside one thin-line frame, cyan as the only hue | `static/css/site.css` in `anoni-net/www` |
+| [anoni.net](https://anoni.net/en/) | White, logo plus `anoni.net` | Every page aligns to the same left and right edges, with an "On this page" column on document pages. Structure in neutral greys, cyan kept for interaction and identity | `static/css/site.css` in `anoni-net/www` |
 | [anoni.net/docs](docs:) | `--brand-cyan-800` with white text | Material for MkDocs, sidebar in the guide category colours | `docs/*/stylesheets/extra.css` in `anoni-net/docs` |
 | [anoni.net/news](https://anoni.net/news/en/) | `--brand-cyan-900` with white text, an ink tone | A hand-written single-column layout with serif headings | `static/css/news.css` in `anoni-net/news` |
 
 From light to dark the headers run top level, docs, news, so the three are easy to tell apart side by side.
 
-### Thin lines on the top-level site
+### Colour and layout of the community site
 
-The top-level site (home, about, join, projects, services and the other community pages) keeps the look of the home page as it was before the October 2026 redesign: white background, 1px lines and a single hue. New page types follow this spec and don't bring in filled blocks or a second hue.
+The top-level site (home, about, join, projects, services and the other community pages) has cyan as its only brand hue, with each use given its own role. Until October 2026 cyan did everything at once, from headings and leads to links and every border, so readers couldn't tell what was clickable or where one block ended, and long pages were tiring to read. The roles are now split as below.
+
+| Role | Colour | Where |
+|---|---|---|
+| Structure | Neutral greys `--n-50` to `--n-300` | Dividers, borders on cards and screenshots, and the backgrounds of admonitions, collapsible blocks, code, table headers and the footer |
+| Hierarchy | Headings `#13232a`, body `#1d2b31`, secondary `#52646b` | Headings, section headings, leads |
+| Interaction | Links `--brand-cyan-800`, current location `--brand-cyan-600`, focus and hover `--brand-cyan-500` | Links, outlined buttons, the current item in the navigation, keyboard focus, hovered cards |
+| Identity | The cyan tonal logo and `--brand-cyan-700` | Header and the home page hero |
+| Categories and data | Structural secondaries, update tags, the nine cyan steps | Track icons and session tags, update tags, measurement charts |
+
+The greys extend from `--neutral-muted` (`#546e7a`) and carry a little blue, so they sit next to cyan without looking muddy. Blocks are told apart by a light background rather than outlines.
+
+| Token | Light mode | Dark mode | Use |
+|---|---|---|---|
+| `--n-50` | <span class="color-swatch" style="background:#f3f6f7"></span>`#f3f6f7` | <span class="color-swatch" style="background:#082b3a"></span>`#082b3a` | Backgrounds of admonitions, collapsible blocks, code, table headers and the footer |
+| `--n-100` | <span class="color-swatch" style="background:#e3e9ec"></span>`#e3e9ec` | <span class="color-swatch" style="background:#133847"></span>`#133847` | Dividers |
+| `--n-200` | <span class="color-swatch" style="background:#cdd6da"></span>`#cdd6da` | <span class="color-swatch" style="background:#234757"></span>`#234757` | Borders on cards and screenshots |
+| `--n-300` | <span class="color-swatch" style="background:#a7b5bb"></span>`#a7b5bb` | <span class="color-swatch" style="background:#3c6070"></span>`#3c6070` | Task-list checkboxes, step number circles |
 
 | Element | Spec |
 |---|---|
-| Frame | 1px `--brand-cyan-500` line with a 4px `--brand-cyan-50` halo, 8px corners, at most 42rem wide |
-| Dividers | 1px `--brand-cyan-100`, for the line trailing each section heading, list rows and the footer |
-| Fill | Only `--brand-cyan-50`, and only on the cards for the two content projects, Docs and News |
-| Card hover | A 3px ring of `--brand-cyan-500` at 25% opacity |
+| Frame | No outline. Header, content and footer align to the same left and right edges on every page, at most 58.5rem wide |
+| Document pages | Articles, guides, events, updates and measurement pages: a 42rem content column plus a 13rem "On this page" column. Paragraphs, tables and charts fill the content column, with no separate limit on text width |
+| Index pages | The home page and the section landing pages use the full width, with cards and lists in two or three columns on desktop |
+| Header | One row on desktop, with a `--n-100` line underneath |
+| Footer | A full-width `--n-50` band |
+| Mobile | Always one column, with "On this page" folded under the title |
+| Card hover | The border turns `--brand-cyan-500` |
 | Keyboard focus | 2px `--brand-cyan-500` outline, 2px from the element |
-| Text | Body `#1d2b31`, secondary `#52646b`, links `--brand-cyan-800` |
-| Dark mode | Background `#00202d`, lines in `--brand-cyan-600`, links in `--brand-cyan-200` |
+| Dark mode | Background `#00202d`, links `--brand-cyan-200`, current location and focus `--brand-cyan-400`, greys from the dark-mode column above |
 
 ### Colours used only on the docs site
 
 - **Guide category colours** (`--guide-*`) identify sections in the docs sidebar and appear nowhere else
-- **Structural secondaries** (`--cat-*`, the green, purple and orange) are also limited to the docs site. The top-level site stays single-hue and marks the three tracks with outlined circular icons instead of colour
 - **Material interface colours** (the set that moves the light-mode header to `--brand-cyan-800`) only concern the Material theme
 
 When News or the top-level site needs an accent, follow "Using the colours" above, and keep the emergency red for emergencies.
