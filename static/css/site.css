@@ -326,6 +326,13 @@ p { margin: .5rem 0 1rem; }
 .prose td:has(.tag--relay) { --row-c: var(--topic-relay); }
 .prose td:has(.tag--payments) { --row-c: var(--topic-payments); }
 .prose td:has(.tag--basic, .tag--privacy, .tag--relay, .tag--payments) :is(strong, .i:has(+ strong)) { color: var(--row-c); }
+/* 桌機的議程表（時間、議程、講者三欄）。表格預設 overflow-wrap: anywhere，議程欄
+   字多，時間被壓成「09:30- / 10:00 / 30 分 / 鐘」、講者從 anoni.n|et 中間斷開。
+   時間不換行，講者給固定寬度並只在詞與詞之間換行。手機版是一列一塊，不受影響 */
+@media (min-width: 560px) {
+  .prose table.stack:has(td .tag) :is(th, td):first-child { white-space: nowrap; width: 1%; }
+  .prose table.stack:has(td .tag) :is(th, td):last-child { width: 8.5em; overflow-wrap: normal; }
+}
 .prose .i { color: var(--c-icon); }
 
 /* 首頁主視覺 */
