@@ -7,6 +7,8 @@
 #
 # tools 的 name 用讀者看得懂的名稱，跟頁面標題一致。code 是專案代號（repo、API、季報裡看得到的名字），
 # 縮小放在名稱旁邊，讀者在其他地方看到代號時對得起來。
+#
+# cat 是圖示圈的分類色，八類的定義見 README 的「圖示的分類色」。
 
 # 內容專案卡片列出幾篇最新的文章，0 是不列。2026-10-12 先採用不列的版本，
 # 設成 3 就會在建置時讀兩個網站的 RSS（latest.py）
@@ -14,6 +16,7 @@ content_latest = 0
 
 [[content]]
 icon = "folder-open-outline"
+cat = "privacy"
 product = "docs"
 display = "anoni.net/docs"
 about = "about/"
@@ -24,6 +27,7 @@ summary.en = "Guides to anonymity networks and privacy, from concepts and tools 
 
 [[content]]
 icon = "newspaper-variant-outline"
+cat = "content"
 product = "news"
 display = "anoni.net/news"
 about = "about/"
@@ -34,6 +38,7 @@ summary.en = "News on privacy, anonymity networks and Internet censorship, read 
 
 [[tools]]
 icon = "access-point-network"
+cat = "observe"
 name = { zh-TW = "AI 助理的 Tor 節點查詢", zh-CN = "AI 助手的 Tor 节点查询", en = "Tor relay lookup for AI assistants" }
 code = "onionoo-mcp"
 page = "projects/onionoo-mcp"
@@ -43,6 +48,7 @@ summary.en = "Paste one URL into a cloud AI assistant and ask how many relays a 
 
 [[tools]]
 icon = "chart-line"
+cat = "observe"
 name = { zh-TW = "Tor 中繼節點觀測", zh-CN = "Tor 中继节点观测", en = "Tor Relay Watch" }
 code = "Pulse"
 page = "projects/pulse"
@@ -52,6 +58,7 @@ summary.en = "Collects Tor relay data for Taiwan and fourteen other regions ever
 
 [[tools]]
 icon = "map-outline"
+cat = "observe"
 name = { zh-TW = "OONI 觀測涵蓋率", zh-CN = "OONI 观测覆盖率", en = "OONI Coverage" }
 code = "ASN Coverage"
 page = "projects/asn-coverage"
@@ -61,6 +68,7 @@ summary.en = "Sets OONI measurements against each network's user count to find t
 
 [[tools]]
 icon = "calendar-text"
+cat = "observe"
 name = { zh-TW = "觀測季報", zh-CN = "观测季报", en = "Quarterly reports" }
 page = "projects/reports"
 summary.zh-TW = "每季整理一次 Tor 中繼節點觀測與 OONI 觀測涵蓋率的數字，比較季初與季末、本季與上一季，寫下社群的解讀。"

@@ -326,7 +326,7 @@ The brand green and orange fall short of 4.5:1 contrast on white, which is not e
 
 **Structural secondaries (green, purple, orange)**
 
-- Card icon colours for the three tracks
+- Card icon colours for the three tracks, extended to eight categories on the community site (see Icon category colours)
 - Category tags and section markers
 - Not for general calls to action or decoration
 
@@ -360,7 +360,7 @@ The top-level site (home, about, join, projects, services and the other communit
 | Hierarchy | Headings `#13232a`, body `#1d2b31`, secondary `#52646b` | Headings, section headings, leads |
 | Interaction | Links `--brand-cyan-800`, current location `--brand-cyan-600`, focus and hover `--brand-cyan-500` | Links, outlined buttons, the current item in the navigation, keyboard focus, hovered cards |
 | Identity | The cyan tonal logo and `--brand-cyan-700` | Header and the home page hero |
-| Categories and data | Structural secondaries, update tags, the nine cyan steps | Track icons and session tags, update tags, measurement charts |
+| Categories and data | Structural secondaries, icon category colours, update tags, the nine cyan steps | Icon rings and session tags, update tags, measurement charts |
 
 The greys extend from `--neutral-muted` (`#546e7a`) and carry a little blue, so they sit next to cyan without looking muddy. Blocks are told apart by a light background rather than outlines.
 
@@ -382,6 +382,23 @@ The greys extend from `--neutral-muted` (`#546e7a`) and carry a little blue, so 
 | Card hover | The border turns `--brand-cyan-500` |
 | Keyboard focus | 2px `--brand-cyan-500` outline, 2px from the element |
 | Dark mode | Background `#00202d`, links `--brand-cyan-200`, current location and focus `--brand-cyan-400`, greys from the dark-mode column above |
+
+### Icon category colours
+
+Lists and cards on the home, Take part, About and Projects pages start with a round icon, and the colour of its ring says which kind of work the item belongs to. Until October 2026 only the three tracks had colours and everything else was grey, which told readers nothing, so the set was extended to eight categories. The first three reuse the structural secondaries of the three tracks. The other five were derived in OKLCH at a similar lightness and chroma, and all eight reach at least 4.5:1 against both the light and the dark background. These colours are used only on the community site; the docs site keeps Material's palette.
+
+| Token | Category | Light mode | Dark mode | Used for |
+|---|---|---|---|---|
+| `--cat-privacy` | Privacy | <span class="color-swatch" style="background:#2e7d32"></span>`#2e7d32` | <span class="color-swatch" style="background:#81c784"></span>`#81c784` | Personal privacy guidance, the docs site |
+| `--cat-relay` | Tor and relays | <span class="color-swatch" style="background:#7b1fa2"></span>`#7b1fa2` | <span class="color-swatch" style="background:#ce93d8"></span>`#ce93d8` | Tor relays on campus, the guides to running a relay, WebTunnel bridge and .onion service, taking part in the Tor Project |
+| `--cat-payments` | Anonymous payments | <span class="color-swatch" style="background:#c25400"></span>`#c25400` | <span class="color-swatch" style="background:#ffa040"></span>`#ffa040` | Anonymous payments |
+| `--cat-observe` | Network measurement | <span class="color-swatch" style="background:#026a9d"></span>`#026a9d` | <span class="color-swatch" style="background:#69c1fc"></span>`#69c1fc` | Tor Relay Watch, OONI Coverage, quarterly reports, Tor relay lookup for AI assistants, maintaining the OONI test list |
+| `--cat-content` | Content and writing | <span class="color-swatch" style="background:#02736e"></span>`#02736e` | <span class="color-swatch" style="background:#3ed0c8"></span>`#3ed0c8` | News, the writing style guide, writing and translating for the docs site |
+| `--cat-dev` | Development | <span class="color-swatch" style="background:#4d57b7"></span>`#4d57b7` | <span class="color-swatch" style="background:#a3b2fe"></span>`#a3b2fe` | Development environment setup, the IPFS pin node |
+| `--cat-secure` | Sensitive material and safety | <span class="color-swatch" style="background:#a53453"></span>`#a53453` | <span class="color-swatch" style="background:#f996a9"></span>`#f996a9` | Sending us sensitive material |
+| `--cat-community` | Community and governance | <span class="color-swatch" style="background:#786101"></span>`#786101` | <span class="color-swatch" style="background:#d3b555"></span>`#d3b555` | Governance charter, working with organizations, brand assets |
+
+Adding a `cat-<category>` class to an icon, a whole list or a card applies the colour, and data files set it with a `cat` field. Items that fit no category get no class and stay neutral grey. Colour only supports the label: every item still needs its icon and title, and nothing should be told apart by colour alone.
 
 ### Colours used only on the docs site
 

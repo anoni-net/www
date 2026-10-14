@@ -6,7 +6,7 @@
 {% set items = latest(p.product, data.projects.content_latest) if data.projects.content_latest else [] %}
   <div class="card">
     <div class="card-h">
-      <span class="ic">{{ icon(p.icon) }}</span>
+      <span class="ic{% if p.cat is defined %} cat-{{ p.cat }}{% endif %}">{{ icon(p.icon) }}</span>
       <span><a class="n" href="{{ docs_url() if p.product == 'docs' else news_url() }}">{{ pick(p.name) }}</a><span class="p">{{ p.display }}</span></span>
     </div>
     <p>{{ pick(p.summary) }}</p>
