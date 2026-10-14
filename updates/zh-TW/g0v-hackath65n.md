@@ -19,21 +19,21 @@ kind: event
 
 2/22 的黑客松活動有三個專案目標要推進：
 
-1. [OONI 網站檢測清單更新](docs:taiwan/ooni-checklist/)
-2. [ASNs 自治網路觀測資料分析](docs:taiwan/ooni-asn-coverage/)
+1. [OONI 網站檢測清單更新](/join/ooni-test-list/)
+2. [ASNs 自治網路觀測資料分析](/projects/asn-coverage/asn-diversity/)
 3. [中文化與詞彙校閱](docs:community/i18n/)
 
 ### OONI 網站檢測清單更新
 
 名單自從 2017 年後就已經很久沒有更新了。除了繼續更新名單外，在這次的黑客松活動中，我們也計畫「建立和新增」需列入觀察的網站網址。關於收錄標準、如何自動化整理等問題，我們需要大家在當天一起動腦思考與協助！
 
-[<i data-icon="arrow-right-circle-outline"></i> 瞭解此專案的背景](docs:taiwan/ooni-checklist/){ .btn }
+[<i data-icon="arrow-right-circle-outline"></i> 瞭解此專案的背景](/join/ooni-test-list/){ .btn }
 
 ### ASNs 自治網路觀測資料分析
 
 針對 OONI 觀測資料多樣性不足的問題，我們要如何隨時監控資料的品質呢？是否可以透過某種量化指標或數字來快速掌握狀況？要如何將其實作並建立起來呢？在這次活動，我們將討論資料流架構、自動化分析等相關問題。最後，我們也需要思考如何吸引更多人參與 OONI 觀察資料的蒐集。
 
-[<i data-icon="arrow-right-circle-outline"></i> 瞭解此專案目前的進度](docs:taiwan/ooni-asn-coverage/){ .btn }
+[<i data-icon="arrow-right-circle-outline"></i> 瞭解此專案目前的進度](/projects/asn-coverage/asn-diversity/){ .btn }
 
 ### 中文化與詞彙校閱
 
@@ -47,6 +47,6 @@ kind: event
 
 - [<i data-icon="fontawesome-regular-circle-question"></i> 什麼是 OONI？](docs:tools/what-is-ooni/)
 - [<i data-icon="fontawesome-regular-circle-question"></i> 網路自由為什麼重要？](docs:basics/internet-freedom/)
-- [<i data-icon="octicons-mark-github-24"></i> 專案研究預先準備](docs:community/setup-repo/)
+- [<i data-icon="octicons-mark-github-24"></i> 專案研究預先準備](/join/dev-setup/)
 
 </div>

@@ -153,7 +153,7 @@ OONI's public data is not heavily polluted by malicious submissions. The anomali
 - [OONI Coverage](/projects/asn-coverage/)
 - [OONI Blocking Verdicts](/projects/asn-coverage/ooni-blocking-determination/)
 - [What is OONI](docs:tools/what-is-ooni/)
-- [ASN observation data analysis](docs:regional/ooni-asn-coverage/)
+- [ASN Diversity and Gaps in Taiwan's OONI Coverage](/projects/asn-coverage/asn-diversity/)
 
 [^1]: [From Heuristics to Anonymous Credentials: Assessing OONI's Approach to Bad Measurements, OONI 2026-07-06](https://ooni.org/post/2026-faulty-measurements/)
 [^2]: [Requirements for OONI's anonymous credentials, OONI](https://ooni.org/post/2025-requirements-for-oonis-anonymous-credentials/)

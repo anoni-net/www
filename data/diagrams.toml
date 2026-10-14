@@ -60,7 +60,7 @@ label = { zh-TW = "社群的起點與重要紀錄", zh-CN = "社区的起点与�
 [[history.items]]
 when = "2023"
 kind = "origin"
-docs = "taiwan/ooni-asn-coverage/"
+page = "projects/asn-coverage/asn-diversity"
 title = { zh-TW = "OONI 的 ASN 涵蓋率調查", zh-CN = "OONI 的 ASN 覆盖率调查", en = "OONI coverage of Taiwan's networks" }
 desc = { zh-TW = "調查台灣各 ASN 在 OONI 資料庫裡的觀測是否完整，社群從這裡開始。", zh-CN = "调查台湾各 ASN 在 OONI 数据库里的观测是否完整，社区从这里开始。", en = "A study of how well OONI's data covers each of Taiwan's networks (ASNs). The community grew from here." }
 

@@ -3,9 +3,9 @@ title: ASN Observation Data Retrieval and Analysis
 description: Setup and use of the OONI Coverage command-line tool, covering OONI's three data sources, the S3 path layout, CSV output and the coverage formula.
 ---
 
-[OONI Coverage](/projects/asn-coverage/) (ASN Coverage) has a command-line tool, [`anoni-net/asn-coverage`](https://github.com/anoni-net/asn-coverage), that pulls public data from OONI (Open Observatory of Network Interference) and computes the observation coverage of a region's autonomous system numbers (ASNs). This page is the technical companion to [ASN observation data analysis](docs:regional/ooni-asn-coverage/), with the setup and usage of the tool.
+[OONI Coverage](/projects/asn-coverage/) (ASN Coverage) has a command-line tool, [`anoni-net/asn-coverage`](https://github.com/anoni-net/asn-coverage), that pulls public data from OONI (Open Observatory of Network Interference) and computes the observation coverage of a region's autonomous system numbers (ASNs). This page is the technical companion to [ASN Diversity and Gaps in Taiwan's OONI Coverage](/projects/asn-coverage/asn-diversity/), with the setup and usage of the tool.
 
-Before starting, set up a development environment following [Development environment setup](docs:community/setup-repo/).
+Before starting, set up a development environment following [Development Environment Setup](/join/dev-setup/).
 
 !!! tip "Working directory"
 
@@ -153,13 +153,13 @@ With both numbers in hand:
 coverage = distinct ASNs appearing in observation data ÷ total ASNs registered to the region
 ```
 
-In the 2023-12 report cited in [ASN observation data analysis](docs:regional/ooni-asn-coverage/), Taiwan had roughly 437 ASNs at the time, and the observation data covered 7.32% of them as distinct ASNs. You can rerun the same formula over a recent range to see whether coverage has improved.
+In the community's December 2023 analysis (see [ASN Diversity and Gaps in Taiwan's OONI Coverage](/projects/asn-coverage/asn-diversity/)), Taiwan had roughly 437 ASNs at the time, and the observation data covered 7.32% of them as distinct ASNs. You can rerun the same formula over a recent range to see whether coverage has improved.
 
 ## Related reading
 
 - [The Structure of an OONI Measurement](/projects/asn-coverage/ooni-data-format/): the fields in a single measurement and how to read them
 - [OONI Blocking Verdicts](/projects/asn-coverage/ooni-blocking-determination/): what `blocking` and the other verdict fields mean
 - [OONI Nettest Quick Reference](/projects/asn-coverage/ooni-nettests-map/): what each nettest measures
-- [ASN observation data analysis](docs:regional/ooni-asn-coverage/): the coverage analysis behind this page, citing the report used in the worked example
-- [OONI Website Testing List](docs:regional/ooni-checklist/): how the test list that OONI Probe measures against is maintained
-- [Development environment setup](docs:community/setup-repo/): the tools needed before contributing to anoni.net's repositories
+- [ASN Diversity and Gaps in Taiwan's OONI Coverage](/projects/asn-coverage/asn-diversity/): the coverage analysis behind this page, citing the report used in the worked example
+- [Maintaining the OONI Test List](/join/ooni-test-list/): how the test list that OONI Probe measures against is maintained
+- [Development Environment Setup](/join/dev-setup/): the tools needed before contributing to anoni.net's repositories

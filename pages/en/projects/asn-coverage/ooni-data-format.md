@@ -162,5 +162,5 @@ The full upstream index is at [ooni/spec](https://github.com/ooni/spec), where [
 - [OONI Blocking Verdicts](/projects/asn-coverage/ooni-blocking-determination/): how the verdict fields are computed, and why a value in `blocking` does not confirm a block
 - [OONI Nettest Quick Reference](/projects/asn-coverage/ooni-nettests-map/): the nettests in ooni/spec and their upstream specifications
 - [ASN Observation Data Retrieval and Analysis](/projects/asn-coverage/howto/): pulling measurements in bulk from the public API and the AWS S3 public dataset
-- [ASN observation data analysis](docs:regional/ooni-asn-coverage/): OONI coverage across the ASNs in Taiwan
-- [OONI Website Testing List](docs:regional/ooni-checklist/): how the website test list that OONI Probe uses in Taiwan is maintained
+- [ASN Diversity and Gaps in Taiwan's OONI Coverage](/projects/asn-coverage/asn-diversity/): OONI coverage across the ASNs in Taiwan
+- [Maintaining the OONI Test List](/join/ooni-test-list/): how the website test list that OONI Probe uses in Taiwan is maintained

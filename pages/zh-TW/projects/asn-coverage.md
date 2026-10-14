@@ -41,12 +41,13 @@ OONI 的網路審查測量來自志工在自己的網路上執行 OONI Probe。�
 
 - 安裝 [OONI Probe](https://ooni.org/install/)，在自己的網路上執行測試，手機與電腦都可以。行動網路與家用寬頻通常是不同的 ASN，兩邊都測更好
 - 社群維運的 OONI Run 連結 `10328` 點一次就完成設定，安裝前的風險前提與清單內容見 [OONI Run v2 操作說明](docs:tools/ooni-run-v2/)
-- [ASN 自治網路觀測資料分析](docs:taiwan/ooni-asn-coverage/)：為什麼要關注網路的多樣性，以及如何解讀單筆測量
+- [OONI 網站檢測清單的維護](/join/ooni-test-list/)：測哪些網站由這份清單決定，台灣的 tw.csv 歡迎一起整理
 - [ASN Coverage](https://github.com/anoni-net/asn-coverage)：下載原始測量、分析網路類型與封鎖方式的命令列工具
 
 ## 讀懂觀測資料
 
 <ul class="rows">
+  <li><a class="row" href="/projects/asn-coverage/asn-diversity/"><span class="ic">ICON:access-point-network</span><span class="b"><span class="t">ASN 多樣性與台灣的觀測缺口</span><span class="d">台灣的測量集中在哪幾個網路、2023 與 2026 的數字，以及單筆測量的讀法。</span></span><span class="go">ICON:arrow-right</span></a></li>
   <li><a class="row" href="/projects/asn-coverage/ooni-data-format/"><span class="ic">ICON:code-json</span><span class="b"><span class="t">OONI 測量資料的結構</span><span class="d">一筆測量由哪些欄位組成，如何從中讀出在哪裡測、測出什麼結果。</span></span><span class="go">ICON:arrow-right</span></a></li>
   <li><a class="row" href="/projects/asn-coverage/ooni-blocking-determination/"><span class="ic">ICON:shield-search</span><span class="b"><span class="t">OONI 的封鎖判定方式</span><span class="d">網路連線測試的四種判定各自對應的證據，以及判定有值不等於確認封鎖的原因。</span></span><span class="go">ICON:arrow-right</span></a></li>
   <li><a class="row" href="/projects/asn-coverage/ooni-nettests-map/"><span class="ic">ICON:table-search</span><span class="b"><span class="t">OONI 測項速查表</span><span class="d">41 個測項各測什麼、哪些還在產出資料、臺灣實際測到哪幾個。</span></span><span class="go">ICON:arrow-right</span></a></li>

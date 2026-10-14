@@ -163,5 +163,5 @@ curl -s "https://api.ooni.org/api/v1/raw_measurement?measurement_uid=<measuremen
 - [OONI 测项速查表](/projects/asn-coverage/ooni-nettests-map/)：ooni/spec 收录的各个测项与对应的上游规范
 - [什么是 OONI](docs:tools/what-is-ooni/)：OONI 的工具与数据集，以及四种干预手法的概念说明
 - [ASN 观测数据的提取与分析](/projects/asn-coverage/howto/)：从公开 API 与 AWS S3 公开数据集批量提取测量数据的做法
-- [ASN 自治网络观测数据分析](docs:taiwan/ooni-asn-coverage/)：台湾各 ASN 的 OONI 观测覆盖率分析
-- [OONI 网站检测清单](docs:taiwan/ooni-checklist/)：OONI Probe 在台湾使用的网站检测清单与维护方式
+- [ASN 多样性与台湾的观测缺口](/projects/asn-coverage/asn-diversity/)：台湾各 ASN 的 OONI 观测覆盖率分析
+- [OONI 网站检测清单的维护](/join/ooni-test-list/)：OONI Probe 在台湾使用的网站检测清单与维护方式

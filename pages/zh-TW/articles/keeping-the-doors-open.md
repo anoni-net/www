@@ -64,7 +64,7 @@ Tor 網路仰賴願意替它維運基礎設施的個人與組織。出口節點�
 
 Unredacted 引用的那段使用者留言格外少見，身處審查環境的人多半沒有管道，也難以安全地對外發聲。台灣的網路環境相對自由，沒有防火長城，不要求 VPN 登記，ISP 也沒有接到國家的審查命令。正因如此，台灣有條件替被封鎖的地區架設 Tor 中繼與橋接，分擔一部分抗審查基礎設施的工作。
 
-anoni.net 社群透過 [Tor 中繼節點觀測](/projects/pulse/)追蹤台灣 Tor 中繼節點的數量與分布。截至 2026-05-31，Onionoo（Tor 官方的中繼資料查詢服務）的資料裡，位在台灣、正在運作的中繼節點有 12 個，其中帶 Exit 旗標的只有 3 個。Unredacted 一個組織就執行 123 個出口節點，30 天承載近 300 TiB 流量，台灣全國的出口節點數量還不到他們的 3%。最新的數字見 [Tor 中繼節點觀測](/projects/pulse/)，頁面上的資料持續更新。台灣各 ASN 的 OONI 觀測涵蓋率另見 [ASN 自治網路觀測資料分析](docs:taiwan/ooni-asn-coverage/)。
+anoni.net 社群透過 [Tor 中繼節點觀測](/projects/pulse/)追蹤台灣 Tor 中繼節點的數量與分布。截至 2026-05-31，Onionoo（Tor 官方的中繼資料查詢服務）的資料裡，位在台灣、正在運作的中繼節點有 12 個，其中帶 Exit 旗標的只有 3 個。Unredacted 一個組織就執行 123 個出口節點，30 天承載近 300 TiB 流量，台灣全國的出口節點數量還不到他們的 3%。最新的數字見 [Tor 中繼節點觀測](/projects/pulse/)，頁面上的資料持續更新。台灣各 ASN 的 OONI 觀測涵蓋率另見 [ASN 多樣性與台灣的觀測缺口](/projects/asn-coverage/asn-diversity/)。
 
 正體中文的抗審查資源相對稀缺，anoni.net 的工作之一就是補齊中文資源，包括[什麼是 Tor](docs:tools/what-is-tor/)、[Tor Snowflake 橋接點](docs:tools/tor-snowflake/)、[什麼是 OONI](docs:tools/what-is-ooni/) 等基礎文件，方向與 Unredacted Education 相同。
 

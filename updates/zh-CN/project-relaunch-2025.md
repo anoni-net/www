@@ -15,7 +15,7 @@ anoni.net Docs 计划目前包含三个子项目，涵盖数据分析、检测�
 
 延续 2023、2024 所研究的「[ASNs 自治网络观察数据涵盖率](https://ocf.tw/p/ooni/report/202312.html)」，报告将持续针对 ASNs 自治网络系统与网络审查、干预等因素寻找其关联性。另外也持续研究其他区域的 ASNs 覆盖状况，是否会因为数据的多样性不足而影响 OONI 观测数据的解释能力。预计也将建立数据流程基础架构（data pipeline architecture），在研究过程中的数据收集与整理，通过程序自动化完成，能够与 OONI Data 实现即时呈现结果的可能。
 
-[<i data-icon="arrow-right-circle-outline"></i> 了解更多此项目的说明](docs:taiwan/ooni-asn-coverage/){ .btn }
+[<i data-icon="arrow-right-circle-outline"></i> 了解更多此项目的说明](/projects/asn-coverage/asn-diversity/){ .btn }
 
 ??? note "数据流程基础架构（Data Pipeline Architecture）"
 
@@ -28,7 +28,7 @@ anoni.net Docs 计划目前包含三个子项目，涵盖数据分析、检测�
 
 OONI Probe 网站检测来自于各地区提供的名单，而台湾（`tw.csv`）的部分自从最后一次更新（2017）后，已有很长一段时间没有调整与检视，名单上的网站会影响到观测程序的结果，因此需要花时间修正调整目前的名单，后续再进行 2025 可以收录观察的网站项目。
 
-[<i data-icon="arrow-right-circle-outline"></i> 了解更多此项目的说明](docs:taiwan/ooni-checklist/){ .btn }
+[<i data-icon="arrow-right-circle-outline"></i> 了解更多此项目的说明](/join/ooni-test-list/){ .btn }
 
 ??? note "检测名单目前的状况"
 

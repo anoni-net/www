@@ -130,4 +130,4 @@ If OONI itself is new to you, start with [What is OONI?](docs:tools/what-is-ooni
 - [OONI Blocking Verdicts](/projects/asn-coverage/ooni-blocking-determination/): how OONI determines that a website is blocked
 - [ASN Observation Data Retrieval and Analysis](/projects/asn-coverage/howto/): the retrieval path for observation data, and how to analyse it
 - [OONI Run v2 for regional measurement](docs:tools/ooni-run-v2/): creating and sharing a test link
-- [OONI Website Testing List](docs:regional/ooni-checklist/): the list of websites that OONI Probe measures against
+- [Maintaining the OONI Test List](/join/ooni-test-list/): the list of websites that OONI Probe measures against

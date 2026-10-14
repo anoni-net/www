@@ -41,12 +41,13 @@ The page is regenerated every hour and OONI's measurements are read every six ho
 
 - Install [OONI Probe](https://ooni.org/install/) and run tests on your own connection, on a phone or a computer. Mobile data and home broadband are usually different ASNs, so testing on both helps
 - The community's OONI Run link `10328` sets everything up in one tap; see the [OONI Run v2 guide](docs:tools/ooni-run-v2/) for the risks to consider before installing and what the list contains
-- [ASN observation data analysis](docs:taiwan/ooni-asn-coverage/): why network diversity matters and how to read a single measurement
+- [Maintaining the OONI Test List](/join/ooni-test-list/): the list decides which websites get tested, and help with Taiwan's tw.csv is welcome
 - [ASN Coverage](https://github.com/anoni-net/asn-coverage): a command-line tool that downloads raw measurements and breaks them down by network type and blocking method
 
 ## Reading the measurement data
 
 <ul class="rows">
+  <li><a class="row" href="/projects/asn-coverage/asn-diversity/"><span class="ic">ICON:access-point-network</span><span class="b"><span class="t">ASN Diversity and Gaps in Taiwan's OONI Coverage</span><span class="d">Which networks Taiwan's measurements come from, figures from 2023 and 2026, and how to read a single measurement.</span></span><span class="go">ICON:arrow-right</span></a></li>
   <li><a class="row" href="/projects/asn-coverage/ooni-data-format/"><span class="ic">ICON:code-json</span><span class="b"><span class="t">The Structure of an OONI Measurement</span><span class="d">Which fields make up a measurement, and how to read where it was taken and what it found.</span></span><span class="go">ICON:arrow-right</span></a></li>
   <li><a class="row" href="/projects/asn-coverage/ooni-blocking-determination/"><span class="ic">ICON:shield-search</span><span class="b"><span class="t">OONI Blocking Verdicts</span><span class="d">The evidence behind each of the four Web Connectivity verdicts, and why a verdict is not a confirmed block.</span></span><span class="go">ICON:arrow-right</span></a></li>
   <li><a class="row" href="/projects/asn-coverage/ooni-nettests-map/"><span class="ic">ICON:table-search</span><span class="b"><span class="t">OONI Nettest Quick Reference</span><span class="d">What each of the 41 nettests measures, which still produce data, and which ones show up in Taiwan.</span></span><span class="go">ICON:arrow-right</span></a></li>

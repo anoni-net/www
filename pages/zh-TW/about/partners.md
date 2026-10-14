@@ -63,9 +63,9 @@ SecureDrop、Signal、Tor 上的收件箱、PGP 公鑰與郵件別名等收件�
 
 ### 網路觀測與可引用的資料
 
-社群在台灣執行 OONI Probe，也參與維護 [OONI 網站檢測清單](docs:taiwan/ooni-checklist/)。組織的網站屬於清單的收錄分類時，可以來信建議加入，社群依分類評估後隨下一批修正送出。收錄之後，網站在台灣各家電信能否連線，會長期留下公開的量測紀錄。
+社群在台灣執行 OONI Probe，也參與維護 [OONI 網站檢測清單的維護](/join/ooni-test-list/)。組織的網站屬於清單的收錄分類時，可以來信建議加入，社群依分類評估後隨下一批修正送出。收錄之後，網站在台灣各家電信能否連線，會長期留下公開的量測紀錄。
 
-報導斷網、封鎖或 Tor 相關的題目，或在研究中需要數字時，可以引用[台灣有多少人在用 Tor](docs:taiwan/tor-users/)、[ASN 自治網路觀測資料分析](docs:taiwan/ooni-asn-coverage/)與[Tor 中繼節點觀測](/projects/pulse/)的資料。台灣的 Tor 使用人數可以用兩份公開 CSV 重現，Tor 中繼節點觀測每小時更新台灣在內十五個地區的中繼節點。想自行查詢中繼節點的公開資料，可以用[AI 助理的 Tor 節點查詢](/projects/onionoo-mcp/)。數字的讀法可以來信詢問。
+報導斷網、封鎖或 Tor 相關的題目，或在研究中需要數字時，可以引用[台灣有多少人在用 Tor](docs:taiwan/tor-users/)、[ASN 多樣性與台灣的觀測缺口](/projects/asn-coverage/asn-diversity/)與[Tor 中繼節點觀測](/projects/pulse/)的資料。台灣的 Tor 使用人數可以用兩份公開 CSV 重現，Tor 中繼節點觀測每小時更新台灣在內十五個地區的中繼節點。想自行查詢中繼節點的公開資料，可以用[AI 助理的 Tor 節點查詢](/projects/onionoo-mcp/)。數字的讀法可以來信詢問。
 
 ### 活動合辦
 

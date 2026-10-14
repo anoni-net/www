@@ -3,9 +3,9 @@ title: ASN 觀測資料的擷取與分析
 description: OONI 觀測涵蓋率（ASN Coverage）命令列工具的設定與用法，包含 OONI 三種資料入口的取捨、S3 公開資料集的路徑結構、輸出的 CSV 欄位，以及 ASN 覆蓋率的計算方式。
 ---
 
-[OONI 觀測涵蓋率](/projects/asn-coverage/)（ASN Coverage）提供命令列工具（[`anoni-net/asn-coverage`](https://github.com/anoni-net/asn-coverage)），用來擷取 OONI 的公開資料，計算特定區域內 ASN（自治系統編號）的觀測覆蓋率。為什麼要看 ASN 的覆蓋率，寫在[ASN 自治網路觀測資料分析](docs:taiwan/ooni-asn-coverage/)，工具的設定與用法則整理在本頁。
+[OONI 觀測涵蓋率](/projects/asn-coverage/)（ASN Coverage）提供命令列工具（[`anoni-net/asn-coverage`](https://github.com/anoni-net/asn-coverage)），用來擷取 OONI 的公開資料，計算特定區域內 ASN（自治系統編號）的觀測覆蓋率。為什麼要看 ASN 的覆蓋率，寫在[ASN 多樣性與台灣的觀測缺口](/projects/asn-coverage/asn-diversity/)，工具的設定與用法則整理在本頁。
 
-開始前建議先照[專案研究預先準備](docs:community/setup-repo/)建置開發環境。
+開始前建議先照[參與開發的環境準備](/join/dev-setup/)建置開發環境。
 
 !!! tip "執行位置"
 
@@ -153,13 +153,13 @@ uv run python ripe.py save --loc=TW
 覆蓋率 = 觀測資料中出現的不重複 ASN 數 ÷ 該區域登記的 ASN 總數
 ```
 
-以[ASN 自治網路觀測資料分析](docs:taiwan/ooni-asn-coverage/)引用的 2023-12 報告為例，台灣當時約有 437 組 ASN，觀測資料涵蓋的不重複 ASN 佔 7.32%。同一算式也可以套用在近期的區間，對照覆蓋率是否改善。
+以社群 2023-12 的分析為例（見[ASN 多樣性與台灣的觀測缺口](/projects/asn-coverage/asn-diversity/)），台灣當時約有 437 組 ASN，觀測資料涵蓋的不重複 ASN 佔 7.32%。同一算式也可以套用在近期的區間，對照覆蓋率是否改善。
 
 ## 相關閱讀
 
 - [OONI 測量資料的結構](/projects/asn-coverage/ooni-data-format/)：一筆測量的各個欄位與判讀方式
 - [OONI 的封鎖判定方式](/projects/asn-coverage/ooni-blocking-determination/)：`blocking` 等判定欄位的含義
 - [OONI 測項速查表](/projects/asn-coverage/ooni-nettests-map/)：各測項的量測對象
-- [ASN 自治網路觀測資料分析](docs:taiwan/ooni-asn-coverage/)：台灣各 ASN 的觀測覆蓋率分析，覆蓋率算式的範例數字取自該頁引用的報告
-- [專案研究預先準備](docs:community/setup-repo/)：參與專案開發前的環境設定
+- [ASN 多樣性與台灣的觀測缺口](/projects/asn-coverage/asn-diversity/)：台灣各 ASN 的觀測覆蓋率分析，覆蓋率算式的範例數字取自該頁 2023-12 的分析
+- [參與開發的環境準備](/join/dev-setup/)：參與專案開發前的環境設定
 - [如何參與與認領主題](/join/)：加入社群、認領年度主題的方式

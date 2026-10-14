@@ -19,21 +19,21 @@ kind: event
 
 2/22 的黑客松活动有三个项目目标要推进：
 
-1. [OONI 网站检测清单更新](docs:taiwan/ooni-checklist/)
-2. [ASNs 自治网络观测数据分析](docs:taiwan/ooni-asn-coverage/)
+1. [OONI 网站检测清单更新](/join/ooni-test-list/)
+2. [ASNs 自治网络观测数据分析](/projects/asn-coverage/asn-diversity/)
 3. [中文化与词汇校阅](docs:community/i18n/)
 
 ### OONI 网站检测清单更新
 
 名单自从 2017 年后就已经很久没有更新了。除了继续更新名单外，在这次的黑客松活动中，我们也计划「建立和新增」需列入观察的网站网址。关于收录标准、如何自动化整理等问题，我们需要大家在当天一起动脑思考与协助！
 
-[<i data-icon="arrow-right-circle-outline"></i> 了解此项目的背景](docs:taiwan/ooni-checklist/){ .btn }
+[<i data-icon="arrow-right-circle-outline"></i> 了解此项目的背景](/join/ooni-test-list/){ .btn }
 
 ### ASNs 自治网络观测数据分析
 
 针对 OONI 观测数据多样性不足的问题，我们要如何随时监控数据的质量呢？是否可以通过某种量化指标或数字来快速掌握状况？要如何将其实施并建立起来呢？在这次活动中，我们将讨论数据流架构、自动化分析等相关问题。最后，我们也需要思考如何吸引更多人参与 OONI 观测数据的收集。
 
-[<i data-icon="arrow-right-circle-outline"></i> 了解此项目目前的进度](docs:taiwan/ooni-asn-coverage/){ .btn }
+[<i data-icon="arrow-right-circle-outline"></i> 了解此项目目前的进度](/projects/asn-coverage/asn-diversity/){ .btn }
 
 ### 中文化与词汇校阅
 
@@ -49,6 +49,6 @@ kind: event
 - [<i data-icon="chat-question"></i> 网络自由为什么重要？](docs:basics/internet-freedom/)
 - [<i data-icon="chat-question"></i> 什么是 Tor？](docs:tools/what-is-tor/)
 - [<i data-icon="chat-question"></i> 什么是 Tails？](docs:tools/what-is-tails/)
-- [<i data-icon="octicons-mark-github-24"></i> 项目研究预先准备](docs:community/setup-repo/)
+- [<i data-icon="octicons-mark-github-24"></i> 项目研究预先准备](/join/dev-setup/)
 
 </div>

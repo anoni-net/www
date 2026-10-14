@@ -19,7 +19,7 @@ anoni.net Docs 計畫目前包含三個子專案項目，涵蓋資料分析、�
 
 預計也將建立資料流程基礎架構（data pipeline architecture），在研究過程中的資料蒐集與整理，透過程式自動化完成，能與 OONI Data 達到即時呈現結果的可能。
 
-[<i data-icon="arrow-right-circle-outline"></i> 瞭解更多此專案的說明](docs:taiwan/ooni-asn-coverage/){ .btn }
+[<i data-icon="arrow-right-circle-outline"></i> 瞭解更多此專案的說明](/projects/asn-coverage/asn-diversity/){ .btn }
 
 ??? note "資料流程基礎架構（Data Pipeline Architecture）"
 
@@ -32,7 +32,7 @@ anoni.net Docs 計畫目前包含三個子專案項目，涵蓋資料分析、�
 
 OONI Probe 網站檢測來自於各地區提供的名單，而臺灣（`tw.csv`）的部分自從最後一次更新（2017）後，已有好長一段時間沒有調整與檢視，名單上的網站會影響到觀測程式的結果，因此需要花點時間修正調整目前的名單，後續再進行 2025 可以收錄觀察的網站項目。
 
-[<i data-icon="arrow-right-circle-outline"></i> 瞭解更多此專案的說明](docs:taiwan/ooni-checklist/){ .btn }
+[<i data-icon="arrow-right-circle-outline"></i> 瞭解更多此專案的說明](/join/ooni-test-list/){ .btn }
 
 ??? note "檢測名單目前的狀況"
 

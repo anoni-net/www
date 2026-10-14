@@ -320,3 +320,36 @@ docs = "blog/posts/tor-sambent-onionmasq.md"
 page = "articles/oniux"
 langs = ["zh-TW", "zh-CN"]
 import = false
+
+# 2026-10-14 在地脈絡與社群區的三頁，讀者是要參與觀測或開發的人（toomore/anoni-net-ws#406）。
+# ASN 多樣性的說明掛在 OONI 觀測涵蓋率底下，檢測清單與開發環境放在參與底下。
+# 英文版在文件站的路徑是 regional/，正體與簡體是 taiwan/
+[[moved]]
+docs = "taiwan/ooni-asn-coverage.md"
+page = "projects/asn-coverage/asn-diversity"
+langs = ["zh-TW", "zh-CN"]
+import = true
+
+[[moved]]
+docs = "regional/ooni-asn-coverage.md"
+page = "projects/asn-coverage/asn-diversity"
+langs = ["en"]
+import = true
+
+[[moved]]
+docs = "taiwan/ooni-checklist.md"
+page = "join/ooni-test-list"
+langs = ["zh-TW", "zh-CN"]
+import = true
+
+[[moved]]
+docs = "regional/ooni-checklist.md"
+page = "join/ooni-test-list"
+langs = ["en"]
+import = true
+
+[[moved]]
+docs = "community/setup-repo.md"
+page = "join/dev-setup"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true

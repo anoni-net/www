@@ -63,9 +63,9 @@ We credit other people's work explicitly and don't claim a formal arrangement wh
 
 ### Network measurement and citable data
 
-We run OONI Probe in Taiwan and help maintain the [OONI Website Testing List](docs:regional/ooni-checklist/). If your organization's site fits one of the list's categories, write to us and we will review it for the next batch of list updates. Once it is on the list, its reachability across Taiwan's networks is measured and published over time.
+We run OONI Probe in Taiwan and help maintain the [Maintaining the OONI Test List](/join/ooni-test-list/). If your organization's site fits one of the list's categories, write to us and we will review it for the next batch of list updates. Once it is on the list, its reachability across Taiwan's networks is measured and published over time.
 
-When reporting on shutdowns, blocking, or Tor, or when research needs numbers, you can cite [How many people use Tor in Taiwan](docs:regional/taiwan-tor-users/), the [ASN observation data analysis](docs:regional/ooni-asn-coverage/), and [Tor Relay Watch](/projects/pulse/). The Taiwan Tor user figures can be reproduced from two public CSV files, and Tor Relay Watch updates hourly across 15 regions including Taiwan. To look up public relay data yourself, use the [Tor relay lookup for AI assistants](/projects/onionoo-mcp/). We are glad to explain how to read the numbers.
+When reporting on shutdowns, blocking, or Tor, or when research needs numbers, you can cite [How many people use Tor in Taiwan](docs:regional/taiwan-tor-users/), the [ASN Diversity and Gaps in Taiwan's OONI Coverage](/projects/asn-coverage/asn-diversity/), and [Tor Relay Watch](/projects/pulse/). The Taiwan Tor user figures can be reproduced from two public CSV files, and Tor Relay Watch updates hourly across 15 regions including Taiwan. To look up public relay data yourself, use the [Tor relay lookup for AI assistants](/projects/onionoo-mcp/). We are glad to explain how to read the numbers.
 
 ### Co-hosted events
 

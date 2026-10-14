@@ -85,7 +85,7 @@ The full endpoint list and parameters are in the [Swagger UI](https://onionoo.an
 anoni.net now has three entry points for Tor network observation, each suited to a different task.
 
 - **[Tor Relay Watch](/projects/pulse/)**: chart dashboards for Taiwan's relay counts and bandwidth trends. Good when you want to see how something has moved over time.
-- **[ASN observation data analysis](docs:regional/ooni-asn-coverage/)**: OONI observation data broken down by ASN. Good when you want to know which ASNs are actually being measured.
+- **[ASN observation data analysis](/projects/asn-coverage/asn-diversity/)**: OONI observation data broken down by ASN. Good when you want to know which ASNs are actually being measured.
 - **onionoo MCP** (new): ask ad-hoc questions in plain language. Good when you want to scope out a specific relay, ASN, or country.
 
 The three rely on different data sources (Pulse's own historical time series, OONI's raw observation data, and Onionoo's live snapshots) and complement each other rather than duplicating coverage.
@@ -102,5 +102,5 @@ The service is released under the MIT license. Source code: <https://github.com/
 
 - [Tor relay lookup for AI assistants](/projects/onionoo-mcp/) — full usage guide
 - [Tor Relay Watch](/projects/pulse/)
-- [ASN observation data analysis](docs:regional/ooni-asn-coverage/)
+- [ASN observation data analysis](/projects/asn-coverage/asn-diversity/)
 - [What is Tor?](docs:tools/what-is-tor/)

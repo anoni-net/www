@@ -64,7 +64,7 @@ Tor 网络依赖愿意为它运维基础设施的个人与组织。出口节点�
 
 Unredacted 引用的那段用户留言格外少见，身处审查环境的人多半没有渠道，也难以安全地对外发声。台湾的网络环境相对自由，没有防火长城，不要求 VPN 登记，ISP 也没有接到国家的审查命令。正因如此，台湾有条件为被封锁的地区架设 Tor 中继与网桥，分担一部分抗审查基础设施的工作。
 
-anoni.net 社区通过 [Tor 中继节点观测](/projects/pulse/)追踪台湾 Tor 中继节点的数量与分布。截至 2026-05-31，Onionoo（Tor 官方的中继数据查询服务）的数据里，位于台湾、正在运行的中继节点有 12 个，其中带 Exit 标记的只有 3 个。Unredacted 一个组织就运行 123 个出口节点，30 天承载近 300 TiB 流量，台湾全境的出口节点数量还不到他们的 3%。最新的数字见 [Tor 中继节点观测](/projects/pulse/)，页面上的数据持续更新。台湾各 ASN 的 OONI 观测覆盖率另见 [ASN 自治网络观测数据分析](docs:taiwan/ooni-asn-coverage/)。
+anoni.net 社区通过 [Tor 中继节点观测](/projects/pulse/)追踪台湾 Tor 中继节点的数量与分布。截至 2026-05-31，Onionoo（Tor 官方的中继数据查询服务）的数据里，位于台湾、正在运行的中继节点有 12 个，其中带 Exit 标记的只有 3 个。Unredacted 一个组织就运行 123 个出口节点，30 天承载近 300 TiB 流量，台湾全境的出口节点数量还不到他们的 3%。最新的数字见 [Tor 中继节点观测](/projects/pulse/)，页面上的数据持续更新。台湾各 ASN 的 OONI 观测覆盖率另见 [ASN 多样性与台湾的观测缺口](/projects/asn-coverage/asn-diversity/)。
 
 中文的抗审查资源相对稀缺，anoni.net 的工作之一就是补齐中文资源，包括[什么是 Tor](docs:tools/what-is-tor/)、[Tor Snowflake](docs:tools/tor-snowflake/)、[什么是 OONI](docs:tools/what-is-ooni/) 等基础文档，方向与 Unredacted Education 相同。
 

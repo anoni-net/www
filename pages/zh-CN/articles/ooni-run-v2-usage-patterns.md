@@ -129,7 +129,7 @@ OONI 团队与做数据分析的伙伴可以利用 aggregation API 的 `ooni_run
 
 - [OONI Run v2 操作说明](docs:tools/ooni-run-v2/)
 - [OONI 观测覆盖率](/projects/asn-coverage/)
-- [ASN 自治网络观测数据分析](docs:taiwan/ooni-asn-coverage/)
+- [ASN 多样性与台湾的观测缺口](/projects/asn-coverage/asn-diversity/)
 - [8/13 台湾北部移动网络降速 30 分钟的 OONI 测量记录](/articles/ooni-mobile-throttle-results/)
 - [Tor 中继节点观测](/projects/pulse/)
 

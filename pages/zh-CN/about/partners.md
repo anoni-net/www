@@ -63,9 +63,9 @@ SecureDrop、Signal、Tor 上的收件箱、PGP 公钥与邮件别名等收件�
 
 ### 网络观测与可引用的数据
 
-社区在台湾运行 OONI Probe，也参与维护 [OONI 网站检测清单](docs:taiwan/ooni-checklist/)。组织的网站属于清单的收录分类时，可以来信建议加入，社区依分类评估后随下一批修正送出。收录之后，网站在台湾各家电信能否连接，会长期留下公开的测量记录。
+社区在台湾运行 OONI Probe，也参与维护 [OONI 网站检测清单的维护](/join/ooni-test-list/)。组织的网站属于清单的收录分类时，可以来信建议加入，社区依分类评估后随下一批修正送出。收录之后，网站在台湾各家电信能否连接，会长期留下公开的测量记录。
 
-报道断网、封锁或 Tor 相关的题目，或在研究中需要数字时，可以引用[台湾有多少人在用 Tor](docs:taiwan/tor-users/)、[ASNs 自治网络观测数据分析](docs:taiwan/ooni-asn-coverage/)与[Tor 中继节点观测](/projects/pulse/)的数据。台湾的 Tor 用户数可以用两份公开 CSV 重现，Tor 中继节点观测每小时更新台湾在内十五个地区的中继节点。想自行查询中继节点的公开数据，可以用[AI 助手的 Tor 节点查询](/projects/onionoo-mcp/)。数字的读法可以来信询问。
+报道断网、封锁或 Tor 相关的题目，或在研究中需要数字时，可以引用[台湾有多少人在用 Tor](docs:taiwan/tor-users/)、[ASN 多样性与台湾的观测缺口](/projects/asn-coverage/asn-diversity/)与[Tor 中继节点观测](/projects/pulse/)的数据。台湾的 Tor 用户数可以用两份公开 CSV 重现，Tor 中继节点观测每小时更新台湾在内十五个地区的中继节点。想自行查询中继节点的公开数据，可以用[AI 助手的 Tor 节点查询](/projects/onionoo-mcp/)。数字的读法可以来信询问。
 
 ### 活动合办
 

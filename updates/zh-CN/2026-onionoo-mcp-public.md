@@ -85,7 +85,7 @@ curl -s 'https://onionoo.anoni.net/v1/aggregate/countries?running=true' | jq .
 anoni.net 目前在 Tor 观测这条线上有三个入口，可以依任务挑。
 
 - **[Tor 中继节点观测](/projects/pulse/)**：图表面板，看台湾中继节点的数量与带宽趋势，适合想看走势的场合。
-- **[ASNs 自治网络观测数据分析](docs:taiwan/ooni-asn-coverage/)**：OONI 观测数据的 ASN 涵盖分析，适合想知道哪些 ASN 的用户实际在被观测到。
+- **[ASNs 自治网络观测数据分析](/projects/asn-coverage/asn-diversity/)**：OONI 观测数据的 ASN 涵盖分析，适合想知道哪些 ASN 的用户实际在被观测到。
 - **onionoo MCP**（这次新增）：用问句快速做 ad-hoc 查询，适合想针对某个 relay、某个 ASN、某个国家盘点现况。
 
 三个入口数据来源不同（Pulse 自己抓的历史时序、OONI 原始观测数据、Onionoo 即时 snapshot），互相补完，不重复。
@@ -102,5 +102,5 @@ anoni.net 目前在 Tor 观测这条线上有三个入口，可以依任务挑�
 
 - [AI 助手的 Tor 节点查询](/projects/onionoo-mcp/)：完整使用文件
 - [Tor 中继节点观测](/projects/pulse/)
-- [ASNs 自治网络观测数据分析](docs:taiwan/ooni-asn-coverage/)
+- [ASNs 自治网络观测数据分析](/projects/asn-coverage/asn-diversity/)
 - [什么是 Tor？](docs:tools/what-is-tor/)

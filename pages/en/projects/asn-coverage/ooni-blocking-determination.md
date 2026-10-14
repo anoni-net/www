@@ -138,7 +138,7 @@ The figures below come from the full 24 hours of Taiwanese `web_connectivity` da
 
 The four interference types add up to 564 measurements, 2.55% of the total. `none` covers measurements with missing `test_keys` or a `null` blocking, so before calculating an anomaly rate, decide whether they belong in the denominator.
 
-Separately, of 100 anomalous measurements checked, 0 had `confirmed` set to `true`, consistent with the long-standing findings in [ASN observation data analysis](docs:regional/ooni-asn-coverage/).
+Separately, of 100 anomalous measurements checked, 0 had `confirmed` set to `true`, consistent with the long-standing findings in [ASN Diversity and Gaps in Taiwan's OONI Coverage](/projects/asn-coverage/asn-diversity/).
 
 !!! warning "Distribution bias from small samples"
 
@@ -159,12 +159,12 @@ curl -s "https://api.ooni.org/api/v1/measurements?probe_cc=TW&test_name=web_conn
   | python3 -m json.tool | head -40
 ```
 
-These figures are a snapshot of a single 24-hour window, reflecting that day's shape and not enough to conclude anything about longer trends. Trends need a longer span, and Taiwan's observations carry their own limitation in how concentrated they are across ASNs (see [ASN observation data analysis](docs:regional/ooni-asn-coverage/)).
+These figures are a snapshot of a single 24-hour window, reflecting that day's shape and not enough to conclude anything about longer trends. Trends need a longer span, and Taiwan's observations carry their own limitation in how concentrated they are across ASNs (see [ASN Diversity and Gaps in Taiwan's OONI Coverage](/projects/asn-coverage/asn-diversity/)).
 
 ## Related reading
 
 - [ASN Observation Data Retrieval and Analysis](/projects/asn-coverage/howto/): the starting point for comparisons across time and ASNs, covering bulk retrieval from the public dataset and how coverage is calculated
 - [The Structure of an OONI Measurement](/projects/asn-coverage/ooni-data-format/): the fields that make up a single measurement and how to read them
 - [OONI Nettest Quick Reference](/projects/asn-coverage/ooni-nettests-map/): what each nettest in ooni/spec measures and which appear in Taiwan's dataset
-- [ASN observation data analysis](docs:regional/ooni-asn-coverage/): OONI coverage across Taiwan's ASNs and how concentrated it is
-- [OONI Website Testing List](docs:regional/ooni-checklist/): how the test list that OONI Probe measures against is maintained
+- [ASN Diversity and Gaps in Taiwan's OONI Coverage](/projects/asn-coverage/asn-diversity/): OONI coverage across Taiwan's ASNs and how concentrated it is
+- [Maintaining the OONI Test List](/join/ooni-test-list/): how the test list that OONI Probe measures against is maintained
