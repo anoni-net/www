@@ -15,7 +15,7 @@ The anoni.net Docs project currently comprises three sub-projects, covering data
 
 ### ASN Autonomous System Network Observation Data Analysis
 
-Building on the 2023 and 2024 research project "[ASN Autonomous Network Observation Data Coverage](https://ocf.tw/p/ooni/report/202312.html)," the report will continue investigating the relationship between ASN autonomous network systems and factors such as internet censorship and interference. Additionally, we will study ASN coverage in other regions to determine whether a lack of data diversity affects OONI's ability to interpret observation data.
+Building on the 2023 and 2024 research project "[ASN Autonomous Network Observation Data Coverage](/projects/asn-coverage/)," the report will continue investigating the relationship between ASN autonomous network systems and factors such as internet censorship and interference. Additionally, we will study ASN coverage in other regions to determine whether a lack of data diversity affects OONI's ability to interpret observation data.
 
 We plan to establish a data pipeline architecture for automating the data collection and organization process during research, potentially allowing real-time presentation of results with OONI Data.
 
@@ -47,7 +47,7 @@ OONI's services and tools are expanding, and ongoing localization will help main
 
 ## How to Participate
 
-This document site is established to attract more partners interested in topics like "internet freedom" and "content censorship" to join us. It aims to provide a starting point for participants with hands-on documents for reading or to complement the current project progress. The document site will serve as the project's gateway, and subscribing to the [mailing list](https://groups.google.com/g/ocftw/ocftw-ooni-research) will help you stay updated. In the future, [Github](https://github.com/anoni-net/docs) will be used for task assignments, working towards a collaborative approach to knowledge sharing.
+This document site is established to attract more partners interested in topics like "internet freedom" and "content censorship" to join us. It aims to provide a starting point for participants with hands-on documents for reading or to complement the current project progress. The document site will serve as the project's gateway, and subscribing to the [mailing list](/contact/) will help you stay updated. In the future, [Github](https://github.com/anoni-net/docs) will be used for task assignments, working towards a collaborative approach to knowledge sharing.
 
 ## Event Announcements
 

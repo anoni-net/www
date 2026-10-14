@@ -12,7 +12,7 @@ kind: update
 
 ![](https://assets.anoni.net/updates/tor-tails-workshop-slide-045752ea.webp){ .shot }
 
-RightsCon 2025 順利在二月最後一週舉辦完畢，我們在活動前一天與 Tor/Tails、OONI 團隊[一同舉辦](/updates/2025/02/rightscon25-tor-tails-ooni/)工作坊活動，總參加人次達三百多人，是一個稍微有點意外報名人數如此踴躍的活動，也感謝 Tor/Tails、OONI 團隊的支援。而這次活動也感謝志工夥伴的協助，開放文化基金會的其他夥伴都分別協助 RightsCon 的支援，在人手不夠的狀態下給予我們有力的協助！
+RightsCon 2025 順利在二月最後一週舉辦完畢，我們在活動前一天與 Tor/Tails、OONI 團隊[一同舉辦](/updates/2025/02/rightscon25-tor-tails-ooni/)工作坊活動，總參加人次達三百多人，是一個稍微有點意外報名人數如此踴躍的活動，也感謝 Tor/Tails、OONI 團隊的支援。而這次活動也感謝志工夥伴在人手不夠的狀態下給予我們有力的協助！
 
 活動後，我們整理了工作坊、講座的重點摘要文章、簡報蒐集，不論你當天是否有參與或是想要回顧活動內容，都可以參考[這篇文章](/updates/2025/03/rightscon25-tor-tails-ooni-after/)的內容。
 

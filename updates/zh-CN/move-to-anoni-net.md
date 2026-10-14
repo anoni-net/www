@@ -13,6 +13,6 @@ date: 2025-07-03
 - 社区名称：**匿名网络社区**
 - 社区网址：[https://anoni.net/](https://anoni.net/)
 
-原本的 [OONI-Research](https://ooni-research.ocf.tw/) 网站也会自动转指到 [https://anoni.net/docs/](https://anoni.net/docs/) 下方。我们预计在“[匿名网络工作坊](/events/workshop-2025/)”结束后举办会议，一同讨论对于社区未来的想象，有兴趣可以持续[关注我们](/contact/)或是[订阅](https://form.anoni.net/s/cmc9ceju1000dlj017fiathzq)信息电子报。
+原本的 OONI-Research 网站也会自动转指到 [https://anoni.net/docs/](https://anoni.net/docs/) 下方。我们预计在“[匿名网络工作坊](/events/workshop-2025/)”结束后举办会议，一同讨论对于社区未来的想象，有兴趣可以持续[关注我们](/contact/)或是[订阅](https://form.anoni.net/s/cmc9ceju1000dlj017fiathzq)信息电子报。
 
 感谢！

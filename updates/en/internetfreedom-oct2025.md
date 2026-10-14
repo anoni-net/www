@@ -5,15 +5,9 @@ date: 2025-10-18
 kind: event
 ---
 
-<figure markdown="span">
-  ![Taipei Coffee and Circumvention Meetup 2025/10](https://assets.kktix.io/upload_images/244247/%E7%B6%B2%E8%B7%AF%E8%87%AA%E7%94%B1%E5%B0%8F%E8%81%9A_large.png){ .shot }
-  <figcaption>Image credited to Taipei Coffee and Circumvention Meetup 2025/10 https://ocftw.kktix.cc/events/internetfreedom-oct2025</figcaption>
-</figure>
-
-After presenting InterSecLab's [report](https://interseclab.org/research/the-internet-coup/) on data leakage related to the Great Firewall of China at the "[Taipei Coffee and Circumvention Meetup 2025/10](https://ocftw.kktix.cc/events/internetfreedom-oct2025)," there were many discussions during the latter part of the event. The questions centered around what actions we can ultimately take in the face of state-level surveillance methods and capabilities.
+After presenting InterSecLab's [report](https://interseclab.org/research/the-internet-coup/) on data leakage related to the Great Firewall of China at the "Taipei Coffee and Circumvention Meetup 2025/10," there were many discussions during the latter part of the event. The questions centered around what actions we can ultimately take in the face of state-level surveillance methods and capabilities.
 
 The previously provided cybersecurity recommendations also need to be revisited and revised. Below, we will review some of the topics discussed that day through text. We also recommend taking some time to read this report, as it will provide a clearer outline of the risks and challenges we are facing.
-
 
 ## Abuse of Open Source Software
 
@@ -35,6 +29,6 @@ To slightly ease the heavy atmosphere of the topic, we shared InterSecLab's next
 
 ---
 
-This is a quick recap of the "Taipei Coffee and Circumvention Meetup 2025/10" event. We also extend our gratitude to the [Open Culture Foundation](https://ocf.tw/en/)（開放文化基金會） for the invitation, providing the "[Anonymous Network Community](/about/)" an opportunity to share. If you haven’t read our **translated report** yet, you can access it [here](https://anoni.net/docs/report/interseclab-the-internet-coup/)! We are also preparing to develop user-friendly defensive capabilities based on the report's findings, possibly starting with privacy protection. Interested individuals are welcome to join the discussion through [this channel](https://matrix.to/#/#interseclab-the-internet-coup:im.anoni.net).
+This is a quick recap of the "Taipei Coffee and Circumvention Meetup 2025/10" event. If you haven’t read our **translated report** yet, you can access it [here](https://anoni.net/docs/report/interseclab-the-internet-coup/)! We are also preparing to develop user-friendly defensive capabilities based on the report's findings, possibly starting with privacy protection. Interested individuals are welcome to join the discussion through [this channel](https://matrix.to/#/#interseclab-the-internet-coup:im.anoni.net).
 
 Of course, you can also [email us](/contact/) directly!
