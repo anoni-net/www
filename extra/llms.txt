@@ -58,8 +58,8 @@
 ## 在地脈絡（台灣）
 
 - [台灣在地脈絡總覽](https://anoni.net/docs/taiwan/): 台灣的法規、觀測資料與研究入口。
-- [OONI 網站檢測清單](https://anoni.net/docs/taiwan/ooni-checklist/): 在台灣用 OONI 檢測連線層觀測的操作清單。
-- [台灣 ASN 觀測覆蓋率](https://anoni.net/docs/taiwan/ooni-asn-coverage/): 分析台灣各 ASN 在 OONI 資料庫的觀測覆蓋情況。
+- [OONI 網站檢測清單的維護](https://anoni.net/join/ooni-test-list/): OONI Probe 在台灣檢測的網站清單如何分類、排定頻率與參與維護。
+- [ASN 多樣性與台灣的觀測缺口](https://anoni.net/projects/asn-coverage/asn-diversity/): 台灣 OONI 測量集中在少數 ASN 的現況與單筆測量的讀法。
 - [台灣 Tor 中繼觀測](https://anoni.net/projects/pulse/): 追蹤台灣 Tor relay 節點的數量與分布。
 - [台灣個資法 2025 修法](https://anoni.net/docs/taiwan/pdpa-2025/): 個資法修法對隱私與身分保護的影響。
 - [台灣 VASP 法 2026](https://anoni.net/docs/taiwan/vasp-2026/): 虛擬資產服務業立法與金流匿名性的觀察。
