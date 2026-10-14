@@ -32,14 +32,19 @@ Tor 中继节点是志愿者架设、替全球 Tor 用户转送加密流量的�
 - 每一天取当天最后一次快照，不是整天出现过的所有中继
 - 带宽是运作中中继的观测带宽（observed bandwidth）加总
 - 中继占全网络的权重是运作中中继的共识权重比例（consensus weight fraction）加总，2026 年 10 月开始收集
-- 用户估计来自 [Tor Metrics](https://metrics.torproject.org/userstats-relay-country.html)，每天更新、晚两三天，推算方法与限制见[台湾有多少人在用 Tor](docs:taiwan/tor-users/)
+- 用户估计来自 [Tor Metrics](https://metrics.torproject.org/userstats-relay-country.html)，每天更新、晚两三天，推算方法与限制见[台湾的 Tor 用户数](/projects/pulse/tor-users/)
 - 中继的角色依 Onionoo 给的概率判断，guard、middle、exit 的概率大于 0 就算在该角色
 - 收集中断的日子在图上留下缺口，不补值
 - 原始数据可以从 [Pulse 的 API](https://anoni.net/api/readme) 读取，这一页用的是 `/api/summary`
+
+## 用户端的观测
+
+<ul class="rows cat-observe">
+  <li><a class="row" href="/projects/pulse/tor-users/"><span class="ic">ICON:account-group</span><span class="b"><span class="t">台湾的 Tor 用户数</span><span class="d">Tor Metrics 推算的台湾使用规模、四年趋势与跨地区对照，以及 2025 年十倍跳升背后的计数错误。</span></span><span class="go">ICON:arrow-right</span></a></li>
+</ul>
 
 ## 架设 Tor 中继节点
 
 - [Tor Relay 架设指南](/join/setup-tor-relay/)
 - [Tor Relay 校园建设](/join/relay-on-campus/)：社区 2026 年的三大主题之一
 - [AI 助手的 Tor 节点查询](/projects/onionoo-mcp/)
-- [台湾有多少人在用 Tor](docs:taiwan/tor-users/)

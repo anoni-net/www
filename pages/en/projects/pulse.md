@@ -32,14 +32,19 @@ The data comes from [Pulse](https://github.com/anoni-net/pulse), which the commu
 - Each day uses its last snapshot, not every relay seen during the day
 - Bandwidth is the sum of the observed bandwidth of running relays
 - Share of network weight is the sum of the running relays' consensus weight fractions, collected since October 2026
-- User estimates come from [Tor Metrics](https://metrics.torproject.org/userstats-relay-country.html), updated daily with a lag of two to three days; [How many people use Tor in Taiwan](docs:regional/taiwan-tor-users/) explains the method and its limits
+- User estimates come from [Tor Metrics](https://metrics.torproject.org/userstats-relay-country.html), updated daily with a lag of two to three days; [Tor Users in Taiwan](/projects/pulse/tor-users/) explains the method and its limits
 - Relay roles follow Onionoo's probabilities: a relay counts as a guard, middle or exit when that probability is above zero
 - Days when collection was interrupted show as gaps in the charts, with nothing filled in
 - The raw data is available from the [Pulse API](https://anoni.net/api/readme); this page uses `/api/summary`
+
+## The user side
+
+<ul class="rows cat-observe">
+  <li><a class="row" href="/projects/pulse/tor-users/"><span class="ic">ICON:account-group</span><span class="b"><span class="t">Tor Users in Taiwan</span><span class="d">Taiwan's Tor usage as estimated from Tor Metrics, the four-year trend against other regions, and the counting bug behind the 2025 tenfold spike.</span></span><span class="go">ICON:arrow-right</span></a></li>
+</ul>
 
 ## Running your own
 
 - [Tor Relay Setup Guide](/join/setup-tor-relay/)
 - [Tor relays on campus](/join/relay-on-campus/), one of the community's three focus areas for 2026
 - [Tor relay lookup for AI assistants](/projects/onionoo-mcp/)
-- [How many people use Tor in Taiwan](docs:regional/taiwan-tor-users/)
