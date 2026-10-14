@@ -344,30 +344,48 @@ anoni.net 底下有三個網站，共用同一組 logo 與上方的色票。三�
 
 | 網站 | 頁首 | 版面 | 樣式的位置 |
 |---|---|---|---|
-| [anoni.net](https://anoni.net/) | 白底，logo 加 `anoni.net` | 整頁放在一個細線外框裡，只用 cyan 一個色相 | `anoni-net/www` 的 `static/css/site.css` |
+| [anoni.net](https://anoni.net/) | 白底，logo 加 `anoni.net` | 全站對齊同一組左右邊界，文件頁右側放本頁內容。結構用中性灰階，cyan 留給互動與識別 | `anoni-net/www` 的 `static/css/site.css` |
 | [anoni.net/docs](docs:) | `--brand-cyan-800` 底、白字 | Material for MkDocs，側欄用指南分類色 | `anoni-net/docs` 的 `docs/*/stylesheets/extra.css` |
 | [anoni.net/news](https://anoni.net/news/) | `--brand-cyan-900` 底、白字，墨色調 | 自行開發的單欄版面，標題用明體 | `anoni-net/news` 的 `static/css/news.css` |
 
 頁首顏色由淺到深依序是頂層網站、文件站、新聞導讀，三者並排時一眼就能分辨。
 
-### 頂層網站的細線
+### 社群首頁的配色與版面
 
-頂層網站（首頁、關於、參與、專案、服務等社群頁面）沿用 2026-10 改版前首頁的樣式：白底、1px 細線、單一色相。之後新增的頁型也照這組規格，不加入色塊或第二個色相。
+頂層網站（首頁、關於、參與、專案、服務等社群頁面）的品牌色只有 cyan，依用途分工。2026-10 以前 cyan 同時用在標題、導言、連結與所有邊框，讀者分不出哪裡可以點、哪裡是區塊的邊界，看久了也累，之後改成下表的分工。
+
+| 用途 | 顏色 | 用在哪裡 |
+|---|---|---|
+| 結構 | 中性灰階 `--n-50` 到 `--n-300` | 分隔線、卡片與截圖的邊框，提示框、摺疊區、程式碼、表頭與頁尾的底色 |
+| 層級 | 標題 `#13232a`，內文 `#1d2b31`，次要文字 `#52646b` | 標題、小標題、導言 |
+| 互動 | 連結 `--brand-cyan-800`，目前位置 `--brand-cyan-600`，焦點與滑過 `--brand-cyan-500` | 連結、線框按鈕、導覽列的目前位置、鍵盤焦點、滑過的卡片 |
+| 識別 | cyan tonal 的 logo 與 `--brand-cyan-700` | 頁首與首頁主視覺 |
+| 分類與資料 | 結構性次色、公告 tag、cyan 九階 | 三大主題的圖示與議程標籤、動態標籤、觀測圖表 |
+
+中性灰階從 `--neutral-muted`（`#546e7a`）那一系延伸，帶一點藍，跟 cyan 放在一起不顯得髒。區塊之間靠淡底色區分，少用線框。
+
+| Token | 淺色模式 | 深色模式 | 用途 |
+|---|---|---|---|
+| `--n-50` | <span class="color-swatch" style="background:#f3f6f7"></span>`#f3f6f7` | <span class="color-swatch" style="background:#082b3a"></span>`#082b3a` | 提示框、摺疊區、程式碼、表頭與頁尾的底色 |
+| `--n-100` | <span class="color-swatch" style="background:#e3e9ec"></span>`#e3e9ec` | <span class="color-swatch" style="background:#133847"></span>`#133847` | 分隔線 |
+| `--n-200` | <span class="color-swatch" style="background:#cdd6da"></span>`#cdd6da` | <span class="color-swatch" style="background:#234757"></span>`#234757` | 卡片與截圖的邊框 |
+| `--n-300` | <span class="color-swatch" style="background:#a7b5bb"></span>`#a7b5bb` | <span class="color-swatch" style="background:#3c6070"></span>`#3c6070` | 待辦清單的勾選框、步驟的編號圈 |
 
 | 元素 | 規格 |
 |---|---|
-| 外框 | 1px `--brand-cyan-500` 線，外加 4px `--brand-cyan-50` 外光暈，圓角 8px，最寬 42rem |
-| 分隔線 | 1px `--brand-cyan-100`，用在小標題右側延伸的線、列表的上下線與頁尾 |
-| 填色 | 只有 `--brand-cyan-50` 一種，只給文件與新聞導讀兩個專案的卡片 |
-| 滑過卡片 | 外圍加一圈 3px、25% 透明度的 `--brand-cyan-500` |
+| 外框 | 沒有框線，頁首、內容與頁尾在每一頁對齊同一組左右邊界，最寬 58.5rem |
+| 文件頁 | 文章、指南、活動、動態與觀測資料，內容欄 42rem 加右側 13rem 的「本頁內容」。段落、表格與圖表填滿內容欄，文字不另外限制寬度 |
+| 目錄頁 | 首頁與各區入口用滿整個外框，卡片與列表在桌機排成兩到三欄 |
+| 頁首 | 桌機排成一列，下方一條 `--n-100` 細線 |
+| 頁尾 | 整列 `--n-50` 底色 |
+| 手機 | 一律單欄，「本頁內容」收在標題下方 |
+| 滑過卡片 | 框線換成 `--brand-cyan-500` |
 | 鍵盤焦點 | 2px `--brand-cyan-500` 外框，與元素相距 2px |
-| 文字 | 內文 `#1d2b31`，次要文字 `#52646b`，連結 `--brand-cyan-800` |
-| 深色模式 | 底色 `#00202d`，線改用 `--brand-cyan-600`，連結改用 `--brand-cyan-200` |
+| 深色模式 | 底色 `#00202d`，連結 `--brand-cyan-200`，目前位置與焦點 `--brand-cyan-400`，灰階用上表的深色模式 |
 
 ### 只在文件站用的顏色
 
 - **指南分類色**（`--guide-*`）是文件站側欄的導覽識別色，只在文件站出現
-- **結構性次色**（`--cat-*`）的綠、紫、橘也限定在文件站。頂層網站要維持單色，三大主題在頂層用圓形線框圖示區分，不套顏色
 - **Material 的介面色**（亮色模式頁首改用 `--brand-cyan-800` 那組）只跟 Material 主題有關
 
 新聞導讀與頂層網站需要 accent 時照上方的「配色使用守則」，緊急紅只用在緊急情境。
