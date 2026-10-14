@@ -63,7 +63,6 @@ The limits:
 
 ## IPFS and Onion Services Compared
 
-![IPFS and onion architectures compared. IPFS goes from a gateway through a DHT lookup to the node holding the CID, addressing deletion resistance. Onion goes through a guard and a middle relay to a rendezvous point, with the service descriptor held in an HSDir, addressing connection anonymity](https://assets.anoni.net/diagrams/ipfs-vs-onion.zh-TW.drawio.svg)
 
 | Aspect | IPFS | Onion |
 |---|---|---|
@@ -107,7 +106,6 @@ ENS (Ethereum Name Service) can give IPFS content a memorable name (for example 
 
 The anoni.net docs site publishes a standard site, an onion copy, and an IPFS copy with the same content, and three build pipelines handle the differences in URLs and paths.
 
-![Three-track deployment of the anoni.net docs site: one GitHub repository and three build scripts handling path differences, deploying to the main site at anoni.net, the IPFS network, and a .onion service](https://assets.anoni.net/diagrams/anoni-deployment.zh-TW.drawio.svg)
 
 1. **Source**: Markdown for MkDocs Material, kept in `anoni-net/docs` on GitHub.
 2. **Standard site and onion**: a push to the `docs` branch triggers `build_docs.yml` in GitHub Actions, which builds both copies of the three-language static site and uploads them with `aws s3 sync --delete` to two prefixes in the same S3 bucket (`docs/` and `docs-onion/`). The standard site is served through Cloudflare. Before the onion build, `replace_sitename_anoni_onion.sh` rewrites the site's URLs to `docs.<onion address>`, and the analytics scripts and service worker are removed. `build_docs_anoni.sh` and `build_docs_anoni_onion.sh` are local versions of the same steps.

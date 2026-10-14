@@ -27,7 +27,6 @@ Monero 的設計來自 2013 年的 CryptoNote 白皮書，核心是三個機制�
 - **Ring Signatures**：寄件人簽署交易時，把真實簽章混進從過去交易輸出挑出的誘餌（decoys）之中。觀察者只能確定「16 個輸出之中有一個是真的」，無法確定是哪一個。Monero 目前預設的環大小為 16。
 - **RingCT**（Ring Confidential Transactions）：用 Pedersen 同態承諾（不揭露數字、仍可驗算加總的加密承諾）隱藏金額，再以 Bulletproofs+ 範圍證明確保每筆金額非負，整體證明輸入總和等於輸出總和，沒有憑空增發。
 
-![Monero 環簽名示意：寄件人的真實簽章混進 15 個誘餌，環大小 16，觀察者只能驗證 16 個之中有一個是真的，無法反推是哪一個](https://assets.anoni.net/diagrams/monero-ring.zh-TW.drawio.svg)
 
 三者組合起來，鏈上看到的是「某個一次性地址收到一筆隱藏金額，由 16 個可能的寄件人之一發送」，沒有 Alice 與 Bob 的概念。對照前面的四層，stealth address 遮蓋帳戶層、RingCT 遮蓋金額層、ring signatures 打散圖譜層，第四層的元資料仍要靠 Tor 另外處理。
 
@@ -41,7 +40,15 @@ Zcash 走的路線更激進，遮蔽交易（shielded transaction）用 zk-SNARK
 - 我建立的新 note 金額總和等於消耗的 note 金額。
 - 沒有重複花費。
 
-![Zcash 遮蔽交易示意：寄件人與收件人之間以 zk-SNARK 證明連接。鏈上可見的部分有 proof、nullifier、commitment 與手續費，不可見的部分有寄件人地址、收件人地址、金額與圖譜關聯](https://assets.anoni.net/diagrams/zcash-shielded.zh-TW.drawio.svg)
+| 項目 | 鏈上 |
+|---|---|
+| zk-SNARK 證明 | 可見，證明交易有效 |
+| nullifier | 可見，用來防止重複花費 |
+| 新的 commitment | 可見，代表新建立的 note |
+| 手續費 | 可見 |
+| 寄件人與收件人地址 | 不可見 |
+| 金額 | 不可見 |
+| 跟其他交易的關聯 | 不可見 |
 
 整個證明在鏈上只占幾百 bytes，驗證者不需要知道金額、地址與來源，鏈上能看到的只有發生了一筆遮蔽交易。對照四層，一筆遮蔽交易同時遮蓋帳戶、金額、圖譜三層，第四層的元資料同樣留給網路層處理。
 

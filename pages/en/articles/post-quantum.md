@@ -20,9 +20,19 @@ Personal real-time chat and short-lived session tokens lose their value quickly,
 
 NIST's IR 8547, published as an initial public draft in November 2024 and still not finalized as of October 2026, proposes deprecating the old public-key algorithms from 2030 and disallowing them from 2035. ENISA's roadmap works to the same two years, and the NSA's CNSA 2.0 sets its own deadlines of 2030 and 2033[^1]. New deployments should be planning a PQC path now.
 
-<figure markdown="span">
-    <img class="brand-frame" src="https://assets.anoni.net/diagrams/pq-timeline.zh-TW.drawio.svg" alt="Post-quantum migration timeline: Signal PQXDH in 2023, NIST FIPS standards and browser rollout in 2024, major systems expected to complete migration between 2030 and 2035, hard deadline for legacy cryptography by 2040">
-</figure>
+<ol class="tl" aria-label="Post-quantum migration timeline">
+  <li><span class="tl-when">2022-10</span><span class="tl-b"><span class="tl-t">Cloudflare</span><span class="tl-d">Sites served through Cloudflare support hybrid post-quantum key agreement by default, then using the Kyber draft</span></span></li>
+  <li><span class="tl-when">2023</span><span class="tl-b"><span class="tl-t">Signal PQXDH</span><span class="tl-d">Post-quantum key encapsulation added to the key agreement that starts a conversation</span></span></li>
+  <li><span class="tl-when">2024-03</span><span class="tl-b"><span class="tl-t">iMessage PQ3</span><span class="tl-d">iOS 17.4 adds a post-quantum algorithm to message key exchange</span></span></li>
+  <li><span class="tl-when">2024-08</span><span class="tl-b"><span class="tl-t">NIST FIPS 203, 204, 205</span><span class="tl-d">ML-KEM, ML-DSA and SLH-DSA become final standards</span></span></li>
+  <li><span class="tl-when">2024-11</span><span class="tl-b"><span class="tl-t">Chrome 131</span><span class="tl-d">Switches to the standardized X25519MLKEM768</span></span></li>
+  <li><span class="tl-when">2025-04</span><span class="tl-b"><span class="tl-t">OpenSSH 10.0</span><span class="tl-d">mlkem768x25519-sha256 becomes the default</span></span></li>
+  <li><span class="tl-when">2025-09</span><span class="tl-b"><span class="tl-t">Apple's 26 releases</span><span class="tl-d">TLS 1.3 offers X25519MLKEM768 by default, and Safari picks it up</span></span></li>
+  <li><span class="tl-when">2025-10</span><span class="tl-b"><span class="tl-t">Signal SPQR</span><span class="tl-d">Key updates during a conversation become quantum-resistant too</span></span></li>
+  <li><span class="tl-when">2026-06</span><span class="tl-b"><span class="tl-t">Taiwan FSC guidance</span><span class="tl-d">Financial-sector migration guidance in three phases</span></span></li>
+  <li><span class="tl-when">2030</span><span class="tl-b"><span class="tl-t">Legacy algorithms deprecated</span><span class="tl-d">The deprecation year in the NIST IR 8547 draft; the HKMA also targets 2030 for bank readiness</span></span></li>
+  <li><span class="tl-when">2035</span><span class="tl-b"><span class="tl-t">Legacy algorithms disallowed</span><span class="tl-d">The cut-off in the NIST IR 8547 draft, and the end of the long-term phase in Taiwan's FSC guidance, which puts high-risk systems first</span></span></li>
+</ol>
 
 ## The three 2024 NIST standards
 
