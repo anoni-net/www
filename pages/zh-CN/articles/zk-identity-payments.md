@@ -27,7 +27,6 @@ Monero 的设计来自 2013 年的 CryptoNote 白皮书，核心是三个机制�
 - **Ring Signatures**：发送方签署交易时，把真实签名混进从过去交易输出挑出的诱饵（decoys）之中。观察者只能确定「16 个输出之中有一个是真的」，无法确定是哪一个。Monero 目前默认的环大小为 16。
 - **RingCT**（Ring Confidential Transactions）：用 Pedersen 同态承诺（不披露数字、仍可验算加总的加密承诺）隐藏金额，再以 Bulletproofs+ 范围证明确保每笔金额非负，整体证明输入总和等于输出总和，没有凭空增发。
 
-![Monero 环签名示意：发送方的真实签名混进 15 个诱饵，环大小 16，观察者只能验证 16 个之中有一个是真的，无法反推是哪一个](https://assets.anoni.net/diagrams/monero-ring.zh-TW.drawio.svg)
 
 三者组合起来，链上看到的是「某个一次性地址收到一笔隐藏金额，由 16 个可能的发送方之一发送」，没有 Alice 与 Bob 的概念。对照前面的四层，stealth address 遮盖账户层、RingCT 遮盖金额层、ring signatures 打散图谱层，第四层的元数据仍要靠 Tor 另外处理。
 
@@ -41,7 +40,15 @@ Zcash 走的路线更激进，屏蔽交易（shielded transaction）用 zk-SNARK
 - 我创建的新 note 金额总和等于消耗的 note 金额。
 - 没有重复花费。
 
-![Zcash 屏蔽交易示意：发送方与接收方之间以 zk-SNARK 证明连接。链上可见的部分有 proof、nullifier、commitment 与手续费，不可见的部分有发送方地址、接收方地址、金额与图谱关联](https://assets.anoni.net/diagrams/zcash-shielded.zh-TW.drawio.svg)
+| 项目 | 链上 |
+|---|---|
+| zk-SNARK 证明 | 可见，证明交易有效 |
+| nullifier | 可见，用来防止重复花费 |
+| 新的 commitment | 可见，代表新建立的 note |
+| 手续费 | 可见 |
+| 发送方与接收方地址 | 不可见 |
+| 金额 | 不可见 |
+| 跟其他交易的关联 | 不可见 |
 
 整个证明在链上只占几百 bytes，验证者不需要知道金额、地址与来源，链上能看到的只有发生了一笔屏蔽交易。对照四层，一笔屏蔽交易同时遮盖账户、金额、图谱三层，第四层的元数据同样留给网络层处理。
 

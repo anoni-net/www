@@ -63,7 +63,6 @@ Tor onion 服务第 3 版（v3）让网站直接在 Tor 网络里运行（架设
 
 ## IPFS 与 onion 的对照
 
-![IPFS 与 onion 的架构对照。IPFS 从网关经 DHT 查询到持有 CID 的节点，主要解决抗删除。Onion 从 Guard、Middle 到会合点，服务的描述符放在 HSDir，主要解决连接匿名](https://assets.anoni.net/diagrams/ipfs-vs-onion.zh-TW.drawio.svg)
 
 | 项目 | IPFS | Onion |
 |---|---|---|
@@ -107,7 +106,6 @@ ENS（Ethereum Name Service，以太坊域名服务）可以给 IPFS 内容取�
 
 anoni.net 文档站同时发布标准网站、onion 与 IPFS 三份，内容相同，三套构建流程各自处理网址与路径的差异。
 
-![anoni.net 文档站的三轨部署。同一个 GitHub repo 经过三套构建脚本处理路径差异，分别部署到主站 anoni.net、IPFS 网络与 .onion 服务](https://assets.anoni.net/diagrams/anoni-deployment.zh-TW.drawio.svg)
 
 1. **源文件**：MkDocs Material 格式的 Markdown，放在 GitHub 的 `anoni-net/docs`。
 2. **标准网站与 onion**：推送 `docs` 分支时，GitHub Actions 的 `build_docs.yml` 同时构建两份三语种的静态网站，以 `aws s3 sync --delete` 上传到同一个 S3 bucket 的不同 prefix（`docs/` 与 `docs-onion/`），标准网站经由 Cloudflare 对外提供。onion 那份在构建前先执行 `replace_sitename_anoni_onion.sh`，把站内网址改写成 `docs.<onion 地址>`，并去掉统计脚本与 service worker。`build_docs_anoni.sh` 与 `build_docs_anoni_onion.sh` 是同样步骤的本地版本。

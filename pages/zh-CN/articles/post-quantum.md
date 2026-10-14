@@ -20,9 +20,19 @@ date: 2026-05-01
 
 NIST IR 8547 的初稿（2024-11 公开征求意见，截至 2026-10 尚未定稿）提出 2030 年起弃用旧的公钥算法、2035 年起全面禁用的时间表，ENISA 的路线图也以这两个年份为准，NSA 的 CNSA 2.0 另订 2030 与 2033 年的期限[^1]。新部署从现在起就应该规划 PQC 的迁移路径。
 
-<figure markdown="span">
-    <img class="brand-frame" src="https://assets.anoni.net/diagrams/pq-timeline.zh-TW.drawio.svg" alt="后量子密码迁移时程：从 2023 Signal PQXDH、2024 NIST FIPS 与主流浏览器启用、到 2030–2035 主要系统应完成迁移、2040 旧密码学硬时间表">
-</figure>
+<ol class="tl" aria-label="后量子密码的转换时程">
+  <li><span class="tl-when">2022-10</span><span class="tl-b"><span class="tl-t">Cloudflare</span><span class="tl-d">经由 Cloudflare 提供的网站默认支持混合后量子密钥交换，当时用 Kyber 草案</span></span></li>
+  <li><span class="tl-when">2023</span><span class="tl-b"><span class="tl-t">Signal PQXDH</span><span class="tl-d">建立对话的密钥协商加入后量子密钥封装</span></span></li>
+  <li><span class="tl-when">2024-03</span><span class="tl-b"><span class="tl-t">iMessage PQ3</span><span class="tl-d">iOS 17.4 的消息密钥交换加入后量子算法</span></span></li>
+  <li><span class="tl-when">2024-08</span><span class="tl-b"><span class="tl-t">NIST FIPS 203、204、205</span><span class="tl-d">ML-KEM、ML-DSA、SLH-DSA 成为正式标准</span></span></li>
+  <li><span class="tl-when">2024-11</span><span class="tl-b"><span class="tl-t">Chrome 131</span><span class="tl-d">改用正式标准的 X25519MLKEM768</span></span></li>
+  <li><span class="tl-when">2025-04</span><span class="tl-b"><span class="tl-t">OpenSSH 10.0</span><span class="tl-d">mlkem768x25519-sha256 成为默认</span></span></li>
+  <li><span class="tl-when">2025-09</span><span class="tl-b"><span class="tl-t">Apple 26 系列</span><span class="tl-d">TLS 1.3 默认提出 X25519MLKEM768，Safari 随之导入</span></span></li>
+  <li><span class="tl-when">2025-10</span><span class="tl-b"><span class="tl-t">Signal SPQR</span><span class="tl-d">对话进行中的密钥更新也具备抗量子能力</span></span></li>
+  <li><span class="tl-when">2026-06</span><span class="tl-b"><span class="tl-t">台湾金管会指引</span><span class="tl-d">《金融业后量子密码迁移参考指引》分三个阶段推动</span></span></li>
+  <li><span class="tl-when">2030</span><span class="tl-b"><span class="tl-t">弃用旧算法</span><span class="tl-d">NIST IR 8547 初稿提出的弃用年份，香港金管局也以 2030 年为银行业准备的目标</span></span></li>
+  <li><span class="tl-when">2035</span><span class="tl-b"><span class="tl-t">全面禁用</span><span class="tl-d">NIST IR 8547 初稿的禁用年份，也是台湾金管会指引中长期阶段的终点，高风险系统优先迁移</span></span></li>
+</ol>
 
 ## NIST 2024 年的三项标准
 

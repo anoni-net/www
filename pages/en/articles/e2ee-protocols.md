@@ -14,7 +14,6 @@ Two people who have never met, and who can only pass messages through someone li
 
 Modern protocols use X25519, an elliptic-curve key exchange that is smaller and faster than the earlier finite-field versions and designed to reduce side-channel risk, meaning inference of a key from physical traces such as timing or power draw. Signal, Tor, TLS 1.3, and most modern SSH implementations such as OpenSSH use or prefer X25519.
 
-![Diffie-Hellman key exchange: Alice and Bob pick secrets a and b, exchange G^a and G^b, each computes the shared key G^ab, and Eve seeing the intermediate messages cannot work backwards in reasonable time](https://assets.anoni.net/diagrams/dh-exchange.zh-TW.drawio.svg)
 
 Diffie-Hellman settles how to agree on a shared key and nothing more. Once a key is long-lived, stealing it one day decrypts every message before and after.
 
@@ -37,7 +36,6 @@ Three security properties follow:
 2. **Post-compromise security** (PCS): forward secrecy protects messages before a compromise, and post-compromise security protects those after. Even if a device is breached and keys are stolen, the security state repairs itself at the next DH exchange provided the attacker did not intercept it, since the stolen keys stop working
 3. **Offline messages**: messages accumulate while the other party is offline and sync in a batch when they return, each still with its own key
 
-![The Double Ratchet's two key-update mechanisms: the symmetric ratchet advances one step per message sent, the DH ratchet resets the chain when a message arrives, and each message has its own key](https://assets.anoni.net/diagrams/double-ratchet.zh-TW.drawio.svg)
 
 Open Whisper Systems integrated the Double Ratchet into the Signal Protocol in 2014[^1], and WhatsApp, Facebook Messenger, and Skype's Private Conversations adopted it afterwards. Messenger first used it only in opt-in Secret Conversations, and from December 2023 began making personal chats end-to-end encrypted by default, again on the Signal Protocol[^2]. Skype was retired on 5 May 2025[^3].
 

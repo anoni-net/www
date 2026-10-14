@@ -14,7 +14,6 @@ date: 2026-05-01
 
 現代協定普遍使用 X25519，一套以橢圓曲線為基礎的金鑰交換演算法，比早期的有限體版本更小、更快，設計上也降低側通道攻擊（side channel，從運算時間、功耗等物理跡象反推金鑰）的風險。Signal、Tor、TLS 1.3 與多數現代 SSH 實作（例如 OpenSSH）預設或優先使用 X25519。
 
-![Diffie-Hellman 金鑰交換流程：Alice 與 Bob 各自挑秘密 a、b，交換 G^a、G^b，雙方各自算出共同金鑰 G^ab，Eve 即使看到中間訊息也無法在合理時間內反推](https://assets.anoni.net/diagrams/dh-exchange.zh-TW.drawio.svg)
 
 DH 只解決協商共同金鑰的問題。金鑰長期存在時，只要有一天被偷，過去與未來的訊息都會被解開。
 
@@ -37,7 +36,6 @@ Double Ratchet 是 Signal Protocol 的核心，名稱來自兩種同時運作的
 2. **事後安全**（Post-Compromise Security，PCS，也稱後向保密）：前向保密保護遭入侵之前的訊息，事後安全保護之後的訊息。裝置一度被入侵、金鑰被竊，只要攻擊者沒有攔下下一次 DH 交換，安全狀態就會自行恢復，攻擊者手上的舊金鑰隨即失效
 3. **離線訊息**：對方不在線時訊息可以累積，等對方上線再批次同步，每則仍有獨立的金鑰
 
-![Double Ratchet 的兩種金鑰更新機制：對稱 ratchet 每送一則訊息推進一格、DH ratchet 收到對方訊息時整段重置，每則訊息有獨立金鑰](https://assets.anoni.net/diagrams/double-ratchet.zh-TW.drawio.svg)
 
 Double Ratchet 在 2014 年由 Open Whisper Systems 整合進 Signal Protocol[^1]，之後 WhatsApp、Facebook Messenger 與 Skype 的 Private Conversations 相繼採用。Messenger 原本只在選擇性開啟的 Secret Conversations 使用，2023 年 12 月起把個人對話改為預設端對端加密，協定同樣是 Signal Protocol[^2]。Skype 在 2025 年 5 月 5 日停止服務[^3]。
 
