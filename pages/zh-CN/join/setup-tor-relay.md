@@ -11,7 +11,7 @@ Tor 网络的带宽与稳定性来自各地志愿者运营的中继节点（rela
 
 架设前需先决定下列事项，打算架设出口节点的话，还要另外评估自己能承受的风险：
 
-- 节点类型：出口节点，或桥接、中间节点这类非出口节点。
+- 节点类型：出口节点，或网桥、中间节点这类非出口节点。
 - 出口策略：架设出口节点时要开放哪些端口。开放的端口越多，通常会收到越多滥用或违法投诉。
 - `ORPort`：接受 Tor 连接的对外 TCP 端口。服务器上没有其他服务占用 443 时，建议设成 `ORPort 443`。公共 Wi-Fi 通常只开放少数几个端口，443 多半在其中。9001 也是常用的 `ORPort`。
 - `ContactInfo`：节点的联系邮箱，会公开显示。
@@ -126,7 +126,7 @@ nyx -s /run/tor-instances/{instance-name}/control
 
 ### 带宽与网络条件
 
-Tor Project 建议中继的上传与下载带宽各至少 10 Mbit/s（约 1.25 MB/s，见 [Relay requirements](https://community.torproject.org/relay/relays-requirements/)）。带宽不足 10 Mbit/s 但仍有 1 Mbit/s 以上时，官方建议改为架设 obfs4 桥接。中继另外需要固定的 IP 地址，也要确认 ISP 允许这类流量，防火墙与路由器能设置所需的端口转发。
+Tor Project 建议中继的上传与下载带宽各至少 10 Mbit/s（约 1.25 MB/s，见 [Relay requirements](https://community.torproject.org/relay/relays-requirements/)）。带宽不足 10 Mbit/s 但仍有 1 Mbit/s 以上时，官方建议改为架设 obfs4 网桥。中继另外需要固定的 IP 地址，也要确认 ISP 允许这类流量，防火墙与路由器能设置所需的端口转发。
 
 中继只会用到设置的带宽上限，不会占满所有网络资源。高负载时仍可能感觉到网速稍慢，可以视需要调整配置里的带宽限制。
 
@@ -144,7 +144,7 @@ Tor 软件需保持更新，才能取得安全补丁与新功能。多数 Linux 
 
 ## 相关阅读
 
-- [Tor WebTunnel 桥接架设指南](/join/setup-tor-webtunnel/)：把桥接流量伪装成一般 HTTPS，适合一般中继无法连上的受审查网络
+- [Tor WebTunnel 网桥架设指南](/join/setup-tor-webtunnel/)：把网桥流量伪装成一般 HTTPS，适合一般中继无法连上的受审查网络
 - [Tor 中继节点观测](/projects/pulse/)：台湾与邻近地区中继节点的数量、带宽与角色变化
 - [Tor Relay 校园建立研究专题](/join/relay-on-campus/)：在校园网络架设中继的计划与案例
 - [参与 Tor Project](/join/tor-project/)：参与 Tor 上游的方式与官方沟通渠道

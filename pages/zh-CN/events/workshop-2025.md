@@ -24,7 +24,7 @@ description: 2025 年 8 月 9 日到 10 日在国立台湾科技大学举办的�
 - 用 Tor 网络匿名浏览
 - 以 Tails 与 USB 闪存盘建立**第二工作环境**，不在使用的电脑上留下记录
 - 基础的威胁模型评估，包含认识对手、评估风险与对应的行动
-- 在网络受到审查的国家或环境，用桥接（bridge）与 [Snowflake](docs:tools/tor-snowflake/) 连上 Tor
+- 在网络受到审查的国家或环境，用网桥（bridge）与 [Snowflake](docs:tools/tor-snowflake/) 连上 Tor
 
 ### 实操与工具
 

@@ -100,7 +100,7 @@ CryptPad 界面选单最早写的是「中文(繁体)」。我们在 PR #1329 �
 
 `cryptpad.anoni.net` 与 `cryptpad.org` 都没有针对中国大陆使用者做特别托管，在大陆网络环境下访问可能会有连线不稳或被阻断的情况。建议方式：
 
-- **使用 [Tor Browser](https://www.torproject.org/zh-CN/download/)**：透过 Tor 网络访问 cryptpad.anoni.net，默认走 HTTPS。如果直接连不上 Tor 网络，可使用 [Snowflake](docs:tools/tor-snowflake/) 或 [obfs4 桥接](https://bridges.torproject.org/)。
+- **使用 [Tor Browser](https://www.torproject.org/zh-CN/download/)**：透过 Tor 网络访问 cryptpad.anoni.net，默认走 HTTPS。如果直接连不上 Tor 网络，可使用 [Snowflake](docs:tools/tor-snowflake/) 或 [obfs4 网桥](https://bridges.torproject.org/)。
 - **使用任何你信任的 VPN**：注意 VPN 服务商本身能看到你的连线 metadata，但 CryptPad 端对端加密的特性确保内容不会被任何中间方读取。
 - **使用 [Tails](docs:tools/what-is-tails/)**：把整个操作环境放进 Tails，所有流量默认走 Tor，关机后不留痕迹。适合敏感度较高的协作场景。
 
