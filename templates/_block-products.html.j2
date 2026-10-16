@@ -1,13 +1,16 @@
-{# 內容專案的卡片。整張卡片可以點，卡片裡的最新文章與語系另外是連結，疊在上面。
-   語系名稱用各自的寫法，三個語系的頁面都一樣。 #}
+{# 網站專案的卡片。整張卡片可以點，卡片裡的最新文章與語系另外是連結，疊在上面。
+   語系名稱用各自的寫法，三個語系的頁面都一樣。p.langs 是那個網站有的語系，
+   缺目前語系時連到第一個。 #}
 {% set lang_names = {'zh-TW': '正體中文', 'zh-CN': '简体中文', 'en': 'English'} %}
 <div class="cards">
 {% for p in data.projects.content %}
 {% set items = latest(p.product, data.projects.content_latest) if data.projects.content_latest else [] %}
+{% set plangs = langs|selectattr('code', 'in', p.langs)|list if p.langs is defined else langs %}
+{% set home = lang if lang in plangs else plangs[0] %}
   <div class="card">
     <div class="card-h">
       <span class="ic{% if p.cat is defined %} cat-{{ p.cat }}{% endif %}">{{ icon(p.icon) }}</span>
-      <span><a class="n" href="{{ docs_url() if p.product == 'docs' else news_url() }}">{{ pick(p.name) }}</a><span class="p">{{ p.display }}</span></span>
+      <span><a class="n" href="{{ product_url(p.product, home) }}">{{ pick(p.name) }}</a><span class="p">{{ p.display }}</span></span>
     </div>
     <p>{{ pick(p.summary) }}</p>
 {% if items %}
@@ -17,7 +20,7 @@
 {% endfor %}
     </ul>
 {% endif %}
-    <div class="tags">{% for l in langs %}<a href="{{ product_url(p.product, l) }}" lang="{{ l.html }}"{% if l.code == lang.code %} aria-current="true"{% endif %}>{{ lang_names[l.code] }}</a>{% endfor %}{% if p.about %}<a class="about" href="{{ docs_url(p.about) if p.product == 'docs' else news_url(p.about) }}">{{ t.about_project }}</a>{% endif %}</div>
+    <div class="tags">{% for l in plangs %}<a href="{{ product_url(p.product, l) }}" lang="{{ l.html }}"{% if l.code == lang.code %} aria-current="true"{% endif %}>{{ lang_names[l.code] }}</a>{% endfor %}{% if p.about is defined %}<a class="about" href="{{ product_url(p.product, lang, p.about) }}">{{ t.about_project }}</a>{% endif %}</div>
   </div>
 {% endfor %}
 </div>
