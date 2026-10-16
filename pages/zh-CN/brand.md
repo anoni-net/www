@@ -345,11 +345,11 @@ anoni.net 底下有四个网站，共用同一组 logo 与上方的色票。各�
 | 网站 | 页首 | 版面 | 样式的位置 |
 |---|---|---|---|
 | [anoni.net](https://anoni.net/zh-cn/) | 白底，logo 加 `anoni.net` | 全站对齐同一组左右边界，文档页右侧放本页内容。结构用中性灰阶，cyan 留给交互与识别 | `anoni-net/www` 的 `static/css/site.css` |
-| [anoni.net/gears](https://anoni.net/gears/) | `--brand-cyan-50` 底、深色字，logo 加「隐私工作台」，深色模式改用比背景亮一阶的蓝灰 | 自行开发的工具界面，左侧是暂存区，工具的图标圈用分类色 | `anoni-net/gears` 的 `src/styles.css` |
+| [anoni.net/gears](https://anoni.net/gears/) | `--brand-cyan-50` 底、深色字，logo 加「文件工作台」与 Gears 标记，深色模式改用比背景亮一阶的蓝灰 | 自行开发的工具界面，左侧是暂存区，工具的图标圈用分类色 | `anoni-net/gears` 的 `src/styles.css` |
 | [anoni.net/docs](docs:) | `--brand-cyan-800` 底、白字 | Material for MkDocs，侧栏用指南分类色 | `anoni-net/docs` 的 `docs/*/stylesheets/extra.css` |
 | [anoni.net/news](https://anoni.net/news/zh-cn/) | `--brand-cyan-900` 底、白字，墨色调 | 自行开发的单栏版面，标题用宋体 | `anoni-net/news` 的 `static/css/news.css` |
 
-页首颜色由浅到深依次是顶层网站、隐私工作台、文档站、新闻导读，并排时一眼就能分辨。
+页首颜色由浅到深依次是顶层网站、文件工作台、文档站、新闻导读，并排时一眼就能分辨。
 
 ### 社区首页的配色与版面
 
@@ -386,17 +386,17 @@ anoni.net 底下有四个网站，共用同一组 logo 与上方的色票。各�
 
 ### 图标的分类色
 
-首页、参与、关于与项目页的列表与卡片，前面有一个圆形图标，图标圈的颜色代表这一项属于哪一类工作。2026-10 以前只有三大主题有颜色，其他项目一律灰色，看不出灰色代表什么，所以扩充成八类。前三类沿用三大主题的结构性次色，后五类在 OKLCH 色彩空间用相近的明度与彩度补出色相，八色在白底与深色底的对比都在 4.5 以上。这组颜色用在社区首页与隐私工作台，文档站沿用 Material 的配色。
+首页、参与、关于与项目页的列表与卡片，前面有一个圆形图标，图标圈的颜色代表这一项属于哪一类工作。2026-10 以前只有三大主题有颜色，其他项目一律灰色，看不出灰色代表什么，所以扩充成八类。前三类沿用三大主题的结构性次色，后五类在 OKLCH 色彩空间用相近的明度与彩度补出色相，八色在白底与深色底的对比都在 4.5 以上。这组颜色用在社区首页与文件工作台，文档站沿用 Material 的配色。
 
 | Token | 类别 | 浅色模式 | 深色模式 | 用在哪里 |
 |---|---|---|---|---|
-| `--cat-privacy` | 个人隐私 | <span class="color-swatch" style="background:#2e7d32"></span>`#2e7d32` | <span class="color-swatch" style="background:#81c784"></span>`#81c784` | 个人隐私指引、文档站，隐私工作台的清除元数据、网址检查与 QR code |
+| `--cat-privacy` | 个人隐私 | <span class="color-swatch" style="background:#2e7d32"></span>`#2e7d32` | <span class="color-swatch" style="background:#81c784"></span>`#81c784` | 个人隐私指引、文档站，文件工作台的清除元数据、网址检查与 QR code |
 | `--cat-relay` | Tor 与中继 | <span class="color-swatch" style="background:#7b1fa2"></span>`#7b1fa2` | <span class="color-swatch" style="background:#ce93d8"></span>`#ce93d8` | Tor Relay 校园建设，架设 Relay、WebTunnel 与 .onion 服务的指南，参与 Tor Project |
 | `--cat-payments` | 匿名支付 | <span class="color-swatch" style="background:#c25400"></span>`#c25400` | <span class="color-swatch" style="background:#ffa040"></span>`#ffa040` | 匿名支付 |
 | `--cat-observe` | 网络观测 | <span class="color-swatch" style="background:#026a9d"></span>`#026a9d` | <span class="color-swatch" style="background:#69c1fc"></span>`#69c1fc` | Tor 中继节点观测、OONI 观测覆盖率、观测季报、AI 助手的 Tor 节点查询、OONI 网站检测清单 |
 | `--cat-content` | 内容与写作 | <span class="color-swatch" style="background:#02736e"></span>`#02736e` | <span class="color-swatch" style="background:#3ed0c8"></span>`#3ed0c8` | 新闻导读、写作风格规范、文档站的写作与翻译 |
 | `--cat-dev` | 开发与技术 | <span class="color-swatch" style="background:#4d57b7"></span>`#4d57b7` | <span class="color-swatch" style="background:#a3b2fe"></span>`#a3b2fe` | 参与开发的环境准备、IPFS 镜像的 pin 节点 |
-| `--cat-secure` | 敏感与安全 | <span class="color-swatch" style="background:#a53453"></span>`#a53453` | <span class="color-swatch" style="background:#f996a9"></span>`#f996a9` | 提供敏感资料，隐私工作台的遮蔽、加密、解密与密语生成器 |
+| `--cat-secure` | 敏感与安全 | <span class="color-swatch" style="background:#a53453"></span>`#a53453` | <span class="color-swatch" style="background:#f996a9"></span>`#f996a9` | 提供敏感资料，文件工作台的遮蔽、加密、解密与密语生成器 |
 | `--cat-community` | 社区与治理 | <span class="color-swatch" style="background:#786101"></span>`#786101` | <span class="color-swatch" style="background:#d3b555"></span>`#d3b555` | 治理章程、组织合作、品牌素材 |
 
 在图标、整个列表或卡片加上 `cat-<类别>` 的 class 就会套用，数据文件用 `cat` 字段指定。不属于任何一类的项目不加，保持中性灰。颜色只是辅助，每一项都要有图标与标题，不能只靠颜色分辨。

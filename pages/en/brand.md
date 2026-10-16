@@ -345,11 +345,11 @@ Four sites live under anoni.net. They share the logo and the tokens above, and e
 | Site | Header | Layout | Where the styles live |
 |---|---|---|---|
 | [anoni.net](https://anoni.net/en/) | White, logo plus `anoni.net` | Every page aligns to the same left and right edges, with an "On this page" column on document pages. Structure in neutral greys, cyan kept for interaction and identity | `static/css/site.css` in `anoni-net/www` |
-| [anoni.net/gears](https://anoni.net/gears/) | `--brand-cyan-50` with dark text, logo plus "隱私工作台" (Privacy Workbench); a blue-grey one step above the background in dark mode | A hand-written tool interface with the file tray on the left and tool icons in the category colours | `src/styles.css` in `anoni-net/gears` |
+| [anoni.net/gears](https://anoni.net/gears/) | `--brand-cyan-50` with dark text, logo plus "File Workbench" with a Gears badge; a blue-grey one step above the background in dark mode | A hand-written tool interface with the file tray on the left and tool icons in the category colours | `src/styles.css` in `anoni-net/gears` |
 | [anoni.net/docs](docs:) | `--brand-cyan-800` with white text | Material for MkDocs, sidebar in the guide category colours | `docs/*/stylesheets/extra.css` in `anoni-net/docs` |
 | [anoni.net/news](https://anoni.net/news/en/) | `--brand-cyan-900` with white text, an ink tone | A hand-written single-column layout with serif headings | `static/css/news.css` in `anoni-net/news` |
 
-From light to dark the headers run top level, Privacy Workbench, docs, news, so the sites are easy to tell apart side by side.
+From light to dark the headers run top level, File Workbench, docs, news, so the sites are easy to tell apart side by side.
 
 ### Colour and layout of the community site
 
@@ -386,17 +386,17 @@ The greys extend from `--neutral-muted` (`#546e7a`) and carry a little blue, so 
 
 ### Icon category colours
 
-Lists and cards on the home, Take part, About and Projects pages start with a round icon, and the colour of its ring says which kind of work the item belongs to. Until October 2026 only the three tracks had colours and everything else was grey, which told readers nothing, so the set was extended to eight categories. The first three reuse the structural secondaries of the three tracks. The other five were derived in OKLCH at a similar lightness and chroma, and all eight reach at least 4.5:1 against both the light and the dark background. These colours are used on the community site and in Privacy Workbench; the docs site keeps Material's palette.
+Lists and cards on the home, Take part, About and Projects pages start with a round icon, and the colour of its ring says which kind of work the item belongs to. Until October 2026 only the three tracks had colours and everything else was grey, which told readers nothing, so the set was extended to eight categories. The first three reuse the structural secondaries of the three tracks. The other five were derived in OKLCH at a similar lightness and chroma, and all eight reach at least 4.5:1 against both the light and the dark background. These colours are used on the community site and in File Workbench; the docs site keeps Material's palette.
 
 | Token | Category | Light mode | Dark mode | Used for |
 |---|---|---|---|---|
-| `--cat-privacy` | Privacy | <span class="color-swatch" style="background:#2e7d32"></span>`#2e7d32` | <span class="color-swatch" style="background:#81c784"></span>`#81c784` | Personal privacy guidance, the docs site, and the metadata stripper, link checker and QR code tools in Privacy Workbench |
+| `--cat-privacy` | Privacy | <span class="color-swatch" style="background:#2e7d32"></span>`#2e7d32` | <span class="color-swatch" style="background:#81c784"></span>`#81c784` | Personal privacy guidance, the docs site, and the metadata stripper, link checker and QR code tools in File Workbench |
 | `--cat-relay` | Tor and relays | <span class="color-swatch" style="background:#7b1fa2"></span>`#7b1fa2` | <span class="color-swatch" style="background:#ce93d8"></span>`#ce93d8` | Tor relays on campus, the guides to running a relay, WebTunnel bridge and .onion service, taking part in the Tor Project |
 | `--cat-payments` | Anonymous payments | <span class="color-swatch" style="background:#c25400"></span>`#c25400` | <span class="color-swatch" style="background:#ffa040"></span>`#ffa040` | Anonymous payments |
 | `--cat-observe` | Network measurement | <span class="color-swatch" style="background:#026a9d"></span>`#026a9d` | <span class="color-swatch" style="background:#69c1fc"></span>`#69c1fc` | Tor Relay Watch, OONI Coverage, quarterly reports, Tor relay lookup for AI assistants, maintaining the OONI test list |
 | `--cat-content` | Content and writing | <span class="color-swatch" style="background:#02736e"></span>`#02736e` | <span class="color-swatch" style="background:#3ed0c8"></span>`#3ed0c8` | News, the writing style guide, writing and translating for the docs site |
 | `--cat-dev` | Development | <span class="color-swatch" style="background:#4d57b7"></span>`#4d57b7` | <span class="color-swatch" style="background:#a3b2fe"></span>`#a3b2fe` | Development environment setup, the IPFS pin node |
-| `--cat-secure` | Sensitive material and safety | <span class="color-swatch" style="background:#a53453"></span>`#a53453` | <span class="color-swatch" style="background:#f996a9"></span>`#f996a9` | Sending us sensitive material, and the redaction, encryption, decryption and passphrase tools in Privacy Workbench |
+| `--cat-secure` | Sensitive material and safety | <span class="color-swatch" style="background:#a53453"></span>`#a53453` | <span class="color-swatch" style="background:#f996a9"></span>`#f996a9` | Sending us sensitive material, and the redaction, encryption, decryption and passphrase tools in File Workbench |
 | `--cat-community` | Community and governance | <span class="color-swatch" style="background:#786101"></span>`#786101` | <span class="color-swatch" style="background:#d3b555"></span>`#d3b555` | Governance charter, working with organizations, brand assets |
 
 Adding a `cat-<category>` class to an icon, a whole list or a card applies the colour, and data files set it with a `cat` field. Items that fit no category get no class and stay neutral grey. Colour only supports the label: every item still needs its icon and title, and nothing should be told apart by colour alone.
