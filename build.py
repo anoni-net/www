@@ -956,8 +956,14 @@ class Site:
         self.write(out / "404.html", text, target)
 
     def write(self, dest: Path, text: str, target: dict) -> None:
+        # keep 裡的網址先換成占位字串，改寫完再換回來，onion 頁面照樣連到 clearnet
+        keep = {f"\0keep{i}\0": url for i, url in enumerate(target.get("keep", []))}
+        for mark, url in keep.items():
+            text = text.replace(url, mark)
         for old, new in target.get("rewrite", {}).items():
             text = text.replace(old, new.replace("{onion}", self.config["onion_host"]))
+        for mark, url in keep.items():
+            text = text.replace(mark, url)
         dest.parent.mkdir(parents=True, exist_ok=True)
         dest.write_text(text, encoding="utf-8")
 
@@ -1001,8 +1007,11 @@ def check(site: Site, outs: list[Path]) -> list[str]:
                 if got != want:
                     problems.append(f"{out.name}/{rel}：語言切換 {want} 指到 {href}，那一頁是 {got}")
             if out.name == "onion":
+                rest = text
+                for url in site.config["targets"]["onion"].get("keep", []):
+                    rest = rest.replace(url, "")
                 for host in site.config["targets"]["onion"].get("rewrite", {}):
-                    if host in text:
+                    if host in rest:
                         problems.append(f"{out.name}/{rel}：onion 版本還有 {host}")
     return problems
 

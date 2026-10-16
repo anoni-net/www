@@ -205,7 +205,7 @@ SVG 的畫布照手機的寬度設計，約 360 單位寬，桌機用 `max-width
 
 | 分類 | 定義 | 例子 | 頁面 | 資料 |
 |---|---|---|---|---|
-| 專案 | 社群自己寫的內容或程式，有自己的路線圖與貢獻者 | docs、news、onionoo-mcp、Pulse、ASN Coverage | `/projects/` | `data/projects.toml` |
+| 專案 | 社群自己寫的內容或程式，有自己的路線圖與貢獻者 | docs、news、Gears、mystery、onionoo-mcp、Pulse、ASN Coverage | `/projects/` | `data/projects.toml` |
 | 服務 | 其他開源專案開發的軟體，社群負責架設與維運 | Matrix、CryptPad、Etherpad、SearXNG、Send、Formbricks | `/services/` | `data/services.toml` |
 | 主題 | 年度的工作方向，讀者可以認領、加入，不是成品 | 2026 年的個人隱私指引、Tor Relay 校園建立、匿名支付 | `/join/` | `data/topics.toml` |
 
@@ -456,7 +456,7 @@ Content on the site falls into three categories, projects, services and topics, 
 
 | Category | Definition | Examples | Page | Data |
 |---|---|---|---|---|
-| Project | Content or code written by the community, with its own roadmap and contributors | docs, news, onionoo-mcp, Pulse, ASN Coverage | `/projects/` | `data/projects.toml` |
+| Project | Content or code written by the community, with its own roadmap and contributors | docs, news, Gears, mystery, onionoo-mcp, Pulse, ASN Coverage | `/projects/` | `data/projects.toml` |
 | Service | Software developed by other open-source projects, set up and run by the community | Matrix, CryptPad, Etherpad, SearXNG, Send, Formbricks | `/services/` | `data/services.toml` |
 | Topic | A direction for the year's work that readers can take up and join, rather than a finished product | Personal privacy guides for 2026, building Tor relays on campuses, anonymous payments | `/join/` | `data/topics.toml` |
 

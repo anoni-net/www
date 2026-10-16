@@ -1,7 +1,9 @@
 # 專案：社群自己寫的內容或程式，由社群撰寫與維護，有自己的路線圖與貢獻者。
 # 別人開發、社群架設的軟體是服務，寫在 services.toml。
 #
-# content 是兩個內容專案，用卡片呈現，卡片上列出該網站最新的幾篇（latest.py 讀各語系的 RSS）。
+# content 是掛在 anoni.net 底下路徑的網站（文件站、新聞導讀、檔案工作台、隱私推理遊戲），用卡片呈現，
+# 首頁與專案頁都會列出。卡片上可以列出該網站最新的幾篇（latest.py 讀各語系的 RSS）。
+# langs 是那個網站有的語系，沒寫就是三個都有。缺目前語系時，卡片連到 langs 的第一個。
 # tools 是觀測與工具，用細線列呈現。
 # 專案的詳細介紹寫在專案自己的關於頁，這裡只放一句話。
 #
@@ -35,6 +37,28 @@ name = { zh-TW = "新聞導讀", zh-CN = "新闻导读", en = "News" }
 summary.zh-TW = "從科技與開源的角度，導讀國際隱私、匿名網路與網路審查的新聞，每篇附上原文與導讀觀點。"
 summary.zh-CN = "从科技与开源的角度，导读国际隐私、匿名网络与网络审查的新闻，每篇附上原文与导读观点。"
 summary.en = "News on privacy, anonymity networks and Internet censorship, read from a tech and open-source angle with a view from Asia. Every story links to its original sources."
+
+# Gears 沒有 onion 版（Tor Browser 不在支援範圍），onion 頁面照樣連到 clearnet，見 site.toml 的 keep
+[[content]]
+icon = "toolbox-outline"
+cat = "privacy"
+product = "gears"
+display = "anoni.net/gears"
+name = { zh-TW = "檔案工作台", zh-CN = "文件工作台", en = "File Workbench" }
+summary.zh-TW = "在瀏覽器裡清除中繼資料、遮蔽個資、加密要交出去的檔案，也替收到的檔案整理查證線索，檔案不上傳。"
+summary.zh-CN = "在浏览器里清除元数据、遮蔽个资、加密要交出去的文件，也替收到的文件整理查证线索，文件不上传。"
+summary.en = "Strip metadata, redact and encrypt files before you hand them over, and lay out leads to verify in files you receive, all in your browser without uploading."
+
+[[content]]
+icon = "head-question"
+cat = "privacy"
+product = "mystery"
+display = "anoni.net/mystery"
+langs = ["zh-TW", "en"]
+name = { zh-TW = "隱私推理遊戲", zh-CN = "隐私推理游戏", en = "Privacy Mysteries" }
+summary.zh-TW = "每一份委託都是一個案件，從照片、檔案與文字裡找出破綻，學會保護自己和別人的隱私。"
+summary.zh-CN = "每一份委托都是一个案件，从照片、文件与文字里找出破绽，学会保护自己和别人的隐私。目前有正体中文与英文版。"
+summary.en = "Each request is a case: find the leaks in photos, files and writing, and learn to protect your own privacy and other people's."
 
 [[tools]]
 icon = "access-point-network"
