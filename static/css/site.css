@@ -513,6 +513,9 @@ p { margin: .5rem 0 1rem; }
 .pulse-regions { display: flex; flex-wrap: wrap; gap: .4rem; margin: 1.25rem 0 .5rem; }
 .pulse-regions a { padding: .15rem .75rem; border: 1px solid var(--c-line); border-radius: 4px; font-size: .85rem; text-decoration: none; }
 .pulse-regions a[aria-current] { background: var(--c-solid); border-color: var(--c-solid); color: #fff; }
+/* 地區名稱後面的代碼（TW、JP），跟網址 /projects/pulse/<code>/ 對得起來。不放國旗，港澳台的旗子沒有中立的選法。
+   inline-block 讓連結的底線停在名稱，不延伸到代碼 */
+.cc { display: inline-block; margin-left: .3em; font-size: .78em; font-weight: 400; letter-spacing: .03em; opacity: .65; }
 .pulse-meta { margin: .25rem 0 0; font-size: .8rem; color: var(--c-muted); }
 .pulse-stale { margin-left: .5rem; padding: 0 .4rem; border: 1px solid var(--c-border); border-radius: 4px; }
 .pulse-empty { padding: 1rem; border: 1px dashed var(--c-border-strong); border-radius: var(--radius); color: var(--c-muted); }

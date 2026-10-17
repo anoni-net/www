@@ -10,7 +10,7 @@
 </figure>
 <nav class="pulse-regions" aria-label="{{ L.countries }}">
 {% for c in countries %}
-  <a href="{{ c.href }}"{% if c.current %} aria-current="page"{% endif %}>{{ c.name }}</a>
+  <a href="{{ c.href }}"{% if c.current %} aria-current="page"{% endif %}>{{ c.name }}<span class="cc">{{ c.code | upper }}</span></a>
 {% endfor %}
 </nav>
 
@@ -143,7 +143,7 @@
 <div class="pulse-grid">
 {% for c in countries %}
   <a class="pulse-country" href="{{ c.href }}" style="--i:{{ loop.index0 }}"{% if c.current %} aria-current="page"{% endif %}>
-    <span class="name">{{ c.name }}</span>
+    <span class="name">{{ c.name }}<span class="cc">{{ c.code | upper }}</span></span>
     <span class="v">{{ '%.1f%%' | format(c.coverage) if c.coverage is not none else "–" }}</span>
     {{ c.multi }}
   </a>
@@ -156,7 +156,7 @@
   <tbody>
   {% for c in countries %}
     <tr{% if c.current %} class="cur"{% endif %}>
-      <td><a href="{{ c.href }}">{{ c.name }}</a></td>
+      <td><a href="{{ c.href }}">{{ c.name }}<span class="cc">{{ c.code | upper }}</span></a></td>
       <td class="n">{{ '%.1f%%' | format(c.coverage) if c.coverage is not none else "–" }}</td>
       <td class="n">{{ '%.1f%%' | format(c.stable) if c.stable is not none else "–" }}</td>
     </tr>
@@ -172,7 +172,7 @@
   <tbody>
   {% for c in countries %}
     <tr{% if c.current %} class="cur"{% endif %}>
-      <td><a href="{{ c.href }}">{{ c.name }}</a></td>
+      <td><a href="{{ c.href }}">{{ c.name }}<span class="cc">{{ c.code | upper }}</span></a></td>
       {% for a in c.apps %}<td class="n{% if a.anomaly is not none and a.anomaly >= 50 %} hi{% endif %}">{{ rate(a.anomaly) }}</td>{% endfor %}
     </tr>
   {% endfor %}
@@ -180,7 +180,7 @@
     <tr class="ref"><th colspan="{{ tests | length + 1 }}">{{ L.apps_refs }}</th></tr>
     {% for r in app_refs %}
     <tr>
-      <td>{{ r.name }}</td>
+      <td>{{ r.name }}<span class="cc">{{ r.code | upper }}</span></td>
       {% for a in r.apps %}<td class="n{% if a.anomaly is not none and a.anomaly >= 50 %} hi{% endif %}">{{ rate(a.anomaly) }}</td>{% endfor %}
     </tr>
     {% endfor %}

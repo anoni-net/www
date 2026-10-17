@@ -8,7 +8,7 @@
 </figure>
 <nav class="pulse-regions" aria-label="{{ L.countries }}">
 {% for c in countries %}
-  <a href="{{ c.href }}"{% if c.current %} aria-current="page"{% endif %}>{{ c.name }}</a>
+  <a href="{{ c.href }}"{% if c.current %} aria-current="page"{% endif %}>{{ c.name }}<span class="cc">{{ c.code | upper }}</span></a>
 {% endfor %}
 </nav>
 
@@ -146,7 +146,7 @@
 <div class="pulse-grid">
 {% for c in countries %}
   <a class="pulse-country" href="{{ c.href }}" style="--i:{{ loop.index0 }}"{% if c.current %} aria-current="page"{% endif %}>
-    <span class="name">{{ c.name }}</span>
+    <span class="name">{{ c.name }}<span class="cc">{{ c.code | upper }}</span></span>
     <span class="v">{{ "{:,}".format(c.running) if c.running is not none else "–" }}{% if c.change %}<small class="chg">{{ c.change }}</small>{% endif %}</span>
     {{ c.multi }}
   </a>
@@ -161,7 +161,7 @@
   <tbody>
   {% for c in countries %}
     <tr{% if c.current %} class="cur"{% endif %}>
-      <td><a href="{{ c.href }}">{{ c.name }}</a></td>
+      <td><a href="{{ c.href }}">{{ c.name }}<span class="cc">{{ c.code | upper }}</span></a></td>
       <td class="n">{{ c.weight }}</td>
       <td class="n">{{ c.users }}</td>
       <td class="n">{{ c.bridge }}</td>
@@ -171,7 +171,7 @@
     <tr class="ref"><th colspan="4">{{ L.refs }}</th></tr>
     {% for r in use_refs %}
     <tr>
-      <td>{{ r.name }}</td>
+      <td>{{ r.name }}<span class="cc">{{ r.code | upper }}</span></td>
       <td class="n">–</td>
       <td class="n">{{ r.users }}</td>
       <td class="n">{{ r.bridge }}</td>
