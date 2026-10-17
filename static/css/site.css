@@ -476,10 +476,10 @@ p { margin: .5rem 0 1rem; }
 .toolrow .i { color: var(--c-icon); }
 .more { display: inline-flex; align-items: center; gap: .25rem; font-size: .9rem; }
 
-/* 按鈕：實心的只有一個，其他是線框膠囊。實心按鈕是要讀者採取行動的（報名、訂閱、加入、投稿），
+/* 按鈕：實心的只有一個，其他是線框。圓角跟標籤一樣用 4px，不用膠囊形。實心按鈕是要讀者採取行動的（報名、訂閱、加入、投稿），
    照品牌的配色守則用橘色 */
 .btns { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1rem 0; }
-.btn { display: inline-flex; align-items: center; gap: .4rem; padding: .4rem .9rem; border: 1px solid var(--c-line); border-radius: 999px; text-decoration: none; font-size: .92rem; }
+.btn { display: inline-flex; align-items: center; gap: .4rem; padding: .4rem .9rem; border: 1px solid var(--c-line); border-radius: 4px; text-decoration: none; font-size: .92rem; }
 .btn.solid { background: var(--action); border-color: var(--action); color: #fff; }
 .btn.solid:hover, .btn.solid:focus-visible { background: var(--action-hover); border-color: var(--action-hover); }
 
@@ -511,8 +511,11 @@ p { margin: .5rem 0 1rem; }
   .pulse { --pc1: var(--brand-cyan-200); --pc2: var(--brand-cyan-400); --pc3: var(--brand-cyan-600); --pc4: var(--brand-cyan-800); --pc5: #0b4a63; }
 }
 .pulse-regions { display: flex; flex-wrap: wrap; gap: .4rem; margin: 1.25rem 0 .5rem; }
-.pulse-regions a { padding: .15rem .75rem; border: 1px solid var(--c-line); border-radius: 999px; font-size: .85rem; text-decoration: none; }
+.pulse-regions a { padding: .15rem .75rem; border: 1px solid var(--c-line); border-radius: 4px; font-size: .85rem; text-decoration: none; }
 .pulse-regions a[aria-current] { background: var(--c-solid); border-color: var(--c-solid); color: #fff; }
+/* 地區名稱後面的代碼（TW、JP），跟網址 /projects/pulse/<code>/ 對得起來。不放國旗，港澳台的旗子沒有中立的選法。
+   inline-block 讓連結的底線停在名稱，不延伸到代碼 */
+.cc { display: inline-block; margin-left: .3em; font-size: .78em; font-weight: 400; letter-spacing: .03em; opacity: .65; }
 .pulse-meta { margin: .25rem 0 0; font-size: .8rem; color: var(--c-muted); }
 .pulse-stale { margin-left: .5rem; padding: 0 .4rem; border: 1px solid var(--c-border); border-radius: 4px; }
 .pulse-empty { padding: 1rem; border: 1px dashed var(--c-border-strong); border-radius: var(--radius); color: var(--c-muted); }

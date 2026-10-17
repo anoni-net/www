@@ -718,7 +718,7 @@ class Site:
         for r in conf.get("use_refs", []):
             u = tor_users.view(users_raw[r["code"]]["data"], world, conf["labels"], pick, conf["compare_days"]) \
                 if users_raw[r["code"]]["data"] else None
-            use_refs.append({"name": pick(r["name"]), "users": u["users_text"] if u else "–",
+            use_refs.append({"code": r["code"], "name": pick(r["name"]), "users": u["users_text"] if u else "–",
                              "bridge": tor_users.pct(u["bridge_pct"]) if u else "–"})
 
         refs = {r["code"]: pick(r["name"]) for r in conf.get("use_refs", [])}
@@ -790,7 +790,7 @@ class Site:
                 "apps": asn_coverage.apps_view(c["code"], apps, tests, pick),
             })
         # App 比較表另外放幾個沒有自己頁面的參照地區
-        app_refs = [{"name": pick(r["name"]), "apps": asn_coverage.apps_view(r["code"], apps, tests, pick)}
+        app_refs = [{"code": r["code"], "name": pick(r["name"]), "apps": asn_coverage.apps_view(r["code"], apps, tests, pick)}
                     for r in conf["apps"].get("regions", [])]
 
         map_refs = {r["code"]: pick(r["name"]) for r in conf["apps"].get("regions", [])}
