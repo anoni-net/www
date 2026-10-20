@@ -47,6 +47,8 @@
 {% if page.slug != "404" %}
 <script type="application/ld+json">{{ jsonld(page) }}</script>
 {% endif %}
+{% endif %}
+{% if target.get('analytics') %}
 <script defer src="https://aa.anoni.net/script.js" data-website-id="2b8d98c3-5bc4-45ef-958f-6cd9b770502e"></script>
 {% endif %}
 </head>

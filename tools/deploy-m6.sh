@@ -8,7 +8,12 @@
 # 目錄結構：
 #   /srv/anoni-net-www/repo            anoni-net/www 的 clone，只拉 main
 #   /srv/anoni-net-www/releases/<sha>-<小時>  每個 commit 每小時建置一份，保留最近 KEEP 份
-#   /srv/anoni-net-www/current         symlink，nginx 讀 current/clearnet 與 current/onion
+#   /srv/anoni-net-www/current         symlink，nginx 讀 current/clearnet 與 current/onion，
+#                                      IPFS 鏡像的組裝讀 current/ipfs
+#
+# ipfs 那份（toomore/anoni-net-ws#422）引用的圖片，照建置寫出的 ipfs-assets.txt 從圖片主機的
+# 目錄（IMAGES）放進 ipfs/assets/。同一個檔案系統時用硬連結，不多佔空間。找不到的檔案寫進
+# log，不擋發布，clearnet 那份不受影響。
 #
 # 建置完成、檢查通過之後才切換 current，切換是原子操作，建置失敗時線上維持原本的版本。
 # 只接受 fast-forward，main 的歷史被改寫時停下來寫進 log，不強制覆蓋，等人處理。
@@ -24,6 +29,7 @@ REPO=$BASE/repo
 LOG=/home/ubuntu/www-deploy.log
 UV=/home/ubuntu/.local/bin/uv
 KEEP=6
+IMAGES=/srv/images-anoni-net
 PULSE_API=http://127.0.0.1:8899/api
 export PULSE_API
 
@@ -51,6 +57,18 @@ if ! (cd "$REPO" && "$UV" run --quiet --frozen build.py --check && "$UV" run --q
     rm -rf "$dest.tmp"
     exit 1
 fi
+missing=0
+if [ -s "$dest.tmp/ipfs-assets.txt" ]; then
+    while read -r p; do
+        case "$p" in /*|*..*) missing=$((missing + 1)); continue ;; esac
+        if [ -f "$IMAGES/$p" ]; then
+            mkdir -p "$(dirname "$dest.tmp/ipfs/assets/$p")"
+            ln "$IMAGES/$p" "$dest.tmp/ipfs/assets/$p" 2>/dev/null || cp "$IMAGES/$p" "$dest.tmp/ipfs/assets/$p"
+        else
+            missing=$((missing + 1))
+        fi
+    done <"$dest.tmp/ipfs-assets.txt"
+fi
 rm -rf "$dest"
 mv "$dest.tmp" "$dest"
 ln -sfn "releases/$release" "$BASE/current.tmp"
@@ -59,7 +77,8 @@ rm -f "$BASE/failed"
 # 只有 commit 換了才寫 log，同一個 commit 的每小時重建不寫
 case "$current" in
     "releases/$sha"-*) ;;
-    *) echo "$(date -Iseconds) 發布 $release $(git -C "$REPO" log -1 --format=%s)" >>"$LOG" ;;
+    *) echo "$(date -Iseconds) 發布 $release $(git -C "$REPO" log -1 --format=%s)" >>"$LOG"
+       [ "$missing" -eq 0 ] || echo "$(date -Iseconds) $release 的 ipfs 那份缺 $missing 個圖片，清單在 $dest/ipfs-assets.txt" >>"$LOG" ;;
 esac
 
 # 保留最近 KEEP 份，正在使用的那一份不會被刪
