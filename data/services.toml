@@ -4,10 +4,12 @@
 # onion = true 的服務有 onion 版本，網址改寫寫在 site.toml 的 [targets.onion.rewrite]。
 # 帳號、容量、有效期這類事實照文件站的「社群自架服務」頁，那邊改了這裡也要改。
 # home = true 的服務會出現在首頁那一排連結。
+# cat 是圖示的分類色，八類的定義見 README 的「圖示的分類色」，跟 projects.toml 共用同一組。
 
 [[services]]
 icon = "forum-outline"
 name = "Matrix"
+cat = "community"
 host = "matrix.anoni.net"
 onion = true
 home = true
@@ -22,6 +24,7 @@ account.en = "Account on request by email"
 [[services]]
 icon = "lock-outline"
 name = "CryptPad"
+cat = "secure"
 host = "cryptpad.anoni.net"
 onion = false
 home = true
@@ -36,6 +39,7 @@ account.en = "Account on request by email, 50 MB by default"
 [[services]]
 icon = "note-edit-outline"
 name = "Etherpad"
+cat = "community"
 host = "pad.anoni.net"
 onion = true
 home = true
@@ -50,6 +54,7 @@ account.en = "No account"
 [[services]]
 icon = "magnify"
 name = "SearXNG"
+cat = "privacy"
 host = "search.anoni.net"
 onion = true
 home = true
@@ -64,6 +69,7 @@ account.en = "No account"
 [[services]]
 icon = "send-outline"
 name = "Send"
+cat = "secure"
 host = "send.anoni.net"
 onion = false
 home = false
@@ -78,6 +84,7 @@ account.en = "No account"
 [[services]]
 icon = "form-select"
 name = "Formbricks"
+cat = "community"
 host = "form.anoni.net"
 onion = true
 home = false

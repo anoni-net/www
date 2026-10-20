@@ -377,6 +377,7 @@ anoni.net 底下有四個網站，共用同一組 logo 與上方的色票。各�
 | 外框 | 沒有框線，頁首、內容與頁尾在每一頁對齊同一組左右邊界，最寬 58.5rem |
 | 文件頁 | 文章、指南、活動、動態與觀測資料，內容欄 42rem 加右側 13rem 的「本頁內容」。段落、表格與圖表填滿內容欄，文字不另外限制寬度 |
 | 目錄頁 | 首頁與各區入口用滿整個外框，卡片與列表在桌機排成兩到三欄 |
+| 標題層級 | h1 1.8rem、h2 1.25rem、h3 1.05rem。h2 右側接一條延伸到內容欄邊緣的 `--n-100` 細線，開頭 2.5rem 用識別色 `--brand-cyan-700`（深色模式 `--brand-cyan-300`）加粗成 3px，跟卡片框線與列表分隔線區分 |
 | 頁首 | 桌機排成一列，下方一條 `--n-100` 細線 |
 | 頁尾 | 整列 `--n-50` 底色 |
 | 手機 | 一律單欄，「本頁內容」收在標題下方 |
@@ -390,14 +391,14 @@ anoni.net 底下有四個網站，共用同一組 logo 與上方的色票。各�
 
 | Token | 類別 | 淺色模式 | 深色模式 | 用在哪裡 |
 |---|---|---|---|---|
-| `--cat-privacy` | 個人隱私 | <span class="color-swatch" style="background:#2e7d32"></span>`#2e7d32` | <span class="color-swatch" style="background:#81c784"></span>`#81c784` | 個人隱私指引、文件站，檔案工作台的清除中繼資料、網址檢查與 QR code |
+| `--cat-privacy` | 個人隱私 | <span class="color-swatch" style="background:#2e7d32"></span>`#2e7d32` | <span class="color-swatch" style="background:#81c784"></span>`#81c784` | 個人隱私指引、文件站，檔案工作台的清除中繼資料、網址檢查與 QR code，服務的 SearXNG |
 | `--cat-relay` | Tor 與中繼 | <span class="color-swatch" style="background:#7b1fa2"></span>`#7b1fa2` | <span class="color-swatch" style="background:#ce93d8"></span>`#ce93d8` | Tor Relay 校園建立，架設 Relay、WebTunnel 與 .onion 服務的指南，參與 Tor Project |
 | `--cat-payments` | 匿名支付 | <span class="color-swatch" style="background:#c25400"></span>`#c25400` | <span class="color-swatch" style="background:#ffa040"></span>`#ffa040` | 匿名支付 |
 | `--cat-observe` | 網路觀測 | <span class="color-swatch" style="background:#026a9d"></span>`#026a9d` | <span class="color-swatch" style="background:#69c1fc"></span>`#69c1fc` | Tor 中繼節點觀測、OONI 觀測涵蓋率、觀測季報、AI 助理的 Tor 節點查詢、OONI 網站檢測清單 |
 | `--cat-content` | 內容與寫作 | <span class="color-swatch" style="background:#02736e"></span>`#02736e` | <span class="color-swatch" style="background:#3ed0c8"></span>`#3ed0c8` | 新聞導讀、寫作風格規範、文件站的寫作與翻譯 |
 | `--cat-dev` | 開發與技術 | <span class="color-swatch" style="background:#4d57b7"></span>`#4d57b7` | <span class="color-swatch" style="background:#a3b2fe"></span>`#a3b2fe` | 參與開發的環境準備、IPFS 鏡像的 pin 節點 |
-| `--cat-secure` | 機敏與安全 | <span class="color-swatch" style="background:#a53453"></span>`#a53453` | <span class="color-swatch" style="background:#f996a9"></span>`#f996a9` | 提供機敏資料，檔案工作台的遮蔽、加密、解密與密語產生器 |
-| `--cat-community` | 社群與治理 | <span class="color-swatch" style="background:#786101"></span>`#786101` | <span class="color-swatch" style="background:#d3b555"></span>`#d3b555` | 治理章程、組織合作、品牌素材 |
+| `--cat-secure` | 機敏與安全 | <span class="color-swatch" style="background:#a53453"></span>`#a53453` | <span class="color-swatch" style="background:#f996a9"></span>`#f996a9` | 提供機敏資料，檔案工作台的遮蔽、加密、解密與密語產生器，服務的 CryptPad 與 Send |
+| `--cat-community` | 社群與治理 | <span class="color-swatch" style="background:#786101"></span>`#786101` | <span class="color-swatch" style="background:#d3b555"></span>`#d3b555` | 治理章程、組織合作、品牌素材，服務的 Matrix、Etherpad 與 Formbricks |
 
 在圖示、整個列表或卡片加上 `cat-<類別>` 的 class 就會套用，資料檔用 `cat` 欄位指定。不屬於任何一類的項目不加，維持中性灰。顏色只是輔助，每一項都要有圖示與標題，不能只靠顏色分辨。
 

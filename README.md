@@ -229,7 +229,7 @@ SVG 的畫布照手機的寬度設計，約 360 單位寬，桌機用 `max-width
 
 列表與卡片前面的圓形圖示，圖示圈的顏色代表這一項屬於哪一類工作，共八類：`privacy`（個人隱私）、`relay`（Tor 與中繼）、`payments`（匿名支付）、`observe`（網路觀測）、`content`（內容與寫作）、`dev`（開發與技術）、`secure`（機敏與安全）、`community`（社群與治理）。色值與每一類的例子寫在[品牌素材](https://anoni.net/brand/)的「圖示的分類色」，CSS 變數是 `static/css/site.css` 的 `--cat-*`。
 
-`topics.toml` 與 `projects.toml` 用 `cat` 欄位指定，Markdown 裡手寫的列表在圖示加上 `class="ic cat-relay"`，或在整個 `<ul class="rows">` 加上 class。新增一列時挑一類，不屬於任何一類的不加，維持中性灰。
+`topics.toml`、`projects.toml` 與 `services.toml` 用 `cat` 欄位指定，Markdown 裡手寫的列表在圖示加上 `class="ic cat-relay"`，或在整個 `<ul class="rows">` 加上 class。新增一列時挑一類，不屬於任何一類的不加，維持中性灰。
 
 ## 寫作規則
 
@@ -480,7 +480,7 @@ The old names "Tor Relays 觀測點", "Tor relay watcher" and "ASN 涵蓋分析�
 
 The ring of the round icon in front of lists and cards says which kind of work the item belongs to. There are eight categories: `privacy`, `relay`, `payments`, `observe`, `content`, `dev`, `secure` and `community`. The values and examples for each are under "Icon category colours" on [Brand Assets](https://anoni.net/en/brand/), and the CSS variables are `--cat-*` in `static/css/site.css`.
 
-`topics.toml` and `projects.toml` set it with a `cat` field. Hand-written lists in Markdown add it to the icon (`class="ic cat-relay"`) or to the whole `<ul class="rows">`. Pick a category for every new row; items that fit none get no class and stay neutral grey.
+`topics.toml`, `projects.toml` and `services.toml` set it with a `cat` field. Hand-written lists in Markdown add it to the icon (`class="ic cat-relay"`) or to the whole `<ul class="rows">`. Pick a category for every new row; items that fit none get no class and stay neutral grey.
 
 ## Writing style
 

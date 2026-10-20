@@ -377,6 +377,7 @@ anoni.net 底下有四个网站，共用同一组 logo 与上方的色票。各�
 | 外框 | 没有框线，页首、内容与页尾在每一页对齐同一组左右边界，最宽 58.5rem |
 | 文档页 | 文章、指南、活动、动态与观测数据，内容栏 42rem 加右侧 13rem 的「本页内容」。段落、表格与图表填满内容栏，文字不另外限制宽度 |
 | 目录页 | 首页与各区入口用满整个外框，卡片与列表在桌面排成两到三栏 |
+| 标题层级 | h1 1.8rem、h2 1.25rem、h3 1.05rem。h2 右侧接一条延伸到内容栏边缘的 `--n-100` 细线，开头 2.5rem 用识别色 `--brand-cyan-700`（深色模式 `--brand-cyan-300`）加粗成 3px，与卡片边框和列表分隔线区分 |
 | 页首 | 桌面排成一行，下方一条 `--n-100` 细线 |
 | 页尾 | 整行 `--n-50` 底色 |
 | 手机 | 一律单栏，「本页内容」收在标题下方 |
@@ -390,14 +391,14 @@ anoni.net 底下有四个网站，共用同一组 logo 与上方的色票。各�
 
 | Token | 类别 | 浅色模式 | 深色模式 | 用在哪里 |
 |---|---|---|---|---|
-| `--cat-privacy` | 个人隐私 | <span class="color-swatch" style="background:#2e7d32"></span>`#2e7d32` | <span class="color-swatch" style="background:#81c784"></span>`#81c784` | 个人隐私指引、文档站，文件工作台的清除元数据、网址检查与 QR code |
+| `--cat-privacy` | 个人隐私 | <span class="color-swatch" style="background:#2e7d32"></span>`#2e7d32` | <span class="color-swatch" style="background:#81c784"></span>`#81c784` | 个人隐私指引、文档站，文件工作台的清除元数据、网址检查与 QR code，服务的 SearXNG |
 | `--cat-relay` | Tor 与中继 | <span class="color-swatch" style="background:#7b1fa2"></span>`#7b1fa2` | <span class="color-swatch" style="background:#ce93d8"></span>`#ce93d8` | Tor Relay 校园建设，架设 Relay、WebTunnel 与 .onion 服务的指南，参与 Tor Project |
 | `--cat-payments` | 匿名支付 | <span class="color-swatch" style="background:#c25400"></span>`#c25400` | <span class="color-swatch" style="background:#ffa040"></span>`#ffa040` | 匿名支付 |
 | `--cat-observe` | 网络观测 | <span class="color-swatch" style="background:#026a9d"></span>`#026a9d` | <span class="color-swatch" style="background:#69c1fc"></span>`#69c1fc` | Tor 中继节点观测、OONI 观测覆盖率、观测季报、AI 助手的 Tor 节点查询、OONI 网站检测清单 |
 | `--cat-content` | 内容与写作 | <span class="color-swatch" style="background:#02736e"></span>`#02736e` | <span class="color-swatch" style="background:#3ed0c8"></span>`#3ed0c8` | 新闻导读、写作风格规范、文档站的写作与翻译 |
 | `--cat-dev` | 开发与技术 | <span class="color-swatch" style="background:#4d57b7"></span>`#4d57b7` | <span class="color-swatch" style="background:#a3b2fe"></span>`#a3b2fe` | 参与开发的环境准备、IPFS 镜像的 pin 节点 |
-| `--cat-secure` | 敏感与安全 | <span class="color-swatch" style="background:#a53453"></span>`#a53453` | <span class="color-swatch" style="background:#f996a9"></span>`#f996a9` | 提供敏感资料，文件工作台的遮蔽、加密、解密与密语生成器 |
-| `--cat-community` | 社区与治理 | <span class="color-swatch" style="background:#786101"></span>`#786101` | <span class="color-swatch" style="background:#d3b555"></span>`#d3b555` | 治理章程、组织合作、品牌素材 |
+| `--cat-secure` | 敏感与安全 | <span class="color-swatch" style="background:#a53453"></span>`#a53453` | <span class="color-swatch" style="background:#f996a9"></span>`#f996a9` | 提供敏感资料，文件工作台的遮蔽、加密、解密与密语生成器，服务的 CryptPad 与 Send |
+| `--cat-community` | 社区与治理 | <span class="color-swatch" style="background:#786101"></span>`#786101` | <span class="color-swatch" style="background:#d3b555"></span>`#d3b555` | 治理章程、组织合作、品牌素材，服务的 Matrix、Etherpad 与 Formbricks |
 
 在图标、整个列表或卡片加上 `cat-<类别>` 的 class 就会套用，数据文件用 `cat` 字段指定。不属于任何一类的项目不加，保持中性灰。颜色只是辅助，每一项都要有图标与标题，不能只靠颜色分辨。
 

@@ -1,5 +1,5 @@
 <div class="toolrow">
 {% for svc in data.services.services if svc.home %}
-  <a href="{{ service_url(svc) }}">{{ icon(svc.icon) }}{{ svc.name }}</a>
+  <a href="{{ service_url(svc) }}"{% if svc.cat is defined %} class="cat-{{ svc.cat }}"{% endif %}>{{ icon(svc.icon) }}{{ svc.name }}</a>
 {% endfor %}
 </div>
