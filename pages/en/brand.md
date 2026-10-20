@@ -377,7 +377,7 @@ The greys extend from `--neutral-muted` (`#546e7a`) and carry a little blue, so 
 | Frame | No outline. Header, content and footer align to the same left and right edges on every page, at most 58.5rem wide |
 | Document pages | Articles, guides, events, updates and measurement pages: a 42rem content column plus a 13rem "On this page" column. Paragraphs, tables and charts fill the content column, with no separate limit on text width |
 | Index pages | The home page and the section landing pages use the full width, with cards and lists in two or three columns on desktop |
-| Heading levels | h1 1.8rem, h2 1.25rem, h3 1.05rem; each h2 is followed by a thin line running to the edge of the content column |
+| Heading levels | h1 1.8rem, h2 1.25rem, h3 1.05rem. Each h2 is followed by a thin `--n-100` line running to the edge of the content column; its first 2.5rem is 3px thick in the identity colour `--brand-cyan-700` (`--brand-cyan-300` in dark mode), which sets it apart from card borders and list dividers |
 | Header | One row on desktop, with a `--n-100` line underneath |
 | Footer | A full-width `--n-50` band |
 | Mobile | Always one column, with "On this page" folded under the title |
@@ -391,14 +391,14 @@ Lists and cards on the home, Take part, About and Projects pages start with a ro
 
 | Token | Category | Light mode | Dark mode | Used for |
 |---|---|---|---|---|
-| `--cat-privacy` | Privacy | <span class="color-swatch" style="background:#2e7d32"></span>`#2e7d32` | <span class="color-swatch" style="background:#81c784"></span>`#81c784` | Personal privacy guidance, the docs site, and the metadata stripper, link checker and QR code tools in File Workbench |
+| `--cat-privacy` | Privacy | <span class="color-swatch" style="background:#2e7d32"></span>`#2e7d32` | <span class="color-swatch" style="background:#81c784"></span>`#81c784` | Personal privacy guidance, the docs site, and the metadata stripper, link checker and QR code tools in File Workbench, and the SearXNG service |
 | `--cat-relay` | Tor and relays | <span class="color-swatch" style="background:#7b1fa2"></span>`#7b1fa2` | <span class="color-swatch" style="background:#ce93d8"></span>`#ce93d8` | Tor relays on campus, the guides to running a relay, WebTunnel bridge and .onion service, taking part in the Tor Project |
 | `--cat-payments` | Anonymous payments | <span class="color-swatch" style="background:#c25400"></span>`#c25400` | <span class="color-swatch" style="background:#ffa040"></span>`#ffa040` | Anonymous payments |
 | `--cat-observe` | Network measurement | <span class="color-swatch" style="background:#026a9d"></span>`#026a9d` | <span class="color-swatch" style="background:#69c1fc"></span>`#69c1fc` | Tor Relay Watch, OONI Coverage, quarterly reports, Tor relay lookup for AI assistants, maintaining the OONI test list |
 | `--cat-content` | Content and writing | <span class="color-swatch" style="background:#02736e"></span>`#02736e` | <span class="color-swatch" style="background:#3ed0c8"></span>`#3ed0c8` | News, the writing style guide, writing and translating for the docs site |
 | `--cat-dev` | Development | <span class="color-swatch" style="background:#4d57b7"></span>`#4d57b7` | <span class="color-swatch" style="background:#a3b2fe"></span>`#a3b2fe` | Development environment setup, the IPFS pin node |
-| `--cat-secure` | Sensitive material and safety | <span class="color-swatch" style="background:#a53453"></span>`#a53453` | <span class="color-swatch" style="background:#f996a9"></span>`#f996a9` | Sending us sensitive material, and the redaction, encryption, decryption and passphrase tools in File Workbench |
-| `--cat-community` | Community and governance | <span class="color-swatch" style="background:#786101"></span>`#786101` | <span class="color-swatch" style="background:#d3b555"></span>`#d3b555` | Governance charter, working with organizations, brand assets |
+| `--cat-secure` | Sensitive material and safety | <span class="color-swatch" style="background:#a53453"></span>`#a53453` | <span class="color-swatch" style="background:#f996a9"></span>`#f996a9` | Sending us sensitive material, and the redaction, encryption, decryption and passphrase tools in File Workbench, and the CryptPad and Send services |
+| `--cat-community` | Community and governance | <span class="color-swatch" style="background:#786101"></span>`#786101` | <span class="color-swatch" style="background:#d3b555"></span>`#d3b555` | Governance charter, working with organizations, brand assets, and the Matrix, Etherpad and Formbricks services |
 
 Adding a `cat-<category>` class to an icon, a whole list or a card applies the colour, and data files set it with a `cat` field. Items that fit no category get no class and stay neutral grey. Colour only supports the label: every item still needs its icon and title, and nothing should be told apart by colour alone.
 
