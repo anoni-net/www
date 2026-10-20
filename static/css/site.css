@@ -191,15 +191,17 @@ h2 {
   align-items: center;
   gap: .6rem;
   color: var(--c-strong);
-  font-size: .95rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  letter-spacing: .05em;
-  margin: 2.25rem 0 .75rem;
+  line-height: 1.4;
+  letter-spacing: .02em;
+  margin: 2.5rem 0 .75rem;
 }
 h2::after { content: ""; flex: 1; border-top: 1px solid var(--c-hair); }
 /* 從「本頁內容」跳過來時，標題不要貼齊視窗上緣 */
 h2[id] { scroll-margin-top: 1rem; }
-h3 { color: var(--c-strong); font-size: 1.1rem; margin: 1.5rem 0 .25rem; }
+/* 層級是 h1 1.8rem > h2 1.25rem > h3 1.05rem，h2 原本是 .95rem 的段落標籤，比 h3 還小（2026-10-21 調整） */
+h3 { color: var(--c-strong); font-size: 1.05rem; margin: 1.5rem 0 .25rem; }
 p { margin: .5rem 0 1rem; }
 /* 標題與導言避免最後一行只剩一兩個字，Firefox 不支援時照一般方式斷行。內文段落與列表不用：
    Safari 的 pretty 會重排整段讓每行等長，iPhone 上每行右邊都空出好幾個字（2026-10-12 發現） */

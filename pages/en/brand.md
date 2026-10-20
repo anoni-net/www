@@ -377,6 +377,7 @@ The greys extend from `--neutral-muted` (`#546e7a`) and carry a little blue, so 
 | Frame | No outline. Header, content and footer align to the same left and right edges on every page, at most 58.5rem wide |
 | Document pages | Articles, guides, events, updates and measurement pages: a 42rem content column plus a 13rem "On this page" column. Paragraphs, tables and charts fill the content column, with no separate limit on text width |
 | Index pages | The home page and the section landing pages use the full width, with cards and lists in two or three columns on desktop |
+| Heading levels | h1 1.8rem, h2 1.25rem, h3 1.05rem; each h2 is followed by a thin line running to the edge of the content column |
 | Header | One row on desktop, with a `--n-100` line underneath |
 | Footer | A full-width `--n-50` band |
 | Mobile | Always one column, with "On this page" folded under the title |
