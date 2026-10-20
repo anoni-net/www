@@ -26,7 +26,7 @@
 
 ```bash
 uv sync
-uv run build.py          # 產生 public/clearnet 與 public/onion
+uv run build.py          # 產生 public/clearnet、public/onion 與 public/ipfs
 uv run build.py --check  # 產生到暫存目錄並檢查，CI 跑同一個指令
 ```
 
@@ -37,7 +37,7 @@ uv run build.py --check  # 產生到暫存目錄並檢查，CI 跑同一個指�
 | `pages/<語系>/` | 每一頁一個 Markdown 檔，三個語系的檔名要一致 |
 | `updates/<語系>/` | 社群動態，一篇一個 Markdown 檔，見下方「社群動態」 |
 | `data/` | 主題、專案、服務的資料，三個語系寫在同一筆 |
-| `site.toml` | 語系、導覽列、兩個輸出目標與 onion 的網址改寫 |
+| `site.toml` | 語系、導覽列、三個輸出目標與 onion、IPFS 的網址改寫 |
 | `strings.toml` | 模板裡的介面文字 |
 | `templates/` | 頁面模板，`_block-*.html.j2` 是可以插進 Markdown 的區塊 |
 | `static/` | CSS、logo、PGP 公鑰等原樣複製的檔案 |
@@ -57,6 +57,8 @@ Markdown 裡的連結有三種寫法，建置時依語系展開：
 每一頁的 `<head>` 由 `templates/_layout.html.j2` 產生，搜尋引擎與社群平台讀的標籤都在那裡：description、canonical、hreflang（含 x-default，只列真的有翻譯的版本）、og 與 `twitter:card`。結構化資料由 `build.py` 的 `jsonld()` 產生，每頁都有 WebSite 與 Organization，子頁加麵包屑，社群動態是 BlogPosting，季報是 Article，兩個觀測頁的主頁是 Dataset。description 是搜尋結果的摘要，中文寫在 100 字以內、英文 155 個字元以內，超過的部分不會顯示。
 
 onion 版本在寫檔前把 `https://anoni.net/docs` 這類 clearnet 網址改寫成 onion 位址，對照表在 `site.toml` 的 `[targets.onion.rewrite]`。`--check` 會檢查三個語系的頁面是否一致、站內連結是否找得到檔案，以及 onion 版本有沒有漏改的網址。
+
+IPFS 版本給 anoni.net 的 IPFS 鏡像用（toomore/anoni-net-ws#422），整個網站掛在閘道的根目錄，文件站、新聞導讀與 mystery 在組裝時放進同一個根目錄。鏡像是備援，canonical、og、hreflang、結構化資料、sitemap 與 RSS 都指回 `https://anoni.net`。改寫的只有 `<body>` 裡 `href` 與 `src` 的網址，改成根目錄的相對路徑，內文寫出來的網址不動，也不載入流量統計。Gears 與 API 不在鏡像裡，連結維持 clearnet。assets.anoni.net 的圖片改成 `/assets/`，建置時把引用到的檔案列在輸出目錄旁的 `ipfs-assets.txt`，部署腳本照著複製進來。`--check` 會檢查 IPFS 版本的連結都改寫過、canonical 指向 anoni.net。
 
 ## 社群動態
 
@@ -87,7 +89,7 @@ onion 版本在寫檔前把 `https://anoni.net/docs` 這類 clearnet 網址改�
 | `/srv/anoni-net-www/current` | symlink，指向線上的那一份 |
 | `/home/ubuntu/www-deploy.log` | 每次發布與失敗的紀錄 |
 
-同一個 commit 每小時也重建一次，給 Tor 中繼節點觀測頁更新資料，見下方「Tor 中繼節點觀測」。腳本先執行 `--check`，通過之後建置到新的目錄，最後才切換 `current`，建置失敗時線上維持原本的版本。nginx 的 `anoni.net` 與根 onion 位址都讀 `current`，設定在 m6 的 `/etc/nginx/conf.d/anoninet.conf`，`error_page 404` 指到根目錄的 `404.html`。
+同一個 commit 每小時也重建一次，給 Tor 中繼節點觀測頁更新資料，見下方「Tor 中繼節點觀測」。腳本先執行 `--check`，通過之後建置到新的目錄，最後才切換 `current`，建置失敗時線上維持原本的版本。nginx 的 `anoni.net` 與根 onion 位址都讀 `current`（IPFS 鏡像的組裝讀 `current/ipfs`），設定在 m6 的 `/etc/nginx/conf.d/anoninet.conf`，`error_page 404` 指到根目錄的 `404.html`。
 
 頁面引用 `static/` 底下的樣式時用模板的 `asset()`，網址後面接檔案內容的雜湊（`/css/site.css?v=<雜湊>`），跟新聞導讀的做法一樣。樣式改了網址就跟著變，瀏覽器與 Cloudflare 會抓新的檔案，部署後不必為了樣式清快取。2026-10-13 以前是固定的 `/css/site.css`，清了 Cloudflare 的快取，讀者的瀏覽器仍會用舊樣式最多 4 小時。
 
@@ -277,7 +279,7 @@ The community pages finished moving over from the docs site in 2026-10, and all 
 
 ```bash
 uv sync
-uv run build.py          # writes public/clearnet and public/onion
+uv run build.py          # writes public/clearnet, public/onion and public/ipfs
 uv run build.py --check  # builds into a temporary directory and checks it; CI runs the same command
 ```
 
@@ -288,7 +290,7 @@ We do not use an off-the-shelf static site generator. `build.py` reads the Markd
 | `pages/<locale>/` | One Markdown file per page; file names must match across the three locales |
 | `updates/<locale>/` | Community updates, one Markdown file per post (see "Community updates" below) |
 | `data/` | Topics, projects and services, with all three locales in the same entry |
-| `site.toml` | Locales, the navigation bar, the two output targets and the onion URL rewrites |
+| `site.toml` | Locales, the navigation bar, the three output targets and the onion and IPFS URL rewrites |
 | `strings.toml` | Interface text used in the templates |
 | `templates/` | Page templates; `_block-*.html.j2` are blocks that can be placed inside Markdown |
 | `static/` | Files copied as they are, such as the CSS, the logo and the PGP public key |
@@ -308,6 +310,8 @@ Pages come in two types. Document pages have an "On this page" column on the rig
 Each page's `<head>` comes from `templates/_layout.html.j2`, which holds the tags search engines and social platforms read: the description, canonical, hreflang (with x-default, listing only versions that really are translations), og and `twitter:card`. Structured data comes from `jsonld()` in `build.py`: every page has WebSite and Organization, subpages add breadcrumbs, community updates are BlogPosting, quarterly reports are Article, and the main pages of the two dashboards are Dataset. The description is the snippet in search results; keep it within 100 characters in Chinese and 155 in English, since anything longer is cut off.
 
 Before writing files, the onion build rewrites clearnet URLs such as `https://anoni.net/docs` to their onion addresses, using the table in `[targets.onion.rewrite]` in `site.toml`. `--check` verifies that the three locales have matching pages, that internal links resolve to files, and that no clearnet URL was missed in the onion build.
+
+The IPFS build is for anoni.net's IPFS mirror (toomore/anoni-net-ws#422), which mounts the whole site at the gateway's root, with the docs site, the news digest and the mysteries added under the same root when it is assembled. The mirror is a fallback, so canonical, og, hreflang, structured data, the sitemap and RSS all point back to `https://anoni.net`; only `href` and `src` in the `<body>` become root-relative, URLs written in the text stay as they are, and no analytics are loaded. Gears and the API are not in the mirror, so links to them stay on clearnet. Images on assets.anoni.net become `/assets/`: the build lists the files it uses in `ipfs-assets.txt` next to the output directory, and the deployment script copies them in. `--check` verifies that the IPFS build's links were all rewritten and that its canonical points to anoni.net.
 
 ## Community updates
 
@@ -338,7 +342,7 @@ The site is built on m6, not through GitHub Actions. m6's crontab runs [`tools/d
 | `/srv/anoni-net-www/current` | A symlink to the live build |
 | `/home/ubuntu/www-deploy.log` | A record of every release and failure |
 
-The same commit is also rebuilt every hour so the Tor Relay Watch pages get fresh data (see "Tor Relay Watch" below). The script runs `--check` first, builds into a new directory if it passes, and only then switches `current`, so a failed build leaves the live site on the previous version. nginx serves both `anoni.net` and the root onion address from `current`, configured in `/etc/nginx/conf.d/anoninet.conf` on m6, with `error_page 404` pointing to `404.html` at the root.
+The same commit is also rebuilt every hour so the Tor Relay Watch pages get fresh data (see "Tor Relay Watch" below). The script runs `--check` first, builds into a new directory if it passes, and only then switches `current`, so a failed build leaves the live site on the previous version. nginx serves both `anoni.net` and the root onion address from `current` (the IPFS mirror is assembled from `current/ipfs`), configured in `/etc/nginx/conf.d/anoninet.conf` on m6, with `error_page 404` pointing to `404.html` at the root.
 
 Pages reference stylesheets under `static/` through the template's `asset()`, which appends a hash of the file's contents (`/css/site.css?v=<hash>`), the same approach as News. When the styles change the URL changes with them, so browsers and Cloudflare fetch the new file and no cache purge is needed after a deploy. Before 2026-10-13 the URL was a fixed `/css/site.css`, and even after purging Cloudflare, readers' browsers kept the old styles for up to 4 hours.
 

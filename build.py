@@ -1,10 +1,10 @@
-"""產生 anoni.net 首頁與社群頁面的 clearnet 與 onion 兩份靜態產物。
+"""產生 anoni.net 首頁與社群頁面的 clearnet、onion 與 ipfs 三份靜態產物。
 
-    uv run build.py          # 產生 public/clearnet 與 public/onion
-    uv run build.py --out DIR  # 產生到 DIR/clearnet 與 DIR/onion，m6 部署時用
+    uv run build.py          # 產生 public/clearnet、public/onion 與 public/ipfs
+    uv run build.py --out DIR  # 產生到 DIR/clearnet、DIR/onion 與 DIR/ipfs，m6 部署時用
     uv run build.py --check  # 產生到暫存目錄，再執行下方 check() 的檢查
 
-頁面寫在 pages/<語系>/，社群動態寫在 updates/<語系>/，資料寫在 data/，兩個目標與三個語系的
+頁面寫在 pages/<語系>/，社群動態寫在 updates/<語系>/，資料寫在 data/，三個目標與三個語系的
 差異寫在 site.toml，介面文字寫在 strings.toml。
 """
 
@@ -556,6 +556,11 @@ class Site:
             self.write(out / "sitemap.xml", self.env.get_template("sitemap.xml.j2").render(
                 target=target, langs=self.langs, slugs=self.slugs + self.pulse_slugs + self.asn_slugs, page_path=self.page_path,
                 posts=[p for lang in self.langs for p in self.posts[lang.code] + self.reports[lang.code]]), target)
+            # 頁面用到的圖片清單，部署腳本照著從圖片主機複製進來。寫在輸出目錄外面，不會跟著發布
+            if prefix := target.get("assets"):
+                used = {url[len(prefix):] for page in out.rglob("*.html")
+                        for _, url in HREF.findall(page.read_text(encoding="utf-8")) if url.startswith(prefix)}
+                (out_root / f"{target['name']}-assets.txt").write_text("".join(f"{p}\n" for p in sorted(used)), encoding="utf-8")
             outs.append(out)
         return outs
 
@@ -956,16 +961,37 @@ class Site:
         self.write(out / "404.html", text, target)
 
     def write(self, dest: Path, text: str, target: dict) -> None:
-        # keep 裡的網址先換成占位字串，改寫完再換回來，onion 頁面照樣連到 clearnet
-        keep = {f"\0keep{i}\0": url for i, url in enumerate(target.get("keep", []))}
-        for mark, url in keep.items():
-            text = text.replace(url, mark)
-        for old, new in target.get("rewrite", {}).items():
-            text = text.replace(old, new.replace("{onion}", self.config["onion_host"]))
-        for mark, url in keep.items():
-            text = text.replace(mark, url)
+        if target.get("links_only"):
+            if dest.suffix == ".html":
+                text = self.rewrite_links(text, target)
+        else:
+            # keep 裡的網址先換成占位字串，改寫完再換回來，onion 頁面照樣連到 clearnet
+            keep = {f"\0keep{i}\0": url for i, url in enumerate(target.get("keep", []))}
+            for mark, url in keep.items():
+                text = text.replace(url, mark)
+            for old, new in target.get("rewrite", {}).items():
+                text = text.replace(old, new.replace("{onion}", self.config["onion_host"]))
+            for mark, url in keep.items():
+                text = text.replace(mark, url)
         dest.parent.mkdir(parents=True, exist_ok=True)
         dest.write_text(text, encoding="utf-8")
+
+    @staticmethod
+    def rewrite_links(text: str, target: dict) -> str:
+        """只改寫 <body> 裡 href 與 src 的網址，<head> 給搜尋引擎與社群平台讀的完整網址維持 base。"""
+        head, mark, body = text.partition("<body")
+        keep = tuple(target.get("keep", []))
+        rules = target.get("rewrite", {}).items()
+
+        def repl(m: re.Match) -> str:
+            attr, url = m[1], m[2]
+            if not url.startswith(keep):
+                for old, new in rules:
+                    if url.startswith(old):
+                        return f'{attr}="{new}{url[len(old):]}"'
+            return m[0]
+
+        return head + mark + HREF.sub(repl, body)
 
 
 def check(site: Site, outs: list[Path]) -> list[str]:
@@ -987,6 +1013,9 @@ def check(site: Site, outs: list[Path]) -> list[str]:
         if have != site.slugs:
             problems.append(f"pages/{lang.code} 的頁面跟 {site.langs[0].code} 不一致：{have}")
     for out in outs:
+        target = site.config["targets"][out.name]
+        # 組裝時才放進來的路徑（其他專案、圖片），建置的產物裡本來就沒有
+        elsewhere = tuple(target.get("mounts", [])) + ((target["assets"],) if target.get("assets") else ())
         files = {p.relative_to(out).as_posix() for p in out.rglob("*") if p.is_file()}
         for page in sorted(out.rglob("*.html")):
             rel = page.relative_to(out).as_posix()
@@ -995,7 +1024,7 @@ def check(site: Site, outs: list[Path]) -> list[str]:
                 if f'"{leftover}' in text or (leftover == "<!--" and PLACEHOLDER.search(text)):
                     problems.append(f"{out.name}/{rel}：沒有展開的 {leftover}")
             for href in re.findall(r'(?:href|src)="(/[^"#?]*)', text):
-                if href.startswith("//"):
+                if href.startswith("//") or href.startswith(elsewhere) or f"{href}/".startswith(elsewhere):
                     continue
                 want = href.lstrip("/")
                 if not (want in files or f"{want}index.html" in files or (want == "" and "index.html" in files)):
@@ -1013,6 +1042,14 @@ def check(site: Site, outs: list[Path]) -> list[str]:
                 for host in site.config["targets"]["onion"].get("rewrite", {}):
                     if host in rest:
                         problems.append(f"{out.name}/{rel}：onion 版本還有 {host}")
+            if target.get("links_only"):
+                head, _, body = text.partition("<body")
+                keep = tuple(target.get("keep", []))
+                for _, url in HREF.findall(body):
+                    if url.startswith(tuple(target.get("rewrite", {}))) and not url.startswith(keep):
+                        problems.append(f"{out.name}/{rel}：連結沒有改寫 {url}")
+                if rel != "404.html" and f'rel="canonical" href="{target["base"]}' not in head:
+                    problems.append(f"{out.name}/{rel}：canonical 沒有指向 {target['base']}")
     return problems
 
 
@@ -1032,7 +1069,7 @@ def main() -> int:
         print("\n".join(problems))
         return 1
     posts = sum(len(p) for p in site.posts.values())
-    print(f"檢查通過：{len(site.langs)} 個語系、{len(site.slugs)} 頁、{posts} 篇動態、clearnet 與 onion 兩份")
+    print(f"檢查通過：{len(site.langs)} 個語系、{len(site.slugs)} 頁、{posts} 篇動態、{'、'.join(site.config['targets'])}")
     # 卡片要上傳到圖片主機，CI 做不到，所以缺卡片只提示、不算失敗，那幾頁先用 og.png
     missing = [key for key, entry in site.cards.items() if og_cards.url(entry, site.og_registry) is None]
     if missing:
