@@ -15,7 +15,7 @@ og_image: https://anoni.net/mystery/og-en.png
 
 The anoni.net community has launched [Privacy Mysteries](https://anoni.net/mystery/en/){target="_blank"}. You play an investigator at the fictional Mistport Privacy Aid, and every case starts with a request. Someone brings you a photo, an email or a list; you look for what gives people away in photos, emails, files and websites, then use the evidence to rule suspects out one by one.
 
-The first case, Night Heron, went live on 9 October, and the second, Blue Magpie, on 11 October. By 20 October both were available in English, Traditional Chinese and Simplified Chinese, each language with an interactive edition, a static edition that needs no JavaScript, and a printable PDF.
+The first case, Night Heron, went live on 9 October, and the second, Blue Magpie, on 11 October. By 20 October both were available in English, Mandarin and Simplified Chinese, each language with an interactive edition, a static edition that needs no JavaScript, and a printable PDF.
 
 ## Why we made a mystery game
 
