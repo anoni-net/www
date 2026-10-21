@@ -14,11 +14,11 @@ lead: 隨時都可以參與，不需要先具備技術背景。
 
 建議先加入社群的 Public Space，一次取得所有相關房間的入口。
 
-[加入 Public Space](https://matrix.to/#/#community:im.anoni.net){ .btn .solid }
+[加入 Public Space](https://matrix.anoni.net/#/room/%23community:im.anoni.net){ .btn .solid }
 
 !!! note "還沒有 Matrix 帳號？"
 
-    `im.anoni.net` 採申請制，先來信 <whisper@anoni.net> 取得帳號。已經有 `matrix.org` 帳號的話，直接用原本的帳號加入也可以。等待回覆的期間，可以先訂閱電子報、讀下面三大主題的介紹，想好自己想投入哪個方向。
+    `im.anoni.net` 採申請制，先來信 <whisper@anoni.net> 取得帳號。已經有 `matrix.org` 或其他伺服器的帳號，就用原本的帳號[從 matrix.to 加入](https://matrix.to/#/#community:im.anoni.net)，上面的按鈕只能用 `im.anoni.net` 的帳號登入。等待回覆的期間，可以先訂閱電子報、讀下面三大主題的介紹，想好自己想投入哪個方向。
 
 ## 2026 三大主題
 

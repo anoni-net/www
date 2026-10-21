@@ -14,11 +14,11 @@ lead: 随时都可以参与，不需要先具备技术背景。
 
 建议先加入社区的 Public Space，一次取得所有相关房间的入口。
 
-[加入 Public Space](https://matrix.to/#/#community:im.anoni.net){ .btn .solid }
+[加入 Public Space](https://matrix.anoni.net/#/room/%23community:im.anoni.net){ .btn .solid }
 
 !!! note "还没有 Matrix 账号？"
 
-    `im.anoni.net` 采申请制，先来信 <whisper@anoni.net> 取得账号。已经有 `matrix.org` 账号的话，直接用原本的账号加入也可以。等待回复的期间，可以先订阅电子报、读下面三大主题的介绍，想好自己想投入哪个方向。
+    `im.anoni.net` 采申请制，先来信 <whisper@anoni.net> 取得账号。已经有 `matrix.org` 或其他服务器的账号，就用原本的账号[从 matrix.to 加入](https://matrix.to/#/#community:im.anoni.net)，上面的按钮只能用 `im.anoni.net` 的账号登录。等待回复的期间，可以先订阅电子报、读下面三大主题的介绍，想好自己想投入哪个方向。
 
 ## 2026 三大主题
 

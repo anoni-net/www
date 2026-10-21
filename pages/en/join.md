@@ -18,11 +18,11 @@ The community behind anoni.net is small, volunteer-run and built around self-hos
 
 Most ongoing work happens on our own Matrix homeserver, `im.anoni.net`. Start with the community's public Space, which gathers the relevant rooms in one place, and say which topic interests you in its room.
 
-[Open the public Space](https://matrix.to/#/#community:im.anoni.net){ .btn .solid }
+[Open the public Space](https://matrix.anoni.net/#/room/%23community:im.anoni.net){ .btn .solid }
 
 !!! note "No Matrix account yet?"
 
-    Accounts on `im.anoni.net` are approved individually. Email <whisper@anoni.net> with a brief introduction and what you would like to discuss, and we will reply with onboarding instructions. An existing `matrix.org` account works too, since Matrix federates across servers.
+    Accounts on `im.anoni.net` are approved individually. Email <whisper@anoni.net> with a brief introduction and what you would like to discuss, and we will reply with onboarding instructions. An existing `matrix.org` or other Matrix account works too, since Matrix federates across servers. Join with it [through matrix.to](https://matrix.to/#/#community:im.anoni.net), as the button above only accepts `im.anoni.net` accounts.
 
 ## The 2026 tracks
 
