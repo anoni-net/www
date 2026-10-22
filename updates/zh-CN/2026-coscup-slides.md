@@ -1,7 +1,7 @@
 ---
 title: COSCUP 2026 议程轨的讲者幻灯片
 description: anoni.net 在 COSCUP 2026 的社区议程轨，讲者提供的 11 份幻灯片与 1 段录影已经附在议程轨页面，每份附一句摘要，涵盖威胁模型、开源隐私工具、匿名支付、校园 Tor 节点、浏览器追踪与健保数据库。
-date: 2026-10-22
+date: 2026-10-23
 kind: event
 og_image: https://assets.anoni.net/event/anoni-net-eth-taipei.webp
 ---

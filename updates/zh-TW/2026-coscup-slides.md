@@ -1,7 +1,7 @@
 ---
 title: COSCUP 2026 議程軌的講者簡報
 description: anoni.net 在 COSCUP 2026 的社群議程軌，講者提供的 11 份簡報與 1 段錄影已經附在議程軌頁面，每份附一句摘要，涵蓋威脅模型、開源隱私工具、匿名支付、校園 Tor 節點、瀏覽器追蹤與健保資料庫。
-date: 2026-10-22
+date: 2026-10-23
 kind: event
 og_image: https://assets.anoni.net/event/anoni-net-eth-taipei.webp
 ---

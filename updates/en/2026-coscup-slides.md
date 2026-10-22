@@ -1,7 +1,7 @@
 ---
 title: Speakers' slides from the COSCUP 2026 track
 description: Slides from 11 talks in the anoni.net community track at COSCUP 2026, plus one recording, are now on the track page, each with a one-line summary, covering threat models, open-source privacy tools, anonymous payments, campus Tor relays, browser tracking and Taiwan's health insurance database.
-date: 2026-10-22
+date: 2026-10-23
 kind: event
 og_image: https://assets.anoni.net/event/anoni-net-eth-taipei.webp
 ---
