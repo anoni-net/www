@@ -260,7 +260,7 @@ On an alert, work through these steps in order:
     ```
     Preserve complete snapshots of `/var/log` and `/var/lib/tor/`
 3. **Internal notification**: a preliminary incident report within 30 minutes, covering impact, cause, action taken, and expected recovery time
-4. **Suspected compromise**: preserve evidence, isolate the host, and rebuild. Restore from the backed-up identity key only if you are sure the key has not leaked
+4. **Suspected compromise**: preserve evidence, isolate the host, and rebuild. Unless a compromise can be ruled out, treat the old identity keys as compromised: generate a new relay identity instead of restoring the backup, and report to `bad-relays@lists.torproject.org` (see [The October 2026 Tor Exit Relay Compromise and Operator Security Checks](/articles/tor-exit-ssh-interception/) for checks and response)
 
 **Conditions for taking it offline**: impact on campus networks, a security anomaly, or a request from the institution or the supervising professor.
 
