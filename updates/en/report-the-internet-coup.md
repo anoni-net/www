@@ -9,7 +9,7 @@ kind: new
 
 For years, outsiders could judge what China's [Great Firewall](https://en.wikipedia.org/wiki/Great_Firewall) (GFW) can do mostly from network measurements. Around 500GB of leaked data [made public](https://gfw.report/blog/geedge_and_mesa_leak/en/) in mid-September 2025 covers the Great Firewall's technology and how the system is exported to and deployed in other authoritarian states.
 
-[InterSecLab](https://interseclab.org/), a digital security lab, learned of the data around December 2024. Over the following ten months it worked with several organisations and technical communities to verify and analyse it, and published its report on 12 September 2025.
+[InterSecLab](https://interseclab.org/), a digital security lab, learned of the data around December 2024. Over the following ten months it worked with several organisations and technical communities to verify and analyse it, and published its report on 9 September 2025.
 
 We, the anoni.net community, were not involved in the early verification work. Reading the report after publication, we found it confirmed many long-held suspicions about the Great Firewall's capabilities. From the report we can also see the teams and organisations behind it. Their development environment resembles that of an ordinary startup, systems exported to other countries can be operated and maintained remotely, and the Chinese government and other state customers can switch on custom or general rule sets with a single click.
 
