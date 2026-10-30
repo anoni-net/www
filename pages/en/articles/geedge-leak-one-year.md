@@ -81,6 +81,45 @@ According to the USENIX paper, the Great Firewall was long thought to be highly 
 
 From the source code, the team identified traits that can be measured remotely, such as idiosyncrasies in how protocols are parsed and a custom random number generator used to set packet fields. They then sent test packets between two hosts they own and compared whether censors in each location responded as TSG would. Measurements covered China's Great Firewall, Henan, Kazakhstan, Myanmar and Pakistan, with only DNS tested in Iran, across DNS, IP fragment reassembly, TCP, TLS and QUIC.
 
+The comparison has four steps, and every comparison rests on both the source code and measurements:[^method]
+
+<ol class="flow" aria-label="Comparison steps">
+  <li><span class="n" aria-hidden="true">1</span><span class="b"><b>Find traits in the source code</b><span class="d">Behaviour observable from a distance, such as fields in forged packets or idiosyncrasies in protocol parsing</span></span></li>
+  <li><span class="n" aria-hidden="true">2</span><span class="b"><b>Confirm locally</b><span class="d">Run TSG in an isolated testbed and confirm the behaviour actually occurs</span></span></li>
+  <li><span class="n" aria-hidden="true">3</span><span class="b"><b>Measure remotely</b><span class="d">From vantage points in each location, send test packets to hosts the team owns and record how censors respond</span></span></li>
+  <li><span class="n" aria-hidden="true">4</span><span class="b"><b>Compare behaviour</b><span class="d">Check the measured responses against TSG's behaviour item by item</span></span></li>
+  <li class="ok"><span class="n" aria-hidden="true">✓</span><span class="b"><b>Verdict</b><span class="d">Each comparison falls into one of four results, the same as the matrix legend</span><span class="out"><span>Match, same as an older version</span><span>No match, inconclusive</span></span></span></li>
+</ol>
+
+Censors can be connected to a network in two ways, and how much measurement can reveal depends on which one a device uses:[^modes]
+
+<figure class="pd-fig">
+<svg class="pd" viewBox="0 0 360 352" role="img" aria-labelledby="pd-t">
+<title id="pd-t">Censors deployed in mirrored and in-line mode</title>
+<defs><marker id="pd-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="pd-ah" d="M0 0L10 5L0 10z"/></marker>
+<marker id="pd-ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="pd-ahi" d="M0 0L10 5L0 10z"/></marker></defs>
+<text class="pd-h" x="0" y="16">Mirrored mode: traffic copied beside the line</text>
+<text class="pd-s" x="180" y="48" text-anchor="middle">Original packets still reach the website</text>
+<line class="pd-wire" x1="74" y1="76" x2="284" y2="76" marker-end="url(#pd-a)"/>
+<rect class="pd-box" x="2" y="59" width="72" height="34" rx="6"/><text class="pd-t" x="38" y="76">User</text>
+<rect class="pd-box" x="286" y="59" width="72" height="34" rx="6"/><text class="pd-t" x="322" y="76">Website</text>
+<line class="pd-tap" x1="200" y1="76" x2="200" y2="118"/><text class="pd-s" x="208" y="102">Copy</text>
+<rect class="pd-cen" x="145" y="118" width="110" height="34" rx="6"/><text class="pd-ct" x="200" y="135">Censor</text>
+<path class="pd-inj" d="M145 135 Q60 135 40 96" marker-end="url(#pd-ai)"/>
+<text class="pd-s" x="2" y="174">Forged DNS response or RST, sent ahead of the real reply</text>
+<text class="pd-h" x="0" y="214">In-line mode: traffic must pass through the censor</text>
+<rect class="pd-box" x="2" y="243" width="72" height="34" rx="6"/><text class="pd-t" x="38" y="260">User</text>
+<line class="pd-wire" x1="74" y1="260" x2="143" y2="260" marker-end="url(#pd-a)"/>
+<rect class="pd-cen" x="145" y="243" width="90" height="34" rx="6"/><text class="pd-ct" x="190" y="260">Censor</text>
+<line class="pd-wire pd-cut" x1="235" y1="260" x2="284" y2="260"/>
+<path class="pd-x" d="M252 251L268 269M268 251L252 269"/>
+<rect class="pd-box" x="286" y="243" width="72" height="34" rx="6"/><text class="pd-t" x="322" y="260">Website</text>
+<text class="pd-s" x="2" y="304">Can drop packets outright, or send an RST</text>
+<text class="pd-s" x="2" y="324">From outside, drops cannot be traced to a device</text>
+</svg>
+<figcaption>A device in mirrored mode only receives a copy of the traffic, so it cannot stop the original packets and can only race to send forged ones. A device in in-line mode sits on the line and can drop packets directly, and from outside there is no way to tell which device dropped them. This is why the TLS results for Kazakhstan and Pakistan in the table are inconclusive.</figcaption>
+</figure>
+
 As the authors explain in the TLS section, a path may have more than one censorship device on it. A test packet that TSG lets through may still be blocked by another device, whereas a packet that TSG blocks is guaranteed to be blocked whenever it passes through TSG. Our inference is that when the blocking behaviour does not reveal its source, a measured "blocked" result could come from any device on the path and cannot on its own prove that TSG is there. Conversely, a result where TSG should block but the measured packet gets through rules out a TSG component with the same behaviour on that path.[^asym] Modularity complicates things further: one deployment might run the same version of SAPP with a different version of the SSL plugin, so each comparison speaks to only one component.
 
 The leaked documents refer to Geedge's clients by code names: Kazakhstan is `K18` and `K24`, Ethiopia `E21`, Pakistan `P19`, Myanmar `M22` and Xinjiang `J24`, with one unidentified client, `A24`.[^codes] The table summarises the results for the five protocols, with each location's code name. Great Firewall devices are listed under the names used in earlier research. The QUIC comparison does not separate Great Firewall devices, so it has its own row.[^matrix]
@@ -291,6 +330,8 @@ On the circumvention side, in the net4people thread tracking the leak (comments 
 [^disclose]: USENIX paper, §4.2: "we find instances of third-party libraries intentionally copied and adapted into the Geedge Networks code base". Ethical Considerations: "We disclosed the usage of code by Geedge Networks to both the Libprotoident team and Enea, the parent company of Qosmos. Both have responded to our initial disclosures, and we have scheduled meetings to engage in further discussion". Takeaway of §4.2: "suggests that comprehensive protocol classification is costly to build from scratch, even for a well-resourced, state-linked vendor".
 [^beyond]: Our view, based on the USENIX paper, §1: "For the first time, we can move beyond remote inference".
 [^gfw-multi]: USENIX paper, §2.1: "there has been increasing evidence pointing to the deployment of multiple, independently operating deep packet inspection (DPI) devices with distinct enforcement roles".
+[^method]: USENIX paper, §5.2: "We developed a testbed to evaluate TSG's blocking behaviors in a controlled environment". Ethical Considerations: "We performed all of our scans between two vantage points that we own, not including any other third-party server as the target of our scan". On extracting fingerprints from the source code before measuring, §1: "we extract several fingerprints from TSG, including custom random number generators and parsing idiosyncrasies".
+[^modes]: "The Internet Coup", "System Modes for Censorship and Surveillance": "In mirrored mode, clients are unable to stop specific traffic from passing through and have to rely on packet injection to block connections", "In in-line mode, also referred to as “active” mode in the documents, the traffic must pass through the Geedge appliance before continuing to its destination" and "The advantage of this mode is that one can fully stop specific traffic flows from ever making it through the network". USENIX paper, §5.2: "It also supports both in- and on-path deployment". §3.1: "Both require TSG to be deployed in-path to stop packets". §6.4: "their generic censorship mechanism of packet drops makes bypass failures inconclusive".
 [^asym]: Our inference, based on the USENIX paper, §6.4: "Note, we can highlight comparisons with test vectors that are successfully blocked by TSG in cases of non-fingerprintable censorship decisions" and "if a test vector evades TSG, it could still get blocked by another middlebox, but if it is blocked by TSG, it is guaranteed to be blocked". The authors use this logic to choose which TLS results to compare; we extend it to the other protocols and conclude from it that a result where the packet gets through can rule out TSG.
 [^codes]: "The Internet Coup", "Identifying Client Governments in the Leaked Documents": "Identified code names for clients include Kazakhstan (K18 and K24), Pakistan (P19), Ethiopia (E21), Myanmar (M22), and Xinjiang (J24)", "An unidentified client, referred to by the code name A24 is also mentioned in the data", "It is possible that the last two digits of the code names indicate Geedge Networkʼs start year for projects in the region, though this does not always hold true".
 [^matrix]: Our classification, based on Tables 5 to 9 and the text of §6.1 to §6.5 of the USENIX paper. Match: Injector 2 in §6.1; GFW II in §6.2 ("The observed boundary of […] fragments for GFW II is very close to TSG's"); GFW II and GFW III in §6.3, where the constant seed equals TSG's default. Older: §6.4, "GFW II shows behavior equivalent to an older version of TSG's SSL module"; §6.5, "the parsing fingerprint exhibited in Kazakhstan fully matches an older version of TSG's QUIC parsing code". Partial: §6.5, "both Kazakhstan and the GFW block the same test vectors as TSG's QUIC plugin, though we cannot match them fully due to a difference in supported QUIC versions". Inconclusive: devices in §6.2 that do not reassemble fragments (the paper notes this is a configurable TSG setting); §6.4, "both Kazakhstan and Pakistan (DROP) support potential TSG deployments"; §6.3, "TSG can be configured to match the behavior in Myanmar". No match: the other injectors and Iran in Table 5 (§6.1); devices in §6.2 that still reassembled at the test limit; §6.3, "the other injectors exhibit markedly different behaviors and header values"; devices other than GFW II under §6.4, "no middlebox exhibited exactly the same behavior as the latest leaked TSG"; §6.5, "the parsing fingerprint mismatch means we cannot confirm its use" (Myanmar). Pakistan appears in Table 9, but the text does not discuss its QUIC results. The device in Kazakhstan does not send RSTs, so the paper made no TCP comparison there.

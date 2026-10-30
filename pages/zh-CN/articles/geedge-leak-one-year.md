@@ -81,6 +81,45 @@ USENIX 论文写到，防火长城过去被认为高度集中，近年却有越�
 
 研究团队从源代码找出可以从远程测量的特征，例如解析协议时的特殊处理方式，以及设置数据包字段用的自制随机数生成器。接着在两台自己拥有的主机之间发出测试数据包，比较各地审查设备的反应是否与 TSG 相同。测量涵盖中国的防火长城、河南、哈萨克斯坦、缅甸与巴基斯坦，伊朗只测了 DNS，协议包括 DNS、IP 分片重组、TCP、TLS 与 QUIC。
 
+比对分成四步，每一项比对都同时有源代码与测量两边的依据[^method]：
+
+<ol class="flow" aria-label="比对的步骤">
+  <li><span class="n" aria-hidden="true">1</span><span class="b"><b>读源代码找出特征</b><span class="d">找出可以从远程观察的行为，例如伪造数据包的字段、解析协议时的特殊处理</span></span></li>
+  <li><span class="n" aria-hidden="true">2</span><span class="b"><b>在本机确认</b><span class="d">在隔离的测试环境运行 TSG，确认这些行为确实会出现</span></span></li>
+  <li><span class="n" aria-hidden="true">3</span><span class="b"><b>远程测量</b><span class="d">从各地的测量点，对研究团队自己的主机发出测试数据包，记录审查设备的反应</span></span></li>
+  <li><span class="n" aria-hidden="true">4</span><span class="b"><b>对照行为</b><span class="d">把实测的反应与 TSG 的行为逐项比较</span></span></li>
+  <li class="ok"><span class="n" aria-hidden="true">✓</span><span class="b"><b>判定</b><span class="d">每一项比对归入四种结果之一，也就是比对矩阵的图例</span><span class="out"><span>吻合、与较旧的版本相同</span><span>不吻合、无法判断</span></span></span></li>
+</ol>
+
+审查设备接入网络的方式有两种，测量能看出多少，跟设备用哪一种方式部署有关[^modes]：
+
+<figure class="pd-fig">
+<svg class="pd" viewBox="0 0 360 352" role="img" aria-labelledby="pd-t">
+<title id="pd-t">镜像模式与内联模式的审查设备</title>
+<defs><marker id="pd-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="pd-ah" d="M0 0L10 5L0 10z"/></marker>
+<marker id="pd-ai" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="pd-ahi" d="M0 0L10 5L0 10z"/></marker></defs>
+<text class="pd-h" x="0" y="16">镜像模式：在线路旁边复制流量</text>
+<text class="pd-s" x="180" y="48" text-anchor="middle">原本的数据包照常送达网站</text>
+<line class="pd-wire" x1="74" y1="76" x2="284" y2="76" marker-end="url(#pd-a)"/>
+<rect class="pd-box" x="2" y="59" width="72" height="34" rx="6"/><text class="pd-t" x="38" y="76">用户</text>
+<rect class="pd-box" x="286" y="59" width="72" height="34" rx="6"/><text class="pd-t" x="322" y="76">网站</text>
+<line class="pd-tap" x1="200" y1="76" x2="200" y2="118"/><text class="pd-s" x="208" y="102">复制一份</text>
+<rect class="pd-cen" x="145" y="118" width="110" height="34" rx="6"/><text class="pd-ct" x="200" y="135">审查设备</text>
+<path class="pd-inj" d="M145 135 Q60 135 40 96" marker-end="url(#pd-ai)"/>
+<text class="pd-s" x="2" y="174">抢在真正的回应之前，发回伪造的 DNS 回应或 RST</text>
+<text class="pd-h" x="0" y="214">内联模式：流量必须先通过审查设备</text>
+<rect class="pd-box" x="2" y="243" width="72" height="34" rx="6"/><text class="pd-t" x="38" y="260">用户</text>
+<line class="pd-wire" x1="74" y1="260" x2="143" y2="260" marker-end="url(#pd-a)"/>
+<rect class="pd-cen" x="145" y="243" width="90" height="34" rx="6"/><text class="pd-ct" x="190" y="260">审查设备</text>
+<line class="pd-wire pd-cut" x1="235" y1="260" x2="284" y2="260"/>
+<path class="pd-x" d="M252 251L268 269M268 251L252 269"/>
+<rect class="pd-box" x="286" y="243" width="72" height="34" rx="6"/><text class="pd-t" x="322" y="260">网站</text>
+<text class="pd-s" x="2" y="304">可以直接把数据包丢掉，也可以发出 RST</text>
+<text class="pd-s" x="2" y="324">从外面无法分辨丢包来自哪一台设备</text>
+</svg>
+<figcaption>镜像模式的设备只取得流量的副本，无法拦下原本的数据包，只能抢先发出伪造的数据包。内联模式的设备串在线路上，可以直接丢包，而从外面无法分辨丢包来自哪一台设备，表格里哈萨克斯坦与巴基斯坦的 TLS「无法判断」就是这个原因。</figcaption>
+</figure>
+
 论文在 TLS 一节写到，路径上可能不只一台审查设备。TSG 放行的测试数据包仍可能被其他设备拦下，TSG 会拦的数据包则只要经过 TSG 就一定被拦。我们的推论是，无法从封锁行为判断来源时，实测的「被拦」可能来自路径上任何一台设备，无法单独证明 TSG 存在。相对地，TSG 应该拦下、实测却放行的结果，可以排除路径上有行为相同的 TSG 组件[^asym]。模块化让情况更复杂，同一个部署可能用同一版 SAPP、不同版的 SSL 插件，所以每一项比对只能说明一个组件。
 
 泄露文件以代号称呼 Geedge 在各地的客户，哈萨克斯坦是 `K18` 与 `K24`，埃塞俄比亚是 `E21`，巴基斯坦是 `P19`，缅甸是 `M22`，新疆是 `J24`，另有一个身份不明的 `A24`[^codes]。下表整理五种协议的比对结果，地区附上对应的代号。防火长城的设备依过去研究的命名分列，QUIC 的比对没有区分防火长城的设备，另列一行[^matrix]。
@@ -291,6 +330,8 @@ Injector 1、Injector 3 与 GFW I 都与 TSG 不吻合，论文的结果只指�
 [^disclose]: USENIX 论文 §4.2：「we find instances of third-party libraries intentionally copied and adapted into the Geedge Networks code base」。Ethical Considerations：「We disclosed the usage of code by Geedge Networks to both the Libprotoident team and Enea, the parent company of Qosmos. Both have responded to our initial disclosures, and we have scheduled meetings to engage in further discussion」。§4.2 的 Takeaway：「suggests that comprehensive protocol classification is costly to build from scratch, even for a well-resourced, state-linked vendor」。
 [^beyond]: 本文的观点。依据是 USENIX 论文 §1：「For the first time, we can move beyond remote inference」。
 [^gfw-multi]: USENIX 论文 §2.1：「there has been increasing evidence pointing to the deployment of multiple, independently operating deep packet inspection (DPI) devices with distinct enforcement roles」。
+[^method]: USENIX 论文 §5.2：「We developed a testbed to evaluate TSG's blocking behaviors in a controlled environment」。Ethical Considerations：「We performed all of our scans between two vantage points that we own, not including any other third-party server as the target of our scan」。从源代码找出指纹再测量的做法见 §1：「we extract several fingerprints from TSG, including custom random number generators and parsing idiosyncrasies」。
+[^modes]: 网络政变社区译文第 6 章〈Geedge 的營運與客戶〉：「在鏡像模式下，客戶無法擋下特定流量，只能靠注入封包（送出偽造的封包）來阻斷連線」、「內聯模式在文件中也稱為『主動』（active）模式，流量必須先通過 Geedge 設備，才能繼續前往目的地」、「內聯模式的優點是可以完全擋下特定的流量，讓它根本無法通過網路」。USENIX 论文 §5.2：「It also supports both in- and on-path deployment」。§3.1：「Both require TSG to be deployed in-path to stop packets」。§6.4：「their generic censorship mechanism of packet drops makes bypass failures inconclusive」。
 [^asym]: 本文的推论。依据是 USENIX 论文 §6.4：「Note, we can highlight comparisons with test vectors that are successfully blocked by TSG in cases of non-fingerprintable censorship decisions」、「if a test vector evades TSG, it could still get blocked by another middlebox, but if it is blocked by TSG, it is guaranteed to be blocked」。论文用这个逻辑挑选 TLS 的比较项目，本文延伸到其他协议，并推出放行的结果可以排除 TSG。
 [^codes]: 网络政变社区译文第 6 章〈Geedge 的營運與客戶〉：「目前辨識出的客戶代號有哈薩克（`K18` 與 `K24`）、巴基斯坦（`P19`）、衣索比亞（`E21`）、緬甸（`M22`）與新疆（`J24`）」、「資料裡還提到一個身分不明的客戶，代號 `A24`」、「代號的最後兩位數字可能代表 Geedge Networks 在當地開始專案的年份，但並非每個代號都符合」。
 [^matrix]: 本文依 USENIX 论文 Table 5 到 Table 9 与 §6.1 到 §6.5 的正文整理，分类是本文的判断。吻合：§6.1 的 Injector 2，§6.2 的 GFW II（「The observed boundary of […] fragments for GFW II is very close to TSG's」），§6.3 的 GFW II 与 GFW III（固定的种子值等于 TSG 的默认值）。旧版：§6.4「GFW II shows behavior equivalent to an older version of TSG's SSL module」，§6.5「the parsing fingerprint exhibited in Kazakhstan fully matches an older version of TSG's QUIC parsing code」。部分：§6.5「both Kazakhstan and the GFW block the same test vectors as TSG's QUIC plugin, though we cannot match them fully due to a difference in supported QUIC versions」。无法判断：§6.2 不重组分片的设备（论文注明这是 TSG 可以调整的设置），§6.4「both Kazakhstan and Pakistan (DROP) support potential TSG deployments」，§6.3「TSG can be configured to match the behavior in Myanmar」。不吻合：§6.1 Table 5 的其他注入器与伊朗，§6.2 重组到测试上限仍成功的设备，§6.3「the other injectors exhibit markedly different behaviors and header values」，§6.4「no middlebox exhibited exactly the same behavior as the latest leaked TSG」之下、GFW II 以外的设备，§6.5「the parsing fingerprint mismatch means we cannot confirm its use」（缅甸）。巴基斯坦列在 Table 9，正文没有讨论它的 QUIC 结果。哈萨克斯坦的设备不发送 RST，论文没有做 TCP 的比对。

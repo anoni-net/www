@@ -846,6 +846,23 @@ ol.tl { list-style: none; margin: 1.25rem 0 1.5rem; padding: 0; }
 .prose img.map-img { display: block; margin: 1.25rem auto .4rem; }
 .prose p.fig-note { margin: 0 0 1.5rem; font-size: .8rem; line-height: 1.6; color: var(--c-muted); }
 
+/* 部署模式示意圖（svg.pd）：鏡像（旁路）與內聯（串接）上下兩欄，畫布照手機的 360 寬設計，顏色全用變數 */
+.prose figure.pd-fig { margin: 1.25rem auto 1.5rem; max-width: 30rem; }
+svg.pd { display: block; width: 100%; height: auto; overflow: visible; }
+.pd-h { fill: var(--c-strong); font-size: 14px; font-weight: 700; }
+.pd-t { fill: var(--c-text); font-size: 13px; text-anchor: middle; dominant-baseline: central; }
+.pd-ct { fill: #fff; font-size: 13px; font-weight: 700; text-anchor: middle; dominant-baseline: central; }
+.pd-s { fill: var(--c-muted); font-size: 12px; }
+.pd-box { fill: var(--c-fill); stroke: var(--c-border-strong); stroke-width: 1; }
+.pd-cen { fill: var(--c-solid); }
+.pd-wire { stroke: var(--c-muted); stroke-width: 2; fill: none; }
+.pd-tap { stroke: var(--c-muted); stroke-width: 1.5; stroke-dasharray: 4 4; fill: none; }
+.pd-inj { stroke: var(--c-accent); stroke-width: 2; fill: none; }
+.pd-x { stroke: var(--cat-secure); stroke-width: 3; stroke-linecap: round; fill: none; }
+.pd-ah { fill: var(--c-muted); }
+.pd-ahi { fill: var(--c-accent); }
+.pd-fig figcaption { margin-top: .5rem; font-size: .8rem; line-height: 1.6; color: var(--c-muted); }
+
 /* 段落引言（p.sec-lead）：放在 h2 正下方，用一兩句帶出這一節的重點，外觀像引言，
    語意是一般段落，讀屏軟體不會當成引用。Markdown 用 attr_list 的 { .sec-lead } 掛上 */
 .prose p.sec-lead { margin: .25rem 0 1.25rem; padding: .1rem 0 .1rem 1rem; border-left: 3px solid var(--c-line); color: var(--c-strong); font-size: 1.05rem; line-height: 1.75; font-weight: 500; text-wrap: pretty; }
