@@ -90,7 +90,7 @@ Maat is the rule engine. Blocking rules are stored in Maat, and plugins match th
 From hardware to enforcement, TSG's components can be arranged in seven layers:[^madlink-gen][^thirdparty][^oss-stack]
 
 <figure class="st-fig">
-<svg class="st" viewBox="0 0 360 596" role="img" aria-labelledby="st-t">
+<svg class="st" viewBox="0 0 360 618" role="img" aria-labelledby="st-t">
 <title id="st-t">The TSG stack, as of the leaked version</title>
 <defs><marker id="st-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path class="st-ah" d="M0 0L10 5L0 10z"/></marker></defs>
 <rect class="st-band" x="0" y="0" width="360" height="64" rx="6"/>
@@ -148,24 +148,28 @@ From hardware to enforcement, TSG's components can be arranged in seven layers:[
 <text class="st-l" x="10" y="486">Hardware</text>
 <rect class="st-box st-tw" x="8.0" y="494" width="81.5" height="40" rx="5"/>
 <text class="st-t" x="48.8" y="508">TSG-ADC</text>
-<text class="st-s" x="48.8" y="524">CSA-7400</text>
-<rect class="st-box" x="95.5" y="494" width="81.5" height="40" rx="5"/>
+<text class="st-s" x="48.8" y="524">ADLINK</text>
+<rect class="st-box st-cn" x="95.5" y="494" width="81.5" height="40" rx="5"/>
 <text class="st-t" x="136.2" y="508">TSG-9140</text>
-<text class="st-s" x="136.2" y="524">ATCA gear</text>
-<rect class="st-box" x="183.0" y="494" width="81.5" height="40" rx="5"/>
+<text class="st-s" x="136.2" y="524">Hengguang</text>
+<rect class="st-box st-cn" x="183.0" y="494" width="81.5" height="40" rx="5"/>
 <text class="st-t" x="223.8" y="508">TSG-X</text>
-<text class="st-s" x="223.8" y="524">x86 servers</text>
+<text class="st-s" x="223.8" y="524">Nettrix, Inspur</text>
 <rect class="st-box st-tw" x="270.5" y="494" width="81.5" height="40" rx="5"/>
 <text class="st-t" x="311.2" y="508">EtherFabric</text>
-<text class="st-s" x="311.2" y="524">Load balancing</text>
-<rect class="st-box st-oss" x="8" y="556" width="16" height="12" rx="3"/>
-<text class="st-s st-lg" x="30" y="562">Open source</text>
-<rect class="st-box st-prop" x="113.76" y="556" width="16" height="12" rx="3"/>
-<text class="st-s st-lg" x="135.76" y="562">Proprietary</text>
-<rect class="st-box st-tw" x="8" y="578" width="16" height="12" rx="3"/>
-<text class="st-s st-lg" x="30" y="584">Taiwanese hardware or components</text>
+<text class="st-s" x="311.2" y="524">Geedge design</text>
+<rect class="st-box" x="8" y="556" width="16" height="12" rx="3"/>
+<text class="st-s st-lg" x="30" y="562">Developed by Geedge or the MESA Lab</text>
+<rect class="st-box st-oss" x="261.6" y="556" width="16" height="12" rx="3"/>
+<text class="st-s st-lg" x="283.6" y="562">Open source</text>
+<rect class="st-box st-prop" x="8" y="578" width="16" height="12" rx="3"/>
+<text class="st-s st-lg" x="30" y="584">Proprietary</text>
+<rect class="st-box st-tw" x="113.76" y="578" width="16" height="12" rx="3"/>
+<text class="st-s st-lg" x="135.76" y="584">Taiwanese hardware or components</text>
+<rect class="st-box st-cn" x="8" y="600" width="16" height="12" rx="3"/>
+<text class="st-s st-lg" x="30" y="606">Chinese hardware</text>
 </svg>
-<figcaption>A simplified layering based on Section 3 of the USENIX paper and on MADLink. CBD is a library integrated into the Firewall plugin, Glimpse and QDPI are Stellar plugins, and the Firewall plugin runs on both SAPP and Stellar, so the actual call relationships are more tangled than the layers suggest. The Taiwanese hardware markings follow MADLink: TSG-ADC uses ADLINK's CSA-7400, and EtherFabric appears to contain ADLINK components.</figcaption>
+<figcaption>A simplified layering based on Section 3 of the USENIX paper and on MADLink; boxes without other markings are components developed by Geedge or the MESA Lab. CBD is a library integrated into the Firewall plugin, Glimpse and QDPI are Stellar plugins, and the Firewall plugin runs on both SAPP and Stellar, so the actual call relationships are more tangled than the layers suggest. Hardware suppliers follow MADLink. EtherFabric was designed by Geedge and appears to reuse Beijing Hengguang's ATCA hardware along with ADLINK components.</figcaption>
 </figure>
 
 How TSG handles one connection can be simplified into the path below. In practice several processing paths run in parallel, and their results are combined in the Firewall plugin.[^modular]

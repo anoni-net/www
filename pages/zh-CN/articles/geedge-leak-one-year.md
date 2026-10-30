@@ -90,7 +90,7 @@ Maat 是规则引擎，封锁规则存在 Maat 里，插件用取出的字段比
 从硬件到处置，TSG 的组件可以整理成七层[^madlink-gen][^thirdparty][^oss-stack]：
 
 <figure class="st-fig">
-<svg class="st" viewBox="0 0 360 574" role="img" aria-labelledby="st-t">
+<svg class="st" viewBox="0 0 360 596" role="img" aria-labelledby="st-t">
 <title id="st-t">TSG 的技术栈，依外泄的版本整理</title>
 <defs><marker id="st-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path class="st-ah" d="M0 0L10 5L0 10z"/></marker></defs>
 <rect class="st-band" x="0" y="0" width="360" height="64" rx="6"/>
@@ -148,24 +148,28 @@ Maat 是规则引擎，封锁规则存在 Maat 里，插件用取出的字段比
 <text class="st-l" x="10" y="486">硬件</text>
 <rect class="st-box st-tw" x="8.0" y="494" width="81.5" height="40" rx="5"/>
 <text class="st-t" x="48.8" y="508">TSG-ADC</text>
-<text class="st-s" x="48.8" y="524">CSA-7400</text>
-<rect class="st-box" x="95.5" y="494" width="81.5" height="40" rx="5"/>
+<text class="st-s" x="48.8" y="524">凌华 CSA-7400</text>
+<rect class="st-box st-cn" x="95.5" y="494" width="81.5" height="40" rx="5"/>
 <text class="st-t" x="136.2" y="508">TSG-9140</text>
-<text class="st-s" x="136.2" y="524">ATCA 设备</text>
-<rect class="st-box" x="183.0" y="494" width="81.5" height="40" rx="5"/>
+<text class="st-s" x="136.2" y="524">北京恒光</text>
+<rect class="st-box st-cn" x="183.0" y="494" width="81.5" height="40" rx="5"/>
 <text class="st-t" x="223.8" y="508">TSG-X</text>
-<text class="st-s" x="223.8" y="524">x86 服务器</text>
+<text class="st-s" x="223.8" y="524">Nettrix、浪潮</text>
 <rect class="st-box st-tw" x="270.5" y="494" width="81.5" height="40" rx="5"/>
 <text class="st-t" x="311.2" y="508">EtherFabric</text>
-<text class="st-s" x="311.2" y="524">分配流量</text>
-<rect class="st-box st-oss" x="8" y="556" width="16" height="12" rx="3"/>
-<text class="st-s st-lg" x="30" y="562">开源</text>
-<rect class="st-box st-prop" x="68" y="556" width="16" height="12" rx="3"/>
-<text class="st-s st-lg" x="90" y="562">商用闭源</text>
-<rect class="st-box st-tw" x="150" y="556" width="16" height="12" rx="3"/>
-<text class="st-s st-lg" x="172" y="562">台湾厂商的硬件或组件</text>
+<text class="st-s" x="311.2" y="524">Geedge 设计</text>
+<rect class="st-box" x="8" y="556" width="16" height="12" rx="3"/>
+<text class="st-s st-lg" x="30" y="562">Geedge 或 MESA 实验室自行开发</text>
+<rect class="st-box st-oss" x="214.08" y="556" width="16" height="12" rx="3"/>
+<text class="st-s st-lg" x="236.08" y="562">开源</text>
+<rect class="st-box st-prop" x="274.08000000000004" y="556" width="16" height="12" rx="3"/>
+<text class="st-s st-lg" x="296.08000000000004" y="562">商用闭源</text>
+<rect class="st-box st-tw" x="8" y="578" width="16" height="12" rx="3"/>
+<text class="st-s st-lg" x="30" y="584">台湾厂商的硬件或组件</text>
+<rect class="st-box st-cn" x="156" y="578" width="16" height="12" rx="3"/>
+<text class="st-s st-lg" x="178" y="584">中国厂商的硬件</text>
 </svg>
-<figcaption>本文依 USENIX 论文第 3 节与 MADLink 整理的简化分层。CBD 是集成进 Firewall 插件的函数库，Glimpse 与 QDPI 是 Stellar 的插件，Firewall 插件同时挂在 SAPP 与 Stellar 上，实际的调用关系比分层复杂。台湾厂商的标示依 MADLink，TSG-ADC 用的是凌华的 CSA-7400，EtherFabric 看来含有凌华的组件。</figcaption>
+<figcaption>本文依 USENIX 论文第 3 节与 MADLink 整理的简化分层，没有额外标示的方块是 Geedge 或 MESA 实验室自行开发的组件。CBD 是集成进 Firewall 插件的函数库，Glimpse 与 QDPI 是 Stellar 的插件，Firewall 插件同时挂在 SAPP 与 Stellar 上，实际的调用关系比分层复杂。硬件的供应商依 MADLink，EtherFabric 由 Geedge 设计，看来沿用北京恒光的 ATCA 硬件，也含有凌华的组件。</figcaption>
 </figure>
 
 一条连接经过 TSG 的处理可以简化成下面这条路径，实际上多条处理路径同时进行，最后在 Firewall 插件汇总[^modular]。
