@@ -41,6 +41,16 @@ Stellar 是 Geedge 另外開發、以 C++ 撰寫的平台，追蹤連線狀態�
 
 Maat 是規則引擎，封鎖規則存在 Maat 裡，外掛用取出的欄位比對規則，取得處置方式。規則可以比對的欄位很廣，包括傳輸與應用層協定、通道封裝的內外層位址、來源與目的 IP、連接埠、網域與 SNI（TLS 連線開頭以明文送出的網站名稱）、ASN（自治系統編號）與國家。Firewall 外掛同時掛在 SAPP 與 Stellar 上，彙整各路取出的欄位，查詢 Maat 之後執行封鎖。封鎖手段除了丟包與 RST（TCP 的重設封包，送出後連線就會中斷），還有限速、HTTP 與 DNS 的轉向、郵件與 SIP 的封鎖、竄改內容與延後封鎖。
 
+下面把一條連線經過 TSG 的處理簡化成一條路徑。實際上多條處理路徑同時進行，最後在 Firewall 外掛彙整[^modular]。
+
+<ol class="flow" aria-label="TSG 處理一條連線的簡化流程">
+  <li><span class="n" aria-hidden="true">1</span><span class="b"><b>SAPP 接收與重組</b><span class="d">接收流量，把封包整理成 TCP、UDP 串流，交給外掛</span></span></li>
+  <li><span class="n" aria-hidden="true">2</span><span class="b"><b>協定外掛取出欄位</b><span class="d">從 DNS 查詢、TLS 與 QUIC 的交握取出網域、SNI 等欄位</span></span></li>
+  <li><span class="n" aria-hidden="true">3</span><span class="b"><b>應用程式辨識</b><span class="d">三套系統判斷流量屬於哪個 App，其中兩套建立在第三方程式碼上</span><span class="out"><span>CBD：Geedge 自有</span><span>Glimpse：libprotoident、nDPI</span><span>QDPI：Qosmos ixEngine</span></span></span></li>
+  <li><span class="n" aria-hidden="true">4</span><span class="b"><b>Firewall 外掛查詢 Maat</b><span class="d">彙整各路取出的欄位與辨識結果，比對 Maat 裡的封鎖規則</span></span></li>
+  <li class="ok"><span class="n" aria-hidden="true">✓</span><span class="b"><b>執行處置</b><span class="d">放行，或丟包、送出 RST、限速、轉向、竄改內容、延後封鎖</span></span></li>
+</ol>
+
 作者從架構歸納出兩點，後面的比對都受它們影響。元件各自開發、各有版本，從遠端測出某一個外掛的指紋（能用來辨認某個系統或版本的特徵），不代表同一個部署也有另一個外掛，也無法推論另一個外掛的版本。封鎖決定在多條處理路徑彙整之後才做出，一條連線可能因為其中任何一條路徑的結果而被擋[^modular]。
 
 ### 第三方程式碼
@@ -58,6 +68,40 @@ USENIX 論文寫到，防火長城過去被認為高度集中，近年卻有越�
 研究團隊從原始碼找出可以從遠端量測的特徵，例如解析協定時的特殊處理方式，以及設定封包欄位用的自製亂數產生器。接著在兩台自己擁有的主機之間送出測試封包，比較各地審查設備的反應是否與 TSG 相同。量測涵蓋中國的防火長城、河南、哈薩克、緬甸與巴基斯坦，伊朗只測了 DNS，協定包括 DNS、IP 分片重組、TCP、TLS 與 QUIC。
 
 論文在 TLS 一節寫到，路徑上可能不只一台審查設備。TSG 放行的測試封包仍可能被其他設備擋下，TSG 會擋的封包則只要經過 TSG 就一定被擋。我們的推論是，無法從封鎖行為判斷來源時，實測的「被擋」可能來自路徑上任何一台設備，無法單獨證明 TSG 存在。相對地，TSG 應該擋下、實測卻放行的結果，可以排除路徑上有行為相同的 TSG 元件[^asym]。模組化讓情況更複雜，同一個部署可能用同一版 SAPP、不同版的 SSL 外掛，所以每一項比對只能說明一個元件。
+
+下表整理五種協定的比對結果。防火長城的設備依過去研究的命名分列，QUIC 的比對沒有區分防火長城的設備，另列一列[^matrix]。
+
+<div class="match-wrap">
+<table class="match" aria-label="TSG 與各地審查設備的比對結果">
+<thead><tr><th scope="col">設備或地區</th><th scope="col">DNS</th><th scope="col">IP 分片</th><th scope="col">TCP RST</th><th scope="col">TLS</th><th scope="col">QUIC</th></tr></thead>
+<tbody>
+<tr class="grp"><th colspan="6" scope="rowgroup"><span>中國的防火長城</span></th></tr>
+<tr><th scope="row">DNS 注入器 1</th><td class="m-no">不吻合</td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td></tr>
+<tr><th scope="row">DNS 注入器 2</th><td class="m-yes">吻合</td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td></tr>
+<tr><th scope="row">DNS 注入器 3</th><td class="m-no">不吻合</td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td></tr>
+<tr><th scope="row">GFW I</th><td class="m-na"></td><td class="m-no">不吻合</td><td class="m-no">不吻合</td><td class="m-no">不吻合</td><td class="m-na"></td></tr>
+<tr><th scope="row">GFW II</th><td class="m-na"></td><td class="m-yes">吻合</td><td class="m-yes">吻合</td><td class="m-old">舊版</td><td class="m-na"></td></tr>
+<tr><th scope="row">GFW III</th><td class="m-na"></td><td class="m-unk">無法判斷</td><td class="m-yes">吻合</td><td class="m-no">不吻合</td><td class="m-na"></td></tr>
+<tr><th scope="row">防火長城<small>未區分設備</small></th><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td><td class="m-part">部分</td></tr>
+<tr class="grp"><th colspan="6" scope="rowgroup"><span>其他地區</span></th></tr>
+<tr><th scope="row">河南</th><td class="m-na"></td><td class="m-unk">無法判斷</td><td class="m-no">不吻合</td><td class="m-no">不吻合</td><td class="m-na"></td></tr>
+<tr><th scope="row">哈薩克</th><td class="m-na"></td><td class="m-unk">無法判斷</td><td class="m-na"></td><td class="m-unk">無法判斷</td><td class="m-old">舊版</td></tr>
+<tr><th scope="row">緬甸</th><td class="m-na"></td><td class="m-no">不吻合</td><td class="m-unk">無法判斷</td><td class="m-no">不吻合</td><td class="m-no">不吻合</td></tr>
+<tr><th scope="row">巴基斯坦<small>送出 RST 的設備</small></th><td class="m-na"></td><td class="m-unk">無法判斷</td><td class="m-no">不吻合</td><td class="m-no">不吻合</td><td class="m-na" rowspan="2">未下結論</td></tr>
+<tr><th scope="row">巴基斯坦<small>丟包的設備</small></th><td class="m-na"></td><td class="m-no">不吻合</td><td class="m-na"></td><td class="m-unk">無法判斷</td></tr>
+<tr><th scope="row">伊朗</th><td class="m-no">不吻合</td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td></tr>
+</tbody>
+</table>
+</div>
+
+<ul class="match-key" aria-label="圖例">
+  <li><span class="sw m-yes"></span>吻合</li>
+  <li><span class="sw m-old"></span>與 TSG 較舊的版本相同</li>
+  <li><span class="sw m-part"></span>部分相符</li>
+  <li><span class="sw m-unk"></span>無法判斷</li>
+  <li><span class="sw m-no"></span>不吻合</li>
+  <li><span class="sw m-na"></span>沒有量測，或論文沒有下結論</li>
+</ul>
 
 ### 吻合的部分
 
@@ -264,3 +308,4 @@ Injector 1、Injector 3 與 GFW I 都與 TSG 不吻合，論文的結果只指�
 [^n4p]: 本文的查證，2026 年 10 月 30 日讀取 net4people/bbs 的 #519 討論串，範圍是 2025 年 10 月以後的留言。有出處指留言附上論文或正式報告的連結。
 
 [^future]: USENIX 論文 §5.1：「which we use to load SAPP's DNS, SSL, and QUIC plugins」。§4.2.2：「While all available archives」、「of the database in the leak are encrypted」，同一句在 PDF 裡跨頁排版。§4.1.1：「Although we found no code explicitly converting ASW or TSG2402 formats into Maat signature definitions」。§7：「We hope this work will serve as a guide for future research on the leak」。FOCI 論文 Future Work：「areas for future work include searching for IP addresses in the GNL, deeper analysis of documents such as PDFs, and improved OCR」、「the Tranco and Citizen Lab lists are limited compared to larger censorship measurement lists such as Common Crawl or ICANN CZDS」。
+[^matrix]: 本文依 USENIX 論文 Table 5 到 Table 9 與 §6.1 到 §6.5 的正文整理，分類是本文的判斷。吻合：§6.1 的 DNS 注入器 2，§6.2 的 GFW II（「The observed boundary of […] fragments for GFW II is very close to TSG's」），§6.3 的 GFW II 與 GFW III（固定的種子值等於 TSG 的預設值）。舊版：§6.4「GFW II shows behavior equivalent to an older version of TSG's SSL module」，§6.5「the parsing fingerprint exhibited in Kazakhstan fully matches an older version of TSG's QUIC parsing code」。部分：§6.5「both Kazakhstan and the GFW block the same test vectors as TSG's QUIC plugin, though we cannot match them fully due to a difference in supported QUIC versions」。無法判斷：§6.2 不重組分片的設備（論文註明這是 TSG 可以調整的設定），§6.4「both Kazakhstan and Pakistan (DROP) support potential TSG deployments」，§6.3「TSG can be configured to match the behavior in Myanmar」。不吻合：§6.1 Table 5 的其他注入器與伊朗，§6.2 重組到測試上限仍成功的設備，§6.3「the other injectors exhibit markedly different behaviors and header values」，§6.4「no middlebox exhibited exactly the same behavior as the latest leaked TSG」之下、GFW II 以外的設備，§6.5「the parsing fingerprint mismatch means we cannot confirm its use」（緬甸）。巴基斯坦列在 Table 9，正文沒有討論它的 QUIC 結果。哈薩克的設備不送 RST，論文沒有做 TCP 的比對。

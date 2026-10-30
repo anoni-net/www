@@ -41,6 +41,16 @@ Stellar is a separate platform developed by Geedge in C++, with more complete co
 
 Maat is the rule engine. Blocking rules are stored in Maat, and plugins match the fields they extract against those rules to get the action to take. Rules can match a wide range of fields, including transport and application protocols, the inner and outer addresses of tunnel encapsulation, source and destination IPs, ports, domain names and SNI (the site name sent in plaintext at the start of a TLS connection), ASN (autonomous system number) and country. The Firewall plugin is attached to both SAPP and Stellar, aggregates the fields extracted along each path, queries Maat and then enforces the block. Besides packet drops and RST (the TCP reset packet, which terminates the connection), blocking actions include throttling, HTTP and DNS redirects, mail and SIP blocking, tampering and deferred blocking.
 
+The steps below simplify how TSG handles one connection into a single path. In practice several processing paths run in parallel, and their results are combined in the Firewall plugin.[^modular]
+
+<ol class="flow" aria-label="A simplified view of how TSG handles one connection">
+  <li><span class="n" aria-hidden="true">1</span><span class="b"><b>SAPP ingest and reassembly</b><span class="d">Receives traffic and assembles packets into TCP and UDP streams for the plugins</span></span></li>
+  <li><span class="n" aria-hidden="true">2</span><span class="b"><b>Protocol plugins extract fields</b><span class="d">Pull domain names, the SNI and other fields from DNS queries and the TLS and QUIC handshakes</span></span></li>
+  <li><span class="n" aria-hidden="true">3</span><span class="b"><b>Application detection</b><span class="d">Three systems decide which app a flow belongs to, two of them built on third-party code</span><span class="out"><span>CBD: Geedge's own</span><span>Glimpse: libprotoident, nDPI</span><span>QDPI: Qosmos ixEngine</span></span></span></li>
+  <li><span class="n" aria-hidden="true">4</span><span class="b"><b>Firewall plugin queries Maat</b><span class="d">Combines the extracted fields and detection results and matches them against the blocking rules in Maat</span></span></li>
+  <li class="ok"><span class="n" aria-hidden="true">✓</span><span class="b"><b>Action</b><span class="d">Allow, or drop, send RSTs, throttle, redirect, tamper with content or delay blocking</span></span></li>
+</ol>
+
 The authors draw two points from the architecture, and both bear on every comparison that follows. Because components are developed and versioned separately, fingerprinting one plugin remotely (a fingerprint being a trait that identifies a system or version) does not mean another plugin is present in the same deployment, and reveals nothing about that plugin's version. Blocking decisions are made only after the results of several processing paths are aggregated, so a connection can be blocked on the result of any one of them.[^modular]
 
 ### Third-Party Code
@@ -58,6 +68,40 @@ According to the USENIX paper, the Great Firewall was long thought to be highly 
 From the source code, the team identified traits that can be measured remotely, such as idiosyncrasies in how protocols are parsed and a custom random number generator used to set packet fields. They then sent test packets between two hosts they own and compared whether censors in each location responded as TSG would. Measurements covered China's Great Firewall, Henan, Kazakhstan, Myanmar and Pakistan, with only DNS tested in Iran, across DNS, IP fragment reassembly, TCP, TLS and QUIC.
 
 As the authors explain in the TLS section, a path may have more than one censorship device on it. A test packet that TSG lets through may still be blocked by another device, whereas a packet that TSG blocks is guaranteed to be blocked whenever it passes through TSG. Our inference is that when the blocking behaviour does not reveal its source, a measured "blocked" result could come from any device on the path and cannot on its own prove that TSG is there. Conversely, a result where TSG should block but the measured packet gets through rules out a TSG component with the same behaviour on that path.[^asym] Modularity complicates things further: one deployment might run the same version of SAPP with a different version of the SSL plugin, so each comparison speaks to only one component.
+
+The table summarises the results for the five protocols. Great Firewall devices are listed under the names used in earlier research. The QUIC comparison does not separate Great Firewall devices, so it has its own row.[^matrix]
+
+<div class="match-wrap">
+<table class="match" aria-label="Comparison of TSG with censorship devices by location">
+<thead><tr><th scope="col">Device or location</th><th scope="col">DNS</th><th scope="col">IP fragments</th><th scope="col">TCP RST</th><th scope="col">TLS</th><th scope="col">QUIC</th></tr></thead>
+<tbody>
+<tr class="grp"><th colspan="6" scope="rowgroup"><span>China's Great Firewall</span></th></tr>
+<tr><th scope="row">DNS Injector 1</th><td class="m-no">No match</td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td></tr>
+<tr><th scope="row">DNS Injector 2</th><td class="m-yes">Match</td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td></tr>
+<tr><th scope="row">DNS Injector 3</th><td class="m-no">No match</td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td></tr>
+<tr><th scope="row">GFW I</th><td class="m-na"></td><td class="m-no">No match</td><td class="m-no">No match</td><td class="m-no">No match</td><td class="m-na"></td></tr>
+<tr><th scope="row">GFW II</th><td class="m-na"></td><td class="m-yes">Match</td><td class="m-yes">Match</td><td class="m-old">Older</td><td class="m-na"></td></tr>
+<tr><th scope="row">GFW III</th><td class="m-na"></td><td class="m-unk">Inconclusive</td><td class="m-yes">Match</td><td class="m-no">No match</td><td class="m-na"></td></tr>
+<tr><th scope="row">Great Firewall<small>devices not separated</small></th><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td><td class="m-part">Partial</td></tr>
+<tr class="grp"><th colspan="6" scope="rowgroup"><span>Other locations</span></th></tr>
+<tr><th scope="row">Henan</th><td class="m-na"></td><td class="m-unk">Inconclusive</td><td class="m-no">No match</td><td class="m-no">No match</td><td class="m-na"></td></tr>
+<tr><th scope="row">Kazakhstan</th><td class="m-na"></td><td class="m-unk">Inconclusive</td><td class="m-na"></td><td class="m-unk">Inconclusive</td><td class="m-old">Older</td></tr>
+<tr><th scope="row">Myanmar</th><td class="m-na"></td><td class="m-no">No match</td><td class="m-unk">Inconclusive</td><td class="m-no">No match</td><td class="m-no">No match</td></tr>
+<tr><th scope="row">Pakistan<small>RST device</small></th><td class="m-na"></td><td class="m-unk">Inconclusive</td><td class="m-no">No match</td><td class="m-no">No match</td><td class="m-na" rowspan="2">No conclusion</td></tr>
+<tr><th scope="row">Pakistan<small>packet-dropping device</small></th><td class="m-na"></td><td class="m-no">No match</td><td class="m-na"></td><td class="m-unk">Inconclusive</td></tr>
+<tr><th scope="row">Iran</th><td class="m-no">No match</td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td></tr>
+</tbody>
+</table>
+</div>
+
+<ul class="match-key" aria-label="Legend">
+  <li><span class="sw m-yes"></span>Match</li>
+  <li><span class="sw m-old"></span>Same as an older version of TSG</li>
+  <li><span class="sw m-part"></span>Partial match</li>
+  <li><span class="sw m-unk"></span>Inconclusive</li>
+  <li><span class="sw m-no"></span>No match</li>
+  <li><span class="sw m-na"></span>Not measured, or no conclusion in the paper</li>
+</ul>
 
 ### Matches
 
@@ -264,3 +308,4 @@ On the circumvention side, in the net4people thread tracking the leak (comments 
 [^n4p]: Our check: on 30 October 2026 we read thread #519 in net4people/bbs, covering comments from October 2025 onwards. Sourced means that the comment links to a paper or a formal report.
 
 [^future]: USENIX paper, §5.1: "which we use to load SAPP's DNS, SSL, and QUIC plugins". §4.2.2: "While all available archives" and "of the database in the leak are encrypted", one sentence that breaks across columns in the PDF layout. §4.1.1: "Although we found no code explicitly converting ASW or TSG2402 formats into Maat signature definitions". §7: "We hope this work will serve as a guide for future research on the leak". FOCI paper, Future Work: "areas for future work include searching for IP addresses in the GNL, deeper analysis of documents such as PDFs, and improved OCR" and "the Tranco and Citizen Lab lists are limited compared to larger censorship measurement lists such as Common Crawl or ICANN CZDS".
+[^matrix]: Our classification, based on Tables 5 to 9 and the text of §6.1 to §6.5 of the USENIX paper. Match: DNS Injector 2 in §6.1; GFW II in §6.2 ("The observed boundary of […] fragments for GFW II is very close to TSG's"); GFW II and GFW III in §6.3, where the constant seed equals TSG's default. Older: §6.4, "GFW II shows behavior equivalent to an older version of TSG's SSL module"; §6.5, "the parsing fingerprint exhibited in Kazakhstan fully matches an older version of TSG's QUIC parsing code". Partial: §6.5, "both Kazakhstan and the GFW block the same test vectors as TSG's QUIC plugin, though we cannot match them fully due to a difference in supported QUIC versions". Inconclusive: devices in §6.2 that do not reassemble fragments (the paper notes this is a configurable TSG setting); §6.4, "both Kazakhstan and Pakistan (DROP) support potential TSG deployments"; §6.3, "TSG can be configured to match the behavior in Myanmar". No match: the other injectors and Iran in Table 5 (§6.1); devices in §6.2 that still reassembled at the test limit; §6.3, "the other injectors exhibit markedly different behaviors and header values"; devices other than GFW II under §6.4, "no middlebox exhibited exactly the same behavior as the latest leaked TSG"; §6.5, "the parsing fingerprint mismatch means we cannot confirm its use" (Myanmar). Pakistan appears in Table 9, but the text does not discuss its QUIC results. The device in Kazakhstan does not send RSTs, so the paper made no TCP comparison there.

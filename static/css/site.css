@@ -842,6 +842,38 @@ ol.tl { list-style: none; margin: 1.25rem 0 1.5rem; padding: 0; }
   .flow .if::after { content: " →"; }
 }
 
+/* 比對矩陣（table.match）：每一格寫出結果，顏色只是輔助。吻合的程度用同一個色相由深到淺，
+   不吻合用灰，無法判斷用虛線框，未測留白。第一個用在 Geedge 研究回顧的比對結果 */
+.match-wrap { overflow-x: auto; margin: 1.25rem 0 .5rem; }
+.prose table.match { min-width: 30rem; font-size: .85rem; border-collapse: separate; border-spacing: 2px; }
+.prose table.match th, .prose table.match td { border: 0; padding: .35rem .4rem; text-align: center; vertical-align: middle; overflow-wrap: normal; }
+.prose table.match thead th { color: var(--c-muted); font-weight: 600; white-space: nowrap; }
+.prose table.match td { white-space: nowrap; }
+.prose table.match tbody th { text-align: left; font-weight: 600; white-space: nowrap; }
+/* 手機上表格橫向捲動，第一欄固定在左側，捲到後面幾欄仍看得到是哪一列 */
+.prose table.match tr > th:first-child { position: sticky; left: 0; z-index: 1; background: var(--c-surface); }
+.prose table.match .grp th { position: static; }
+.prose table.match .grp th span { position: sticky; left: .4rem; }
+.prose table.match tbody th small { display: block; font-weight: 400; color: var(--c-muted); }
+.prose table.match .grp th { padding-top: .8rem; color: var(--c-muted); font-weight: 600; font-size: .8rem; }
+.match .m-yes, .match-key .m-yes { background: var(--brand-cyan-800); color: #fff; font-weight: 700; border-radius: 4px; }
+.match .m-old, .match-key .m-old { background: var(--brand-cyan-200); color: var(--c-strong); font-weight: 600; border-radius: 4px; }
+.match .m-part, .match-key .m-part { background: var(--brand-cyan-50); color: var(--c-strong); border-radius: 4px; box-shadow: inset 0 0 0 1px var(--brand-cyan-300); }
+.match .m-unk, .match-key .m-unk { background: var(--c-surface); color: var(--c-muted); border-radius: 4px; box-shadow: inset 0 0 0 1px var(--n-300); outline: 1px dashed var(--n-300); outline-offset: -3px; }
+.match .m-no, .match-key .m-no { background: var(--n-200); color: var(--c-strong); border-radius: 4px; }
+.match .m-na { color: var(--c-muted); }
+.match td.m-na:empty::before, .match-key .sw.m-na::before { content: "–"; }
+.match-key .sw.m-na { text-align: center; line-height: .95rem; }
+.prose ul.match-key { display: flex; flex-wrap: wrap; gap: .35rem .9rem; margin: 0 0 1.25rem; padding: 0; list-style: none; font-size: .82rem; color: var(--c-muted); }
+.prose .match-key li { margin: 0; display: flex; align-items: center; gap: .35rem; }
+.match-key .sw { display: inline-block; width: 1.4rem; height: .95rem; border-radius: 3px; }
+@media (prefers-color-scheme: dark) {
+  .match .m-yes, .match-key .m-yes { background: var(--brand-cyan-300); color: #00202d; }
+  .match .m-old, .match-key .m-old { background: var(--brand-cyan-800); color: #fff; }
+  .match .m-part, .match-key .m-part { background: var(--brand-cyan-900); color: var(--c-text); box-shadow: inset 0 0 0 1px var(--brand-cyan-700); }
+  .match .m-no, .match-key .m-no { background: var(--n-300); color: #fff; }
+}
+
 /* ==========================================================================
    版面：兩種頁型
 
