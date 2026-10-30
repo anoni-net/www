@@ -17,7 +17,7 @@ date: 2026-10-30
 
 ![外洩文件記錄的 Geedge 部署地點地圖，標出哈薩克、衣索比亞、巴基斯坦、緬甸，以及中國的新疆、福建、江蘇](https://assets.anoni.net/www/articles/geedge-leak-one-year-map-e2b327c5.svg){: .map-img width="720" height="426" loading="lazy" }
 
-外洩文件記錄的 Geedge 部署地點。客戶國家用主色標示：① 哈薩克（K18、K24）、② 衣索比亞（E21）、③ 巴基斯坦（P19）、④ 緬甸（M22）。中國用另一種色調標示，圓點是省級防火牆專案：⑤ 新疆（J24）、⑥ 福建、⑦ 江蘇。身分不明的 A24 沒有標在圖上[^map]。
+外洩文件記錄的 Geedge 部署地點。客戶國家用主色標示：① 哈薩克（`K18`、`K24`）、② 衣索比亞（`E21`）、③ 巴基斯坦（`P19`）、④ 緬甸（`M22`）。中國用另一種色調標示，圓點是省級防火牆專案：⑤ 新疆（`J24`）、⑥ 福建、⑦ 江蘇。身分不明的 `A24` 沒有標在圖上[^map]。
 {: .fig-note }
 
 - **2025 年 9 月 8 日起**：The Globe and Mail 刊出報導，InterSecLab 在 9 月 9 日發表報告〈The Internet Coup〉，國際特赦組織的《Shadows of Control》與 Justice For Myanmar 的《Silk Road of Surveillance》也在同一個月發表。
@@ -55,11 +55,11 @@ Maat 是規則引擎，封鎖規則存在 Maat 裡，外掛用取出的欄位比
 一條連線經過 TSG 的處理可以簡化成下面這條路徑，實際上多條處理路徑同時進行，最後在 Firewall 外掛彙整[^modular]。
 
 <ol class="flow" aria-label="TSG 處理一條連線的簡化流程">
-  <li><span class="n" aria-hidden="true">1</span><span class="b"><b>SAPP 接收與重組</b><span class="d">接收流量，把封包整理成 TCP、UDP 串流，交給外掛</span></span></li>
-  <li><span class="n" aria-hidden="true">2</span><span class="b"><b>協定外掛取出欄位</b><span class="d">從 DNS 查詢、TLS 與 QUIC 的交握取出網域、SNI 等欄位</span></span></li>
+  <li><span class="n" aria-hidden="true">1</span><span class="b"><b>封包接收與重組（SAPP）</b><span class="d">接收流量，把封包整理成 TCP、UDP 串流，交給外掛</span></span></li>
+  <li><span class="n" aria-hidden="true">2</span><span class="b"><b>欄位擷取（協定外掛）</b><span class="d">從 DNS 查詢、TLS 與 QUIC 的交握取出網域、SNI 等欄位</span></span></li>
   <li><span class="n" aria-hidden="true">3</span><span class="b"><b>應用程式辨識</b><span class="d">三套系統判斷流量屬於哪個 App</span><span class="out"><span>CBD：Geedge 自有</span><span>Glimpse：libprotoident、nDPI</span><span>QDPI：Qosmos ixEngine</span></span></span></li>
-  <li><span class="n" aria-hidden="true">4</span><span class="b"><b>Firewall 外掛查詢 Maat</b><span class="d">彙整各路取出的欄位與辨識結果，比對 Maat 裡的封鎖規則</span></span></li>
-  <li class="ok"><span class="n" aria-hidden="true">✓</span><span class="b"><b>執行處置</b><span class="d">放行，或丟包、送出 RST、限速、轉向、竄改內容、延後封鎖</span></span></li>
+  <li><span class="n" aria-hidden="true">4</span><span class="b"><b>規則比對（Firewall 外掛與 Maat）</b><span class="d">彙整各路取出的欄位與辨識結果，比對 Maat 裡的封鎖規則</span></span></li>
+  <li class="ok"><span class="n" aria-hidden="true">✓</span><span class="b"><b>處置</b><span class="d">放行，或丟包、送出 RST、限速、轉向、竄改內容、延後封鎖</span></span></li>
 </ol>
 
 作者從架構歸納出兩點，後面的比對都受它們影響。元件各自開發、各有版本，從遠端測出某一個外掛的指紋（能用來辨認某個系統或版本的特徵），不代表同一個部署也有另一個外掛，也無法推論另一個外掛的版本。封鎖決定在多條處理路徑彙整之後才做出，一條連線可能因為其中任何一條路徑的結果而被擋[^modular]。
@@ -84,10 +84,10 @@ USENIX 論文寫到，防火長城過去被認為高度集中，近年卻有越�
 比對分成四個步驟，最後判定結果，每一項比對都同時有原始碼與量測兩邊的依據[^method]：
 
 <ol class="flow" aria-label="比對的步驟">
-  <li><span class="n" aria-hidden="true">1</span><span class="b"><b>讀原始碼找出特徵</b><span class="d">找出可以從遠端觀察的行為，例如偽造封包的欄位、解析協定時的特殊處理</span></span></li>
-  <li><span class="n" aria-hidden="true">2</span><span class="b"><b>在本機確認</b><span class="d">在隔離的測試環境執行 TSG，確認這些行為確實會出現</span></span></li>
+  <li><span class="n" aria-hidden="true">1</span><span class="b"><b>原始碼分析</b><span class="d">找出可以從遠端觀察的行為，例如偽造封包的欄位、解析協定時的特殊處理</span></span></li>
+  <li><span class="n" aria-hidden="true">2</span><span class="b"><b>本機驗證</b><span class="d">在隔離的測試環境執行 TSG，確認這些行為確實會出現</span></span></li>
   <li><span class="n" aria-hidden="true">3</span><span class="b"><b>遠端量測</b><span class="d">從各地的量測點，對研究團隊自己的主機送出測試封包，記錄審查設備的反應</span></span></li>
-  <li><span class="n" aria-hidden="true">4</span><span class="b"><b>對照行為</b><span class="d">把實測的反應與 TSG 的行為逐項比較</span></span></li>
+  <li><span class="n" aria-hidden="true">4</span><span class="b"><b>行為對照</b><span class="d">把實測的反應與 TSG 的行為逐項比較</span></span></li>
   <li class="ok"><span class="n" aria-hidden="true">✓</span><span class="b"><b>判定</b><span class="d">每一項比對歸入比對矩陣圖例裡的一種結果</span><span class="out"><span>吻合、與較舊的版本相同、部分相符</span><span>不吻合、無法判斷</span></span></span></li>
 </ol>
 

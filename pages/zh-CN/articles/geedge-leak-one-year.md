@@ -17,7 +17,7 @@ date: 2026-10-30
 
 ![外泄文件记录的 Geedge 部署地点地图，标出哈萨克斯坦、埃塞俄比亚、巴基斯坦、缅甸，以及中国的新疆、福建、江苏](https://assets.anoni.net/www/articles/geedge-leak-one-year-map-e2b327c5.svg){: .map-img width="720" height="426" loading="lazy" }
 
-外泄文件记录的 Geedge 部署地点。客户国家用主色标示：① 哈萨克斯坦（K18、K24）、② 埃塞俄比亚（E21）、③ 巴基斯坦（P19）、④ 缅甸（M22）。中国用另一种色调标示，圆点是省级防火墙项目：⑤ 新疆（J24）、⑥ 福建、⑦ 江苏。身份不明的 A24 没有标在图上[^map]。
+外泄文件记录的 Geedge 部署地点。客户国家用主色标示：① 哈萨克斯坦（`K18`、`K24`）、② 埃塞俄比亚（`E21`）、③ 巴基斯坦（`P19`）、④ 缅甸（`M22`）。中国用另一种色调标示，圆点是省级防火墙项目：⑤ 新疆（`J24`）、⑥ 福建、⑦ 江苏。身份不明的 `A24` 没有标在图上[^map]。
 {: .fig-note }
 
 - **2025 年 9 月 8 日起**：The Globe and Mail 刊出报道，InterSecLab 在 9 月 9 日发表报告〈The Internet Coup〉，国际特赦组织的《Shadows of Control》与 Justice For Myanmar 的《Silk Road of Surveillance》也在同一个月发表。
@@ -55,11 +55,11 @@ Maat 是规则引擎，封锁规则存在 Maat 里，插件用取出的字段比
 一条连接经过 TSG 的处理可以简化成下面这条路径，实际上多条处理路径同时进行，最后在 Firewall 插件汇总[^modular]。
 
 <ol class="flow" aria-label="TSG 处理一条连接的简化流程">
-  <li><span class="n" aria-hidden="true">1</span><span class="b"><b>SAPP 接收与重组</b><span class="d">接收流量，把数据包整理成 TCP、UDP 流，交给插件</span></span></li>
-  <li><span class="n" aria-hidden="true">2</span><span class="b"><b>协议插件提取字段</b><span class="d">从 DNS 查询、TLS 与 QUIC 的握手提取域名、SNI 等字段</span></span></li>
+  <li><span class="n" aria-hidden="true">1</span><span class="b"><b>数据包接收与重组（SAPP）</b><span class="d">接收流量，把数据包整理成 TCP、UDP 流，交给插件</span></span></li>
+  <li><span class="n" aria-hidden="true">2</span><span class="b"><b>字段提取（协议插件）</b><span class="d">从 DNS 查询、TLS 与 QUIC 的握手提取域名、SNI 等字段</span></span></li>
   <li><span class="n" aria-hidden="true">3</span><span class="b"><b>应用程序识别</b><span class="d">三套系统判断流量属于哪个 App</span><span class="out"><span>CBD：Geedge 自有</span><span>Glimpse：libprotoident、nDPI</span><span>QDPI：Qosmos ixEngine</span></span></span></li>
-  <li><span class="n" aria-hidden="true">4</span><span class="b"><b>Firewall 插件查询 Maat</b><span class="d">汇总各路提取的字段与识别结果，比对 Maat 里的封锁规则</span></span></li>
-  <li class="ok"><span class="n" aria-hidden="true">✓</span><span class="b"><b>执行处置</b><span class="d">放行，或丢包、发送 RST、限速、重定向、篡改内容、延迟封锁</span></span></li>
+  <li><span class="n" aria-hidden="true">4</span><span class="b"><b>规则比对（Firewall 插件与 Maat）</b><span class="d">汇总各路提取的字段与识别结果，比对 Maat 里的封锁规则</span></span></li>
+  <li class="ok"><span class="n" aria-hidden="true">✓</span><span class="b"><b>处置</b><span class="d">放行，或丢包、发送 RST、限速、重定向、篡改内容、延迟封锁</span></span></li>
 </ol>
 
 作者从架构归纳出两点，后面的比对都受它们影响。组件各自开发、各有版本，从远程测出某一个插件的指纹（能用来辨认某个系统或版本的特征），不代表同一个部署也有另一个插件，也无法推论另一个插件的版本。封锁决定在多条处理路径汇总之后才做出，一条连接可能因为其中任何一条路径的结果而被拦[^modular]。
@@ -84,10 +84,10 @@ USENIX 论文写到，防火长城过去被认为高度集中，近年却有越�
 比对分成四个步骤，最后判定结果，每一项比对都同时有源代码与测量两边的依据[^method]：
 
 <ol class="flow" aria-label="比对的步骤">
-  <li><span class="n" aria-hidden="true">1</span><span class="b"><b>读源代码找出特征</b><span class="d">找出可以从远程观察的行为，例如伪造数据包的字段、解析协议时的特殊处理</span></span></li>
-  <li><span class="n" aria-hidden="true">2</span><span class="b"><b>在本机确认</b><span class="d">在隔离的测试环境运行 TSG，确认这些行为确实会出现</span></span></li>
+  <li><span class="n" aria-hidden="true">1</span><span class="b"><b>源代码分析</b><span class="d">找出可以从远程观察的行为，例如伪造数据包的字段、解析协议时的特殊处理</span></span></li>
+  <li><span class="n" aria-hidden="true">2</span><span class="b"><b>本机验证</b><span class="d">在隔离的测试环境运行 TSG，确认这些行为确实会出现</span></span></li>
   <li><span class="n" aria-hidden="true">3</span><span class="b"><b>远程测量</b><span class="d">从各地的测量点，对研究团队自己的主机发出测试数据包，记录审查设备的反应</span></span></li>
-  <li><span class="n" aria-hidden="true">4</span><span class="b"><b>对照行为</b><span class="d">把实测的反应与 TSG 的行为逐项比较</span></span></li>
+  <li><span class="n" aria-hidden="true">4</span><span class="b"><b>行为对照</b><span class="d">把实测的反应与 TSG 的行为逐项比较</span></span></li>
   <li class="ok"><span class="n" aria-hidden="true">✓</span><span class="b"><b>判定</b><span class="d">每一项比对归入比对矩阵图例里的一种结果</span><span class="out"><span>吻合、与较旧的版本相同、部分相符</span><span>不吻合、无法判断</span></span></span></li>
 </ol>
 
