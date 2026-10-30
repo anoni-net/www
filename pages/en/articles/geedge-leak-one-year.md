@@ -11,12 +11,15 @@ A year on, the matches found are narrower than some reporting has claimed. The m
 <details markdown="1">
 <summary>For readers without a technical background</summary>
 
-- In September 2025, internal files and source code leaked from Geedge Networks, a company that builds internet censorship systems for China and other countries. For the first time, researchers could read the code of censorship equipment directly instead of only inferring how it works from outside.
-- A research team got the software running and compared it with real networks. Part of China's Great Firewall behaves the same way as this code. The other devices do not match, and there is no public evidence of who built them.
-- The leaked documents show the system was also sold to Kazakhstan, Ethiopia, Pakistan and Myanmar, but in those countries measurements mostly stop at "possible" or "cannot confirm".
-- Circumvention tools and VPNs are a constant target. Customers report which tools still connect, and the vendor adjusts its blocking rules. The paper did not test Tor; at the time of the leak Geedge appeared to have no effective way to block Tor's WebTunnel, and investigators found no evidence of Geedge discovering or exploiting unknown vulnerabilities in Tor.
-- The two website lists researchers commonly measure with miss more than 90% of the sites in the leak that were measured as blocked. Not finding blocking in a measurement does not mean there is none.
-- ADLINK, a Taiwanese company, shipped a batch of hardware to Geedge between 2019 and early 2020. Geedge is still not on the US or EU sanctions lists.
+In September 2025, internal files and source code leaked from Geedge Networks, a company that builds internet censorship systems for China and other countries. For the first time, researchers could read the code of censorship equipment directly instead of only inferring how it works from outside.
+
+A research team built the software and compared it with real networks. Judging by the results, part of China's Great Firewall likely runs this code or a close version of it. The other devices do not match, and there is no public evidence of who built them. According to the leaked documents, Geedge also sold the system to Kazakhstan, Ethiopia, Pakistan and Myanmar, but in those countries measurements mostly stop at "possible" or "cannot confirm".
+
+Circumvention tools and VPNs are a constant target: customers report which tools can still connect, and Geedge adjusts its blocking rules. The paper did not test Tor. InterSecLab's report states that at the time of the leak Geedge appeared to have no effective way to block WebTunnel (a way of connecting to Tor that disguises traffic as ordinary web browsing), and InterSecLab found no evidence of Geedge discovering or exploiting unknown vulnerabilities in Tor.
+
+More than 90% of the sites in the leak that were measured as blocked do not appear on the two website lists researchers commonly measure with, so when a list-based measurement finds no blocking, that does not mean there is none.
+
+ADLINK, a Taiwanese company, shipped a batch of hardware to Geedge between 2019 and early 2020. Geedge is still not on the US or EU sanctions lists we checked.
 
 For background, see the anoni.net Docs site's [Why networked freedom matters](https://anoni.net/docs/en/basics/internet-freedom/), [What surveillance can actually do](https://anoni.net/docs/en/basics/surveillance-capability/), [What Is Tor?](https://anoni.net/docs/en/tools/what-is-tor/) and [VPN: risks and how to choose](https://anoni.net/docs/en/tools/vpn-guide/).
 
