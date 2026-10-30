@@ -17,7 +17,7 @@ The leaked files come from both Geedge and the MESA Lab. The MESA Lab (Massive a
 
 ![Map of Geedge deployment locations recorded in the leaked documents, marking Kazakhstan, Ethiopia, Pakistan and Myanmar, and Xinjiang, Fujian and Jiangsu in China](https://assets.anoni.net/www/articles/geedge-leak-one-year-map-e2b327c5.svg){: .map-img width="720" height="426" loading="lazy" }
 
-Geedge deployment locations recorded in the leaked documents. Client countries are shown in the main colour: 1 Kazakhstan (K18, K24), 2 Ethiopia (E21), 3 Pakistan (P19), 4 Myanmar (M22). China is shown in a second shade, with dots for the provincial firewall projects: 5 Xinjiang (J24), 6 Fujian, 7 Jiangsu. The unidentified client A24 is not on the map.[^map]
+Geedge deployment locations recorded in the leaked documents. Client countries are shown in the main colour: ① Kazakhstan (K18, K24), ② Ethiopia (E21), ③ Pakistan (P19), ④ Myanmar (M22). China is shown in a second shade, with dots for the provincial firewall projects: ⑤ Xinjiang (J24), ⑥ Fujian, ⑦ Jiangsu. The unidentified client A24 is not on the map.[^map]
 {: .fig-note }
 
 - **From 8 September 2025**: The Globe and Mail published its report, InterSecLab released "The Internet Coup" on 9 September, and Amnesty International's *Shadows of Control* and Justice For Myanmar's *Silk Road of Surveillance* came out the same month.

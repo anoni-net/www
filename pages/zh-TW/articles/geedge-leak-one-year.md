@@ -17,7 +17,7 @@ date: 2026-10-30
 
 ![外洩文件記錄的 Geedge 部署地點地圖，標出哈薩克、衣索比亞、巴基斯坦、緬甸，以及中國的新疆、福建、江蘇](https://assets.anoni.net/www/articles/geedge-leak-one-year-map-e2b327c5.svg){: .map-img width="720" height="426" loading="lazy" }
 
-外洩文件記錄的 Geedge 部署地點。客戶國家用主色標示：1 哈薩克（K18、K24）、2 衣索比亞（E21）、3 巴基斯坦（P19）、4 緬甸（M22）。中國用另一種色調標示，圓點是省級防火牆專案：5 新疆（J24）、6 福建、7 江蘇。身分不明的 A24 沒有標在圖上[^map]。
+外洩文件記錄的 Geedge 部署地點。客戶國家用主色標示：① 哈薩克（K18、K24）、② 衣索比亞（E21）、③ 巴基斯坦（P19）、④ 緬甸（M22）。中國用另一種色調標示，圓點是省級防火牆專案：⑤ 新疆（J24）、⑥ 福建、⑦ 江蘇。身分不明的 A24 沒有標在圖上[^map]。
 {: .fig-note }
 
 - **2025 年 9 月 8 日起**：The Globe and Mail 刊出報導，InterSecLab 在 9 月 9 日發表報告〈The Internet Coup〉，國際特赦組織的《Shadows of Control》與 Justice For Myanmar 的《Silk Road of Surveillance》也在同一個月發表。
