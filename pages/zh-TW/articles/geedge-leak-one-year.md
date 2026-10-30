@@ -87,89 +87,102 @@ Stellar 是 Geedge 另外開發、以 C++ 撰寫的平台，追蹤連線狀態�
 
 Maat 是規則引擎，封鎖規則存在 Maat 裡，外掛用取出的欄位比對規則，取得處置方式。規則可以比對的欄位很廣，包括傳輸與應用層協定、通道封裝的內外層位址、來源與目的 IP、連接埠、網域與 SNI（TLS 連線開頭以明文送出的網站名稱）、ASN（自治系統編號）與國家。Firewall 外掛同時掛在 SAPP 與 Stellar 上，彙整各路取出的欄位，查詢 Maat 之後執行封鎖。封鎖手段除了丟包與 RST（TCP 的重設封包，送出後連線就會中斷），還有限速、HTTP 與 DNS 的轉向、郵件與 SIP 的封鎖、竄改內容與延後封鎖。
 
-從硬體到處置，TSG 的元件可以整理成七層[^madlink-gen][^thirdparty][^oss-stack]：
+USENIX 論文分析的是負責審查的 TSG。依〈The Internet Coup〉，Geedge 在 TSG 之上還有管理與分析的產品，Cyber Narrator 是政府分析人員操作的監控介面，資料來自監控資料倉儲 TSG Galaxy，Network Zodiac 則用來監控整個網路的設備[^mgmt]。兩篇論文都沒有分析這一層的程式碼。
+
+從管理與分析到硬體，Geedge 的系統可以整理成八層[^madlink-gen][^thirdparty][^oss-stack]：
 
 <figure class="st-fig">
-<svg class="st" viewBox="0 0 360 596" role="img" aria-labelledby="st-t">
+<svg class="st" viewBox="0 0 360 676" role="img" aria-labelledby="st-t">
 <title id="st-t">TSG 的技術棧，依外洩的版本整理</title>
 <defs><marker id="st-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path class="st-ah" d="M0 0L10 5L0 10z"/></marker></defs>
-<rect class="st-band" x="0" y="0" width="360" height="64" rx="6"/>
-<text class="st-l" x="10" y="16">處置</text>
-<rect class="st-box" x="8.0" y="24" width="344.0" height="30" rx="5"/>
-<text class="st-t" x="180.0" y="40.0">放行、丟包、RST、限速、轉向、竄改、延後封鎖</text>
-<rect class="st-band" x="0" y="70" width="360" height="74" rx="6"/>
-<text class="st-l" x="10" y="86">規則比對</text>
-<rect class="st-box" x="8.0" y="94" width="163.0" height="40" rx="5"/>
-<text class="st-t" x="89.5" y="108">Firewall 外掛</text>
-<text class="st-s" x="89.5" y="124">彙整各路欄位</text>
-<line class="st-ar" x1="173.0" y1="114.0" x2="185.0" y2="114.0" marker-end="url(#st-a)"/>
-<rect class="st-box" x="189.0" y="94" width="163.0" height="40" rx="5"/>
-<text class="st-t" x="270.5" y="108">Maat</text>
-<text class="st-s" x="270.5" y="124">規則引擎</text>
+<rect class="st-band" x="0" y="0" width="360" height="74" rx="6"/>
+<text class="st-l" x="10" y="16">管理與分析</text>
+<rect class="st-box" x="8.0" y="24" width="110.7" height="40" rx="5"/>
+<text class="st-t" x="63.3" y="38">Cyber Narrator</text>
+<text class="st-s" x="63.3" y="54">分析人員的介面</text>
+<rect class="st-box st-oss" x="124.7" y="24" width="110.7" height="40" rx="5"/>
+<text class="st-t" x="180.0" y="38">TSG Galaxy</text>
+<text class="st-s" x="180.0" y="54">監控資料倉儲</text>
+<rect class="st-box" x="241.3" y="24" width="110.7" height="40" rx="5"/>
+<text class="st-t" x="296.7" y="38">Network Zodiac</text>
+<text class="st-s" x="296.7" y="54">設備監控</text>
+<rect class="st-band" x="0" y="80" width="360" height="64" rx="6"/>
+<text class="st-l" x="10" y="96">處置</text>
+<rect class="st-box" x="8.0" y="104" width="344.0" height="30" rx="5"/>
+<text class="st-t" x="180.0" y="120.0">放行、丟包、RST、限速、轉向、竄改、延後封鎖</text>
 <rect class="st-band" x="0" y="150" width="360" height="74" rx="6"/>
-<text class="st-l" x="10" y="166">應用程式辨識</text>
-<rect class="st-box" x="8.0" y="174" width="110.7" height="40" rx="5"/>
-<text class="st-t" x="63.3" y="188">CBD</text>
-<text class="st-s" x="63.3" y="204">Geedge 自有</text>
-<rect class="st-box st-oss" x="124.7" y="174" width="110.7" height="40" rx="5"/>
-<text class="st-t" x="180.0" y="188">Glimpse</text>
-<text class="st-s" x="180.0" y="204">libprotoident、nDPI</text>
-<rect class="st-box st-prop" x="241.3" y="174" width="110.7" height="40" rx="5"/>
-<text class="st-t" x="296.7" y="188">QDPI</text>
-<text class="st-s" x="296.7" y="204">Qosmos ixEngine</text>
+<text class="st-l" x="10" y="166">規則比對</text>
+<rect class="st-box" x="8.0" y="174" width="163.0" height="40" rx="5"/>
+<text class="st-t" x="89.5" y="188">Firewall 外掛</text>
+<text class="st-s" x="89.5" y="204">彙整各路欄位</text>
+<line class="st-ar" x1="173.0" y1="194.0" x2="185.0" y2="194.0" marker-end="url(#st-a)"/>
+<rect class="st-box" x="189.0" y="174" width="163.0" height="40" rx="5"/>
+<text class="st-t" x="270.5" y="188">Maat</text>
+<text class="st-s" x="270.5" y="204">規則引擎</text>
 <rect class="st-band" x="0" y="230" width="360" height="74" rx="6"/>
-<text class="st-l" x="10" y="246">外掛</text>
+<text class="st-l" x="10" y="246">應用程式辨識</text>
 <rect class="st-box" x="8.0" y="254" width="110.7" height="40" rx="5"/>
-<text class="st-t" x="63.3" y="268">平台外掛</text>
-<text class="st-s" x="63.3" y="284">共用功能</text>
-<rect class="st-box" x="124.7" y="254" width="110.7" height="40" rx="5"/>
-<text class="st-t" x="180.0" y="268">協定外掛</text>
-<text class="st-s" x="180.0" y="284">DNS、SSL、QUIC</text>
-<rect class="st-box" x="241.3" y="254" width="110.7" height="40" rx="5"/>
-<text class="st-t" x="296.7" y="268">業務外掛</text>
-<text class="st-s" x="296.7" y="284">Firewall 等</text>
+<text class="st-t" x="63.3" y="268">CBD</text>
+<text class="st-s" x="63.3" y="284">Geedge 自有</text>
+<rect class="st-box st-oss" x="124.7" y="254" width="110.7" height="40" rx="5"/>
+<text class="st-t" x="180.0" y="268">Glimpse</text>
+<text class="st-s" x="180.0" y="284">libprotoident、nDPI</text>
+<rect class="st-box st-prop" x="241.3" y="254" width="110.7" height="40" rx="5"/>
+<text class="st-t" x="296.7" y="268">QDPI</text>
+<text class="st-s" x="296.7" y="284">Qosmos ixEngine</text>
 <rect class="st-band" x="0" y="310" width="360" height="74" rx="6"/>
-<text class="st-l" x="10" y="326">封包處理平台</text>
-<rect class="st-box" x="8.0" y="334" width="169.0" height="40" rx="5"/>
-<text class="st-t" x="92.5" y="348">SAPP</text>
-<text class="st-s" x="92.5" y="364">C，MESA 實驗室</text>
-<rect class="st-box" x="183.0" y="334" width="169.0" height="40" rx="5"/>
-<text class="st-t" x="267.5" y="348">Stellar</text>
-<text class="st-s" x="267.5" y="364">C++，經由 Stellar-on-SAPP</text>
+<text class="st-l" x="10" y="326">外掛</text>
+<rect class="st-box" x="8.0" y="334" width="110.7" height="40" rx="5"/>
+<text class="st-t" x="63.3" y="348">平台外掛</text>
+<text class="st-s" x="63.3" y="364">共用功能</text>
+<rect class="st-box" x="124.7" y="334" width="110.7" height="40" rx="5"/>
+<text class="st-t" x="180.0" y="348">協定外掛</text>
+<text class="st-s" x="180.0" y="364">DNS、SSL、QUIC</text>
+<rect class="st-box" x="241.3" y="334" width="110.7" height="40" rx="5"/>
+<text class="st-t" x="296.7" y="348">業務外掛</text>
+<text class="st-s" x="296.7" y="364">Firewall 等</text>
 <rect class="st-band" x="0" y="390" width="360" height="74" rx="6"/>
-<text class="st-l" x="10" y="406">作業系統與封包 I/O</text>
-<rect class="st-box st-oss" x="8.0" y="414" width="169.0" height="40" rx="5"/>
-<text class="st-t" x="92.5" y="428">Rocky Linux</text>
-<text class="st-s" x="92.5" y="444">TSG-OS 的基礎</text>
-<rect class="st-box st-oss" x="183.0" y="414" width="169.0" height="40" rx="5"/>
-<text class="st-t" x="267.5" y="428">DPDK</text>
-<text class="st-s" x="267.5" y="444">封包處理</text>
+<text class="st-l" x="10" y="406">封包處理平台</text>
+<rect class="st-box" x="8.0" y="414" width="169.0" height="40" rx="5"/>
+<text class="st-t" x="92.5" y="428">SAPP</text>
+<text class="st-s" x="92.5" y="444">C，MESA 實驗室</text>
+<rect class="st-box" x="183.0" y="414" width="169.0" height="40" rx="5"/>
+<text class="st-t" x="267.5" y="428">Stellar</text>
+<text class="st-s" x="267.5" y="444">C++，經由 Stellar-on-SAPP</text>
 <rect class="st-band" x="0" y="470" width="360" height="74" rx="6"/>
-<text class="st-l" x="10" y="486">硬體</text>
-<rect class="st-box st-tw" x="8.0" y="494" width="81.5" height="40" rx="5"/>
-<text class="st-t" x="48.8" y="508">TSG-ADC</text>
-<text class="st-s" x="48.8" y="524">凌華 CSA-7400</text>
-<rect class="st-box st-cn" x="95.5" y="494" width="81.5" height="40" rx="5"/>
-<text class="st-t" x="136.2" y="508">TSG-9140</text>
-<text class="st-s" x="136.2" y="524">北京恒光</text>
-<rect class="st-box st-cn" x="183.0" y="494" width="81.5" height="40" rx="5"/>
-<text class="st-t" x="223.8" y="508">TSG-X</text>
-<text class="st-s" x="223.8" y="524">Nettrix、浪潮</text>
-<rect class="st-box st-tw" x="270.5" y="494" width="81.5" height="40" rx="5"/>
-<text class="st-t" x="311.2" y="508">EtherFabric</text>
-<text class="st-s" x="311.2" y="524">Geedge 設計</text>
-<rect class="st-box" x="8" y="556" width="16" height="12" rx="3"/>
-<text class="st-s st-lg" x="30" y="562">Geedge 或 MESA 實驗室自行開發</text>
-<rect class="st-box st-oss" x="214.08" y="556" width="16" height="12" rx="3"/>
-<text class="st-s st-lg" x="236.08" y="562">開源</text>
-<rect class="st-box st-prop" x="274.08000000000004" y="556" width="16" height="12" rx="3"/>
-<text class="st-s st-lg" x="296.08000000000004" y="562">商用閉源</text>
-<rect class="st-box st-tw" x="8" y="578" width="16" height="12" rx="3"/>
-<text class="st-s st-lg" x="30" y="584">台灣廠商的硬體或元件</text>
-<rect class="st-box st-cn" x="156" y="578" width="16" height="12" rx="3"/>
-<text class="st-s st-lg" x="178" y="584">中國廠商的硬體</text>
+<text class="st-l" x="10" y="486">作業系統與封包 I/O</text>
+<rect class="st-box st-oss" x="8.0" y="494" width="169.0" height="40" rx="5"/>
+<text class="st-t" x="92.5" y="508">Rocky Linux</text>
+<text class="st-s" x="92.5" y="524">TSG-OS 的基礎</text>
+<rect class="st-box st-oss" x="183.0" y="494" width="169.0" height="40" rx="5"/>
+<text class="st-t" x="267.5" y="508">DPDK</text>
+<text class="st-s" x="267.5" y="524">封包處理</text>
+<rect class="st-band" x="0" y="550" width="360" height="74" rx="6"/>
+<text class="st-l" x="10" y="566">硬體</text>
+<rect class="st-box st-tw" x="8.0" y="574" width="81.5" height="40" rx="5"/>
+<text class="st-t" x="48.8" y="588">TSG-ADC</text>
+<text class="st-s" x="48.8" y="604">凌華 CSA-7400</text>
+<rect class="st-box st-cn" x="95.5" y="574" width="81.5" height="40" rx="5"/>
+<text class="st-t" x="136.2" y="588">TSG-9140</text>
+<text class="st-s" x="136.2" y="604">北京恒光</text>
+<rect class="st-box st-cn" x="183.0" y="574" width="81.5" height="40" rx="5"/>
+<text class="st-t" x="223.8" y="588">TSG-X</text>
+<text class="st-s" x="223.8" y="604">Nettrix、浪潮</text>
+<rect class="st-box st-tw" x="270.5" y="574" width="81.5" height="40" rx="5"/>
+<text class="st-t" x="311.2" y="588">EtherFabric</text>
+<text class="st-s" x="311.2" y="604">Geedge 設計</text>
+<rect class="st-box" x="8" y="636" width="16" height="12" rx="3"/>
+<text class="st-s st-lg" x="30" y="642">Geedge 或 MESA 實驗室自行開發</text>
+<rect class="st-box st-oss" x="214.08" y="636" width="16" height="12" rx="3"/>
+<text class="st-s st-lg" x="236.08" y="642">開源</text>
+<rect class="st-box st-prop" x="274.08000000000004" y="636" width="16" height="12" rx="3"/>
+<text class="st-s st-lg" x="296.08000000000004" y="642">商用閉源</text>
+<rect class="st-box st-tw" x="8" y="658" width="16" height="12" rx="3"/>
+<text class="st-s st-lg" x="30" y="664">台灣廠商的硬體或元件</text>
+<rect class="st-box st-cn" x="156" y="658" width="16" height="12" rx="3"/>
+<text class="st-s st-lg" x="178" y="664">中國廠商的硬體</text>
 </svg>
-<figcaption>本文依 USENIX 論文第 3 節與 MADLink 整理的簡化分層，沒有額外標示的方塊是 Geedge 或 MESA 實驗室自行開發的元件。CBD 是整合進 Firewall 外掛的函式庫，Glimpse 與 QDPI 是 Stellar 的外掛，Firewall 外掛同時掛在 SAPP 與 Stellar 上，實際的呼叫關係比分層複雜。硬體的供應商依 MADLink，EtherFabric 由 Geedge 設計，看來沿用北京恒光的 ATCA 硬體，也含有凌華的元件。</figcaption>
+<figcaption>本文依 USENIX 論文第 3 節與 MADLink 整理的簡化分層，沒有額外標示的方塊是 Geedge 或 MESA 實驗室自行開發的元件。最上層的管理與分析依〈The Internet Coup〉，TSG Galaxy 建立在開源的 Apache Kafka 上。CBD 是整合進 Firewall 外掛的函式庫，Glimpse 與 QDPI 是 Stellar 的外掛，Firewall 外掛同時掛在 SAPP 與 Stellar 上，實際的呼叫關係比分層複雜。硬體的供應商依 MADLink，EtherFabric 由 Geedge 設計，看來沿用北京恒光的 ATCA 硬體，也含有凌華的元件。</figcaption>
 </figure>
 
 一條連線經過 TSG 的處理可以簡化成下面這條路徑，實際上多條處理路徑同時進行，最後在 Firewall 外掛彙整[^modular]。
@@ -493,6 +506,7 @@ InterSecLab 在 2025 年 9 月寫到，`A24` 的相關資料沒有能辨識客�
 [^method]: USENIX 論文 §5.2：「We developed a testbed to evaluate TSG's blocking behaviors in a controlled environment」。Ethical Considerations：「We performed all of our scans between two vantage points that we own, not including any other third-party server as the target of our scan」。從原始碼找出指紋再量測的做法見 §1：「we extract several fingerprints from TSG, including custom random number generators and parsing idiosyncrasies」。
 [^foci-meas]: FOCI 論文 §3.2：「we produce a list of 14,365,453 potential domains」、「we produce a final list of 6,915,266 domains」。§3.4：「we perform measurements across vantage points in China (Guangzhou and Nanjing), Myanmar, Pakistan, and Algeria」、「While Kazakhstan and Ethiopia are known customers of Geedge Networks [12], we were unable to obtain access to appropriate vantage points in these countries」、「DNS censorship is highly reliable」、「which are inherently less reliable indicators」、「we perform 25 tests per domain to ensure intermittently blocked domains are included」。
 [^madlink-hw]: MADLink 社群譯文第 1 章〈摘要與主要發現〉：「這批設備構成 Geedge 第一代防火牆平台的基礎」。第 2 章〈Geedge 供應鏈深入解析（三代 TSG 硬體）〉：「外洩文件顯示這套配置只部署在哈薩克」、「2019 至 2020 年初之間出貨給 Geedge 的 CSA-7400 共有 1,708 台」。第 3 章〈EtherFabric 與 ADLINK 的角色和回應〉：「EtherFabric 部署在緬甸」、「登記在 ADLINK Technology, Inc. 名下」、「至少包含一個凌華科技的元件，最有可能是運行管理軟體的運算主板」、「凌華科技證實，凌華科技（中國）有限公司北京分公司向 Geedge Networks 供應了標準的 CSA-7400 網路安全平台」。
+[^mgmt]: 網路政變社群譯文第 5 章〈產品與服務〉：「客戶使用 Geedge 的產品從事監控時，主要操作的就是 Cyber Narrator 的使用者介面」、「Cyber Narrator 的資料來源有兩個，一是 Geedge 的資料倉儲方案 TSG Galaxy 所蒐集的資料」、「Network Zodiac（Nezha，哪吒）是 Geedge Networks 開發的全網資產管理與監控方案」。
 [^madlink-gen]: MADLink 社群譯文第 2 章：「Geedge 為其 TSG 防火牆設備陸續供應了三代伺服器硬體」、「第一代 TSG 平台 TSG-ADC 建立在 CSA-7400 之上」、「第二代平台 TSG-9140 採用 AdvancedTCA（ATCA）規格」、「它應該是基於中國公司北京恒光信息技術的 VELA ATCA 平台」、「外洩文件顯示 TSG-9140 只部署在衣索比亞（代號 E21）客戶站點」、「現行版本 TSG-X 的主要 TSG 運算節點採用 Nettrix 伺服器，儲存 Cyber Narrator 所使用監控資料的儲存伺服器則來自浪潮（Inspur）」。第 1 章：「Geedge 目前這一代的 TSG 硬體部署在衣索比亞、巴基斯坦和緬甸」。第 3 章：「EtherFabric 看起來重用了與 TSG-9140 相同的、來自北京恒光信息技術的 VELA ATCA 硬體，但角色不同」、「部分網路元件可能由凌華科技提供」、「也作為概念驗證部署給一個只以代號 A24 識別的未知客戶」。
 [^thirdparty]: USENIX 論文 §1：「including two of the three core application detection systems」。§4.2.1：「a free software project from the Libtrace team at the University of Waikato」、「All code required for this function contains the libprotoident copyright」、「appears to be a modified copy of openvpn.c from a 2022 version of nDPI」、「the logic remains nearly identical」。§4.2.2：「QDPI is built off of Qosmos ixEngine, a proprietary, enterprise DPI library」、「This is most clearly indicated by the Stellar session callback subscriber function eventually calling」，後面接的是 ixEngine 的函式名稱。
 [^oss-stack]: MADLink 社群譯文第 2 章〈Geedge 供應鏈深入解析（三代 TSG 硬體）〉：「Geedge 的整套軟體堆疊建立在開源基礎上」、「其作業系統 TSG-OS 以 Rocky Linux 為基礎（更早期版本是 CentOS），網路封包處理則仰賴 Intel 開源的 DPDK 工具包」、「Geedge 曾考慮改用華為 EulerOS，但因授權費用過高而放棄」。

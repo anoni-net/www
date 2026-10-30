@@ -87,89 +87,102 @@ Stellar is a separate platform developed by Geedge in C++, with more complete co
 
 Maat is the rule engine. Blocking rules are stored in Maat, and plugins match the fields they extract against those rules to get the action to take. Rules can match a wide range of fields, including transport and application protocols, the inner and outer addresses of tunnel encapsulation, source and destination IPs, ports, domain names and SNI (the site name sent in plaintext at the start of a TLS connection), ASN (autonomous system number) and country. The Firewall plugin is attached to both SAPP and Stellar, aggregates the fields extracted along each path, queries Maat and then enforces the block. Besides packet drops and RST (the TCP reset packet, which terminates the connection), blocking actions include throttling, HTTP and DNS redirects, mail and SIP blocking, tampering and deferred blocking.
 
-From hardware to enforcement, TSG's components can be arranged in seven layers:[^madlink-gen][^thirdparty][^oss-stack]
+The USENIX paper analyses TSG, the part that does the censoring. According to "The Internet Coup", Geedge also has management and analysis products that sit above TSG: Cyber Narrator is the surveillance interface that government analysts use, drawing on data from the TSG Galaxy surveillance data warehouse, and Network Zodiac monitors devices across the network.[^mgmt] Neither paper analyses the code of this layer.
+
+From management and analysis down to hardware, Geedge's system can be arranged in eight layers:[^madlink-gen][^thirdparty][^oss-stack]
 
 <figure class="st-fig">
-<svg class="st" viewBox="0 0 360 618" role="img" aria-labelledby="st-t">
+<svg class="st" viewBox="0 0 360 698" role="img" aria-labelledby="st-t">
 <title id="st-t">The TSG stack, as of the leaked version</title>
 <defs><marker id="st-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path class="st-ah" d="M0 0L10 5L0 10z"/></marker></defs>
-<rect class="st-band" x="0" y="0" width="360" height="64" rx="6"/>
-<text class="st-l" x="10" y="16">Action</text>
-<rect class="st-box" x="8.0" y="24" width="344.0" height="30" rx="5"/>
-<text class="st-t" x="180.0" y="40.0">Allow, drop, RST, throttle, redirect, tamper, delay</text>
-<rect class="st-band" x="0" y="70" width="360" height="74" rx="6"/>
-<text class="st-l" x="10" y="86">Rule matching</text>
-<rect class="st-box" x="8.0" y="94" width="163.0" height="40" rx="5"/>
-<text class="st-t" x="89.5" y="108">Firewall plugin</text>
-<text class="st-s" x="89.5" y="124">Combines fields</text>
-<line class="st-ar" x1="173.0" y1="114.0" x2="185.0" y2="114.0" marker-end="url(#st-a)"/>
-<rect class="st-box" x="189.0" y="94" width="163.0" height="40" rx="5"/>
-<text class="st-t" x="270.5" y="108">Maat</text>
-<text class="st-s" x="270.5" y="124">Rule engine</text>
+<rect class="st-band" x="0" y="0" width="360" height="74" rx="6"/>
+<text class="st-l" x="10" y="16">Management and analysis</text>
+<rect class="st-box" x="8.0" y="24" width="110.7" height="40" rx="5"/>
+<text class="st-t" x="63.3" y="38">Cyber Narrator</text>
+<text class="st-s" x="63.3" y="54">Analyst interface</text>
+<rect class="st-box st-oss" x="124.7" y="24" width="110.7" height="40" rx="5"/>
+<text class="st-t" x="180.0" y="38">TSG Galaxy</text>
+<text class="st-s" x="180.0" y="54">Surveillance data</text>
+<rect class="st-box" x="241.3" y="24" width="110.7" height="40" rx="5"/>
+<text class="st-t" x="296.7" y="38">Network Zodiac</text>
+<text class="st-s" x="296.7" y="54">Device monitoring</text>
+<rect class="st-band" x="0" y="80" width="360" height="64" rx="6"/>
+<text class="st-l" x="10" y="96">Action</text>
+<rect class="st-box" x="8.0" y="104" width="344.0" height="30" rx="5"/>
+<text class="st-t" x="180.0" y="120.0">Allow, drop, RST, throttle, redirect, tamper, delay</text>
 <rect class="st-band" x="0" y="150" width="360" height="74" rx="6"/>
-<text class="st-l" x="10" y="166">Application detection</text>
-<rect class="st-box" x="8.0" y="174" width="110.7" height="40" rx="5"/>
-<text class="st-t" x="63.3" y="188">CBD</text>
-<text class="st-s" x="63.3" y="204">Geedge&#x27;s own</text>
-<rect class="st-box st-oss" x="124.7" y="174" width="110.7" height="40" rx="5"/>
-<text class="st-t" x="180.0" y="188">Glimpse</text>
-<text class="st-s" x="180.0" y="204">libprotoident, nDPI</text>
-<rect class="st-box st-prop" x="241.3" y="174" width="110.7" height="40" rx="5"/>
-<text class="st-t" x="296.7" y="188">QDPI</text>
-<text class="st-s" x="296.7" y="204">Qosmos ixEngine</text>
+<text class="st-l" x="10" y="166">Rule matching</text>
+<rect class="st-box" x="8.0" y="174" width="163.0" height="40" rx="5"/>
+<text class="st-t" x="89.5" y="188">Firewall plugin</text>
+<text class="st-s" x="89.5" y="204">Combines fields</text>
+<line class="st-ar" x1="173.0" y1="194.0" x2="185.0" y2="194.0" marker-end="url(#st-a)"/>
+<rect class="st-box" x="189.0" y="174" width="163.0" height="40" rx="5"/>
+<text class="st-t" x="270.5" y="188">Maat</text>
+<text class="st-s" x="270.5" y="204">Rule engine</text>
 <rect class="st-band" x="0" y="230" width="360" height="74" rx="6"/>
-<text class="st-l" x="10" y="246">Plugins</text>
+<text class="st-l" x="10" y="246">Application detection</text>
 <rect class="st-box" x="8.0" y="254" width="110.7" height="40" rx="5"/>
-<text class="st-t" x="63.3" y="268">Platform</text>
-<text class="st-s" x="63.3" y="284">Shared functions</text>
-<rect class="st-box" x="124.7" y="254" width="110.7" height="40" rx="5"/>
-<text class="st-t" x="180.0" y="268">Protocol</text>
-<text class="st-s" x="180.0" y="284">DNS, SSL, QUIC</text>
-<rect class="st-box" x="241.3" y="254" width="110.7" height="40" rx="5"/>
-<text class="st-t" x="296.7" y="268">Business</text>
-<text class="st-s" x="296.7" y="284">Firewall, etc.</text>
+<text class="st-t" x="63.3" y="268">CBD</text>
+<text class="st-s" x="63.3" y="284">Geedge&#x27;s own</text>
+<rect class="st-box st-oss" x="124.7" y="254" width="110.7" height="40" rx="5"/>
+<text class="st-t" x="180.0" y="268">Glimpse</text>
+<text class="st-s" x="180.0" y="284">libprotoident, nDPI</text>
+<rect class="st-box st-prop" x="241.3" y="254" width="110.7" height="40" rx="5"/>
+<text class="st-t" x="296.7" y="268">QDPI</text>
+<text class="st-s" x="296.7" y="284">Qosmos ixEngine</text>
 <rect class="st-band" x="0" y="310" width="360" height="74" rx="6"/>
-<text class="st-l" x="10" y="326">Packet processing platforms</text>
-<rect class="st-box" x="8.0" y="334" width="169.0" height="40" rx="5"/>
-<text class="st-t" x="92.5" y="348">SAPP</text>
-<text class="st-s" x="92.5" y="364">C, MESA Lab</text>
-<rect class="st-box" x="183.0" y="334" width="169.0" height="40" rx="5"/>
-<text class="st-t" x="267.5" y="348">Stellar</text>
-<text class="st-s" x="267.5" y="364">C++, via Stellar-on-SAPP</text>
+<text class="st-l" x="10" y="326">Plugins</text>
+<rect class="st-box" x="8.0" y="334" width="110.7" height="40" rx="5"/>
+<text class="st-t" x="63.3" y="348">Platform</text>
+<text class="st-s" x="63.3" y="364">Shared functions</text>
+<rect class="st-box" x="124.7" y="334" width="110.7" height="40" rx="5"/>
+<text class="st-t" x="180.0" y="348">Protocol</text>
+<text class="st-s" x="180.0" y="364">DNS, SSL, QUIC</text>
+<rect class="st-box" x="241.3" y="334" width="110.7" height="40" rx="5"/>
+<text class="st-t" x="296.7" y="348">Business</text>
+<text class="st-s" x="296.7" y="364">Firewall, etc.</text>
 <rect class="st-band" x="0" y="390" width="360" height="74" rx="6"/>
-<text class="st-l" x="10" y="406">Operating system and packet I/O</text>
-<rect class="st-box st-oss" x="8.0" y="414" width="169.0" height="40" rx="5"/>
-<text class="st-t" x="92.5" y="428">Rocky Linux</text>
-<text class="st-s" x="92.5" y="444">Basis of TSG-OS</text>
-<rect class="st-box st-oss" x="183.0" y="414" width="169.0" height="40" rx="5"/>
-<text class="st-t" x="267.5" y="428">DPDK</text>
-<text class="st-s" x="267.5" y="444">Packet processing</text>
+<text class="st-l" x="10" y="406">Packet processing platforms</text>
+<rect class="st-box" x="8.0" y="414" width="169.0" height="40" rx="5"/>
+<text class="st-t" x="92.5" y="428">SAPP</text>
+<text class="st-s" x="92.5" y="444">C, MESA Lab</text>
+<rect class="st-box" x="183.0" y="414" width="169.0" height="40" rx="5"/>
+<text class="st-t" x="267.5" y="428">Stellar</text>
+<text class="st-s" x="267.5" y="444">C++, via Stellar-on-SAPP</text>
 <rect class="st-band" x="0" y="470" width="360" height="74" rx="6"/>
-<text class="st-l" x="10" y="486">Hardware</text>
-<rect class="st-box st-tw" x="8.0" y="494" width="81.5" height="40" rx="5"/>
-<text class="st-t" x="48.8" y="508">TSG-ADC</text>
-<text class="st-s" x="48.8" y="524">ADLINK</text>
-<rect class="st-box st-cn" x="95.5" y="494" width="81.5" height="40" rx="5"/>
-<text class="st-t" x="136.2" y="508">TSG-9140</text>
-<text class="st-s" x="136.2" y="524">Hengguang</text>
-<rect class="st-box st-cn" x="183.0" y="494" width="81.5" height="40" rx="5"/>
-<text class="st-t" x="223.8" y="508">TSG-X</text>
-<text class="st-s" x="223.8" y="524">Nettrix, Inspur</text>
-<rect class="st-box st-tw" x="270.5" y="494" width="81.5" height="40" rx="5"/>
-<text class="st-t" x="311.2" y="508">EtherFabric</text>
-<text class="st-s" x="311.2" y="524">Geedge design</text>
-<rect class="st-box" x="8" y="556" width="16" height="12" rx="3"/>
-<text class="st-s st-lg" x="30" y="562">Developed by Geedge or the MESA Lab</text>
-<rect class="st-box st-oss" x="261.6" y="556" width="16" height="12" rx="3"/>
-<text class="st-s st-lg" x="283.6" y="562">Open source</text>
-<rect class="st-box st-prop" x="8" y="578" width="16" height="12" rx="3"/>
-<text class="st-s st-lg" x="30" y="584">Proprietary</text>
-<rect class="st-box st-tw" x="113.76" y="578" width="16" height="12" rx="3"/>
-<text class="st-s st-lg" x="135.76" y="584">Taiwanese hardware or components</text>
-<rect class="st-box st-cn" x="8" y="600" width="16" height="12" rx="3"/>
-<text class="st-s st-lg" x="30" y="606">Chinese hardware</text>
+<text class="st-l" x="10" y="486">Operating system and packet I/O</text>
+<rect class="st-box st-oss" x="8.0" y="494" width="169.0" height="40" rx="5"/>
+<text class="st-t" x="92.5" y="508">Rocky Linux</text>
+<text class="st-s" x="92.5" y="524">Basis of TSG-OS</text>
+<rect class="st-box st-oss" x="183.0" y="494" width="169.0" height="40" rx="5"/>
+<text class="st-t" x="267.5" y="508">DPDK</text>
+<text class="st-s" x="267.5" y="524">Packet processing</text>
+<rect class="st-band" x="0" y="550" width="360" height="74" rx="6"/>
+<text class="st-l" x="10" y="566">Hardware</text>
+<rect class="st-box st-tw" x="8.0" y="574" width="81.5" height="40" rx="5"/>
+<text class="st-t" x="48.8" y="588">TSG-ADC</text>
+<text class="st-s" x="48.8" y="604">ADLINK</text>
+<rect class="st-box st-cn" x="95.5" y="574" width="81.5" height="40" rx="5"/>
+<text class="st-t" x="136.2" y="588">TSG-9140</text>
+<text class="st-s" x="136.2" y="604">Hengguang</text>
+<rect class="st-box st-cn" x="183.0" y="574" width="81.5" height="40" rx="5"/>
+<text class="st-t" x="223.8" y="588">TSG-X</text>
+<text class="st-s" x="223.8" y="604">Nettrix, Inspur</text>
+<rect class="st-box st-tw" x="270.5" y="574" width="81.5" height="40" rx="5"/>
+<text class="st-t" x="311.2" y="588">EtherFabric</text>
+<text class="st-s" x="311.2" y="604">Geedge design</text>
+<rect class="st-box" x="8" y="636" width="16" height="12" rx="3"/>
+<text class="st-s st-lg" x="30" y="642">Developed by Geedge or the MESA Lab</text>
+<rect class="st-box st-oss" x="261.6" y="636" width="16" height="12" rx="3"/>
+<text class="st-s st-lg" x="283.6" y="642">Open source</text>
+<rect class="st-box st-prop" x="8" y="658" width="16" height="12" rx="3"/>
+<text class="st-s st-lg" x="30" y="664">Proprietary</text>
+<rect class="st-box st-tw" x="113.76" y="658" width="16" height="12" rx="3"/>
+<text class="st-s st-lg" x="135.76" y="664">Taiwanese hardware or components</text>
+<rect class="st-box st-cn" x="8" y="680" width="16" height="12" rx="3"/>
+<text class="st-s st-lg" x="30" y="686">Chinese hardware</text>
 </svg>
-<figcaption>A simplified layering based on Section 3 of the USENIX paper and on MADLink; boxes without other markings are components developed by Geedge or the MESA Lab. CBD is a library integrated into the Firewall plugin, Glimpse and QDPI are Stellar plugins, and the Firewall plugin runs on both SAPP and Stellar, so the actual call relationships are more tangled than the layers suggest. Hardware suppliers follow MADLink. EtherFabric was designed by Geedge and appears to reuse Beijing Hengguang's ATCA hardware along with ADLINK components.</figcaption>
+<figcaption>A simplified layering based on Section 3 of the USENIX paper and on MADLink; boxes without other markings are components developed by Geedge or the MESA Lab. The management and analysis layer at the top follows "The Internet Coup", and TSG Galaxy is built on the open source Apache Kafka. CBD is a library integrated into the Firewall plugin, Glimpse and QDPI are Stellar plugins, and the Firewall plugin runs on both SAPP and Stellar, so the actual call relationships are more tangled than the layers suggest. Hardware suppliers follow MADLink. EtherFabric was designed by Geedge and appears to reuse Beijing Hengguang's ATCA hardware along with ADLINK components.</figcaption>
 </figure>
 
 How TSG handles one connection can be simplified into the path below. In practice several processing paths run in parallel, and their results are combined in the Firewall plugin.[^modular]
@@ -296,7 +309,9 @@ IP fragment reassembly produced a partial match: the maximum number of fragments
 
 The TLS tests altered each of the length fields in the ClientHello to see whether a device still parsed out the domain and blocked it. No device behaved exactly like the latest leaked version. GFW II's behaviour is equivalent to an older version of TSG's SSL module, which, the authors write, "suggests usage of this older version in GFW II's SSL parsing". For QUIC, the Great Firewall and Kazakhstan blocked the same test packets as TSG, but both support different QUIC versions from TSG, so they cannot be matched fully. Kazakhstan's parsing fingerprint does fully match an older version of TSG's QUIC parsing code.[^tls-quic]
 
-Section 6 of the paper sums up these results in one sentence, reporting high levels of correspondence with Injector 2, GFW II and GFW III, "suggesting that the leaked TSG code (or a close derivative) is indeed deployed on part of China's national firewall". The authors hedge the claim with "suggesting" and add emphasis with "indeed". The TLS match for GFW II and the QUIC match for Kazakhstan are with older TSG versions, the RSTs from GFW II and GFW III also deviate from TSG, and the geedge.report post likewise explains that the match changes over time and that the deployed code has drifted from the leaked version.[^summary]
+Section 6 of the paper sums up these results in one sentence: *"Notably, we find high levels of correspondence with GFW DNS Injector 2 and TCP GFW II and GFW III, suggesting that the leaked TSG code (or a close derivative) is indeed deployed on part of China's national firewall."*
+
+The authors hedge the claim with "suggesting" and add emphasis with "indeed". The TLS match for GFW II and the QUIC match for Kazakhstan are with older TSG versions, the RSTs from GFW II and GFW III also deviate from TSG, and the geedge.report post likewise explains that the match changes over time and that the deployed code has drifted from the leaked version.[^summary]
 
 ### Mismatches and Inconclusive Results
 
@@ -491,6 +506,7 @@ On the circumvention side, in the net4people thread tracking the leak (comments 
 [^method]: USENIX paper, §5.2: "We developed a testbed to evaluate TSG's blocking behaviors in a controlled environment". Ethical Considerations: "We performed all of our scans between two vantage points that we own, not including any other third-party server as the target of our scan". On extracting fingerprints from the source code before measuring, §1: "we extract several fingerprints from TSG, including custom random number generators and parsing idiosyncrasies".
 [^foci-meas]: FOCI paper, §3.2: "we produce a list of 14,365,453 potential domains" and "we produce a final list of 6,915,266 domains". §3.4: "we perform measurements across vantage points in China (Guangzhou and Nanjing), Myanmar, Pakistan, and Algeria", "While Kazakhstan and Ethiopia are known customers of Geedge Networks [12], we were unable to obtain access to appropriate vantage points in these countries", "DNS censorship is highly reliable", "which are inherently less reliable indicators" and "we perform 25 tests per domain to ensure intermittently blocked domains are included".
 [^madlink-hw]: "MADLink", Executive Summary: "These units formed the basis of Geedge's first-generation firewall platform". Section "First generation: TSG-ADC (Kazakhstan)": "Leaked documents indicate this configuration was deployed exclusively at the Kazakhstan" and "ADLINK confirmed to InterSecLab that it shipped 1,708 CSA-7400 units to Geedge between 2019 and early 2020". Section "EtherFabric: Geedge's custom network packet broker": "EtherFabric was deployed at the Myanmar", "is registered to ADLINK Technology, Inc." and "contains at least one ADLINK component, most likely the compute board that runs the management software". ADLINK's reply: "ADLINK confirmed that ADLINK Technology (China) Co., Ltd., Beijing Branch supplied standard CSA-7400 network security platform equipment to Geedge Networks". We leave out the site codes and the value of the MAC address prefix.
+[^mgmt]: "The Internet Coup", "Products & Offerings": "It is the main user interface that the client interacts with when using Geedge's products for surveillance", "Cyber Narrator draws on data collected by their data warehousing solution, called TSG Galaxy" and "is a network-wide asset management and monitoring solution developed by Geedge Networks" (Network Zodiac).
 [^madlink-gen]: "MADLink", "Geedge Networks' Supply Chain: A Closer Look" and the following sections: "three successive generations of server hardware", "The first-generation TSG platform, TSG-ADC, was built on the CSA-7400", "The second-generation platform, TSG-9140, used the AdvancedTCA (ATCA) form factor", "It appears to be based on the VELA ATCA platform from Chinese company Beijing Hengguang Information Technology", "Leaked documents show the TSG-9140 was deployed exclusively at the Ethiopia (E21) customer site", "The current generation, TSG-X, uses Nettrix servers for the primary TSG compute nodes and Inspur servers for storage", "TSG-X is deployed at the Ethiopia (E21), Pakistan (P19) and Myanmar (M22) customer sites", "EtherFabric appears to reuse the same VELA ATCA hardware from Beijing Hengguang Information Technology as the TSG-9140", "some networking components may be supplied by ADLINK Technologies", "was also installed as a proof of concept for an unknown customer identified only by the code name A24".
 [^thirdparty]: USENIX paper, §1: "including two of the three core application detection systems". §4.2.1: "a free software project from the Libtrace team at the University of Waikato", "All code required for this function contains the libprotoident copyright", "appears to be a modified copy of openvpn.c from a 2022 version of nDPI" and "the logic remains nearly identical". §4.2.2: "QDPI is built off of Qosmos ixEngine, a proprietary, enterprise DPI library" and "This is most clearly indicated by the Stellar session callback subscriber function eventually calling", followed by the name of an ixEngine function.
 [^oss-stack]: "MADLink", section "Geedge Networks' Supply Chain: A Closer Look": "Geedge's entire software stack is built on open-source foundations", "is based on Rocky Linux (previously CentOS), and its network packet processing relies on Intel's open-source DPDK toolkit" and "Geedge considered switching to Huawei's EulerOS but rejected it because of high licensing fees".
