@@ -360,6 +360,8 @@ p { margin: .5rem 0 1rem; }
 .footnote { font-size: .85rem; color: var(--c-muted); margin-top: 2rem; }
 .footnote hr { border: 0; border-top: 1px solid var(--c-hair); }
 .footnote-ref { font-size: .75em; }
+/* 連續的註腳編號（例如 10 與 11）會黏成「1011」，中間補一個逗號 */
+sup[id^="fnref"] + sup[id^="fnref"]::before { content: ","; font-size: .75em; }
 /* 每一條註腳包著 <p>，段落的上下間距疊起來條目之間有 30px，拿掉之後靠 li 的間距分開 */
 .footnote ol { margin-top: .75rem; }
 .footnote li { margin: .35rem 0; }
