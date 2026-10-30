@@ -39,12 +39,12 @@ date: 2026-10-30
 
 <ol class="tl" aria-label="外洩之後一年的報導、調查與論文">
   <li><span class="tl-when">2025-09-08</span><span class="tl-b"><span class="tl-t">The Globe and Mail 的報導</span><span class="tl-d">聯合調查的成果開始見報，比檔案公開早三天</span></span></li>
-  <li><span class="tl-when">2025-09-09</span><span class="tl-b"><span class="tl-t">InterSecLab〈The Internet Coup〉</span><span class="tl-d">國際特赦組織的《Shadows of Control》與 Justice For Myanmar 的《Silk Road of Surveillance》也在同一個月發表</span></span></li>
+  <li><span class="tl-when">2025-09-09</span><span class="tl-b"><span class="tl-t">InterSecLab〈The Internet Coup〉</span><span class="tl-d">國際特赦組織的《Shadows of Control》與 Justice For Myanmar 的《Silk Road of Surveillance》也在同一個月發表。社群有〈<a href="https://anoni.net/docs/reports/interseclab-network-coup/">網路政變</a>〉的中譯</span></span></li>
   <li class="tl-origin"><span class="tl-when">2025-09-11</span><span class="tl-b"><span class="tl-t">檔案公開</span><span class="tl-d">Enlace Hacktivista 公開全部檔案，DDoSecrets 也提供下載</span></span></li>
   <li><span class="tl-when">2025-09-12</span><span class="tl-b"><span class="tl-t">GFW Report 的分析文章</span><span class="tl-d">最後一次更新是 12 月 29 日，文中寫明原始碼的部分還沒有人仔細分析</span></span></li>
   <li class="tl-year"><span>2026</span></li>
   <li><span class="tl-when">2026-02-19</span><span class="tl-b"><span class="tl-t">FOCI 2026〈Geedge Cases〉</span><span class="tl-d">麻州大學阿默斯特分校與 GFW Report 的研究者比對外洩檔案裡的網域與兩份常用的網域清單</span></span></li>
-  <li><span class="tl-when">2026-04-24</span><span class="tl-b"><span class="tl-t">InterSecLab〈MADLink〉</span><span class="tl-d">供應鏈系列的第一篇，主題是 Geedge 使用的伺服器與網路硬體，其中包括台灣的凌華科技</span></span></li>
+  <li><span class="tl-when">2026-04-24</span><span class="tl-b"><span class="tl-t">InterSecLab〈MADLink〉</span><span class="tl-d">供應鏈系列的第一篇，主題是 Geedge 使用的伺服器與網路硬體，其中包括台灣的凌華科技。社群有〈<a href="https://anoni.net/docs/reports/interseclab-madlink/">MADLink</a>〉的中譯</span></span></li>
   <li><span class="tl-when">2026-08-05</span><span class="tl-b"><span class="tl-t">geedge.report 的說明文章</span><span class="tl-d">USENIX 論文的作者群在專案網站發表</span></span></li>
   <li><span class="tl-when">2026-08-12</span><span class="tl-b"><span class="tl-t">USENIX Security 2026 論文</span><span class="tl-d">〈Technical Analysis of the Geedge Networks Firewall Source Code Leak〉在 8 月 12 日到 14 日的研討會發表，作者來自密西根大學、帕德博恩大學、麻州大學阿默斯特分校、科羅拉多大學波德分校與 GFW Report</span></span></li>
   <li><span class="tl-when">2026-08-21</span><span class="tl-b"><span class="tl-t">Risky Bulletin 的報導</span><span class="tl-d">報導論文的結果，措辭比論文肯定（見後面的報導與論文的措辭差距一節）</span></span></li>
