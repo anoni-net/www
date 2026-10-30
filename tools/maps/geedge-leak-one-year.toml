@@ -1,0 +1,24 @@
+# 〈Geedge 外洩一年後的研究回顧〉的部署地點地圖，地名與代號寫在文章的圖說，
+# 地圖只放編號，一張 SVG 三個語系共用。
+name = "geedge-leak-one-year-map"
+title = "Geedge deployment locations recorded in the leaked documents"
+# 經度、緯度的範圍：東非到東亞
+lon = [25.0, 135.0]
+lat = [-2.0, 56.0]
+width = 720
+
+# 編號、經度、緯度。國家大致放在領土中央，中國的三個省級專案放在省會附近
+markers = [
+  [1, 67.0, 48.0],
+  [2, 39.5, 8.5],
+  [3, 69.5, 29.5],
+  [4, 96.0, 21.0],
+  [5, 85.5, 41.5],
+  [6, 118.0, 26.0],
+  [7, 119.6, 33.0],
+]
+
+[groups]
+# 主色：客戶國家；另一種色調：中國（省級防火牆專案）
+primary = ["kz", "et", "pk", "mm"]
+secondary = ["cn"]
