@@ -842,6 +842,10 @@ ol.tl { list-style: none; margin: 1.25rem 0 1.5rem; padding: 0; }
   .flow .if::after { content: " →"; }
 }
 
+/* 段落引言（p.sec-lead）：放在 h2 正下方，用一兩句帶出這一節的重點，外觀像引言，
+   語意是一般段落，讀屏軟體不會當成引用。Markdown 用 attr_list 的 { .sec-lead } 掛上 */
+.prose p.sec-lead { margin: .25rem 0 1.25rem; padding: .1rem 0 .1rem 1rem; border-left: 3px solid var(--c-line); color: var(--c-strong); font-size: 1.05rem; line-height: 1.75; font-weight: 500; text-wrap: pretty; }
+
 /* 比對矩陣（table.match）：每一格寫出結果，顏色只是輔助。吻合的程度用同一個色相由深到淺，
    不吻合用灰，無法判斷用虛線框，未測留白。第一個用在 Geedge 研究回顧的比對結果 */
 .match-wrap { overflow-x: auto; margin: 1.25rem 0 .5rem; }

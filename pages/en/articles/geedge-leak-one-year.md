@@ -10,6 +10,9 @@ A year on, the matches found are narrower than some reporting has claimed. The m
 
 ## A Year of Research
 
+The year of research since the leak has followed two lines. Joint investigations read the documents to map Geedge's clients and deployments, while academics read the source code and measured remotely, and the two produce different kinds of evidence.
+{: .sec-lead }
+
 The leaked files come from both Geedge and the MESA Lab. The MESA Lab (Massive and Effective Stream Analysis) belongs to the Institute of Information Engineering of the Chinese Academy of Sciences, and in GFW Report's description the two together are an important branch of the Great Firewall's R&D capacity. According to GFW Report, Geedge was founded in Hainan in 2018, with Fang Binxing, known as the "father of the Great Firewall", as its chief scientist. By the FOCI paper's count, the leak totals 572 GiB, comprising source code repositories, project management records, client deployment configurations and operational data, and more than 80% of it is an archive of an RPM package repository (RPM being a Linux software package format).[^gfwr-geedge]
 
 - **From 8 September 2025**: The Globe and Mail published its report, InterSecLab released "The Internet Coup" on 9 September, and Amnesty International's *Shadows of Control* and Justice For Myanmar's *Silk Road of Surveillance* came out the same month.
@@ -24,6 +27,9 @@ The news reports came out three days before the files were made public. In the i
 The two tracks produce different kinds of evidence. From documents we can learn whom Geedge sold to and what its customers asked for, while measurement is used to judge whether a particular device behaves consistently with the code. Some reporting has applied conclusions of the first kind to the second (see the section on the gap between reporting and the paper's wording below for examples).
 
 ## TSG in the Source Code
+
+The researchers built a working copy of TSG from the leaked source code and found it is made of separately developed components, with two of its three application detection systems built on third-party code.
+{: .sec-lead }
 
 ### Build and Testing
 
@@ -60,6 +66,9 @@ TSG has three application detection systems, which determine which app or protoc
 For libprotoident and nDPI, the paper's wording is that the code was copied and adapted. For Qosmos it says only that QDPI is built on it, and the authors make no judgement on whether Geedge had a licence. The team disclosed Geedge's use of this code to the libprotoident team and to Enea, the parent company of Qosmos. Both had responded by the time the paper was published and meetings had been scheduled, but what they said has not been made public. nDPI is not among the parties the paper lists as notified. In the authors' words, TSG's reliance on third-party libraries for two of its three detection systems "suggests that comprehensive protocol classification is costly to build from scratch, even for a well-resourced, state-linked vendor."[^disclose] Findings like these depend on reading the source code, since remote measurement can hardly tell whose code a detection system uses.[^beyond]
 
 ## Comparison with the Great Firewall
+
+The paper reports "high levels of correspondence" only for three Great Firewall devices (Injector 2, GFW II and GFW III). Other devices and Geedge's client countries mostly come out as no match or inconclusive.
+{: .sec-lead }
 
 ### Comparison Method
 
@@ -141,6 +150,9 @@ The paper's results support a narrower claim: part of the Great Firewall's equip
 
 ## Circumvention Tool Signatures and Blocking
 
+TSG's signatures for circumvention tools are revised again and again in response to client reports, and tools without obvious traffic features, such as Psiphon, are blocked by server IP instead.
+{: .sec-lead }
+
 According to the USENIX paper, the leaked files show client-driven, iterative efforts to block specific circumvention tools, including Psiphon, Tor and popular VPNs such as ExpressVPN and NordVPN, with methods ranging from IP-based blocking to matching byte patterns. Signatures (rules describing the traffic traits of a given app) combine server IPs, domain names, TLS fingerprints, certificate fields, packet lengths and byte patterns. A Confluence document analysed in the paper records several updates to a signature bundle between March and November 2024, with signature risk levels between three and five, most of them five, while another test log aimed mainly at Chinese apps rates every signature one.[^circ] The specific signature conditions are in the paper's tables, and this article does not repeat them.
 
 Searching Jira for "vpn", the team found 700 tickets across 182 issues, covering reports of extracted server IPs, setting blocking priorities, repeated revisions after signatures stopped working, and over-blocking of other services. In one ticket, blocking failed once Signal's censorship circumvention option was turned on. The authors' summary is that circumvention tool signatures are tuned with customer involvement: customers can report failures, set priorities and flag over-blocking.[^circ]
@@ -155,6 +167,9 @@ As for code quality, the authors conclude that TSG's complexity and flexibility 
 
 ## Domain List Coverage
 
+More than nine in ten of the leaked domains that were measured as blocked appear in neither of the two lists researchers usually rely on, so measuring with those lists alone shows only part of what is censored.
+{: .sec-lead }
+
 Censorship measurement starts by deciding which domains to test, and two lists are commonly used. Tranco is a ranking of popular sites by traffic, while the Citizen Lab test lists are maintained by hand by researchers and the community and organise sites likely to be blocked by content category. The FOCI paper extracted more than 14.36 million candidate domains from the leak, leaving 6,915,266 after resolution filtering. Vantage points in Guangzhou and Nanjing tested DNS injection, which is more reliable. Vantage points in Pakistan, Myanmar and Algeria tested whether TLS handshakes were cut off because of the SNI, which is less reliable. Each domain was tested 25 times so that intermittent blocking was also counted. Kazakhstan and Ethiopia are known customers, but the team could not obtain suitable vantage points there.[^foci-meas]
 
 Of the leaked domains measured as blocked, 298,955 (93.7%) appear in neither Tranco nor the Citizen Lab lists. Conversely, the leak covers only 37.1% to 61.6% of the blocked Tranco domains. Each of the three lists has its own role. In the FOCI authors' words, "Tranco informs which globally popular sites are censored, CitizenLab monitors types of sensitive content over time, and the GNL [Geedge Networks leak] reveals which domains commercial vendors consider of interest."[^foci-937]
@@ -164,6 +179,9 @@ Before reading these numbers, it helps to know where the domains come from. The 
 The community-maintained Taiwan section of the Citizen Lab test lists (`tw.csv` in `anoni-net/citizenlab-test-lists`) is likewise a hand-curated list, reflecting what its maintainers consider important. In light of FOCI's results, when measurement with a list finds no blocking, the conclusion covers only the sites on the list; domains outside it were never within the scope of observation. How to read a single measurement is covered in [OONI Blocking Verdicts](/projects/asn-coverage/ooni-blocking-determination/), and how many measurements each network has in [OONI Coverage](/projects/asn-coverage/).
 
 ## Supply Chain and Policy
+
+The leaked documents trace Geedge's hardware back to ADLINK in Taiwan, yet Geedge does not appear on the US and EU sanctions lists we checked.
+{: .sec-lead }
 
 InterSecLab's "MADLink" follows the leaked documents to the hardware supply chain. ADLINK, a listed Taiwanese company, shipped 1,708 CSA-7400 units (a high-density network platform the vendor markets for firewall and DPI use) to Geedge between 2019 and early 2020. According to the report, they were the hardware basis of the first-generation TSG platform, and in the leaked documents this configuration was deployed only in Kazakhstan. Geedge's own EtherFabric (a network packet broker that distributes traffic among multiple TSG nodes) is deployed in Myanmar, and in the leaked documents the vendor prefix of its management interface's MAC address is registered to ADLINK. On that basis InterSecLab judges that it contains ADLINK components, most likely a management compute board.[^madlink-hw]
 
@@ -176,6 +194,9 @@ MADLink works from documents and the vendor's replies, and can be read against t
 According to MADLink, the servers in Geedge's current hardware come from Nettrix, whose parent company Sugon is already under US sanctions.[^adlink] In a press release on 19 June 2024, Justice For Myanmar called on governments to sanction companies including Geedge Networks.[^jfm] As of 30 October 2026, we had checked the sanctions lists of the US Treasury's OFAC and of the EU, and the Entity List notices in the US Federal Register, and found no listing of Geedge.[^sanction]
 
 ## Research Ethics and Data Handling
+
+Neither paper publishes the raw leak, and the USENIX paper withholds the full method for building TSG, so what outsiders can repeat is mainly the remote measurement.
+{: .sec-lead }
 
 The ethical considerations section of the USENIX paper identifies five groups of stakeholders: Geedge employees and shareholders, third-party companies whose code is integrated in TSG, the countries deploying TSG, users under censorship in those countries, and the anti-censorship community. The leaked Git repositories contain developers' names and email addresses. The authors handle this by focusing on the systems and architecture, not reporting on individuals, and not including source material from the leak in their public repository.[^local]
 
@@ -194,6 +215,9 @@ In the net4people discussion thread, the only sourced follow-up research after O
 This article holds to the same lines. It does not reproduce content from the leaked files, domain lists or file paths, does not give parameters, trait values or signature conditions that could be used to evade detection or improve blocking (the papers themselves publish some of these, and readers who want more can go to the originals), and does not mention the people who appear in the leaked data.
 
 ## Open Questions
+
+Who A24 is, who supplies the rest of the Great Firewall, and whether measurement can confirm the deployments in client countries all remain without public answers.
+{: .sec-lead }
 
 Injector 1, Injector 3 and GFW I all fail to match TSG. The paper's results point only to part of the Great Firewall's equipment using TSG or similar code, and there is no public evidence yet on who developed the rest.
 
