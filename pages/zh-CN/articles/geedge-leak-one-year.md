@@ -69,7 +69,7 @@ USENIX 论文写到，防火长城过去被认为高度集中，近年却有越�
 
 论文在 TLS 一节写到，路径上可能不只一台审查设备。TSG 放行的测试数据包仍可能被其他设备拦下，TSG 会拦的数据包则只要经过 TSG 就一定被拦。我们的推论是，无法从封锁行为判断来源时，实测的「被拦」可能来自路径上任何一台设备，无法单独证明 TSG 存在。相对地，TSG 应该拦下、实测却放行的结果，可以排除路径上有行为相同的 TSG 组件[^asym]。模块化让情况更复杂，同一个部署可能用同一版 SAPP、不同版的 SSL 插件，所以每一项比对只能说明一个组件。
 
-下表整理五种协议的比对结果。防火长城的设备依过去研究的命名分列，QUIC 的比对没有区分防火长城的设备，另列一行[^matrix]。
+泄露文件以代号称呼 Geedge 在各地的客户，哈萨克斯坦是 `K18` 与 `K24`，埃塞俄比亚是 `E21`，巴基斯坦是 `P19`，缅甸是 `M22`，新疆是 `J24`，另有一个身份不明的 `A24`[^codes]。下表整理五种协议的比对结果，地区附上对应的代号。防火长城的设备依过去研究的命名分列，QUIC 的比对没有区分防火长城的设备，另列一行[^matrix]。
 
 <div class="match-wrap">
 <table class="match" aria-label="TSG 与各地审查设备的比对结果">
@@ -85,10 +85,10 @@ USENIX 论文写到，防火长城过去被认为高度集中，近年却有越�
 <tr><th scope="row">防火长城<small>未区分设备</small></th><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td><td class="m-part">部分</td></tr>
 <tr class="grp"><th colspan="6" scope="rowgroup"><span>其他地区</span></th></tr>
 <tr><th scope="row">河南</th><td class="m-na"></td><td class="m-unk">无法判断</td><td class="m-no">不吻合</td><td class="m-no">不吻合</td><td class="m-na"></td></tr>
-<tr><th scope="row">哈萨克斯坦</th><td class="m-na"></td><td class="m-unk">无法判断</td><td class="m-na"></td><td class="m-unk">无法判断</td><td class="m-old">旧版</td></tr>
-<tr><th scope="row">缅甸</th><td class="m-na"></td><td class="m-no">不吻合</td><td class="m-unk">无法判断</td><td class="m-no">不吻合</td><td class="m-no">不吻合</td></tr>
-<tr><th scope="row">巴基斯坦<small>发送 RST 的设备</small></th><td class="m-na"></td><td class="m-unk">无法判断</td><td class="m-no">不吻合</td><td class="m-no">不吻合</td><td class="m-na" rowspan="2">未下结论</td></tr>
-<tr><th scope="row">巴基斯坦<small>丢包的设备</small></th><td class="m-na"></td><td class="m-no">不吻合</td><td class="m-na"></td><td class="m-unk">无法判断</td></tr>
+<tr><th scope="row">哈萨克斯坦<small>K18、K24</small></th><td class="m-na"></td><td class="m-unk">无法判断</td><td class="m-na"></td><td class="m-unk">无法判断</td><td class="m-old">旧版</td></tr>
+<tr><th scope="row">缅甸<small>M22</small></th><td class="m-na"></td><td class="m-no">不吻合</td><td class="m-unk">无法判断</td><td class="m-no">不吻合</td><td class="m-no">不吻合</td></tr>
+<tr><th scope="row">巴基斯坦<small>P19，发送 RST 的设备</small></th><td class="m-na"></td><td class="m-unk">无法判断</td><td class="m-no">不吻合</td><td class="m-no">不吻合</td><td class="m-na" rowspan="2">未下结论</td></tr>
+<tr><th scope="row">巴基斯坦<small>P19，丢包的设备</small></th><td class="m-na"></td><td class="m-no">不吻合</td><td class="m-na"></td><td class="m-unk">无法判断</td></tr>
 <tr><th scope="row">伊朗</th><td class="m-no">不吻合</td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td></tr>
 </tbody>
 </table>
@@ -188,6 +188,8 @@ Lantern 的 geedge.lantern.io 采取另一种处理方式，页面上写它是 c
 ## 还没有答案的问题
 
 Injector 1、Injector 3 与 GFW I 都与 TSG 不吻合，论文的结果只指向防火长城的一部分设备用了 TSG 或相近的代码，其余设备由谁开发，目前没有公开的证据。
+
+代号 `A24` 的客户至今身份不明。InterSecLab 在 2025 年 9 月写到，`A24` 的相关数据没有能识别客户的地点或 ISP，唯一的线索是首字母 A 与年份 2024，而代号的数字也不一定代表年份。泄露时双方的关系还在初期，Geedge 为它做过镜像与内联两种模式的概念验证。2026 年 4 月的《MADLink》仍然称它为只以代号识别的未知客户，并补充 Geedge 的 EtherFabric 也曾在 `A24` 做概念验证。两篇论文、GFW Report 与 net4people 的讨论帖，也都没有提出新的线索[^a24]。
 
 哈萨克斯坦、巴基斯坦、缅甸与埃塞俄比亚的客户关系都有文件证据，测量却停在可能或无法确认。FOCI 的研究团队无法取得哈萨克斯坦与埃塞俄比亚的测量点，USENIX 论文在哈萨克斯坦有测量点但部分项目无法判定，埃塞俄比亚两篇论文都没有测量。部署端也一直在改版，外泄文件停在 2024 年 11 月，GFW II 的 TTL 从 2023 年 12 月到论文测量时已经改变[^rst-dev]，之后的测量要把版本的差异算进去。
 
@@ -309,3 +311,5 @@ Injector 1、Injector 3 与 GFW I 都与 TSG 不吻合，论文的结果只指�
 
 [^future]: USENIX 论文 §5.1：「which we use to load SAPP's DNS, SSL, and QUIC plugins」。§4.2.2：「While all available archives」、「of the database in the leak are encrypted」，同一句在 PDF 里跨页排版。§4.1.1：「Although we found no code explicitly converting ASW or TSG2402 formats into Maat signature definitions」。§7：「We hope this work will serve as a guide for future research on the leak」。FOCI 论文 Future Work：「areas for future work include searching for IP addresses in the GNL, deeper analysis of documents such as PDFs, and improved OCR」、「the Tranco and Citizen Lab lists are limited compared to larger censorship measurement lists such as Common Crawl or ICANN CZDS」。
 [^matrix]: 本文依 USENIX 论文 Table 5 到 Table 9 与 §6.1 到 §6.5 的正文整理，分类是本文的判断。吻合：§6.1 的 DNS 注入器 2，§6.2 的 GFW II（「The observed boundary of […] fragments for GFW II is very close to TSG's」），§6.3 的 GFW II 与 GFW III（固定的种子值等于 TSG 的默认值）。旧版：§6.4「GFW II shows behavior equivalent to an older version of TSG's SSL module」，§6.5「the parsing fingerprint exhibited in Kazakhstan fully matches an older version of TSG's QUIC parsing code」。部分：§6.5「both Kazakhstan and the GFW block the same test vectors as TSG's QUIC plugin, though we cannot match them fully due to a difference in supported QUIC versions」。无法判断：§6.2 不重组分片的设备（论文注明这是 TSG 可以调整的设置），§6.4「both Kazakhstan and Pakistan (DROP) support potential TSG deployments」，§6.3「TSG can be configured to match the behavior in Myanmar」。不吻合：§6.1 Table 5 的其他注入器与伊朗，§6.2 重组到测试上限仍成功的设备，§6.3「the other injectors exhibit markedly different behaviors and header values」，§6.4「no middlebox exhibited exactly the same behavior as the latest leaked TSG」之下、GFW II 以外的设备，§6.5「the parsing fingerprint mismatch means we cannot confirm its use」（缅甸）。巴基斯坦列在 Table 9，正文没有讨论它的 QUIC 结果。哈萨克斯坦的设备不发送 RST，论文没有做 TCP 的比对。
+[^codes]: 网络政变社区译文第 6 章〈Geedge 的營運與客戶〉：「目前辨識出的客戶代號有哈薩克（`K18` 與 `K24`）、巴基斯坦（`P19`）、衣索比亞（`E21`）、緬甸（`M22`）與新疆（`J24`）」、「資料裡還提到一個身分不明的客戶，代號 `A24`」、「代號的最後兩位數字可能代表 Geedge Networks 在當地開始專案的年份，但並非每個代號都符合」。
+[^a24]: 网络政变社区译文第 6 章〈Geedge 的營運與客戶〉：「`A24` 的相關資料沒有任何可以辨識客戶的線索」、「關於 `A24` 客戶的身分，唯一的線索是首字母 A 與年份 2024」、「外洩發生時 `A24` 與 Geedge 的關係似乎還在初期階段」。MADLink 社区译文第 3 章：「也作為概念驗證部署給一個只以代號 A24 識別的未知客戶」。「没有看到公开的指认」是本文的查证，读取日期 2026-10-30：USENIX 论文与 FOCI 论文全文搜索 A24 都是 0 处。GFW Report 分析文章的中文版写到「除一个代号（A24）外，其余均已对应到具体国家」，其余段落转述 InterSecLab 的说法。net4people 讨论帖的 98 条留言里有 2 条提到 `A24`（2025-09-10、2025-09-11），也都是引用 InterSecLab 的报告。
