@@ -37,14 +37,19 @@ date: 2026-10-30
 外洩文件記錄的 Geedge 部署地點。客戶國家用主色標示：① 哈薩克（`K18`、`K24`）、② 衣索比亞（`E21`）、③ 巴基斯坦（`P19`）、④ 緬甸（`M22`）。中國用另一種色調標示，圓點是省級防火牆專案：⑤ 新疆（`J24`）、⑥ 福建、⑦ 江蘇。身分不明的 `A24` 沒有標在圖上[^map]。
 {: .fig-note }
 
-- **2025 年 9 月 8 日起**：The Globe and Mail 刊出報導，InterSecLab 在 9 月 9 日發表報告〈The Internet Coup〉，國際特赦組織的《Shadows of Control》與 Justice For Myanmar 的《Silk Road of Surveillance》也在同一個月發表。
-- **2025 年 9 月 11 日**：Enlace Hacktivista 公開全部檔案，DDoSecrets 也提供下載。
-- **2025 年 9 月 12 日**：GFW Report 發表外洩的分析文章，最後一次更新是 12 月 29 日。文中寫明原始碼的部分還沒有人仔細分析[^gfwr-src]。
-- **2026 年 2 月 19 日**：麻州大學阿默斯特分校與 GFW Report 的研究者發表 FOCI 2026 論文〈Geedge Cases〉，比對外洩檔案裡的網域與兩份常用的網域清單。
-- **2026 年 4 月 24 日**：InterSecLab 發表〈MADLink〉，供應鏈系列的第一篇，主題是 Geedge 使用的伺服器與網路硬體，其中包括台灣的凌華科技。
-- **2026 年 8 月**：作者群 8 月 5 日在專案網站 geedge.report 發表說明文章。論文〈Technical Analysis of the Geedge Networks Firewall Source Code Leak〉在 8 月 12 日到 14 日的 USENIX Security 2026 發表，作者來自密西根大學、帕德博恩大學、麻州大學阿默斯特分校、科羅拉多大學波德分校與 GFW Report。Risky Bulletin 在 8 月 21 日報導。
+<ol class="tl" aria-label="外洩之後一年的報導、調查與論文">
+  <li><span class="tl-when">2025-09-08</span><span class="tl-b"><span class="tl-t">The Globe and Mail 的報導</span><span class="tl-d">聯合調查的成果開始見報，比檔案公開早三天</span></span></li>
+  <li><span class="tl-when">2025-09-09</span><span class="tl-b"><span class="tl-t">InterSecLab〈The Internet Coup〉</span><span class="tl-d">國際特赦組織的《Shadows of Control》與 Justice For Myanmar 的《Silk Road of Surveillance》也在同一個月發表</span></span></li>
+  <li class="tl-origin"><span class="tl-when">2025-09-11</span><span class="tl-b"><span class="tl-t">檔案公開</span><span class="tl-d">Enlace Hacktivista 公開全部檔案，DDoSecrets 也提供下載</span></span></li>
+  <li><span class="tl-when">2025-09-12</span><span class="tl-b"><span class="tl-t">GFW Report 的分析文章</span><span class="tl-d">最後一次更新是 12 月 29 日，文中寫明原始碼的部分還沒有人仔細分析</span></span></li>
+  <li><span class="tl-when">2026-02-19</span><span class="tl-b"><span class="tl-t">FOCI 2026〈Geedge Cases〉</span><span class="tl-d">麻州大學阿默斯特分校與 GFW Report 的研究者比對外洩檔案裡的網域與兩份常用的網域清單</span></span></li>
+  <li><span class="tl-when">2026-04-24</span><span class="tl-b"><span class="tl-t">InterSecLab〈MADLink〉</span><span class="tl-d">供應鏈系列的第一篇，主題是 Geedge 使用的伺服器與網路硬體，其中包括台灣的凌華科技</span></span></li>
+  <li><span class="tl-when">2026-08-05</span><span class="tl-b"><span class="tl-t">geedge.report 的說明文章</span><span class="tl-d">USENIX 論文的作者群在專案網站發表</span></span></li>
+  <li><span class="tl-when">2026-08-12</span><span class="tl-b"><span class="tl-t">USENIX Security 2026 論文</span><span class="tl-d">〈Technical Analysis of the Geedge Networks Firewall Source Code Leak〉在 8 月 12 日到 14 日的研討會發表，作者來自密西根大學、帕德博恩大學、麻州大學阿默斯特分校、科羅拉多大學波德分校與 GFW Report</span></span></li>
+  <li><span class="tl-when">2026-08-21</span><span class="tl-b"><span class="tl-t">Risky Bulletin 的報導</span><span class="tl-d">報導論文的結果，措辭比論文肯定（見後面的報導與論文的措辭差距一節）</span></span></li>
+</ol>
 
-報導比檔案公開早了三天。USENIX 論文的引言寫到，幾家提前取得檔案的新聞機構與記者過去一年合作分析這批文件，角度偏向非技術面[^early]。依[〈The Internet Coup〉譯文](https://anoni.net/docs/reports/interseclab-network-coup/)的致謝，Tor Project 也是這次聯合調查的合作夥伴[^coup-ack]。聯合調查讀的是文件與工單，整理出 Geedge 的客戶、部署的國家與產品功能。在 USENIX 論文之前，原始碼本身大致還沒有人分析[^early]。學界的研究是另一條線，讀原始碼、把系統建置起來，再做遠端量測。
+報導比檔案公開早了三天。USENIX 論文的引言寫到，幾家提前取得檔案的新聞機構與記者過去一年合作分析這批文件，角度偏向非技術面[^early]。依[〈The Internet Coup〉譯文](https://anoni.net/docs/reports/interseclab-network-coup/)的致謝，Tor Project 也是這次聯合調查的合作夥伴[^coup-ack]。聯合調查讀的是文件與工單，整理出 Geedge 的客戶、部署的國家與產品功能。在 USENIX 論文之前，原始碼本身大致還沒有人分析[^early][^gfwr-src]。學界的研究是另一條線，讀原始碼、把系統建置起來，再做遠端量測。
 
 從文件可以知道 Geedge 賣給誰、客戶要求什麼，量測則用來判斷某一台設備的行為是否與程式碼一致。部分報導把前者的結論套到後者（例子見後面的報導與論文的措辭差距一節）。
 
@@ -348,9 +353,9 @@ InterSecLab 在 2025 年 9 月寫到，`A24` 的相關資料沒有能辨識客�
 [^mm-kz-pk]: USENIX 論文 §6.3：「TSG can be configured to match the behavior in Myanmar」、「We did not test in Kazakhstan because its censors do not generate TCP RST packets」。§6.5：「We also find the supported QUIC versions in Myanmar align exactly with those supported by TSG's QUIC, though the parsing fingerprint mismatch means we cannot confirm its use」。§6.4：「both Kazakhstan and Pakistan (DROP) support potential TSG deployments, as their generic censorship mechanism of packet drops makes bypass failures inconclusive」。正文寫論文沒有把哈薩克寫成確認部署，這是本文的查證，在論文全文搜尋 confirm（不分大小寫）共 4 筆，分別在 §2.1、Figure 2 的工單、§6.3 與 §6.5，沒有一筆確認哈薩克的部署，§6 提到 Kazakhstan 的句子也沒有這樣的說法。伊朗的部分見 Table 5，伊朗那一列的旗標、壓縮指標與上限三項都與 TSG 不同。衣索比亞不在 Table 10 列出的量測點裡，Table 10 只有河南、北京、阿拉木圖、仰光、喀拉蚩與伊斯蘭馬巴德。
 [^gfwr-geedge]: GFW Report〈Geedge & MESA Leak〉：「This leak originates from an important branch of the GFW's R&D capacity」、「Geedge (Hainan) Information Technology Co., Ltd. (Geedge Networks Ltd.) was founded in the same year. Fang served as chief scientist」。同一段的 same year 指 2018 年。FOCI 論文 §2.1：「572 GiB of internal documents from Geedge Networks and the related MESA lab including source code repositories, project management records, client deployment configurations, and operational data」。八成以上是本文依 USENIX 論文 Table 1 的計算，RPM 套件庫的封存占 463.0 GiB，約為總量的 81%。
 [^map]: 網路政變社群譯文第 6 章〈Geedge 的營運與客戶〉：「目前辨識出的客戶代號有哈薩克（`K18` 與 `K24`）、巴基斯坦（`P19`）、衣索比亞（`E21`）、緬甸（`M22`）與新疆（`J24`）」。第 2 章〈主要發現〉：「InterSecLab 已經確認新疆、福建與江蘇的省級防火牆專案」。原報告第 6 章另有一張 Geedge 營運地區的地圖（圖 14）。本文的地圖依這些文字重畫，圓點位置標在各省省會附近，只表示省分，不代表實際的部署地點。國界資料來自 Natural Earth 1:50m（公有領域）。
-[^gfwr-src]: GFW Report〈Geedge & MESA Leak〉：「The source-code portion of the leaked files has not yet been carefully analyzed」。
 [^early]: USENIX 論文 §1：「Several news organizations and journalists who were granted early access have worked together for the past year to analyze the documents from a non-technical perspective」、「The current reporting is mostly geared to non-technical audiences」、「leaving the source code itself largely unexplored」。
 [^coup-ack]: 網路政變社群譯文第 8 章〈結論、反思與下一步〉的致謝：「與國際特赦組織、Justice For Myanmar、Paper Trail Media、《環球郵報》（The Globe and Mail）、Tor Project、奧地利《標準報》（DER STANDARD）與 Follow The Money 等夥伴共同合作」。同一段也寫到「也感謝 Tor Project 團隊審閱 Tor 一節，以及 Psiphon 團隊提供寶貴資訊並審閱 Psiphon 一節」。
+[^gfwr-src]: GFW Report〈Geedge & MESA Leak〉：「The source-code portion of the leaked files has not yet been carefully analyzed」。
 [^build]: USENIX 論文 §1：「we successfully build and run TSG's latest tagged release version」。§5.2：「We were able to successfully test the DNS, HTTP, TLS, and QUIC protocols and trigger injection responses, packet drops, and deferred blocking actions」。
 [^method]: USENIX 論文 §5.2：「We developed a testbed to evaluate TSG's blocking behaviors in a controlled environment」。Ethical Considerations：「We performed all of our scans between two vantage points that we own, not including any other third-party server as the target of our scan」。從原始碼找出指紋再量測的做法見 §1：「we extract several fingerprints from TSG, including custom random number generators and parsing idiosyncrasies」。
 [^foci-meas]: FOCI 論文 §3.2：「we produce a list of 14,365,453 potential domains」、「we produce a final list of 6,915,266 domains」。§3.4：「we perform measurements across vantage points in China (Guangzhou and Nanjing), Myanmar, Pakistan, and Algeria」、「While Kazakhstan and Ethiopia are known customers of Geedge Networks [12], we were unable to obtain access to appropriate vantage points in these countries」、「DNS censorship is highly reliable」、「which are inherently less reliable indicators」、「we perform 25 tests per domain to ensure intermittently blocked domains are included」。
