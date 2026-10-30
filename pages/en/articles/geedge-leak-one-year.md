@@ -87,10 +87,10 @@ Stellar is a separate platform developed by Geedge in C++, with more complete co
 
 Maat is the rule engine. Blocking rules are stored in Maat, and plugins match the fields they extract against those rules to get the action to take. Rules can match a wide range of fields, including transport and application protocols, the inner and outer addresses of tunnel encapsulation, source and destination IPs, ports, domain names and SNI (the site name sent in plaintext at the start of a TLS connection), ASN (autonomous system number) and country. The Firewall plugin is attached to both SAPP and Stellar, aggregates the fields extracted along each path, queries Maat and then enforces the block. Besides packet drops and RST (the TCP reset packet, which terminates the connection), blocking actions include throttling, HTTP and DNS redirects, mail and SIP blocking, tampering and deferred blocking.
 
-From hardware to enforcement, TSG's components can be arranged in six layers:[^madlink-gen][^thirdparty]
+From hardware to enforcement, TSG's components can be arranged in seven layers:[^madlink-gen][^thirdparty][^oss-stack]
 
 <figure class="st-fig">
-<svg class="st" viewBox="0 0 360 494" role="img" aria-labelledby="st-t">
+<svg class="st" viewBox="0 0 360 596" role="img" aria-labelledby="st-t">
 <title id="st-t">The TSG stack, as of the leaked version</title>
 <defs><marker id="st-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path class="st-ah" d="M0 0L10 5L0 10z"/></marker></defs>
 <rect class="st-band" x="0" y="0" width="360" height="64" rx="6"/>
@@ -111,10 +111,10 @@ From hardware to enforcement, TSG's components can be arranged in six layers:[^m
 <rect class="st-box" x="8.0" y="174" width="110.7" height="40" rx="5"/>
 <text class="st-t" x="63.3" y="188">CBD</text>
 <text class="st-s" x="63.3" y="204">Geedge&#x27;s own</text>
-<rect class="st-box st-3p" x="124.7" y="174" width="110.7" height="40" rx="5"/>
+<rect class="st-box st-oss" x="124.7" y="174" width="110.7" height="40" rx="5"/>
 <text class="st-t" x="180.0" y="188">Glimpse</text>
 <text class="st-s" x="180.0" y="204">libprotoident, nDPI</text>
-<rect class="st-box st-3p" x="241.3" y="174" width="110.7" height="40" rx="5"/>
+<rect class="st-box st-prop" x="241.3" y="174" width="110.7" height="40" rx="5"/>
 <text class="st-t" x="296.7" y="188">QDPI</text>
 <text class="st-s" x="296.7" y="204">Qosmos ixEngine</text>
 <rect class="st-band" x="0" y="230" width="360" height="74" rx="6"/>
@@ -137,20 +137,35 @@ From hardware to enforcement, TSG's components can be arranged in six layers:[^m
 <text class="st-t" x="267.5" y="348">Stellar</text>
 <text class="st-s" x="267.5" y="364">C++, via Stellar-on-SAPP</text>
 <rect class="st-band" x="0" y="390" width="360" height="74" rx="6"/>
-<text class="st-l" x="10" y="406">Hardware (plus EtherFabric for distributing traffic)</text>
-<rect class="st-box" x="8.0" y="414" width="110.7" height="40" rx="5"/>
-<text class="st-t" x="63.3" y="428">TSG-ADC</text>
-<text class="st-s" x="63.3" y="444">CSA-7400</text>
-<rect class="st-box" x="124.7" y="414" width="110.7" height="40" rx="5"/>
-<text class="st-t" x="180.0" y="428">TSG-9140</text>
-<text class="st-s" x="180.0" y="444">ATCA telecom gear</text>
-<rect class="st-box" x="241.3" y="414" width="110.7" height="40" rx="5"/>
-<text class="st-t" x="296.7" y="428">TSG-X</text>
-<text class="st-s" x="296.7" y="444">x86 servers</text>
-<rect class="st-box st-3p" x="8" y="476" width="16" height="12" rx="3"/>
-<text class="st-s st-lg" x="30" y="482">Built on third-party code</text>
+<text class="st-l" x="10" y="406">Operating system and packet I/O</text>
+<rect class="st-box st-oss" x="8.0" y="414" width="169.0" height="40" rx="5"/>
+<text class="st-t" x="92.5" y="428">Rocky Linux</text>
+<text class="st-s" x="92.5" y="444">Basis of TSG-OS</text>
+<rect class="st-box st-oss" x="183.0" y="414" width="169.0" height="40" rx="5"/>
+<text class="st-t" x="267.5" y="428">DPDK</text>
+<text class="st-s" x="267.5" y="444">Packet processing</text>
+<rect class="st-band" x="0" y="470" width="360" height="74" rx="6"/>
+<text class="st-l" x="10" y="486">Hardware</text>
+<rect class="st-box st-tw" x="8.0" y="494" width="81.5" height="40" rx="5"/>
+<text class="st-t" x="48.8" y="508">TSG-ADC</text>
+<text class="st-s" x="48.8" y="524">CSA-7400</text>
+<rect class="st-box" x="95.5" y="494" width="81.5" height="40" rx="5"/>
+<text class="st-t" x="136.2" y="508">TSG-9140</text>
+<text class="st-s" x="136.2" y="524">ATCA gear</text>
+<rect class="st-box" x="183.0" y="494" width="81.5" height="40" rx="5"/>
+<text class="st-t" x="223.8" y="508">TSG-X</text>
+<text class="st-s" x="223.8" y="524">x86 servers</text>
+<rect class="st-box st-tw" x="270.5" y="494" width="81.5" height="40" rx="5"/>
+<text class="st-t" x="311.2" y="508">EtherFabric</text>
+<text class="st-s" x="311.2" y="524">Load balancing</text>
+<rect class="st-box st-oss" x="8" y="556" width="16" height="12" rx="3"/>
+<text class="st-s st-lg" x="30" y="562">Open source</text>
+<rect class="st-box st-prop" x="113.76" y="556" width="16" height="12" rx="3"/>
+<text class="st-s st-lg" x="135.76" y="562">Proprietary</text>
+<rect class="st-box st-tw" x="8" y="578" width="16" height="12" rx="3"/>
+<text class="st-s st-lg" x="30" y="584">Taiwanese hardware or components</text>
 </svg>
-<figcaption>A simplified layering based on Section 3 of the USENIX paper and on MADLink. CBD is a library integrated into the Firewall plugin, Glimpse and QDPI are Stellar plugins, and the Firewall plugin runs on both SAPP and Stellar, so the actual call relationships are more tangled than the layers suggest.</figcaption>
+<figcaption>A simplified layering based on Section 3 of the USENIX paper and on MADLink. CBD is a library integrated into the Firewall plugin, Glimpse and QDPI are Stellar plugins, and the Firewall plugin runs on both SAPP and Stellar, so the actual call relationships are more tangled than the layers suggest. The Taiwanese hardware markings follow MADLink: TSG-ADC uses ADLINK's CSA-7400, and EtherFabric appears to contain ADLINK components.</figcaption>
 </figure>
 
 How TSG handles one connection can be simplified into the path below. In practice several processing paths run in parallel, and their results are combined in the Firewall plugin.[^modular]
@@ -474,6 +489,7 @@ On the circumvention side, in the net4people thread tracking the leak (comments 
 [^madlink-hw]: "MADLink", Executive Summary: "These units formed the basis of Geedge's first-generation firewall platform". Section "First generation: TSG-ADC (Kazakhstan)": "Leaked documents indicate this configuration was deployed exclusively at the Kazakhstan" and "ADLINK confirmed to InterSecLab that it shipped 1,708 CSA-7400 units to Geedge between 2019 and early 2020". Section "EtherFabric: Geedge's custom network packet broker": "EtherFabric was deployed at the Myanmar", "is registered to ADLINK Technology, Inc." and "contains at least one ADLINK component, most likely the compute board that runs the management software". ADLINK's reply: "ADLINK confirmed that ADLINK Technology (China) Co., Ltd., Beijing Branch supplied standard CSA-7400 network security platform equipment to Geedge Networks". We leave out the site codes and the value of the MAC address prefix.
 [^madlink-gen]: "MADLink", "Geedge Networks' Supply Chain: A Closer Look" and the following sections: "three successive generations of server hardware", "The first-generation TSG platform, TSG-ADC, was built on the CSA-7400", "The second-generation platform, TSG-9140, used the AdvancedTCA (ATCA) form factor", "It appears to be based on the VELA ATCA platform from Chinese company Beijing Hengguang Information Technology", "Leaked documents show the TSG-9140 was deployed exclusively at the Ethiopia (E21) customer site", "The current generation, TSG-X, uses Nettrix servers for the primary TSG compute nodes and Inspur servers for storage", "TSG-X is deployed at the Ethiopia (E21), Pakistan (P19) and Myanmar (M22) customer sites", "EtherFabric appears to reuse the same VELA ATCA hardware from Beijing Hengguang Information Technology as the TSG-9140", "some networking components may be supplied by ADLINK Technologies", "was also installed as a proof of concept for an unknown customer identified only by the code name A24".
 [^thirdparty]: USENIX paper, §1: "including two of the three core application detection systems". §4.2.1: "a free software project from the Libtrace team at the University of Waikato", "All code required for this function contains the libprotoident copyright", "appears to be a modified copy of openvpn.c from a 2022 version of nDPI" and "the logic remains nearly identical". §4.2.2: "QDPI is built off of Qosmos ixEngine, a proprietary, enterprise DPI library" and "This is most clearly indicated by the Stellar session callback subscriber function eventually calling", followed by the name of an ixEngine function.
+[^oss-stack]: "MADLink", section "Geedge Networks' Supply Chain: A Closer Look": "Geedge's entire software stack is built on open-source foundations", "is based on Rocky Linux (previously CentOS), and its network packet processing relies on Intel's open-source DPDK toolkit" and "Geedge considered switching to Huawei's EulerOS but rejected it because of high licensing fees".
 [^modular]: USENIX paper, takeaways of §3.2 and §3.5: "fingerprinting one plugin does not necessarily imply the presence or version of another in the same deployment" and "The firewall aggregates attributes from multiple parallel processing paths".
 [^ndpi-license]: The GitHub repositories of nDPI and libprotoident, read on 30 October 2026: the COPYING file of both is the GNU Lesser General Public License v3.0 (LGPL-3.0). The USENIX paper, §4.2.1, describes nDPI as "a GPL-licensed DPI library".
 [^disclose]: USENIX paper, §4.2: "we find instances of third-party libraries intentionally copied and adapted into the Geedge Networks code base". Ethical Considerations: "We disclosed the usage of code by Geedge Networks to both the Libprotoident team and Enea, the parent company of Qosmos. Both have responded to our initial disclosures, and we have scheduled meetings to engage in further discussion". Takeaway of §4.2: "suggests that comprehensive protocol classification is costly to build from scratch, even for a well-resourced, state-linked vendor".
@@ -505,7 +521,6 @@ On the circumvention side, in the net4people thread tracking the leak (comments 
 [^gap]: Our inference, based on "MADLink", section "ADLINK's role and response": "ADLINK confirmed that shipments continued into early 2020", and the USENIX paper, §6.3: "looking at previous measurements collected in December 2023". The paper compares against those older measurements from December 2023, and its own measurements came later, though no date is given. With shipments ending in early 2020 and the measurements coming after December 2023, the two are more than three years apart.
 [^jfm]: Justice For Myanmar press release, 2024-06-19: "Justice For Myanmar calls on governments to urgently impose sanctions against Geedge Networks, CEIEC and Mascots Group, its directors and related companies".
 [^sanction]: Our check, not a claim from any source. On 30 October 2026 we downloaded the SDN list and the Consolidated list of the US Treasury's OFAC and the EU's consolidated financial sanctions list, and searches for `Geedge` and for `Jizhi` (the romanised Chinese name) returned no matching entries. For comparison, Sugon (Dawning Information Industry) appears on OFAC's Consolidated list. Additions to the Entity List are all published in the Federal Register. A search of the US Federal Register for `Geedge` returns 0 results, and the only result for `Jizhi` is a different company, Changguang Jizhi Optical Technology, being added to the Entity List. The UK sanctions list and the US Commerce Department's Consolidated Screening List could not be downloaded this time and are outside the scope of the check.
-[^oss-stack]: "MADLink", section "Geedge Networks' Supply Chain: A Closer Look": "Geedge's entire software stack is built on open-source foundations", "is based on Rocky Linux (previously CentOS), and its network packet processing relies on Intel's open-source DPDK toolkit" and "Geedge considered switching to Huawei's EulerOS but rejected it because of high licensing fees".
 [^oss-coup]: "The Internet Coup", "Products & Offerings": "It is built on the open-source Apache Kafka stream-processing platform" (TSG Galaxy), "Using the open source DPDK allows them to make the network stack hardware vendor agnostic" and "Network Zodiac seems to be modeled on Grafana". Footnote 10 of the same chapter: "Geedge and the Mesalab students use a modified version of the open-source tool tcpdump, which they call tcpdump_mesa".
 [^oss-export]: "MADLink", "Conclusions": "Geedge's software is open-source, and its current-generation servers are commodity x86 hardware that could be sourced from secondary markets" and "This makes them a realistic target for export control measures in a way that commodity server components are not".
 [^oss-license]: "The Internet Coup", "Copying and Building on Existing Commercial Products and Open Source Code": "They also incorporate open-source code in ways that may violate licensing terms" and "Geedge seems to be using these tactics for competitive advantage".

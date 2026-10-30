@@ -87,10 +87,10 @@ Stellar 是 Geedge 另外開發、以 C++ 撰寫的平台，追蹤連線狀態�
 
 Maat 是規則引擎，封鎖規則存在 Maat 裡，外掛用取出的欄位比對規則，取得處置方式。規則可以比對的欄位很廣，包括傳輸與應用層協定、通道封裝的內外層位址、來源與目的 IP、連接埠、網域與 SNI（TLS 連線開頭以明文送出的網站名稱）、ASN（自治系統編號）與國家。Firewall 外掛同時掛在 SAPP 與 Stellar 上，彙整各路取出的欄位，查詢 Maat 之後執行封鎖。封鎖手段除了丟包與 RST（TCP 的重設封包，送出後連線就會中斷），還有限速、HTTP 與 DNS 的轉向、郵件與 SIP 的封鎖、竄改內容與延後封鎖。
 
-從硬體到處置，TSG 的元件可以整理成六層[^madlink-gen][^thirdparty]：
+從硬體到處置，TSG 的元件可以整理成七層[^madlink-gen][^thirdparty][^oss-stack]：
 
 <figure class="st-fig">
-<svg class="st" viewBox="0 0 360 494" role="img" aria-labelledby="st-t">
+<svg class="st" viewBox="0 0 360 574" role="img" aria-labelledby="st-t">
 <title id="st-t">TSG 的技術棧，依外洩的版本整理</title>
 <defs><marker id="st-a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path class="st-ah" d="M0 0L10 5L0 10z"/></marker></defs>
 <rect class="st-band" x="0" y="0" width="360" height="64" rx="6"/>
@@ -111,10 +111,10 @@ Maat 是規則引擎，封鎖規則存在 Maat 裡，外掛用取出的欄位比
 <rect class="st-box" x="8.0" y="174" width="110.7" height="40" rx="5"/>
 <text class="st-t" x="63.3" y="188">CBD</text>
 <text class="st-s" x="63.3" y="204">Geedge 自有</text>
-<rect class="st-box st-3p" x="124.7" y="174" width="110.7" height="40" rx="5"/>
+<rect class="st-box st-oss" x="124.7" y="174" width="110.7" height="40" rx="5"/>
 <text class="st-t" x="180.0" y="188">Glimpse</text>
 <text class="st-s" x="180.0" y="204">libprotoident、nDPI</text>
-<rect class="st-box st-3p" x="241.3" y="174" width="110.7" height="40" rx="5"/>
+<rect class="st-box st-prop" x="241.3" y="174" width="110.7" height="40" rx="5"/>
 <text class="st-t" x="296.7" y="188">QDPI</text>
 <text class="st-s" x="296.7" y="204">Qosmos ixEngine</text>
 <rect class="st-band" x="0" y="230" width="360" height="74" rx="6"/>
@@ -137,20 +137,35 @@ Maat 是規則引擎，封鎖規則存在 Maat 裡，外掛用取出的欄位比
 <text class="st-t" x="267.5" y="348">Stellar</text>
 <text class="st-s" x="267.5" y="364">C++，經由 Stellar-on-SAPP</text>
 <rect class="st-band" x="0" y="390" width="360" height="74" rx="6"/>
-<text class="st-l" x="10" y="406">硬體（另有分配流量的 EtherFabric）</text>
-<rect class="st-box" x="8.0" y="414" width="110.7" height="40" rx="5"/>
-<text class="st-t" x="63.3" y="428">TSG-ADC</text>
-<text class="st-s" x="63.3" y="444">CSA-7400</text>
-<rect class="st-box" x="124.7" y="414" width="110.7" height="40" rx="5"/>
-<text class="st-t" x="180.0" y="428">TSG-9140</text>
-<text class="st-s" x="180.0" y="444">ATCA 電信設備</text>
-<rect class="st-box" x="241.3" y="414" width="110.7" height="40" rx="5"/>
-<text class="st-t" x="296.7" y="428">TSG-X</text>
-<text class="st-s" x="296.7" y="444">x86 伺服器</text>
-<rect class="st-box st-3p" x="8" y="476" width="16" height="12" rx="3"/>
-<text class="st-s st-lg" x="30" y="482">建立在第三方程式碼上</text>
+<text class="st-l" x="10" y="406">作業系統與封包 I/O</text>
+<rect class="st-box st-oss" x="8.0" y="414" width="169.0" height="40" rx="5"/>
+<text class="st-t" x="92.5" y="428">Rocky Linux</text>
+<text class="st-s" x="92.5" y="444">TSG-OS 的基礎</text>
+<rect class="st-box st-oss" x="183.0" y="414" width="169.0" height="40" rx="5"/>
+<text class="st-t" x="267.5" y="428">DPDK</text>
+<text class="st-s" x="267.5" y="444">封包處理</text>
+<rect class="st-band" x="0" y="470" width="360" height="74" rx="6"/>
+<text class="st-l" x="10" y="486">硬體</text>
+<rect class="st-box st-tw" x="8.0" y="494" width="81.5" height="40" rx="5"/>
+<text class="st-t" x="48.8" y="508">TSG-ADC</text>
+<text class="st-s" x="48.8" y="524">CSA-7400</text>
+<rect class="st-box" x="95.5" y="494" width="81.5" height="40" rx="5"/>
+<text class="st-t" x="136.2" y="508">TSG-9140</text>
+<text class="st-s" x="136.2" y="524">ATCA 設備</text>
+<rect class="st-box" x="183.0" y="494" width="81.5" height="40" rx="5"/>
+<text class="st-t" x="223.8" y="508">TSG-X</text>
+<text class="st-s" x="223.8" y="524">x86 伺服器</text>
+<rect class="st-box st-tw" x="270.5" y="494" width="81.5" height="40" rx="5"/>
+<text class="st-t" x="311.2" y="508">EtherFabric</text>
+<text class="st-s" x="311.2" y="524">分配流量</text>
+<rect class="st-box st-oss" x="8" y="556" width="16" height="12" rx="3"/>
+<text class="st-s st-lg" x="30" y="562">開源</text>
+<rect class="st-box st-prop" x="68" y="556" width="16" height="12" rx="3"/>
+<text class="st-s st-lg" x="90" y="562">商用閉源</text>
+<rect class="st-box st-tw" x="150" y="556" width="16" height="12" rx="3"/>
+<text class="st-s st-lg" x="172" y="562">台灣廠商的硬體或元件</text>
 </svg>
-<figcaption>本文依 USENIX 論文第 3 節與 MADLink 整理的簡化分層。CBD 是整合進 Firewall 外掛的函式庫，Glimpse 與 QDPI 是 Stellar 的外掛，Firewall 外掛同時掛在 SAPP 與 Stellar 上，實際的呼叫關係比分層複雜。</figcaption>
+<figcaption>本文依 USENIX 論文第 3 節與 MADLink 整理的簡化分層。CBD 是整合進 Firewall 外掛的函式庫，Glimpse 與 QDPI 是 Stellar 的外掛，Firewall 外掛同時掛在 SAPP 與 Stellar 上，實際的呼叫關係比分層複雜。台灣廠商的標示依 MADLink，TSG-ADC 用的是凌華的 CSA-7400，EtherFabric 看來含有凌華的元件。</figcaption>
 </figure>
 
 一條連線經過 TSG 的處理可以簡化成下面這條路徑，實際上多條處理路徑同時進行，最後在 Firewall 外掛彙整[^modular]。
@@ -476,6 +491,7 @@ InterSecLab 在 2025 年 9 月寫到，`A24` 的相關資料沒有能辨識客�
 [^madlink-hw]: MADLink 社群譯文第 1 章〈摘要與主要發現〉：「這批設備構成 Geedge 第一代防火牆平台的基礎」。第 2 章〈Geedge 供應鏈深入解析（三代 TSG 硬體）〉：「外洩文件顯示這套配置只部署在哈薩克」、「2019 至 2020 年初之間出貨給 Geedge 的 CSA-7400 共有 1,708 台」。第 3 章〈EtherFabric 與 ADLINK 的角色和回應〉：「EtherFabric 部署在緬甸」、「登記在 ADLINK Technology, Inc. 名下」、「至少包含一個凌華科技的元件，最有可能是運行管理軟體的運算主板」、「凌華科技證實，凌華科技（中國）有限公司北京分公司向 Geedge Networks 供應了標準的 CSA-7400 網路安全平台」。
 [^madlink-gen]: MADLink 社群譯文第 2 章：「Geedge 為其 TSG 防火牆設備陸續供應了三代伺服器硬體」、「第一代 TSG 平台 TSG-ADC 建立在 CSA-7400 之上」、「第二代平台 TSG-9140 採用 AdvancedTCA（ATCA）規格」、「它應該是基於中國公司北京恒光信息技術的 VELA ATCA 平台」、「外洩文件顯示 TSG-9140 只部署在衣索比亞（代號 E21）客戶站點」、「現行版本 TSG-X 的主要 TSG 運算節點採用 Nettrix 伺服器，儲存 Cyber Narrator 所使用監控資料的儲存伺服器則來自浪潮（Inspur）」。第 1 章：「Geedge 目前這一代的 TSG 硬體部署在衣索比亞、巴基斯坦和緬甸」。第 3 章：「EtherFabric 看起來重用了與 TSG-9140 相同的、來自北京恒光信息技術的 VELA ATCA 硬體，但角色不同」、「部分網路元件可能由凌華科技提供」、「也作為概念驗證部署給一個只以代號 A24 識別的未知客戶」。
 [^thirdparty]: USENIX 論文 §1：「including two of the three core application detection systems」。§4.2.1：「a free software project from the Libtrace team at the University of Waikato」、「All code required for this function contains the libprotoident copyright」、「appears to be a modified copy of openvpn.c from a 2022 version of nDPI」、「the logic remains nearly identical」。§4.2.2：「QDPI is built off of Qosmos ixEngine, a proprietary, enterprise DPI library」、「This is most clearly indicated by the Stellar session callback subscriber function eventually calling」，後面接的是 ixEngine 的函式名稱。
+[^oss-stack]: MADLink 社群譯文第 2 章〈Geedge 供應鏈深入解析（三代 TSG 硬體）〉：「Geedge 的整套軟體堆疊建立在開源基礎上」、「其作業系統 TSG-OS 以 Rocky Linux 為基礎（更早期版本是 CentOS），網路封包處理則仰賴 Intel 開源的 DPDK 工具包」、「Geedge 曾考慮改用華為 EulerOS，但因授權費用過高而放棄」。
 [^modular]: USENIX 論文 §3.2 與 §3.5 的 Takeaway：「fingerprinting one plugin does not necessarily imply the presence or version of another in the same deployment」、「The firewall aggregates attributes from multiple parallel processing paths」。
 [^ndpi-license]: nDPI 與 libprotoident 在 GitHub 的儲存庫，2026 年 10 月 30 日讀取，兩者的 COPYING 都是 GNU Lesser General Public License v3.0（LGPL-3.0）。USENIX 論文 §4.2.1 對 nDPI 的寫法是「a GPL-licensed DPI library」。
 [^disclose]: USENIX 論文 §4.2：「we find instances of third-party libraries intentionally copied and adapted into the Geedge Networks code base」。Ethical Considerations：「We disclosed the usage of code by Geedge Networks to both the Libprotoident team and Enea, the parent company of Qosmos. Both have responded to our initial disclosures, and we have scheduled meetings to engage in further discussion」。§4.2 的 Takeaway：「suggests that comprehensive protocol classification is costly to build from scratch, even for a well-resourced, state-linked vendor」。
@@ -507,7 +523,6 @@ InterSecLab 在 2025 年 9 月寫到，`A24` 的相關資料沒有能辨識客�
 [^gap]: 本文的推論。依據是 MADLink 社群譯文第 3 章：「凌華科技確認出貨持續到 2020 年初」，以及 USENIX 論文 §6.3：「looking at previous measurements collected in December 2023」。論文以 2023 年 12 月的舊量測對照，自己的量測晚於那個時間，但沒有寫明日期。出貨在 2020 年初結束，量測晚於 2023 年 12 月，兩者至少相隔三年多。
 [^jfm]: Justice For Myanmar 新聞稿，2024-06-19：「Justice For Myanmar calls on governments to urgently impose sanctions against Geedge Networks, CEIEC and Mascots Group, its directors and related companies」。
 [^sanction]: 本文的查證，不是任何來源的說法。2026 年 10 月 30 日下載美國財政部 OFAC 的 SDN 名單與 Consolidated 名單、歐盟的金融制裁整合名單，搜尋 Geedge 與 Jizhi 都沒有符合的條目。作為對照，曙光（Dawning Information Industry）出現在 OFAC 的 Consolidated 名單。實體清單的新增都在聯邦公報公告，在美國聯邦公報搜尋 Geedge 是 0 筆，Jizhi 唯一的一筆是另一家公司 Changguang Jizhi Optical Technology 被列入實體清單。英國的制裁名單與美國商務部的整合篩查名單這次沒有下載成功，不在查證範圍內。
-[^oss-stack]: MADLink 社群譯文第 2 章〈Geedge 供應鏈深入解析（三代 TSG 硬體）〉：「Geedge 的整套軟體堆疊建立在開源基礎上」、「其作業系統 TSG-OS 以 Rocky Linux 為基礎（更早期版本是 CentOS），網路封包處理則仰賴 Intel 開源的 DPDK 工具包」、「Geedge 曾考慮改用華為 EulerOS，但因授權費用過高而放棄」。
 [^oss-coup]: 網路政變社群譯文第 5 章〈產品與服務〉：「TSG Galaxy 建立在開源的 Apache Kafka 串流處理平台上」、「使用開源的 DPDK，讓 Geedge 的網路堆疊不受限於特定的硬體廠商」、「Network Zodiac 似乎以 Grafana 為範本」。同一章的註腳：「Geedge 與 Mesalab 的學生用自行修改的開源工具 tcpdump 擷取這些指紋，修改版稱為 tcpdump_mesa」。
 [^oss-export]: MADLink 社群譯文第 4 章〈結論〉：「Geedge 的軟體是開源的，現行版本的伺服器是通用 x86 硬體，即便正規採購受阻，這些元件仍能從次級市場取得」、「這讓它們成為出口管制可以實際著力的對象」。
 [^oss-license]: 網路政變社群譯文第 2 章〈主要發現〉：「他們也用可能違反授權條款的方式納入開源程式碼」、「Geedge 似乎靠這些手法取得競爭優勢，更快推出能力與領先對手相當的整套產品，同時增強承受制裁的能力」。

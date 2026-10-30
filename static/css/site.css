@@ -868,13 +868,15 @@ svg.pd { display: block; width: 100%; height: auto; overflow: visible; }
 .pd-ah { fill: var(--c-muted); }
 .pd-ahi { fill: var(--c-accent); }
 .pd-fig figcaption { margin-top: .5rem; font-size: .8rem; line-height: 1.6; color: var(--c-muted); }
-/* TSG 技術棧（svg.st）：由上到下六層，第三方程式碼用強調色框線標出，畫布照手機的 360 寬設計 */
+/* TSG 技術棧（svg.st）：由上到下七層，開源用強調色實線、商用閉源用虛線、台灣廠商的硬體用淺色底，不只靠顏色區分，畫布照手機的 360 寬設計 */
 .prose figure.st-fig { margin: 1.25rem auto 1.5rem; max-width: 30rem; }
 svg.st { display: block; width: 100%; height: auto; overflow: visible; }
 .st-band { fill: var(--c-surface); }
 .st-l { fill: var(--c-muted); font-size: 11px; font-weight: 700; }
 .st-box { fill: var(--c-fill); stroke: var(--c-border-strong); stroke-width: 1; }
-.st-3p { stroke: var(--c-accent); stroke-width: 2; }
+.st-oss { stroke: var(--c-accent); stroke-width: 2; }
+.st-prop { stroke: var(--cat-dev); stroke-width: 2; stroke-dasharray: 5 3; }
+.st-tw { fill: color-mix(in srgb, var(--cat-community) 22%, var(--c-fill)); stroke: var(--cat-community); }
 .st-t { fill: var(--c-strong); font-size: 12px; font-weight: 700; text-anchor: middle; dominant-baseline: central; }
 .st-s { fill: var(--c-muted); font-size: 10px; text-anchor: middle; dominant-baseline: central; }
 .st-lg { text-anchor: start; font-size: 11px; }
