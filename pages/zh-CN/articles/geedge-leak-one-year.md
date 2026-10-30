@@ -19,6 +19,8 @@ date: 2026-10-30
 
 外泄数据里实测被封锁的网站，九成以上不在研究者常用来测量的两份网站清单里，所以用清单测量没有发现封锁，不等于没有封锁。
 
+Geedge 的系统大量使用 Linux、Kafka 等开源软件，部分代码的使用方式可能违反许可条款。开源许可不限制用途，审查系统与 Tor 这类规避工具都建立在开源软件上。
+
 台湾的凌华科技在 2019 到 2020 年初出货一批硬件给 Geedge，Geedge 至今不在我们比对的美国与欧盟制裁名单上。
 
 想先了解背景，可以读文件站的[网络自由为什么重要](https://anoni.net/docs/zh-cn/basics/internet-freedom/)、[监控现在做得到什么](https://anoni.net/docs/zh-cn/basics/surveillance-capability/)、[什么是 Tor](https://anoni.net/docs/zh-cn/tools/what-is-tor/) 与 [VPN 的风险与选择](https://anoni.net/docs/zh-cn/tools/vpn-guide/)。
@@ -165,7 +167,7 @@ Maat 是规则引擎，封锁规则存在 Maat 里，插件用取出的字段比
 
 ### 第三方代码
 
-TSG 有三套应用识别系统，用来判断一条流量属于哪个 App 或协议，其中两套建立在第三方代码上。CBD（Context-Based Detector，前身是 AppSketch）是 TSG 自己的系统，依 Maat 加载的签名判断。Glimpse 的协议分类核心是怀卡托大学 Libtrace 团队的自由软件 libprotoident，分类函数需要的代码都带着 libprotoident 的版权声明。Glimpse 检测 OpenVPN 的代码，依论文的描述看来是 2022 年某一版 nDPI（以 GPL 授权的 DPI 函数库）的修改副本，主要函数改了名称，逻辑几乎相同。第三套 QDPI 建立在 Qosmos ixEngine 上，那是商用的闭源 DPI 函数库，作者的依据是代码调用了 ixEngine 的函数并引用它的头文件[^thirdparty]。
+TSG 有三套应用识别系统，用来判断一条流量属于哪个 App 或协议，其中两套建立在第三方代码上。CBD（Context-Based Detector，前身是 AppSketch）是 TSG 自己的系统，依 Maat 加载的签名判断。Glimpse 的协议分类核心是怀卡托大学 Libtrace 团队的自由软件 libprotoident，分类函数需要的代码都带着 libprotoident 的版权声明。Glimpse 检测 OpenVPN 的代码，依论文的描述看来是 2022 年某一版 nDPI（以 LGPL 许可的 DPI 函数库，论文写成 GPL）[^ndpi-license]的修改副本，主要函数改了名称，逻辑几乎相同。第三套 QDPI 建立在 Qosmos ixEngine 上，那是商用的闭源 DPI 函数库，作者的依据是代码调用了 ixEngine 的函数并引用它的头文件[^thirdparty]。
 
 论文对 libprotoident 与 nDPI 的用词是复制后改写，对 Qosmos 只写建立在它之上，没有判断 Geedge 是否取得授权。研究团队把 Geedge 使用这些代码的情形通报 libprotoident 团队与 Qosmos 的母公司 Enea，论文发表时双方都已回复，也排定了会议，回应的内容没有公开。nDPI 不在论文列出的通报对象里。作者认为这显示即使是资源充足、与国家有关系的厂商，从零建立完整的协议分类也很昂贵（原文用 suggests）[^disclose]。这类发现需要读源代码才能取得，远程测量很难判断识别系统用了谁的代码[^beyond]。
 
@@ -356,6 +358,31 @@ MADLink 的依据是文件与厂商的回复，可以对照 USENIX 论文在哈�
 
 MADLink 也提到，Geedge 现行硬件里的服务器来自 Nettrix，它的母公司中科曙光已经遭到美国制裁[^adlink]。Justice For Myanmar 在 2024 年 6 月 19 日的新闻稿呼吁各国政府制裁 Geedge Networks 等公司[^jfm]。截至 2026 年 10 月 30 日，我们比对美国财政部 OFAC 与欧盟的制裁名单、美国联邦公报的实体清单公告，都没有查到 Geedge 被列入[^sanction]。
 
+## 审查系统里的开源软件
+
+Geedge 的系统从操作系统到协议识别都用了开源软件，部分代码的纳入方式可能违反许可条款，研究这套系统的人同样依赖开源工具。
+{: .sec-lead }
+
+依 MADLink，Geedge 的整套软件建立在开源基础上。外泄文件也记录 Geedge 曾考虑改用华为的 EulerOS，因为许可费用过高而放弃[^oss-stack]。两份报告与 USENIX 论文提到的开源项目有七个[^oss-coup][^thirdparty]：
+
+| 开源项目 | 在 Geedge 系统里的用途 | 出处 |
+|---|---|---|
+| Rocky Linux（更早是 CentOS） | 操作系统 TSG-OS 的基础 | MADLink |
+| DPDK | 数据包处理，以及转发平面 MARSIO，让网络栈不受限于特定的硬件厂商 | MADLink、〈The Internet Coup〉 |
+| Apache Kafka | 监控数据仓库 TSG Galaxy 的基础 | 〈The Internet Coup〉 |
+| tcpdump | 改成 tcpdump_mesa，用来提取应用程序的指纹 | 〈The Internet Coup〉 |
+| Grafana | 管理监控方案 Network Zodiac 看来以它为模板 | 〈The Internet Coup〉 |
+| libprotoident | Glimpse 的协议分类核心，代码带着它的版权声明 | USENIX 论文 |
+| nDPI | Glimpse 检测 OpenVPN 的代码，看来是修改过的副本 | USENIX 论文 |
+
+MADLink 的论点是，Geedge 的软件是开源的，现行的服务器又是通用的 x86 硬件，正规采购受阻时仍可以从二级市场取得，所以出口管制能实际着力的只有 CSA-7400 这类专用硬件[^oss-export]。
+
+〈The Internet Coup〉写到 Geedge 以可能违反许可条款的方式纳入开源代码，推测是为了更快推出与领先对手相当的产品，同时增强承受制裁的能力[^oss-license]。libprotoident 与 nDPI 目前都以 LGPL-3.0 许可[^ndpi-license]，商业产品可以使用这些函数库，分发时则要履行条款，例如提供修改后的函数库源代码。Geedge 把系统交给客户时是否履行了这些条款，报告与论文都没有下定论。
+
+开源许可的共同原则是不限制使用的领域，开放源代码促进会的开源定义第 6 条规定许可不得限制任何人把程序用在特定领域，自由软件基金会定义的第 0 条自由是为任何目的运行程序[^oss-principle]。许可约束的是分发与修改时的义务，用途不在约束范围内，构建审查与监控系统的厂商也能取用同一批代码。〈The Internet Coup〉描述被封锁的 Tor 与 Psiphon 时，也都写成免费、开放源代码的工具[^oss-tools]。我们的看法是，同一个开源生态系统同时供应了审查的一方与规避的一方，这是开放的代价之一。社区能做的是持续揭露这类使用，并让规避工具与测量工具保持开放、容易取得。
+
+USENIX 论文写到，过去外界对 DPI 内部逻辑的了解，除了测量，主要来自 Snort、Suricata、Zeek 与 nDPI 这些开源系统。研究团队的 TLS 测试数据包也是扩展开源工具 Censor-Scanner 产生的，InterSecLab 的联合调查则用开源的 Datashare 与 Apache Tika 整理外泄文件[^oss-research]。USENIX 论文依开放科学的政策公开测量结果与脚本，但不公开外泄的源代码与研究团队的构建，理由是审查者因此受益的风险大于对社区的好处（见下一节）[^open-science]。
+
 ## 研究伦理与数据处理
 
 两篇论文都不公开外泄的原始数据，USENIX 论文也不公开构建 TSG 的完整做法，外界能重现的主要是远程测量。
@@ -430,6 +457,7 @@ InterSecLab 在 2025 年 9 月写到，`A24` 的相关数据没有能识别客�
 [^madlink-gen]: MADLink 社区译文第 2 章：「Geedge 為其 TSG 防火牆設備陸續供應了三代伺服器硬體」、「第一代 TSG 平台 TSG-ADC 建立在 CSA-7400 之上」、「第二代平台 TSG-9140 採用 AdvancedTCA（ATCA）規格」、「它應該是基於中國公司北京恒光信息技術的 VELA ATCA 平台」、「外洩文件顯示 TSG-9140 只部署在衣索比亞（代號 E21）客戶站點」、「現行版本 TSG-X 的主要 TSG 運算節點採用 Nettrix 伺服器，儲存 Cyber Narrator 所使用監控資料的儲存伺服器則來自浪潮（Inspur）」。第 1 章：「Geedge 目前這一代的 TSG 硬體部署在衣索比亞、巴基斯坦和緬甸」。第 3 章：「EtherFabric 看起來重用了與 TSG-9140 相同的、來自北京恒光信息技術的 VELA ATCA 硬體，但角色不同」、「部分網路元件可能由凌華科技提供」、「也作為概念驗證部署給一個只以代號 A24 識別的未知客戶」。
 [^thirdparty]: USENIX 论文 §1：「including two of the three core application detection systems」。§4.2.1：「a free software project from the Libtrace team at the University of Waikato」、「All code required for this function contains the libprotoident copyright」、「appears to be a modified copy of openvpn.c from a 2022 version of nDPI」、「the logic remains nearly identical」。§4.2.2：「QDPI is built off of Qosmos ixEngine, a proprietary, enterprise DPI library」、「This is most clearly indicated by the Stellar session callback subscriber function eventually calling」，后面接的是 ixEngine 的函数名称。
 [^modular]: USENIX 论文 §3.2 与 §3.5 的 Takeaway：「fingerprinting one plugin does not necessarily imply the presence or version of another in the same deployment」、「The firewall aggregates attributes from multiple parallel processing paths」。
+[^ndpi-license]: nDPI 与 libprotoident 在 GitHub 的仓库，2026 年 10 月 30 日读取，两者的 COPYING 都是 GNU Lesser General Public License v3.0（LGPL-3.0）。USENIX 论文 §4.2.1 对 nDPI 的写法是「a GPL-licensed DPI library」。
 [^disclose]: USENIX 论文 §4.2：「we find instances of third-party libraries intentionally copied and adapted into the Geedge Networks code base」。Ethical Considerations：「We disclosed the usage of code by Geedge Networks to both the Libprotoident team and Enea, the parent company of Qosmos. Both have responded to our initial disclosures, and we have scheduled meetings to engage in further discussion」。§4.2 的 Takeaway：「suggests that comprehensive protocol classification is costly to build from scratch, even for a well-resourced, state-linked vendor」。
 [^beyond]: 本文的观点。依据是 USENIX 论文 §1：「For the first time, we can move beyond remote inference」。
 [^gfw-multi]: USENIX 论文 §2.1：「there has been increasing evidence pointing to the deployment of multiple, independently operating deep packet inspection (DPI) devices with distinct enforcement roles」。
@@ -459,6 +487,14 @@ InterSecLab 在 2025 年 9 月写到，`A24` 的相关数据没有能识别客�
 [^gap]: 本文的推论。依据是 MADLink 社区译文第 3 章：「凌華科技確認出貨持續到 2020 年初」，以及 USENIX 论文 §6.3：「looking at previous measurements collected in December 2023」。论文以 2023 年 12 月的旧测量对照，自己的测量晚于那个时间，但没有写明日期。出货在 2020 年初结束，测量晚于 2023 年 12 月，两者至少相隔三年多。
 [^jfm]: Justice For Myanmar 新闻稿，2024-06-19：「Justice For Myanmar calls on governments to urgently impose sanctions against Geedge Networks, CEIEC and Mascots Group, its directors and related companies」。
 [^sanction]: 本文的查证，不是任何来源的说法。2026 年 10 月 30 日下载美国财政部 OFAC 的 SDN 名单与 Consolidated 名单、欧盟的金融制裁整合名单，搜索 Geedge 与 Jizhi 都没有符合的条目。作为对照，曙光（Dawning Information Industry）出现在 OFAC 的 Consolidated 名单。实体清单的新增都在联邦公报公告，在美国联邦公报搜索 Geedge 是 0 条，Jizhi 唯一的一条是另一家公司 Changguang Jizhi Optical Technology 被列入实体清单。英国的制裁名单与美国商务部的整合筛查名单这次没有下载成功，不在查证范围内。
+[^oss-stack]: MADLink 社区译文第 2 章〈Geedge 供應鏈深入解析（三代 TSG 硬體）〉：「Geedge 的整套軟體堆疊建立在開源基礎上」、「其作業系統 TSG-OS 以 Rocky Linux 為基礎（更早期版本是 CentOS），網路封包處理則仰賴 Intel 開源的 DPDK 工具包」、「Geedge 曾考慮改用華為 EulerOS，但因授權費用過高而放棄」。
+[^oss-coup]: 网络政变社区译文第 5 章〈產品與服務〉：「TSG Galaxy 建立在開源的 Apache Kafka 串流處理平台上」、「使用開源的 DPDK，讓 Geedge 的網路堆疊不受限於特定的硬體廠商」、「Network Zodiac 似乎以 Grafana 為範本」。同一章的脚注：「Geedge 與 Mesalab 的學生用自行修改的開源工具 tcpdump 擷取這些指紋，修改版稱為 tcpdump_mesa」。
+[^oss-export]: MADLink 社区译文第 4 章〈結論〉：「Geedge 的軟體是開源的，現行版本的伺服器是通用 x86 硬體，即便正規採購受阻，這些元件仍能從次級市場取得」、「這讓它們成為出口管制可以實際著力的對象」。
+[^oss-license]: 网络政变社区译文第 2 章〈主要發現〉：「他們也用可能違反授權條款的方式納入開源程式碼」、「Geedge 似乎靠這些手法取得競爭優勢，更快推出能力與領先對手相當的整套產品，同時增強承受制裁的能力」。
+[^oss-principle]: 开放源代码促进会（OSI）〈The Open Source Definition〉第 6 条〈No Discrimination Against Fields of Endeavor〉：「The license must not restrict anyone from making use of the program in a specific field of endeavor」。自由软件基金会〈What is Free Software?〉：「The freedom to run the program as you wish, for any purpose (freedom 0)」。两页都在 2026 年 10 月 30 日读取。
+[^oss-tools]: 网络政变社区译文第 7 章〈封鎖網路隱私與規避工具〉：「Tor 網路是免費、開放原始碼的系統」、「是免費、開放原始碼的網路規避工具」，后一句写的是 Psiphon。
+[^oss-research]: USENIX 论文 §2.2：「has been inferred from measurements」、「or learned from open-source systems such as Snort」，同一句接着列出 Suricata、Zeek 与 nDPI。§6.4：「We created our test vectors by extending the open-source tool Censor-Scanner」。网络政变社区译文第 4 章〈研究方法〉：「把文件索引進開源的文件探索平台 Datashare」、「我們用開源的文字擷取函式庫 Apache Tika」。
+[^open-science]: USENIX 论文 Open Science：「In the context of the open science policy, we made all of our artifacts available in the following Zenodo link」、「We consider the risk of censors benefiting from such a publication greater than the potential benefit to the community」、「we do not provide the artifact openly」。
 [^local]: USENIX 论文 Ethical Considerations：「the git repositories contain commits and directories that list emails and names of individual developers」、「we emphasize that our focus is on the systems and architecture, and not on individual persons」、「do not include source material in our repository」、「our efforts to run a local operational copy of TSG could harm users experiencing censorship by enabling deploying countries to refine their systems」、「we choose not to publicly document or provide additional details on how to set up this firewall」、「We also considered whether it would be better to not deploy the firewall ourselves at all」、「develop and test circumvention strategies against a working instance」。
 [^share]: USENIX 论文 Ethical Considerations：「We performed all of our scans between two vantage points that we own」、「we made sure that no entity is present on the current EU sanctions list」。Open Science：「We decided against the publication of the leaked source code and our deployment of the Firewall due to ethical concerns」。§1：「We will make our build available to trusted network security researchers upon request」。geedge.report 资源页：「All of our result files, anonymized PCAPs, and the scripts and tools used to conduct our scans are archived on Zenodo」。段落最后一句是本文的推论。
 [^foci-ethics]: FOCI 论文 Ethical Considerations：「we believe the broad public interest of this information overrides potential intellectual property concerns」。GFW Report〈Geedge & MESA Leak〉：「analyzing these files only in an isolated (virtual) machine without internet access」。
