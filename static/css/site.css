@@ -871,6 +871,10 @@ ol.tl { list-style: none; margin: 1.25rem 0 1.5rem; padding: 0; }
 .prose ul.match-key { display: flex; flex-wrap: wrap; gap: .35rem .9rem; margin: 0 0 1.25rem; padding: 0; list-style: none; font-size: .82rem; color: var(--c-muted); }
 .prose .match-key li { margin: 0; display: flex; align-items: center; gap: .35rem; }
 .match-key .sw { display: inline-block; width: 1.4rem; height: .95rem; border-radius: 3px; }
+/* 表格的欄位說明（dl.match-terms）：接在圖例下方，跟表格是同一組，字級與顏色比正文退一階 */
+.prose dl.match-terms { display: grid; grid-template-columns: max-content 1fr; gap: .3rem .75rem; margin: -.5rem 0 1.75rem; padding-top: .6rem; border-top: 1px solid var(--c-hair); font-size: .82rem; line-height: 1.6; color: var(--c-muted); }
+.prose dl.match-terms dt { font-weight: 600; color: var(--c-text); white-space: nowrap; }
+.prose dl.match-terms dd { margin: 0; }
 @media (prefers-color-scheme: dark) {
   .match .m-yes, .match-key .m-yes { background: var(--brand-cyan-300); color: #00202d; }
   .match .m-old, .match-key .m-old { background: var(--brand-cyan-800); color: #fff; }

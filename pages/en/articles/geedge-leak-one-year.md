@@ -112,13 +112,13 @@ The leaked documents refer to Geedge's clients by code names: Kazakhstan is `K18
   <li><span class="sw m-na"></span>Not measured, or no conclusion in the paper</li>
 </ul>
 
-Each column compares the following, with the detailed results in the next two sections:
-
-- **DNS**: the forged DNS responses a censor races back, compared on their flags, whether they use compression pointers, and the limit on following compression pointers when parsing a query
-- **IP fragments**: whether a censor reassembles an IP packet sent in several fragments before inspecting it, and how many fragments it will reassemble
-- **TCP RST**: the RST packets a censor forges to tear down a connection, compared on their header settings, how many are sent at once, and whether a constant seed can be worked back from the header fields
-- **TLS**: whether a censor still extracts the domain and blocks the connection when the length fields in the first TLS packet (the ClientHello) are tampered with
-- **QUIC**: which QUIC versions a censor supports, and how it handles fragment reassembly, the minimum packet size and length fields
+<dl class="match-terms" aria-label="What each column compares">
+  <dt>DNS</dt><dd>the forged DNS responses a censor races back, compared on their flags, whether they use compression pointers, and the limit on following compression pointers when parsing a query</dd>
+  <dt>IP fragments</dt><dd>whether a censor reassembles an IP packet sent in several fragments before inspecting it, and how many fragments it will reassemble</dd>
+  <dt>TCP RST</dt><dd>the RST packets a censor forges to tear down a connection, compared on their header settings, how many are sent at once, and whether a constant seed can be worked back from the header fields</dd>
+  <dt>TLS</dt><dd>whether a censor still extracts the domain and blocks the connection when the length fields in the first TLS packet (the ClientHello) are tampered with</dd>
+  <dt>QUIC</dt><dd>which QUIC versions a censor supports, and how it handles fragment reassembly, the minimum packet size and length fields</dd>
+</dl>
 
 ### Matches
 
