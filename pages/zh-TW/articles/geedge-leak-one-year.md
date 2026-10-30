@@ -23,6 +23,8 @@ Geedge 的系統大量使用 Linux、Kafka 等開源軟體，部分程式碼的�
 
 台灣的凌華科技在 2019 到 2020 年初出貨一批硬體給 Geedge，Geedge 至今不在我們比對的美國與歐盟制裁名單上。
 
+文件站的[Geedge 外洩一年後的研究重點](https://anoni.net/docs/blog/2026/10/geedge-leak-one-year/)用一般讀者的角度整理這件事，也寫了使用翻牆工具、Tor 與 VPN 的人可以注意的事。
+
 想先了解背景，可以讀文件站的[網路自由為什麼重要](https://anoni.net/docs/basics/internet-freedom/)、[監控現在做得到什麼](https://anoni.net/docs/basics/surveillance-capability/)、[什麼是 Tor](https://anoni.net/docs/tools/what-is-tor/) 與 [VPN 的風險與選擇](https://anoni.net/docs/tools/vpn-guide/)。
 
 </details>

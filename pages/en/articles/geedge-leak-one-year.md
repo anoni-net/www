@@ -23,6 +23,8 @@ Geedge's system relies heavily on open source software such as Linux and Kafka, 
 
 ADLINK, a Taiwanese company, shipped a batch of hardware to Geedge between 2019 and early 2020. Geedge is still not on the US or EU sanctions lists we checked.
 
+The anoni.net Docs site's [What a Year of Research on the Geedge Leak Found](https://anoni.net/docs/en/blog/2026/10/geedge-leak-one-year/) covers this story for general readers, including what people who use circumvention tools, Tor or VPNs should know.
+
 For background, see the anoni.net Docs site's [Why networked freedom matters](https://anoni.net/docs/en/basics/internet-freedom/), [What surveillance can actually do](https://anoni.net/docs/en/basics/surveillance-capability/), [What Is Tor?](https://anoni.net/docs/en/tools/what-is-tor/) and [VPN: risks and how to choose](https://anoni.net/docs/en/tools/vpn-guide/).
 
 </details>
