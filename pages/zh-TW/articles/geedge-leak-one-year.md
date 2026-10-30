@@ -148,7 +148,7 @@ Maat 是規則引擎，封鎖規則存在 Maat 裡，外掛用取出的欄位比
 <text class="st-t" x="296.7" y="428">TSG-X</text>
 <text class="st-s" x="296.7" y="444">x86 伺服器</text>
 <rect class="st-box st-3p" x="8" y="476" width="16" height="12" rx="3"/>
-<text class="st-s st-lg" x="30" y="486">建立在第三方程式碼上</text>
+<text class="st-s st-lg" x="30" y="482">建立在第三方程式碼上</text>
 </svg>
 <figcaption>本文依 USENIX 論文第 3 節與 MADLink 整理的簡化分層。CBD 是整合進 Firewall 外掛的函式庫，Glimpse 與 QDPI 是 Stellar 的外掛，Firewall 外掛同時掛在 SAPP 與 Stellar 上，實際的呼叫關係比分層複雜。</figcaption>
 </figure>

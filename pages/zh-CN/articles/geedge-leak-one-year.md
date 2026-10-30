@@ -148,7 +148,7 @@ Maat 是规则引擎，封锁规则存在 Maat 里，插件用取出的字段比
 <text class="st-t" x="296.7" y="428">TSG-X</text>
 <text class="st-s" x="296.7" y="444">x86 服务器</text>
 <rect class="st-box st-3p" x="8" y="476" width="16" height="12" rx="3"/>
-<text class="st-s st-lg" x="30" y="486">建立在第三方代码上</text>
+<text class="st-s st-lg" x="30" y="482">建立在第三方代码上</text>
 </svg>
 <figcaption>本文依 USENIX 论文第 3 节与 MADLink 整理的简化分层。CBD 是集成进 Firewall 插件的函数库，Glimpse 与 QDPI 是 Stellar 的插件，Firewall 插件同时挂在 SAPP 与 Stellar 上，实际的调用关系比分层复杂。</figcaption>
 </figure>

@@ -148,7 +148,7 @@ From hardware to enforcement, TSG's components can be arranged in six layers:[^m
 <text class="st-t" x="296.7" y="428">TSG-X</text>
 <text class="st-s" x="296.7" y="444">x86 servers</text>
 <rect class="st-box st-3p" x="8" y="476" width="16" height="12" rx="3"/>
-<text class="st-s st-lg" x="30" y="486">Built on third-party code</text>
+<text class="st-s st-lg" x="30" y="482">Built on third-party code</text>
 </svg>
 <figcaption>A simplified layering based on Section 3 of the USENIX paper and on MADLink. CBD is a library integrated into the Firewall plugin, Glimpse and QDPI are Stellar plugins, and the Firewall plugin runs on both SAPP and Stellar, so the actual call relationships are more tangled than the layers suggest.</figcaption>
 </figure>
