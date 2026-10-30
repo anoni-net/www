@@ -76,9 +76,9 @@ USENIX 論文寫到，防火長城過去被認為高度集中，近年卻有越�
 <thead><tr><th scope="col">設備或地區</th><th scope="col">DNS</th><th scope="col">IP 分片</th><th scope="col">TCP RST</th><th scope="col">TLS</th><th scope="col">QUIC</th></tr></thead>
 <tbody>
 <tr class="grp"><th colspan="6" scope="rowgroup"><span>中國的防火長城</span></th></tr>
-<tr><th scope="row">DNS 注入器 1</th><td class="m-no">不吻合</td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td></tr>
-<tr><th scope="row">DNS 注入器 2</th><td class="m-yes">吻合</td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td></tr>
-<tr><th scope="row">DNS 注入器 3</th><td class="m-no">不吻合</td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td></tr>
+<tr><th scope="row">Injector 1<small>DNS 注入</small></th><td class="m-no">不吻合</td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td></tr>
+<tr><th scope="row">Injector 2<small>DNS 注入</small></th><td class="m-yes">吻合</td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td></tr>
+<tr><th scope="row">Injector 3<small>DNS 注入</small></th><td class="m-no">不吻合</td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td><td class="m-na"></td></tr>
 <tr><th scope="row">GFW I</th><td class="m-na"></td><td class="m-no">不吻合</td><td class="m-no">不吻合</td><td class="m-no">不吻合</td><td class="m-na"></td></tr>
 <tr><th scope="row">GFW II</th><td class="m-na"></td><td class="m-yes">吻合</td><td class="m-yes">吻合</td><td class="m-old">舊版</td><td class="m-na"></td></tr>
 <tr><th scope="row">GFW III</th><td class="m-na"></td><td class="m-unk">無法判斷</td><td class="m-yes">吻合</td><td class="m-no">不吻合</td><td class="m-na"></td></tr>
@@ -102,6 +102,14 @@ USENIX 論文寫到，防火長城過去被認為高度集中，近年卻有越�
   <li><span class="sw m-no"></span>不吻合</li>
   <li><span class="sw m-na"></span>沒有量測，或論文沒有下結論</li>
 </ul>
+
+五個欄位比對的項目如下，詳細的結果見後面兩節：
+
+- **DNS**：審查設備搶先送回的偽造 DNS 回應，比對回應裡的旗標、是否使用壓縮指標，以及解析查詢時處理壓縮指標的上限
+- **IP 分片**：一個 IP 封包被切成多片送出時，審查設備會不會先重組再檢查，最多重組幾片
+- **TCP RST**：審查設備為了中斷連線而偽造的 RST 封包，比對標頭欄位的設定、一次送出幾個，以及能否從欄位反推出固定的種子值
+- **TLS**：竄改 TLS 連線第一個封包（ClientHello）裡的各個長度欄位，看審查設備是否仍然解析出網域並封鎖
+- **QUIC**：審查設備支援哪些 QUIC 版本，以及分片重組、最小封包大小與長度欄位的解析方式
 
 ### 吻合的部分
 
@@ -310,6 +318,6 @@ Injector 1、Injector 3 與 GFW I 都與 TSG 不吻合，論文的結果只指�
 [^n4p]: 本文的查證，2026 年 10 月 30 日讀取 net4people/bbs 的 #519 討論串，範圍是 2025 年 10 月以後的留言。有出處指留言附上論文或正式報告的連結。
 
 [^future]: USENIX 論文 §5.1：「which we use to load SAPP's DNS, SSL, and QUIC plugins」。§4.2.2：「While all available archives」、「of the database in the leak are encrypted」，同一句在 PDF 裡跨頁排版。§4.1.1：「Although we found no code explicitly converting ASW or TSG2402 formats into Maat signature definitions」。§7：「We hope this work will serve as a guide for future research on the leak」。FOCI 論文 Future Work：「areas for future work include searching for IP addresses in the GNL, deeper analysis of documents such as PDFs, and improved OCR」、「the Tranco and Citizen Lab lists are limited compared to larger censorship measurement lists such as Common Crawl or ICANN CZDS」。
-[^matrix]: 本文依 USENIX 論文 Table 5 到 Table 9 與 §6.1 到 §6.5 的正文整理，分類是本文的判斷。吻合：§6.1 的 DNS 注入器 2，§6.2 的 GFW II（「The observed boundary of […] fragments for GFW II is very close to TSG's」），§6.3 的 GFW II 與 GFW III（固定的種子值等於 TSG 的預設值）。舊版：§6.4「GFW II shows behavior equivalent to an older version of TSG's SSL module」，§6.5「the parsing fingerprint exhibited in Kazakhstan fully matches an older version of TSG's QUIC parsing code」。部分：§6.5「both Kazakhstan and the GFW block the same test vectors as TSG's QUIC plugin, though we cannot match them fully due to a difference in supported QUIC versions」。無法判斷：§6.2 不重組分片的設備（論文註明這是 TSG 可以調整的設定），§6.4「both Kazakhstan and Pakistan (DROP) support potential TSG deployments」，§6.3「TSG can be configured to match the behavior in Myanmar」。不吻合：§6.1 Table 5 的其他注入器與伊朗，§6.2 重組到測試上限仍成功的設備，§6.3「the other injectors exhibit markedly different behaviors and header values」，§6.4「no middlebox exhibited exactly the same behavior as the latest leaked TSG」之下、GFW II 以外的設備，§6.5「the parsing fingerprint mismatch means we cannot confirm its use」（緬甸）。巴基斯坦列在 Table 9，正文沒有討論它的 QUIC 結果。哈薩克的設備不送 RST，論文沒有做 TCP 的比對。
+[^matrix]: 本文依 USENIX 論文 Table 5 到 Table 9 與 §6.1 到 §6.5 的正文整理，分類是本文的判斷。吻合：§6.1 的 Injector 2，§6.2 的 GFW II（「The observed boundary of […] fragments for GFW II is very close to TSG's」），§6.3 的 GFW II 與 GFW III（固定的種子值等於 TSG 的預設值）。舊版：§6.4「GFW II shows behavior equivalent to an older version of TSG's SSL module」，§6.5「the parsing fingerprint exhibited in Kazakhstan fully matches an older version of TSG's QUIC parsing code」。部分：§6.5「both Kazakhstan and the GFW block the same test vectors as TSG's QUIC plugin, though we cannot match them fully due to a difference in supported QUIC versions」。無法判斷：§6.2 不重組分片的設備（論文註明這是 TSG 可以調整的設定），§6.4「both Kazakhstan and Pakistan (DROP) support potential TSG deployments」，§6.3「TSG can be configured to match the behavior in Myanmar」。不吻合：§6.1 Table 5 的其他注入器與伊朗，§6.2 重組到測試上限仍成功的設備，§6.3「the other injectors exhibit markedly different behaviors and header values」，§6.4「no middlebox exhibited exactly the same behavior as the latest leaked TSG」之下、GFW II 以外的設備，§6.5「the parsing fingerprint mismatch means we cannot confirm its use」（緬甸）。巴基斯坦列在 Table 9，正文沒有討論它的 QUIC 結果。哈薩克的設備不送 RST，論文沒有做 TCP 的比對。
 [^codes]: 網路政變社群譯文第 6 章〈Geedge 的營運與客戶〉：「目前辨識出的客戶代號有哈薩克（`K18` 與 `K24`）、巴基斯坦（`P19`）、衣索比亞（`E21`）、緬甸（`M22`）與新疆（`J24`）」、「資料裡還提到一個身分不明的客戶，代號 `A24`」、「代號的最後兩位數字可能代表 Geedge Networks 在當地開始專案的年份，但並非每個代號都符合」。
 [^a24]: 網路政變社群譯文第 6 章〈Geedge 的營運與客戶〉：「`A24` 的相關資料沒有任何可以辨識客戶的線索」、「關於 `A24` 客戶的身分，唯一的線索是首字母 A 與年份 2024」、「外洩發生時 `A24` 與 Geedge 的關係似乎還在初期階段」。MADLink 社群譯文第 3 章：「也作為概念驗證部署給一個只以代號 A24 識別的未知客戶」。「沒有看到公開的指認」是本文的查證，讀取日期 2026-10-30：USENIX 論文與 FOCI 論文全文搜尋 A24 都是 0 筆。GFW Report 分析文章的中文版寫到「除一个代号（A24）外，其余均已对应到具体国家」，其餘段落轉述 InterSecLab 的說法。net4people 討論串的 98 則留言裡有 2 則提到 `A24`（2025-09-10、2025-09-11），也都是引用 InterSecLab 的報告。
