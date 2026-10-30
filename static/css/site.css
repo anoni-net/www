@@ -868,6 +868,19 @@ svg.pd { display: block; width: 100%; height: auto; overflow: visible; }
 .pd-ah { fill: var(--c-muted); }
 .pd-ahi { fill: var(--c-accent); }
 .pd-fig figcaption { margin-top: .5rem; font-size: .8rem; line-height: 1.6; color: var(--c-muted); }
+/* TSG 技術棧（svg.st）：由上到下六層，第三方程式碼用強調色框線標出，畫布照手機的 360 寬設計 */
+.prose figure.st-fig { margin: 1.25rem auto 1.5rem; max-width: 30rem; }
+svg.st { display: block; width: 100%; height: auto; overflow: visible; }
+.st-band { fill: var(--c-surface); }
+.st-l { fill: var(--c-muted); font-size: 11px; font-weight: 700; }
+.st-box { fill: var(--c-fill); stroke: var(--c-border-strong); stroke-width: 1; }
+.st-3p { stroke: var(--c-accent); stroke-width: 2; }
+.st-t { fill: var(--c-strong); font-size: 12px; font-weight: 700; text-anchor: middle; dominant-baseline: central; }
+.st-s { fill: var(--c-muted); font-size: 10px; text-anchor: middle; dominant-baseline: central; }
+.st-lg { text-anchor: start; font-size: 11px; }
+.st-ar { stroke: var(--c-muted); stroke-width: 1.5; }
+.st-ah { fill: var(--c-muted); }
+.st-fig figcaption { margin-top: .5rem; font-size: .8rem; line-height: 1.6; color: var(--c-muted); }
 
 /* 段落引言（p.sec-lead）：放在 h2 正下方，用一兩句帶出這一節的重點，外觀像引言，
    語意是一般段落，讀屏軟體不會當成引用。Markdown 用 attr_list 的 { .sec-lead } 掛上 */
