@@ -842,6 +842,10 @@ ol.tl { list-style: none; margin: 1.25rem 0 1.5rem; padding: 0; }
   .flow .if::after { content: " →"; }
 }
 
+/* 文章裡的地圖與圖說：圖片置中，圖說是緊接在下方的段落（p.fig-note），註腳才會照正文的順序編號 */
+.prose img.map-img { display: block; margin: 1.25rem auto .4rem; }
+.prose p.fig-note { margin: 0 0 1.5rem; font-size: .8rem; line-height: 1.6; color: var(--c-muted); }
+
 /* 段落引言（p.sec-lead）：放在 h2 正下方，用一兩句帶出這一節的重點，外觀像引言，
    語意是一般段落，讀屏軟體不會當成引用。Markdown 用 attr_list 的 { .sec-lead } 掛上 */
 .prose p.sec-lead { margin: .25rem 0 1.25rem; padding: .1rem 0 .1rem 1rem; border-left: 3px solid var(--c-line); color: var(--c-strong); font-size: 1.05rem; line-height: 1.75; font-weight: 500; text-wrap: pretty; }
