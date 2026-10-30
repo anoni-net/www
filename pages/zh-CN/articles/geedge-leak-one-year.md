@@ -176,7 +176,9 @@ IP 分片重组也有吻合的项目，GFW II 一次重组的分片上限与 TSG
 
 TLS 的测试篡改 ClientHello（TLS 连接的第一个数据包）里的各个长度字段，看设备是否仍然解析出域名并封锁。没有任何设备与外泄的最新版行为完全相同，GFW II 的行为等同 TSG 较旧版本的 SSL 模块，作者推测 GFW II 解析 TLS 时用的就是这个旧版。QUIC 的结果是防火长城与哈萨克斯坦拦下的测试数据包与 TSG 相同，但两地支持的 QUIC 版本与 TSG 不同，无法完全吻合。哈萨克斯坦的解析指纹则完全符合 TSG 较旧版本的 QUIC 解析代码[^tls-quic]。
 
-论文第 6 节把这些结果总结成一句：Injector 2、GFW II 与 GFW III 高度吻合，suggesting that the leaked TSG code (or a close derivative) is indeed deployed on part of China's national firewall。中文可以译成「显示外泄的 TSG 代码（或与它相近的衍生版本）很可能部署在中国国家防火墙的一部分」，引导这句的 suggesting 是推论的语气，indeed（确实）是原文的强调。吻合的多半是旧版模块，geedge.report 的文章同样写到吻合的情况会随时间改变，部署中的代码已经与外泄的版本有差异[^summary]。
+论文第 6 节把这些结果总结成一句：*"Notably, we find high levels of correspondence with GFW DNS Injector 2 and TCP GFW II and GFW III, suggesting that the leaked TSG code (or a close derivative) is indeed deployed on part of China's national firewall."*
+
+中文可以译成「我们发现与 DNS Injector 2，以及 TCP 的 GFW II、GFW III 高度吻合，显示外泄的 TSG 代码（或与它相近的衍生版本）很可能部署在中国国家防火墙的一部分」，引导这句的 suggesting 是推论的语气，indeed（确实）是原文的强调。吻合的多半是旧版模块，geedge.report 的文章同样写到吻合的情况会随时间改变，部署中的代码已经与外泄的版本有差异[^summary]。
 
 ### 不吻合或无法判断的部分
 
