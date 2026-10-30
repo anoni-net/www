@@ -358,28 +358,48 @@ According to MADLink, the servers in Geedge's current hardware come from Nettrix
 
 ## Open Source Software in the Censorship System
 
-Geedge's system uses open source software from the operating system up to protocol detection, some of that code may have been incorporated in breach of its licence terms, and the people studying the system depend on open source tools too.
+Open source software publishes its source code for anyone to use, and Geedge's censorship system relies on it heavily. The researchers, journalists and communities who exposed the system have worked in the open too.
 {: .sec-lead }
 
-According to MADLink, Geedge's entire software stack is built on open source foundations. The leaked documents also record that Geedge considered switching to Huawei's EulerOS but dropped the idea because of the high licensing fees.[^oss-stack] The two reports and the USENIX paper mention seven open source projects:[^oss-coup][^thirdparty]
+### Open Source Software in Geedge's System
 
-| Open source project | Use in Geedge's system | Source |
+Open source software makes its source code public and lets anyone use, modify and redistribute it; Linux and many networking tools are examples. According to MADLink, Geedge's entire software stack is built on open source foundations. The leaked documents also record that Geedge considered switching to Huawei's EulerOS but dropped the idea because the licensing fees were too high.[^oss-stack] The two reports and the USENIX paper mention seven open source projects:[^oss-coup][^thirdparty]
+
+| Open source project | What it was made for | Use in Geedge's system |
 |---|---|---|
-| Rocky Linux (previously CentOS) | Basis of the TSG-OS operating system | MADLink |
-| DPDK | Packet processing, and the MARSIO forwarding plane, keeping the network stack independent of any one hardware vendor | MADLink, "The Internet Coup" |
-| Apache Kafka | Basis of the TSG Galaxy surveillance data warehouse | "The Internet Coup" |
-| tcpdump | Modified into tcpdump_mesa to extract application fingerprints | "The Internet Coup" |
-| Grafana | Apparently the model for the Network Zodiac monitoring product | "The Internet Coup" |
-| libprotoident | Protocol classification core of Glimpse, with its copyright notices intact | USENIX paper |
-| nDPI | Glimpse's OpenVPN detection code, apparently a modified copy | USENIX paper |
+| Rocky Linux | A Linux operating system | The TSG-OS operating system on the censorship equipment |
+| DPDK | Letting ordinary servers process large volumes of network packets quickly | Processing the packets passing through the equipment without tying it to one vendor's network hardware |
+| Apache Kafka | Handling large volumes of real-time data, often for retail and advertising analytics | The TSG Galaxy surveillance data warehouse |
+| tcpdump | Capturing and recording network packets | Modified into tcpdump_mesa to extract application traffic fingerprints |
+| Grafana | Dashboards for monitoring system status | Apparently the model for the Network Zodiac monitoring product |
+| libprotoident | Identifying which protocol a flow belongs to, developed by a university team | The core of the Glimpse protocol detection system |
+| nDPI | Identifying which application a flow belongs to | Glimpse's OpenVPN detection code, apparently a modified copy |
 
-MADLink argues that because Geedge's software is open source and its current servers are general-purpose x86 hardware, both can still be obtained on secondary markets if regular procurement is blocked, so the only place export controls can realistically bite is specialised hardware such as the CSA-7400.[^oss-export]
+As MADLink sees it, the software is open source and the servers are widely available general-purpose hardware, so both can still be obtained on secondary markets if regular procurement is blocked. The only place export controls can realistically bite is specialised hardware such as the CSA-7400.[^oss-export]
 
-"The Internet Coup" reports that Geedge incorporates open source code in ways that may violate licensing terms, which it suggests helps Geedge match leading competitors faster while building resilience to sanctions.[^oss-license] libprotoident and nDPI are both currently licensed under LGPL-3.0.[^ndpi-license] Commercial products may use these libraries, but distributing them comes with conditions, such as providing the source of a modified library. Neither the reports nor the papers reach a conclusion on whether Geedge met those conditions when it delivered its system to clients.
+### Licences That Do Not Restrict Use
 
-A shared principle of open source licences is that they do not restrict fields of use. Section 6 of the Open Source Initiative's Open Source Definition requires that a licence not restrict anyone from using the program in a specific field, and freedom 0 in the Free Software Foundation's definition is the freedom to run the program for any purpose.[^oss-principle] Licences govern obligations around distribution and modification, not use, so vendors building censorship and surveillance systems can draw on the same code as anyone else. When "The Internet Coup" describes Tor and Psiphon, two of the tools being blocked, it calls both free and open source.[^oss-tools] **In our view, the same open source ecosystem supplies both the censors and those circumventing them, and that is one of the costs of openness.** What the community can do is keep exposing such uses, and keep circumvention and measurement tools open and easy to obtain.
+Open source software comes with licence terms that set conditions for use, modification and distribution. "The Internet Coup" reports that Geedge incorporates open source code in ways that may violate licensing terms, which it suggests helps Geedge match leading competitors faster while building resilience to sanctions.[^oss-license] libprotoident and nDPI are both licensed under LGPL-3.0.[^ndpi-license] Commercial products may use them, but distribution comes with conditions, such as publishing the source of a modified library. Neither the reports nor the papers reach a conclusion on whether Geedge met them.
 
-The USENIX paper notes that, apart from measurement, outside knowledge of how DPI works internally has come mainly from open source systems such as Snort, Suricata, Zeek and nDPI. The team's TLS test vectors were also built by extending the open source tool Censor-Scanner, and InterSecLab's joint investigation used the open source tools Datashare and Apache Tika to process the leaked documents.[^oss-research] Under its open science policy the USENIX paper publishes its measurement results and scripts, but not the leaked source code or the team's build, on the grounds that the risk of censors benefiting outweighs the benefit to the community (see the next section).[^open-science]
+Licence terms govern how software is distributed and modified, not what it is used for. Section 6 of the Open Source Initiative's Open Source Definition requires that a licence not restrict anyone from using the program in a specific field, and freedom 0 in the Free Software Foundation's definition is the freedom to run the program for any purpose.[^oss-principle] Vendors building censorship and surveillance systems can draw on the same code as anyone else. When "The Internet Coup" describes Tor and Psiphon, two of the tools being blocked, it calls both free and open source.[^oss-tools] **In our view, the same open source ecosystem supplies both the censors and those circumventing them, and that is one of the costs of openness.**
+
+### Open Source Values in Practice
+
+Over the year since the leak, the researchers, journalists and communities exposing Geedge have worked in the open:
+
+| Practice | Who | What they did |
+|---|---|---|
+| Circumvention tools are open source | Tor, Psiphon | Free, open source tools whose code users and researchers can inspect for themselves[^oss-tools] |
+| Learning about DPI from open source systems | The research community | Before this source code leaked, outside knowledge of how DPI works internally came, apart from measurement, mainly from open source systems such as Snort, Suricata, Zeek and nDPI[^oss-research] |
+| Publishing research tools and results | The USENIX paper's team | Published its measurement results, anonymised packet captures and scripts on Zenodo,[^open-science] and built its test vectors by extending the open source tool Censor-Scanner[^oss-research] |
+| Open licensing of papers | The FOCI paper's team | The paper is licensed under CC BY 4.0[^foci-license] |
+| Notifying open source maintainers | The USENIX paper's team | Notified the Libtrace team about Geedge's use of libprotoident code; the team responded and meetings have been scheduled[^disclose] |
+| Investigating with open source tools | InterSecLab | Used the open source tools Datashare and Apache Tika to process more than 100,000 leaked documents for partners in several countries to search[^oss-research] |
+| Open licensing and translation | InterSecLab, the anoni.net community | InterSecLab's website is licensed under CC BY-NC-SA 4.0; the community translated "The Internet Coup" and "MADLink" into Chinese, and InterSecLab links to the translations from its report pages[^interseclab-license] |
+| Open analysis and discussion | GFW Report | Published its analysis in Chinese and English, with later findings posted to the public net4people thread[^gfwr-open] |
+| Publicly maintained test lists | Citizen Lab, the anoni.net community | The test lists are public on GitHub, and the community maintains the Taiwan list (see the section on domain list coverage above) |
+
+The USENIX paper's openness has limits: its measurement results and scripts are public, but the leaked source code and the team's build are not, on the grounds that the risk of censors benefiting outweighs the benefit to the community (see the next section).[^open-science] We think what the community can do is keep exposing the use of open source software in censorship and surveillance, and keep circumvention and measurement tools open and easy to obtain.
 
 ## Research Ethics and Data Handling
 
@@ -491,8 +511,11 @@ On the circumvention side, in the net4people thread tracking the leak (comments 
 [^oss-license]: "The Internet Coup", "Copying and Building on Existing Commercial Products and Open Source Code": "They also incorporate open-source code in ways that may violate licensing terms" and "Geedge seems to be using these tactics for competitive advantage".
 [^oss-principle]: Open Source Initiative, "The Open Source Definition", section 6, "No Discrimination Against Fields of Endeavor": "The license must not restrict anyone from making use of the program in a specific field of endeavor". Free Software Foundation, "What is Free Software?": "The freedom to run the program as you wish, for any purpose (freedom 0)". Both read on 30 October 2026.
 [^oss-tools]: "The Internet Coup", "Blocking Tor": "The Tor network is a free, open-source system". "Circumventing Psiphon Protective Measures": "Psiphon is a free and open-source internet circumvention tool".
-[^oss-research]: USENIX paper, §2.2: "has been inferred from measurements" and "or learned from open-source systems such as Snort", with Suricata, Zeek and nDPI listed in the same sentence. §6.4: "We created our test vectors by extending the open-source tool Censor-Scanner". "The Internet Coup", "Methodology": "indexing the documents into the open-source document discovery platform Datashare" and "We then used the open-source text extraction library Apache Tika".
+[^oss-research]: USENIX paper, §2.2: "has been inferred from measurements" and "or learned from open-source systems such as Snort", with Suricata, Zeek and nDPI listed in the same sentence. §6.4: "We created our test vectors by extending the open-source tool Censor-Scanner". "The Internet Coup", "Methodology": "The more than 100,000 leaked documents reviewed for this research", "indexing the documents into the open-source document discovery platform Datashare" and "We then used the open-source text extraction library Apache Tika".
 [^open-science]: USENIX paper, Open Science: "In the context of the open science policy, we made all of our artifacts available in the following Zenodo link", "We consider the risk of censors benefiting from such a publication greater than the potential benefit to the community" and "we do not provide the artifact openly".
+[^foci-license]: FOCI paper, first page: "This work is licensed under the Creative Commons Attribution 4.0 International License".
+[^interseclab-license]: InterSecLab, "The Internet Coup" page, read on 30 October 2026: "Translated into Traditional Chinese by Anonymity Networks Community". Site footer: "The content of this website is licensed under a CC BY-NC-SA 4.0".
+[^gfwr-open]: GFW Report, "Geedge & MESA Leak": "GFW Report will continue to update our analysis and findings on the current page as well as on Net4People".
 [^local]: USENIX paper, Ethical Considerations: "the git repositories contain commits and directories that list emails and names of individual developers", "we emphasize that our focus is on the systems and architecture, and not on individual persons", "do not include source material in our repository", "our efforts to run a local operational copy of TSG could harm users experiencing censorship by enabling deploying countries to refine their systems", "we choose not to publicly document or provide additional details on how to set up this firewall", "We also considered whether it would be better to not deploy the firewall ourselves at all" and "develop and test circumvention strategies against a working instance".
 [^share]: USENIX paper, Ethical Considerations: "We performed all of our scans between two vantage points that we own" and "we made sure that no entity is present on the current EU sanctions list". Open Science: "We decided against the publication of the leaked source code and our deployment of the Firewall due to ethical concerns". §1: "We will make our build available to trusted network security researchers upon request". geedge.report, Resources page: "All of our result files, anonymized PCAPs, and the scripts and tools used to conduct our scans are archived on Zenodo". The last sentence of the paragraph is our inference.
 [^foci-ethics]: FOCI paper, Ethical Considerations: "we believe the broad public interest of this information overrides potential intellectual property concerns". GFW Report, "Geedge & MESA Leak": "analyzing these files only in an isolated (virtual) machine without internet access".

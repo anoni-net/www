@@ -360,28 +360,48 @@ MADLink 也提到，Geedge 現行硬體裡的伺服器來自 Nettrix，它的母
 
 ## 審查系統裡的開源軟體
 
-Geedge 的系統從作業系統到協定辨識都用了開源軟體，部分程式碼的納入方式可能違反授權條款，研究這套系統的人同樣仰賴開源工具。
+開源軟體公開原始碼、任何人都能取用，Geedge 的審查系統也大量使用。揭露這套系統的研究者、記者與社群，用的同樣是開放的做法。
 {: .sec-lead }
 
-依 MADLink，Geedge 的整套軟體建立在開源基礎上。外洩文件也記錄 Geedge 曾考慮改用華為的 EulerOS，因為授權費用過高而放棄[^oss-stack]。兩份報告與 USENIX 論文提到的開源專案有七個[^oss-coup][^thirdparty]：
+### 審查系統用到的開源軟體
 
-| 開源專案 | 在 Geedge 系統裡的用途 | 出處 |
+開源軟體（open source software）公開原始碼，允許任何人使用、修改與再散布，Linux 與許多網路工具都是。依 MADLink，Geedge 的整套軟體建立在開源基礎上。外洩文件也記錄 Geedge 曾考慮改用華為的 EulerOS，因為授權費用太高而放棄[^oss-stack]。兩份報告與 USENIX 論文提到的開源專案有七個[^oss-coup][^thirdparty]：
+
+| 開源專案 | 原本的用途 | 在 Geedge 系統裡的用途 |
 |---|---|---|
-| Rocky Linux（更早是 CentOS） | 作業系統 TSG-OS 的基礎 | MADLink |
-| DPDK | 封包處理，以及轉送平面 MARSIO，讓網路堆疊不受限於特定的硬體廠商 | MADLink、〈The Internet Coup〉 |
-| Apache Kafka | 監控資料倉儲 TSG Galaxy 的基礎 | 〈The Internet Coup〉 |
-| tcpdump | 改成 tcpdump_mesa，用來擷取應用程式的指紋 | 〈The Internet Coup〉 |
-| Grafana | 管理監控方案 Network Zodiac 看來以它為範本 | 〈The Internet Coup〉 |
-| libprotoident | Glimpse 的協定分類核心，程式碼帶著它的著作權聲明 | USENIX 論文 |
-| nDPI | Glimpse 偵測 OpenVPN 的程式碼，看來是修改過的複本 | USENIX 論文 |
+| Rocky Linux | Linux 作業系統 | 審查設備的作業系統 TSG-OS |
+| DPDK | 讓一般伺服器快速處理大量網路封包 | 處理流經設備的封包，不必綁定特定廠商的網路硬體 |
+| Apache Kafka | 處理大量即時資料，常用在電商與廣告分析 | 監控資料倉儲 TSG Galaxy |
+| tcpdump | 擷取與記錄網路封包 | 改成 tcpdump_mesa，擷取應用程式的流量特徵 |
+| Grafana | 監控系統狀態的儀表板 | 管理監控產品 Network Zodiac 看來以它為範本 |
+| libprotoident | 大學團隊開發，判斷流量屬於哪種協定 | 協定辨識系統 Glimpse 的核心 |
+| nDPI | 判斷流量屬於哪個應用程式 | Glimpse 偵測 OpenVPN 的程式碼，看來是改過的複本 |
 
-MADLink 的論點是，Geedge 的軟體是開源的，現行的伺服器又是通用的 x86 硬體，正規採購受阻時仍可以從次級市場取得，所以出口管制能實際著力的只有 CSA-7400 這類專用硬體[^oss-export]。
+依 MADLink 的分析，軟體是開源的，伺服器是市面上普遍的通用硬體，正規採購受阻時仍可以從次級市場取得。出口管制能實際著力的，只有 CSA-7400 這類專門設計的硬體[^oss-export]。
 
-〈The Internet Coup〉寫到 Geedge 以可能違反授權條款的方式納入開源程式碼，推測是為了更快推出與領先對手相當的產品，同時增強承受制裁的能力[^oss-license]。libprotoident 與 nDPI 目前都以 LGPL-3.0 授權[^ndpi-license]，商業產品可以使用這些函式庫，散布時則要履行條款，例如提供修改後的函式庫原始碼。Geedge 把系統交給客戶時是否履行了這些條款，報告與論文都沒有下定論。
+### 授權不限制用途
 
-開源授權的共同原則是不限制使用的領域，開放原始碼促進會的開源定義第 6 條規定授權不得限制任何人把程式用在特定領域，自由軟體基金會定義的第 0 條自由是為任何目的執行程式[^oss-principle]。授權約束的是散布與修改時的義務，用途不在約束範圍內，建置審查與監控系統的廠商也能取用同一批程式碼。〈The Internet Coup〉描述被封鎖的 Tor 與 Psiphon 時，也都寫成免費、開放原始碼的工具[^oss-tools]。**我們的看法是，同一個開源生態系同時供應了審查的一方與規避的一方，這是開放的代價之一。**社群能做的是持續揭露這類使用，並讓規避工具與量測工具保持開放、容易取得。
+開源軟體附有授權條款，規定使用、修改與散布時要遵守的條件。〈The Internet Coup〉寫到 Geedge 以可能違反授權條款的方式納入開源程式碼，推測是為了更快推出與領先對手相當的產品，同時增強承受制裁的能力[^oss-license]。libprotoident 與 nDPI 都以 LGPL-3.0 授權[^ndpi-license]，商業產品可以使用，散布時則要履行條款，例如公開修改後的函式庫原始碼。Geedge 是否履行，報告與論文都沒有下定論。
 
-USENIX 論文寫到，過去外界對 DPI 內部邏輯的了解，除了量測，主要來自 Snort、Suricata、Zeek 與 nDPI 這些開源系統。研究團隊的 TLS 測試封包也是擴充開源工具 Censor-Scanner 產生的，InterSecLab 的聯合調查則用開源的 Datashare 與 Apache Tika 整理外洩文件[^oss-research]。USENIX 論文依開放科學的政策公開量測結果與腳本，但不公開外洩的原始碼與研究團隊的建置，理由是審查者因此受益的風險大於對社群的好處（見下一節）[^open-science]。
+授權條款約束的是散布與修改的方式，用途不在約束範圍內。開放原始碼促進會的開源定義第 6 條規定授權不得限制任何人把程式用在特定領域，自由軟體基金會定義的第 0 條自由是為任何目的執行程式[^oss-principle]。建置審查與監控系統的廠商，也能取用同一批程式碼。〈The Internet Coup〉描述被封鎖的 Tor 與 Psiphon 時，也都寫成免費、開放原始碼的工具[^oss-tools]。**我們的看法是，同一個開源生態系同時供應了審查的一方與規避的一方，這是開放的代價之一。**
+
+### 開源精神的實踐
+
+揭露 Geedge 的這一年裡，研究者、記者與社群的做法同樣是開放的：
+
+| 實踐 | 參與者 | 做法 |
+|---|---|---|
+| 規避工具本身開源 | Tor、Psiphon | 免費的開源工具，原始碼公開，使用者與研究者都能自行檢查[^oss-tools] |
+| 從開源系統認識 DPI | 研究界 | 原始碼外洩之前，外界對 DPI 內部邏輯的了解，除了量測，主要來自 Snort、Suricata、Zeek 與 nDPI 這些開源系統[^oss-research] |
+| 研究工具與成果公開 | USENIX 論文的研究團隊 | 把量測結果、匿名化的封包紀錄與量測腳本放上 Zenodo[^open-science]，測試封包是擴充開源工具 Censor-Scanner 產生的[^oss-research] |
+| 論文開放授權 | FOCI 論文的研究團隊 | 論文以 CC BY 4.0 授權[^foci-license] |
+| 通報開源專案的維護者 | USENIX 論文的研究團隊 | 把 Geedge 使用 libprotoident 程式碼的情形通報 Libtrace 團隊，對方已回覆，雙方也排定了會議[^disclose] |
+| 用開源工具調查 | InterSecLab | 用開源的 Datashare 與 Apache Tika 整理超過 10 萬份外洩文件，讓各國的合作夥伴共同查詢[^oss-research] |
+| 報告開放授權與翻譯 | InterSecLab、anoni.net 社群 | InterSecLab 網站以 CC BY-NC-SA 4.0 授權，社群把〈The Internet Coup〉與〈MADLink〉譯成中文，InterSecLab 也在報告頁面連回譯文[^interseclab-license] |
+| 公開的分析與討論 | GFW Report | 分析文章有中文與英文版，後續的發現持續更新在公開的 net4people 討論串[^gfwr-open] |
+| 公開維護的檢測清單 | Citizen Lab、anoni.net 社群 | 檢測清單公開在 GitHub，社群維護其中台灣的部分（見前面的網域清單一節） |
+
+USENIX 論文的開放也有界線，量測結果與腳本公開，外洩的原始碼與研究團隊的建置則不公開，理由是審查者因此受益的風險大於對社群的好處（見下一節）[^open-science]。我們認為社群能做的，是持續揭露開源軟體被用在審查與監控的情形，並讓規避工具與量測工具保持開放、容易取得。
 
 ## 研究倫理與資料處理
 
@@ -493,8 +513,11 @@ InterSecLab 在 2025 年 9 月寫到，`A24` 的相關資料沒有能辨識客�
 [^oss-license]: 網路政變社群譯文第 2 章〈主要發現〉：「他們也用可能違反授權條款的方式納入開源程式碼」、「Geedge 似乎靠這些手法取得競爭優勢，更快推出能力與領先對手相當的整套產品，同時增強承受制裁的能力」。
 [^oss-principle]: 開放原始碼促進會（OSI）〈The Open Source Definition〉第 6 條〈No Discrimination Against Fields of Endeavor〉：「The license must not restrict anyone from making use of the program in a specific field of endeavor」。自由軟體基金會〈What is Free Software?〉：「The freedom to run the program as you wish, for any purpose (freedom 0)」。兩頁都在 2026 年 10 月 30 日讀取。
 [^oss-tools]: 網路政變社群譯文第 7 章〈封鎖網路隱私與規避工具〉：「Tor 網路是免費、開放原始碼的系統」、「是免費、開放原始碼的網路規避工具」，後一句寫的是 Psiphon。
-[^oss-research]: USENIX 論文 §2.2：「has been inferred from measurements」、「or learned from open-source systems such as Snort」，同一句接著列出 Suricata、Zeek 與 nDPI。§6.4：「We created our test vectors by extending the open-source tool Censor-Scanner」。網路政變社群譯文第 4 章〈研究方法〉：「把文件索引進開源的文件探索平台 Datashare」、「我們用開源的文字擷取函式庫 Apache Tika」。
+[^oss-research]: USENIX 論文 §2.2：「has been inferred from measurements」、「or learned from open-source systems such as Snort」，同一句接著列出 Suricata、Zeek 與 nDPI。§6.4：「We created our test vectors by extending the open-source tool Censor-Scanner」。網路政變社群譯文第 4 章〈研究方法〉：「交叉核對超過 10 萬份 Geedge Networks 的外洩文件」、「把文件索引進開源的文件探索平台 Datashare」、「我們用開源的文字擷取函式庫 Apache Tika」。
 [^open-science]: USENIX 論文 Open Science：「In the context of the open science policy, we made all of our artifacts available in the following Zenodo link」、「We consider the risk of censors benefiting from such a publication greater than the potential benefit to the community」、「we do not provide the artifact openly」。
+[^foci-license]: FOCI 論文首頁：「This work is licensed under the Creative Commons Attribution 4.0 International License」。
+[^interseclab-license]: InterSecLab〈The Internet Coup〉頁面，2026 年 10 月 30 日讀取：「Translated into Traditional Chinese by Anonymity Networks Community」。網站頁尾：「The content of this website is licensed under a CC BY-NC-SA 4.0」。
+[^gfwr-open]: GFW Report〈Geedge & MESA Leak〉：「GFW Report will continue to update our analysis and findings on the current page as well as on Net4People」。
 [^local]: USENIX 論文 Ethical Considerations：「the git repositories contain commits and directories that list emails and names of individual developers」、「we emphasize that our focus is on the systems and architecture, and not on individual persons」、「do not include source material in our repository」、「our efforts to run a local operational copy of TSG could harm users experiencing censorship by enabling deploying countries to refine their systems」、「we choose not to publicly document or provide additional details on how to set up this firewall」、「We also considered whether it would be better to not deploy the firewall ourselves at all」、「develop and test circumvention strategies against a working instance」。
 [^share]: USENIX 論文 Ethical Considerations：「We performed all of our scans between two vantage points that we own」、「we made sure that no entity is present on the current EU sanctions list」。Open Science：「We decided against the publication of the leaked source code and our deployment of the Firewall due to ethical concerns」。§1：「We will make our build available to trusted network security researchers upon request」。geedge.report 資源頁：「All of our result files, anonymized PCAPs, and the scripts and tools used to conduct our scans are archived on Zenodo」。段落最後一句是本文的推論。
 [^foci-ethics]: FOCI 論文 Ethical Considerations：「we believe the broad public interest of this information overrides potential intellectual property concerns」。GFW Report〈Geedge & MESA Leak〉：「analyzing these files only in an isolated (virtual) machine without internet access」。
