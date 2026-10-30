@@ -813,6 +813,10 @@ ol.tl { list-style: none; margin: 1.25rem 0 1.5rem; padding: 0; }
 .tl-when { font-size: .85rem; color: var(--c-muted); font-variant-numeric: tabular-nums; padding-top: .05rem; }
 .tl-t { display: block; font-weight: 700; }
 .tl-d { display: block; color: var(--c-muted); font-size: .9rem; line-height: 1.6; }
+/* 跨年的分隔：空心圓點加上年份，不佔日期欄 */
+.tl li.tl-year { display: block; padding-bottom: 1rem; }
+.tl li.tl-year::before { background: var(--c-bg); border: 2px solid var(--c-border-strong); box-sizing: border-box; }
+.tl-year span { font-weight: 700; color: var(--c-strong); font-variant-numeric: tabular-nums; }
 @media (max-width: 560px) {
   .tl li { grid-template-columns: 1fr; }
 }

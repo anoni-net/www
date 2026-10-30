@@ -42,6 +42,7 @@ date: 2026-10-30
   <li><span class="tl-when">2025-09-09</span><span class="tl-b"><span class="tl-t">InterSecLab〈The Internet Coup〉</span><span class="tl-d">国际特赦组织的《Shadows of Control》与 Justice For Myanmar 的《Silk Road of Surveillance》也在同一个月发表</span></span></li>
   <li class="tl-origin"><span class="tl-when">2025-09-11</span><span class="tl-b"><span class="tl-t">文件公开</span><span class="tl-d">Enlace Hacktivista 公开全部文件，DDoSecrets 也提供下载</span></span></li>
   <li><span class="tl-when">2025-09-12</span><span class="tl-b"><span class="tl-t">GFW Report 的分析文章</span><span class="tl-d">最后一次更新是 12 月 29 日，文中写明源代码的部分还没有人仔细分析</span></span></li>
+  <li class="tl-year"><span>2026</span></li>
   <li><span class="tl-when">2026-02-19</span><span class="tl-b"><span class="tl-t">FOCI 2026〈Geedge Cases〉</span><span class="tl-d">马萨诸塞大学阿默斯特分校与 GFW Report 的研究者比对外泄文件里的域名与两份常用的域名清单</span></span></li>
   <li><span class="tl-when">2026-04-24</span><span class="tl-b"><span class="tl-t">InterSecLab〈MADLink〉</span><span class="tl-d">供应链系列的第一篇，主题是 Geedge 使用的服务器与网络硬件，其中包括台湾的凌华科技</span></span></li>
   <li><span class="tl-when">2026-08-05</span><span class="tl-b"><span class="tl-t">geedge.report 的说明文章</span><span class="tl-d">USENIX 论文的作者群在项目网站发表</span></span></li>
