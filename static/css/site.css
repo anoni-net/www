@@ -360,6 +360,8 @@ p { margin: .5rem 0 1rem; }
 .footnote { font-size: .85rem; color: var(--c-muted); margin-top: 2rem; }
 .footnote hr { border: 0; border-top: 1px solid var(--c-hair); }
 .footnote-ref { font-size: .75em; }
+/* 緊鄰的註腳編號之間的逗號，由 build.py 的 sep_footnotes 加上 */
+.fn-sep { font-size: .75em; }
 /* 每一條註腳包著 <p>，段落的上下間距疊起來條目之間有 30px，拿掉之後靠 li 的間距分開 */
 .footnote ol { margin-top: .75rem; }
 .footnote li { margin: .35rem 0; }
@@ -811,6 +813,10 @@ ol.tl { list-style: none; margin: 1.25rem 0 1.5rem; padding: 0; }
 .tl-when { font-size: .85rem; color: var(--c-muted); font-variant-numeric: tabular-nums; padding-top: .05rem; }
 .tl-t { display: block; font-weight: 700; }
 .tl-d { display: block; color: var(--c-muted); font-size: .9rem; line-height: 1.6; }
+/* 跨年的分隔：空心圓點加上年份，不佔日期欄 */
+.tl li.tl-year { display: block; padding-bottom: 1rem; }
+.tl li.tl-year::before { background: var(--c-bg); border: 2px solid var(--c-border-strong); box-sizing: border-box; }
+.tl-year span { font-weight: 700; color: var(--c-strong); font-variant-numeric: tabular-nums; }
 @media (max-width: 560px) {
   .tl li { grid-template-columns: 1fr; }
 }
@@ -840,6 +846,83 @@ ol.tl { list-style: none; margin: 1.25rem 0 1.5rem; padding: 0; }
   .flow .b > b, .flow .d { grid-column: 1; }
   .flow .out { grid-column: 2; grid-row: 1 / 3; align-items: flex-end; margin: 0; text-align: right; }
   .flow .if::after { content: " →"; }
+}
+
+/* 文章裡的地圖與圖說：圖片置中，圖說是緊接在下方的段落（p.fig-note），註腳才會照正文的順序編號 */
+.prose img.map-img { display: block; margin: 1.25rem auto .4rem; }
+.prose p.fig-note { margin: 0 0 1.5rem; font-size: .8rem; line-height: 1.6; color: var(--c-muted); }
+
+/* 部署模式示意圖（svg.pd）：鏡像（旁路）與內聯（串接）上下兩欄，畫布照手機的 360 寬設計，顏色全用變數 */
+.prose figure.pd-fig { margin: 1.25rem auto 1.5rem; max-width: 30rem; }
+svg.pd { display: block; width: 100%; height: auto; overflow: visible; }
+.pd-h { fill: var(--c-strong); font-size: 14px; font-weight: 700; }
+.pd-t { fill: var(--c-text); font-size: 13px; text-anchor: middle; dominant-baseline: central; }
+.pd-ct { fill: #fff; font-size: 13px; font-weight: 700; text-anchor: middle; dominant-baseline: central; }
+.pd-s { fill: var(--c-muted); font-size: 12px; }
+.pd-box { fill: var(--c-fill); stroke: var(--c-border-strong); stroke-width: 1; }
+.pd-cen { fill: var(--c-solid); }
+.pd-wire { stroke: var(--c-muted); stroke-width: 2; fill: none; }
+.pd-tap { stroke: var(--c-muted); stroke-width: 1.5; stroke-dasharray: 4 4; fill: none; }
+.pd-inj { stroke: var(--c-accent); stroke-width: 2; fill: none; }
+.pd-x { stroke: var(--cat-secure); stroke-width: 3; stroke-linecap: round; fill: none; }
+.pd-ah { fill: var(--c-muted); }
+.pd-ahi { fill: var(--c-accent); }
+.pd-fig figcaption { margin-top: .5rem; font-size: .8rem; line-height: 1.6; color: var(--c-muted); }
+/* TSG 技術棧（svg.st）：由上到下七層，開源與商用閉源用兩種顏色的實線框，方塊裡寫出函式庫名稱、台灣與中國廠商的硬體用兩種淺色底並寫出供應商，沒有標示的是自行開發，不只靠顏色區分，畫布照手機的 360 寬設計 */
+.prose figure.st-fig { margin: 1.25rem auto 1.5rem; max-width: 30rem; }
+svg.st { display: block; width: 100%; height: auto; overflow: visible; }
+.st-band { fill: var(--c-surface); }
+.st-l { fill: var(--c-muted); font-size: 11px; font-weight: 700; }
+.st-box { fill: var(--c-fill); stroke: var(--c-border-strong); stroke-width: 1; }
+.st-oss { stroke: var(--c-accent); stroke-width: 2; }
+.st-prop { stroke: var(--cat-dev); stroke-width: 2; }
+.st-tw { fill: color-mix(in srgb, var(--cat-community) 22%, var(--c-fill)); stroke: var(--cat-community); }
+.st-cn { fill: color-mix(in srgb, var(--cat-content) 18%, var(--c-fill)); stroke: var(--cat-content); }
+.st-t { fill: var(--c-strong); font-size: 12px; font-weight: 700; text-anchor: middle; dominant-baseline: central; }
+.st-s { fill: var(--c-muted); font-size: 10px; text-anchor: middle; dominant-baseline: central; }
+.st-lg { text-anchor: start; font-size: 11px; }
+.st-ar { stroke: var(--c-muted); stroke-width: 1.5; }
+.st-ah { fill: var(--c-muted); }
+.st-fig figcaption { margin-top: .5rem; font-size: .8rem; line-height: 1.6; color: var(--c-muted); }
+
+/* 段落引言（p.sec-lead）：放在 h2 正下方，用一兩句帶出這一節的重點，外觀像引言，
+   語意是一般段落，讀屏軟體不會當成引用。Markdown 用 attr_list 的 { .sec-lead } 掛上 */
+.prose p.sec-lead { margin: .25rem 0 1.25rem; padding: .1rem 0 .1rem 1rem; border-left: 3px solid var(--c-line); color: var(--c-strong); font-size: 1.05rem; line-height: 1.75; font-weight: 500; text-wrap: pretty; }
+
+/* 比對矩陣（table.match）：每一格寫出結果，顏色只是輔助。吻合的程度用同一個色相由深到淺，
+   不吻合用灰，無法判斷用虛線框，未測留白。第一個用在 Geedge 研究回顧的比對結果 */
+.match-wrap { overflow-x: auto; margin: 1.25rem 0 .5rem; }
+.prose table.match { min-width: 30rem; font-size: .85rem; border-collapse: separate; border-spacing: 2px; }
+.prose table.match th, .prose table.match td { border: 0; padding: .35rem .4rem; text-align: center; vertical-align: middle; overflow-wrap: normal; }
+.prose table.match thead th { color: var(--c-muted); font-weight: 600; white-space: nowrap; }
+.prose table.match td { white-space: nowrap; }
+.prose table.match tbody th { text-align: left; font-weight: 600; white-space: nowrap; }
+/* 手機上表格橫向捲動，第一欄固定在左側，捲到後面幾欄仍看得到是哪一列 */
+.prose table.match tr > th:first-child { position: sticky; left: 0; z-index: 1; background: var(--c-surface); }
+.prose table.match .grp th { position: static; }
+.prose table.match .grp th span { position: sticky; left: .4rem; }
+.prose table.match tbody th small { display: block; font-weight: 400; color: var(--c-muted); }
+.prose table.match .grp th { padding-top: .8rem; color: var(--c-muted); font-weight: 600; font-size: .8rem; }
+.match .m-yes, .match-key .m-yes { background: var(--brand-cyan-800); color: #fff; font-weight: 700; border-radius: 4px; }
+.match .m-old, .match-key .m-old { background: var(--brand-cyan-200); color: var(--c-strong); font-weight: 600; border-radius: 4px; }
+.match .m-part, .match-key .m-part { background: var(--brand-cyan-50); color: var(--c-strong); border-radius: 4px; box-shadow: inset 0 0 0 1px var(--brand-cyan-300); }
+.match .m-unk, .match-key .m-unk { background: var(--c-surface); color: var(--c-muted); border-radius: 4px; box-shadow: inset 0 0 0 1px var(--n-300); outline: 1px dashed var(--n-300); outline-offset: -3px; }
+.match .m-no, .match-key .m-no { background: var(--n-200); color: var(--c-strong); border-radius: 4px; }
+.match .m-na { color: var(--c-muted); }
+.match td.m-na:empty::before, .match-key .sw.m-na::before { content: "–"; }
+.match-key .sw.m-na { text-align: center; line-height: .95rem; }
+.prose ul.match-key { display: flex; flex-wrap: wrap; gap: .35rem .9rem; margin: 0 0 1.25rem; padding: 0; list-style: none; font-size: .82rem; color: var(--c-muted); }
+.prose .match-key li { margin: 0; display: flex; align-items: center; gap: .35rem; }
+.match-key .sw { display: inline-block; width: 1.4rem; height: .95rem; border-radius: 3px; }
+/* 表格的欄位說明（dl.match-terms）：接在圖例下方，跟表格是同一組，字級與顏色比正文退一階 */
+.prose dl.match-terms { display: grid; grid-template-columns: max-content 1fr; gap: .3rem .75rem; margin: -.5rem 0 1.75rem; padding-top: .6rem; border-top: 1px solid var(--c-hair); font-size: .82rem; line-height: 1.6; color: var(--c-muted); }
+.prose dl.match-terms dt { font-weight: 600; color: var(--c-text); white-space: nowrap; }
+.prose dl.match-terms dd { margin: 0; }
+@media (prefers-color-scheme: dark) {
+  .match .m-yes, .match-key .m-yes { background: var(--brand-cyan-300); color: #00202d; }
+  .match .m-old, .match-key .m-old { background: var(--brand-cyan-800); color: #fff; }
+  .match .m-part, .match-key .m-part { background: var(--brand-cyan-900); color: var(--c-text); box-shadow: inset 0 0 0 1px var(--brand-cyan-700); }
+  .match .m-no, .match-key .m-no { background: var(--n-300); color: #fff; }
 }
 
 /* ==========================================================================

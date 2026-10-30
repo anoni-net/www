@@ -149,7 +149,7 @@ def render_markdown(body: str) -> str:
             "pymdownx.emoji": {"emoji_index": twemoji, "emoji_generator": to_alt},
         },
     )
-    return stack_tables(md.convert(body))
+    return stack_tables(sep_footnotes(md.convert(body)))
 
 
 H2 = re.compile(r'<h2[^>]*\bid="([^"]+)"[^>]*>(.*?)</h2>', re.S)
@@ -177,6 +177,13 @@ LABEL_MAX = 10
 
 def label_width(text: str) -> float:
     return sum(1 if ord(c) > 0x2E80 else 0.6 for c in text)
+
+
+def sep_footnotes(body: str) -> str:
+    """緊鄰的註腳編號（例如 10 與 11）會黏成「1011」，中間補一個逗號。
+
+    只處理兩個註腳之間沒有任何文字的情況，CSS 的相鄰選擇器會略過中間的文字，所以在這裡做。"""
+    return re.sub(r'(</a></sup>)(?=<sup id="fnref)', r'\1<sup class="fn-sep">,</sup>', body)
 
 
 def stack_tables(body: str) -> str:
