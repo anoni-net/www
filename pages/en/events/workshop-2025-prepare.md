@@ -56,32 +56,32 @@ Preparation ran from May to early August 2025, about three months. Organizers ha
 
 === "2025/05"
 
-    - [x] `Announcement`{style="color: red;"} Start recruiting staff and helpers for the workshop.
-    - [x] `Notification`{style="color: darkorange;"} Announce that preparation has begun and invite people to join.
-    - [x] `Confirmation`{style="color: purple;"} Online kickoff meeting in May.
-    - [x] `Materials`{style="color: green;"} Translate the Tor/Tails slides.
+    - [x] `Announcement` Start recruiting staff and helpers for the workshop.
+    - [x] `Notification` Announce that preparation has begun and invite people to join.
+    - [x] `Confirmation` Online kickoff meeting in May.
+    - [x] `Materials` Translate the Tor/Tails slides.
 
 === "2025/06"
 
-    - [x] `Announcement`{style="color: red;"} Preparation progress and ongoing staff recruitment.
-    - [x] `Confirmation`{style="color: purple;"} List of staff and helpers.
-    - [x] `Materials`{style="color: green;"} Details of the Tor/Tails workshop course.
-    - [x] `Materials`{style="color: green;"} Details of the OONI workshop course.
-    - [ ] `Feedback`{style="color: dodgerblue;"} Send feedback on our course and material design to the Tor/Tails and OONI teams.
+    - [x] `Announcement` Preparation progress and ongoing staff recruitment.
+    - [x] `Confirmation` List of staff and helpers.
+    - [x] `Materials` Details of the Tor/Tails workshop course.
+    - [x] `Materials` Details of the OONI workshop course.
+    - [ ] `Feedback` Send feedback on our course and material design to the Tor/Tails and OONI teams.
 
 === "2025/07"
 
-    - [x] `Announcement`{style="color: red;"} Workshop course content and registration method.
-    - [x] `Notification`{style="color: darkorange;"} Confirm attendance and timing with registrants.
-    - [x] `Production`{style="color: midnightblue;"} Print a small number of flyers for a booth and the bulletin boards at COSCUP.
-    - [x] `Confirmation`{style="color: purple;"} Staff tasks on the event day.
+    - [x] `Announcement` Workshop course content and registration method.
+    - [x] `Notification` Confirm attendance and timing with registrants.
+    - [x] `Production` Print a small number of flyers for a booth and the bulletin boards at COSCUP.
+    - [x] `Confirmation` Staff tasks on the event day.
 
 === "2025/08"
 
     - [x] <code>:star2:</code> The event.
-    - [ ] `Announcement`{style="color: red;"} Post-event report article.
-    - [ ] `Notification`{style="color: darkorange;"} Collect feedback from registrants and suggest ways to stay involved after the event.
-    - [ ] `Feedback`{style="color: dodgerblue;"} Send the event records to the Tor/Tails and OONI teams.
+    - [ ] `Announcement` Post-event report article.
+    - [ ] `Notification` Collect feedback from registrants and suggest ways to stay involved after the event.
+    - [ ] `Feedback` Send the event records to the Tor/Tails and OONI teams.
 
 [Staff applications](#Registering-Staff){ .btn .solid }
 

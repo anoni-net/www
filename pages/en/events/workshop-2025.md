@@ -74,7 +74,7 @@ The event combined workshops and roundtable discussions over two days, in a room
 
 ### OONI Network Interference Observation
 
-- Time: `2025/08/09 12:30 - 13:30 UTC+8`{style="color: green; font-weight: bold;"}
+- Time: **`2025/08/09 12:30 - 13:30 UTC+8`**
 - Content:
     - Introduction to the OONI project
     - How OONI Probe works
@@ -88,7 +88,7 @@ The event combined workshops and roundtable discussions over two days, in a room
 
 ### Tor, Tails Anonymous Network
 
-- Time: `2025/08/09 13:30 - 15:30 UTC+8`{style="color: green; font-weight: bold;"}
+- Time: **`2025/08/09 13:30 - 15:30 UTC+8`**
 - Content:
     - The idea of a second device, and when to use one
         - Separating work from personal activity to protect your online identity and data

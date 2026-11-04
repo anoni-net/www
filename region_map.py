@@ -54,7 +54,8 @@ def svg(root: Path, observed: dict[str, tuple[str, str]], refs: dict[str, str],
     later = later or {}
     d = data(root)
     w, h = d["width"], d["height"]
-    parts = [f'<svg class="rmap{" rm-choro" if levels else ""}" viewBox="0 0 {w} {h}" role="img" aria-label="{escape(label)}">']
+    # 地圖裡的地區是連結，role="img" 會讓螢幕閱讀器把整張圖當成一張圖片、讀不到裡面的連結，改用 group
+    parts = [f'<svg class="rmap{" rm-choro" if levels else ""}" viewBox="0 0 {w} {h}" role="group" aria-label="{escape(label)}">']
     if levels:
         # 分級上色時參照地區改用斜線，才不會跟最淺的那一級混在一起
         parts.append('<defs><pattern id="rm-hatch" width="5" height="5" patternUnits="userSpaceOnUse" '

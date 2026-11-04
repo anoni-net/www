@@ -105,7 +105,8 @@
     --c-line: var(--brand-cyan-600);
     --c-link: var(--brand-cyan-200);
     --c-accent: var(--brand-cyan-300);
-    --c-solid: var(--brand-cyan-700);
+    /* 實心底配白字，cyan-700 只有 3.9，跟淺色模式一樣用 cyan-800 */
+    --c-solid: var(--brand-cyan-800);
     --c-active: var(--brand-cyan-400);
     --c-focus: var(--brand-cyan-400);
     --topic-privacy: #81c784;
@@ -126,6 +127,8 @@
 }
 
 * { box-sizing: border-box; }
+/* 只給螢幕閱讀器讀的文字，例如只有圖示的欄名 */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 html { background: var(--c-bg); color: var(--c-text); font: 17px/1.75 var(--font); }
 body { margin: 0; padding: 0 1rem; }
 a { color: var(--c-link); text-underline-offset: .2em; }
@@ -225,6 +228,7 @@ p { margin: .5rem 0 1rem; }
 /* 行內程式碼用淡底色，不用 cyan 字，才不會被當成連結 */
 .prose code { font-size: .88em; color: var(--c-text); background: var(--c-surface); padding: .05em .3em; border-radius: 4px; overflow-wrap: anywhere; }
 .prose pre { overflow-x: auto; background: var(--c-surface); border-radius: var(--radius); padding: .75rem 1rem; font-size: .8rem; line-height: 1.5; }
+.prose pre:focus-visible { outline: 2px solid var(--c-focus); outline-offset: 2px; }
 .prose pre code { color: var(--c-text); background: none; padding: 0; }
 .prose table { border-collapse: collapse; width: 100%; font-size: .92rem; margin: 1rem 0; }
 .prose th, .prose td { border-bottom: 1px solid var(--c-hair); padding: .4rem .5rem; text-align: left; vertical-align: top; overflow-wrap: anywhere; }
@@ -258,7 +262,8 @@ p { margin: .5rem 0 1rem; }
 .admonition-title { color: var(--c-strong); font-weight: 700; margin-bottom: .25rem; }
 /* danger 只用在安全警告，照品牌的配色守則用紅色，一般的提醒用 warning、維持中性底色 */
 .admonition.danger { background: color-mix(in srgb, var(--danger) 8%, var(--c-bg)); }
-.admonition.danger .admonition-title { color: var(--danger); }
+/* 淡紅底會吃掉對比，標題的紅色往文字色混一點，淺色模式約 5.9 */
+.admonition.danger .admonition-title { color: color-mix(in srgb, var(--danger) 85%, var(--c-strong)); }
 
 /* 從文件站搬過來的頁面用到的元件：折疊區塊、分頁、待辦清單、卡片格線、註腳、議程標籤。
    結構用中性灰階，互動與目前位置用 cyan。 */
@@ -366,6 +371,8 @@ p { margin: .5rem 0 1rem; }
 .footnote ol { margin-top: .75rem; }
 .footnote li { margin: .35rem 0; }
 .footnote li > p { margin: 0; }
+/* 返回內文的 ↩ 只有一個字寬，點擊範圍補到 24px（WCAG 2.5.8） */
+.footnote-backref { display: inline-block; min-width: 24px; min-height: 24px; text-align: center; }
 
 /* 議程表的標籤：類型用 cyan 實心，場地用中性灰線框，強調文字用深色粗體 */
 .tag { display: inline-block; padding: 0 .4rem; border: 1px solid var(--c-border); border-radius: 4px; font-size: .8rem; line-height: 1.6; color: var(--c-muted); white-space: nowrap; }
@@ -401,7 +408,8 @@ p { margin: .5rem 0 1rem; }
 /* 首頁主視覺 */
 .hero h1 { display: flex; align-items: center; gap: .5rem; font-size: 2rem; margin-top: 1.75rem; }
 .hero h1 .logo { width: 3rem; height: 3rem; flex: none; }
-.hero h1 small { display: block; font-size: .55em; color: var(--c-accent); font-weight: 500; }
+/* 字級不到大字的門檻，--c-accent 在白底只有 3.9，改用跟連結同一階的 cyan */
+.hero h1 small { display: block; font-size: .55em; color: var(--c-link); font-weight: 500; }
 
 /* 細線列：三大主題、觀測與工具、頁內的延伸連結 */
 .rows { list-style: none; margin: 0; padding: 0; }
@@ -429,7 +437,8 @@ p { margin: .5rem 0 1rem; }
 .cat-community { --topic: var(--cat-community); }
 .row .ic, .card .ic { color: var(--topic, var(--c-icon)); border-color: var(--topic, var(--c-border)); }
 :is(.row, .card) .ic:is([class*="cat-"], [class*="topic-"]), [class*="cat-"] :is(.row, .card) .ic, :is(.row, .card)[class*="cat-"] .ic { background: color-mix(in srgb, var(--topic) 8%, var(--c-bg)); }
-.topic-tag { display: inline-flex; align-items: center; gap: .35rem; margin: 1.25rem 0 -.75rem; padding: .1rem .65rem .1rem .5rem; border: 1px solid var(--topic); border-radius: 999px; color: var(--topic); background: color-mix(in srgb, var(--topic) 8%, var(--c-bg)); font-size: .8rem; font-weight: 600; }
+/* 淡底色讓主題色的小字掉到 4.5 以下（匿名支付的橘只有 4.1），文字往文字色混一點 */
+.topic-tag { display: inline-flex; align-items: center; gap: .35rem; margin: 1.25rem 0 -.75rem; padding: .1rem .65rem .1rem .5rem; border: 1px solid var(--topic); border-radius: 999px; color: color-mix(in srgb, var(--topic) 85%, var(--c-strong)); background: color-mix(in srgb, var(--topic) 8%, var(--c-bg)); font-size: .8rem; font-weight: 600; }
 /* 麵包屑的下邊距是 -1rem（讓標題貼近），標籤是行內元素不會跟它摺疊，上邊距要多抵銷那 1rem */
 .crumb + .topic-tag { margin-top: 1.6rem; }
 .topic-tag + h1 { margin-top: 1.25rem; }
@@ -476,13 +485,15 @@ p { margin: .5rem 0 1rem; }
 @media (min-width: 900px) { .svc { grid-template-columns: repeat(3, 1fr); } }
 .svc article { border: 1px solid var(--c-border); border-radius: var(--radius); padding: .9rem 1rem; }
 .svc article:has(a:hover) { border-color: var(--c-line); }
-.svc h3 { display: flex; align-items: center; gap: .45rem; margin: 0; }
+/* 服務名稱接在頁面標題 h1 之後，用 h2 才不會跳級，字級與間距維持 h3 的樣子，不畫標題後的線 */
+.svc h2 { display: flex; align-items: center; gap: .45rem; margin: 0; font-size: 1.05rem; line-height: inherit; letter-spacing: 0; }
+.svc h2::after { content: none; }
 /* 服務的圖示圈跟專案卡片一樣帶分類色，services.toml 的 cat 加在 article 上，沒有分類的維持中性灰 */
-.svc h3 .ic { flex: none; display: grid; place-items: center; width: 2rem; height: 2rem; border: 1px solid var(--topic, var(--c-border)); border-radius: 50%; color: var(--topic, var(--c-icon)); }
-.svc [class*="cat-"] h3 .ic, .svc article[class*="cat-"] h3 .ic { background: color-mix(in srgb, var(--topic) 8%, var(--c-bg)); }
-.svc h3 .ic .i { color: inherit; }
-.svc h3 a { color: var(--c-strong); }
-.svc h3 small { font-weight: 400; color: var(--c-muted); font-size: .8rem; }
+.svc h2 .ic { flex: none; display: grid; place-items: center; width: 2rem; height: 2rem; border: 1px solid var(--topic, var(--c-border)); border-radius: 50%; color: var(--topic, var(--c-icon)); }
+.svc [class*="cat-"] h2 .ic, .svc article[class*="cat-"] h2 .ic { background: color-mix(in srgb, var(--topic) 8%, var(--c-bg)); }
+.svc h2 .ic .i { color: inherit; }
+.svc h2 a { color: var(--c-strong); }
+.svc h2 small { font-weight: 400; color: var(--c-muted); font-size: .8rem; }
 .svc p { font-size: .92rem; margin: .35rem 0 .5rem; }
 
 /* 首頁那一排服務連結 */
@@ -512,8 +523,10 @@ p { margin: .5rem 0 1rem; }
 .brand-sizes { display: flex; align-items: end; gap: .75rem; }
 .brand-size { display: flex; flex-direction: column; align-items: center; }
 .brand-size img { display: block; }
-.brand-size-label { font-size: .65rem; color: #888; margin-top: .25rem; }
+.brand-size-label { font-size: .65rem; color: #6b6b6b; margin-top: .25rem; }
 .brand-card.dark .brand-size-label, .brand-card.cyan .brand-size-label, .brand-card.cyan-deep .brand-size-label { color: rgba(255, 255, 255, .6); }
+/* cyan-500 底配白字只有 2.5，示範卡的說明文字改用深色 */
+.brand-card.cyan .brand-card-label, .brand-card.cyan .brand-size-label { color: var(--brand-cyan-900); }
 .wm-card { display: flex; flex-direction: column; }
 .wm-card .wm-box { flex: 1; display: flex; align-items: center; justify-content: center; min-height: 5rem; }
 .wm-card img { width: 100%; max-width: 14rem; height: auto; }
@@ -531,7 +544,9 @@ p { margin: .5rem 0 1rem; }
 .pulse-regions a[aria-current] { background: var(--c-solid); border-color: var(--c-solid); color: #fff; }
 /* 地區名稱後面的代碼（TW、JP），跟網址 /projects/pulse/<code>/ 對得起來。不放國旗，港澳台的旗子沒有中立的選法。
    inline-block 讓連結的底線停在名稱，不延伸到代碼 */
-.cc { display: inline-block; margin-left: .3em; font-size: .78em; font-weight: 400; letter-spacing: .03em; opacity: .65; }
+.cc { display: inline-block; margin-left: .3em; font-size: .78em; font-weight: 400; letter-spacing: .03em; color: var(--c-muted); }
+/* 用 opacity 調淡的話小字對比不到 4.5，改用 --c-muted，實心底的目前位置跟著文字色 */
+.pulse-regions a[aria-current] .cc { color: inherit; }
 .pulse-meta { margin: .25rem 0 0; font-size: .8rem; color: var(--c-muted); }
 .pulse-stale { margin-left: .5rem; padding: 0 .4rem; border: 1px solid var(--c-border); border-radius: 4px; }
 .pulse-empty { padding: 1rem; border: 1px dashed var(--c-border-strong); border-radius: var(--radius); color: var(--c-muted); }
@@ -726,8 +741,14 @@ svg.pc rect:hover, svg.pc circle:hover { opacity: .7; }
 .prose .pulse ul { padding-left: 0; margin: 0; }
 .rq-flow { display: grid; grid-template-columns: 4.5rem 1fr; align-items: center; gap: .45rem .6rem; font-size: .85rem; }
 .rq-bar { display: flex; gap: 2px; height: 1.4rem; }
-.rq-bar span { display: flex; align-items: center; justify-content: center; min-width: 1.4rem; border-radius: 3px; background: var(--pcc); color: #fff; font-size: .75rem; font-variant-numeric: tabular-nums; }
-.rq-bar .pc-s4, .rq-bar .pc-s3 { color: var(--c-strong); }
+.rq-bar span { display: flex; align-items: center; justify-content: center; min-width: 1.4rem; border-radius: 3px; background: var(--pcc); font-size: .75rem; font-variant-numeric: tabular-nums; }
+/* 色塊裡的數字依底色深淺選黑字或白字，兩種模式的色階方向相反 */
+.rq-bar span { color: #13232a; }
+.rq-bar .pc-s1 { color: #fff; }
+@media (prefers-color-scheme: dark) {
+  .rq-bar span, .rq-bar .pc-s1 { color: #00202d; }
+  .rq-bar .pc-s4, .rq-bar .pc-s5 { color: #fff; }
+}
 .rq-rank li { grid-template-columns: 4.5rem 1fr 2.8rem 6.5rem; }
 .pulse-asn .kind { display: block; font-size: .72rem; color: var(--c-muted); }
 .rq-types td:first-child { white-space: normal; }

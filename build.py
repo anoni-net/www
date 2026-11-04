@@ -149,7 +149,31 @@ def render_markdown(body: str) -> str:
             "pymdownx.emoji": {"emoji_index": twemoji, "emoji_generator": to_alt},
         },
     )
-    return stack_tables(sep_footnotes(md.convert(body)))
+    return task_labels(focusable_pre(empty_header_cells(stack_tables(sep_footnotes(md.convert(body))))))
+
+
+TASK = re.compile(r'(<label class="task-list-control">.*?)</label>(.*?)(?=</p>|<ul|<ol|</li>)', re.S)
+
+
+def task_labels(body: str) -> str:
+    """pymdownx.tasklist 的 <label> 只包住勾選框，項目文字在 label 外面，螢幕閱讀器只讀得到
+    「已勾選」，讀不到是哪一項（WCAG 4.1.2）。把項目文字收進 label 裡，到子清單或段落結尾為止。"""
+    return TASK.sub(r"\1\2</label>", body)
+
+
+def empty_header_cells(body: str) -> str:
+    """對照表左上角常留一格空白的欄名，空的 <th> 讓螢幕閱讀器讀不出這一欄的名稱，改成 <td>。
+    欄名只有打叉或打勾圖示的，圖示對螢幕閱讀器是隱藏的，補上只給螢幕閱讀器讀的符號。
+    放在 stack_tables 之後，手機版的欄名才會跟原本的欄位對齊。"""
+    body = re.sub(r"<th([^>]*)>\s*</th>", r"<td\1></td>", body)
+    return re.sub(r'(<th[^>]*>\s*<i data-icon="(close|check)"></i>)(\s*</th>)',
+                  lambda m: f'{m[1]}<span class="sr-only">{ICON_LABEL[m[2]]}</span>{m[3]}', body)
+
+
+def focusable_pre(body: str) -> str:
+    """程式碼區塊在窄螢幕會橫向捲動，只能用滑鼠或觸控捲的話，鍵盤使用者看不到被截掉的部分
+    （WCAG 2.1.1）。每個 <pre> 都加上 tabindex，Tab 移到區塊上就能用方向鍵捲動。"""
+    return re.sub(r"<pre(?![^>]*\btabindex=)", '<pre tabindex="0"', body)
 
 
 H2 = re.compile(r'<h2[^>]*\bid="([^"]+)"[^>]*>(.*?)</h2>', re.S)
