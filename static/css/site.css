@@ -44,7 +44,8 @@
   --c-accent: var(--brand-cyan-700);
   --c-solid: var(--brand-cyan-800);
   --c-active: var(--brand-cyan-600);
-  --c-focus: var(--brand-cyan-500);
+  /* 焦點外框跟底色要有 3:1（WCAG 1.4.11），cyan-500 在白底只有 2.5，用 cyan-800。深色模式的 cyan-400 有 7.2 */
+  --c-focus: var(--brand-cyan-800);
 
   /* 2026 三大主題的分類色，對應品牌素材的 --cat-privacy、--cat-relay、--cat-payments。
      品牌的綠與橘在白底對比不到 4.5，這裡用深一階的版本，深色模式另用淺色 */

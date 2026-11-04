@@ -359,7 +359,7 @@ The top-level site (home, about, join, projects, services and the other communit
 |---|---|---|
 | Structure | Neutral greys `--n-50` to `--n-300` | Dividers, borders on cards and screenshots, and the backgrounds of admonitions, collapsible blocks, code, table headers and the footer |
 | Hierarchy | Headings `#13232a`, body `#1d2b31`, secondary `#52646b` | Headings, section headings, leads |
-| Interaction | Links `--brand-cyan-800`, current location `--brand-cyan-600`, focus and hover `--brand-cyan-500` | Links, outlined buttons, the current item in the navigation, keyboard focus, hovered cards |
+| Interaction | Links `--brand-cyan-800`, current location `--brand-cyan-600`, focus `--brand-cyan-800`, hover `--brand-cyan-500` | Links, outlined buttons, the current item in the navigation, keyboard focus, hovered cards |
 | Identity | The cyan tonal logo and `--brand-cyan-700` | Header and the home page hero |
 | Categories and data | Structural secondaries, icon category colours, update tags, the nine cyan steps | Icon rings and session tags, update tags, measurement charts |
 
@@ -382,7 +382,7 @@ The greys extend from `--neutral-muted` (`#546e7a`) and carry a little blue, so 
 | Footer | A full-width `--n-50` band |
 | Mobile | Always one column, with "On this page" folded under the title |
 | Card hover | The border turns `--brand-cyan-500` |
-| Keyboard focus | 2px `--brand-cyan-500` outline, 2px from the element |
+| Keyboard focus | 2px `--brand-cyan-800` outline, 2px from the element. The outline needs 3:1 contrast against the background; `--brand-cyan-500` reaches only 2.5 on white |
 | Dark mode | Background `#00202d`, links `--brand-cyan-200`, current location and focus `--brand-cyan-400`, greys from the dark-mode column above |
 
 ### Icon category colours
