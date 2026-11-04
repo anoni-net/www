@@ -56,32 +56,32 @@ description: 2025 年 8 月匿名網路工作坊的籌備紀錄，包含工作�
 
 === "2025/05"
 
-    - [x] `公告`{style="color: red;"} 工作坊開始招募工作人員與小幫手。
-    - [x] `通知`{style="color: darkorange;"} 籌備開始的通知，邀請夥伴加入。
-    - [x] `確認`{style="color: purple;"} 五月份線上啟動會議。
-    - [x] `教材`{style="color: green;"} 翻譯 Tor/Tails 簡報。
+    - [x] `公告` 工作坊開始招募工作人員與小幫手。
+    - [x] `通知` 籌備開始的通知，邀請夥伴加入。
+    - [x] `確認` 五月份線上啟動會議。
+    - [x] `教材` 翻譯 Tor/Tails 簡報。
 
 === "2025/06"
 
-    - [x] `公告`{style="color: red;"} 籌備進度與持續招募工作人員。
-    - [x] `確認`{style="color: purple;"} 工作人員與小幫手名單。
-    - [x] `教材`{style="color: green;"} Tor/Tails 匿名網路工作坊的課程細節。
-    - [x] `教材`{style="color: green;"} OONI 工作坊的課程細節。
-    - [ ] `回饋`{style="color: dodgerblue;"} 向 Tor/Tails、OONI 團隊回饋社群設計的課程與教材。
+    - [x] `公告` 籌備進度與持續招募工作人員。
+    - [x] `確認` 工作人員與小幫手名單。
+    - [x] `教材` Tor/Tails 匿名網路工作坊的課程細節。
+    - [x] `教材` OONI 工作坊的課程細節。
+    - [ ] `回饋` 向 Tor/Tails、OONI 團隊回饋社群設計的課程與教材。
 
 === "2025/07"
 
-    - [x] `公告`{style="color: red;"} 工作坊課程內容與報名方式。
-    - [x] `通知`{style="color: darkorange;"} 向報名者確認出席與活動時間。
-    - [x] `製作`{style="color: midnightblue;"} 印製少量活動傳單，放在 COSCUP 會場的攤位並張貼在佈告欄。
-    - [x] `確認`{style="color: purple;"} 活動當天工作人員的任務。
+    - [x] `公告` 工作坊課程內容與報名方式。
+    - [x] `通知` 向報名者確認出席與活動時間。
+    - [x] `製作` 印製少量活動傳單，放在 COSCUP 會場的攤位並張貼在佈告欄。
+    - [x] `確認` 活動當天工作人員的任務。
 
 === "2025/08"
 
     - [x] <code>:star2:</code> 活動舉辦。
-    - [ ] `公告`{style="color: red;"} 工作坊的會後紀錄文章。
-    - [ ] `通知`{style="color: darkorange;"} 向報名者蒐集意見，並提供會後持續參與的建議。
-    - [ ] `回饋`{style="color: dodgerblue;"} 向 Tor/Tails、OONI 團隊回饋活動紀錄。
+    - [ ] `公告` 工作坊的會後紀錄文章。
+    - [ ] `通知` 向報名者蒐集意見，並提供會後持續參與的建議。
+    - [ ] `回饋` 向 Tor/Tails、OONI 團隊回饋活動紀錄。
 
 [工作人員報名方式](#報名工作人員){ .btn .solid }
 
