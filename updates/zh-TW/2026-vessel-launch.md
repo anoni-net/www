@@ -1,6 +1,6 @@
 ---
 title: 社群 VPN 服務發布 Vessel
-description: 匿名網路社群 anoni.net 為身邊的人架設的 VPN，在學校、旅館與國外這些 VPN 常無法連線的地方也能使用。介紹台北、東京與新加坡的節點、中繼路線、網域過濾，以及取得邀請碼的方式。
+description: 匿名網路社群 anoni.net 為身邊的人架設的 VPN，在學校、旅館與國外這些 VPN 常無法連線的地方也能使用，目前採邀請制開放。介紹台北、東京與新加坡的節點、中繼路線、網域過濾，以及取得邀請碼的方式。
 date: 2026-11-07
 kind: new
 og_image: https://assets.anoni.net/vessel/og-zh-tw-d6c00920.png
@@ -17,9 +17,9 @@ og_image: https://assets.anoni.net/vessel/og-zh-tw-d6c00920.png
 
 !!! tip "取得邀請碼"
 
-    Vessel 目前以邀請碼分批開放，邀請碼透過電子報寄給訂閱者，歡迎[訂閱電子報](https://form.anoni.net/s/cmc9ceju1000dlj017fiathzq){target="_blank"}。也可以寄信到 whisper@anoni.net，或寫在[意見回覆](https://vessel.anoni.net/feedback/){target="_blank"}並留下聯絡方式，跟我們說明你的需要。
+    Vessel 目前採邀請制，以邀請碼分批開放。邀請碼透過電子報寄給訂閱者，歡迎[訂閱電子報](https://form.anoni.net/s/cmc9ceju1000dlj017fiathzq){target="_blank"}。也可以寄信到 whisper@anoni.net，或寫在[意見回覆](https://vessel.anoni.net/feedback/){target="_blank"}並留下聯絡方式，跟我們說明你的需要。
 
-10 月 28 日寄出第一波邀請碼之後，我們依照大家的使用狀況調整服務。目前新增了台北節點與經台北入口的中繼路線，直接連線不穩時多一條路可以選擇，網域過濾也補上台灣的詐騙網站名單。
+10 月 28 日寄出第一波邀請碼之後，我們依照大家的使用狀況調整服務，現在從封閉測試改成邀請制開放。目前新增了台北節點與經台北入口的中繼路線，直接連線不穩時多一條路可以選擇，網域過濾也補上台灣的詐騙網站名單。
 
 ## 產品標準的設計與營運
 
@@ -107,6 +107,8 @@ Vessel 也有容器的意思，你的連線會先裝進加密的通道再出發�
 Vessel 不提供匿名，你連往的網域與 IP 會經過節點，需要匿名時請使用 Tor Browser。服務由志工維運，不保證服務不中斷。偽裝能降低被封鎖的機會，但不保證每個網路都能連上（規則見[使用條款](https://vessel.anoni.net/terms/){target="_blank"}）。
 
 有些地方限制或禁止未經核准的 VPN，在當地使用 Vessel 也可能受罰，當地的網路業者仍然可以看到裝置連到境外的 IP。處境敏感時，請先讀常見問題的[所在地限制 VPN 時，使用 Vessel 安全嗎？](https://vessel.anoni.net/faq/#q-risky){target="_blank"}與文件站的[出差與研討會的數位準備](docs:scenarios/asia-travel/)，再決定是否使用。
+
+使用條款與隱私權政策還是草稿，正式版生效前，會公告在 Vessel 的網站與 anoni.net 的電子報。
 
 ## 分享給朋友的邀請碼與意見回覆
 

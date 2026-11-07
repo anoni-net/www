@@ -1,6 +1,6 @@
 ---
 title: Announcing Vessel, a community VPN
-description: A VPN the anoni.net community runs for the people around it, for places where VPNs often fail, such as schools, hotels and abroad. An overview of its nodes in Taipei, Tokyo and Singapore, relay routes, DNS filtering and how to get an invite code.
+description: A VPN the anoni.net community runs for the people around it, for places where VPNs often fail, such as schools, hotels and abroad, now open by invitation. An overview of its nodes in Taipei, Tokyo and Singapore, relay routes, DNS filtering and how to get an invite code.
 date: 2026-11-07
 kind: new
 og_image: https://assets.anoni.net/vessel/og-en-c04f9fa6.png
@@ -17,9 +17,9 @@ At school, in a hotel or abroad, the VPN you usually rely on may not connect, an
 
 !!! tip "Getting an invite code"
 
-    Vessel is opening in rounds, with invite codes sent to newsletter subscribers, so please [subscribe to the newsletter](https://form.anoni.net/s/cmc9ceju1000dlj017fiathzq){target="_blank"}. You can also write to whisper@anoni.net, or tell us on the [feedback page](https://vessel.anoni.net/en/feedback/){target="_blank"} and leave a way to reach you, saying what you need.
+    Vessel is invite-only for now and is opening in rounds. Invite codes go to newsletter subscribers, so please [subscribe to the newsletter](https://form.anoni.net/s/cmc9ceju1000dlj017fiathzq){target="_blank"}. You can also write to whisper@anoni.net, or tell us on the [feedback page](https://vessel.anoni.net/en/feedback/){target="_blank"} and leave a way to reach you, saying what you need.
 
-Since we sent the first invite codes on October 28, we have adjusted the service to how people use it. There is now a Taipei node and a relay route through a Taipei entry, which gives you another path when a direct connection is unstable, and DNS filtering now covers Taiwan's lists of scam sites.
+Since we sent the first invite codes on October 28, we have adjusted the service to how people use it, and it now moves from a closed beta to open by invitation. There is now a Taipei node and a relay route through a Taipei entry, which gives you another path when a direct connection is unstable, and DNS filtering now covers Taiwan's lists of scam sites.
 
 ## Built and run as a product
 
@@ -107,6 +107,8 @@ The block title on the home page follows the same idea: a small pixel figure car
 Vessel does not provide anonymity. The domains and IP addresses you connect to pass through the node, so use Tor Browser when you need anonymity. Volunteers run the service, and it may be interrupted. The disguise lowers the chance of being blocked, but it cannot promise to connect on every network (see the [terms of use](https://vessel.anoni.net/en/terms/){target="_blank"}).
 
 Some places restrict or ban unapproved VPNs, and using Vessel there can carry a penalty. Your local network provider can still see your device connecting to an IP address abroad. If your situation is sensitive, read the FAQ answer [Is Vessel safe to use where VPNs are restricted?](https://vessel.anoni.net/en/faq/#q-risky){target="_blank"} and the docs page on [device minimization and border crossings in Asia](docs:scenarios/asia-travel/) before deciding to use it.
+
+The terms of use and privacy policy are still drafts. Before the final versions take effect, we will announce them on Vessel's site and in the anoni.net newsletter.
 
 ## Sharing invite codes, and feedback
 
