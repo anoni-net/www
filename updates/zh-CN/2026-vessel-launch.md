@@ -88,7 +88,7 @@ Vessel 网站的代码与节点的主机设置，都完整公开在 [GitHub](htt
 ## 蓝图样式的网站
 
 <figure markdown="span">
-    <img src="https://assets.anoni.net/newsletter/newsletter-vessel-design-sheet-zh-orig-e336b47d.png"
+    <img src="https://assets.anoni.net/newsletter/newsletter-vessel-design-sheet-zh-orig-52487728.png"
         alt="蓝图样式的设计稿，并排 Vessel 首页的桌面与手机版面，旁边标出方块字标题、等角示意图、方格纸底色与细线方框，下方列出色票与字体" class="shot">
 </figure>
 

@@ -88,7 +88,7 @@ Vessel 網站的程式碼與節點的主機設定，都完整公開在 [GitHub](
 ## 藍圖樣式的網站
 
 <figure markdown="span">
-    <img src="https://assets.anoni.net/newsletter/newsletter-vessel-design-sheet-zh-orig-e336b47d.png"
+    <img src="https://assets.anoni.net/newsletter/newsletter-vessel-design-sheet-zh-orig-52487728.png"
         alt="藍圖樣式的設計稿，並排 Vessel 首頁的桌機與手機版面，旁邊標出方塊字標題、等角示意圖、方格紙底色與細線方框，下方列出色票與字型" class="shot">
 </figure>
 

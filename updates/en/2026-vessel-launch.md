@@ -88,7 +88,7 @@ The code for Vessel's site and the nodes' host setup is all public on [GitHub](h
 ## A blueprint-style site
 
 <figure markdown="span">
-    <img src="https://assets.anoni.net/newsletter/newsletter-vessel-design-sheet-en-orig-fa9b3c79.png"
+    <img src="https://assets.anoni.net/newsletter/newsletter-vessel-design-sheet-en-orig-8bb7e872.png"
         alt="A blueprint-style design sheet showing Vessel's home page side by side on desktop and phone, with notes on the block title, isometric figures, graph-paper background and thin-line frames, plus the colours and typefaces" class="shot">
 </figure>
 
