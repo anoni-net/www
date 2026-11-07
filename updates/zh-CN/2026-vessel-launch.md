@@ -1,5 +1,5 @@
 ---
-title: Vessel 社区 VPN 发布公告
+title: 社区 VPN 服务发布 Vessel
 description: 匿名网络社区 anoni.net 为身边的人架设的 VPN，在学校、酒店与国外这些 VPN 常无法连接的地方也能使用。介绍台北、东京与新加坡的节点、中继路线、域名过滤，以及获取邀请码的方式。
 date: 2026-11-07
 kind: new
