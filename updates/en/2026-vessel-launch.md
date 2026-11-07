@@ -21,6 +21,16 @@ At school, in a hotel or abroad, the VPN you usually rely on may not connect, an
 
 Since we sent the first invite codes on October 28, we have adjusted the service to how people use it. There is now a Taipei node and a relay route through a Taipei entry, which gives you another path when a direct connection is unstable, and DNS filtering now covers Taiwan's lists of scam sites.
 
+## Built and run as a product
+
+Vessel is a service we intend to run for the long term, so we design, adjust and operate it to a product's standard, and we will keep developing it. When we make a decision, we start from what people actually run into when they connect: whether it connects, whether the steps are simple, and whether someone deals with a problem when it comes up.
+
+The nodes are spread across Taipei, Tokyo and Singapore with different hosting providers, so if the network in one city is blocked or one provider has trouble, there are other routes to choose. When a direct connection is unstable you can take a relay route, and we will add cities based on how the service is used and on your feedback.
+
+Beyond the VPN itself, we keep developing added features for the people using it, at no extra cost. The first is DNS filtering with its protective blocklists: we compare how much each public list covers, fill the gaps, and adjust as new sources and your reports come in.
+
+Day-to-day operations follow the same standard. A new feature has to be something a non-technical person can complete by following the steps, and every change is checked on desktop and phone and run through automated tests. The state of the service is public on the [service status](https://vessel.anoni.net/en/status/){target="_blank"} page, we keep checking the disguise and the signs that nodes are being probed, and someone reads and acts on your feedback.
+
 ## Nodes in Taipei, Tokyo and Singapore
 
 <figure markdown="span">
