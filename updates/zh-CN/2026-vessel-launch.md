@@ -77,6 +77,11 @@ Vessel 网站的代码与节点的主机设置，都完整公开在 [GitHub](htt
 
 ## 蓝图样式的网站
 
+<figure markdown="span">
+    <img src="https://assets.anoni.net/newsletter/newsletter-vessel-design-sheet-zh-orig-e336b47d.png"
+        alt="蓝图样式的设计稿，并排 Vessel 首页的桌面与手机版面，旁边标出方块字标题、等角示意图、方格纸底色与细线方框，下方列出色票与字体" class="shot">
+</figure>
+
 [Vessel 的网站](https://vessel.anoni.net/zh-cn/){target="_blank"}是工程蓝图的样式，钴蓝色的线条、方格纸的底色，标题是一格格方块叠成的 Vessel。
 
 Vessel 有船的意思，造船之前要先画图纸。每个零件的位置与尺寸都标在图纸上，检查时也看同一份。VPN 服务的网站上常见盾牌与锁头的图案，用户仍然无法得知内部如何运作。我们希望大家信任的是实际的做法，所以把网站画成一张摊开的图纸，连接经过哪些节点、名单如何比对、密钥在哪里生成，都画在首页。

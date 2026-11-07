@@ -77,6 +77,11 @@ The code for Vessel's site and the nodes' host setup is all public on [GitHub](h
 
 ## A blueprint-style site
 
+<figure markdown="span">
+    <img src="https://assets.anoni.net/newsletter/newsletter-vessel-design-sheet-en-orig-fa9b3c79.png"
+        alt="A blueprint-style design sheet showing Vessel's home page side by side on desktop and phone, with notes on the block title, isometric figures, graph-paper background and thin-line frames, plus the colours and typefaces" class="shot">
+</figure>
+
 [Vessel's site](https://vessel.anoni.net/en/){target="_blank"} looks like an engineering blueprint: cobalt lines on graph paper, and a title built from blocks that spell Vessel.
 
 A vessel is a ship, and before a ship is built someone draws its plans. Every part and its size is marked on them, and those plans are what you check it against. VPN sites tend to show shields and padlocks, and you still cannot see how anything works. We would like you to trust what we actually do, so we drew the site as a set of plans laid open. The nodes a connection goes through, how the blocklists are checked and where the keys are made are all on the home page.
