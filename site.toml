@@ -74,6 +74,7 @@ clearnet = false
 "https://anoni.net/mystery" = "http://mystery.{onion}"
 # 檔案工作台（Gears）的 onion 版放在子網域的根目錄，anoni.net/gears/x 對應 gears.<onion>/x
 "https://anoni.net/gears" = "http://gears.{onion}"
+"https://vessel.anoni.net" = "http://vessel.{onion}"
 "https://matrix.anoni.net" = "http://matrix.{onion}"
 "https://pad.anoni.net" = "http://pad.{onion}"
 "https://search.anoni.net" = "http://search.{onion}"
