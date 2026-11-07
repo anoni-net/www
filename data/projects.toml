@@ -1,8 +1,8 @@
 # 專案：社群自己寫的內容或程式，由社群撰寫與維護，有自己的路線圖與貢獻者。
 # 別人開發、社群架設的軟體是服務，寫在 services.toml。
 #
-# content 是掛在 anoni.net 底下路徑的網站（文件站、新聞導讀、檔案工作台、隱私推理遊戲），用卡片呈現，
-# 首頁與專案頁都會列出。卡片上可以列出該網站最新的幾篇（latest.py 讀各語系的 RSS）。
+# content 是有自己網站的專案（文件站、新聞導讀、檔案工作台、Vessel、隱私推理遊戲），用卡片呈現，
+# 首頁與專案頁都會列出。網站掛在 anoni.net 底下的路徑，有自己的子網域時用 site 寫出網址。卡片上可以列出該網站最新的幾篇（latest.py 讀各語系的 RSS）。
 # langs 是那個網站有的語系，沒寫就是三個都有。缺目前語系時，卡片連到 langs 的第一個。
 # tools 是觀測與工具，用細線列呈現。
 # 專案的詳細介紹寫在專案自己的關於頁，這裡只放一句話。
@@ -48,6 +48,18 @@ name = { zh-TW = "檔案工作台", zh-CN = "文件工作台", en = "File Workbe
 summary.zh-TW = "在瀏覽器裡清除中繼資料、遮蔽個資、加密要交出去的檔案，也替收到的檔案整理查證線索，檔案不上傳。"
 summary.zh-CN = "在浏览器里清除元数据、遮蔽个资、加密要交出去的文件，也替收到的文件整理查证线索，文件不上传。"
 summary.en = "Strip metadata, redact and encrypt files before you hand them over, and lay out leads to verify in files you receive, all in your browser without uploading."
+
+# Vessel 的 onion 版在 vessel.<onion>，onion 頁面的連結由 site.toml 的 rewrite 改寫
+[[content]]
+icon = "ferry"
+cat = "privacy"
+product = "vessel"
+site = "https://vessel.anoni.net"
+display = "vessel.anoni.net"
+name = { zh-TW = "Vessel", zh-CN = "Vessel", en = "Vessel" }
+summary.zh-TW = "社群為身邊的人架設的 VPN，在學校、旅館、出國這些常連不上 VPN 的地方也能使用。不需要 email，也不用付費，目前以邀請碼分批開放。"
+summary.zh-CN = "社区为身边的人架设的 VPN，在学校、酒店、出国这些常连不上 VPN 的地方也能使用。不需要 email，也不用付费，目前以邀请码分批开放。"
+summary.en = "A VPN the community runs for the people around it, for places where VPNs often fail: at school, in hotels, abroad. No email address or payment needed. Invite codes go out in rounds for now."
 
 [[content]]
 icon = "head-question"
