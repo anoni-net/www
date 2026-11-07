@@ -253,6 +253,7 @@ p { margin: .5rem 0 1rem; }
 .prose img { max-width: 100%; height: auto; }
 /* 操作步驟的截圖加一圈中性灰細框，白底的截圖才不會跟頁面混在一起 */
 .prose img.shot { display: block; border: 1px solid var(--c-border); border-radius: var(--radius); margin: .5rem 0 1rem; }
+.prose img.shot-narrow { max-width: min(100%, 550px); margin-inline: auto; }
 /* 從文件站搬過來的頁面用 <figure> 包截圖，瀏覽器預設左右各縮 40px，手機上太窄 */
 .prose figure:not(.pulse-chart) { margin: 1rem 0 1.25rem; }
 .prose figure:not(.pulse-chart) figcaption { font-size: .85rem; line-height: 1.6; color: var(--c-muted); }
