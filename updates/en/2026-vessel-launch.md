@@ -68,7 +68,7 @@ To change the filter on an existing device, delete the device and create it agai
 
 <figure markdown="span">
     <img src="https://assets.anoni.net/newsletter/newsletter-vessel-exploded-en-orig-1bc92e6a.png"
-        alt="An exploded diagram of four layers: your device, which alone holds the private key; the portal, with no email address, account numbers stored only as hashes and no record of who invited whom; the node, with firewall logs off and swap kept off the disk; and the open plans, with code and host setup on GitHub" class="shot">
+        alt="An exploded diagram of four layers: your device, which alone holds the private key; the portal, with no email address, account numbers stored only as hashes and no record of who invited whom; the node, with firewall logs off and swap kept off the disk; and the open plans, with code and host setup on GitHub" class="shot shot-narrow">
 </figure>
 
 Vessel was designed around privacy and security from the start. The private key for your connection (a key that stays on your device) is made in your browser, accounts need no email address, account numbers are stored only as hashes (one-way values that cannot be turned back into the number), and once an invite code is redeemed nothing records who invited whom. Since launch we have kept at it, for example by turning off the nodes' firewall logs and keeping memory swap off the disk, to cut down the connection details that could end up on a node's disk.

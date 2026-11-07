@@ -68,7 +68,7 @@ HaGeZi 的名單來源以歐美為主，10 月 31 日比對台灣 165 列管的 
 
 <figure markdown="span">
     <img src="https://assets.anoni.net/newsletter/newsletter-vessel-exploded-zh-orig-7e046afc.png"
-        alt="四層疊起的分解圖，由上而下是你的裝置（私鑰只在這裡）、入口網站（不需要 email、帳號號碼只存雜湊、不留誰邀請了誰）、節點（防火牆紀錄關閉、換頁不寫入硬碟）與公開的圖紙（程式碼與主機設定都在 GitHub）" class="shot">
+        alt="四層疊起的分解圖，由上而下是你的裝置（私鑰只在這裡）、入口網站（不需要 email、帳號號碼只存雜湊、不留誰邀請了誰）、節點（防火牆紀錄關閉、換頁不寫入硬碟）與公開的圖紙（程式碼與主機設定都在 GitHub）" class="shot shot-narrow">
 </figure>
 
 連線用的私鑰（只留在裝置上的金鑰）在你的瀏覽器產生，帳號不需要 email，帳號號碼只存雜湊（無法還原回號碼的單向運算結果），都是一開始就放進設計裡的做法（privacy and security by design）。邀請碼兌換之後也不留下誰邀請了誰。上線之後我們持續調整，例如關掉節點防火牆的紀錄、停止把記憶體的換頁寫入硬碟，減少節點硬碟上可能留下的連線資訊。

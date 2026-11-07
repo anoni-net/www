@@ -68,7 +68,7 @@ HaGeZi 的名单来源以欧美为主，10 月 31 日比对台湾 165 列管的 
 
 <figure markdown="span">
     <img src="https://assets.anoni.net/newsletter/newsletter-vessel-exploded-zh-orig-7e046afc.png"
-        alt="四层叠起的分解图，由上而下是你的设备（私钥只在这里）、入口网站（不需要 email、账号号码只存哈希、不留谁邀请了谁）、节点（防火墙记录关闭、交换不写入硬盘）与公开的图纸（代码与主机设置都在 GitHub）" class="shot">
+        alt="四层叠起的分解图，由上而下是你的设备（私钥只在这里）、入口网站（不需要 email、账号号码只存哈希、不留谁邀请了谁）、节点（防火墙记录关闭、交换不写入硬盘）与公开的图纸（代码与主机设置都在 GitHub）" class="shot shot-narrow">
 </figure>
 
 连接用的私钥（只留在设备上的密钥）在你的浏览器生成，账号不需要 email，账号号码只存哈希（无法还原回号码的单向运算结果），都是一开始就放进设计里的做法（privacy and security by design）。邀请码兑换之后也不留下谁邀请了谁。上线之后我们持续调整，例如关掉节点防火墙的记录、停止把内存的交换数据写入硬盘，减少节点硬盘上可能留下的连接信息。
