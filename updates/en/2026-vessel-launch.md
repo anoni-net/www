@@ -86,7 +86,11 @@ The code for Vessel's site and the nodes' host setup is all public on [GitHub](h
 
 A vessel is a ship, and before a ship is built someone draws its plans. Every part and its size is marked on them, and those plans are what you check it against. VPN sites tend to show shields and padlocks, and you still cannot see how anything works. We would like you to trust what we actually do, so we drew the site as a set of plans laid open. The nodes a connection goes through, how the blocklists are checked and where the keys are made are all on the home page.
 
-A vessel is also a container, and the block title on the home page slowly fills. A small pixel figure carries a cobalt packet across the letters and presses it into the final l, and the word fills from the bottom up.
+A vessel is also a container. Your connection is packed into an encrypted tunnel before it sets out, so the network providers along the way see only the disguised outer packets and cannot get at what is inside. The packets are unpacked at the node and sent on to the site, and the node does not write the destination or time of a connection to any log.
+
+A container also has a fixed size. The community's servers and bandwidth are limited, so each account has 50 GB a month and invite codes go out in rounds, depending on how the service is being used. We would like to look after what fits, with someone there to answer when you have a problem, before adding more nodes and places.
+
+The block title on the home page follows the same idea: a small pixel figure carries a cobalt packet across the letters and presses it into the final l, and the word slowly fills from the bottom up.
 
 ## What to know before you use it
 
