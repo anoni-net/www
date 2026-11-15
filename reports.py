@@ -79,8 +79,10 @@ def view(root: Path, data: dict, labels: dict, pick, names: dict) -> dict:
 
     # 升級：季末跑這一季新版本的比例，以及新版本在各地區第一次出現的日期
     new_versions = [r["version"] for r in p["releases"]]
+    # 季末沒有運作中中繼的地區（例如 2026 Q4 的澳門），比例沒有意義，不列進升級與集中度
+    with_relays = [c for c in data["countries"] if p["churn"][c]["at_end"]]
     upgrade = []
-    for c in data["countries"]:
+    for c in with_relays:
         vs = p["versions_end"][c]
         total = sum(v["count"] for v in vs)
         on_new = sum(v["count"] for v in vs if v["version"] in new_versions)
@@ -97,7 +99,7 @@ def view(root: Path, data: dict, labels: dict, pick, names: dict) -> dict:
     share = [{"asn": a["asn"], "name": a["as_name"], "n": a["n"], "pct": pct(a["n"], churn["at_end"]),
               "shade": SHADES[min(i, 4)]} for i, a in enumerate(asn_end)]
     top2 = []
-    for c in data["countries"]:
+    for c in with_relays:
         top = p["asn_end"][c][:2]
         top2.append({"code": c, "pct": pct(sum(a["n"] for a in top), p["churn"][c]["at_end"])})
     top2.sort(key=lambda t: -t["pct"])
