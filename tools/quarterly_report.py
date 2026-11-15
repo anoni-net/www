@@ -12,8 +12,8 @@
     uv run tools/quarterly_report.py 2026-q3 --pulse-extra /tmp/pulse-extra.json
 
 來源：Pulse 的 /api/summary（每日總數與版本）、OONI 的彙總 API、APNIC 的 ASN 使用者
-估計、RIPE NCC 的 ASN 名稱表。APNIC 只提供最近 60 天的估計，查不到過去的值，所以
-季報用的是產生當下的那一份，檔案裡記著它的日期。
+估計、RIPE NCC 的 ASN 名稱表。APNIC 的估計用本季與上一季季末那一天的版本（aspop 的 d 參數），
+季末之前試跑時先用最新的一份，日期記在數字檔的 apnic.date 與 apnic.prev_date。
 """
 
 import argparse
@@ -58,6 +58,26 @@ def quarter_range(qid: str) -> tuple[date, date]:
 
 def ooni(params: str) -> list | dict:
     return get_json(f"{OONI_API}?{params}")["result"]
+
+
+def apnic_on(cc: str, day: date, today: date) -> tuple[dict, str]:
+    """APNIC 某一天的 ASN 使用者估計，回傳資料與估計的日期。
+
+    aspop 加上 d=DD/MM/YYYY 可以查過去任一天的估計（每一份用 60 天的樣本），查詢的日期還沒到
+    時會退回最新的一份。季末之前試跑時照樣用最新的那一份並印出提醒，季末之後回傳的日期跟查詢的
+    不一致就停下來，避免數字檔混用不同日期的估計。"""
+    d = get_json(f"{APNIC_API}?c={cc.upper()}&f=j&d={day:%d/%m/%Y}")
+    got = pop_date(d.get("Date", ""))
+    if got != day.isoformat():
+        if day < today:
+            sys.exit(f"APNIC 的 {cc} 回傳 {got} 的估計，查詢的是 {day}")
+        print(f"注意 {cc}：{day} 還沒到，APNIC 的估計先用 {got}", flush=True)
+    return d, got
+
+
+def apnic_shares(d: dict) -> list[dict]:
+    total = sum(p["Users"] for p in d["Data"]) or 1
+    return [{"asn": p["AS"], "name": p["Description"], "pct": p["Users"] / total * 100} for p in d["Data"]]
 
 
 def stable_version(v: str) -> bool:
@@ -132,17 +152,18 @@ def main() -> int:
             pulse["asn_end"][a["country"]].append({"asn": a["asn"], "as_name": a["as_name"], "n": a["n"]})
     pulse["asn_start"] = [{"asn": a["asn"], "n": a["n"]} for a in extra["asn_start"] if a["country"] == REPORT_CC]
 
-    # APNIC：各地區的網路使用者總數，臺灣另外留各 ASN 的占比
+    # APNIC：各地區的網路使用者總數，臺灣另外留各 ASN 的占比。本季用季末那一天的估計，
+    # 上一季用上一季季末的估計（只要臺灣，算上一季的涵蓋率）
+    q_end, prev_end = until - timedelta(days=1), since - timedelta(days=1)
     apnic = {"users": {}, "asns": []}
     for cc in codes:
-        d = get_json(f"{APNIC_API}?c={cc.upper()}&f=j")
+        d, apnic["date"] = apnic_on(cc, q_end, today)
         apnic["users"][cc] = sum(p["Users"] for p in d["Data"])
-        apnic["date"] = pop_date(d.get("Date", ""))
         if cc == REPORT_CC:
-            total = apnic["users"][cc] or 1
-            apnic["asns"] = [{"asn": p["AS"], "name": p["Description"], "pct": p["Users"] / total * 100}
-                             for p in d["Data"]]
+            apnic["asns"] = apnic_shares(d)
         print(f"apnic {cc}", flush=True)
+    d, apnic["prev_date"] = apnic_on(REPORT_CC, prev_end, today)
+    apnic["prev_asns"] = apnic_shares(d)
 
     # OONI：本季每天各 ASN 的測量、上一季各 ASN 的測量、社群 OONI Run 連結、網站測試的確認封鎖
     cc = REPORT_CC.upper()
@@ -176,7 +197,7 @@ def main() -> int:
     print(f"ooni: {len(per_asn)} 個 ASN", flush=True)
 
     names = parse_names(get(RIPE_NAMES).decode("utf-8", "replace"))
-    known = {a["asn"] for a in apnic["asns"]}
+    known = {a["asn"] for a in apnic["asns"] + apnic["prev_asns"]}
     wanted = (set(per_asn) | set(prev) | set(run_q)) - known
 
     data = {

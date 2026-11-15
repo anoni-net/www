@@ -119,8 +119,11 @@ def view(root: Path, data: dict, labels: dict, pick, names: dict) -> dict:
     q_asn = {int(k): v for k, v in o["per_asn"].items()}
     prev_asn = {int(k): v for k, v in o["prev_per_asn"].items()}
 
-    def coverage(asns) -> float:
-        return sum(users[a]["pct"] for a in asns if a in users)
+    # 上一季的涵蓋率用上一季季末的估計。2026 Q3 的數字檔只有一份估計，兩季共用
+    prev_users = {a["asn"]: a for a in data["apnic"].get("prev_asns", data["apnic"]["asns"])}
+
+    def coverage(asns, pop=users) -> float:
+        return sum(pop[a]["pct"] for a in asns if a in pop)
 
     def top2_share(counts: dict) -> float:
         vals = sorted(counts.values(), reverse=True)
@@ -134,7 +137,7 @@ def view(root: Path, data: dict, labels: dict, pick, names: dict) -> dict:
         return users[asn]["name"] if asn in users else names.get(str(asn), "")
 
     ooni_stats = {
-        "coverage": coverage(q_asn), "coverage_prev": coverage(prev_asn),
+        "coverage": coverage(q_asn), "coverage_prev": coverage(prev_asn, prev_users),
         "asns": len(q_asn), "asns_prev": len(prev_asn),
         "total": q_total, "total_prev": prev_total,
         "top2": top2_share(q_counts), "top2_prev": top2_share(prev_asn),
@@ -221,5 +224,6 @@ def view(root: Path, data: dict, labels: dict, pick, names: dict) -> dict:
         "web": {k: o[f"web_{k}"] for k in ("total", "confirmed", "confirmed_domains",
                                              "confirmed_max_per_domain", "confirmed_asns")},
         "apnic_date": data["apnic"]["date"],
+        "apnic_prev_date": data["apnic"].get("prev_date", data["apnic"]["date"]),
         "num": num,
     }
