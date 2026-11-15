@@ -87,7 +87,8 @@ def main() -> int:
     for cc in codes:
         s = get_json(f"{PULSE_API}/summary?country={cc}&days={min(days, 365)}")
         pulse["daily"][cc] = [
-            {k: d[k] for k in ("date", "running", "stopped", "bandwidth", "exit", "asns")}
+            # weight 是全網路權重的占比，2026-10-10 開始收集，之前的日子是 None
+            {k: d.get(k) for k in ("date", "running", "stopped", "bandwidth", "exit", "asns", "weight")}
             for d in s["daily"] if prev_since.isoformat() <= d["date"] < until.isoformat()]
         in_q = [v for v in s["versions"] if since.isoformat() <= v["date"] < until.isoformat()]
         last = max((v["date"] for v in in_q), default=None)
@@ -109,10 +110,24 @@ def main() -> int:
     # 每個地區只留這一季新版本第一次出現的日期，其他版本用不到
     new = {r["version"] for r in pulse["releases"]}
     pulse["first_seen"] = {cc: {v: d for v, d in seen.items() if v in new} for cc, seen in pulse["first_seen"].items()}
-    pulse["churn"] = {c["country"]: c for c in extra["churn"]}
-    # 季末各 ASN 的中繼數：臺灣全部留下，其他地區只要前五名（算集中度用前兩名，總數在 churn）
-    pulse["asn_end"] = defaultdict(list)
+    pulse["churn"] = {c["country"]: c for c in extra["churn"] if c["country"] in codes}
+    missing = [cc for cc in codes if cc not in pulse["churn"]]
+    if missing:
+        sys.exit(f"--pulse-extra 缺少 {', '.join(missing)}，確認 tools/quarterly_pulse.sql 沒有篩掉這些地區")
+    # 季中才開始收集的地區，季初是第一筆快照。季末之前就沒有資料列的地區（中繼全部停止超過一週，
+    # Onionoo 不再列出），季末的數字停在最後一筆快照。兩種都要寫進季報的資料與方法
+    last_any = max(c["last_snap"] for c in pulse["churn"].values())[:10]
+    for cc, c in pulse["churn"].items():
+        if c["first_snap"][:10] != since.isoformat():
+            print(f"注意 {cc}：季初快照是 {c['first_snap'][:10]}", flush=True)
+        if c["last_snap"][:10] != last_any:
+            print(f"注意 {cc}：最後一筆快照是 {c['last_snap'][:10]}，季末運作中 {c['at_end']} 個", flush=True)
+    # 季末各 ASN 的中繼數：臺灣全部留下，其他地區只要前五名（算集中度用前兩名，總數在 churn）。
+    # 季末沒有運作中中繼的地區留空的清單
+    pulse["asn_end"] = {cc: [] for cc in codes}
     for a in extra["asn_end"]:
+        if a["country"] not in pulse["asn_end"]:
+            continue
         if a["country"] == REPORT_CC or len(pulse["asn_end"][a["country"]]) < 5:
             pulse["asn_end"][a["country"]].append({"asn": a["asn"], "as_name": a["as_name"], "n": a["n"]})
     pulse["asn_start"] = [{"asn": a["asn"], "n": a["n"]} for a in extra["asn_start"] if a["country"] == REPORT_CC]

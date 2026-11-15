@@ -1,10 +1,10 @@
 -- 季報用的 Pulse 數字：季初與季末快照的中繼名單比對、整季的穩定度、季初與季末的 ASN 分布。
 -- 每一天取當天最後一次快照，參數 since（含）與 until（不含）。用法見 tools/quarterly_report.py 的開頭。
+-- 不篩地區，Pulse 收集的地區（data/pulse.toml 的 countries）全部列出，季中新加入的地區從第一筆快照算起。
 WITH snaps AS (
   SELECT country, created_at::date AS day, max(created_at) AS snap
   FROM relay_details
   WHERE created_at >= :'since' AND created_at < :'until'
-    AND country IN ('tw','jp','kr','hk','sg','vn','in','de','nl','us')
   GROUP BY 1, 2
 ),
 bounds AS (
