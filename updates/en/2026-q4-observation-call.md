@@ -1,5 +1,5 @@
 ---
-title: Call for talks and organizers for the December observation meetup, Q4 2026
+title: Call for talks and organizers, December 2026 observation meetup
 description: We are planning a December meetup and a mobile measurement week, and are looking for talks on anonymity and privacy and for people to help organize them.
 date: 2026-11-17
 kind: update
