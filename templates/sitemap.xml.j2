@@ -4,6 +4,10 @@
 {% for lang in langs %}
   <url>
     <loc>{{ target.base }}{{ page_path(lang, slug) }}</loc>
+{% set day = lastmod(lang, slug) %}
+{% if day %}
+    <lastmod>{{ day }}</lastmod>
+{% endif %}
 {% for other in langs %}
     <xhtml:link rel="alternate" hreflang="{{ other.html }}" href="{{ target.base }}{{ page_path(other, slug) }}"/>
 {% endfor %}
@@ -14,7 +18,7 @@
 {% for post in posts %}
   <url>
     <loc>{{ target.base }}{{ post.path }}</loc>
-    <lastmod>{{ post.date.isoformat() }}</lastmod>
+    <lastmod>{{ post_lastmod(post) }}</lastmod>
   </url>
 {% endfor %}
 </urlset>
