@@ -16,6 +16,7 @@ import html
 import json
 import re
 import shutil
+import subprocess
 import sys
 import tempfile
 import tomllib
@@ -72,6 +73,24 @@ ARTICLES_SLUG = "articles"
 # 顏色照品牌素材頁的「公告 tag」
 UPDATE_KINDS = ("new", "event", "update")
 # 季報各期的圖表，名稱對應 templates/_report.html.j2 的 macro，Markdown 裡寫成 <!-- rq-relays-chart -->
+# sitemap 的 lastmod 要看的檔案：頁面嵌入的區塊除了自己的模板，還讀這些資料。{lang} 換成語系，
+# 結尾是 / 的代表整個目錄。products 會讀文件站與新聞導讀的最新文章，觀測頁的資料每小時更新，
+# 嵌了這兩種區塊的頁面不寫 lastmod，見 Site.page_lastmod
+BLOCK_SOURCES = {
+    "services": ["data/services.toml"],
+    "more-services": ["data/services.toml"],
+    "topics": ["data/topics.toml"],
+    "tools": ["data/projects.toml"],
+    "more-projects": ["data/projects.toml"],
+    "updates": ["updates/{lang}/"],
+    "latest-updates": ["updates/{lang}/"],
+    "articles": ["pages/{lang}/articles/"],
+    "latest-articles": ["pages/{lang}/articles/"],
+    "reports": ["reports/", "data/reports.toml"],
+    "diagram-": ["data/diagrams.toml"],
+    "tu-": ["data/tor-users.toml", "data/tor-users/"],
+}
+LIVE_BLOCKS = {"products", "pulse", "asn-coverage"}
 REPORT_BLOCKS = ("relays_stats", "relays_chart", "churn", "upgrade", "asn", "density", "ooni_stats",
                  "types", "networks", "gaps", "changes", "ooni_daily", "run", "glossary")
 
@@ -105,6 +124,32 @@ def page_slugs(root: Path) -> list[str]:
     """一個語系目錄底下的頁面。pages/zh-TW/about/governance.md 是 about/governance，
     輸出到 /about/governance/。"""
     return sorted(p.relative_to(root).with_suffix("").as_posix() for p in root.rglob("*.md"))
+
+
+def git_dates() -> dict[str, date]:
+    """每個檔案最後一次 commit 的日期，給 sitemap 的 lastmod。
+
+    用 commit 日期，不用建置時間：m6 每小時重建一次，建置時間會讓每個網址每小時都算更新過，
+    Google 遇到這種 lastmod 會整份不採信。淺層 clone（GitHub Actions 的 checkout）只看得到
+    最後一個 commit，日期全是錯的，這時回傳空的，sitemap 就不寫 lastmod。沒有 git 的環境也一樣。
+    """
+    def git(*args: str) -> str:
+        return subprocess.run(["git", "-C", str(ROOT), "-c", "core.quotepath=off", *args],
+                              capture_output=True, text=True, check=True).stdout
+    try:
+        if git("rev-parse", "--is-shallow-repository").strip() != "false":
+            return {}
+        log = git("log", "--format=@%cs", "--name-only", "--", "pages", "data", "templates", "updates", "reports")
+    except (OSError, subprocess.CalledProcessError):
+        return {}
+    dates: dict[str, date] = {}
+    day = None
+    for line in log.splitlines():
+        if line.startswith("@"):
+            day = date.fromisoformat(line[1:])
+        elif line and day and line not in dates:
+            dates[line] = day
+    return dates
 
 
 def icon(name: str, cls: str = "i") -> Markup:
@@ -271,6 +316,7 @@ class Site:
         self.env.globals["asset"] = asset
         self.env.filters["toc"] = toc
         self.slugs = page_slugs(PAGES / self.langs[0].code)
+        self.git_dates = git_dates()
         self.posts = {lang.code: self.load_posts(lang) for lang in self.langs}
         # Tor 中繼節點觀測：第一個國家是主頁，其他國家各一頁，路徑是 projects/pulse/<code>
         self.pulse_codes = [c["code"] for c in self.data.get("pulse", {}).get("countries", [])]
@@ -365,6 +411,29 @@ class Site:
                 meta, _ = split_front_matter((PAGES / lang.code / f"{mid}.md").read_text(encoding="utf-8"), mid)
                 trail.append((meta["title"], self.page_path(lang, mid)))
         return trail
+
+    def page_lastmod(self, lang: Lang, slug: str) -> str:
+        """sitemap 的 lastmod：頁面原始檔與它嵌入的區塊所讀的檔案，最後一次 commit 的日期。
+        讀即時資料的頁面（首頁與專案頁的最新文章、兩個觀測頁與各地區的子頁）不寫，還沒 commit 的
+        新頁面也不寫。"""
+        src = PAGES / lang.code / f"{slug}.md"
+        if slug in (PULSE_SLUG, ASN_SLUG) or not src.exists():
+            return ""
+        names = PLACEHOLDER.findall(src.read_text(encoding="utf-8"))
+        if LIVE_BLOCKS & set(names):
+            return ""
+        own = src.relative_to(ROOT).as_posix()
+        if own not in self.git_dates:
+            return ""
+        deps = [own]
+        for name in names:
+            deps.append(f"templates/_block-{name}.html.j2")
+            for key, sources in BLOCK_SOURCES.items():
+                if name == key or (key.endswith("-") and name.startswith(key)):
+                    deps += [s.format(lang=lang.code) for s in sources]
+        prefixes = tuple(d for d in deps if d.endswith("/"))
+        return max(day for path, day in self.git_dates.items()
+                   if path in deps or path.startswith(prefixes)).isoformat()
 
     def page_path(self, lang: Lang, slug: str) -> str:
         """本站頁面的路徑，首頁是語系的根目錄。"""
@@ -586,6 +655,7 @@ class Site:
                 target=target, langs=self.langs, slugs=self.slugs, page_path=self.page_path), target)
             self.write(out / "sitemap.xml", self.env.get_template("sitemap.xml.j2").render(
                 target=target, langs=self.langs, slugs=self.slugs + self.pulse_slugs + self.asn_slugs, page_path=self.page_path,
+                lastmod=self.page_lastmod,
                 posts=[p for lang in self.langs for p in self.posts[lang.code] + self.reports[lang.code]]), target)
             # 頁面用到的圖片清單，部署腳本照著從圖片主機複製進來。寫在輸出目錄外面，不會跟著發布
             if prefix := target.get("assets"):
