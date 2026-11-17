@@ -23,7 +23,7 @@ This post also covers other ways to take part, including development and data an
 
 ## The December meetup and measurement week
 
-We want to hold an observation meetup in Taipei with several talks on anonymity and privacy, a walk through the monitoring pages, and time to set up relays or bridges and install OONI Probe on the spot. In the same month we want to run a mobile measurement week, asking people to run OONI Probe on their phones during one week so the quarterly report can compare the figures before and after. The two can be combined. Dates and format depend on how many speakers and organizers join, and are not fixed yet. The machines, connections and running order for the meetup will be planned together with the people who sign up.
+We want to hold an observation meetup in Taipei with several talks on anonymity and privacy, a walk through the monitoring pages, and time to set up relays or bridges and install OONI Probe on the spot. In the same month we want to run a mobile measurement week, asking people to run OONI Probe on their phones during one week so the quarterly report can compare the figures before and after. The two can be combined. For now the meetup will be held mainly in Mandarin Chinese. Dates and format depend on how many speakers and organizers join, and are not fixed yet. The machines, connections and running order for the meetup will be planned together with the people who sign up.
 
 !!! note "Venue still needed"
 
