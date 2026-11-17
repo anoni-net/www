@@ -296,7 +296,6 @@ class Post:
     meta: dict
     body: str
     path: str
-    src: str = ""  # 原始檔相對 repo 根目錄的路徑，給 sitemap 的 lastmod
 
 
 class Site:
@@ -348,7 +347,7 @@ class Site:
                 raise SystemExit(f"{where}：kind 只能是 {'、'.join(UPDATE_KINDS)}，觀點與經驗類的文章不寫")
             slug = meta.get("slug") or src.stem
             posts.append(Post(lang.code, slug, day, meta, body,
-                              f"{lang.prefix}/updates/{day:%Y/%m}/{slug}/", where))
+                              f"{lang.prefix}/updates/{day:%Y/%m}/{slug}/"))
         return sorted(posts, key=lambda p: p.date, reverse=True)
 
     def load_reports(self, lang: Lang) -> list[Post]:
@@ -360,7 +359,7 @@ class Site:
             if not isinstance(meta.get("date"), date):
                 raise SystemExit(f"{where}：front matter 的 date 要寫成 YYYY-MM-DD")
             items.append(Post(lang.code, src.stem, meta["date"], meta, body,
-                              f"{lang.prefix}/{REPORTS_SLUG}/{src.stem}/", where))
+                              f"{lang.prefix}/{REPORTS_SLUG}/{src.stem}/"))
         return sorted(items, key=lambda r: r.slug, reverse=True)
 
     def report_items(self, lang: Lang, target: dict) -> list[dict]:
@@ -435,10 +434,6 @@ class Site:
         prefixes = tuple(d for d in deps if d.endswith("/"))
         return max(day for path, day in self.git_dates.items()
                    if path in deps or path.startswith(prefixes)).isoformat()
-
-    def post_lastmod(self, post: Post) -> str:
-        """動態與季報的 lastmod：發布日期，發布後又改過就用最後一次 commit 的日期。"""
-        return max(post.date, self.git_dates.get(post.src, post.date)).isoformat()
 
     def page_path(self, lang: Lang, slug: str) -> str:
         """本站頁面的路徑，首頁是語系的根目錄。"""
@@ -660,7 +655,7 @@ class Site:
                 target=target, langs=self.langs, slugs=self.slugs, page_path=self.page_path), target)
             self.write(out / "sitemap.xml", self.env.get_template("sitemap.xml.j2").render(
                 target=target, langs=self.langs, slugs=self.slugs + self.pulse_slugs + self.asn_slugs, page_path=self.page_path,
-                lastmod=self.page_lastmod, post_lastmod=self.post_lastmod,
+                lastmod=self.page_lastmod,
                 posts=[p for lang in self.langs for p in self.posts[lang.code] + self.reports[lang.code]]), target)
             # 頁面用到的圖片清單，部署腳本照著從圖片主機複製進來。寫在輸出目錄外面，不會跟著發布
             if prefix := target.get("assets"):

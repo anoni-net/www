@@ -18,7 +18,7 @@
 {% for post in posts %}
   <url>
     <loc>{{ target.base }}{{ post.path }}</loc>
-    <lastmod>{{ post_lastmod(post) }}</lastmod>
+    <lastmod>{{ post.date.isoformat() }}</lastmod>
   </url>
 {% endfor %}
 </urlset>
