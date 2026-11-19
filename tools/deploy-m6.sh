@@ -33,7 +33,8 @@ IMAGES=/srv/images-anoni-net
 PULSE_API=http://127.0.0.1:8899/api
 export PULSE_API
 
-exec 9>/tmp/www-deploy.lock
+# 鎖檔放在部署目錄，不放 /tmp：/tmp 人人可寫，本機的其他帳號可以先建立同名的檔案擋住部署
+exec 9>"$BASE/deploy.lock"
 flock -n 9 || exit 0
 [ -e "$BASE/hold" ] && exit 0
 

@@ -23,6 +23,7 @@ FEEDS = {
     "docs": "https://anoni.net/docs{prefix}/feed_rss_created.xml",
     "news": "https://anoni.net/news{prefix}/feed.xml",
 }
+SITE = "https://anoni.net/"
 ITEM = re.compile(r"<item>(.*?)</item>", re.S)
 
 
@@ -38,7 +39,11 @@ def parse(xml: str, limit: int = 20) -> list[dict]:
             day = parsedate_to_datetime(_field(raw, "pubDate")).date().isoformat()
         except (TypeError, ValueError):
             continue
-        items.append({"title": _field(raw, "title"), "link": _field(raw, "link"), "date": day})
+        link = _field(raw, "link")
+        # 網址會寫進 href，只收本站的 https 網址，RSS 的內容有異狀時不會帶進 javascript: 這類連結
+        if not link.startswith(SITE):
+            continue
+        items.append({"title": _field(raw, "title"), "link": link, "date": day})
     # RSS 不保證照時間排，新的在前
     return sorted(items, key=lambda i: i["date"], reverse=True)
 

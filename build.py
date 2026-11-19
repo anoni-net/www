@@ -24,6 +24,7 @@ from dataclasses import dataclass
 from datetime import date, datetime, timezone
 from email.utils import format_datetime
 from pathlib import Path
+from urllib.parse import urlsplit
 
 import markdown
 from pymdownx.slugs import slugify
@@ -1095,6 +1096,11 @@ class Site:
         return head + mark + HREF.sub(repl, body)
 
 
+# 開頁面時瀏覽器會自動抓取的資源：圖片、影音、內嵌頁面、指令碼與樣式表
+LOADED = re.compile(r'<(?:img|source|video|audio|iframe|embed|script)\b[^>]*?\ssrc="(https?://[^"]+)"'
+                    r'|<link\b[^>]*?rel="stylesheet"[^>]*?\shref="(https?://[^"]+)"')
+
+
 def check(site: Site, outs: list[Path]) -> list[str]:
     import xml.etree.ElementTree as ET
     problems = []
@@ -1136,6 +1142,12 @@ def check(site: Site, outs: list[Path]) -> list[str]:
                 got = re.search(r'<html lang="([^"]*)"', dest.read_text(encoding="utf-8"))[1] if dest.exists() else None
                 if got != want:
                     problems.append(f"{out.name}/{rel}：語言切換 {want} 指到 {href}，那一頁是 {got}")
+            # 瀏覽器會自動載入的資源只能來自本站的主機。引用其他網站的圖片，讀者一開頁面就對那個
+            # 網站發出請求，onion 版本的讀者也一樣，圖片先放到 assets.anoni.net 再引用
+            for url in (m[1] or m[2] for m in LOADED.finditer(text)):
+                host = urlsplit(url).hostname or ""
+                if not (host == "anoni.net" or host.endswith((".anoni.net", site.config["onion_host"]))):
+                    problems.append(f"{out.name}/{rel}：載入了其他網站的資源 {url}")
             if out.name == "onion":
                 rest = text
                 for url in site.config["targets"]["onion"].get("keep", []):
