@@ -6,7 +6,7 @@ date: 2025-05-16
 
 Routing a program through Tor usually depends on the program honouring a proxy setting. One misconfigured proxy, or one system call that skips the SOCKS layer, and traffic leaves the machine in the clear. oniux removes that dependency on Linux by putting the program in a network namespace where Tor is the only way out.
 
-[![oniux announcement image](https://blog.torproject.org/introducing-oniux-tor-isolation-using-linux-namespaces/lead.webp){ .shot }](https://blog.torproject.org/introducing-oniux-tor-isolation-using-linux-namespaces/)
+[![oniux announcement image](https://assets.anoni.net/www/articles/oniux-lead-ee4e8496.webp){ .shot }](https://blog.torproject.org/introducing-oniux-tor-isolation-using-linux-namespaces/)
 
 ## The Original Announcement
 

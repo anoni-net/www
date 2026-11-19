@@ -8,7 +8,7 @@ date: 2026-04-10
 
 以下翻譯自 Osservatorio Nessuno 在 Tor Blog「捍衛自由網路的組織」系列發表的 [A Server That Forgets: Exploring Stateless Relays](https://blog.torproject.org/exploring-stateless-relays/)（2026-04-08），文中的「我們」指 Osservatorio Nessuno。文末的台灣營運者觀點由 anoni.net 社群補充。
 
-[![A Server That Forgets](https://forum.torproject.org/uploads/default/original/2X/e/ee9375b0ec3906d4a0338bc230d97d0a659d996a.jpeg){ .shot }](https://blog.torproject.org/exploring-stateless-relays/)
+[![A Server That Forgets](https://assets.anoni.net/www/articles/stateless-relays-lead-5baad705.jpeg){ .shot }](https://blog.torproject.org/exploring-stateless-relays/)
 
 營運 Tor relay 需要持續對抗試圖攻擊節點、藉此破壞整個網路的敵手，對方可能是民間勢力，也可能有國家支持。有些營運者還要面對扣押、搜索，或硬體遭到直接實體接觸。[奧地利](https://www.zdnet.com/article/austrian-man-raided-for-operating-tor-exit-node/)、[德國](https://forum.torproject.org/t/tor-relays-artikel-5-e-v-another-police-raid-in-germany-general-assembly-on-sep-21st-2024/14533)、[美國](https://www.npr.org/sections/alltechconsidered/2016/04/04/472992023/when-a-dark-web-volunteer-gets-raided-by-the-police)與[俄羅斯](https://torservers.net/blog/2017-04-14-freebogatov-relaymob/)都有先例，其他地方很可能也有。在這些案例裡，伺服器本身可能成為營運者的負擔。
 

@@ -5,7 +5,7 @@ date: 2026-05-23
 kind: new
 ---
 
-![MADLink 报告封面](https://interseclab.org/wp-content/uploads/2026/04/MADLink-A-Taiwanese-Vestige-in-the-Geedge-Suply-Chain.jpg){ .shot }
+![MADLink 报告封面](https://assets.anoni.net/updates/madlink-cover-9788496b.jpg){ .shot }
 
 一家台湾上市公司出货的网络设备，最后在哈萨克斯坦成了国家级网络审查与监控系统的核心。InterSecLab 的 MADLink 报告追查了这条供应链，匿名网络社区 anoni.net 已完成正体中文翻译，收在文档站的[研究报告中译](https://anoni.net/docs/reports/)（中译只有正体中文版）。
 
