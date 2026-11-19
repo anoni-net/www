@@ -8,7 +8,7 @@ The less a seized relay can hand over, the safer its users are. Osservatorio Nes
 
 This guide follows the structure of [A Server That Forgets: Exploring Stateless Relays](https://blog.torproject.org/exploring-stateless-relays/), published on 2026-04-08 as part of the Tor Blog's spotlight series on organizations defending the free internet. Where the summary says "the authors", it means Osservatorio Nessuno. The notes for relay operators in Taiwan at the end were added by the anoni.net community.
 
-[![A Server That Forgets](https://forum.torproject.org/uploads/default/original/2X/e/ee9375b0ec3906d4a0338bc230d97d0a659d996a.jpeg){ .shot }](https://blog.torproject.org/exploring-stateless-relays/)
+[![A Server That Forgets](https://assets.anoni.net/www/articles/stateless-relays-lead-5baad705.jpeg){ .shot }](https://blog.torproject.org/exploring-stateless-relays/)
 
 Relay operators work against adversaries, private and state-backed, who try to undermine Tor by attacking the nodes it is made of. Some operators also face seizures, raids and direct physical access to their hardware, with precedents in [Austria](https://www.zdnet.com/article/austrian-man-raided-for-operating-tor-exit-node/), [Germany](https://forum.torproject.org/t/tor-relays-artikel-5-e-v-another-police-raid-in-germany-general-assembly-on-sep-21st-2024/14533), [the United States](https://www.npr.org/sections/alltechconsidered/2016/04/04/472992023/when-a-dark-web-volunteer-gets-raided-by-the-police) and [Russia](https://torservers.net/blog/2017-04-14-freebogatov-relaymob/), and very likely elsewhere. In those cases the server itself becomes a liability.
 

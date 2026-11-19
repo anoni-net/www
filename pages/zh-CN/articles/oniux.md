@@ -8,7 +8,7 @@ date: 2025-05-16
 
     本文翻译自 Tor Project 博客的 [Introducing oniux: Kernel-level Tor isolation for any Linux app](https://blog.torproject.org/introducing-oniux-tor-isolation-using-linux-namespaces/)（2025-05-14），文中的「我们」是 Tor Project。安装方式依 2026-10 的官方文档更新，补注、「oniux 与 onionmasq」与「社区的看法」两节由 anoni.net 撰写。
 
-![oniux 的介绍图](https://blog.torproject.org/introducing-oniux-tor-isolation-using-linux-namespaces/lead.webp){ .shot }
+![oniux 的介绍图](https://assets.anoni.net/www/articles/oniux-lead-ee4e8496.webp){ .shot }
 
 开发者在推出重视隐私的应用程序与服务时，希望每一个数据包都确实经由 Tor 传送。只要代理配置错一处，或有一次系统调用不小心绕过了 SOCKS，数据就可能泄露。
 

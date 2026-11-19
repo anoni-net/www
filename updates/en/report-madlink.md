@@ -5,7 +5,7 @@ date: 2026-05-23
 kind: new
 ---
 
-![MADLink report cover](https://interseclab.org/wp-content/uploads/2026/04/MADLink-A-Taiwanese-Vestige-in-the-Geedge-Suply-Chain.jpg){ .shot }
+![MADLink report cover](https://assets.anoni.net/updates/madlink-cover-9788496b.jpg){ .shot }
 
 Network appliances shipped by a publicly listed Taiwanese company ended up at the core of a national internet censorship and surveillance system in Kazakhstan. InterSecLab's MADLink report traces that supply chain, and we, a community based in Taiwan, have translated it into Traditional Chinese for the docs site's [research report translations](https://anoni.net/docs/reports/).
 

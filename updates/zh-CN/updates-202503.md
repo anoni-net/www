@@ -24,7 +24,7 @@ COSCUP 预计在 8/9、10 于台湾科技大学举办，我们会在这两天的
 
 ## 「匿名凭证」
 
-![Security without identification: transaction systems to make big brother obsolete](https://ooni.org/post/2025-probe-security-without-identification/images/chaum.png)
+![Security without identification: transaction systems to make big brother obsolete](https://assets.anoni.net/updates/chaum-68bd2ada.png)
 
 最近我们翻译了一篇来自 OONI 团队如何计划改善与增强匿名数据提供的验证，如何在保有隐私与数据可信度上做出改进、抵御来自恶意上传脏数据影响整体数据库的解决方法。有兴趣的可以阅读[这篇文章](/articles/ooni-anonymous-credentials/)。
 

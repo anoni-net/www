@@ -24,7 +24,7 @@ COSCUP is scheduled to be held on August 9th and 10th at National Taiwan Univers
 
 ## Anonymous Credentials
 
-![Security without identification: transaction systems to make big brother obsolete](https://ooni.org/post/2025-probe-security-without-identification/images/chaum.png)
+![Security without identification: transaction systems to make big brother obsolete](https://assets.anoni.net/updates/chaum-68bd2ada.png)
 
 Recently, we translated an article from the OONI team that discusses their plans to improve and enhance the verification of anonymously submitted data. This includes ways to advance privacy and data credibility while combating the impact of malicious, false data submissions on the overall database. If you're interested, you can [read the article](/articles/ooni-anonymous-credentials/).
 
