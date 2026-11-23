@@ -28,6 +28,7 @@ The articles follow the layers of the docs site's [guides](docs:guides/):
 - **Tools**: [The cryptocurrency privacy spectrum](docs:tools/crypto-privacy-spectrum/)
 - **Scenarios**: [Anonymous donation channels for advocacy organizations](docs:scenarios/nonprofit-anonymous-donation/)
 - **Articles**: [Zero-Knowledge Identity and Payments](/articles/zk-identity-payments/)
+- **Institutions**: [FATF, the body that sets anti-money laundering standards](/join/payments-research/fatf/)
 - **Regional**: [Taiwan's 2026 Virtual Asset Service Act](docs:regional/taiwan-vasp-2026/)
 
 Most first drafts are published, and they are revised and extended on a quarterly rhythm.

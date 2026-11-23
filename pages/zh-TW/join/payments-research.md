@@ -28,6 +28,7 @@ description: 匿名網路社群 2026 年三大主題之一，研究現金以外�
 - 工具：[加密貨幣的隱私光譜](docs:tools/crypto-privacy-spectrum/)
 - 場景：[倡議組織的匿名捐款管道](docs:scenarios/nonprofit-anonymous-donation/)
 - 技術文章：[零知識身分驗證與支付](/articles/zk-identity-payments/)
+- 制度：[FATF，制定防制洗錢國際標準的組織](/join/payments-research/fatf/)
 - 在地：[台灣 VASP 法 2026](docs:taiwan/vasp-2026/)
 
 各篇初稿大多已上線，之後依季度節奏校訂與補充。
