@@ -1,6 +1,6 @@
 ---
 title: InterSecLab MADLink 報告的正體中文翻譯
-description: InterSecLab 的 MADLink 報告指出，凌華科技在 2019 至 2020 年出貨的 1,708 台 CSA-7400 成了 Geedge 第一代防火牆平台的硬體基底。社群的正體中文翻譯放在文件站，另附報告發布後台灣反應的觀察紀錄。
+description: InterSecLab 的 MADLink 報告指出，凌華科技在 2019 至 2020 年出貨的 1,708 台 CSA-7400 成了 Geedge 第一代防火牆平台的硬體基底。社群的正體中文翻譯收在報告與指引中譯，另附報告發布後台灣反應的觀察紀錄。
 date: 2026-05-23
 kind: new
 ---

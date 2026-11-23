@@ -1,6 +1,6 @@
 ---
 title: The Traditional Chinese Translation of InterSecLab's MADLink Report
-description: InterSecLab's MADLink report found that 1,708 CSA-7400 appliances shipped by ADLINK in 2019 and 2020 formed the hardware base of Geedge's first-generation firewall platform. The community's Traditional Chinese translation is on the docs site, with a separate record of how Taiwan responded.
+description: InterSecLab's MADLink report found that 1,708 CSA-7400 appliances shipped by ADLINK in 2019 and 2020 formed the hardware base of Geedge's first-generation firewall platform. The community's Traditional Chinese translation is in Translated Reports and Guidance, with a separate record of how Taiwan responded.
 date: 2026-05-23
 kind: new
 ---

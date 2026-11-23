@@ -5,11 +5,11 @@ description: 凌華科技的出口合規程序沒有攔下這批交易，報告�
 
 !!! note ""
 
-    - 本篇報告翻譯自「[MADLink: A Taiwanese Vestige in the Geedge Supply Chain | InterSecLab](https://interseclab.org/research/madlink-a-taiwanese-vestige-in-the-geedge-supply-chain/)」，內容以正體中文、臺灣用語翻譯。
-    - 本章節內容翻譯範圍為報告 **第 4/5 章** 的內容，對應原文的 Conclusions 段落。
-    - 你可以[參與討論](/library/interseclab-madlink/#參與討論)或檢視[報告翻譯更新](/library/interseclab-madlink/#更新紀錄)。
+    - 本章翻譯自 InterSecLab 的報告〈[MADLink: A Taiwanese Vestige in the Geedge Supply Chain](https://interseclab.org/research/madlink-a-taiwanese-vestige-in-the-geedge-supply-chain/)〉，以正體中文、臺灣用語翻譯。
+    - 本章是譯文的第 4/5 章，對應原文的 Conclusions 段落。
+    - 歡迎[參與討論](/library/interseclab-madlink/#參與討論)，或查看譯文的[更新紀錄](/library/interseclab-madlink/#更新紀錄)。
 
-這項調查確立了一個事實：台灣公司凌華科技在 2019 至 2020 年初之間，向 Geedge Networks 出貨了 1,708 台專用網路安全硬體，並且凌華科技的元件透過 EtherFabric 網路封包經紀，至今仍嵌在 Geedge 的產品線中。儘管硬體本身就是為深度封包檢測與防火牆應用而設計、行銷，且買家是一家在「與國家監控有完整可考連結」的領域中營運的中國公司，凌華科技的出口合規程序卻未對這些交易提出警示。
+調查確認台灣公司凌華科技在 2019 至 2020 年初之間，向 Geedge Networks 出貨了 1,708 台專用網路安全硬體，並且凌華科技的元件透過 EtherFabric 網路封包經紀，至今仍嵌在 Geedge 的產品線中。儘管硬體本身就是為深度封包檢測與防火牆應用而設計、行銷，且買家是一家在「與國家監控有完整可考連結」的領域中營運的中國公司，凌華科技的出口合規程序卻未對這些交易提出警示。
 
 光是出貨規模就足以引起檢視。即便這 1,708 台 CSA-7400 並非全部都部署在哈薩克，單一筆「來自中國買家、訂購大量專用網路安全設備」的訂單，在出口合規審查中應該觸發進一步盡職調查，而不該只是確認對方未列在現有制裁名單即放行。對於應用範圍狹窄、其用途大多涉及監控或控制網路流量的硬體來說，凌華科技以「客戶自行揭露」作為判斷最終用途的依據並不夠。
 

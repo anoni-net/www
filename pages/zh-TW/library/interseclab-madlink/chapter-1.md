@@ -5,9 +5,9 @@ description: 凌華科技出貨 1,708 台 CSA-7400 給 Geedge Networks 的調查
 
 !!! note ""
 
-    - 本篇報告翻譯自「[MADLink: A Taiwanese Vestige in the Geedge Supply Chain | InterSecLab](https://interseclab.org/research/madlink-a-taiwanese-vestige-in-the-geedge-supply-chain/)」，內容以正體中文、臺灣用語翻譯。
-    - 本章節內容翻譯範圍為報告 **第 1/5 章** 的內容，對應原文的 Executive Summary、What we found、Why it matters 三個段落。
-    - 你可以[參與討論](/library/interseclab-madlink/#參與討論)或檢視[報告翻譯更新](/library/interseclab-madlink/#更新紀錄)。
+    - 本章翻譯自 InterSecLab 的報告〈[MADLink: A Taiwanese Vestige in the Geedge Supply Chain](https://interseclab.org/research/madlink-a-taiwanese-vestige-in-the-geedge-supply-chain/)〉，以正體中文、臺灣用語翻譯。
+    - 本章是譯文的第 1/5 章，對應原文的 Executive Summary、What we found、Why it matters 三個段落。
+    - 歡迎[參與討論](/library/interseclab-madlink/#參與討論)，或查看譯文的[更新紀錄](/library/interseclab-madlink/#更新紀錄)。
 
 ## 摘要
 
@@ -29,15 +29,15 @@ Geedge 目前這一代的 TSG 硬體部署在衣索比亞、巴基斯坦和緬�
 
 雖然 Geedge 的軟體堆疊建立在開源軟體之上，目前這一代的硬體大多採用通用伺服器元件，凌華科技的硬體卻是顯著的例外。CSA-7400 是一款專為深度封包檢測與防火牆應用設計、行銷的高密度平台，EtherFabric 則是 Geedge 從零打造、用以在其監控節點之間做流量負載平衡的客製化網路設備。這兩款都難以從次級市場取得，使它們成為出口管制措施更可行的對象。
 
-對政策制定者而言，這項區別至關重要。供應鏈介入對通用元件的效果有限，但像 CSA-7400 這類具備監控能力的專用硬體、以及 EtherFabric 中使用的元件，正是更嚴格的盡職調查（due diligence）與出口管制最能發揮效果的地方。
+對政策制定者而言，這項區別很重要。供應鏈介入對通用元件的效果有限，但像 CSA-7400 這類具備監控能力的專用硬體、以及 EtherFabric 中使用的元件，正是更嚴格的盡職調查（due diligence）與出口管制最能發揮效果的地方。
 
 *[ADLINK]: 凌華科技股份有限公司（ADLINK Technology, Inc.），台灣上市公司（股票代號 6166），總部位於新北市。在中國設有 ADLINK Technology (China) Co., Ltd.，含北京分公司。
 *[Geedge Networks]: 中文簡稱：積至公司（积至公司），商業名稱：積至（海南）信息技術有限公司，是一家中國網路公司，涉及網際網路審查與監控技術的研發、部署與對外出口。
 *[Geedge]: 積至公司（积至公司）。
-*[InterSecLab]: 資安實驗室，本報告發佈的組織。
+*[InterSecLab]: 資安實驗室，本報告的發布者。
 *[CSA-7400]: 凌華科技推出的高密度 4U 網路平台設備，廠商行銷定位用於防火牆與深度封包檢測應用。
 *[DPI]: 深度封包檢測 Deep Packet Inspection，縮寫為 DPI，是一種電腦網路封包過濾技術，用來檢查透過檢測點封包的資料部分以搜尋不符合規範的協定、病毒、垃圾郵件、入侵，或依預定準則來決定封包是否可透過、需被路由至其他不同目的地，或是為了收集統計資料。
-*[TSG]: 天狗安全閘道（Tiangou Secure Gateway）是 Geedge Networks 提供的旗艦產品，作為運營商級別或國家級防火牆與流量管理解決方案，其全面能力可媲美中國防火長城（GFW）。
+*[TSG]: 天狗安全閘道（Tiangou Secure Gateway）是 Geedge Networks 提供的旗艦產品，作為電信業者等級或國家級防火牆與流量管理解決方案，其全面能力可媲美中國防火長城（GFW）。
 *[GFW]: 防火長城 Great Firewall，中國對國際網路流量進行審查與封鎖的整套技術系統。
 *[NPB]: 網路封包經紀（network packet broker），用以在多個監控或防火牆節點之間分配、複製、過濾網路流量的硬體設備。
 *[Nettrix]: 中科曙光（Sugon）旗下的伺服器子公司，組裝 x86 伺服器，使用 Intel 處理器及 Mellanox 光纖網卡。

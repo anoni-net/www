@@ -1,6 +1,6 @@
 ---
 title: The Traditional Chinese Translation of InterSecLab's The Internet Coup
-description: InterSecLab's analysis of 500GB of leaked data, documenting how the Chinese company Geedge Networks exports Great Firewall technology to other authoritarian states, now translated into Traditional Chinese on the docs site.
+description: InterSecLab's analysis of 500GB of leaked data, documenting how the Chinese company Geedge Networks exports Great Firewall technology to other authoritarian states, now translated into Traditional Chinese by the community.
 date: 2025-10-02
 kind: new
 ---

@@ -1,6 +1,6 @@
 ---
 title: InterSecLab 網路政變報告的正體中文翻譯
-description: InterSecLab 分析外洩的 500GB 資料，記錄中國公司 Geedge Networks 把防火長城的技術出口到其他威權國家的過程，社群的正體中文翻譯放在文件站。
+description: InterSecLab 分析外洩的 500GB 資料，記錄中國公司 Geedge Networks 把防火長城的技術出口到其他威權國家的過程，社群的正體中文翻譯收在報告與指引中譯。
 date: 2025-10-02
 kind: new
 ---

@@ -5,9 +5,9 @@ description: Geedge 自行設計的 EtherFabric 網路封包經紀裡的凌華�
 
 !!! note ""
 
-    - 本篇報告翻譯自「[MADLink: A Taiwanese Vestige in the Geedge Supply Chain | InterSecLab](https://interseclab.org/research/madlink-a-taiwanese-vestige-in-the-geedge-supply-chain/)」，內容以正體中文、臺灣用語翻譯。
-    - 本章節內容翻譯範圍為報告 **第 3/5 章** 的內容，對應原文的 EtherFabric: Geedge's custom network packet broker 與 ADLINK's role and response 兩段。
-    - 你可以[參與討論](/library/interseclab-madlink/#參與討論)或檢視[報告翻譯更新](/library/interseclab-madlink/#更新紀錄)。
+    - 本章翻譯自 InterSecLab 的報告〈[MADLink: A Taiwanese Vestige in the Geedge Supply Chain](https://interseclab.org/research/madlink-a-taiwanese-vestige-in-the-geedge-supply-chain/)〉，以正體中文、臺灣用語翻譯。
+    - 本章是譯文的第 3/5 章，對應原文的 EtherFabric: Geedge's custom network packet broker 與 ADLINK's role and response 兩段。
+    - 歡迎[參與討論](/library/interseclab-madlink/#參與討論)，或查看譯文的[更新紀錄](/library/interseclab-madlink/#更新紀錄)。
 
 ## EtherFabric：Geedge 自家的網路封包經紀
 
@@ -20,7 +20,7 @@ description: Geedge 自行設計的 EtherFabric 網路封包經紀裡的凌華�
 
 EtherFabric 看起來重用了與 TSG-9140 相同的、來自北京恒光信息技術的 VELA ATCA 硬體，但角色不同。外洩文件還指出，部分網路元件可能由凌華科技提供，與第一代 TSG-ADC 是同一家台灣供應商。
 
-一份標題為「Login to SMBIO」的外洩文件，記錄了 EtherFabric 板卡執行 Open Network Linux 時的序列主控台輸出，其中可以看到管理用網路介面。`ifconfig` 指令輸出顯示該介面的 MAC 位址為 `00:30:64:37:42:17`。MAC 位址前綴 `00:30:64` 的 OUI（組織唯一識別碼）登記在 ADLINK Technology, Inc. 名下，這證實了 EtherFabric 的管理與控制平面是建立在凌華科技的網路介面或主板上。換成白話來說，EtherFabric 內部那台操作員用來設定、監控和更新設備的專用電腦，至少包含一個凌華科技的元件，最有可能是運行管理軟體的運算主板。
+一份標題為「Login to SMBIO」的外洩文件，記錄了 EtherFabric 板卡執行 Open Network Linux 時的序列主控台輸出，其中可以看到管理用網路介面。`ifconfig` 指令輸出顯示該介面的 MAC 位址為 `00:30:64:37:42:17`。MAC 位址前綴 `00:30:64` 的 OUI（組織唯一識別碼）登記在 ADLINK Technology, Inc. 名下，這證實了 EtherFabric 的管理與控制平面是建立在凌華科技的網路介面或主板上。也就是說，EtherFabric 內部讓操作員設定、監控與更新設備的專用電腦，至少有一個凌華科技的元件，最有可能是執行管理軟體的運算主板。
 
 EtherFabric 部署在緬甸（M22）客戶站點，也作為概念驗證部署給一個只以代號 A24 識別的未知客戶。
 
@@ -30,7 +30,7 @@ EtherFabric 部署在緬甸（M22）客戶站點，也作為概念驗證部署�
 
 InterSecLab 聯絡凌華科技，詢問該公司與 Geedge Networks 之間關係的性質與範圍，特別針對為 EtherFabric 與 TSG-ADC 供應硬體一事。凌華科技證實，凌華科技（中國）有限公司北京分公司向 Geedge Networks 供應了標準的 CSA-7400 網路安全平台設備。該公司表示，已完成出口管制名單篩查，確認 Geedge 不在任何受限名單上，並依例行合規審查出貨產品。對於外洩資料中暗示凌華是否曾向 Geedge 提供 Intel 的 Testpoint 軟體一事，凌華科技並未正面回答。
 
-凌華科技表示，公司僅提供通用硬體平台，未參與任何與該產品最終用途相關的軟體整合、系統設計或運營活動。然而，這項說法與外洩文件互相矛盾。外洩文件顯示，Geedge 的 TSG-ADC 配置在負載平衡功能上仰賴凌華科技的 PacketManager 軟體。
+凌華科技表示，公司僅提供通用硬體平台，未參與任何與該產品最終用途相關的軟體整合、系統設計或營運活動。然而，這項說法與外洩文件互相矛盾。外洩文件顯示，Geedge 的 TSG-ADC 配置在負載平衡功能上仰賴凌華科技的 PacketManager 軟體。
 
 在後續往來的訊息中，凌華科技確認出貨持續到 2020 年初，並表示出貨給 Geedge 的 CSA-7400 總數為 1,708 台。該公司也表示將啟動內部稽核，調查其產品可能遭到濫用的情況，並願意與研究機構合作以釐清事實。凌華科技初步回應的全文收錄在[附錄](/library/interseclab-madlink/chapter-5/)。
 

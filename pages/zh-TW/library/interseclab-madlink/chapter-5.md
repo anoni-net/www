@@ -5,9 +5,9 @@ description: 凌華科技與經濟部國際貿易署回覆 InterSecLab 詢問的
 
 !!! note ""
 
-    - 本篇報告翻譯自「[MADLink: A Taiwanese Vestige in the Geedge Supply Chain | InterSecLab](https://interseclab.org/research/madlink-a-taiwanese-vestige-in-the-geedge-supply-chain/)」，內容以正體中文、臺灣用語翻譯。
-    - 本章節內容翻譯範圍為報告 **第 5/5 章** 的內容，對應原文的 Annex 段落，收錄凌華科技與台灣經濟部國際貿易署對 InterSecLab 詢問的完整書面回應。
-    - 你可以[參與討論](/library/interseclab-madlink/#參與討論)或檢視[報告翻譯更新](/library/interseclab-madlink/#更新紀錄)。
+    - 本章翻譯自 InterSecLab 的報告〈[MADLink: A Taiwanese Vestige in the Geedge Supply Chain](https://interseclab.org/research/madlink-a-taiwanese-vestige-in-the-geedge-supply-chain/)〉，以正體中文、臺灣用語翻譯。
+    - 本章是譯文的第 5/5 章，對應原文的 Annex 段落，收錄凌華科技與台灣經濟部國際貿易署對 InterSecLab 詢問的完整書面回應。
+    - 歡迎[參與討論](/library/interseclab-madlink/#參與討論)，或查看譯文的[更新紀錄](/library/interseclab-madlink/#更新紀錄)。
 
 !!! info "翻譯說明"
 
