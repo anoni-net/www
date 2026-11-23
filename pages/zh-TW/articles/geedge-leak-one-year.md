@@ -43,18 +43,18 @@ Geedge 的系統大量使用 Linux、Kafka 等開源軟體，部分程式碼的�
 
 <ol class="tl" aria-label="外洩之後一年的報導、調查與論文">
   <li><span class="tl-when">2025-09-08</span><span class="tl-b"><span class="tl-t">The Globe and Mail 的報導</span><span class="tl-d">聯合調查的成果開始見報，比檔案公開早三天</span></span></li>
-  <li><span class="tl-when">2025-09-09</span><span class="tl-b"><span class="tl-t">InterSecLab〈The Internet Coup〉</span><span class="tl-d">國際特赦組織的《Shadows of Control》與 Justice For Myanmar 的《Silk Road of Surveillance》也在同一個月發表。社群有〈<a href="https://anoni.net/docs/reports/interseclab-network-coup/">網路政變</a>〉的中譯</span></span></li>
+  <li><span class="tl-when">2025-09-09</span><span class="tl-b"><span class="tl-t">InterSecLab〈The Internet Coup〉</span><span class="tl-d">國際特赦組織的《Shadows of Control》與 Justice For Myanmar 的《Silk Road of Surveillance》也在同一個月發表。社群有〈<a href="/library/interseclab-network-coup/">網路政變</a>〉的中譯</span></span></li>
   <li class="tl-origin"><span class="tl-when">2025-09-11</span><span class="tl-b"><span class="tl-t">檔案公開</span><span class="tl-d">Enlace Hacktivista 公開全部檔案，DDoSecrets 也提供下載</span></span></li>
   <li><span class="tl-when">2025-09-12</span><span class="tl-b"><span class="tl-t">GFW Report 的分析文章</span><span class="tl-d">最後一次更新是 12 月 29 日，文中寫明原始碼的部分還沒有人仔細分析</span></span></li>
   <li class="tl-year"><span>2026</span></li>
   <li><span class="tl-when">2026-02-19</span><span class="tl-b"><span class="tl-t">FOCI 2026〈Geedge Cases〉</span><span class="tl-d">麻州大學阿默斯特分校與 GFW Report 的研究者比對外洩檔案裡的網域與兩份常用的網域清單</span></span></li>
-  <li><span class="tl-when">2026-04-24</span><span class="tl-b"><span class="tl-t">InterSecLab〈MADLink〉</span><span class="tl-d">供應鏈系列的第一篇，主題是 Geedge 使用的伺服器與網路硬體，其中包括台灣的凌華科技。社群有〈<a href="https://anoni.net/docs/reports/interseclab-madlink/">MADLink</a>〉的中譯</span></span></li>
+  <li><span class="tl-when">2026-04-24</span><span class="tl-b"><span class="tl-t">InterSecLab〈MADLink〉</span><span class="tl-d">供應鏈系列的第一篇，主題是 Geedge 使用的伺服器與網路硬體，其中包括台灣的凌華科技。社群有〈<a href="/library/interseclab-madlink/">MADLink</a>〉的中譯</span></span></li>
   <li><span class="tl-when">2026-08-05</span><span class="tl-b"><span class="tl-t">geedge.report 的說明文章</span><span class="tl-d">USENIX 論文的作者群在專案網站發表</span></span></li>
   <li><span class="tl-when">2026-08-12</span><span class="tl-b"><span class="tl-t">USENIX Security 2026 論文</span><span class="tl-d">〈Technical Analysis of the Geedge Networks Firewall Source Code Leak〉在 8 月 12 日到 14 日的研討會發表，作者來自密西根大學、帕德博恩大學、麻州大學阿默斯特分校、科羅拉多大學波德分校與 GFW Report</span></span></li>
   <li><span class="tl-when">2026-08-21</span><span class="tl-b"><span class="tl-t">Risky Bulletin 的報導</span><span class="tl-d">報導論文的結果，措辭比論文肯定（見後面的報導與論文的措辭差距一節）</span></span></li>
 </ol>
 
-報導比檔案公開早了三天。USENIX 論文的引言寫到，幾家提前取得檔案的新聞機構與記者過去一年合作分析這批文件，角度偏向非技術面[^early]。依[〈The Internet Coup〉譯文](https://anoni.net/docs/reports/interseclab-network-coup/)的致謝，Tor Project 也是這次聯合調查的合作夥伴[^coup-ack]。聯合調查讀的是文件與工單，整理出 Geedge 的客戶、部署的國家與產品功能。在 USENIX 論文之前，原始碼本身大致還沒有人分析[^early][^gfwr-src]。學界的研究是另一條線，讀原始碼、把系統建置起來，再做遠端量測。
+報導比檔案公開早了三天。USENIX 論文的引言寫到，幾家提前取得檔案的新聞機構與記者過去一年合作分析這批文件，角度偏向非技術面[^early]。依[〈The Internet Coup〉譯文](/library/interseclab-network-coup/)的致謝，Tor Project 也是這次聯合調查的合作夥伴[^coup-ack]。聯合調查讀的是文件與工單，整理出 Geedge 的客戶、部署的國家與產品功能。在 USENIX 論文之前，原始碼本身大致還沒有人分析[^early][^gfwr-src]。學界的研究是另一條線，讀原始碼、把系統建置起來，再做遠端量測。
 
 從文件可以知道 Geedge 賣給誰、客戶要求什麼，量測則用來判斷某一台設備的行為是否與程式碼一致。部分報導把前者的結論套到後者（例子見後面的報導與論文的措辭差距一節）。
 
@@ -386,7 +386,7 @@ InterSecLab 在〈MADLink〉裡從外洩文件追查硬體供應鏈。台灣的�
 
 凌華科技向 InterSecLab 證實了出貨的數量，表示出貨前做了出口管制名單篩查、Geedge 不在受限名單上，並將啟動內部稽核。凌華也表示公司只提供通用的硬體平台，沒有參與和最終用途相關的軟體整合或系統設計。InterSecLab 的反駁是，外洩文件裡有 TSG-ADC 的負載平衡仰賴凌華 PacketManager 軟體的紀錄，CSA-7400 的行銷定位也是 DPI 與防火牆設備[^adlink]。經濟部說明台灣的出口管制框架參照國際防擴散機制與制裁清單，以法律限制為由不評論個案。
 
-報告的論點是，Geedge 現行的伺服器多是通用的 x86 硬體，正規採購受阻時仍可能從次級市場取得，CSA-7400 這類專為 DPI 與防火牆設計的設備才是出口管制能實際著力的地方[^adlink]。社群翻譯了[報告全文](https://anoni.net/docs/reports/interseclab-madlink/)，也記錄了[台灣公共領域對 MADLink 報告的反應](/updates/2026/05/madlink-editorial-2026-05/)。
+報告的論點是，Geedge 現行的伺服器多是通用的 x86 硬體，正規採購受阻時仍可能從次級市場取得，CSA-7400 這類專為 DPI 與防火牆設計的設備才是出口管制能實際著力的地方[^adlink]。社群翻譯了[報告全文](/library/interseclab-madlink/)，也記錄了[台灣公共領域對 MADLink 報告的反應](/updates/2026/05/madlink-editorial-2026-05/)。
 
 MADLink 的依據是文件與廠商的回覆，可以對照 USENIX 論文在哈薩克的三項量測：QUIC 解析符合舊版、TLS 因為丟包無法判定、RST 無法比對。兩者之間有時間差，CSA-7400 是 2019 到 2020 年初出貨的第一代硬體，與論文的量測相隔數年。量測到的設備是否仍是那一批硬體，目前無法判斷[^gap]。
 
@@ -490,8 +490,8 @@ InterSecLab 在 2025 年 9 月寫到，`A24` 的相關資料沒有能辨識客�
 
 ## 相關閱讀
 
-- [網路政變](https://anoni.net/docs/reports/interseclab-network-coup/)：InterSecLab〈The Internet Coup〉的社群中譯
-- [MADLink：台灣在 Geedge 供應鏈中的遺留](https://anoni.net/docs/reports/interseclab-madlink/)：InterSecLab〈MADLink〉的社群中譯
+- [網路政變](/library/interseclab-network-coup/)：InterSecLab〈The Internet Coup〉的社群中譯
+- [MADLink：台灣在 Geedge 供應鏈中的遺留](/library/interseclab-madlink/)：InterSecLab〈MADLink〉的社群中譯
 - [OONI 的封鎖判定方式](/projects/asn-coverage/ooni-blocking-determination/)：單次測量的判定與確認封鎖之間的差距
 - [OONI 觀測涵蓋率](/projects/asn-coverage/)：台灣與鄰近地區的測量來自哪些網路
 

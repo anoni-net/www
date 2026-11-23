@@ -1,6 +1,6 @@
 ---
 title: The Traditional Chinese Translation of InterSecLab's The Internet Coup
-description: InterSecLab's analysis of 500GB of leaked data, documenting how the Chinese company Geedge Networks exports Great Firewall technology to other authoritarian states, now translated into Traditional Chinese on the docs site.
+description: InterSecLab's analysis of 500GB of leaked data, documenting how the Chinese company Geedge Networks exports Great Firewall technology to other authoritarian states, now translated into Traditional Chinese by the community.
 date: 2025-10-02
 kind: new
 ---
@@ -16,7 +16,7 @@ We, the anoni.net community, were not involved in the early verification work. R
 
 ## Chapters of the Translation
 
-The details of the leaked data and of how the Great Firewall is operated are in our [Traditional Chinese translation](https://anoni.net/docs/reports/interseclab-network-coup/), and the English original is InterSecLab's [The Internet Coup](https://interseclab.org/research/the-internet-coup/). The translation follows the INDEX sections of the original in eight chapters, so readers can cross-reference the source as they go.
+The details of the leaked data and of how the Great Firewall is operated are in our [Traditional Chinese translation](/library/interseclab-network-coup/), and the English original is InterSecLab's [The Internet Coup](https://interseclab.org/research/the-internet-coup/). The translation follows the INDEX sections of the original in eight chapters, so readers can cross-reference the source as they go.
 
 ## Acknowledgements
 

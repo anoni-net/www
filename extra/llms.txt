@@ -12,7 +12,7 @@
 - [專案](https://anoni.net/projects/): 社群自己寫的內容與程式，包含文件站、新聞導讀與觀測工具。
 - [服務](https://anoni.net/services/): 社群自架的 Matrix、CryptPad、Etherpad、SearXNG、Send、Formbricks 與帳號申請方式。
 - [持續關注](https://anoni.net/contact/): 電子報、信箱與 PGP 公鑰。
-- [社群文件 anoni.net/Docs](https://anoni.net/docs/): 多語系文件站主入口，涵蓋概念、工具、場景、進階、報告、在地脈絡、社群七大分類。
+- [社群文件 anoni.net/Docs](https://anoni.net/docs/): 多語系文件站主入口，涵蓋概念、工具、場景、在地脈絡等分類。
 - [新聞導讀 anoni.net/news](https://anoni.net/news/): 從科技與開源的角度導讀國際隱私、匿名網路與網路審查的新聞，每篇附上原文，有正體中文、簡體中文與英文三個版本。
 
 ## 概念
@@ -67,8 +67,9 @@
 
 ## 報告翻譯
 
-- [嚴選報告中譯](https://anoni.net/docs/reports/): 外部研究報告的正體中文翻譯入口。
-- [網路政變 InterSec Lab 報告](https://anoni.net/docs/reports/interseclab-network-coup/): 中國防火長城運作團隊與技術的調查報告中譯。
+- [報告與指引中譯](https://anoni.net/library/): 外部研究報告與標準機構指引的正體中文全文譯本入口，譯文只有正體中文。
+- [網路政變](https://anoni.net/library/interseclab-network-coup/): InterSecLab 調查 Geedge Networks 輸出中國防火長城技術的報告中譯，共八章。
+- [MADLink：台灣在 Geedge 供應鏈中的遺留](https://anoni.net/library/interseclab-madlink/): InterSecLab 調查凌華科技出貨給 Geedge Networks 的報告中譯，共五章。
 
 ## 社群與參與
 

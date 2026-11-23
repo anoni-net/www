@@ -1,15 +1,15 @@
 ---
 title: InterSecLab MADLink 報告的正體中文翻譯
-description: InterSecLab 的 MADLink 報告指出，凌華科技在 2019 至 2020 年出貨的 1,708 台 CSA-7400 成了 Geedge 第一代防火牆平台的硬體基底。社群的正體中文翻譯放在文件站，另附報告發布後台灣反應的觀察紀錄。
+description: InterSecLab 的 MADLink 報告指出，凌華科技在 2019 至 2020 年出貨的 1,708 台 CSA-7400 成了 Geedge 第一代防火牆平台的硬體基底。社群的正體中文翻譯收在報告與指引中譯，另附報告發布後台灣反應的觀察紀錄。
 date: 2026-05-23
 kind: new
 ---
 
 ![MADLink 報告封面](https://assets.anoni.net/updates/madlink-cover-9788496b.jpg){ .shot }
 
-一家台灣上市公司出貨的網路設備，最後在哈薩克成了國家級網路審查與監控系統的核心。InterSecLab 的 MADLink 報告追查了這條供應鏈，匿名網路社群 anoni.net 已完成正體中文翻譯，收在文件站的[研究報告中譯](docs:reports/)。
+一家台灣上市公司出貨的網路設備，最後在哈薩克成了國家級網路審查與監控系統的核心。InterSecLab 的 MADLink 報告追查了這條供應鏈，匿名網路社群 anoni.net 已完成正體中文翻譯，收在[報告與指引中譯](/library/)。
 
-設備來自凌華科技（ADLINK Technologies，股票代號 6166），客戶是中國公司 Geedge Networks（積至公司），旗艦產品「天狗安全閘道（Tiangou Secure Gateway，TSG）」的能力可與中國防火長城相比。報告〈[MADLink: A Taiwanese Vestige in the Geedge Supply Chain](https://interseclab.org/research/madlink-a-taiwanese-vestige-in-the-geedge-supply-chain/)〉在 2026 年 4 月發布，是 InterSecLab 繼 2025 年 9 月的《[The Internet Coup](docs:reports/interseclab-network-coup/)》之後，對 Geedge 供應鏈的第一篇延伸調查。
+設備來自凌華科技（ADLINK Technologies，股票代號 6166），客戶是中國公司 Geedge Networks（積至公司），旗艦產品「天狗安全閘道（Tiangou Secure Gateway，TSG）」的能力可與中國防火長城相比。報告〈[MADLink: A Taiwanese Vestige in the Geedge Supply Chain](https://interseclab.org/research/madlink-a-taiwanese-vestige-in-the-geedge-supply-chain/)〉在 2026 年 4 月發布，是 InterSecLab 繼 2025 年 9 月的《[The Internet Coup](/library/interseclab-network-coup/)》之後，對 Geedge 供應鏈的第一篇延伸調查。
 
 
 ## 報告的主要發現
@@ -22,13 +22,13 @@ Geedge 現行世代的 TSG 部署在衣索比亞、巴基斯坦和緬甸，伺�
 
 ## 中譯的章節
 
-完整中譯在文件站的 [MADLink 報告中譯](docs:reports/interseclab-madlink/)。原報告是單頁長文，翻譯團隊依主題切成 5 章，方便在 Matrix 上分章節討論：
+完整中譯見 [MADLink 報告中譯](/library/interseclab-madlink/)。原報告是單頁長文，翻譯團隊依主題切成 5 章，方便在 Matrix 上分章節討論：
 
-- [第 1/5 章：摘要與主要發現](docs:reports/interseclab-madlink/index_1/)
-- [第 2/5 章：Geedge 供應鏈深入解析（三代 TSG 硬體）](docs:reports/interseclab-madlink/index_2/)
-- [第 3/5 章：EtherFabric 與 ADLINK 的角色和回應](docs:reports/interseclab-madlink/index_3/)
-- [第 4/5 章：結論](docs:reports/interseclab-madlink/index_4/)
-- [第 5/5 章：附錄（凌華科技與經濟部完整聲明）](docs:reports/interseclab-madlink/index_5/)
+- [第 1/5 章：摘要與主要發現](/library/interseclab-madlink/chapter-1/)
+- [第 2/5 章：Geedge 供應鏈深入解析（三代 TSG 硬體）](/library/interseclab-madlink/chapter-2/)
+- [第 3/5 章：EtherFabric 與 ADLINK 的角色和回應](/library/interseclab-madlink/chapter-3/)
+- [第 4/5 章：結論](/library/interseclab-madlink/chapter-4/)
+- [第 5/5 章：附錄（凌華科技與經濟部完整聲明）](/library/interseclab-madlink/chapter-5/)
 
 凌華與經濟部國際貿易署的回應全文都收在附錄，讀者可以自行比對雙方的說法。
 
@@ -44,7 +44,7 @@ MADLink 點名了一家台灣上市公司，照理會引來本地媒體追問、
 
 ## 相關閱讀
 
-- [MADLink 報告中譯](docs:reports/interseclab-madlink/)
+- [MADLink 報告中譯](/library/interseclab-madlink/)
 - [台灣對 MADLink 報告的反應，2026 年 5 月的觀察紀錄](/updates/2026/05/madlink-editorial-2026-05/)
-- [The Internet Coup 報告中譯](docs:reports/interseclab-network-coup/)
+- [The Internet Coup 報告中譯](/library/interseclab-network-coup/)
 - [InterSecLab 網路政變報告的正體中文翻譯](/updates/2025/10/report-the-internet-coup/)

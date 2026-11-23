@@ -5,19 +5,19 @@ date: 2025-10-18
 kind: event
 ---
 
-在「网络自由小聚」上，分享了 [InterSecLab](https://interseclab.org/) 针对中国防火长城数据泄露的[报告](https://anoni.net/docs/report/interseclab-the-internet-coup/)后，活动当天后半段展开了许多讨论。大家关注的问题主要是，当我们面对国家级的监控手段与能力时，还有什么是我们可以做的？过往提供的网络安全防护建议是否也需要重新检视与调整。
+在「网络自由小聚」上，分享了 [InterSecLab](https://interseclab.org/) 针对中国防火长城数据泄露的[报告](/library/interseclab-network-coup/)后，活动当天后半段展开了许多讨论。大家关注的问题主要是，当我们面对国家级的监控手段与能力时，还有什么是我们可以做的？过往提供的网络安全防护建议是否也需要重新检视与调整。
 
 以下是我们根据当天讨论的内容为大家进行的文字回顾，同时建议大家花时间阅读这份报告，它将更清晰地勾勒出我们所面临的风险与挑战。
 
 ## 开源软件的滥用
 
-在报告中[发现](https://anoni.net/docs/report/interseclab-the-internet-coup/index_2/)，防火长城的一系列软件部分是基于现有的开源软件建立或修改而成，这带来一个问题：许多工程师对其专业领域的开源贡献被某些组织滥用，**完全忽视开源授权的规范**。或许这些规范本身没有实质的强制约束力，但当开源贡献的成果被用于隐私监控领域时，我们目前缺乏相应的抵制措施和应对策略。当开源软件的滥用升级到国家规模时，我们有什么办法可以制衡与问责呢？
+在报告中[发现](zh-tw:/library/interseclab-network-coup/chapter-2/)，防火长城的一系列软件部分是基于现有的开源软件建立或修改而成，这带来一个问题：许多工程师对其专业领域的开源贡献被某些组织滥用，**完全忽视开源授权的规范**。或许这些规范本身没有实质的强制约束力，但当开源贡献的成果被用于隐私监控领域时，我们目前缺乏相应的抵制措施和应对策略。当开源软件的滥用升级到国家规模时，我们有什么办法可以制衡与问责呢？
 
 这个问题在当晚的讨论中没有得到答案。当追求**网络自由、民主自由**的时候，我们可能只能暂时归因于工具的中立性，这或许与 Tor、洋葱网络的使用也存在类似的情况。
 
 ## 防火长城验证难以有效阻挡的 WebTunnel
 
-报告中[提到](https://anoni.net/docs/report/interseclab-the-internet-coup/index_7/)，目前常见的 VPN 协议都可以被识别和阻挡，但 Tor 网桥类型中的 WebTunnel 目前尚无法有效阻挡。由于数据泄露的时间在 2024 年 12 月左右，经过 10 个月后，不确定防火长城的技术是否仍然无法阻挡。此外，与 WebTunnel 类似通过流量伪装 Tor 连接的 Snowflake 也可以规避封包检测。
+报告中[提到](zh-tw:/library/interseclab-network-coup/chapter-7/)，目前常见的 VPN 协议都可以被识别和阻挡，但 Tor 网桥类型中的 WebTunnel 目前尚无法有效阻挡。由于数据泄露的时间在 2024 年 12 月左右，经过 10 个月后，不确定防火长城的技术是否仍然无法阻挡。此外，与 WebTunnel 类似通过流量伪装 Tor 连接的 Snowflake 也可以规避封包检测。
 
 在当晚的活动中，我们快速向大家介绍了 [Snowflake](docs:tools/tor-snowflake/)。只需通过浏览器插件，开启后建立一个类似视频会议流的连接，就可以通过浏览器搭建一个 Tor 网桥，帮助无法使用 Tor 的地区通过你的网桥中继点连接到洋葱网络。对于有技术能力的参与者，我们建议可以通过 Tor 官方打包的 [WebTunnel](https://community.torproject.org/relay/setup/webtunnel/docker/)（Docker），建立一个类似浏览网页的行为，提供一个[网桥中继点](docs:tools/what-is-tor/)。
 
@@ -29,6 +29,6 @@ kind: event
 
 ---
 
-以上是 “网络自由小聚” 当晚的快速回顾。如果您还未阅读我们已翻译的报告，请通过[这里阅读](https://anoni.net/docs/report/interseclab-the-internet-coup/)！我们也计划针对报告中的发现，尝试建立一套大众可以掌握的抵御能力，或许会先从**隐私保护**开始。有兴趣的伙伴可以通过[这个频道](https://matrix.to/#/#interseclab-the-internet-coup:im.anoni.net)来讨论。
+以上是 “网络自由小聚” 当晚的快速回顾。如果您还未阅读我们已翻译的报告，请通过[这里阅读](/library/interseclab-network-coup/)！我们也计划针对报告中的发现，尝试建立一套大众可以掌握的抵御能力，或许会先从**隐私保护**开始。有兴趣的伙伴可以通过[这个频道](https://matrix.to/#/#interseclab-the-internet-coup:im.anoni.net)来讨论。
 
 当然，也可以直接给[我们](/contact/)发邮件！

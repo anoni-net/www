@@ -54,7 +54,7 @@ description: 匿名网络社区 anoni.net 2026 年的三大主题、文档站的
 
 ### 研究与报告翻译
 
-社区在 2025 年下半年翻译并分享了 InterSecLab 研究中国审查技术输出的报告[网络政变 / The Internet Coup](https://anoni.net/docs/reports/interseclab-network-coup/)（中译只有正体中文版）。2026 年持续挑选对在地有参考价值的国际报告，翻译并加上注释，收在文档站的[严选报告](docs:reports/)。
+社区在 2025 年下半年翻译并分享了 InterSecLab 研究中国审查技术输出的报告[网络政变 / The Internet Coup](/library/interseclab-network-coup/)（中译只有正体中文版）。2026 年持续挑选对在地有参考价值的国际报告，翻译并加上注释，收在[报告与指引中译](/library/)。
 
 ### 外部活动参与
 

@@ -505,6 +505,15 @@ p { margin: .5rem 0 1rem; }
 .toolrow a[class*="cat-"] .i { color: var(--topic); }
 .more { display: inline-flex; align-items: center; gap: .25rem; font-size: .9rem; }
 
+/* 報告與指引中譯的章節頁底下的上一章、下一章。兩格並排，手機上疊成兩列 */
+.pager { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; margin: 2.5rem 0 0; padding-top: 1.25rem; border-top: 1px solid var(--c-hair); }
+.pager a { display: flex; flex-direction: column; gap: .2rem; padding: .75rem .9rem; border: 1px solid var(--c-hair); border-radius: var(--radius); text-decoration: none; color: inherit; }
+.pager a:hover .pager-t { color: var(--c-accent); }
+.pager-next { text-align: right; align-items: flex-end; }
+.pager-k { display: inline-flex; align-items: center; gap: .25rem; font-size: .85rem; color: var(--c-muted); }
+.pager-t { font-weight: 700; color: var(--c-strong); }
+@media (max-width: 36rem) { .pager { grid-template-columns: 1fr; } }
+
 /* 按鈕：實心的只有一個，其他是線框。圓角跟標籤一樣用 4px，不用膠囊形。實心按鈕是要讀者採取行動的（報名、訂閱、加入、投稿），
    照品牌的配色守則用橘色 */
 .btns { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1rem 0; }

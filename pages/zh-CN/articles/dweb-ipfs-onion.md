@@ -130,7 +130,7 @@ anoni.net 文档站同时发布标准网站、onion 与 IPFS 三份，内容相�
 - [你正在用哪一种方式阅读](docs:about/how-you-are-reading/)：标准网站、onion 与 IPFS 镜像在读者端的差异
 - [常被误认为匿名的网络](docs:basics/mistaken-for-anonymity/)：IPFS 等网络对外暴露的信息
 - [什么是 Tor](docs:tools/what-is-tor/)：Tor 网络的设计与威胁
-- [网络政变报告](https://anoni.net/docs/reports/interseclab-network-coup/)（正体中文）：InterSecLab 依据外泄文件分析中国防火长城技术输出到其他国家，呈现集中化的审查基础设施如何运作
+- [网络政变报告](/library/interseclab-network-coup/)（正体中文）：InterSecLab 依据外泄文件分析中国防火长城技术输出到其他国家，呈现集中化的审查基础设施如何运作
 - [后量子密码概观](/articles/post-quantum/)：量子计算机对现行公钥密码的威胁与迁移时程
 
 ## 可参与的项目

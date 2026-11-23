@@ -29,6 +29,6 @@ To slightly ease the heavy atmosphere of the topic, we shared InterSecLab's next
 
 ---
 
-This is a quick recap of the "Taipei Coffee and Circumvention Meetup 2025/10" event. If you haven’t read our **translated report** yet, you can access it [here](https://anoni.net/docs/report/interseclab-the-internet-coup/)! We are also preparing to develop user-friendly defensive capabilities based on the report's findings, possibly starting with privacy protection. Interested individuals are welcome to join the discussion through [this channel](https://matrix.to/#/#interseclab-the-internet-coup:im.anoni.net).
+This is a quick recap of the "Taipei Coffee and Circumvention Meetup 2025/10" event. If you haven’t read our **translated report** yet, you can access it [here](/library/interseclab-network-coup/)! We are also preparing to develop user-friendly defensive capabilities based on the report's findings, possibly starting with privacy protection. Interested individuals are welcome to join the discussion through [this channel](https://matrix.to/#/#interseclab-the-internet-coup:im.anoni.net).
 
 Of course, you can also [email us](/contact/) directly!

@@ -1,6 +1,6 @@
 ---
 title: InterSecLab 网络政变报告的正体中文翻译
-description: InterSecLab 分析泄露的 500GB 数据，记录中国公司 Geedge Networks 把防火长城的技术出口到其他威权国家的过程，社区的正体中文翻译放在文档站。
+description: InterSecLab 分析泄露的 500GB 数据，记录中国公司 Geedge Networks 把防火长城的技术出口到其他威权国家的过程，社区的正体中文翻译收在报告与指引中译。
 date: 2025-10-02
 kind: new
 ---
@@ -16,7 +16,7 @@ kind: new
 
 ## 中译的章节
 
-泄露数据的细节与防火长城的运作方式，可以读我们翻译的[正体中文版](https://anoni.net/docs/reports/interseclab-network-coup/)，英文原文在 InterSecLab 的〈[The Internet Coup](https://interseclab.org/research/the-internet-coup/)〉。中译依原报告的 INDEX 段落分成八个章节，阅读时方便对照原文的段落。
+泄露数据的细节与防火长城的运作方式，可以读我们翻译的[正体中文版](/library/interseclab-network-coup/)，英文原文在 InterSecLab 的〈[The Internet Coup](https://interseclab.org/research/the-internet-coup/)〉。中译依原报告的 INDEX 段落分成八个章节，阅读时方便对照原文的段落。
 
 ## 致谢
 

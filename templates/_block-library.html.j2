@@ -1,0 +1,7 @@
+{# 報告與指引中譯的列表，一份文件一項，由新到舊。項目由 build.py 的 library_for 產生，
+   正體中文以外的語系註明譯文只有正體中文 #}
+<ul class="rows">
+{% for item in library %}
+  <li><a class="row" href="{{ item.href }}"><span class="b"><span class="meta"><time datetime="{{ item.date.isoformat() }}">{{ item.date.strftime('%Y/%m/%d') }}</time>{% if item.source %} · {{ item.source }}{% endif %}{% if lang.code != langs[0].code %} · {{ t.library_only_zh_tw }}{% endif %}</span><span class="t">{{ item.title }}</span><span class="d">{{ item.summary }}</span></span><span class="go">{{ icon('arrow-right') }}</span></a></li>
+{% endfor %}
+</ul>

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{% if page.slug == "index" %}{{ t.site_name }}{% else %}{{ page.title }} · {{ t.title_suffix }}{% endif %}</title>
+<title>{% if page.slug == "index" %}{{ t.site_name }}{% else %}{{ page.title }}{% if page.get('doc_title') %} · {{ page.doc_title }}{% endif %} · {{ t.title_suffix }}{% endif %}</title>
 <meta name="description" content="{{ page.description }}">
 <link rel="icon" href="/favicon.svg">
 <link rel="stylesheet" href="{{ asset('css/site.css') }}">

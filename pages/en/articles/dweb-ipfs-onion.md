@@ -130,7 +130,7 @@ How readers use the onion or IPFS copy, and who can see what along the way, is c
 - [How you are reading this](docs:about/how-you-are-reading/): how the standard site, the onion copy, and the IPFS mirror differ for readers
 - [Networks Mistaken for Anonymity](docs:basics/mistaken-for-anonymity/): what IPFS and similar networks expose
 - [What Is Tor?](docs:tools/what-is-tor/): the design of the Tor network and the threats it faces
-- [The Internet Coup](https://anoni.net/docs/reports/interseclab-network-coup/) (in Chinese): InterSecLab's analysis of leaked documents on the export of China's Great Firewall technology to other countries, showing how centralized censorship infrastructure operates
+- [The Internet Coup](/library/interseclab-network-coup/) (in Chinese): InterSecLab's analysis of leaked documents on the export of China's Great Firewall technology to other countries, showing how centralized censorship infrastructure operates
 - [Post-Quantum Cryptography](/articles/post-quantum/): the threat quantum computers pose to current public-key cryptography, and the migration timeline
 
 ## Ways to Get Involved

@@ -10,7 +10,7 @@ We wrote down our verification work and what we observed at the time, so that la
 
 !!! note "Snapshot as of 2026-05-20"
 
-    This is an editorial observation by the anoni.net editorial team as of 2026-05-20 (first version 2026-05-16, independent verification added 2026-05-20), and is not part of InterSecLab's original report. It has not been updated since publication, and every status described here is as of the snapshot date. The translation of the report is in the docs site's [MADLink translation](https://anoni.net/docs/reports/interseclab-madlink/) (Traditional Chinese only), and the English original is on [InterSecLab's site](https://interseclab.org/research/madlink-a-taiwanese-vestige-in-the-geedge-supply-chain/).
+    This is an editorial observation by the anoni.net editorial team as of 2026-05-20 (first version 2026-05-16, independent verification added 2026-05-20), and is not part of InterSecLab's original report. It has not been updated since publication, and every status described here is as of the snapshot date. The translation of the report is in our [MADLink translation](/library/interseclab-madlink/) (Traditional Chinese only), and the English original is on [InterSecLab's site](https://interseclab.org/research/madlink-a-taiwanese-vestige-in-the-geedge-supply-chain/).
 
 
 ## Independent Verification
@@ -47,7 +47,7 @@ Cross-outlet searches for "凌華 Geedge", "MADLink 凌華" and "凌華 哈薩�
 
 ## Responses from the Regulator, the Legislature and ADLINK
 
-In its reply to InterSecLab, the Bureau of Foreign Trade of the Ministry of Economic Affairs (MOEA) explained that Taiwan's export controls on Strategic High-Tech Commodities exist to prevent the proliferation of weapons of mass destruction. The controlled goods list follows the four international export-control regimes, and the entity list follows sanctions lists from the UN Security Council and partner countries. On the specific case, the Bureau cited legal restrictions and declined to disclose information about individual companies (the full text is in the [appendix](https://anoni.net/docs/reports/interseclab-madlink/index_5/) of the translation).
+In its reply to InterSecLab, the Bureau of Foreign Trade of the Ministry of Economic Affairs (MOEA) explained that Taiwan's export controls on Strategic High-Tech Commodities exist to prevent the proliferation of weapons of mass destruction. The controlled goods list follows the four international export-control regimes, and the entity list follows sanctions lists from the UN Security Council and partner countries. On the specific case, the Bureau cited legal restrictions and declined to disclose information about individual companies (the full text is in the [appendix](zh-tw:/library/interseclab-madlink/chapter-5/) of the translation).
 
 The original report quotes a legislator arguing that Taiwan should build its own entity list rather than rely only on US and EU lists, and should set clearer standards for when a component manufacturer is responsible for end use. As of the snapshot date, searches of the Legislative Yuan's records, social media and press interviews found no follow-up statement from that legislator on the issue.
 
@@ -112,9 +112,9 @@ This post was published as a snapshot of 2026-05-20 and is not updated. If you f
 
 ## Related Reading
 
-- [MADLink translation](https://anoni.net/docs/reports/interseclab-madlink/) (Traditional Chinese)
+- [MADLink translation](/library/interseclab-madlink/) (Traditional Chinese)
 - [The Traditional Chinese Translation of InterSecLab's MADLink Report](/updates/2026/05/report-madlink/)
-- [The Internet Coup translation](https://anoni.net/docs/reports/interseclab-network-coup/) (Traditional Chinese)
+- [The Internet Coup translation](/library/interseclab-network-coup/) (Traditional Chinese)
 
 *[ADLINK]: ADLINK Technology, Inc., a company listed on the Taiwan Stock Exchange (stock code 6166).
 *[Geedge Networks]: A Chinese network company that develops, deploys and exports internet censorship and surveillance technology.
