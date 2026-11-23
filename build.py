@@ -36,6 +36,7 @@ from markupsafe import Markup
 import asn_coverage
 import charts
 import diagrams
+import fatf
 import latest
 import og_cards
 import pulse
@@ -95,6 +96,7 @@ BLOCK_SOURCES = {
     "reports": ["reports/", "data/reports.toml"],
     "diagram-": ["data/diagrams.toml"],
     "tu-": ["data/tor-users.toml", "data/tor-users/"],
+    "fatf-": ["data/fatf.toml", "data/fatf/"],
 }
 LIVE_BLOCKS = {"products", "pulse", "asn-coverage"}
 REPORT_BLOCKS = ("relays_stats", "relays_chart", "churn", "upgrade", "asn", "density", "ooni_stats",
@@ -527,7 +529,15 @@ class Site:
         names = [p.name.removeprefix("_block-").removesuffix(".html.j2")
                  for p in TEMPLATES.glob("_block-*.html.j2") if p.name not in regional]
         blocks = {n: self.env.get_template(f"_block-{n}.html.j2").render(**ctx) for n in names}
-        return {**blocks, **self.diagram_blocks(lang, ctx), **self.tor_users_blocks(lang)}
+        return {**blocks, **self.diagram_blocks(lang, ctx), **self.tor_users_blocks(lang), **self.fatf_blocks(lang)}
+
+    def fatf_blocks(self, lang: Lang) -> dict[str, str]:
+        """匿名支付主題 FATF 系列的圖，<!-- fatf-grey --> 這類標記，畫法在 fatf.py，文字在 data/fatf.toml。"""
+        conf = self.data.get("fatf")
+        if not conf:
+            return {}
+        pick = lambda value: value[lang.code] if isinstance(value, dict) else value  # noqa: E731
+        return fatf.blocks(DATA / "fatf", conf, pick)
 
     def tor_users_blocks(self, lang: Lang) -> dict[str, str]:
         """台灣的 Tor 使用者數那頁的三張圖，<!-- tu-trend -->、<!-- tu-growth -->、<!-- tu-density -->，
@@ -1186,6 +1196,7 @@ def check(site: Site, outs: list[Path]) -> list[str]:
         for lang in site.langs[1:]:
             if not any(r.slug == rep.slug for r in site.reports[lang.code]):
                 problems.append(f"reports/{lang.code}/{rep.slug}.md：季報要三個語系都有，這個語系還沒有")
+    problems += fatf.check(DATA / "fatf")
     # 每一頁三個語系都要有，報告與指引中譯的章節頁例外，只有正體中文
     for lang in site.langs[1:]:
         have = page_slugs(PAGES / lang.code)

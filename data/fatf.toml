@@ -1,0 +1,54 @@
+# 匿名支付主題 FATF 系列（/join/payments-research/fatf/）的圖表。Markdown 寫 <!-- fatf-grey --> 這類標記，
+# 由 fatf.py 畫成內嵌的 SVG。資料的整理方法與來源在工作區 research/fatf-grey-list/（toomore/anoni-net-ws#512），
+# 這裡只放畫圖要用的部分：data/fatf/income-groups.csv（每次大會灰名單依所得分組的國家數）、
+# data/fatf/ratings.csv（第四輪相互評鑑每個司法管轄區達到實質或高度有效的項數）。改資料時正文的數字一起改。
+
+# 2020/06 疫情暫停審查，名單沿用 2020/02
+pause = "2020-06-30"
+
+# IMF WP/21/153（Kida、Paetzold，2021）Table 1：列入灰名單後資本流入的變化，占 GDP 的百分比
+# [估計值, 95% 信賴區間下限, 上限]
+[imf]
+total = [-7.55, -10.53, -4.57]
+fdi = [-3.03, -5.02, -1.04]
+portfolio = [-2.93, -4.85, -1.00]
+other = [-3.55, -4.89, -2.21]
+
+[labels]
+grey = { zh-TW = "FATF 灰名單的國家數，依世界銀行所得分組", zh-CN = "FATF 灰名单的国家数，按世界银行收入分组", en = "Jurisdictions on the FATF grey list, by World Bank income group" }
+grey_note = { zh-TW = "2018/02 至 2026/10 共 27 次全體大會", zh-CN = "2018/02 至 2026/10 共 27 次全体大会", en = "27 plenaries, February 2018 to October 2026" }
+high = { zh-TW = "高所得", zh-CN = "高收入", en = "High income" }
+upper_middle = { zh-TW = "中高所得", zh-CN = "中高收入", en = "Upper middle" }
+lower_middle = { zh-TW = "中低所得", zh-CN = "中低收入", en = "Lower middle" }
+low = { zh-TW = "低所得", zh-CN = "低收入", en = "Low income" }
+unclassified = { zh-TW = "未分類", zh-CN = "未分类", en = "Unclassified" }
+count = { zh-TW = "{n} 國", zh-CN = "{n} 国", en = "{n}" }
+total = { zh-TW = "共 {n} 國", zh-CN = "共 {n} 国", en = "{n} in total" }
+pause = { zh-TW = "疫情暫停審查，名單沿用 2020/02", zh-CN = "疫情暂停审查，名单沿用 2020/02", en = "Review paused for COVID-19; the February 2020 list stayed in force" }
+plenary = { zh-TW = "大會", zh-CN = "大会", en = "Plenary" }
+table = { zh-TW = "數據表", zh-CN = "数据表", en = "Data table" }
+
+share = { zh-TW = "非高所得國家占灰名單的比例，對照全世界", zh-CN = "非高收入国家占灰名单的比例，对照全世界", en = "Share of non-high-income jurisdictions on the grey list, against the world" }
+share_note = { zh-TW = "全世界是同一年度世界銀行有分類的約 220 個經濟體", zh-CN = "全世界是同一年度世界银行有分类的约 220 个经济体", en = "World: the roughly 220 economies the World Bank classified that year" }
+share_grey = { zh-TW = "灰名單", zh-CN = "灰名单", en = "Grey list" }
+share_world = { zh-TW = "全世界", zh-CN = "全世界", en = "World" }
+
+ratings = { zh-TW = "第四輪相互評鑑：11 項效能裡達到實質或高度有效的項數", zh-CN = "第四轮相互评估：11 项有效性里达到实质或高度有效的项数", en = "Fourth-round mutual evaluations: effectiveness outcomes rated substantial or high, out of 11" }
+ratings_note = { zh-TW = "199 個司法管轄區，每個取最新一份評鑑報告", zh-CN = "199 个司法管辖区，每个取最新一份评估报告", en = "199 jurisdictions, latest report for each" }
+ratings_bin = { zh-TW = "{k} 項：{n} 個司法管轄區", zh-CN = "{k} 项：{n} 个司法管辖区", en = "{k} outcomes: {n} jurisdictions" }
+ratings_axis = { zh-TW = "項數", zh-CN = "项数", en = "Outcomes" }
+taiwan = { zh-TW = "台灣", zh-CN = "台湾", en = "Taiwan" }
+
+groups = { zh-TW = "達到實質或高度有效的平均項數", zh-CN = "达到实质或高度有效的平均项数", en = "Average outcomes rated substantial or high" }
+member = { zh-TW = "FATF 成員", zh-CN = "FATF 成员", en = "FATF members" }
+not_member = { zh-TW = "非成員", zh-CN = "非成员", en = "Non-members" }
+high_member = { zh-TW = "高所得的成員", zh-CN = "高收入的成员", en = "High-income members" }
+high_not_member = { zh-TW = "高所得的非成員", zh-CN = "高收入的非成员", en = "High-income non-members" }
+
+imf = { zh-TW = "列入灰名單後資本流入的變化（占 GDP 的百分比）", zh-CN = "列入灰名单后资本流入的变化（占 GDP 的百分比）", en = "Change in capital inflows after grey-listing (% of GDP)" }
+imf_note = { zh-TW = "IMF WP/21/153，橫線是 95% 信賴區間", zh-CN = "IMF WP/21/153，横线是 95% 置信区间", en = "IMF WP/21/153. Lines show 95% confidence intervals" }
+imf_total = { zh-TW = "合計", zh-CN = "合计", en = "Total" }
+imf_fdi = { zh-TW = "外人直接投資", zh-CN = "外国直接投资", en = "FDI" }
+imf_portfolio = { zh-TW = "證券投資", zh-CN = "证券投资", en = "Portfolio" }
+imf_other = { zh-TW = "其他投資", zh-CN = "其他投资", en = "Other" }
+imf_ci = { zh-TW = "{v}（95% 信賴區間 {lo} 到 {hi}）", zh-CN = "{v}（95% 置信区间 {lo} 到 {hi}）", en = "{v} (95% CI {lo} to {hi})" }

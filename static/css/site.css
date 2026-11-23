@@ -650,6 +650,47 @@ svg.pc rect:hover, svg.pc circle:hover { opacity: .7; }
 :lang(en) .tu-bars li { grid-template-columns: 8.5rem 1fr 3.2rem; }
 .tu-bars li.me .l, .tu-bars li.me .n { font-weight: 700; color: var(--c-strong); }
 .tu-bars li.me .bar span { background: var(--pc1); }
+
+/* 匿名支付主題 FATF 系列（/join/payments-research/fatf/）的圖，fatf.py 畫的內嵌 SVG。
+   世界銀行所得分組是有順序的類別，同一個 cyan 由深到淺：淺色模式用 900、800、600、400，
+   深色模式另選 100、300、600、800，兩組都過了色階的明度單調、相鄰差距與淺端對底色的檢查。
+   未分類用灰色斜線，不占色階。時間軸的圖在手機上換成較高的那一張（.fi-narrow）。 */
+.fatf { --fi1: var(--brand-cyan-900); --fi2: var(--brand-cyan-800); --fi3: var(--brand-cyan-600); --fi4: var(--brand-cyan-400); --fi-na: var(--c-muted); }
+@media (prefers-color-scheme: dark) {
+  .fatf { --fi1: var(--brand-cyan-100); --fi2: var(--brand-cyan-300); --fi3: var(--brand-cyan-600); --fi4: var(--brand-cyan-800); }
+}
+.fi-1 { --pcc: var(--fi1); }
+.fi-2 { --pcc: var(--fi2); }
+.fi-3 { --pcc: var(--fi3); }
+.fi-4 { --pcc: var(--fi4); }
+.fi-world { --pcc: var(--c-muted); }
+.fatf svg.pc path { fill: var(--pcc); }
+.fatf svg.pc .fi-na { fill: url(#fi-hatch); }
+.fatf .fi-defs { position: absolute; }
+.fatf .fi-defs .fi-na-bg { fill: var(--c-bg); }
+.fatf .fi-defs .fi-na-line { stroke: var(--fi-na); stroke-width: 3; }
+.fatf .sw.fi-na { background: repeating-linear-gradient(45deg, var(--fi-na) 0 2px, transparent 2px 4px); }
+.fatf .sw.fi-world { background: repeating-linear-gradient(90deg, var(--c-muted) 0 3px, transparent 3px 5px); }
+.fatf .pc-line.fi-world { stroke-dasharray: 5 4; }
+.fatf svg.pc rect.fi-pause { fill: color-mix(in srgb, var(--c-muted) 12%, transparent); }
+.fatf .fi-total { fill: var(--c-strong); font-weight: 700; }
+.fatf .fi-label { fill: var(--c-text, var(--c-strong)); font-size: 13px; font-family: var(--font); }
+.fatf .fi-ci-halo { stroke: var(--c-bg); stroke-width: 4.5; stroke-linecap: round; }
+.fatf .fi-ci { stroke: var(--c-strong); stroke-width: 1.5; }
+.fatf svg.fi-narrow { display: none; }
+@media (max-width: 560px) {
+  .fatf svg.fi-wide { display: none; }
+  .fatf svg.fi-narrow { display: block; }
+  .fatf .fi-label { font-size: 22px; }
+}
+.fatf .fi-note { margin: .4rem 0 0; font-size: .75rem; color: var(--c-muted); }
+.fatf details { margin-top: .5rem; font-size: .8rem; }
+.fatf .fi-table { overflow-x: auto; }
+.fatf table { margin: .4rem 0 0; border-collapse: collapse; font-size: .75rem; font-variant-numeric: tabular-nums; }
+.fatf th, .fatf td { padding: .15rem .45rem; text-align: right; border-bottom: 1px solid var(--c-hair); white-space: nowrap; }
+.fatf th:first-child, .fatf td:first-child { text-align: left; }
+.fi-groups li { grid-template-columns: 7rem 1fr 2.5rem; }
+:lang(en) .fi-groups li { grid-template-columns: 10rem 1fr 2.5rem; }
 /* Tor 標記的說明放在名稱下面，橫跨整列 */
 .pulse-flags li { row-gap: .1rem; }
 .pulse-flags .d { grid-column: 1 / -1; font-size: .72rem; line-height: 1.4; color: var(--c-muted); }

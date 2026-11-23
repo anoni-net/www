@@ -223,6 +223,14 @@ SVG 的畫布照手機的寬度設計，約 360 單位寬，桌機用 `max-width
 
 依序進行的步驟用 `ol.flow` 寫在 Markdown 裡，每一步是編號圓點、名稱、說明與結果，最後一步加上 `ok` class 用實心圓點，樣式在 `site.css` 的「步驟流程」一段。手機上結果排在說明下方，桌機靠右對齊。第一個用在 [OONI 的封鎖判定方式](https://anoni.net/projects/asn-coverage/ooni-blocking-determination/)，取代文件站搬過來的 SVG 流程圖，深色模式也跟著換色。
 
+## 匿名支付主題的 FATF 系列
+
+`/join/payments-research/fatf/` 是匿名支付主題底下介紹 FATF 的系列（規劃見 toomore/anoni-net-ws#510），第 1 篇的圖由 [`fatf.py`](./fatf.py) 在建置時畫成內嵌的 SVG，Markdown 寫 `<!-- fatf-grey -->`、`<!-- fatf-share -->`、`<!-- fatf-ratings -->`、`<!-- fatf-groups -->`、`<!-- fatf-imf -->`。圖上的文字三個語系都在 `data/fatf.toml`，IMF 論文的數字也在那裡。
+
+資料在 `data/fatf/`：`income-groups.csv` 是 2018/02 到 2026/10 每次全體大會的灰名單依世界銀行所得分組的國家數，`ratings.csv` 是第四輪相互評鑑每個司法管轄區達到實質或高度有效的項數。整理方法、來源與核對方式在工作區的 `research/fatf-grey-list/`，fatf-gafi.org 擋下自動下載，灰名單改用法務部調查局、美國 FinCEN 與紐西蘭內政部轉載的聲明。FATF 每年 2 月、6 月、10 月開會，名單有異動時在那邊加一列，重新產生之後複製過來，正文的數字一起改。`build.py --check` 會檢查各分組加總是否等於當次的國家數。
+
+所得分組是有順序的類別，顏色用同一個 cyan 由深到淺，淺色模式用 900、800、600、400，深色模式另選 100、300、600、800，兩組都過了色階的明度單調、相鄰差距與淺端對底色的檢查。未分類用灰色斜線，斜線的 `<pattern>` 放在獨立的零尺寸 SVG，桌機與手機兩張圖共用。時間軸的兩張圖與 IMF 的圖在手機上換成較高的版本（`.fi-narrow`），在 560px 的斷點切換，文字不會被拉長。
+
 ## 分類
 
 站上的內容分成專案、服務、主題三類，判斷的依據是誰開發的。
@@ -497,6 +505,14 @@ The community overview, the map of regions we follow and the timeline on the Abo
 The SVG canvas is designed for phone width, about 360 units across, and `max-width` caps how far it scales up on desktop. SVG text does not wrap, so `diagrams.py` estimates widths and breaks lines itself, keeping line lengths even. The timeline carries more text, so it is an HTML ordered list instead: text wraps normally and screen readers keep the order. Community updates linked from the timeline must exist in all three locales; link a theme page when one is missing, and the build checks this.
 
 Sequential steps are written in Markdown as an `ol.flow`: each step has a numbered dot, a name, a description and a result, and the last step takes the `ok` class for a solid dot. The styles are in the step flow section of `site.css`. On phones the result sits under the description; on desktop it is right-aligned. It was first used on [OONI Blocking Verdicts](https://anoni.net/en/projects/asn-coverage/ooni-blocking-determination/), replacing the SVG flow chart moved over from the docs site, and it follows dark mode.
+
+## The FATF series on anonymous payments
+
+`/join/payments-research/fatf/` is the series on the FATF under the anonymous payments theme (planned in toomore/anoni-net-ws#510). The charts in part 1 are drawn as inline SVG at build time by [`fatf.py`](./fatf.py) and placed in Markdown with `<!-- fatf-grey -->`, `<!-- fatf-share -->`, `<!-- fatf-ratings -->`, `<!-- fatf-groups -->` and `<!-- fatf-imf -->`. All chart text, in all three locales, is in `data/fatf.toml`, along with the figures from the IMF paper.
+
+The data is in `data/fatf/`: `income-groups.csv` counts grey-listed jurisdictions by World Bank income group at every plenary from February 2018 to October 2026, and `ratings.csv` has the number of fourth-round effectiveness outcomes each jurisdiction had rated substantial or high. How it was compiled, sourced and checked is in `research/fatf-grey-list/` in the workspace. fatf-gafi.org blocks automated downloads, so the grey lists come from the statements as republished by Taiwan's Investigation Bureau, US FinCEN and New Zealand's Department of Internal Affairs. The FATF meets every February, June and October; when the lists change, add a row there, regenerate, copy the file over and update the numbers in the text. `build.py --check` verifies that the income groups add up to each plenary's total.
+
+Income groups are ordered categories, so they use one cyan from dark to light: steps 900, 800, 600 and 400 in light mode, and 100, 300, 600 and 800 chosen separately for dark mode. Both sets pass the ramp checks for monotone lightness, adjacent contrast and the light end against the surface. Unclassified uses a grey hatch; its `<pattern>` lives in a separate zero-size SVG shared by the desktop and phone charts. The two time-series charts and the IMF chart switch to a taller phone version (`.fi-narrow`) at the 560px breakpoint, so text is never stretched.
 
 ## Categories
 
