@@ -70,6 +70,10 @@ ASN_SLUG = "projects/asn-coverage"
 REPORTS_SLUG = "projects/reports"
 # 技術文章，pages/<語系>/articles/ 底下的頁面，front matter 要有 date，列表由新到舊
 ARTICLES_SLUG = "articles"
+# 報告與指引中譯（anoni-net/www#108）。pages/<語系>/library/<文件>.md 是導讀頁，三個語系都要有；
+# pages/zh-TW/library/<文件>/<章節>.md 是譯文的章節，只有正體中文。章節的順序寫在正體中文導讀頁
+# front matter 的 chapters
+LIBRARY_SLUG = "library"
 # 社群動態的標籤：新增（專案或服務上線）、活動、更新（工作進度）。觀點、立場與經驗不加標籤。
 # 顏色照品牌素材頁的「公告 tag」
 UPDATE_KINDS = ("new", "event", "update")
@@ -87,6 +91,7 @@ BLOCK_SOURCES = {
     "latest-updates": ["updates/{lang}/"],
     "articles": ["pages/{lang}/articles/"],
     "latest-articles": ["pages/{lang}/articles/"],
+    "library": ["pages/{lang}/library/"],
     "reports": ["reports/", "data/reports.toml"],
     "diagram-": ["data/diagrams.toml"],
     "tu-": ["data/tor-users.toml", "data/tor-users/"],
@@ -119,6 +124,11 @@ def split_front_matter(text: str, where: str) -> tuple[dict, str]:
         if not meta.get(key):
             raise SystemExit(f"{where}：front matter 缺少 {key}")
     return meta, body
+
+
+def zh_tw_only(slug: str) -> bool:
+    """只有正體中文的頁面：報告與指引中譯的章節，library/<文件>/<章節>。"""
+    return slug.startswith(f"{LIBRARY_SLUG}/") and slug.count("/") >= 2
 
 
 def page_slugs(root: Path) -> list[str]:
@@ -389,6 +399,50 @@ class Site:
                           "href": self.page_path(lang, f"{ARTICLES_SLUG}/{src.stem}")})
         return sorted(items, key=lambda i: (i["date"], i["href"]), reverse=True)
 
+    def library_for(self, lang: Lang) -> list[dict]:
+        """報告與指引中譯的列表，一份文件一項，由新到舊。日期是譯文首次發布的日期。
+        正體中文以外的語系，標題後面註明譯文只有正體中文。"""
+        items = []
+        for src in sorted((PAGES / lang.code / LIBRARY_SLUG).glob("*.md")):
+            where = src.relative_to(ROOT).as_posix()
+            meta, _ = split_front_matter(src.read_text(encoding="utf-8"), where)
+            if not isinstance(meta.get("date"), date):
+                raise SystemExit(f"{where}：導讀頁的 front matter 要有 date（譯文首次發布的日期），寫成 YYYY-MM-DD")
+            items.append({"date": meta["date"], "title": meta["title"], "summary": meta["description"],
+                          "source": meta.get("source", ""), "href": self.page_path(lang, f"{LIBRARY_SLUG}/{src.stem}")})
+        return sorted(items, key=lambda i: (i["date"], i["href"]), reverse=True)
+
+    def library_doc(self, slug: str) -> tuple[str, dict] | None:
+        """章節頁所屬的文件：(導讀頁的 slug, 正體中文導讀頁的 front matter)。不是章節頁時回傳 None。"""
+        if not zh_tw_only(slug):
+            return None
+        guide = "/".join(slug.split("/")[:2])
+        src = PAGES / self.langs[0].code / f"{guide}.md"
+        meta, _ = split_front_matter(src.read_text(encoding="utf-8"), src.relative_to(ROOT).as_posix())
+        return guide, meta
+
+    def chapter_nav(self, lang: Lang, slug: str) -> dict:
+        """章節頁底下的上一章、下一章，順序照導讀頁 front matter 的 chapters。第一章的上一頁與
+        最後一章的下一頁是導讀頁。"""
+        guide, meta = self.library_doc(slug)
+        names = [f"{guide}/{name}" for name in meta.get("chapters", [])]
+        if slug not in names:
+            raise SystemExit(f"pages/{self.langs[0].code}/{guide}.md：front matter 的 chapters 沒有列出 {slug.rsplit('/', 1)[-1]}")
+        i = names.index(slug)
+
+        def item(other: str) -> dict:
+            if other == guide:
+                return {"title": meta["title"], "href": self.page_path(lang, guide)}
+            m, _ = split_front_matter((PAGES / lang.code / f"{other}.md").read_text(encoding="utf-8"), other)
+            return {"title": m["title"], "href": self.page_path(lang, other)}
+
+        return {"prev": item(names[i - 1] if i else guide), "next": item(names[i + 1] if i + 1 < len(names) else guide),
+                "pos": i + 1, "total": len(names), "doc": item(guide)}
+
+    def has_page(self, lang: Lang, slug: str) -> bool:
+        """這個語系有沒有這一頁。章節頁只有正體中文，sitemap 與 hreflang 只列有的語系。"""
+        return lang.code == self.langs[0].code or not zh_tw_only(slug)
+
     def updates_for(self, lang: Lang) -> list[dict]:
         """動態列表，由新到舊。文件站部落格的舊社群文章 2026-10 全部搬到 updates/（#42）。"""
         items = [{"date": p.date, "title": p.meta["title"], "summary": p.meta["description"],
@@ -446,6 +500,9 @@ class Site:
         return f"https://anoni.net/{product}{lang.prefix}/{path}"
 
     def localize_href(self, href: str, lang: Lang) -> str:
+        # zh-tw:/library/x/chapter-1/ 是正體中文的頁面，其他語系連到只有正體中文的章節頁時用，不加語系前綴
+        if href.startswith("zh-tw:/"):
+            return href[len("zh-tw:"):]
         for product in ("docs", "news"):
             if href.startswith(f"{product}:"):
                 return self.product_url(product, lang, href[len(product) + 1:])
@@ -560,6 +617,7 @@ class Site:
             "service_url": lambda svc: self.service_url(svc, target),
             "updates": self.updates_for(lang),
             "articles": self.articles_for(lang),
+            "library": self.library_for(lang),
             "report_items": self.report_items(lang, target),
             "feed_url": f"{lang.prefix}/updates/feed.xml",
             "jsonld": lambda page: self.jsonld(lang, target, page),
@@ -656,7 +714,7 @@ class Site:
                 target=target, langs=self.langs, slugs=self.slugs, page_path=self.page_path), target)
             self.write(out / "sitemap.xml", self.env.get_template("sitemap.xml.j2").render(
                 target=target, langs=self.langs, slugs=self.slugs + self.pulse_slugs + self.asn_slugs, page_path=self.page_path,
-                lastmod=self.page_lastmod,
+                lastmod=self.page_lastmod, has_page=self.has_page,
                 posts=[p for lang in self.langs for p in self.posts[lang.code] + self.reports[lang.code]]), target)
             # 頁面用到的圖片清單，部署腳本照著從圖片主機複製進來。寫在輸出目錄外面，不會跟著發布
             if prefix := target.get("assets"):
@@ -671,6 +729,8 @@ class Site:
         for slug in self.slugs:
             src = PAGES / lang.code / f"{slug}.md"
             where = src.relative_to(ROOT).as_posix()
+            if not self.has_page(lang, slug):
+                continue
             if not src.exists():
                 raise SystemExit(f"{where}：缺少這個語系的頁面")
             meta, body = split_front_matter(src.read_text(encoding="utf-8"), where)
@@ -696,11 +756,22 @@ class Site:
                 "path": self.page_path(lang, slug),
                 "alternates": [(other, self.page_path(other, slug)) for other in self.langs],
             }
+            label = self.section_label(lang, page["section"])
+            if doc := self.library_doc(slug):
+                # 章節頁的語言切換回到那個語系的導讀頁，hreflang 只有正體中文
+                guide, guide_meta = doc
+                page["alternates"] = [(other, self.page_path(other, slug if self.has_page(other, slug) else guide))
+                                      for other in self.langs]
+                page["hreflang"] = [(other, self.page_path(other, slug)) for other in self.langs if self.has_page(other, slug)]
+                page["chapter"] = self.chapter_nav(lang, slug)
+                page["doc_title"] = guide_meta.get("short_title", guide_meta["title"])
+                page.setdefault("date", guide_meta.get("date"))
+                label = label + [page["doc_title"]]
             # 三大主題的頁面，頁首放一個主題色的標籤
             topic = next((tp for tp in self.data.get("topics", {}).get("topics", []) if tp["page"] == slug), None)
             if topic:
                 page["topic"] = topic
-            page = self.with_card(lang, page, self.section_label(lang, page["section"]))
+            page = self.with_card(lang, page, label)
             text = self.env.get_template(f"{template}.html.j2").render(
                 **self.context(lang, target), page=page, body=Markup(body_html))
             self.write(out / page["path"].lstrip("/") / "index.html", text, target)
@@ -1115,10 +1186,22 @@ def check(site: Site, outs: list[Path]) -> list[str]:
         for lang in site.langs[1:]:
             if not any(r.slug == rep.slug for r in site.reports[lang.code]):
                 problems.append(f"reports/{lang.code}/{rep.slug}.md：季報要三個語系都有，這個語系還沒有")
+    # 每一頁三個語系都要有，報告與指引中譯的章節頁例外，只有正體中文
     for lang in site.langs[1:]:
         have = page_slugs(PAGES / lang.code)
-        if have != site.slugs:
-            problems.append(f"pages/{lang.code} 的頁面跟 {site.langs[0].code} 不一致：{have}")
+        want = [s for s in site.slugs if site.has_page(lang, s)]
+        if have != want:
+            problems.append(f"pages/{lang.code} 的頁面跟 {site.langs[0].code} 不一致："
+                            f"缺少 {sorted(set(want) - set(have))}，多出 {sorted(set(have) - set(want))}")
+    # 導讀頁 front matter 的 chapters 要跟目錄裡的章節頁一致，上一章、下一章才不會漏掉或連到不存在的頁面
+    zh = site.langs[0]
+    for guide in (s for s in site.slugs if s.startswith(f"{LIBRARY_SLUG}/") and s.count("/") == 1):
+        meta, _ = split_front_matter((PAGES / zh.code / f"{guide}.md").read_text(encoding="utf-8"), guide)
+        listed = [f"{guide}/{c}" for c in meta.get("chapters", [])]
+        files = sorted(s for s in site.slugs if s.startswith(f"{guide}/"))
+        if sorted(listed) != files or len(set(listed)) != len(listed):
+            problems.append(f"pages/{zh.code}/{guide}.md：chapters 跟 {guide}/ 底下的章節頁不一致："
+                            f"列出 {listed}，實際有 {files}")
     for out in outs:
         target = site.config["targets"][out.name]
         # 組裝時才放進來的路徑（其他專案、圖片），建置的產物裡本來就沒有
@@ -1127,7 +1210,7 @@ def check(site: Site, outs: list[Path]) -> list[str]:
         for page in sorted(out.rglob("*.html")):
             rel = page.relative_to(out).as_posix()
             text = page.read_text(encoding="utf-8")
-            for leftover in ("docs:", "news:", "<!--"):
+            for leftover in ("docs:", "news:", "zh-tw:", "<!--"):
                 if f'"{leftover}' in text or (leftover == "<!--" and PLACEHOLDER.search(text)):
                     problems.append(f"{out.name}/{rel}：沒有展開的 {leftover}")
             for href in re.findall(r'(?:href|src)="(/[^"#?]*)', text):

@@ -7,9 +7,9 @@ kind: new
 
 ![MADLink 报告封面](https://assets.anoni.net/updates/madlink-cover-9788496b.jpg){ .shot }
 
-一家台湾上市公司出货的网络设备，最后在哈萨克斯坦成了国家级网络审查与监控系统的核心。InterSecLab 的 MADLink 报告追查了这条供应链，匿名网络社区 anoni.net 已完成正体中文翻译，收在文档站的[研究报告中译](https://anoni.net/docs/reports/)（中译只有正体中文版）。
+一家台湾上市公司出货的网络设备，最后在哈萨克斯坦成了国家级网络审查与监控系统的核心。InterSecLab 的 MADLink 报告追查了这条供应链，匿名网络社区 anoni.net 已完成正体中文翻译，收在[报告与指引中译](/library/)（中译只有正体中文版）。
 
-设备来自凌华科技（ADLINK Technologies，股票代号 6166），客户是中国公司 Geedge Networks（积至公司），旗舰产品「天狗安全网关（Tiangou Secure Gateway，TSG）」的能力可与中国防火长城相比。报告〈[MADLink: A Taiwanese Vestige in the Geedge Supply Chain](https://interseclab.org/research/madlink-a-taiwanese-vestige-in-the-geedge-supply-chain/)〉在 2026 年 4 月发布，是 InterSecLab 继 2025 年 9 月的《[The Internet Coup](https://anoni.net/docs/reports/interseclab-network-coup/)》之后，对 Geedge 供应链的第一篇延伸调查。
+设备来自凌华科技（ADLINK Technologies，股票代号 6166），客户是中国公司 Geedge Networks（积至公司），旗舰产品「天狗安全网关（Tiangou Secure Gateway，TSG）」的能力可与中国防火长城相比。报告〈[MADLink: A Taiwanese Vestige in the Geedge Supply Chain](https://interseclab.org/research/madlink-a-taiwanese-vestige-in-the-geedge-supply-chain/)〉在 2026 年 4 月发布，是 InterSecLab 继 2025 年 9 月的《[The Internet Coup](/library/interseclab-network-coup/)》之后，对 Geedge 供应链的第一篇延伸调查。
 
 
 ## 报告的主要发现
@@ -22,13 +22,13 @@ Geedge 当前一代的 TSG 部署在埃塞俄比亚、巴基斯坦和缅甸，�
 
 ## 中译的章节
 
-完整中译在文档站的 [MADLink 报告中译](https://anoni.net/docs/reports/interseclab-madlink/)。原报告是单页长文，翻译团队依主题切成 5 章，方便在 Matrix 上分章节讨论：
+完整中译见 [MADLink 报告中译](/library/interseclab-madlink/)。原报告是单页长文，翻译团队依主题切成 5 章，方便在 Matrix 上分章节讨论：
 
-- [第 1/5 章：摘要与主要发现](https://anoni.net/docs/reports/interseclab-madlink/index_1/)
-- [第 2/5 章：Geedge 供应链深入解析（三代 TSG 硬件）](https://anoni.net/docs/reports/interseclab-madlink/index_2/)
-- [第 3/5 章：EtherFabric 与 ADLINK 的角色和回应](https://anoni.net/docs/reports/interseclab-madlink/index_3/)
-- [第 4/5 章：结论](https://anoni.net/docs/reports/interseclab-madlink/index_4/)
-- [第 5/5 章：附录（凌华科技与经济部完整声明）](https://anoni.net/docs/reports/interseclab-madlink/index_5/)
+- [第 1/5 章：摘要与主要发现](zh-tw:/library/interseclab-madlink/chapter-1/)
+- [第 2/5 章：Geedge 供应链深入解析（三代 TSG 硬件）](zh-tw:/library/interseclab-madlink/chapter-2/)
+- [第 3/5 章：EtherFabric 与 ADLINK 的角色和回应](zh-tw:/library/interseclab-madlink/chapter-3/)
+- [第 4/5 章：结论](zh-tw:/library/interseclab-madlink/chapter-4/)
+- [第 5/5 章：附录（凌华科技与经济部完整声明）](zh-tw:/library/interseclab-madlink/chapter-5/)
 
 凌华与经济部国际贸易署的回应全文都收在附录，读者可以自行比对双方的说法。
 
@@ -44,7 +44,7 @@ MADLink 点名了一家台湾上市公司，照理会引来本地媒体追问、
 
 ## 相关阅读
 
-- [MADLink 报告中译](https://anoni.net/docs/reports/interseclab-madlink/)
+- [MADLink 报告中译](/library/interseclab-madlink/)
 - [台湾对 MADLink 报告的反应，2026 年 5 月的观察记录](/updates/2026/05/madlink-editorial-2026-05/)
-- [The Internet Coup 报告中译](https://anoni.net/docs/reports/interseclab-network-coup/)
+- [The Internet Coup 报告中译](/library/interseclab-network-coup/)
 - [InterSecLab 网络政变报告的正体中文翻译](/updates/2025/10/report-the-internet-coup/)

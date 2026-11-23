@@ -1,7 +1,7 @@
 {% extends "_layout.html.j2" %}
 {% from "_doc.html.j2" import toc_mobile, toc_aside with context %}
 {# 目錄頁（各區的入口）整個外框排成格狀，其餘是文件頁：內容欄加右側的「本頁內容」 #}
-{% set index = page.slug in ('projects', 'services', 'events', 'articles', 'join', 'updates', 'projects/reports') %}
+{% set index = page.slug in ('projects', 'services', 'events', 'articles', 'join', 'updates', 'projects/reports', 'library') %}
 {% set items = [] if index else body|toc %}
 {% block main %}
 <div class="{{ 'index' if index else 'doc' }}{% if items|length >= 2 %} has-toc{% endif %}">
@@ -24,6 +24,14 @@
 <div class="prose">
 {{ body }}
 </div>
+{% if page.get('chapter') %}
+{% set ch = page.chapter %}
+{# 報告與指引中譯的章節頁：上一章、下一章，第一章往前與最後一章往後都回到導讀頁 #}
+<nav class="pager" aria-label="{{ t.chapter_nav }}">
+  <a class="pager-prev" href="{{ ch.prev.href }}" rel="prev"><span class="pager-k">{{ icon('arrow-left') }}{{ t.chapter_prev if ch.pos > 1 else t.chapter_guide }}</span><span class="pager-t">{{ ch.prev.title }}</span></a>
+  <a class="pager-next" href="{{ ch.next.href }}" rel="next"><span class="pager-k">{{ t.chapter_next if ch.pos < ch.total else t.chapter_guide }}{{ icon('arrow-right') }}</span><span class="pager-t">{{ ch.next.title }}</span></a>
+</nav>
+{% endif %}
 </div>
 {{ toc_aside(items) }}
 </div>

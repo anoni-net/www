@@ -20,7 +20,7 @@
 
 ## 狀態
 
-社群頁面在 2026-10 從文件站搬完，導覽列六項都是本站的頁面。文件站部落格裡 2026-10 以前的 31 篇社群文章也搬到了 `updates/`，舊網址由 nginx 轉過來（#42）。2026-10-13 依上面的分工，再把文件站裡寫給技術讀者的 12 頁搬過來：參與 Tor Project、OONI 觀測涵蓋率底下讀懂觀測資料的 4 頁、參與底下架設與營運的 4 份指南，以及校園中繼專題底下的 3 份範本（#56、#61、#62、#63）。同一天文件站取消進階層，進階區與部落格的技術文章搬到新開的[技術文章](#技術文章)，部落格的 4 篇公告搬到 `updates/`。
+社群頁面在 2026-10 從文件站搬完，導覽列六項都是本站的頁面。文件站部落格裡 2026-10 以前的 31 篇社群文章也搬到了 `updates/`，舊網址由 nginx 轉過來（#42）。2026-10-13 依上面的分工，再把文件站裡寫給技術讀者的 12 頁搬過來：參與 Tor Project、OONI 觀測涵蓋率底下讀懂觀測資料的 4 頁、參與底下架設與營運的 4 份指南，以及校園中繼專題底下的 3 份範本（#56、#61、#62、#63）。同一天文件站取消進階層，進階區與部落格的技術文章搬到新開的[技術文章](#技術文章)，部落格的 4 篇公告搬到 `updates/`。2026-11 文件站改成隱私手冊，「研究報告中譯」的兩份 InterSecLab 譯文搬到新開的[報告與指引中譯](#報告與指引中譯)（#108）。
 
 ## 建置
 
@@ -34,7 +34,7 @@ uv run build.py --check  # 產生到暫存目錄並檢查，CI 跑同一個指�
 
 | 位置 | 內容 |
 |---|---|
-| `pages/<語系>/` | 每一頁一個 Markdown 檔，三個語系的檔名要一致 |
+| `pages/<語系>/` | 每一頁一個 Markdown 檔，三個語系的檔名要一致，`library/` 底下的章節頁例外 |
 | `updates/<語系>/` | 社群動態，一篇一個 Markdown 檔，見下方「社群動態」 |
 | `data/` | 主題、專案、服務的資料，三個語系寫在同一筆 |
 | `site.toml` | 語系、導覽列、三個輸出目標與 onion、IPFS 的網址改寫 |
@@ -79,6 +79,24 @@ IPFS 版本給 anoni.net 的 IPFS 鏡像用（toomore/anoni-net-ws#422），整�
 每一篇是 `pages/<語系>/articles/<slug>.md`，跟一般頁面一樣三個語系都要有。front matter 除了 `title`、`description`，還要寫 `date`（`YYYY-MM-DD`，原文或首次發表的日期），頁面在標題下顯示日期，結構化資料是 Article。列表頁 `pages/<語系>/articles.md` 用 `<!-- articles -->` 放進由新到舊的清單，依年份分組，清單由 `build.py` 的 `articles_for()` 掃目錄產生，新增文章不必改列表頁。首頁的「技術文章」一節用 `<!-- latest-articles -->` 列出最新三篇，連到列表頁，導覽列沒有這一區的入口。
 
 文件站的圖表用 Vega-Lite 在瀏覽器裡畫，本站不載入 JavaScript，搬過來的圖表先在本機用 headless Chrome 算成 PNG，上傳到 assets.anoni.net 的 `www/articles/`，文章裡用圖片引用。
+
+## 報告與指引中譯
+
+`/library/` 收社群翻譯成正體中文的外部長篇文件，包含研究報告與標準機構的指引，每份都附上原文連結、翻譯說明與編輯立場聲明（anoni-net/www#108）。跟其他兩區的分工是：`/projects/reports/` 是社群自己的觀測季報，`/articles/` 是單篇、三個語系齊全的技術文章，`/library/` 是多章節的外部文件全文，譯文只有正體中文。2026-11 文件站改成隱私手冊，原本的「研究報告中譯」（InterSecLab 的網路政變與 MADLink）搬到這裡，舊網址由文件站的 `redirect_maps` 與 `tools/docs_moved.toml` 產生的 nginx 對照表轉過來。
+
+一份文件放成三種頁面：
+
+| 檔案 | 網址 | 語系 |
+|---|---|---|
+| `pages/<語系>/library.md` | `/library/` | 三個語系，`<!-- library -->` 由 `build.py` 的 `library_for()` 列出各份文件 |
+| `pages/<語系>/library/<文件>.md` | `/library/<文件>/` | 三個語系。正體中文是譯文的導讀頁，簡體中文與英文寫摘要，連到原文與正體中文譯文 |
+| `pages/zh-TW/library/<文件>/<章節>.md` | `/library/<文件>/<章節>/` | 只有正體中文 |
+
+導讀頁的 front matter 除了 `title`、`description`，還要寫 `date`（譯文首次發布的日期，列表依它排序，結構化資料是 Article）與 `source`（原文的發布者，列表上顯示）。正體中文的導讀頁另外用 `chapters` 依序列出章節頁的檔名，章節頁底下的上一章、下一章照這個順序，第一章往前與最後一章往後回到導讀頁。`--check` 會比對 `chapters` 跟目錄裡的章節頁，少列或多列都不會通過。章節頁的檔名用 `chapter-<N>`，附錄之類不在章節編號裡的用描述性的名稱（例如 `appendix-a`），順序一律以 `chapters` 為準。
+
+`--check` 要求每一頁三個語系都有，`library/<文件>/` 底下的章節頁例外，簡體中文與英文不產生這些頁面，語言切換回到該語系的導讀頁，hreflang 與 sitemap 只列正體中文。簡體中文與英文的頁面要連到章節頁時寫 `zh-tw:/library/<文件>/<章節>/`，建置時不加語系前綴，直接寫 `/library/...` 會被加上目前語系的前綴而連到不存在的頁面。章節頁的 `<title>` 與預覽卡片帶上文件的標題，導讀頁標題太長時可以在 front matter 寫 `short_title` 給章節頁用。
+
+譯文用的 admonition、`<figure markdown="span">`、註腳、縮寫定義（`*[WMS]: ...`）與標題錨點（`{ #錨點 }`）都跟文件站的設定相同，可以直接使用。原文的圖片先放到 assets.anoni.net 的 `www/library/<文件>/` 再引用（網路政變的圖在更早的 `the-internet-coup/`），建置檢查會擋下其他網站的圖片。
 
 ## 部署
 
@@ -277,7 +295,7 @@ This site and the docs site divide the work by reader (toomore/anoni-net-ws#406)
 
 ## Status
 
-The community pages finished moving over from the docs site in 2026-10, and all six items in the navigation bar now point to pages on this site. The 31 community posts published on the docs site's blog before 2026-10 have moved to `updates/` as well, with nginx redirecting their old addresses (#42). On 2026-10-13, following the division above, 12 more pages written for technical readers moved over from the docs site: Contributing to the Tor Project, the four pages on reading measurement data under OONI Coverage, the four setup guides under Take part, and the three campus relay templates under the campus track (#56, #61, #62, #63). The same day the docs site dropped its Advanced section: the Advanced pages and the blog's technical posts moved to the new [Articles](#articles) section, and four blog announcements moved to `updates/`.
+The community pages finished moving over from the docs site in 2026-10, and all six items in the navigation bar now point to pages on this site. The 31 community posts published on the docs site's blog before 2026-10 have moved to `updates/` as well, with nginx redirecting their old addresses (#42). On 2026-10-13, following the division above, 12 more pages written for technical readers moved over from the docs site: Contributing to the Tor Project, the four pages on reading measurement data under OONI Coverage, the four setup guides under Take part, and the three campus relay templates under the campus track (#56, #61, #62, #63). The same day the docs site dropped its Advanced section: the Advanced pages and the blog's technical posts moved to the new [Articles](#articles) section, and four blog announcements moved to `updates/`. In 2026-11 the docs site became a privacy handbook, and the two InterSecLab translations in its Translated Reports moved to the new [Translated reports and guidance](#translated-reports-and-guidance) section (#108).
 
 ## Building
 
@@ -291,7 +309,7 @@ We do not use an off-the-shelf static site generator. `build.py` reads the Markd
 
 | Location | Contents |
 |---|---|
-| `pages/<locale>/` | One Markdown file per page; file names must match across the three locales |
+| `pages/<locale>/` | One Markdown file per page; file names must match across the three locales, except the chapter pages under `library/` |
 | `updates/<locale>/` | Community updates, one Markdown file per post (see "Community updates" below) |
 | `data/` | Topics, projects and services, with all three locales in the same entry |
 | `site.toml` | Locales, the navigation bar, the three output targets and the onion and IPFS URL rewrites |
@@ -336,6 +354,24 @@ Analyses and research guides written for technical readers go in "Articles" belo
 Each article is `pages/<locale>/articles/<slug>.md` and, like any page, needs all three locales. Besides `title` and `description`, the front matter needs `date` (`YYYY-MM-DD`, when the piece or its original was first published); the page shows the date under the title and its structured data is an Article. The list page `pages/<locale>/articles.md` places a newest-first list, grouped by year, with `<!-- articles -->`. `articles_for()` in `build.py` builds the list by scanning the directory, so adding an article does not require editing the list page. The home page's Articles section lists the newest three with `<!-- latest-articles -->` and links to the list page; the navigation bar has no entry for this section.
 
 The docs site draws its charts in the browser with Vega-Lite. This site loads no JavaScript, so charts that moved over were rendered to PNG locally with headless Chrome, uploaded to `www/articles/` on assets.anoni.net and referenced as images.
+
+## Translated reports and guidance
+
+`/library/` holds long-form external documents that the community has translated into Traditional Chinese, including research reports and guidance from standards bodies. Each comes with a link to the original, translation notes and an editorial statement (anoni-net/www#108). The division with the other two sections: `/projects/reports/` is the community's own quarterly measurement reports, `/articles/` is single-piece technical writing in all three locales, and `/library/` is full multi-chapter external documents whose translation exists in Traditional Chinese only. When the docs site became a privacy handbook in 2026-11, its "Translated Reports" (InterSecLab's The Internet Coup and MADLink) moved here. Their old URLs are redirected by the docs site's `redirect_maps` and by the nginx map generated from `tools/docs_moved.toml`.
+
+Each document uses three kinds of page:
+
+| File | URL | Locales |
+|---|---|---|
+| `pages/<locale>/library.md` | `/library/` | All three. `<!-- library -->` lists the documents via `library_for()` in `build.py` |
+| `pages/<locale>/library/<doc>.md` | `/library/<doc>/` | All three. The zh-TW page introduces the translation; zh-CN and en summarize the document and link to the original and the zh-TW translation |
+| `pages/zh-TW/library/<doc>/<chapter>.md` | `/library/<doc>/<chapter>/` | zh-TW only |
+
+Besides `title` and `description`, an overview page's front matter needs `date` (when the translation was first released; the list sorts by it and the structured data is an Article) and `source` (who published the original, shown in the list). The zh-TW overview also lists its chapter files in order under `chapters`. The previous and next links at the bottom of each chapter follow that order, with the first and last chapters linking back to the overview. `--check` compares `chapters` with the chapter files in the directory and fails if one is missing from either side. Chapter files are named `chapter-<N>`; parts outside the numbering, such as appendices, get descriptive names (for example `appendix-a`), and `chapters` alone decides the order.
+
+`--check` requires every page in all three locales, except the chapter pages under `library/<doc>/`. zh-CN and en do not build them, the language switcher falls back to that locale's overview, and hreflang and the sitemap list zh-TW only. When a zh-CN or en page links to a chapter, write `zh-tw:/library/<doc>/<chapter>/`, which the build leaves without a locale prefix; a plain `/library/...` would get the current locale's prefix and point at a page that does not exist. A chapter's `<title>` and preview card carry the document's title; if the overview's title is too long, set `short_title` in its front matter for the chapters to use.
+
+The translations can use the same admonitions, `<figure markdown="span">`, footnotes, abbreviation definitions (`*[WMS]: ...`) and heading anchors (`{ #anchor }`) as the docs site. Upload images from the original to `www/library/<doc>/` on assets.anoni.net first (The Internet Coup's images are in the older `the-internet-coup/`); the build check rejects images from other sites.
 
 ## Deployment
 

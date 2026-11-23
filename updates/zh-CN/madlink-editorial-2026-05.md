@@ -10,7 +10,7 @@ InterSecLab 的 MADLink 报告点名了一家台湾上市公司，指出它出�
 
 !!! note "2026-05-20 的观察快照"
 
-    本文是 anoni.net 编辑团队在 2026-05-20 的观察整理（2026-05-16 初版，05-20 补上外部交叉验证），不属于 InterSecLab 原报告的内容。发布之后没有持续更新，文中提到的状态都以快照日为准。报告翻译本体在文档站的 [MADLink 报告中译](https://anoni.net/docs/reports/interseclab-madlink/)（中译只有正体中文版）。
+    本文是 anoni.net 编辑团队在 2026-05-20 的观察整理（2026-05-16 初版，05-20 补上外部交叉验证），不属于 InterSecLab 原报告的内容。发布之后没有持续更新，文中提到的状态都以快照日为准。报告翻译本体见 [MADLink 报告中译](/library/interseclab-madlink/)（中译只有正体中文版）。
 
 
 ## 外部交叉验证
@@ -47,7 +47,7 @@ IEEE OUI `00:30:64` 登记在 ADLINK Technology, Inc. 名下，这个硬件指�
 
 ## 主管机关、立法院与凌华的回应
 
-经济部国际贸易署回复 InterSecLab 时，说明台湾的战略性高科技货品出口管制以防止大规模毁灭性武器扩散为目的。管制货品清单参照四大国际出口管制机制，实体清单参照联合国安理会与伙伴国家的制裁清单。对于个案，国贸署以法律限制为由，不揭露涉及个别公司的信息（全文见报告翻译的[附录](https://anoni.net/docs/reports/interseclab-madlink/index_5/)）。
+经济部国际贸易署回复 InterSecLab 时，说明台湾的战略性高科技货品出口管制以防止大规模毁灭性武器扩散为目的。管制货品清单参照四大国际出口管制机制，实体清单参照联合国安理会与伙伴国家的制裁清单。对于个案，国贸署以法律限制为由，不揭露涉及个别公司的信息（全文见报告翻译的[附录](zh-tw:/library/interseclab-madlink/chapter-5/)）。
 
 原报告引述了一位立委的主张，认为台湾应建立自己的实体清单，不只依赖美国与欧盟的清单，并订出更清楚的标准，厘清组件制造商在什么情况下需要对最终用途负责。在立法院议事系统、社交平台与媒体采访记录里，截至快照日都找不到这位立委就此议题进一步发言的记录。
 
@@ -112,9 +112,9 @@ IEEE OUI `00:30:64` 登记在 ADLINK Technology, Inc. 名下，这个硬件指�
 
 ## 相关阅读
 
-- [MADLink 报告中译](https://anoni.net/docs/reports/interseclab-madlink/)
+- [MADLink 报告中译](/library/interseclab-madlink/)
 - [InterSecLab MADLink 报告的正体中文翻译](/updates/2026/05/report-madlink/)
-- [The Internet Coup 报告中译](https://anoni.net/docs/reports/interseclab-network-coup/)
+- [The Internet Coup 报告中译](/library/interseclab-network-coup/)
 
 *[ADLINK]: 凌华科技股份有限公司（ADLINK Technology, Inc.），台湾上市公司，股票代号 6166。
 *[Geedge Networks]: 积至公司，中国的网络公司，研发、部署并对外出口互联网审查与监控技术。

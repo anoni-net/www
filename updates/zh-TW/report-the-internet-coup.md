@@ -16,7 +16,7 @@ kind: new
 
 ## 中譯的章節
 
-外洩資料的細節與防火長城的營運樣態，可以讀我們翻譯的[正體中文版](docs:reports/interseclab-network-coup/)，英文原文在 InterSecLab 的〈[The Internet Coup](https://interseclab.org/research/the-internet-coup/)〉。中譯依原報告的 INDEX 段落分成八個章節，閱讀時方便對照原文的段落。
+外洩資料的細節與防火長城的營運樣態，可以讀我們翻譯的[正體中文版](/library/interseclab-network-coup/)，英文原文在 InterSecLab 的〈[The Internet Coup](https://interseclab.org/research/the-internet-coup/)〉。中譯依原報告的 INDEX 段落分成八個章節，閱讀時方便對照原文的段落。
 
 ## 致謝
 

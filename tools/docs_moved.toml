@@ -373,3 +373,102 @@ docs = "blog/posts/brave-gpu-fingerprinting.md"
 page = "articles/brave-gpu-fingerprinting"
 langs = ["zh-TW", "zh-CN", "en"]
 import = true
+
+# 2026-11-23 研究報告中譯搬到 /library/（報告與指引中譯，anoni-net/www#108）。
+# 譯文只有正體中文，章節頁只登記 zh-TW。檔名改成 chapter-N，對應原報告的章節順序
+
+[[moved]]
+docs = "reports/index.md"
+page = "library"
+langs = ["zh-TW", "zh-CN", "en"]
+import = true
+
+[[moved]]
+docs = "reports/interseclab-network-coup/index.md"
+page = "library/interseclab-network-coup"
+langs = ["zh-TW"]
+import = true
+
+[[moved]]
+docs = "reports/interseclab-network-coup/index_1.md"
+page = "library/interseclab-network-coup/chapter-1"
+langs = ["zh-TW"]
+import = true
+
+[[moved]]
+docs = "reports/interseclab-network-coup/index_2.md"
+page = "library/interseclab-network-coup/chapter-2"
+langs = ["zh-TW"]
+import = true
+
+[[moved]]
+docs = "reports/interseclab-network-coup/index_3.md"
+page = "library/interseclab-network-coup/chapter-3"
+langs = ["zh-TW"]
+import = true
+
+[[moved]]
+docs = "reports/interseclab-network-coup/index_4.md"
+page = "library/interseclab-network-coup/chapter-4"
+langs = ["zh-TW"]
+import = true
+
+[[moved]]
+docs = "reports/interseclab-network-coup/index_5.md"
+page = "library/interseclab-network-coup/chapter-5"
+langs = ["zh-TW"]
+import = true
+
+[[moved]]
+docs = "reports/interseclab-network-coup/index_6.md"
+page = "library/interseclab-network-coup/chapter-6"
+langs = ["zh-TW"]
+import = true
+
+[[moved]]
+docs = "reports/interseclab-network-coup/index_7.md"
+page = "library/interseclab-network-coup/chapter-7"
+langs = ["zh-TW"]
+import = true
+
+[[moved]]
+docs = "reports/interseclab-network-coup/index_8.md"
+page = "library/interseclab-network-coup/chapter-8"
+langs = ["zh-TW"]
+import = true
+
+[[moved]]
+docs = "reports/interseclab-madlink/index.md"
+page = "library/interseclab-madlink"
+langs = ["zh-TW"]
+import = true
+
+[[moved]]
+docs = "reports/interseclab-madlink/index_1.md"
+page = "library/interseclab-madlink/chapter-1"
+langs = ["zh-TW"]
+import = true
+
+[[moved]]
+docs = "reports/interseclab-madlink/index_2.md"
+page = "library/interseclab-madlink/chapter-2"
+langs = ["zh-TW"]
+import = true
+
+[[moved]]
+docs = "reports/interseclab-madlink/index_3.md"
+page = "library/interseclab-madlink/chapter-3"
+langs = ["zh-TW"]
+import = true
+
+[[moved]]
+docs = "reports/interseclab-madlink/index_4.md"
+page = "library/interseclab-madlink/chapter-4"
+langs = ["zh-TW"]
+import = true
+
+[[moved]]
+docs = "reports/interseclab-madlink/index_5.md"
+page = "library/interseclab-madlink/chapter-5"
+langs = ["zh-TW"]
+import = true

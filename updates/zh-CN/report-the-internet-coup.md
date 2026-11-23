@@ -16,7 +16,7 @@ kind: new
 
 ## 中译的章节
 
-泄露数据的细节与防火长城的运作方式，可以读我们翻译的[正体中文版](https://anoni.net/docs/reports/interseclab-network-coup/)，英文原文在 InterSecLab 的〈[The Internet Coup](https://interseclab.org/research/the-internet-coup/)〉。中译依原报告的 INDEX 段落分成八个章节，阅读时方便对照原文的段落。
+泄露数据的细节与防火长城的运作方式，可以读我们翻译的[正体中文版](/library/interseclab-network-coup/)，英文原文在 InterSecLab 的〈[The Internet Coup](https://interseclab.org/research/the-internet-coup/)〉。中译依原报告的 INDEX 段落分成八个章节，阅读时方便对照原文的段落。
 
 ## 致谢
 

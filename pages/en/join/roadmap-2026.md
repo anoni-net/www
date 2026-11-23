@@ -56,7 +56,7 @@ Following the [Anonymous Network Workshop 2025/08](/events/workshop-2025/) at Na
 
 ### Research and report translation
 
-In the second half of 2025 we translated and shared InterSecLab's report on the export of China's censorship technology, [The Internet Coup](https://anoni.net/docs/reports/interseclab-network-coup/) (the translation is on the Traditional Chinese docs site only). Through 2026 we continue to select international reports with local relevance for translation and annotation, collected under [Curated Reports](docs:reports/).
+In the second half of 2025 we translated and shared InterSecLab's report on the export of China's censorship technology, [The Internet Coup](/library/interseclab-network-coup/) (the translation is on the Traditional Chinese docs site only). Through 2026 we continue to select international reports with local relevance for translation and annotation, collected under [Translated Reports and Guidance](/library/).
 
 ### Participation in other events
 

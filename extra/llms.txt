@@ -67,8 +67,9 @@
 
 ## 報告翻譯
 
-- [嚴選報告中譯](https://anoni.net/docs/reports/): 外部研究報告的正體中文翻譯入口。
-- [網路政變 InterSec Lab 報告](https://anoni.net/docs/reports/interseclab-network-coup/): 中國防火長城運作團隊與技術的調查報告中譯。
+- [報告與指引中譯](https://anoni.net/library/): 外部研究報告與標準機構指引的正體中文全文譯本入口，譯文只有正體中文。
+- [網路政變](https://anoni.net/library/interseclab-network-coup/): InterSecLab 調查 Geedge Networks 輸出中國防火長城技術的報告中譯，共八章。
+- [MADLink：台灣在 Geedge 供應鏈中的遺留](https://anoni.net/library/interseclab-madlink/): InterSecLab 調查凌華科技出貨給 Geedge Networks 的報告中譯，共五章。
 
 ## 社群與參與
 

@@ -10,7 +10,7 @@ InterSecLab 的 MADLink 報告點名了一家台灣上市公司，指出它出�
 
 !!! note "2026-05-20 的觀察快照"
 
-    本文是 anoni.net 編輯團隊在 2026-05-20 的觀察整理（2026-05-16 初版，05-20 補上外部交叉驗證），不屬於 InterSecLab 原報告的內容。發布之後沒有持續更新，文中提到的狀態都以快照日為準。報告翻譯本體在文件站的 [MADLink 報告中譯](docs:reports/interseclab-madlink/)。
+    本文是 anoni.net 編輯團隊在 2026-05-20 的觀察整理（2026-05-16 初版，05-20 補上外部交叉驗證），不屬於 InterSecLab 原報告的內容。發布之後沒有持續更新，文中提到的狀態都以快照日為準。報告翻譯本體見 [MADLink 報告中譯](/library/interseclab-madlink/)。
 
 
 ## 外部交叉驗證
@@ -47,7 +47,7 @@ IEEE OUI `00:30:64` 登記在 ADLINK Technology, Inc. 名下，這個硬體指�
 
 ## 主管機關、立法院與凌華的回應
 
-經濟部國際貿易署回覆 InterSecLab 時，說明台灣的戰略性高科技貨品出口管制以防止大規模毀滅性武器擴散為目的。管制貨品清單參照四大國際出口管制機制，實體清單參照聯合國安理會與夥伴國家的制裁清單。對於個案，國貿署以法律限制為由，不揭露涉及個別公司的資訊（全文見報告翻譯的[附錄](docs:reports/interseclab-madlink/index_5/)）。
+經濟部國際貿易署回覆 InterSecLab 時，說明台灣的戰略性高科技貨品出口管制以防止大規模毀滅性武器擴散為目的。管制貨品清單參照四大國際出口管制機制，實體清單參照聯合國安理會與夥伴國家的制裁清單。對於個案，國貿署以法律限制為由，不揭露涉及個別公司的資訊（全文見報告翻譯的[附錄](/library/interseclab-madlink/chapter-5/)）。
 
 原報告引述了一位立委的主張，認為台灣應建立自己的實體清單，不只依賴美國與歐盟的清單，並訂出更清楚的標準，釐清元件製造商在什麼情況下需要對最終用途負責。在立法院議事系統、社群平台與媒體採訪紀錄裡，截至快照日都找不到這位立委就此議題進一步發言的紀錄。
 
@@ -112,9 +112,9 @@ IEEE OUI `00:30:64` 登記在 ADLINK Technology, Inc. 名下，這個硬體指�
 
 ## 相關閱讀
 
-- [MADLink 報告中譯](docs:reports/interseclab-madlink/)
+- [MADLink 報告中譯](/library/interseclab-madlink/)
 - [InterSecLab MADLink 報告的正體中文翻譯](/updates/2026/05/report-madlink/)
-- [The Internet Coup 報告中譯](docs:reports/interseclab-network-coup/)
+- [The Internet Coup 報告中譯](/library/interseclab-network-coup/)
 
 *[ADLINK]: 凌華科技股份有限公司（ADLINK Technology, Inc.），台灣上市公司，股票代號 6166。
 *[Geedge Networks]: 積至公司，中國的網路公司，研發、部署並對外出口網際網路審查與監控技術。
