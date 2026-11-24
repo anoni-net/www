@@ -1,9 +1,11 @@
 ---
 title: FATF, the body that sets anti-money laundering standards
-description: Where the Financial Action Task Force came from, how it works and where its leverage comes from, shown with grey-list, mutual-evaluation and IMF data, with the case for and against it.
+description: Bank de-risking hits civil society and humanitarian transfers, and FATF standards are part of the reason. How the FATF works, with data and both sides.
 ---
 
-Opening an account at a crypto exchange in Taiwan means uploading ID, and sending virtual assets out means filling in the recipient's details. Opening a bank account means explaining where the money comes from. Most of these rules trace back to one international body, the Financial Action Task Force (FATF). The FATF cannot legislate and its recommendations are not a treaty, yet most countries base their anti-money laundering laws on them. Its public lists can also move a country's capital flows, so research on anonymous payments has to deal with FATF rules.
+Running an advocacy group in Taiwan, raising money for partners abroad or sending funds to a disaster area, you may find that a bank closes the account or returns the transfer. To reduce their own risk, banks cut back on customers they see as high-risk, a practice known as de-risking. Non-profits, humanitarian remittances and people already on the edge of the banking system are hit hardest. Part of what banks base those risk judgments on comes from the standards and public lists of the Financial Action Task Force (FATF).
+
+Uploading ID to open an account at a crypto exchange, filling in the recipient's details to send virtual assets, explaining where the money comes from when opening a bank account: these everyday rules also trace back to the FATF. The FATF cannot legislate and its recommendations are not a treaty, yet most countries base their anti-money laundering laws on them. Understanding why accounts get closed, why transfers get blocked and how much room is left for anonymous payments starts with the body that sets these rules.
 
 !!! info ""
 
@@ -96,9 +98,13 @@ Critics can read the gap as peer review going easy on members; supporters can re
 
 ### The cost and who bears it
 
-To reduce risk, banks may simply close accounts or refuse transfers, a practice known as de-risking. Non-profits, humanitarian remittances and people already on the edge of the banking system bear the brunt. Recommendation 8 used to treat the whole non-profit sector as vulnerable to terrorist financing. One example in a RUSI commentary is Nicaragua, where the government used compliance with Recommendation 8 as cover to crack down on civil society.
+Non-profits are hit especially hard by de-risking, partly because Recommendation 8 used to treat the whole non-profit sector as vulnerable to terrorist financing. One example in a RUSI commentary is Nicaragua, where the government used compliance with Recommendation 8 as cover to crack down on civil society.
 
 The FATF launched a project on unintended consequences in 2021 and amended Recommendation 8 in November 2023. Since then, countries are expected to identify the non-profits actually at risk instead of applying measures to the whole sector. The Global NPO Coalition on FATF issued a statement welcoming the change as a response to long-standing demands, and the coalition will watch how it plays out in the new round of evaluations. Civil society, by taking part, helped bring the revision about. According to a RUSI commentary, the revision may be cosmetic. According to the FATF's own stocktake, de-risking is hard to attribute directly to its standards, with supervisory pressure and reputational concerns also playing a part.
+
+!!! tip ""
+
+    If your organization has had an account closed or a donation returned, see [Anonymous donation channels for advocacy organizations](docs:scenarios/nonprofit-anonymous-donation/) on our docs site, a legal and auditable way to receive donations that protects donors while keeping the organization accountable.
 
 ### Privacy implications
 
