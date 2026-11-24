@@ -109,6 +109,16 @@ def load_geojson(path: str | None) -> dict:
         return json.load(resp)
 
 
+def color_overrides(conf: dict) -> str:
+    """設定檔的 [colors] 可以改兩組的填色，各寫 [淺色, 深色]。沒寫就用 CSS 的預設（主色較深、另一種色調較淺）。
+    寫在預設之後，同樣的選擇器後面的規則會蓋過前面。"""
+    colors = conf.get("colors", {})
+    pairs = [(key, cls) for key, cls in (("primary", "cli"), ("secondary", "dom")) if key in colors]
+    light = "".join(f".{cls}{{fill:{colors[key][0]}}}" for key, cls in pairs)
+    dark = "".join(f".{cls}{{fill:{colors[key][1]}}}" for key, cls in pairs)
+    return f"{light}@media (prefers-color-scheme:dark){{{dark}}}" if pairs else ""
+
+
 def render_svg(conf: dict, data: dict) -> str:
     cv = Canvas(conf["lon"], conf["lat"], conf.get("width", 720))
     groups = conf.get("groups", {})
@@ -124,7 +134,7 @@ def render_svg(conf: dict, data: dict) -> str:
         if d:
             paths[code] = d
     parts = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {cv.width} {cv.height}" role="img">'
-             f'<title>{escape(conf["title"])}</title><style>{CSS.strip()}</style>']
+             f'<title>{escape(conf["title"])}</title><style>{CSS.strip()}{color_overrides(conf)}</style>']
     # 上色的國家最後畫，國界才不會被鄰國的白邊蓋掉
     for code, d in sorted(paths.items(), key=lambda kv: kv[0] in primary or kv[0] in secondary):
         cls = "cli" if code in primary else "dom" if code in secondary else "land"

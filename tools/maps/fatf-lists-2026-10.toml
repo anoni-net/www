@@ -1,0 +1,26 @@
+# 〈FATF，制定防制洗錢國際標準的組織〉文末的地圖：2026-10-30 全體大會之後的灰名單與黑名單。
+# 名單來自 data/fatf/income-groups.csv 的最後一列（整理方法見工作區的 research/fatf-grey-list/），
+# 地名與說明寫在文章的圖說，地圖只放編號，一張 SVG 三個語系共用。名單有異動時改 groups 並重新產生。
+name = "fatf-lists-2026-10-map"
+title = "FATF grey and black lists after the October 2026 plenary"
+# 經度、緯度的範圍：美洲到太平洋西側，涵蓋名單上所有的司法管轄區與台灣
+lon = [-112.0, 162.0]
+lat = [-46.0, 60.0]
+width = 720
+
+# 編號、經度、緯度：① 台灣，② 英屬維京群島（在灰名單上，這個比例尺看不到）
+markers = [
+  [1, 121.0, 23.7],
+  [2, -64.6, 18.4],
+]
+
+[groups]
+# 主色：灰名單（加強監控的司法管轄區，18 個）；另一種色調：黑名單（呼籲採取行動的高風險司法管轄區，3 個）
+primary = ["ao", "bo", "ba", "cm", "ht", "iq", "ke", "kw", "la", "lb", "np", "pg", "ss", "sy", "ve", "vn", "vg", "ye"]
+secondary = ["kp", "ir", "mm"]
+
+[colors]
+# 黑名單比灰名單嚴重，用最深的一階（深色模式反過來用最亮的一階），跟文章圖表的色階一致：
+# 灰名單 cyan-600，黑名單淺色模式 cyan-900、深色模式 cyan-100。各寫 [淺色, 深色]
+primary = ["#009ee6", "#009ee6"]
+secondary = ["#003e57", "#b3e3ff"]

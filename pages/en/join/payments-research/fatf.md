@@ -110,6 +110,19 @@ The FATF launched a project on unintended consequences in 2021 and amended Recom
 
 The FATF requires financial institutions to know their customers, keep records and report suspicious transactions. Wire transfers must carry information on the sender and the recipient, a requirement known as the **Travel Rule** (Recommendation 16). These requirements now reach virtual assets. In 2021 Coin Center, a US crypto policy group, submitted comments on the FATF's draft virtual asset guidance. According to the submission, applying the Travel Rule to self-hosted wallets is incompatible with privacy rights. The FATF keeps widening payment transparency: in June 2026 it opened a consultation on new guidance for Recommendation 16, aiming for full implementation of the Travel Rule by 2030. Part 2 covers virtual assets in detail.
 
+## Current reach and what it means for readers
+
+With only 40 members, the FATF extends its standards to more than 200 jurisdictions through the Global Network. After the October 2026 plenary, 18 jurisdictions were on the grey list and three were on the black list: North Korea, Iran and Myanmar. IMF researchers estimate that capital inflows fall by about 7.6% of GDP on average after grey-listing. Taiwan is on neither list; its 2019 mutual evaluation placed it in regular follow-up, and its effectiveness score ties for the highest among non-members.
+
+![Map of the FATF grey and black lists after the October 2026 plenary, with Taiwan and the British Virgin Islands marked](https://assets.anoni.net/www/articles/fatf-lists-2026-10-map-5f3252c9.svg){: .map-img width="720" height="281" loading="lazy" }
+
+The lists after the October 2026 plenary. Grey-listed jurisdictions are shown in the main colour: Angola, Bolivia, Bosnia and Herzegovina, Cameroon, Haiti, Iraq, Kenya, Kuwait, Laos, Lebanon, Nepal, Papua New Guinea, South Sudan, Syria, Venezuela, Vietnam, Yemen, and the British Virgin Islands, marked ② because they are too small to see. Black-listed jurisdictions are shown in the most prominent colour: North Korea, Iran and Myanmar. ① is Taiwan.
+{: .fig-note }
+
+For civil society groups, transfers of donations or humanitarian funds to listed places (such as Myanmar, Lebanon, Syria, Yemen, Haiti and South Sudan) face enhanced scrutiny from banks. That can mean requests for more documents, or the transfer being returned. Since Recommendation 8 was amended in 2023, countries are no longer expected to treat the whole non-profit sector as high-risk. Whether the change reaches banks' day-to-day checks depends on the new round of evaluations. Until then, preparing clear explanations of what the funds are for and who receives them, and choosing auditable channels, is the safer approach.
+
+For individuals, banks and exchanges follow FATF recommendations to know their customers and keep records. Now that the Travel Rule reaches virtual assets, sending cryptocurrency also means attaching the recipient's details, which narrows the room for financial privacy. The FATF aims for full implementation of the Travel Rule by 2030. Part 2 is planned to cover how these rules land in Taiwan's Virtual Asset Service Act and exchange practice, and where that leaves self-hosted wallets. For background on why anonymous payments matter, see [Why anonymous payments matter](docs:basics/payments-anonymity/) on our docs site.
+
 ## About the data
 
 - Grey list: 27 plenaries from February 2018 to October 2026, compiled from the FATF statements republished by Taiwan's Investigation Bureau, US FinCEN notices and New Zealand's Department of Internal Affairs, with each list checked against the one before
