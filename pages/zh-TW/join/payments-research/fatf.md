@@ -13,7 +13,7 @@ description: 銀行關閉公民團體帳戶、退回人道匯款的去風險做�
 
 ## 組織的來歷與成員
 
-FATF 在 1989 年 G7 巴黎高峰會上成立，任務是研擬對抗洗錢的措施，秘書處設在巴黎的經濟合作暨發展組織（OECD）。目前有 40 個成員，包括 38 個司法管轄區與歐盟執委會、海灣合作理事會兩個區域組織，俄羅斯自 2023-02-24 起停權。成員以 G20 與歐洲國家為主，亞太地區的成員有中國、香港、印度、印尼、日本、南韓、馬來西亞與新加坡。
+FATF 在 1989 年 G7 巴黎高峰會上成立，任務是研擬對抗洗錢的措施，秘書處設在巴黎的經濟合作暨發展組織（OECD）。目前有 40 個成員，包括 38 個司法管轄區與歐盟執委會、海灣合作理事會兩個區域組織，俄羅斯自 2023-02-24 起停權。成員以 G20 與歐洲國家為主，亞太地區的成員有澳洲、中國、香港、印度、印尼、日本、南韓、馬來西亞、紐西蘭與新加坡。
 
 FATF 的成員只有 40 個，標準套用到全世界的方式是 9 個區域性的 FATF 型組織（FSRB）。FATF 與 9 個區域組織合稱**全球體系**（Global Network），涵蓋超過 200 個司法管轄區。台灣以 Chinese Taipei 的名稱參加亞太防制洗錢組織（APG），相互評鑑也由 APG 執行，沒有加入 FATF。
 
@@ -52,17 +52,17 @@ FATF 每年 2 月、6 月、10 月召開全體大會，決定兩份公開的名�
 
 ## 約束力的來源
 
-FATF 的建議沒有罰則，約束力來自各國政府與金融業的配合。各國的主管機關會把名單轉給金融機構，美國財政部的金融犯罪執法網（FinCEN）通常在大會之後發布公告，提醒金融機構注意名單上的國家。台灣的法務部調查局在網站上轉載 FATF 的聲明。以 2025-06 為例，金管會轉發調查局的函，提醒金融機構對黑名單上的國家採取加強審查或與風險相稱的反制措施。銀行也把名單納入自己的風險評估，往來銀行可能減少或終止與名單上國家的業務。
+FATF 的建議沒有罰則，約束力來自各國政府與金融業的配合。各國的主管機關會把名單轉給金融機構，美國財政部的金融犯罪執法網（FinCEN）通常在大會之後發布公告，提醒金融機構注意名單上的國家。台灣的法務部調查局在網站上轉載 FATF 的聲明。以 2025-06 的大會為例，調查局發函給金管會，函中寫明 FATF 呼籲各國對黑名單上的國家「採取加強盡職調查或與風險相稱之反制措施」。對灰名單，FATF 未要求加強審查，只建議考量相關的風險。金管會保險局在 7 月把這份函轉給保險業的公會，請會員依洗錢防制法辦理。銀行也把名單納入自己的風險評估，往來銀行可能減少或終止與名單上國家的業務。
 
 國際貨幣基金（IMF）的研究人員 Kida 與 Paetzold 在 2021 年的工作論文裡估算過這些配合措施加起來的代價。他們用 89 個新興與開發中國家 2000 到 2017 年的資料，估計列入灰名單之後資本流入平均減少約 GDP 的 7.6%。外人直接投資、證券投資與其他投資都下降。
 
 <!-- fatf-imf -->
 
-作者在論文裡寫明，灰名單事件只占樣本約 0.7%。資本流入減少的原因（銀行降低風險、投資人把名單當作風險指標）是推論，沒有實際檢驗。減少的幅度約等於金融危機期間新興與開發中國家季度降幅的第 25 百分位。
+作者在論文裡寫明，灰名單事件只占樣本約 0.7%。論文把銀行降低風險、投資人把名單當作風險指標列為資本流入減少的可能機制。減少的幅度約等於 2008 年全球金融危機期間，新興與開發中國家總資本流入季度降幅分布的第 25 百分位。
 
 ## 台灣的位置
 
-APG 在 2019 年通過台灣第三輪的相互評鑑報告，現場評鑑在 2018-11。效能的 11 項有 7 項實質有效，4 項中等有效（監理、預防措施、法人的透明度、洗錢的偵查與起訴）。技術遵循有 10 項遵循、26 項大部分遵循、4 項部分遵循，沒有不遵循。法務部的說明是台灣因此列入一般追蹤，在 APG 成員中屬於少數。台灣為這一輪評鑑做的準備，以及 2016 年兆豐銀行紐約分行被重罰的經過，見[第 1 篇](/join/payments-research/fatf/taiwan/)。
+APG 在 2019 年通過台灣第三輪的相互評鑑報告，現場評鑑在 2018-11。效能的 11 項有 7 項實質有效，4 項中等有效（監理、預防措施、法人的透明度、洗錢的偵查與起訴）。技術遵循有 10 項遵循、26 項大部分遵循、4 項部分遵循，沒有不遵循。行政院的說明是台灣因此列入一般追蹤，當時 APG 成員中同為一般追蹤的只有澳門、印尼、香港與庫克群島。台灣為這一輪評鑑做的準備，以及 2016 年兆豐銀行紐約分行被重罰的經過，見[第 1 篇](/join/payments-research/fatf/taiwan/)。
 
 放進同一輪評鑑的 199 個司法管轄區一起比較，達到實質或高度有效的項數比台灣多的只有 6 個。六國都是 FATF 成員（法國、美國、英國、西班牙、義大利、以色列）。台灣與哈薩克、澤西、百慕達並列非成員的最高分。
 
@@ -76,9 +76,9 @@ APG 在 2019 年通過台灣第三輪的相互評鑑報告，現場評鑑在 201
 
 在 FATF 自己的評鑑結果裡，199 個司法管轄區的效能評分有 38.5% 是低度有效，41.7% 的司法管轄區沒有任何一項達到實質有效（見上圖最左邊那一格）。
 
-批評者常引用 Ronald Pol（2020）的估算，全世界每年約有 3 兆美元的犯罪資金，主管機關沒收的約 30 億美元只占 0.1%。依資料服務公司 LexisNexis 的估計，業者的合規成本約 3,040 億美元，是沒收金額的一百倍以上。Pol 在論文裡寫明資料缺乏驗證、方法不一致，結論無法定論。他也寫到，無論實際成功率是 0.1% 還是高十倍，政策目標與成果之間的落差都很大。
+批評者常引用 Ronald Pol（2020）的估算，全世界每年約有 3 兆美元的犯罪資金，主管機關沒收的約 30 億美元只占 0.1%。Pol 引用資料服務公司 LexisNexis 的估計，業者的合規成本約 3,040 億美元，是沒收金額的一百倍以上。Pol 在論文裡寫明資料缺乏驗證、方法不一致，結論無法定論。他也寫到，無論實際成功率是 0.1% 還是高十倍，政策目標與成果之間的落差都很大。
 
-Julia Morse（2019）從支持的角度提出「市場執法」的說法，FATF 本身沒有制裁工具，由市場懲罰未達標的國家。她在研究裡寫到，被列入名單的國家跨境銀行負債明顯下降，政府因此有修法的壓力。英國智庫皇家聯合軍事研究所（RUSI）的評論文章裡寫到，FATF 近年協助非洲國家脫離反覆列入灰名單的循環，2025-10 南非、奈及利亞、莫三比克與布吉納法索同時移出灰名單。Case-Ruchala 與 Nance（2020）重做了 Morse 的分析，發現 Morse 只用了 10 個國家。補上同時期所有被列入名單的國家之後，效果就不再顯著。
+Julia Morse（2019）從支持的角度提出「市場執法」的說法，FATF 本身沒有制裁工具，由市場懲罰未達標的國家。她在研究裡寫到，被列入名單的國家跨境銀行負債明顯下降，政府因此有修法的壓力。英國智庫皇家聯合軍事研究所（RUSI）2024 年的評論文章裡寫到，FATF 近年協助非洲國家脫離反覆列入灰名單的循環。之後在 2025-10 的大會，南非、奈及利亞、莫三比克與布吉納法索同時移出灰名單。Case-Ruchala 與 Nance（2020）重做了 Morse 的分析，發現 Morse 只用了 10 個國家。補上同時期所有被列入名單的國家之後，效果就不再顯著。
 
 ### 公平性
 
@@ -98,9 +98,9 @@ Julia Morse（2019）從支持的角度提出「市場執法」的說法，FATF 
 
 ### 代價的承擔者
 
-非營利組織受去風險影響特別深，原因之一是第 8 項建議原本把非營利組織整體視為容易被利用來資助恐怖主義的部門。RUSI 的評論文章裡有尼加拉瓜的例子，當地政府以落實第 8 項建議為由打壓公民團體。
+非營利組織受去風險影響特別深，原因之一是第 8 項建議在 2016 年以前把非營利組織整體列為特別容易被利用來資助恐怖主義的部門。2016 年修訂之後，各國仍常把規定套用到整個部門。RUSI 的評論文章裡有尼加拉瓜的例子，當地政府以落實第 8 項建議為由打壓公民團體。
 
-FATF 在 2021 年啟動非預期後果的檢討專案，2023-11 修訂第 8 項建議。修訂之後，各國要先找出真正有風險的非營利組織，不再對整個部門一體適用。代表非營利組織的 Global NPO Coalition on FATF 發表聲明歡迎這次修訂，聲明裡寫到修訂回應了民間長年的訴求，聯盟也會在新一輪評鑑觀察實際的執行情形。公民團體透過參與，促成了這次規則的修訂。RUSI 的評論文章裡則寫到，修訂可能只是表面的調整。FATF 的檢討報告裡也寫到，去風險很難直接歸因到 FATF 的標準，監理的壓力與商譽的考量都是原因。
+FATF 在 2021 年啟動非預期後果的檢討專案，2023-10 的大會通過第 8 項建議的修訂，11 月公布。修訂之後，各國要先找出真正有風險的非營利組織並採取相稱的措施，不再對整個部門一體適用。代表非營利組織的 Global NPO Coalition on FATF 發表聲明歡迎這次修訂，聲明裡寫到修訂是和非營利部門密切諮詢之後完成，公眾諮詢的意見也納入了最終的文字。聲明同時提醒，修訂擋不住刻意的誤用，聯盟會在新一輪評鑑觀察實際的執行情形。RUSI 的評論文章裡則寫到，修訂可能只是表面的調整。FATF 的檢討報告裡也寫到，去風險很難直接歸因到 FATF 的標準，監理的壓力與商譽的考量都是原因。
 
 !!! tip ""
 
@@ -108,7 +108,7 @@ FATF 在 2021 年啟動非預期後果的檢討專案，2023-11 修訂第 8 項�
 
 ### 對隱私的影響
 
-FATF 要求金融機構認識客戶、保存紀錄、申報可疑交易。轉帳時要附上匯款人與收款人的資料，這項要求稱為**旅行規則**（Travel Rule，第 16 項建議）。相關要求一路延伸到虛擬資產。美國的加密貨幣政策組織 Coin Center 在 2021 年對 FATF 虛擬資產指引草案提出意見書，意見書裡寫到，把旅行規則套用到使用者自行保管的錢包，和隱私權不相容。FATF 的方向是持續擴大支付透明的要求，2026-06 為第 16 項建議的新指引公開徵求意見，目標是 2030 年前全面落實旅行規則。虛擬資產的部分留到第 3 篇詳談。
+FATF 要求金融機構認識客戶、保存紀錄、申報可疑交易。轉帳時要附上匯款人與收款人的資料，這項要求稱為**旅行規則**（Travel Rule，第 16 項建議）。相關要求一路延伸到虛擬資產。美國的加密貨幣政策組織 Coin Center 在 2021 年對 FATF 虛擬資產指引草案提出意見書。意見書裡寫到，把旅行規則套用到使用者自行保管的錢包，和隱私權不相容。FATF 的方向是持續擴大支付透明的要求，2026-06 為第 16 項建議的新指引公開徵求意見，目標是 2030 年前全面落實旅行規則。虛擬資產的部分留到第 3 篇詳談。
 
 ## 影響力的現況與對讀者的意義
 
@@ -119,7 +119,7 @@ FATF 只有 40 個成員，透過全球體系把標準套用到超過 200 個司
 2026-10 全體大會之後的名單。灰名單用主色標示，包括安哥拉、玻利維亞、波士尼亞與赫塞哥維納、喀麥隆、海地、伊拉克、肯亞、科威特、寮國、黎巴嫩、尼泊爾、巴布亞紐幾內亞、南蘇丹、敘利亞、委內瑞拉、越南、葉門，以及面積太小、改用 ② 標出的英屬維京群島。黑名單用最醒目的顏色標示，包括北韓、伊朗與緬甸。① 是台灣。
 {: .fig-note }
 
-公民團體要把捐款或人道救援的資金匯到名單上的地區（例如緬甸、黎巴嫩、敘利亞、葉門、海地與南蘇丹），銀行會加強審查。審查可能要求更多文件，也可能直接退回匯款。第 8 項建議在 2023 年修訂之後，各國不再把非營利組織整體視為高風險。修訂能否落實到銀行的日常審查，要看新一輪評鑑的結果。在那之前，事先備妥資金用途與受款人的說明、選擇可稽核的收款管道，是比較穩妥的做法。
+公民團體要把捐款或人道救援的資金匯到名單上的地區（例如緬甸、黎巴嫩、敘利亞、葉門、海地與南蘇丹），銀行會加強審查。審查可能要求更多文件，也可能直接退回匯款。第 8 項建議在 2023 年修訂之後，各國要先找出真正有風險的非營利組織，不再對整個部門一體適用。修訂能否落實到銀行的日常審查，要看新一輪評鑑的結果。在那之前，事先備妥資金用途與受款人的說明、選擇可稽核的收款管道，是比較穩妥的做法。
 
 對一般使用者來說，銀行與交易所依 FATF 的建議認識客戶、保存紀錄。旅行規則延伸到虛擬資產之後，轉出加密貨幣也要附上收款人的資料，金融隱私的空間跟著縮小。FATF 的目標是 2030 年前全面落實旅行規則。這套規則如何落到台灣的《虛擬資產服務法》與交易所的規定，以及使用者自行保管錢包的處境，規劃在第 3 篇討論。想先了解匿名支付的意義，可以讀文件站的[為什麼匿名支付重要](docs:basics/payments-anonymity/)。
 
@@ -138,9 +138,10 @@ FATF 的規則從洗錢一路擴大到資助恐怖主義、資助武器擴散、
   <li><span class="tl-when">2020-06</span><span class="tl-b"><span class="tl-t">疫情暫停審查</span><span class="tl-d">名單沿用 2020-02 的內容</span></span></li>
   <li><span class="tl-when">2021</span><span class="tl-b"><span class="tl-t">非預期後果的檢討專案</span><span class="tl-d">同一年 Coin Center 對虛擬資產指引草案提出意見書，意見書裡寫到旅行規則套用到自行保管的錢包和隱私權不相容</span></span></li>
   <li><span class="tl-when">2022-10</span><span class="tl-b"><span class="tl-t">緬甸轉到黑名單</span><span class="tl-d">2018 年以來唯一一次從灰名單升級</span></span></li>
-  <li><span class="tl-when">2023-02</span><span class="tl-b"><span class="tl-t">俄羅斯停權</span><span class="tl-d">成員數維持 40 個</span></span></li>
+  <li><span class="tl-when">2023-02</span><span class="tl-b"><span class="tl-t">俄羅斯停權</span><span class="tl-d">仍列在成員名單上</span></span></li>
   <li><span class="tl-when">2023-06</span><span class="tl-b"><span class="tl-t">灰名單最多 26 國</span><span class="tl-d">2018 年以來的最高點</span></span></li>
-  <li><span class="tl-when">2023-11</span><span class="tl-b"><span class="tl-t">修訂第 8 項建議</span><span class="tl-d">不再把非營利組織整體視為高風險，Global NPO Coalition on FATF 發表聲明歡迎</span></span></li>
+  <li><span class="tl-when">2023-10</span><span class="tl-b"><span class="tl-t">印尼成為第 40 個成員</span><span class="tl-d">同一次大會通過第 8 項建議的修訂</span></span></li>
+  <li><span class="tl-when">2023-11</span><span class="tl-b"><span class="tl-t">公布第 8 項建議的修訂</span><span class="tl-d">各國要先找出真正有風險的非營利組織，不再對整個部門一體適用</span></span></li>
   <li><span class="tl-when">2025-10</span><span class="tl-b"><span class="tl-t">四個非洲國家移出灰名單</span><span class="tl-d">南非、奈及利亞、莫三比克與布吉納法索</span></span></li>
   <li><span class="tl-when">2026-06</span><span class="tl-b"><span class="tl-t">第 16 項建議的新指引公開徵求意見</span><span class="tl-d">支付透明的要求持續擴大</span></span></li>
   <li><span class="tl-when">2026-10</span><span class="tl-b"><span class="tl-t">灰名單 18 國、黑名單 3 國</span><span class="tl-d">本頁資料的截止點，黑名單是北韓、伊朗與緬甸</span></span></li>
@@ -174,6 +175,8 @@ FATF 的規則從洗錢一路擴大到資助恐怖主義、資助武器擴散、
 - RUSI：[The FATF Gains Momentum in Breaking Africa's Cycle of Grey Listing](https://www.rusi.org/explore-our-research/publications/commentary/fatf-gains-momentum-breaking-africas-cycle-grey-listing)、[FATF's Recommendation 8: A Cure Worse Than the Disease](https://www.rusi.org/explore-our-research/publications/commentary/fatfs-recommendation-8-cure-worse-disease)
 - U4：[The participation of low and middle income countries in the Financial Action Task Force](https://u4.no/publications/the-participation-of-low-and-middle-income-countries-in-the-financial-action-task-force)
 - Basel Institute on Governance：[FATF grey list: truth and myths](https://baselgovernance.org/blog/fatf-grey-list-truth-and-myths)
+- FATF：[2025-10 加強監控的司法管轄區（調查局轉載）](https://www.mjib.gov.tw/userfiles/files/35-%E6%B4%97%E9%8C%A2%E9%98%B2%E5%88%B6%E8%99%95/files/%E6%B4%97%E9%8C%A2%E9%98%B2%E5%88%B6%E8%99%95-EN/Jurisdictions%20under%20Increased%20Monitoring%20-%2024%20October%202025.pdf)、[2023-10 全體大會結果](https://www.fatf-gafi.org/en/publications/Fatfgeneral/outcomes-fatf-plenary-october-2023.html)
+- 金管會保險局：[轉知調查局 FATF 名單的公文（2025-07-14）](https://lia-roc.org.tw/storage/uploads/687612412232b.pdf)，附調查局 2025-06-19 的函
 - Global NPO Coalition on FATF：[Plenary approves revision of Recommendation 8](https://fatfplatform.org/news/plenary-approves-revision-of-recommendation-8-and-new-best-practices/)
-- Coin Center：[FATF 虛擬資產指引草案的意見書](https://www.coincenter.org/app/uploads/2021/04/CoinCenterFATFGuidance.pdf)
+- Coin Center：[FATF 虛擬資產指引草案的意見書](https://www.coincenter.org/comments-to-the-financial-action-task-force-on-the-march-2021-draft-updated-guidance-for-a-risk-based-approach-to-virtual-assets-and-vasps/)
 - World Bank：[Country and Lending Groups](https://datahelpdesk.worldbank.org/knowledgebase/articles/906519)，經 [Our World in Data](https://ourworldindata.org/grapher/world-bank-income-groups) 整理

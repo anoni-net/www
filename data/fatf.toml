@@ -108,7 +108,7 @@ alert_tip = { zh-TW = "{k}：{n} 戶", zh-CN = "{k}：{n} 户", en = "{k}: {n} a
 [taiwan.mega]
 title = { zh-TW = "兆豐案的資金路徑與處分", zh-CN = "兆丰案的资金路径与处分", en = "Mega Bank: the money trail and the penalties" }
 hq = { zh-TW = "台北總行", zh-CN = "台北总行", en = "Head office, Taipei" }
-hq_d = { zh-TW = "負責監督紐約與巴拿馬兩家分行的法遵", zh-CN = "负责监督纽约与巴拿马两家分行的合规", en = "Responsible for overseeing compliance at the New York and Panama branches" }
+hq_d = { zh-TW = "負責監督紐約分行與巴拿馬分行的法遵", zh-CN = "负责监督纽约分行与巴拿马分行的合规", en = "Responsible for overseeing compliance at the New York and Panama branches" }
 fsc = { zh-TW = "金管會", zh-CN = "金管会", en = "Financial Supervisory Commission, Taiwan" }
 fsc_d = { zh-TW = "2016 年 9 月罰鍰新臺幣 1,000 萬元，解除 6 名幹部的職務", zh-CN = "2016 年 9 月罚款新台币 1,000 万元，解除 6 名干部的职务", en = "September 2016: NT$10 million fine, six senior staff removed" }
 ny = { zh-TW = "紐約分行", zh-CN = "纽约分行", en = "New York branch" }
