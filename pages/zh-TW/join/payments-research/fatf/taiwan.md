@@ -78,7 +78,7 @@ APG 成員的效能評分，① 是台灣。淺色模式顏色越深、深色模
 
 犯罪的部分，洗錢罪的前置犯罪（產生不法所得、所得再經洗錢處理的犯罪）門檻從最輕本刑五年降到六個月。行政院草案原本是「有期徒刑3年以上之罪」，立法院通過時再往下調。同時新增特殊洗錢罪，處罰持有來源不明、與收入顯不相當的財物，又有冒名開戶或規避審查等情形的人。
 
-行政院在 2017 年 3 月成立洗錢防制辦公室，統籌政策與評鑑的準備，主任由法務部政務次長兼任。法務部同月申請脫離過渡追蹤，APG 年會在 7 月同意。依洗錢防制辦公室的回顧，民眾對新制的態度「從推動時期的抗拒，到逐步接納」。2018 年 11 月，APG 評鑑團來台進行兩週的現場評鑑。
+行政院在 2017 年 3 月成立洗錢防制辦公室，統籌政策與評鑑的準備，主任由法務部政務次長兼任。法務部同月申請脫離過渡追蹤，APG 年會在 7 月同意。依洗錢防制辦公室的回顧，民眾對新制的態度「從推動時期的抗拒，到逐步接納」。2018 年底臺灣銀行公告，客戶沒有在限期內更新資料就停止網路與自動化服務，引起民怨。金管會要求台銀撤下公告、依比例原則重訂期限，行政院也要求研議簡化的作法。2018 年 11 月，APG 評鑑團來台進行兩週的現場評鑑。
 
 可疑交易報告在 2016 年有 13,972 件，2018 年現場評鑑那一年達到 35,869 件，之後維持在每年兩萬到三萬件。2024 年是 30,679 件，平均每天約 84 件。2017 年起，申報機構從金融業擴大到律師、會計師、不動產業等行業。新增行業的申報很少，2018 年只有 102 件，件數以銀行的申報為主。
 
@@ -96,7 +96,7 @@ APG 成員的效能評分，① 是台灣。淺色模式顏色越深、深色模
 
 金管會統計的警示帳戶，從 2021-06 的 50,285 戶增加到 2025-12 的 150,757 戶，2026-09 降到 125,013 戶。
 
-金管會近兩年對臺灣銀行與台中商業銀行的裁罰，缺失集中在開戶審查、客戶持續審查與交易監控，對應到客戶開戶時被詢問往來目的、開戶之後被要求更新資料的環節。台中銀在 2026 年 5 月被罰 3,200 萬元，銀行局長形容是銀行業歷來最高的裁罰金額。
+金管會近兩年對臺灣銀行與台中商業銀行的裁罰，缺失集中在開戶審查、客戶持續審查與交易監控，對應到客戶開戶時被詢問往來目的、開戶之後被要求更新資料的環節。台中銀在 2026 年 5 月被罰 3,200 萬元，銀行局長形容是銀行業歷來最高的裁罰金額。兩家銀行的裁罰背後都有內部人員協助詐團的案件，台中銀是分行經理替 12 家虛設商號開戶、調高轉帳額度。台中地檢署在 2026 年 4 月起訴這個案子，洗錢金額逾 36 億元。臺灣銀行是行員外出替詐團開戶，上傳的是證件影本的照片，監察院之後糾正台銀的內部控制與究責。
 
 ## 對讀者的意義
 
@@ -108,15 +108,21 @@ APG 成員的效能評分，① 是台灣。淺色模式顏色越深、深色模
 
 ### 公民團體的帳戶
 
-如[FATF 介紹裡的「代價的承擔者」](/join/payments-research/fatf/#代價的承擔者)所述，銀行為了降低風險，會減少與被視為高風險的客戶往來。台灣目前沒有公開的統計，記錄銀行拒絕非營利組織、移工或新住民開戶的情形。2018 年的國家風險評估認為台灣的資恐（資助恐怖主義）風險整體偏低。人民團體、宗教財團法人與社會福利慈善財團法人因為匿名捐款的資訊不足，被列為有潛在資恐風險、需要加強監理的非營利組織，醫療、教育與文化類的財團法人則不在其中。官方的評估只點名這三類，沒有把非營利組織整體列為有風險。主管機關也鼓勵非營利組織透過銀行處理款項。
+如[FATF 介紹裡的「代價的承擔者」](/join/payments-research/fatf/#代價的承擔者)所述，銀行為了降低風險，會減少與被視為高風險的客戶往來。台灣目前沒有公開的統計，記錄銀行拒絕非營利組織、移工或新住民開戶的情形。依 2024 年的國家風險評估，台灣的資恐（資助恐怖主義）風險較低，非營利組織分成「較有風險」與「較無風險」兩類。人民團體、全國性宗教財團法人與社會福利財團法人列為較有風險，和上一次評估相同，醫療、教育與文化類的財團法人列為較無風險。2019 年的評鑑報告寫到，這三類被點名的原因是匿名捐款的資訊不足。官方的評估只點名這三類，沒有把非營利組織整體列為有風險。主管機關也鼓勵非營利組織透過銀行處理款項。
 
 《存款帳戶及其疑似不法或顯屬異常交易管理辦法》第 13 條列出銀行應拒絕開戶的情形，其中一款是「受理開戶時有其他異常情形，且客戶無法提出合理說明」，銀行依這一款有很大的裁量空間。金管會針對低風險客戶發布的簡化措施裡則寫到，銀行在要求客戶提供資料前，「不宜逕以主管機關規定或契約約定得終止業務或限制交易為由」。公民團體遇到開戶被拒或帳戶被限制時，可以請銀行說明依據，並參考文件站的[倡議組織的匿名捐款管道](docs:scenarios/nonprofit-anonymous-donation/)。
 
-公開的捐款帳戶也可能被詐騙集團冒用。2026 年 5 月的報導裡，詐團以小額捐款換抽獎的名義，要被害人匯款到一個基金會的公益募款帳戶。基金會負責人被移送之後，台北地檢署不起訴。檢方的理由是帳戶裡的款項沒有被即時提領或轉出，和詐團使用的帳戶不同。這個基金會也在官網提醒當心詐騙，並說明沒有在社群舉辦小額捐款抽獎的活動。定期對帳、在官網寫明收款的方式，遇到冒用時比較容易說明。
+2026 年 5 月的報導裡，詐團冒用一個基金會公開的募款帳戶，以小額捐款換抽獎的名義要被害人匯款。基金會負責人被移送之後，台北地檢署不起訴。檢方的理由是帳戶裡的款項沒有被即時提領或轉出，和詐團使用的帳戶不同。這個基金會也在官網提醒當心詐騙，並說明沒有在社群舉辦小額捐款抽獎的活動。定期對帳、在官網寫明收款的方式，遇到冒用時比較容易說明。
 
 ## 下一輪評鑑
 
-洗錢防制辦公室已經開始準備 2030 年的下一輪評鑑，APG 的時程表把台灣的評鑑報告排在 2031 年的年會討論。上一輪評鑑前的幾年，正是修法最密集的時候。
+洗錢防制辦公室已經開始準備 2030 年的下一輪評鑑，APG 的時程表把台灣的評鑑報告排在 2031 年的年會討論。上一輪評鑑前的幾年是修法最密集的時候。這一輪，行政院在 2026 年 8 月通過新的《洗錢防制法》修正草案並送立法院審議，重點有三項：
+
+- 未依法登記或登錄就經營虛擬資產或第三方支付服務，列入洗錢的特定犯罪
+- 依 FATF 的標準，在法律裡明定實質受益人
+- 建立跨機關調取資訊的機制，金融機構與虛擬資產業者之間也可以為了洗錢防制互相照會、提供客戶的資訊
+
+依第三項，客戶的資料會在更多機構之間流通，也是這次修法裡和隱私最相關的部分。
 
 ## 時間軸
 
@@ -140,6 +146,7 @@ APG 成員的效能評分，① 是台灣。淺色模式顏色越深、深色模
       <li><span class="tl-when">2016-12</span><span class="tl-b"><span class="tl-t">《洗錢防制法》全文修正</span><span class="tl-d">2017-06 施行，客戶審查依風險進行，罰鍰提高到最高 1,000 萬元</span></span></li>
       <li><span class="tl-when">2017-03</span><span class="tl-b"><span class="tl-t">洗錢防制辦公室成立</span><span class="tl-d">統籌政策與評鑑的準備，同年 7 月脫離過渡追蹤</span></span></li>
       <li><span class="tl-when">2018-11</span><span class="tl-b"><span class="tl-t">APG 現場評鑑與修法</span><span class="tl-d">評鑑團來台兩週，同月修法把虛擬通貨平台納入規範</span></span></li>
+      <li><span class="tl-when">2018-12</span><span class="tl-b"><span class="tl-t">臺灣銀行要求客戶更新資料引起民怨</span><span class="tl-d">金管會要求依比例原則重訂期限，行政院要求研議簡化作法</span></span></li>
       <li><span class="tl-when">2019-08</span><span class="tl-b"><span class="tl-t">列入一般追蹤</span><span class="tl-d">APG 年會通過評鑑報告，之後三次追蹤報告都維持一般追蹤</span></span></li>
     </ol>
   </details>
@@ -148,7 +155,8 @@ APG 成員的效能評分，① 是台灣。淺色模式顏色越深、深色模
     <ol class="tl" aria-label="2020 年之後的事件">
       <li><span class="tl-when">2023-06</span><span class="tl-b"><span class="tl-t">收集帳戶罪與交付帳戶告誡</span><span class="tl-d">針對詐騙使用的人頭帳戶</span></span></li>
       <li><span class="tl-when">2024-07</span><span class="tl-b"><span class="tl-t">《洗錢防制法》再次全文修正</span><span class="tl-d">同日制定《詐欺犯罪危害防制條例》，虛擬資產服務提供者改為登記制</span></span></li>
-      <li><span class="tl-when">2026-05</span><span class="tl-b"><span class="tl-t">台中銀罰鍰 3,200 萬元</span><span class="tl-d">銀行局長形容是銀行業歷來最高的裁罰金額</span></span></li>
+      <li><span class="tl-when">2026-05</span><span class="tl-b"><span class="tl-t">台中銀罰鍰 3,200 萬元</span><span class="tl-d">銀行局長形容是銀行業歷來最高的裁罰金額，背後是分行經理協助詐團的案件</span></span></li>
+      <li><span class="tl-when">2026-08</span><span class="tl-b"><span class="tl-t">新的《洗錢防制法》修正草案</span><span class="tl-d">明定實質受益人，建立機構之間的資訊照會機制，送立法院審議</span></span></li>
       <li><span class="tl-when">2031</span><span class="tl-b"><span class="tl-t">APG 下一輪評鑑</span><span class="tl-d">台灣的評鑑報告排在這一年的年會討論</span></span></li>
     </ol>
   </details>
@@ -198,14 +206,16 @@ FATF 的來歷、灰名單與外界的評價，接著見[FATF，制定防制洗�
 - 監察院：[兆豐案調查報告與糾正案新聞稿（2017-06-07）](https://www.cy.gov.tw/News_Content.aspx?n=124&sms=8912&s=8049)
 - FATF：[The FATF Recommendations](https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Fatf-recommendations.html)（2025 年 10 月版）
 - 全國法規資料庫：[金融機構防制洗錢辦法](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0380252)、[洗錢防制物品出入境申報及通報辦法](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0350065)、[存款帳戶及其疑似不法或顯屬異常交易管理辦法](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0380199)、[洗錢防制法沿革](https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=G0380131)、[詐欺犯罪危害防制條例沿革](https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=D0080226)、[帳戶帳號暫停限制功能或逕予關閉管理辦法](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=I0030062)
-- 行政院洗錢防制辦公室：[成立背景](https://www.amlo.moj.gov.tw/1461/1462/1463/28852/post)、[2026-11-18 新聞稿](https://www.amlo.moj.gov.tw/1506/1507/46726/post)
+- 行政院洗錢防制辦公室：[2024 年國家洗錢資恐及資武擴風險評估報告](https://www.amlo.moj.gov.tw/1506/1507/43304/post)、[成立背景](https://www.amlo.moj.gov.tw/1461/1462/1463/28852/post)、[2026-11-18 新聞稿](https://www.amlo.moj.gov.tw/1506/1507/46726/post)
 - 金管會保險局：[轉知調查局 FATF 名單的公文（2025-07-14）](https://lia-roc.org.tw/storage/uploads/687612412232b.pdf)，附調查局 2025-06-19 的函
 - 法務部調查局：[洗錢防制處歷史沿革](https://www.mjib.gov.tw/EditPage/?PageID=e21658e0-bde6-475f-884d-f2415a446d02)、洗錢防制工作年報（2010 到 2024 年）
 - 法務部：[行政院通過洗錢防制法修正草案的新聞稿（2016-08-25）](https://www.moj.gov.tw/2204/2205/2323/2353/8612)、[脫離 APG 過渡追蹤的新聞](https://www.moj.gov.tw/2204/2795/2796/58211/)
 - APG：[與 FATF 的關係](https://apgml.org/about-us/relationship-fatf)、[相互評鑑的說明](https://apgml.org/about-us/mutual-evaluations)、[成員名單](https://apgml.org/about-us/members/members)
-- 行政院：[洗錢防制新制上路（2017-07-10）](https://www.ey.gov.tw/Page/5A8A0CB5B41DA11E/c935e972-67f5-4625-80b6-0e775a846cad)、[APG 評鑑的政策說明（2019-11-21）](https://www.ey.gov.tw/Page/5A8A0CB5B41DA11E/bdf44d9a-f4f0-43aa-99f2-771f612983ac)、[APG 評鑑結果的新聞（2019-08-25）](https://www.ey.gov.tw/Page/9277F759E41CCD91/42a5d2d2-4f84-4fb7-acc5-739f1d8be582)、[第 3 次追蹤報告的新聞（2025-11-20）](https://www.ey.gov.tw/Page/9277F759E41CCD91/494b267b-a8fd-488f-90df-e1772405abdb)
+- 行政院：[《洗錢防制法》部分條文修正草案（2026-08-13）](https://www.ey.gov.tw/Page/9277F759E41CCD91/fc4d2ff5-4d4b-4129-ae5c-239e3d1ed9b7)、[洗錢防制新制上路（2017-07-10）](https://www.ey.gov.tw/Page/5A8A0CB5B41DA11E/c935e972-67f5-4625-80b6-0e775a846cad)、[APG 評鑑的政策說明（2019-11-21）](https://www.ey.gov.tw/Page/5A8A0CB5B41DA11E/bdf44d9a-f4f0-43aa-99f2-771f612983ac)、[APG 評鑑結果的新聞（2019-08-25）](https://www.ey.gov.tw/Page/9277F759E41CCD91/42a5d2d2-4f84-4fb7-acc5-739f1d8be582)、[第 3 次追蹤報告的新聞（2025-11-20）](https://www.ey.gov.tw/Page/9277F759E41CCD91/494b267b-a8fd-488f-90df-e1772405abdb)
 - APG：[Chinese Taipei 2019 年相互評鑑報告](https://apgml.org/sites/default/files/documents//Chinese_Taipei_MER_2019_-_published_version.pdf)、[下一輪評鑑的時程表](https://www.apgml.org/apg-global-5th-round-schedule)
 - 金管會：[重大裁罰案件](https://www.fsc.gov.tw/ch/home.jsp?id=131)、[兆豐銀行裁罰（2016-09-14）](https://www.fsc.gov.tw/ch/home.jsp?id=131&parentpath=0,2&mcustomize=multimessages_view.jsp&dataserno=201609210002&dtable=Penalty)、[台中商業銀行裁罰（2026-05-15）](https://www.fsc.gov.tw/ch/home.jsp?id=131&parentpath=0,2&mcustomize=multimessages_view.jsp&dataserno=202605180002&dtable=Penalty)、[臺灣銀行裁罰（2025-03-11）](https://www.fsc.gov.tw/ch/home.jsp?id=131&parentpath=0,2&mcustomize=multimessages_view.jsp&dataserno=202503120002&dtable=Penalty)
 - 金管會：[存款帳戶及其疑似不法或顯屬異常交易管理辦法第 13 條](https://law.banking.gov.tw/Chi/FLAW/FLAWDOC01.aspx?lsid=FL039015&lno=13)
 - 中央社：[台中銀遭罰 3,200 萬元的報導（2026-05-12）](https://www.cna.com.tw/news/afe/202605120324.aspx)
-- 聯合報：[公益募款帳號被盜用，不起訴的報導（2026-05-19）](https://udn.com/news/story/124490/9511526)
+- 聯合報：[公益募款帳號被盜用，不起訴的報導（2026-05-19）](https://udn.com/news/story/124490/9511526)、[台中商銀分行主管涉洗錢 36 億元遭起訴的報導（2026-04-24）](https://udn.com/news/story/7315/9461108)
+- 中央社：[洗錢防制惹民怨，行政院研議簡化作法（2018-12-31）](https://www.cna.com.tw/news/aipl/201812310190.aspx)、[強制客戶更新資料惹議，金管會下令台銀改正（2018-12-31）](https://www.cna.com.tw/news/afe/201812310160.aspx)
+- 監察院：[臺灣銀行糾正案文（2026）](https://www.cy.gov.tw/DocFiles/IFDEWebBBS_CY/Docs/115/3RD/01/02/Attach/%E7%B3%BE%E6%AD%A3%E6%A1%88%E6%96%87.doc)
