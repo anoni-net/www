@@ -329,7 +329,7 @@ def simple_hbars(points: list[tuple[str, int]], cls: str, label: str, top: int, 
 
 
 def taiwan_blocks(data_dir: Path, tw: dict, pick) -> dict[str, str]:
-    """第 2 篇〈台灣洗錢防制的起源與監理現況〉的三張圖，資料在 data/fatf/tw-*.csv。"""
+    """第 1 篇〈台灣洗錢防制的起源與監理現況〉的三張圖，資料在 data/fatf/tw-*.csv。"""
     L = {k: pick(v) for k, v in tw["labels"].items()}
     rows = list(csv.DictReader((data_dir / "tw-str.csv").open(encoding="utf-8")))
     alert = list(csv.DictReader((data_dir / "tw-alert.csv").open(encoding="utf-8")))

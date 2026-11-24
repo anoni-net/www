@@ -83,7 +83,7 @@ taiwan_title = { zh-TW = "台灣（Chinese Taipei）", zh-CN = "台湾（Chinese
 taiwan_detail = { zh-TW = "只透過 APG 參與，相互評鑑由 APG 執行", zh-CN = "只通过 APG 参与，相互评估由 APG 执行", en = "Takes part only through the APG, which carries out its mutual evaluations" }
 others = { zh-TW = "其餘 29 個 APG 成員", zh-CN = "其余 29 个 APG 成员", en = "The other 29 APG members" }
 
-# 第 2 篇〈台灣洗錢防制的起源與監理現況〉（/join/payments-research/fatf/taiwan/）的三張圖。
+# 第 1 篇〈台灣洗錢防制的起源與監理現況〉（/join/payments-research/fatf/taiwan/）的三張圖。
 # data/fatf/tw-str.csv：法務部調查局《洗錢防制工作年報》2010 到 2024 年的可疑交易報告，每年取當年度年報的合計；
 # str_virtual_asset 是「虛擬通貨業」那一列，2021-07 起才申報。data/fatf/tw-alert.csv：金管會〈金融機構警示帳戶調查統計表〉，
 # 銀行（含中華郵政）與信用合作社的合計。整理方法在工作區的 research/（toomore/anoni-net-ws#514）。
