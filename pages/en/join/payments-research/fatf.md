@@ -15,6 +15,8 @@ The FATF was set up at the 1989 G7 summit in Paris to develop measures against m
 
 With only 40 members, the FATF extends its standards to the whole world through nine FATF-style regional bodies (FSRBs). Together they form the Global Network, which covers more than 200 jurisdictions. Taiwan takes part in the Asia/Pacific Group on Money Laundering (APG) as Chinese Taipei, and the APG carries out its mutual evaluations; Taiwan has not joined the FATF itself.
 
+<!-- fatf-org -->
+
 ## The 40 Recommendations and their expansion
 
 The FATF is built around its 40 Recommendations: countries write them into their own laws, and the FATF checks how well they are applied. The scope has widened over time:

@@ -691,6 +691,27 @@ svg.pc rect:hover, svg.pc circle:hover { opacity: .7; }
 .fatf th:first-child, .fatf td:first-child { text-align: left; }
 .fi-groups li { grid-template-columns: 7rem 1fr 2.5rem; }
 :lang(en) .fi-groups li { grid-template-columns: 10rem 1fr 2.5rem; }
+
+/* FATF 的組織圖（fatf-org）：HTML 排的三層，上下之間用短線連接，APG 與台灣用深色框與粗體標出 */
+.fi-org .fi-org-top { display: flex; flex-wrap: wrap; align-items: baseline; gap: .15rem .6rem; padding: .6rem .8rem; border: 2px solid var(--fi1); border-radius: var(--radius); }
+.fi-org .fi-org-top b { font-size: 1.1rem; color: var(--c-strong); }
+.fi-org .fi-org-top .n { font-weight: 700; color: var(--c-strong); }
+.fi-org .fi-org-top .d { flex-basis: 100%; font-size: .8rem; color: var(--c-muted); }
+.fi-org .fi-org-net { position: relative; margin: 0; padding: .9rem 0 .5rem 1rem; font-size: .8rem; color: var(--c-muted); }
+.fi-org .fi-org-net::before { content: ""; position: absolute; left: .4rem; top: 0; bottom: 0; border-left: 2px solid var(--c-hair); }
+.fi-org .fi-org-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .4rem; margin: 0; padding: 0; list-style: none; }
+.fi-org .fi-org-grid li { display: flex; flex-direction: column; padding: .4rem .55rem; border: 1px solid var(--c-hair); border-radius: var(--radius); }
+.fi-org .fi-org-grid b { font-size: .85rem; color: var(--c-strong); }
+.fi-org .fi-org-grid span { font-size: .75rem; color: var(--c-muted); }
+.fi-org .fi-org-grid li.me { border: 2px solid var(--fi1); }
+.fi-org .fi-org-apg { position: relative; margin-top: 1rem; padding: .6rem .8rem; border: 2px solid var(--fi1); border-radius: var(--radius); }
+.fi-org .fi-org-apg::before { content: ""; position: absolute; left: 1.5rem; top: calc(-1rem - 2px); height: 1rem; border-left: 2px solid var(--fi1); }
+.fi-org .fi-org-apgt { margin: 0 0 .4rem; font-weight: 700; font-size: .85rem; color: var(--c-strong); }
+.fi-org .fi-org-apg ul { display: grid; gap: .4rem; margin: 0; padding: 0; list-style: none; }
+.fi-org .fi-org-apg li { display: flex; flex-direction: column; padding: .35rem .55rem; border-radius: var(--radius); background: color-mix(in srgb, var(--c-muted) 8%, transparent); font-size: .8rem; }
+.fi-org .fi-org-apg li b { color: var(--c-strong); }
+.fi-org .fi-org-apg li span { color: var(--c-muted); }
+.fi-org .fi-org-apg li.tw { background: color-mix(in srgb, var(--fi3) 22%, transparent); border-left: 4px solid var(--fi1); }
 /* Tor 標記的說明放在名稱下面，橫跨整列 */
 .pulse-flags li { row-gap: .1rem; }
 .pulse-flags .d { grid-column: 1 / -1; font-size: .72rem; line-height: 1.4; color: var(--c-muted); }

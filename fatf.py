@@ -238,6 +238,28 @@ def imf_bars(imf: dict, L: dict, narrow: bool = False) -> str:
     return "".join(p)
 
 
+def org_chart(org: dict, pick) -> str:
+    """FATF 的全球體系與台灣的位置，用 HTML 畫：文字會換行，讀屏軟體照順序讀得到層級。
+    上層是 FATF，中間是 9 個區域組織，APG 往下展開成員的組成，台灣用粗體與文字標出，不只靠顏色。"""
+    L = {k: pick(v) for k, v in org["labels"].items()}
+    cells = []
+    for f in org["fsrb"]:
+        me = ' class="me"' if f["abbr"] == "APG" else ""
+        cells.append(f'<li{me}><b>{f["abbr"]}</b><span>{escape(pick(f["region"]))}</span></li>')
+    cells = "".join(cells)
+    return (
+        f'<div class="pulse fatf"><figure class="pulse-chart fi-org"><figcaption>{escape(L["title"])}</figcaption>'
+        f'<div class="fi-org-top"><b>FATF</b><span class="n">{escape(L["fatf_members"])}</span>'
+        f'<span class="d">{escape(L["fatf_detail"])}</span></div>'
+        f'<p class="fi-org-net">{escape(L["network"])}</p>'
+        f'<ul class="fi-org-grid">{cells}</ul>'
+        f'<div class="fi-org-apg"><p class="fi-org-apgt">{escape(L["apg"].format(n=org["apg_members"]))}</p><ul>'
+        f'<li><b>{escape(L["overlap_title"])}</b><span>{escape(pick(org["overlap"]))}</span></li>'
+        f'<li class="tw"><b>{escape(L["taiwan_title"])}</b><span>{escape(L["taiwan_detail"])}</span></li>'
+        f'<li><b>{escape(L["others"])}</b></li>'
+        f'</ul></div></figure></div>')
+
+
 def legend(L: dict, keys: list[tuple[str, str]]) -> str:
     return "".join(f'<i class="sw {shade}"></i>{escape(L[key])}' for key, shade in keys)
 
@@ -271,9 +293,15 @@ def blocks(data_dir: Path, conf: dict, pick) -> dict[str, str]:
                              legend(L, [("share_grey", "fi-2"), ("share_world", "fi-world")]), L["share_note"]),
         "fatf-ratings": figure(L["ratings"], both(ratings_hist, ratings, L), note=L["ratings_note"]),
         "fatf-groups": figure(L["groups"], groups_bars(ratings, L)),
+        "fatf-org": org_chart(conf["org"], pick),
         "fatf-imf": figure(L["imf"], imf_bars(conf["imf"], L) + imf_bars(conf["imf"], L, narrow=True),
                            note=L["imf_note"]),
     }
+
+
+def _org_conf(data_dir: Path) -> dict:
+    import tomllib
+    return tomllib.loads((data_dir.parent / "fatf.toml").read_text(encoding="utf-8"))["org"]
 
 
 def check(data_dir: Path) -> list[str]:
@@ -283,6 +311,8 @@ def check(data_dir: Path) -> list[str]:
     for r in grey:
         if sum(int(r[g]) for g in GROUPS) != int(r["grey_count"]):
             problems.append(f"data/fatf/income-groups.csv：{r['plenary_date']} 各分組加總不等於 grey_count")
+    if len(conf_org := _org_conf(data_dir)["fsrb"]) != 9:
+        problems.append(f"data/fatf.toml：區域組織應該是 9 個，現在是 {len(conf_org)} 個")
     if not any(r["jurisdiction"] == "Chinese Taipei" for r in ratings):
         problems.append("data/fatf/ratings.csv：沒有 Chinese Taipei")
     return problems

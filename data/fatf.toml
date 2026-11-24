@@ -52,3 +52,33 @@ imf_fdi = { zh-TW = "外人直接投資", zh-CN = "外国直接投资", en = "FD
 imf_portfolio = { zh-TW = "證券投資", zh-CN = "证券投资", en = "Portfolio" }
 imf_other = { zh-TW = "其他投資", zh-CN = "其他投资", en = "Other" }
 imf_ci = { zh-TW = "{v}（95% 信賴區間 {lo} 到 {hi}）", zh-CN = "{v}（95% 置信区间 {lo} 到 {hi}）", en = "{v} (95% CI {lo} to {hi})" }
+
+# 組織圖（<!-- fatf-org -->）：FATF、9 個區域組織（FSRB）與台灣經由 APG 參與的位置。
+# 區域組織的名單取自 FATF 彙整評分表的說明頁，APG 的成員取自 apgml.org 的成員頁（2026-11，42 個成員）。
+# overlap 是 APG 成員裡同時是 FATF 成員的 12 個，對照 FATF 官網的成員頁。
+# fsrb 依字母排列，只有 APG 放在第 7 個：三欄排列時落在最後一列的第一格，往下連到 APG 成員的短線才會接在它下方。
+[org]
+apg_members = 42
+fsrb = [
+  { abbr = "CFATF", region = { zh-TW = "加勒比海", zh-CN = "加勒比", en = "Caribbean" } },
+  { abbr = "EAG", region = { zh-TW = "歐亞", zh-CN = "欧亚", en = "Eurasia" } },
+  { abbr = "ESAAMLG", region = { zh-TW = "東部與南部非洲", zh-CN = "东部和南部非洲", en = "Eastern and Southern Africa" } },
+  { abbr = "GABAC", region = { zh-TW = "中部非洲", zh-CN = "中部非洲", en = "Central Africa" } },
+  { abbr = "GAFILAT", region = { zh-TW = "拉丁美洲", zh-CN = "拉丁美洲", en = "Latin America" } },
+  { abbr = "GIABA", region = { zh-TW = "西非", zh-CN = "西非", en = "West Africa" } },
+  { abbr = "APG", region = { zh-TW = "亞太", zh-CN = "亚太", en = "Asia/Pacific" } },
+  { abbr = "MENAFATF", region = { zh-TW = "中東與北非", zh-CN = "中东和北非", en = "Middle East and North Africa" } },
+  { abbr = "MONEYVAL", region = { zh-TW = "歐洲", zh-CN = "欧洲", en = "Europe" } },
+]
+overlap = { zh-TW = "澳洲、加拿大、中國、香港、印度、印尼、日本、南韓、馬來西亞、紐西蘭、新加坡、美國", zh-CN = "澳大利亚、加拿大、中国、香港、印度、印度尼西亚、日本、韩国、马来西亚、新西兰、新加坡、美国", en = "Australia, Canada, China, Hong Kong, India, Indonesia, Japan, Korea, Malaysia, New Zealand, Singapore and the United States" }
+
+[org.labels]
+title = { zh-TW = "FATF 的全球體系與台灣的位置", zh-CN = "FATF 的全球体系与台湾的位置", en = "The FATF Global Network and where Taiwan sits" }
+fatf_members = { zh-TW = "40 個成員", zh-CN = "40 个成员", en = "40 members" }
+fatf_detail = { zh-TW = "38 個司法管轄區與歐盟執委會、海灣合作理事會，俄羅斯自 2023-02 停權", zh-CN = "38 个司法管辖区与欧盟委员会、海湾合作理事会，俄罗斯自 2023-02 停权", en = "38 jurisdictions plus the European Commission and the Gulf Co-operation Council; Russia suspended since February 2023" }
+network = { zh-TW = "全球體系：FATF 與 9 個區域組織（FSRB），涵蓋超過 200 個司法管轄區", zh-CN = "全球体系：FATF 与 9 个区域组织（FSRB），涵盖超过 200 个司法管辖区", en = "Global Network: the FATF and nine FATF-style regional bodies (FSRBs), covering more than 200 jurisdictions" }
+apg = { zh-TW = "APG 的 {n} 個成員", zh-CN = "APG 的 {n} 个成员", en = "The APG's {n} members" }
+overlap_title = { zh-TW = "同時是 FATF 成員的 12 個", zh-CN = "同时是 FATF 成员的 12 个", en = "12 that are also FATF members" }
+taiwan_title = { zh-TW = "台灣（Chinese Taipei）", zh-CN = "台湾（Chinese Taipei）", en = "Taiwan (Chinese Taipei)" }
+taiwan_detail = { zh-TW = "只透過 APG 參與，相互評鑑由 APG 執行", zh-CN = "只通过 APG 参与，相互评估由 APG 执行", en = "Takes part only through the APG, which carries out its mutual evaluations" }
+others = { zh-TW = "其餘 29 個 APG 成員", zh-CN = "其余 29 个 APG 成员", en = "The other 29 APG members" }
