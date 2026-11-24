@@ -110,7 +110,13 @@ The FATF launched a project on unintended consequences in 2021, and the October 
 
 ### Privacy implications
 
-The FATF requires financial institutions to know their customers, keep records and report suspicious transactions. Wire transfers must carry information on the sender and the recipient, a requirement known as the **Travel Rule** (Recommendation 16). These requirements now reach virtual assets. In 2021 Coin Center, a US crypto policy group, submitted comments on the FATF's draft virtual asset guidance. According to the submission, applying the Travel Rule to self-hosted wallets is incompatible with privacy rights. The FATF keeps widening payment transparency: in June 2026 it opened a consultation on new guidance for Recommendation 16, aiming for full implementation of the Travel Rule by 2030. Virtual assets will be covered in detail in a later article, as will the costs to financial privacy, such as how long data is kept and what happens when accounts are wrongly flagged.
+The FATF requires financial institutions to know their customers, keep records and report suspicious transactions. Wire transfers must carry information on the sender and the recipient, a requirement known as the **Travel Rule** (Recommendation 16). These requirements now reach virtual assets.
+
+From October 2026, transfers between exchanges in Taiwan must carry both parties' names and wallet addresses. Above NT$30,000 the sender must also give a date of birth and home address, and an exchange that cannot obtain this information may not make the transfer. Cross-border transfers are expected to follow by the end of 2027. Since the FATF revised Recommendation 16 in 2025, bank transfers across borders above the threshold must also carry the sender's address and date of birth (for individuals) by 2030.
+
+Bank transfer records are seen only by banks, but blockchain transactions are public. Once a wallet address is tied to a name, every past and future transaction from that address can be traced back to the same person. The transfer information must also be kept by both the sending and the receiving exchange, and the more places it is stored, the greater the chance of a leak. In 2021 Coin Center, a US crypto policy group, submitted comments on the FATF's draft virtual asset guidance. According to the submission, applying the Travel Rule to self-hosted wallets is incompatible with privacy rights.
+
+The FATF keeps widening payment transparency: in June 2026 it opened a consultation on new guidance for Recommendation 16, aiming for full implementation of the Travel Rule by 2030. Virtual assets will be covered in detail in a later article, as will the costs to financial privacy, such as how long data is kept and what happens when accounts are wrongly flagged.
 
 ## Current reach and what it means for readers
 
@@ -178,6 +184,9 @@ For how Taiwan's anti-money laundering regime changed after the 2016 case agains
 - U4: [The participation of low and middle income countries in the Financial Action Task Force](https://u4.no/publications/the-participation-of-low-and-middle-income-countries-in-the-financial-action-task-force)
 - Basel Institute on Governance: [FATF grey list: truth and myths](https://baselgovernance.org/blog/fatf-grey-list-truth-and-myths)
 - FATF: [Jurisdictions under Increased Monitoring, October 2025 (as republished by the Investigation Bureau)](https://www.mjib.gov.tw/userfiles/files/35-%E6%B4%97%E9%8C%A2%E9%98%B2%E5%88%B6%E8%99%95/files/%E6%B4%97%E9%8C%A2%E9%98%B2%E5%88%B6%E8%99%95-EN/Jurisdictions%20under%20Increased%20Monitoring%20-%2024%20October%202025.pdf), [outcomes of the October 2023 plenary](https://www.fatf-gafi.org/en/publications/Fatfgeneral/outcomes-fatf-plenary-october-2023.html)
+- Laws & Regulations Database (in Chinese): [AML/CFT regulations for virtual asset service providers](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0380268) (Article 7, amended 20 October 2026)
+- Central News Agency: [new rules for domestic crypto transfers take effect in October (4 August 2026, in Chinese)](https://www.cna.com.tw/news/afe/202608040320.aspx)
+- FATF: [revision of Recommendation 16 (June 2025)](https://www.fatf-gafi.org/en/publications/Fatfrecommendations/update-Recommendation-16-payment-transparency-june-2025.html)
 - Financial Supervisory Commission, Insurance Bureau: [letter forwarding the Investigation Bureau's notice on the FATF lists (14 July 2025, in Chinese)](https://lia-roc.org.tw/storage/uploads/687612412232b.pdf), with the Bureau's letter of 19 June 2025
 - Global NPO Coalition on FATF: [Plenary approves revision of Recommendation 8](https://fatfplatform.org/news/plenary-approves-revision-of-recommendation-8-and-new-best-practices/)
 - Coin Center: [Comments on the FATF's draft virtual asset guidance](https://www.coincenter.org/comments-to-the-financial-action-task-force-on-the-march-2021-draft-updated-guidance-for-a-risk-based-approach-to-virtual-assets-and-vasps/)

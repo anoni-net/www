@@ -110,7 +110,13 @@ FATF 在 2021 年啟動非預期後果的檢討專案，2023-10 的大會通過�
 
 ### 對隱私的影響
 
-FATF 要求金融機構認識客戶、保存紀錄、申報可疑交易。轉帳時要附上匯款人與收款人的資料，這項要求稱為**旅行規則**（Travel Rule，第 16 項建議）。相關要求一路延伸到虛擬資產。美國的加密貨幣政策組織 Coin Center 在 2021 年對 FATF 虛擬資產指引草案提出意見書。意見書裡寫到，把旅行規則套用到使用者自行保管的錢包，和隱私權不相容。FATF 的方向是持續擴大支付透明的要求，2026-06 為第 16 項建議的新指引公開徵求意見，目標是 2030 年前全面落實旅行規則。虛擬資產的部分之後另文詳談，資料保存的期限、帳戶被誤判的影響這些金融隱私的代價，也規劃另文整理。
+FATF 要求金融機構認識客戶、保存紀錄、申報可疑交易。轉帳時要附上匯款人與收款人的資料，這項要求稱為**旅行規則**（Travel Rule，第 16 項建議）。相關要求一路延伸到虛擬資產。
+
+從 2026 年 10 月起，在台灣的交易所之間轉幣，都要附上雙方的姓名與錢包地址。超過新臺幣 3 萬元時，轉出的人還要附上出生日期與住址，交易所無法取得這些資料時不能轉帳。跨境轉帳預計在 2027 年底前適用。FATF 在 2025 年修訂第 16 項建議後，銀行門檻以上的跨境匯款在 2030 年前也要附上匯款人的地址與出生日期（匯款人是個人時）。
+
+銀行匯款的紀錄只有銀行看得到，區塊鏈上的交易卻是公開的。錢包地址一旦和姓名綁在一起，這個地址過去與之後的交易都能連回同一個人。轉帳的資料也要保存在轉出與接收兩邊的交易所，存放的地方越多，外洩的機會越大。美國的加密貨幣政策組織 Coin Center 在 2021 年對 FATF 虛擬資產指引草案提出意見書。意見書裡寫到，把旅行規則套用到使用者自行保管的錢包，和隱私權不相容。
+
+FATF 的方向是持續擴大支付透明的要求，2026-06 為第 16 項建議的新指引公開徵求意見，目標是 2030 年前全面落實旅行規則。虛擬資產的部分之後另文詳談，資料保存的期限、帳戶被誤判的影響這些金融隱私的代價，也規劃另文整理。
 
 ## 影響力的現況與對讀者的意義
 
@@ -178,6 +184,9 @@ FATF 的規則從洗錢一路擴大到資助恐怖主義、資助武器擴散、
 - U4：[The participation of low and middle income countries in the Financial Action Task Force](https://u4.no/publications/the-participation-of-low-and-middle-income-countries-in-the-financial-action-task-force)
 - Basel Institute on Governance：[FATF grey list: truth and myths](https://baselgovernance.org/blog/fatf-grey-list-truth-and-myths)
 - FATF：[2025-10 加強監控的司法管轄區（調查局轉載）](https://www.mjib.gov.tw/userfiles/files/35-%E6%B4%97%E9%8C%A2%E9%98%B2%E5%88%B6%E8%99%95/files/%E6%B4%97%E9%8C%A2%E9%98%B2%E5%88%B6%E8%99%95-EN/Jurisdictions%20under%20Increased%20Monitoring%20-%2024%20October%202025.pdf)、[2023-10 全體大會結果](https://www.fatf-gafi.org/en/publications/Fatfgeneral/outcomes-fatf-plenary-october-2023.html)
+- 全國法規資料庫：[提供虛擬資產服務之事業或人員防制洗錢及打擊資恐辦法](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0380268)（第 7 條，2026-10-20 修正）
+- 中央社：[國內虛擬貨幣轉帳新規 10 月上路（2026-08-04）](https://www.cna.com.tw/news/afe/202608040320.aspx)
+- FATF：[第 16 項建議的修訂（2025-06）](https://www.fatf-gafi.org/en/publications/Fatfrecommendations/update-Recommendation-16-payment-transparency-june-2025.html)
 - 金管會保險局：[轉知調查局 FATF 名單的公文（2025-07-14）](https://lia-roc.org.tw/storage/uploads/687612412232b.pdf)，附調查局 2025-06-19 的函
 - Global NPO Coalition on FATF：[Plenary approves revision of Recommendation 8](https://fatfplatform.org/news/plenary-approves-revision-of-recommendation-8-and-new-best-practices/)
 - Coin Center：[FATF 虛擬資產指引草案的意見書](https://www.coincenter.org/comments-to-the-financial-action-task-force-on-the-march-2021-draft-updated-guidance-for-a-risk-based-approach-to-virtual-assets-and-vasps/)

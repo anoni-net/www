@@ -110,7 +110,13 @@ FATF 在 2021 年启动非预期后果的研究项目，2023-10 的大会通过�
 
 ### 对隐私的影响
 
-FATF 要求金融机构认识客户、保存记录、申报可疑交易。转账时要附上汇款人与收款人的信息，这项要求称为**旅行规则**（Travel Rule，第 16 项建议）。相关要求一路延伸到虚拟资产。美国的加密货币政策组织 Coin Center 在 2021 年对 FATF 虚拟资产指引草案提出意见书。意见书里写到，把旅行规则套用到用户自行保管的钱包，和隐私权不兼容。FATF 的方向是持续扩大支付透明的要求，2026-06 为第 16 项建议的新指引公开征求意见，目标是 2030 年前全面落实旅行规则。虚拟资产的部分之后另文详谈，数据保存的期限、账户被误判的影响这些金融隐私的代价，也规划另文整理。
+FATF 要求金融机构认识客户、保存记录、申报可疑交易。转账时要附上汇款人与收款人的信息，这项要求称为**旅行规则**（Travel Rule，第 16 项建议）。相关要求一路延伸到虚拟资产。
+
+从 2026 年 10 月起，在台湾的交易所之间转币，都要附上双方的姓名与钱包地址。超过新台币 3 万元时，转出的人还要附上出生日期与住址，交易所无法取得这些信息时不能转账。跨境转账预计在 2027 年底前适用。FATF 在 2025 年修订第 16 项建议后，银行门槛以上的跨境汇款在 2030 年前也要附上汇款人的地址与出生日期（汇款人是个人时）。
+
+银行汇款的记录只有银行看得到，区块链上的交易却是公开的。钱包地址一旦和姓名绑在一起，这个地址过去与之后的交易都能连回同一个人。转账的信息也要保存在转出与接收两边的交易所，存放的地方越多，外泄的机会越大。美国的加密货币政策组织 Coin Center 在 2021 年对 FATF 虚拟资产指引草案提出意见书。意见书里写到，把旅行规则套用到用户自行保管的钱包，和隐私权不兼容。
+
+FATF 的方向是持续扩大支付透明的要求，2026-06 为第 16 项建议的新指引公开征求意见，目标是 2030 年前全面落实旅行规则。虚拟资产的部分之后另文详谈，数据保存的期限、账户被误判的影响这些金融隐私的代价，也规划另文整理。
 
 ## 影响力的现况与对读者的意义
 
@@ -178,6 +184,9 @@ FATF 的规则从洗钱一路扩大到资助恐怖主义、资助武器扩散、
 - U4：[The participation of low and middle income countries in the Financial Action Task Force](https://u4.no/publications/the-participation-of-low-and-middle-income-countries-in-the-financial-action-task-force)
 - Basel Institute on Governance：[FATF grey list: truth and myths](https://baselgovernance.org/blog/fatf-grey-list-truth-and-myths)
 - FATF：[2025-10 加强监控的司法管辖区（调查局转载）](https://www.mjib.gov.tw/userfiles/files/35-%E6%B4%97%E9%8C%A2%E9%98%B2%E5%88%B6%E8%99%95/files/%E6%B4%97%E9%8C%A2%E9%98%B2%E5%88%B6%E8%99%95-EN/Jurisdictions%20under%20Increased%20Monitoring%20-%2024%20October%202025.pdf)、[2023-10 全体大会结果](https://www.fatf-gafi.org/en/publications/Fatfgeneral/outcomes-fatf-plenary-october-2023.html)
+- 全国法规数据库：[提供虚拟资产服务之事业或人员防制洗钱及打击资恐办法](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0380268)（第 7 条，2026-10-20 修正）
+- 中央社：[国内虚拟货币转账新规 10 月上路（2026-08-04）](https://www.cna.com.tw/news/afe/202608040320.aspx)
+- FATF：[第 16 项建议的修订（2025-06）](https://www.fatf-gafi.org/en/publications/Fatfrecommendations/update-Recommendation-16-payment-transparency-june-2025.html)
 - 金管会保险局：[转知调查局 FATF 名单的公文（2025-07-14）](https://lia-roc.org.tw/storage/uploads/687612412232b.pdf)，附调查局 2025-06-19 的函
 - Global NPO Coalition on FATF：[Plenary approves revision of Recommendation 8](https://fatfplatform.org/news/plenary-approves-revision-of-recommendation-8-and-new-best-practices/)
 - Coin Center：[FATF 虚拟资产指引草案的意见书](https://www.coincenter.org/comments-to-the-financial-action-task-force-on-the-march-2021-draft-updated-guidance-for-a-risk-based-approach-to-virtual-assets-and-vasps/)
