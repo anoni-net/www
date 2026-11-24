@@ -74,6 +74,9 @@ The English site is written for international peers, researchers, journalists, a
 
 - Keep dates, version numbers, PR numbers, and URLs out of the opening paragraph. Open with why the matter is important, and put the facts in the sections they belong to.
 - Carry one argument through the piece and tie each section back to it, so the article does not read as a chronological event log.
+- Open each paragraph with what the matter means for the reader, then back it up with facts. The first sentence should tell readers what the paragraph is about; dates, agencies and cases come after.
+- A list of facts is raw material, and not every verified fact belongs in the piece. New material such as news, reports or draft laws slips most easily into report style: do not list a report's or a draft's key points, pick the one or two that matter to readers and work them into sentences, and leave the rest in the research notes.
+- Do not open a paragraph with its source ("In a May 2026 report…", "According to the 2024 assessment…"). State verified facts as facts and put sources in the reference list. Name who said something in the sentence only for one-sided characterisations, causal claims the source itself makes, and points where accounts differ.
 - A timeline can list dates, but frame it: say why the work was worth doing before the list, and who benefits after it.
 - In a call to action, say near the top who is invited, what they would do, and what to do instead if they cannot. Use an admonition (`!!! tip`) when it needs to stand out.
 
