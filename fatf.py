@@ -295,6 +295,39 @@ def simple_bars(points: list[tuple[str, int]], height: int, cls: str, label: str
     return "".join(p)
 
 
+def _hbar_path(x: float, y: float, w: float, h: float, r: float = 3) -> str:
+    """左緣貼齊基線、右緣兩角圓弧的橫向長條。"""
+    r = min(r, w, h / 2)
+    return (f"M{x:.1f},{y:.1f} H{x + w - r:.1f} Q{x + w:.1f},{y:.1f} {x + w:.1f},{y + r:.1f} "
+            f"V{y + h - r:.1f} Q{x + w:.1f},{y + h:.1f} {x + w - r:.1f},{y + h:.1f} H{x:.1f} Z")
+
+
+def simple_hbars(points: list[tuple[str, int]], cls: str, label: str, top: int, tip: str, shown: set,
+                 notes: dict | None = None, highlight: set | None = None) -> str:
+    """手機版的橫向長條圖，一列一個橫軸文字，類別多的時候標籤不會擠在一起。
+    每列都標數值，shown 與 notes 的那幾列用粗體，notes 接在數值後面。"""
+    notes, highlight = notes or {}, highlight or set()
+    row, pad, label_w, room = 40, 6, 92, 230
+    x0 = label_w + 12
+    span = W - x0 - room
+    height = pad * 2 + row * len(points)
+    p = [f'<svg class="pc {cls}" viewBox="0 0 {W} {height}" role="img" aria-label="{escape(label)}">',
+         f'<line class="pc-grid" x1="{x0}" x2="{x0}" y1="{pad}" y2="{height - pad}"/>', '<g class="pc-marks">']
+    for i, (key, v) in enumerate(points):
+        top_y = pad + row * i
+        mid = top_y + row / 2
+        bw = v / top * span
+        shade = "fi-1" if key in highlight else "fi-3"
+        p.append(f'<text class="pc-tick" x="{label_w}" y="{mid + 7:.1f}" text-anchor="end">{escape(key)}</text>')
+        p.append(f'<path class="{shade}" d="{_hbar_path(x0, top_y + 7, bw, row - 14)}">'
+                 f'<title>{escape(tip.format(k=key, n=f"{v:,}"))}</title></path>')
+        text = f"{v:,}" + (f" {notes[key]}" if key in notes else "")
+        bold = " fi-total" if key in shown or key in notes else ""
+        p.append(f'<text class="pc-note{bold}" x="{x0 + bw + 8:.1f}" y="{mid + 7:.1f}">{escape(text)}</text>')
+    p.append("</g></svg>")
+    return "".join(p)
+
+
 def taiwan_blocks(data_dir: Path, tw: dict, pick) -> dict[str, str]:
     """第 2 篇〈台灣洗錢防制的起源與監理現況〉的三張圖，資料在 data/fatf/tw-*.csv。"""
     L = {k: pick(v) for k, v in tw["labels"].items()}
@@ -308,12 +341,18 @@ def taiwan_blocks(data_dir: Path, tw: dict, pick) -> dict[str, str]:
     def both(**kw):
         return simple_bars(height=WIDE, cls="fi-wide", **kw) + simple_bars(height=NARROW, cls="fi-narrow", **kw)
 
-    str_chart = both(points=total, label=L["str"], top=40000, ticks=(0, 10000, 20000, 30000, 40000),
-                     tip=L["str_tip"], shown={"2016", "2018", "2024"}, notes=notes, highlight=set(notes))
+    def wide_and_rows(ticks, **kw):
+        # 類別多、橫軸文字長的圖，手機版改成一列一根的橫向長條，年份不會疊在一起
+        return (simple_bars(height=WIDE, cls="fi-wide", ticks=ticks, **kw)
+                + simple_hbars(cls="fi-narrow", **kw))
+
+    str_chart = wide_and_rows(points=total, label=L["str"], top=40000, ticks=(0, 10000, 20000, 30000, 40000),
+                              tip=L["str_tip"], shown={"2016", "2018", "2024"}, notes=notes, highlight=set(notes))
     va_chart = both(points=va, label=L["va"], top=1000, ticks=(0, 250, 500, 750, 1000),
                     tip=L["va_tip"], shown={k for k, _ in va})
-    alert_chart = both(points=accounts, label=L["alert"], top=160000, ticks=(0, 40000, 80000, 120000, 160000),
-                       tip=L["alert_tip"], shown={k for k, _ in accounts})
+    alert_chart = wide_and_rows(points=accounts, label=L["alert"], top=160000,
+                                ticks=(0, 40000, 80000, 120000, 160000),
+                                tip=L["alert_tip"], shown={k for k, _ in accounts})
     return {
         "tw-str": figure(L["str"], str_chart, note=L["str_note"]),
         "tw-va": figure(L["va"], va_chart, note=L["va_note"]),

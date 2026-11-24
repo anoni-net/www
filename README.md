@@ -229,7 +229,7 @@ SVG 的畫布照手機的寬度設計，約 360 單位寬，桌機用 `max-width
 
 資料在 `data/fatf/`：`income-groups.csv` 是 2018/02 到 2026/10 每次全體大會的灰名單依世界銀行所得分組的國家數，`ratings.csv` 是第四輪相互評鑑每個司法管轄區達到實質或高度有效的項數。整理方法、來源與核對方式在工作區的 `research/fatf-grey-list/`，fatf-gafi.org 擋下自動下載，灰名單改用法務部調查局、美國 FinCEN 與紐西蘭內政部轉載的聲明。FATF 每年 2 月、6 月、10 月開會。名單有異動時在那邊加一列，重新產生之後複製過來，正文的數字一起改。`build.py --check` 會檢查各分組加總是否等於當次的國家數。
 
-所得分組是有順序的類別，顏色用同一個 cyan 由深到淺。淺色模式用 900、800、600、400，深色模式另選 100、300、600、800，兩組都過了色階的明度單調、相鄰差距與淺端對底色的檢查。未分類用灰色斜線，斜線的 `<pattern>` 放在獨立的零尺寸 SVG，桌機與手機兩張圖共用。時間軸的兩張圖與 IMF 的圖在手機上換成較高的版本（`.fi-narrow`），在 560px 的斷點切換，文字不會被拉長。
+所得分組是有順序的類別，顏色用同一個 cyan 由深到淺。淺色模式用 900、800、600、400，深色模式另選 100、300、600、800，兩組都過了色階的明度單調、相鄰差距與淺端對底色的檢查。未分類用灰色斜線，斜線的 `<pattern>` 放在獨立的零尺寸 SVG，桌機與手機兩張圖共用。時間軸的兩張圖與 IMF 的圖在手機上換成較高的版本（`.fi-narrow`），在 560px 的斷點切換，文字不會被拉長。第 2 篇的可疑交易報告與警示帳戶兩張圖類別多、橫軸文字長，手機版改成一列一根的橫向長條（`simple_hbars`），年份不會疊在一起。
 
 ## 分類
 
@@ -512,7 +512,7 @@ Sequential steps are written in Markdown as an `ol.flow`: each step has a number
 
 The data is in `data/fatf/`: `income-groups.csv` counts grey-listed jurisdictions by World Bank income group at every plenary from February 2018 to October 2026, and `ratings.csv` has the number of fourth-round effectiveness outcomes each jurisdiction had rated substantial or high. How it was compiled, sourced and checked is in `research/fatf-grey-list/` in the workspace. fatf-gafi.org blocks automated downloads, so the grey lists come from the statements as republished by Taiwan's Investigation Bureau, US FinCEN and New Zealand's Department of Internal Affairs. The FATF meets every February, June and October; when the lists change, add a row there, regenerate, copy the file over and update the numbers in the text. `build.py --check` verifies that the income groups add up to each plenary's total.
 
-Income groups are ordered categories, so they use one cyan from dark to light: steps 900, 800, 600 and 400 in light mode, and 100, 300, 600 and 800 chosen separately for dark mode. Both sets pass the ramp checks for monotone lightness, adjacent contrast and the light end against the surface. Unclassified uses a grey hatch; its `<pattern>` lives in a separate zero-size SVG shared by the desktop and phone charts. The two time-series charts and the IMF chart switch to a taller phone version (`.fi-narrow`) at the 560px breakpoint, so text is never stretched.
+Income groups are ordered categories, so they use one cyan from dark to light: steps 900, 800, 600 and 400 in light mode, and 100, 300, 600 and 800 chosen separately for dark mode. Both sets pass the ramp checks for monotone lightness, adjacent contrast and the light end against the surface. Unclassified uses a grey hatch; its `<pattern>` lives in a separate zero-size SVG shared by the desktop and phone charts. The two time-series charts and the IMF chart switch to a taller phone version (`.fi-narrow`) at the 560px breakpoint, so text is never stretched. In part 2, the suspicious transaction report and flagged-account charts have many categories with long labels, so their phone version is a horizontal bar chart with one row per category (`simple_hbars`), keeping the year labels apart.
 
 ## Categories
 
