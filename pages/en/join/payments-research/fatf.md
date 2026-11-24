@@ -1,6 +1,6 @@
 ---
 title: FATF, the body that sets anti-money laundering standards
-description: Bank de-risking hits civil society and humanitarian transfers, and FATF standards are part of the reason. How the FATF works, with data and both sides.
+description: De-risking by banks hits civil society and aid transfers, partly due to FATF standards. The FATF has no penalties; banks and governments give it force.
 ---
 
 Doing advocacy work in Taiwan, raising money for partners abroad or sending funds to a disaster area, you may find that a bank closes the account or returns the transfer. To reduce their own risk, banks cut back on customers they see as high-risk, a practice known as **de-risking**. Non-profits, humanitarian remittances and people already on the edge of the banking system are hit hardest. Part of what banks base those risk judgments on comes from the standards and public lists of the Financial Action Task Force (FATF).
