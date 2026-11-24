@@ -3,7 +3,7 @@ title: FATF, the body that sets anti-money laundering standards
 description: Bank de-risking hits civil society and humanitarian transfers, and FATF standards are part of the reason. How the FATF works, with data and both sides.
 ---
 
-Doing advocacy work in Taiwan, raising money for partners abroad or sending funds to a disaster area, you may find that a bank closes the account or returns the transfer. To reduce their own risk, banks cut back on customers they see as high-risk, a practice known as de-risking. Non-profits, humanitarian remittances and people already on the edge of the banking system are hit hardest. Part of what banks base those risk judgments on comes from the standards and public lists of the Financial Action Task Force (FATF).
+Doing advocacy work in Taiwan, raising money for partners abroad or sending funds to a disaster area, you may find that a bank closes the account or returns the transfer. To reduce their own risk, banks cut back on customers they see as high-risk, a practice known as **de-risking**. Non-profits, humanitarian remittances and people already on the edge of the banking system are hit hardest. Part of what banks base those risk judgments on comes from the standards and public lists of the Financial Action Task Force (FATF).
 
 Uploading ID to open an account at a crypto exchange, filling in the recipient's details to send virtual assets, explaining where the money comes from when opening a bank account: these everyday rules also trace back to the FATF. The FATF cannot legislate and its recommendations are not a treaty, yet most countries base their anti-money laundering laws on them. Understanding why accounts get closed, why transfers get blocked and how much room is left for anonymous payments starts with the body that sets these rules.
 
@@ -15,7 +15,7 @@ Uploading ID to open an account at a crypto exchange, filling in the recipient's
 
 The FATF was set up at the 1989 G7 summit in Paris to develop measures against money laundering. Its secretariat sits within the OECD in Paris. It has 40 members: 38 jurisdictions plus two regional organisations, the European Commission and the Gulf Co-operation Council. Russia's membership has been suspended since 24 February 2023. Most members are G20 or European countries; the Asia-Pacific members are China, Hong Kong, India, Indonesia, Japan, Korea, Malaysia and Singapore.
 
-With only 40 members, the FATF extends its standards to the whole world through nine FATF-style regional bodies (FSRBs). Together they form the Global Network, which covers more than 200 jurisdictions. Taiwan takes part in the Asia/Pacific Group on Money Laundering (APG) as Chinese Taipei, and the APG carries out its mutual evaluations; Taiwan has not joined the FATF itself.
+With only 40 members, the FATF extends its standards to the whole world through nine FATF-style regional bodies (FSRBs). Together they form the **Global Network**, which covers more than 200 jurisdictions. Taiwan takes part in the Asia/Pacific Group on Money Laundering (APG) as Chinese Taipei, and the APG carries out its mutual evaluations; Taiwan has not joined the FATF itself.
 
 <!-- fatf-org -->
 
@@ -44,7 +44,7 @@ Depending on the results, a country is placed in regular or enhanced follow-up a
 
 ### The grey list and the black list
 
-The FATF plenary meets every February, June and October and decides two public lists. The grey list, formally "jurisdictions under increased monitoring", covers countries with strategic deficiencies that have committed to an action plan with the FATF. Listed countries must fix the deficiencies by a deadline and leave the list after passing an on-site visit. The black list, formally "high-risk jurisdictions subject to a call for action", asks all countries to apply enhanced scrutiny to the jurisdictions on it, and countermeasures in the most serious cases. In October 2026 the black list was North Korea, Iran and Myanmar: countermeasures for North Korea and Iran, enhanced due diligence for Myanmar.
+The FATF plenary meets every February, June and October and decides two public lists. The **grey list**, formally "jurisdictions under increased monitoring", covers countries with strategic deficiencies that have committed to an action plan with the FATF. Listed countries must fix the deficiencies by a deadline and leave the list after passing an on-site visit. The **black list**, formally "high-risk jurisdictions subject to a call for action", asks all countries to apply enhanced scrutiny to the jurisdictions on it, and countermeasures in the most serious cases. In October 2026 the black list was North Korea, Iran and Myanmar: countermeasures for North Korea and Iran, enhanced due diligence for Myanmar.
 
 <!-- fatf-grey -->
 
@@ -108,7 +108,7 @@ The FATF launched a project on unintended consequences in 2021 and amended Recom
 
 ### Privacy implications
 
-The FATF requires financial institutions to know their customers, keep records and report suspicious transactions. Wire transfers must carry information on the sender and the recipient, a requirement known as the Travel Rule (Recommendation 16). These requirements now reach virtual assets. In 2021 Coin Center, a US crypto policy group, submitted comments on the FATF's draft virtual asset guidance. According to the submission, applying the Travel Rule to self-hosted wallets is incompatible with privacy rights. The FATF keeps widening payment transparency: in June 2026 it opened a consultation on new guidance for Recommendation 16, aiming for full implementation of the Travel Rule by 2030. Part 2 covers virtual assets in detail.
+The FATF requires financial institutions to know their customers, keep records and report suspicious transactions. Wire transfers must carry information on the sender and the recipient, a requirement known as the **Travel Rule** (Recommendation 16). These requirements now reach virtual assets. In 2021 Coin Center, a US crypto policy group, submitted comments on the FATF's draft virtual asset guidance. According to the submission, applying the Travel Rule to self-hosted wallets is incompatible with privacy rights. The FATF keeps widening payment transparency: in June 2026 it opened a consultation on new guidance for Recommendation 16, aiming for full implementation of the Travel Rule by 2030. Part 2 covers virtual assets in detail.
 
 ## About the data
 
