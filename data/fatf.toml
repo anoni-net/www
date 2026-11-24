@@ -1,7 +1,7 @@
 # 匿名支付主題 FATF 系列（/join/payments-research/fatf/）的圖表。Markdown 寫 <!-- fatf-grey --> 這類標記，
 # 由 fatf.py 畫成內嵌的 SVG。資料的整理方法與來源在工作區 research/fatf-grey-list/（toomore/anoni-net-ws#512），
 # 這裡只放畫圖要用的部分：data/fatf/income-groups.csv（每次大會灰名單依所得分組的國家數）、
-# data/fatf/ratings.csv（第四輪相互評鑑每個司法管轄區達到實質或高度有效的項數）。改資料時正文的數字一起改。
+# data/fatf/ratings.csv（以 2013 年評鑑方法完成的相互評鑑，每個司法管轄區達到實質或高度有效的項數）。改資料時正文的數字一起改。
 
 # 2020/06 疫情暫停審查，名單沿用 2020/02
 pause = "2020-06-30"
@@ -33,7 +33,7 @@ share_note = { zh-TW = "全世界是同一年度世界銀行有分類的約 220 
 share_grey = { zh-TW = "灰名單", zh-CN = "灰名单", en = "Grey list" }
 share_world = { zh-TW = "全世界", zh-CN = "全世界", en = "World" }
 
-ratings = { zh-TW = "第四輪相互評鑑達到實質或高度有效的項數（共 11 項）", zh-CN = "第四轮相互评估达到实质或高度有效的项数（共 11 项）", en = "Effectiveness outcomes rated substantial or high in fourth-round evaluations (out of 11)" }
+ratings = { zh-TW = "各國相互評鑑達到實質或高度有效的項數（2013 年評鑑方法，共 11 項）", zh-CN = "各国相互评估达到实质或高度有效的项数（2013 年评估方法，共 11 项）", en = "Effectiveness outcomes rated substantial or high, evaluations under the 2013 methodology (out of 11)" }
 ratings_note = { zh-TW = "199 個司法管轄區，每個取最新一份評鑑報告", zh-CN = "199 个司法管辖区，每个取最新一份评估报告", en = "199 jurisdictions, latest report for each" }
 ratings_bin = { zh-TW = "{k} 項：{n} 個司法管轄區", zh-CN = "{k} 项：{n} 个司法管辖区", en = "{k} outcomes: {n} jurisdictions" }
 ratings_axis = { zh-TW = "項數", zh-CN = "项数", en = "Outcomes" }

@@ -15,7 +15,7 @@ description: 台灣很早就有洗錢防制專法，卻在 APG 評鑑裡落後�
 
 台灣在 1996 年制定《洗錢防制法》，隔年施行，政府稱它是亞洲第一部洗錢防制專法。調查局同時成立洗錢防制中心，作為台灣的金融情報中心（FIU），接收並分析金融機構申報的可疑交易。APG 在 1997 年成立，台灣以 Chinese Taipei 的名稱成為創始會員。
 
-制定專法之後，政策沒有持續推動，社會對洗錢防制的認識也有限。APG 在 2007 年的第二輪評鑑裡，台灣的 49 項建議有 24 項只達到部分遵循或不遵循，2011 年又因為改善不足被調降追蹤等級。第二輪在 2014 年結束時，台灣還和不丹、巴基斯坦、寮國、越南等國一起列在過渡追蹤（第二輪結束時還沒脫離追蹤的成員，在第三輪前繼續接受追蹤），法務部說明原因是缺失還沒有改善。2015 年第三輪（APG 現在的說法是全球第四輪）的程序展開時，洗錢防制辦公室形容台灣「無論法制面、監理面或執法面，均大幅落後國際標準」。
+制定專法之後，政策沒有持續推動，社會對洗錢防制的認識也有限。APG 在 2007 年的第二輪評鑑裡，台灣的 49 項建議有 24 項只達到部分遵循或不遵循，2011 年又因為改善不足被調降追蹤等級。第二輪在 2014 年結束時，台灣還和不丹、巴基斯坦、寮國、越南等國一起列在過渡追蹤（第二輪結束時還沒脫離追蹤的成員，在第三輪前繼續接受追蹤），法務部說明原因是缺失還沒有改善。2015 年第三輪的程序展開時，洗錢防制辦公室形容台灣「無論法制面、監理面或執法面，均大幅落後國際標準」。
 
 第三輪評鑑排在 2018 年底，行政院當時預期評鑑結果「對我國未來整體金融活動之靈活度將有深遠影響」。評鑑等級最差的成員會交由防制洗錢金融行動工作組織（FATF）列管（FATF 列管與灰名單的影響見[第 1 篇](/join/payments-research/fatf/)）。
 
@@ -93,7 +93,7 @@ description: 台灣很早就有洗錢防制專法，卻在 APG 評鑑裡落後�
 
 ## 下一輪評鑑
 
-洗錢防制辦公室已經開始準備 2030 年的 APG 全球第五輪評鑑，APG 的時程表把台灣的評鑑報告排在 2031 年的年會討論。上一輪評鑑前的幾年，正是修法最密集的時候。
+洗錢防制辦公室已經開始準備 2030 年的下一輪評鑑，APG 的時程表把台灣的評鑑報告排在 2031 年的年會討論。上一輪評鑑前的幾年，正是修法最密集的時候。
 
 ## 時間軸
 
@@ -118,7 +118,7 @@ description: 台灣很早就有洗錢防制專法，卻在 APG 評鑑裡落後�
   <li><span class="tl-when">2024-07</span><span class="tl-b"><span class="tl-t">《洗錢防制法》再次全文修正</span><span class="tl-d">同日制定《詐欺犯罪危害防制條例》，虛擬資產服務提供者改為登記制</span></span></li>
   <li><span class="tl-when">2025-11</span><span class="tl-b"><span class="tl-t">第 3 次追蹤報告</span><span class="tl-d">維持一般追蹤</span></span></li>
   <li><span class="tl-when">2026-05</span><span class="tl-b"><span class="tl-t">台中銀罰鍰 3,200 萬元</span><span class="tl-d">銀行局長形容是銀行業歷來最高的裁罰金額</span></span></li>
-  <li><span class="tl-when">2031</span><span class="tl-b"><span class="tl-t">APG 全球第五輪評鑑</span><span class="tl-d">台灣的評鑑報告排在這一年的年會討論</span></span></li>
+  <li><span class="tl-when">2031</span><span class="tl-b"><span class="tl-t">APG 下一輪評鑑</span><span class="tl-d">台灣的評鑑報告排在這一年的年會討論</span></span></li>
 </ol>
 
 第 3 篇預計寫 FATF 對虛擬資產與 VASP 的要求，以及這些要求如何落到台灣的《虛擬資產服務法》。
@@ -148,7 +148,7 @@ description: 台灣很早就有洗錢防制專法，卻在 APG 評鑑裡落後�
 - 法務部調查局：[洗錢防制處歷史沿革](https://www.mjib.gov.tw/EditPage/?PageID=e21658e0-bde6-475f-884d-f2415a446d02)、洗錢防制工作年報（2010 到 2024 年）
 - 法務部：[行政院通過洗錢防制法修正草案的新聞稿（2016-08-25）](https://www.moj.gov.tw/2204/2205/2323/2353/8612)、[脫離 APG 過渡追蹤的新聞](https://www.moj.gov.tw/2204/2795/2796/58211/)
 - 行政院：[洗錢防制新制上路（2017-07-10）](https://www.ey.gov.tw/Page/5A8A0CB5B41DA11E/c935e972-67f5-4625-80b6-0e775a846cad)、[APG 評鑑的政策說明（2019-11-21）](https://www.ey.gov.tw/Page/5A8A0CB5B41DA11E/bdf44d9a-f4f0-43aa-99f2-771f612983ac)、[APG 評鑑結果的新聞（2019-08-25）](https://www.ey.gov.tw/Page/9277F759E41CCD91/42a5d2d2-4f84-4fb7-acc5-739f1d8be582)、[第 3 次追蹤報告的新聞（2025-11-20）](https://www.ey.gov.tw/Page/9277F759E41CCD91/494b267b-a8fd-488f-90df-e1772405abdb)
-- APG：[Chinese Taipei 2019 年相互評鑑報告](https://apgml.org/sites/default/files/documents//Chinese_Taipei_MER_2019_-_published_version.pdf)、[全球第五輪評鑑時程](https://www.apgml.org/apg-global-5th-round-schedule)
+- APG：[Chinese Taipei 2019 年相互評鑑報告](https://apgml.org/sites/default/files/documents//Chinese_Taipei_MER_2019_-_published_version.pdf)、[下一輪評鑑的時程表](https://www.apgml.org/apg-global-5th-round-schedule)
 - 金管會：[重大裁罰案件](https://www.fsc.gov.tw/ch/home.jsp?id=131)、[兆豐銀行裁罰（2016-09-14）](https://www.fsc.gov.tw/ch/home.jsp?id=131&parentpath=0,2&mcustomize=multimessages_view.jsp&dataserno=201609210002&dtable=Penalty)、[台中商業銀行裁罰（2026-05-15）](https://www.fsc.gov.tw/ch/home.jsp?id=131&parentpath=0,2&mcustomize=multimessages_view.jsp&dataserno=202605180002&dtable=Penalty)、[臺灣銀行裁罰（2025-03-11）](https://www.fsc.gov.tw/ch/home.jsp?id=131&parentpath=0,2&mcustomize=multimessages_view.jsp&dataserno=202503120002&dtable=Penalty)
 - 金管會：[存款帳戶及其疑似不法或顯屬異常交易管理辦法第 13 條](https://law.banking.gov.tw/Chi/FLAW/FLAWDOC01.aspx?lsid=FL039015&lno=13)
 - ETtoday：[台中銀遭罰 3,200 萬元的報導](https://finance.ettoday.net/news/3164693)
