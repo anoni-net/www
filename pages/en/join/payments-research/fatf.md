@@ -123,6 +123,32 @@ For civil society groups, transfers of donations or humanitarian funds to listed
 
 For individuals, banks and exchanges follow FATF recommendations to know their customers and keep records. Now that the Travel Rule reaches virtual assets, sending cryptocurrency also means attaching the recipient's details, which narrows the room for financial privacy. The FATF aims for full implementation of the Travel Rule by 2030. Part 2 is planned to cover how these rules land in Taiwan's Virtual Asset Service Act and exchange practice, and where that leaves self-hosted wallets. For background on why anonymous payments matter, see [Why anonymous payments matter](docs:basics/payments-anonymity/) on our docs site.
 
+## Timeline
+
+FATF rules have widened from money laundering to terrorist financing, proliferation financing, virtual assets and payment transparency, and Taiwan's evaluation and the revision won by civil society happened along the way.
+
+<ol class="tl" aria-label="FATF events mentioned on this page">
+  <li class="tl-origin"><span class="tl-when">1989</span><span class="tl-b"><span class="tl-t">The FATF is founded</span><span class="tl-d">Set up at the G7 summit in Paris to develop measures against money laundering</span></span></li>
+  <li><span class="tl-when">1990</span><span class="tl-b"><span class="tl-t">The first 40 Recommendations</span><span class="tl-d">Aimed at money laundering</span></span></li>
+  <li><span class="tl-when">2001</span><span class="tl-b"><span class="tl-t">Terrorist financing added</span><span class="tl-d">Special recommendations issued after 9/11</span></span></li>
+  <li><span class="tl-when">2012</span><span class="tl-b"><span class="tl-t">The 40 Recommendations revised</span><span class="tl-d">The special recommendations folded in, with proliferation financing added</span></span></li>
+  <li><span class="tl-when">2018-02</span><span class="tl-b"><span class="tl-t">Nine jurisdictions on the grey list</span><span class="tl-d">Where this page's grey-list data begins</span></span></li>
+  <li><span class="tl-when">2019-06</span><span class="tl-b"><span class="tl-t">Virtual assets brought under the standards</span><span class="tl-d">Recommendation 15 amended in October 2018 and its interpretive note adopted in June 2019, extending the Travel Rule to VASPs</span></span></li>
+  <li><span class="tl-when">2019-08</span><span class="tl-b"><span class="tl-t">Taiwan's mutual evaluation report adopted</span><span class="tl-d">After the APG's on-site visit in November 2018; seven effectiveness outcomes rated substantial, and Taiwan placed in regular follow-up</span></span></li>
+  <li><span class="tl-when">2020-06</span><span class="tl-b"><span class="tl-t">Reviews paused for COVID-19</span><span class="tl-d">The February 2020 lists stayed in force</span></span></li>
+  <li><span class="tl-when">2021</span><span class="tl-b"><span class="tl-t">Project on unintended consequences</span><span class="tl-d">The same year, Coin Center's comments on the draft virtual asset guidance stated that applying the Travel Rule to self-hosted wallets is incompatible with privacy rights</span></span></li>
+  <li><span class="tl-when">2022-10</span><span class="tl-b"><span class="tl-t">Myanmar moves to the black list</span><span class="tl-d">The only escalation from the grey list since 2018</span></span></li>
+  <li><span class="tl-when">2023-02</span><span class="tl-b"><span class="tl-t">Russia suspended</span><span class="tl-d">Membership still counted as 40</span></span></li>
+  <li><span class="tl-when">2023-06</span><span class="tl-b"><span class="tl-t">Grey list peaks at 26</span><span class="tl-d">The highest point since 2018</span></span></li>
+  <li><span class="tl-when">2023-11</span><span class="tl-b"><span class="tl-t">Recommendation 8 amended</span><span class="tl-d">The non-profit sector is no longer treated as high-risk as a whole; the Global NPO Coalition on FATF issued a statement welcoming it</span></span></li>
+  <li><span class="tl-when">2025-10</span><span class="tl-b"><span class="tl-t">Four African countries leave the grey list</span><span class="tl-d">South Africa, Nigeria, Mozambique and Burkina Faso</span></span></li>
+  <li><span class="tl-when">2026-06</span><span class="tl-b"><span class="tl-t">Consultation on new Recommendation 16 guidance</span><span class="tl-d">Payment transparency requirements keep widening</span></span></li>
+  <li><span class="tl-when">2026-10</span><span class="tl-b"><span class="tl-t">18 on the grey list, 3 on the black list</span><span class="tl-d">Where this page's data ends; the black list is North Korea, Iran and Myanmar</span></span></li>
+  <li><span class="tl-when">2030</span><span class="tl-b"><span class="tl-t">Target for full Travel Rule implementation</span><span class="tl-d">The deadline the FATF has set for Recommendation 16</span></span></li>
+</ol>
+
+The 2030 Travel Rule deadline is the next date that bears most directly on payment privacy, and part 2 picks up from there.
+
 ## About the data
 
 - Grey list: 27 plenaries from February 2018 to October 2026, compiled from the FATF statements republished by Taiwan's Investigation Bureau, US FinCEN notices and New Zealand's Department of Internal Affairs, with each list checked against the one before

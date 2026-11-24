@@ -123,6 +123,32 @@ FATF 只有 40 个成员，通过全球体系把标准套用到超过 200 个司
 
 对一般用户来说，银行与交易所依 FATF 的建议认识客户、保存记录。旅行规则延伸到虚拟资产之后，转出加密货币也要附上收款人的数据，金融隐私的空间跟着缩小。FATF 的目标是 2030 年前全面落实旅行规则，第 2 篇规划讨论这套规则如何落到台湾的《虚拟资产服务法》与交易所的规定，以及用户自行保管钱包的处境。想先了解匿名支付的意义，可以读文档站的[为什么匿名支付重要](docs:basics/payments-anonymity/)。
 
+## 时间轴
+
+FATF 的规则从洗钱一路扩大到资助恐怖主义、资助武器扩散、虚拟资产与支付透明，台湾的评估与公民团体争取到的修订也发生在同一段期间。
+
+<ol class="tl" aria-label="本页提到的 FATF 事件">
+  <li class="tl-origin"><span class="tl-when">1989</span><span class="tl-b"><span class="tl-t">FATF 成立</span><span class="tl-d">G7 巴黎高峰会上成立，任务是研究制定打击洗钱的措施</span></span></li>
+  <li><span class="tl-when">1990</span><span class="tl-b"><span class="tl-t">最初的 40 项建议</span><span class="tl-d">对象是洗钱</span></span></li>
+  <li><span class="tl-when">2001</span><span class="tl-b"><span class="tl-t">加入打击资助恐怖主义</span><span class="tl-d">九一一事件后发布特别建议</span></span></li>
+  <li><span class="tl-when">2012</span><span class="tl-b"><span class="tl-t">40 项建议改版</span><span class="tl-d">特别建议并入，并纳入资助武器扩散</span></span></li>
+  <li><span class="tl-when">2018-02</span><span class="tl-b"><span class="tl-t">灰名单 9 国</span><span class="tl-d">本页灰名单数据的起点</span></span></li>
+  <li><span class="tl-when">2019-06</span><span class="tl-b"><span class="tl-t">虚拟资产纳入规范</span><span class="tl-d">第 15 项建议在 2018-10 修订，2019-06 通过注释，旅行规则延伸到 VASP</span></span></li>
+  <li><span class="tl-when">2019-08</span><span class="tl-b"><span class="tl-t">台湾的相互评估报告通过</span><span class="tl-d">APG 的现场评估在 2018-11，有效性 7 项实质有效，台湾列入一般跟进</span></span></li>
+  <li><span class="tl-when">2020-06</span><span class="tl-b"><span class="tl-t">疫情暂停审查</span><span class="tl-d">名单沿用 2020-02 的内容</span></span></li>
+  <li><span class="tl-when">2021</span><span class="tl-b"><span class="tl-t">非预期后果的研究项目</span><span class="tl-d">同一年 Coin Center 对虚拟资产指引草案提出意见书，意见书里写到旅行规则套用到自行保管的钱包和隐私权不兼容</span></span></li>
+  <li><span class="tl-when">2022-10</span><span class="tl-b"><span class="tl-t">缅甸转到黑名单</span><span class="tl-d">2018 年以来唯一一次从灰名单升级</span></span></li>
+  <li><span class="tl-when">2023-02</span><span class="tl-b"><span class="tl-t">俄罗斯停权</span><span class="tl-d">成员数维持 40 个</span></span></li>
+  <li><span class="tl-when">2023-06</span><span class="tl-b"><span class="tl-t">灰名单最多 26 国</span><span class="tl-d">2018 年以来的最高点</span></span></li>
+  <li><span class="tl-when">2023-11</span><span class="tl-b"><span class="tl-t">修订第 8 项建议</span><span class="tl-d">不再把非营利组织整体视为高风险，Global NPO Coalition on FATF 发表声明欢迎</span></span></li>
+  <li><span class="tl-when">2025-10</span><span class="tl-b"><span class="tl-t">四个非洲国家移出灰名单</span><span class="tl-d">南非、尼日利亚、莫桑比克与布基纳法索</span></span></li>
+  <li><span class="tl-when">2026-06</span><span class="tl-b"><span class="tl-t">第 16 项建议的新指引公开征求意见</span><span class="tl-d">支付透明的要求持续扩大</span></span></li>
+  <li><span class="tl-when">2026-10</span><span class="tl-b"><span class="tl-t">灰名单 18 国、黑名单 3 国</span><span class="tl-d">本页数据的截止点，黑名单是朝鲜、伊朗与缅甸</span></span></li>
+  <li><span class="tl-when">2030</span><span class="tl-b"><span class="tl-t">全面落实旅行规则的目标</span><span class="tl-d">FATF 为第 16 项建议设置的期限</span></span></li>
+</ol>
+
+2030 年的旅行规则期限是接下来最直接影响支付隐私的时间点，第 2 篇从这里接着谈。
+
 ## 数据说明
 
 - 灰名单：2018-02 到 2026-10 共 27 次全体大会，整理自法务部调查局转载的 FATF 声明原文、美国 FinCEN 的公告与新西兰内政部的公告，逐次核对前后两次的名单
