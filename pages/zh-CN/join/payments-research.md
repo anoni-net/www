@@ -47,10 +47,10 @@ description: 匿名网络社区 2026 年三大主题之一，研究现金以外�
 
 - **VASP 法的观察**：台湾行政院 2026 年 4 月通过《虚拟资产服务法》草案、送立法院审议后，社区在文档站博客发表第一篇观察文[《虚拟资产服务法》草案：行政院通过了什么，还差什么](docs:taiwan/vasp-2026/)，整理草案架构、罚则与业界协会在公听会的角色，再扩充成长期参考文件[台湾 VASP 法 2026](docs:taiwan/vasp-2026/)。参考文件在 2026 年 5 月补上台湾证券交易所与柜买中心委托会计研究发展基金会发布的两份指引（稳定币的会计处理、持有加密货币的内部控制），也追踪到 2026 年 6 月 30 日的立法院三读
 - **g0v Hackath71n 议题提案**：社区在 2026 年 1 月于高雄举办的 g0v Hackath71n 提出匿名支付的讨论，集结初步的参与意愿
-- **COSCUP 2026 议程合作**：与 [ETHTaipei](https://ethtaipei.org/) 合作，2026 年 8 月 8 日下午在国立台湾科技大学联合举办匿名支付场次（议程见[COSCUP 2026 匿名网络社区议程轨](/events/coscup-2026/)，征稿与联合审稿的安排见[COSCUP 2026 公开征稿](/events/coscup-2026-cfp/)）
+- **COSCUP 2026 议程合作**：与 [ETHTaipei](https://ethtaipei.org/) 合作，2026 年 8 月 8 日下午在国立台湾科技大学联合举办匿名支付场次（议程见 [COSCUP 2026 匿名网络社区议程轨](/events/coscup-2026/)，征稿与联合审稿的安排见 [COSCUP 2026 公开征稿](/events/coscup-2026-cfp/)）
 - **Global Gathering 2026 的展位**：2026 年 9 月 6 日在葡萄牙 Estoril 的 [Global Gathering 2026](/events/gg2026/) 以匿名支付为展位主题，向现场的公民团体与技术工作者收集实际的使用情境
 - **文档站的架构**：在文档站的七大分类里为支付主题安排位置，不另开独立分类，避免结构分散
-- **金融审查的案例整理**：2026 年 5 月在文档站博客发表[PayPal 关闭台湾境内交易、Stripe 至今未开放：EFF 新书 Transaction Denied 整理十多年金融审查案例](docs:blog/2026/05/2026-financial-companies-as-censors/)，把《Transaction Denied》整理的案例与 PayPal 2017 年关闭台湾境内交易、台湾个人至今无法直接申请 Stripe 两件事对照，并延伸到中国大陆、香港、澳门、新加坡、马来西亚的同类案例，补上匿名支付主题的动机
+- **金融审查的案例整理**：2026 年 5 月在文档站博客发表 [PayPal 关闭台湾境内交易、Stripe 至今未开放：EFF 新书 Transaction Denied 整理十多年金融审查案例](docs:blog/2026/05/2026-financial-companies-as-censors/)，把《Transaction Denied》整理的案例与 PayPal 2017 年关闭台湾境内交易、台湾个人至今无法直接申请 Stripe 两件事对照，并延伸到中国大陆、香港、澳门、新加坡、马来西亚的同类案例，补上匿名支付主题的动机
 
 ## 进行中的工作
 
@@ -70,7 +70,7 @@ description: 匿名网络社区 2026 年三大主题之一，研究现金以外�
 - **跨境捐款**：倡议组织在合规前提下接受加密货币捐款的个案研究
 - **金融审查**：Rainey Reitman 的《Transaction Denied》（Beacon Press, 2026），整理十多年来金融中介担任言论审查者的案例
 - **EFF 的金融审查系列文章（2012–2025）**：Smashwords、Nifty Archive、OnlyFans、Palestinians PayPal、Naked Yoga、Tor PayPal、Tornado Cash 等
-- **美国 2025–2026 的加密市场结构立法**：GENIUS Act（稳定币，2025 年 7 月签署成为法律）、CLARITY Act（市场结构，2026 年 5 月参议院银行委员会通过）、Anti-CBDC Surveillance State Act（众议院 2025 年 7 月通过，参议院 S.1124 待审）的条文重点与时间线，作为与台湾《虚拟资产服务法》对照的素材（初步的对照见[台湾 VASP 法 2026](docs:taiwan/vasp-2026/)的国际对照一节）
+- **美国 2025–2026 的加密市场结构立法**：GENIUS Act（稳定币，2025 年 7 月签署成为法律）、CLARITY Act（市场结构，2026 年 5 月参议院银行委员会通过）、Anti-CBDC Surveillance State Act（众议院 2025 年 7 月通过，参议院 S.1124 待审）的条文重点与时间线，作为与台湾《虚拟资产服务法》对照的素材（初步的对照见[台湾 VASP 法 2026](docs:taiwan/vasp-2026/) 的国际对照一节）
 
 ## 参与方式
 
