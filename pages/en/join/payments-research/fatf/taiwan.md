@@ -5,24 +5,11 @@ description: Some rules at Taiwan's bank counters come from the FATF, others Tai
 
 Opening a bank account in Taiwan means showing ID and explaining the purpose of the account. Deposit or withdraw NT$500,000 or more in cash over the counter, and the teller records your identity. When the police flag an account, every transaction on it stops; at the end of 2025 more than 150,000 accounts in Taiwan were flagged.
 
-Some of these rules come from the recommendations of the Financial Action Task Force (FATF); others Taiwan added on its own to fight fraud. Large cash reporting, cross-border cash declarations and flagged accounts all existed before 2016. After New York regulators heavily fined Mega Bank's New York branch in 2016, Taiwan widened the scope of customer checks and raised fines within three years, and in 2019 was placed in regular follow-up, the lightest follow-up level, in its evaluation by the Asia/Pacific Group on Money Laundering (APG). After the evaluation, the focus of new legislation turned to fraud, and restrictions reached beyond banks' internal procedures to individuals' accounts.
+Some of these rules come from the recommendations of the Financial Action Task Force (FATF); others Taiwan added on its own to fight fraud. Large cash reporting and flagged accounts existed before 2016. After New York regulators heavily fined Mega Bank's New York branch in 2016, Taiwan widened the scope of customer checks and raised fines within three years. Later amendments turned to fraud, and restrictions reached beyond banks' internal procedures to individuals' accounts.
 
 !!! info ""
 
     This is part 1 of the FATF series in our [anonymous payments research track](/join/payments-research/). For where the FATF came from, how it works and where Taiwan sits in the Global Network, see [part 2](/join/payments-research/fatf/). What the FATF requires of virtual assets and virtual asset service providers (VASPs) is planned for part 3.
-
-## Why Taiwan follows FATF standards
-
-Taiwan is not a member of the FATF, and the FATF's recommendations are not a treaty and carry no penalties (for where their force comes from, see [part 2](/join/payments-research/fatf/)). In 1997 Taiwan became a founding member of the APG under the name Chinese Taipei. Under the APG's Terms of Reference and membership rules, members implement the FATF's 40 Recommendations according to their own legal frameworks, and on joining they commit to mutual evaluations by other members. Members with the worst results are referred to the FATF for review and may end up on the grey list. The FATF does not ask countries to apply enhanced due diligence to grey-listed jurisdictions, only to take the list into account in their risk analysis, and banks often treat the list as an indicator when assessing the risk of a relationship.
-
-In its 2019 evaluation, Taiwan was rated substantially effective on 7 of 11 effectiveness outcomes, second only to the United States among the 42 APG members.
-
-![Map of the Asia-Pacific shading APG members by their effectiveness ratings, with Taiwan marked](https://assets.anoni.net/www/articles/fatf-apg-ratings-map-10a94906.svg){: .map-img width="720" height="497" loading="lazy" }
-
-Effectiveness ratings of APG members under the FATF's 2013 methodology; ① is Taiwan. The darker the shade in light mode, or the brighter in dark mode, the more of the 11 effectiveness outcomes were rated substantial or high. 6 or more: United States, Taiwan, Hong Kong, India, Macao, New Zealand. 3 to 5: Australia, Bangladesh, Brunei, Canada, China, Cook Islands, Indonesia, Japan, Korea, Malaysia, Singapore, Thailand. 1 to 2: Cambodia, Niue, Palau, Philippines, Samoa, Sri Lanka, Vietnam. 0: Bhutan, Fiji, Laos, Maldives, Marshall Islands, Mongolia, Myanmar, Nauru, Nepal, Pakistan, Papua New Guinea, Solomon Islands, Timor-Leste, Tonga, Vanuatu. No rating: Afghanistan, Tuvalu. The United States and Canada are outside the map; small island states are shown as dots. Members were assessed between 2015 and 2025, so the comparison only shows the broad picture.
-{: .fig-note }
-
-Taiwan's banks rely on foreign correspondent banks for international remittances and US dollar transactions, and their US branches are examined by US regulators. When the Executive Yuan explained what the evaluation meant in 2019, it linked the result to how foreign businesses assess Taiwan's financial environment and to Taiwan's practical participation in international organisations.
 
 ## Rules at the bank counter
 
@@ -38,6 +25,30 @@ Taiwan's banks rely on foreign correspondent banks for international remittances
 | Handing your account to someone else | A police warning, then five years of limits on ATM transfers and withdrawals and no online banking | 2023, 2024 | Taiwan's own system |
 
 The first four rows are customer due diligence that the FATF requires of every country; what differs is how strictly it is applied. How far a bank asks about the source of funds is a risk judgement, so the same person may meet different demands at different banks. Large cash reporting is a system Taiwan chose to set up; the FATF only asks countries to consider it. Taiwan's cross-border cash threshold of US$10,000 is also lower than the maximum the FATF allows. The last two rows target mule accounts and fraud, and how they are designed and changed is a matter for Taiwan's own legislative process.
+
+## Why Taiwan follows FATF standards
+
+Taiwan is not a member of the FATF, and the FATF's recommendations are not a treaty and carry no penalties (for where their force comes from, see [part 2](/join/payments-research/fatf/)). In 1997 Taiwan became a founding member of the Asia/Pacific Group on Money Laundering (APG) under the name Chinese Taipei. Under the APG's Terms of Reference and membership rules, members implement the FATF's 40 Recommendations according to their own legal frameworks, and on joining they commit to mutual evaluations by other members. Members with the worst results are referred to the FATF for review and may end up on the grey list. The FATF does not ask countries to apply enhanced due diligence to grey-listed jurisdictions, only to take the list into account in their risk analysis, and banks often treat the list as an indicator when assessing the risk of a relationship.
+
+In its 2019 evaluation, Taiwan was placed in regular follow-up, the lightest follow-up level. The effectiveness outcomes are the 11 areas where evaluators check whether a system actually works; Taiwan was rated substantially effective on 7 of them, second only to the United States among the 42 APG members.
+
+![Map of the Asia-Pacific shading APG members by their effectiveness ratings, with Taiwan marked](https://assets.anoni.net/www/articles/fatf-apg-ratings-map-10a94906.svg){: .map-img width="720" height="497" loading="lazy" }
+
+Effectiveness ratings of APG members; ① is Taiwan. The darker the shade in light mode, or the brighter in dark mode, the more outcomes were rated substantial or high. The United States and Canada are outside the map; small island states are shown as dots. Members were assessed between 2015 and 2025, so the comparison only shows the broad picture.
+{: .fig-note }
+
+<details markdown="1">
+<summary>Members at each level</summary>
+
+- 6 or more: United States, Taiwan, Hong Kong, India, Macao, New Zealand
+- 3 to 5: Australia, Bangladesh, Brunei, Canada, China, Cook Islands, Indonesia, Japan, Korea, Malaysia, Singapore, Thailand
+- 1 to 2: Cambodia, Niue, Palau, Philippines, Samoa, Sri Lanka, Vietnam
+- 0: Bhutan, Fiji, Laos, Maldives, Marshall Islands, Mongolia, Myanmar, Nauru, Nepal, Pakistan, Papua New Guinea, Solomon Islands, Timor-Leste, Tonga, Vanuatu
+- No rating: Afghanistan, Tuvalu
+
+</details>
+
+Taiwan's banks rely on foreign correspondent banks for international remittances and US dollar transactions, and their US branches are examined by US regulators. When the Executive Yuan explained what the evaluation meant in 2019, it linked the result to how foreign businesses assess Taiwan's financial environment and to Taiwan's practical participation in international organisations.
 
 ## An early law, then twenty years of little follow-through
 
@@ -91,9 +102,17 @@ The commission's recent fines on Bank of Taiwan and Taichung Commercial Bank con
 
 Taiwan's current anti-money laundering regime expanded between 2016 and 2019 for the evaluation, then kept tightening to fight fraud. The rules in the table are all enforced by banks, at the counter and on accounts. The parts that come from the FATF change only when international standards change; the parts Taiwan added itself can be debated in Taiwan's own legislative process.
 
+### Personal accounts
+
+Accounts are flagged when courts, prosecutors or police notify the bank for a criminal investigation; all transactions stop at once and incoming transfers are returned. Other accounts opened by the same person become "derivative controlled accounts", with ATM cards, online transfers and other electronic functions suspended. Account holders who dispute a flag must, under the regulations, take it up with the agency that issued the notice, and banks must help where necessary. Handing your account to someone else leads to a police warning; the five years of restrictions that follow are in the table above.
+
+### Accounts of civil society groups
+
 As [part 2](/join/payments-research/fatf/) describes, banks cut back on customers they see as high-risk to reduce their own risk. Taiwan has no public statistics on banks refusing accounts to non-profits, migrant workers or new immigrants. The 2018 national risk assessment found Taiwan's overall terrorist financing risk to be low. Civic associations, religious foundations and social welfare and charitable foundations were identified as non-profits with potential terrorist financing risk, needing closer supervision, because of insufficient information on anonymous donations; medical, educational and cultural foundations were not. The official assessment named only these three categories and did not treat non-profits as a whole as at risk. The authorities also encourage non-profits to handle funds through banks.
 
 Article 13 of the regulations governing deposit accounts and suspicious transactions lists the cases in which banks must refuse to open an account, including "other irregularities at account opening for which the customer cannot give a reasonable explanation", a clause that gives banks wide discretion. The Financial Supervisory Commission's simplified measures for low-risk customers state that before asking customers for information, banks "should not simply cite regulatory requirements or contract terms allowing them to terminate business or restrict transactions". Civil society groups whose account applications are refused or whose accounts are restricted can ask the bank to explain the basis, and can also see [Anonymous donation channels for advocacy organizations](docs:scenarios/nonprofit-anonymous-donation/) on our docs site.
+
+Public donation accounts can also be misused by fraud rings. In a case reported in May 2026, fraudsters offered prize draws for small donations and had victims pay into a foundation's donation account. The foundation's head was referred to prosecutors, and the Taipei District Prosecutors Office declined to prosecute, reasoning that the money had not been quickly withdrawn or moved on, unlike the accounts fraud rings use. The foundation had also warned against scams on its website and stated that it ran no small-donation prize draws on social media. Reconciling the account regularly and stating on your website how you accept donations makes it easier to explain if your account is misused.
 
 ## The next evaluation
 
@@ -188,3 +207,4 @@ The full text is in the [FATF Recommendations](https://www.fatf-gafi.org/en/publ
 - APG: [Chinese Taipei mutual evaluation report, 2019](https://apgml.org/sites/default/files/documents//Chinese_Taipei_MER_2019_-_published_version.pdf), [schedule for the next round](https://www.apgml.org/apg-global-5th-round-schedule)
 - Financial Supervisory Commission (in Chinese): [major penalties](https://www.fsc.gov.tw/ch/home.jsp?id=131), [Mega Bank (14 September 2016)](https://www.fsc.gov.tw/ch/home.jsp?id=131&parentpath=0,2&mcustomize=multimessages_view.jsp&dataserno=201609210002&dtable=Penalty), [Taichung Commercial Bank (15 May 2026)](https://www.fsc.gov.tw/ch/home.jsp?id=131&parentpath=0,2&mcustomize=multimessages_view.jsp&dataserno=202605180002&dtable=Penalty), [Bank of Taiwan (11 March 2025)](https://www.fsc.gov.tw/ch/home.jsp?id=131&parentpath=0,2&mcustomize=multimessages_view.jsp&dataserno=202503120002&dtable=Penalty), [Article 13 of the regulations governing deposit accounts and suspicious transactions](https://law.banking.gov.tw/Chi/FLAW/FLAWDOC01.aspx?lsid=FL039015&lno=13)
 - Central News Agency: [report on the Taichung Bank fine (12 May 2026, in Chinese)](https://www.cna.com.tw/news/afe/202605120324.aspx)
+- United Daily News: [report on the misused donation account and the decision not to prosecute (19 May 2026, in Chinese)](https://udn.com/news/story/124490/9511526)

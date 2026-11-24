@@ -72,6 +72,8 @@ The reports came out between 2014 and 2024, under different standards and with d
 
 ## Assessments of the FATF
 
+The assessments fall under four questions. On effectiveness, four in ten jurisdictions have no outcome rated substantially effective, and studies disagree on whether listing drives reform. On fairness, the grey list leans towards countries that are not high-income, and members score clearly higher than non-members. On costs, de-risking hits non-profits especially hard. On privacy, the Travel Rule now reaches virtual assets.
+
 ### Effectiveness
 
 In the FATF's own evaluations, 38.5% of all effectiveness ratings across 199 jurisdictions are low, and 41.7% of jurisdictions have no outcome rated substantial or better (the leftmost bar in the chart above).
@@ -108,7 +110,7 @@ The FATF launched a project on unintended consequences in 2021, and the October 
 
 ### Privacy implications
 
-The FATF requires financial institutions to know their customers, keep records and report suspicious transactions. Wire transfers must carry information on the sender and the recipient, a requirement known as the **Travel Rule** (Recommendation 16). These requirements now reach virtual assets. In 2021 Coin Center, a US crypto policy group, submitted comments on the FATF's draft virtual asset guidance. According to the submission, applying the Travel Rule to self-hosted wallets is incompatible with privacy rights. The FATF keeps widening payment transparency: in June 2026 it opened a consultation on new guidance for Recommendation 16, aiming for full implementation of the Travel Rule by 2030. Part 3 covers virtual assets in detail.
+The FATF requires financial institutions to know their customers, keep records and report suspicious transactions. Wire transfers must carry information on the sender and the recipient, a requirement known as the **Travel Rule** (Recommendation 16). These requirements now reach virtual assets. In 2021 Coin Center, a US crypto policy group, submitted comments on the FATF's draft virtual asset guidance. According to the submission, applying the Travel Rule to self-hosted wallets is incompatible with privacy rights. The FATF keeps widening payment transparency: in June 2026 it opened a consultation on new guidance for Recommendation 16, aiming for full implementation of the Travel Rule by 2030. Part 3 covers virtual assets in detail; the costs to financial privacy, such as how long data is kept and what happens when accounts are wrongly flagged, are planned for part 4.
 
 ## Current reach and what it means for readers
 
