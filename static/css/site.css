@@ -183,8 +183,9 @@ nav.main a:hover { color: var(--c-accent); }
 
 /* 標題與段落 */
 /* 麵包屑：上一層的名稱接一個箭頭，指向下方的標題。平常不加底線，滑鼠移上去才出現 */
-.crumb { display: flex; align-items: center; gap: .1rem; margin: 1.5rem 0 -1rem; font-size: .85rem; }
-.crumb a { color: var(--c-muted); text-decoration: none; }
+/* 麵包屑在小螢幕上整項換行，每一項本身不斷行，太長時用刪節號，避免被擠成逐字斷行的窄欄 */
+.crumb { display: flex; flex-wrap: wrap; align-items: center; gap: .15rem .1rem; margin: 1.5rem 0 -1rem; font-size: .85rem; }
+.crumb a { color: var(--c-muted); text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; min-width: 0; max-width: calc(100% - 1.4em); }
 .crumb a:hover { color: var(--c-accent); text-decoration: underline; }
 .crumb .i { width: 1.15em; height: 1.15em; vertical-align: 0; color: var(--c-muted); opacity: .7; }
 .crumb + h1 { margin-top: 1.25rem; }
