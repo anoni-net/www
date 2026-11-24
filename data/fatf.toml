@@ -82,3 +82,23 @@ overlap_title = { zh-TW = "同時是 FATF 成員的 12 個", zh-CN = "同时是 
 taiwan_title = { zh-TW = "台灣（Chinese Taipei）", zh-CN = "台湾（Chinese Taipei）", en = "Taiwan (Chinese Taipei)" }
 taiwan_detail = { zh-TW = "只透過 APG 參與，相互評鑑由 APG 執行", zh-CN = "只通过 APG 参与，相互评估由 APG 执行", en = "Takes part only through the APG, which carries out its mutual evaluations" }
 others = { zh-TW = "其餘 29 個 APG 成員", zh-CN = "其余 29 个 APG 成员", en = "The other 29 APG members" }
+
+# 第 2 篇〈台灣洗錢防制的起源與監理現況〉（/join/payments-research/fatf/taiwan/）的三張圖。
+# data/fatf/tw-str.csv：法務部調查局《洗錢防制工作年報》2010 到 2024 年的可疑交易報告，每年取當年度年報的合計；
+# str_virtual_asset 是「虛擬通貨業」那一列，2021-07 起才申報。data/fatf/tw-alert.csv：金管會〈金融機構警示帳戶調查統計表〉，
+# 銀行（含中華郵政）與信用合作社的合計。整理方法在工作區的 research/（toomore/anoni-net-ws#514）。
+[taiwan.str_notes]
+2016 = { zh-TW = "兆豐案", zh-CN = "兆丰案", en = "Mega case" }
+2017 = { zh-TW = "新法施行", zh-CN = "新法施行", en = "New law" }
+2018 = { zh-TW = "現場評鑑", zh-CN = "现场评估", en = "On-site visit" }
+
+[taiwan.labels]
+str = { zh-TW = "金融機構申報的可疑交易報告件數", zh-CN = "金融机构申报的可疑交易报告件数", en = "Suspicious transaction reports filed each year" }
+str_note = { zh-TW = "2010 到 2024 年，法務部調查局《洗錢防制工作年報》。2017 年起申報範圍擴大到指定之非金融事業或人員", zh-CN = "2010 到 2024 年，法务部调查局《洗钱防制工作年报》。2017 年起申报范围扩大到指定之非金融事业或人员", en = "2010 to 2024, from the Investigation Bureau's annual AML reports. From 2017 reporting extended to designated non-financial businesses and professions" }
+str_tip = { zh-TW = "{k} 年：{n} 件", zh-CN = "{k} 年：{n} 件", en = "{k}: {n} reports" }
+va = { zh-TW = "虛擬通貨業的可疑交易報告件數", zh-CN = "虚拟通货业的可疑交易报告件数", en = "Suspicious transaction reports from virtual asset businesses" }
+va_note = { zh-TW = "2021-07 起申報，2021 年只涵蓋下半年", zh-CN = "2021-07 起申报，2021 年只涵盖下半年", en = "Reporting began in July 2021, so 2021 covers only the second half" }
+va_tip = { zh-TW = "{k} 年：{n} 件", zh-CN = "{k} 年：{n} 件", en = "{k}: {n} reports" }
+alert = { zh-TW = "警示帳戶戶數", zh-CN = "警示账户户数", en = "Accounts flagged for fraud" }
+alert_note = { zh-TW = "金管會〈金融機構警示帳戶調查統計表〉，季末數字，銀行（含中華郵政）與信用合作社合計", zh-CN = "金管会〈金融机构警示账户调查统计表〉，季末数字，银行（含中华邮政）与信用合作社合计", en = "End-of-quarter figures from the Financial Supervisory Commission, banks (including Chunghwa Post) and credit cooperatives combined" }
+alert_tip = { zh-TW = "{k}：{n} 戶", zh-CN = "{k}：{n} 户", en = "{k}: {n} accounts" }

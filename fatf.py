@@ -260,6 +260,67 @@ def org_chart(org: dict, pick) -> str:
         f'</ul></div></figure></div>')
 
 
+def simple_bars(points: list[tuple[str, int]], height: int, cls: str, label: str, top: int, ticks: tuple,
+                tip: str, shown: set, notes: dict | None = None, highlight: set | None = None) -> str:
+    """一個系列的長條圖：points 是 (橫軸文字, 數值)。shown 是要標數字的橫軸文字，notes 是 {橫軸文字: 事件}，
+    標在長條上方。highlight 的長條用較深的一階，其餘用 fi-3。"""
+    notes, highlight = notes or {}, highlight or set()
+    plot_w, plot_h = W - LEFT - RIGHT, height - TOP - BOTTOM
+    step = plot_w / len(points)
+    bw = step * 0.7
+
+    def y(v: float) -> float:
+        return TOP + plot_h - v / top * plot_h
+
+    p = [f'<svg class="pc {cls}" viewBox="0 0 {W} {height}" role="img" aria-label="{escape(label)}">']
+    for v in ticks:
+        p.append(f'<line class="pc-grid" x1="{LEFT}" x2="{W - RIGHT}" y1="{y(v):.1f}" y2="{y(v):.1f}"/>')
+        p.append(f'<text class="pc-tick" x="{LEFT - 6}" y="{y(v) + 4:.1f}" text-anchor="end">{tick(v)}</text>')
+    p.append('<g class="pc-marks">')
+    for i, (key, v) in enumerate(points):
+        cx = LEFT + step * i + step / 2
+        p.append(f'<text class="pc-tick" x="{cx:.1f}" y="{height - 6}" text-anchor="middle">{escape(key)}</text>')
+        shade = "fi-1" if key in highlight else "fi-3"
+        p.append(f'<path class="{shade}" d="{_bar_path(cx - bw / 2, y(v), bw, y(0) - y(v))}">'
+                 f'<title>{escape(tip.format(k=key, n=f"{v:,}"))}</title></path>')
+        lines = []
+        if key in shown:
+            lines.append(f"{v:,}")
+        if key in notes:
+            lines.append(notes[key])
+        for j, text in enumerate(reversed(lines)):
+            p.append(f'<text class="pc-note fi-total" x="{cx:.1f}" y="{y(v) - 5 - j * 17:.1f}" '
+                     f'text-anchor="middle">{escape(text)}</text>')
+    p.append("</g></svg>")
+    return "".join(p)
+
+
+def taiwan_blocks(data_dir: Path, tw: dict, pick) -> dict[str, str]:
+    """第 2 篇〈台灣洗錢防制的起源與監理現況〉的三張圖，資料在 data/fatf/tw-*.csv。"""
+    L = {k: pick(v) for k, v in tw["labels"].items()}
+    rows = list(csv.DictReader((data_dir / "tw-str.csv").open(encoding="utf-8")))
+    alert = list(csv.DictReader((data_dir / "tw-alert.csv").open(encoding="utf-8")))
+    total = [(r["year"], int(r["str_total"])) for r in rows]
+    va = [(r["year"], int(r["str_virtual_asset"])) for r in rows if r["str_virtual_asset"]]
+    accounts = [(r["date"][:7], int(r["alert_accounts"])) for r in alert]
+    notes = {k: pick(v) for k, v in tw["str_notes"].items()}
+
+    def both(**kw):
+        return simple_bars(height=WIDE, cls="fi-wide", **kw) + simple_bars(height=NARROW, cls="fi-narrow", **kw)
+
+    str_chart = both(points=total, label=L["str"], top=40000, ticks=(0, 10000, 20000, 30000, 40000),
+                     tip=L["str_tip"], shown={"2016", "2018", "2024"}, notes=notes, highlight=set(notes))
+    va_chart = both(points=va, label=L["va"], top=1000, ticks=(0, 250, 500, 750, 1000),
+                    tip=L["va_tip"], shown={k for k, _ in va})
+    alert_chart = both(points=accounts, label=L["alert"], top=160000, ticks=(0, 40000, 80000, 120000, 160000),
+                       tip=L["alert_tip"], shown={k for k, _ in accounts})
+    return {
+        "tw-str": figure(L["str"], str_chart, note=L["str_note"]),
+        "tw-va": figure(L["va"], va_chart, note=L["va_note"]),
+        "tw-alert": figure(L["alert"], alert_chart, note=L["alert_note"]),
+    }
+
+
 def legend(L: dict, keys: list[tuple[str, str]]) -> str:
     return "".join(f'<i class="sw {shade}"></i>{escape(L[key])}' for key, shade in keys)
 
@@ -294,6 +355,7 @@ def blocks(data_dir: Path, conf: dict, pick) -> dict[str, str]:
         "fatf-ratings": figure(L["ratings"], both(ratings_hist, ratings, L), note=L["ratings_note"]),
         "fatf-groups": figure(L["groups"], groups_bars(ratings, L)),
         "fatf-org": org_chart(conf["org"], pick),
+        **taiwan_blocks(data_dir, conf["taiwan"], pick),
         "fatf-imf": figure(L["imf"], imf_bars(conf["imf"], L) + imf_bars(conf["imf"], L, narrow=True),
                            note=L["imf_note"]),
     }
