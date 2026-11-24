@@ -78,7 +78,7 @@ APG 成员的有效性评分，① 是台湾。浅色模式颜色越深、深色
 
 犯罪的部分，洗钱罪的前置犯罪（产生不法收入、收入再经洗钱处理的犯罪）门槛从最轻本刑五年降到六个月。行政院草案原本是「有期徒刑3年以上之罪」，立法院通过时再往下调。同时添加特殊洗钱罪，处罚持有来源不明、与收入显不相当的财物，又有冒名开户或规避审查等情形的人。
 
-行政院在 2017 年 3 月成立洗钱防制办公室，统筹政策与评估的准备，主任由法务部政务次长兼任。法务部同月申请脱离过渡跟进，APG 年会在 7 月同意。依洗钱防制办公室的回顾，民众对新制的态度「从推动时期的抗拒，到逐步接纳」。2018 年 11 月，APG 评估团来台进行两周的现场评估。
+行政院在 2017 年 3 月成立洗钱防制办公室，统筹政策与评估的准备，主任由法务部政务次长兼任。法务部同月申请脱离过渡跟进，APG 年会在 7 月同意。依洗钱防制办公室的回顾，民众对新制的态度「从推动时期的抗拒，到逐步接纳」。2018 年底台湾银行公告，客户没有在限期内更新资料就停止网络与自动化服务，引起民怨。金管会要求台银撤下公告、依比例原则重订期限，行政院也要求研议简化的作法。2018 年 11 月，APG 评估团来台进行两周的现场评估。
 
 可疑交易报告在 2016 年有 13,972 件，2018 年现场评估那一年达到 35,869 件，之后维持在每年两万到三万件。2024 年是 30,679 件，平均每天约 84 件。2017 年起，申报机构从金融业扩大到律师、会计师、不动产业等行业。添加行业的申报很少，2018 年只有 102 件，件数以银行的申报为主。
 
@@ -96,7 +96,7 @@ APG 成员的有效性评分，① 是台湾。浅色模式颜色越深、深色
 
 金管会统计的警示账户，从 2021-06 的 50,285 户增加到 2025-12 的 150,757 户，2026-09 降到 125,013 户。
 
-金管会近两年对台湾银行与台中商业银行的裁罚，缺失集中在开户审查、客户持续审查与交易监控，对应到客户开户时被询问往来目的、开户之后被要求更新资料的环节。台中银在 2026 年 5 月被罚 3,200 万元，银行局长形容是银行业历来最高的裁罚金额。
+金管会近两年对台湾银行与台中商业银行的裁罚，缺失集中在开户审查、客户持续审查与交易监控，对应到客户开户时被询问往来目的、开户之后被要求更新资料的环节。台中银在 2026 年 5 月被罚 3,200 万元，银行局长形容是银行业历来最高的裁罚金额。两家银行的裁罚背后都有内部人员协助诈团的案件，台中银是分行经理替 12 家虚设商号开户、调高转账额度。台中地检署在 2026 年 4 月起诉这个案子，洗钱金额逾 36 亿元。台湾银行是银行职员外出替诈团开户，上传的是证件影本的照片，监察院之后纠正台银的内部控制与究责。
 
 ## 对读者的意义
 
@@ -108,15 +108,21 @@ APG 成员的有效性评分，① 是台湾。浅色模式颜色越深、深色
 
 ### 公民团体的账户
 
-如[FATF 介绍里的「代价的承担者」](/join/payments-research/fatf/#代价的承担者)所述，银行为了降低风险，会减少与被视为高风险的客户往来。台湾目前没有公开的统计，记录银行拒绝非营利组织、移工或新住民开户的情形。2018 年的国家风险评估认为台湾的资恐（资助恐怖主义）风险整体偏低。人民团体、宗教财团法人与社会福利慈善财团法人因为匿名捐款的信息不足，被列为有潜在资恐风险、需要加强监管的非营利组织，医疗、教育与文化类的财团法人则不在其中。官方的评估只点名这三类，没有把非营利组织整体列为有风险。主管机关也鼓励非营利组织通过银行处理款项。
+如[FATF 介绍里的「代价的承担者」](/join/payments-research/fatf/#代价的承担者)所述，银行为了降低风险，会减少与被视为高风险的客户往来。台湾目前没有公开的统计，记录银行拒绝非营利组织、移工或新住民开户的情形。依 2024 年的国家风险评估，台湾的资恐（资助恐怖主义）风险较低，非营利组织分成「较有风险」与「较无风险」两类。人民团体、全国性宗教财团法人与社会福利财团法人列为较有风险，和上一次评估相同，医疗、教育与文化类的财团法人列为较无风险。2019 年的评估报告写到，这三类被点名的原因是匿名捐款的信息不足。官方的评估只点名这三类，没有把非营利组织整体列为有风险。主管机关也鼓励非营利组织通过银行处理款项。
 
 《存款账户及其疑似不法或显属异常交易管理办法》第 13 条列出银行应拒绝开户的情形，其中一款是「受理开户时有其他异常情形，且客户无法提出合理说明」，银行依这一款有很大的裁量空间。金管会针对低风险客户发布的简化措施里则写到，银行在要求客户提供资料前，「不宜迳以主管机关规定或契约约定得终止业务或限制交易为由」。公民团体遇到开户被拒或账户被限制时，可以请银行说明依据，并参考文档站的[倡议组织的匿名捐款管道](docs:scenarios/nonprofit-anonymous-donation/)。
 
-公开的捐款账户也可能被诈骗集团冒用。2026 年 5 月的报道里，诈团以小额捐款换抽奖的名义，要被害人汇款到一个基金会的公益募款账户。基金会负责人被移送之后，台北地检署不起诉。检方的理由是账户里的款项没有被即时提领或转出，和诈团使用的账户不同。这个基金会也在官网提醒当心诈骗，并说明没有在社交平台举办小额捐款抽奖的活动。定期对账、在官网写明收款的方式，遇到冒用时比较容易说明。
+2026 年 5 月的报道里，诈团冒用一个基金会公开的募款账户，以小额捐款换抽奖的名义要被害人汇款。基金会负责人被移送之后，台北地检署不起诉。检方的理由是账户里的款项没有被即时提领或转出，和诈团使用的账户不同。这个基金会也在官网提醒当心诈骗，并说明没有在社交平台举办小额捐款抽奖的活动。定期对账、在官网写明收款的方式，遇到冒用时比较容易说明。
 
 ## 下一轮评估
 
-洗钱防制办公室已经开始准备 2030 年的下一轮评估，APG 的时程表把台湾的评估报告排在 2031 年的年会讨论。上一轮评估前的几年，正是修法最密集的时候。
+洗钱防制办公室已经开始准备 2030 年的下一轮评估，APG 的时程表把台湾的评估报告排在 2031 年的年会讨论。上一轮评估前的几年是修法最密集的时候。这一轮，行政院在 2026 年 8 月通过新的《洗钱防制法》修正草案并送立法院审议，重点有三项：
+
+- 未依法登记或登录就经营虚拟资产或第三方支付服务，列入洗钱的特定犯罪
+- 依 FATF 的标准，在法律里明定实质受益人
+- 建立跨机关调取信息的机制，金融机构与虚拟资产业者之间也可以为了洗钱防制互相照会、提供客户的信息
+
+依第三项，客户的资料会在更多机构之间流通，也是这次修法里和隐私最相关的部分。
 
 ## 时间轴
 
@@ -140,6 +146,7 @@ APG 成员的有效性评分，① 是台湾。浅色模式颜色越深、深色
       <li><span class="tl-when">2016-12</span><span class="tl-b"><span class="tl-t">《洗钱防制法》全文修正</span><span class="tl-d">2017-06 施行，客户审查依风险进行，罚锾提高到最高 1,000 万元</span></span></li>
       <li><span class="tl-when">2017-03</span><span class="tl-b"><span class="tl-t">洗钱防制办公室成立</span><span class="tl-d">统筹政策与评估的准备，同年 7 月脱离过渡跟进</span></span></li>
       <li><span class="tl-when">2018-11</span><span class="tl-b"><span class="tl-t">APG 现场评估与修法</span><span class="tl-d">评估团来台两周，同月修法把虚拟通货平台纳入规范</span></span></li>
+      <li><span class="tl-when">2018-12</span><span class="tl-b"><span class="tl-t">台湾银行要求客户更新资料引起民怨</span><span class="tl-d">金管会要求依比例原则重订期限，行政院要求研议简化作法</span></span></li>
       <li><span class="tl-when">2019-08</span><span class="tl-b"><span class="tl-t">列入一般跟进</span><span class="tl-d">APG 年会通过评估报告，之后三次跟进报告都维持一般跟进</span></span></li>
     </ol>
   </details>
@@ -148,7 +155,8 @@ APG 成员的有效性评分，① 是台湾。浅色模式颜色越深、深色
     <ol class="tl" aria-label="2020 年之后的事件">
       <li><span class="tl-when">2023-06</span><span class="tl-b"><span class="tl-t">收集账户罪与交付账户告诫</span><span class="tl-d">针对诈骗使用的人头账户</span></span></li>
       <li><span class="tl-when">2024-07</span><span class="tl-b"><span class="tl-t">《洗钱防制法》再次全文修正</span><span class="tl-d">同日制定《诈欺犯罪危害防制条例》，虚拟资产服务提供者改为登记制</span></span></li>
-      <li><span class="tl-when">2026-05</span><span class="tl-b"><span class="tl-t">台中银罚锾 3,200 万元</span><span class="tl-d">银行局长形容是银行业历来最高的裁罚金额</span></span></li>
+      <li><span class="tl-when">2026-05</span><span class="tl-b"><span class="tl-t">台中银罚锾 3,200 万元</span><span class="tl-d">银行局长形容是银行业历来最高的裁罚金额，背后是分行经理协助诈团的案件</span></span></li>
+      <li><span class="tl-when">2026-08</span><span class="tl-b"><span class="tl-t">新的《洗钱防制法》修正草案</span><span class="tl-d">明定实质受益人，建立机构之间的信息照会机制，送立法院审议</span></span></li>
       <li><span class="tl-when">2031</span><span class="tl-b"><span class="tl-t">APG 下一轮评估</span><span class="tl-d">台湾的评估报告排在这一年的年会讨论</span></span></li>
     </ol>
   </details>
@@ -162,7 +170,7 @@ FATF 的来历、灰名单与外界的评价，接着见[FATF，制定反洗钱�
 
 - **第 1 项，评估风险并依风险采取措施**：各国与金融机构要先评估洗钱与资恐的风险，风险高的地方加强措施，风险低的地方可以简化
 {#fatf-r1}
-- **第 10 项，客户审查**：创建往来关系或进行一定金额以上的临时性交易时，要确认客户与实质受益人的身份、了解往来的目的，并持续审查往来中的交易
+- **第 10 项，客户审查**：建立往来关系或进行一定金额以上的临时性交易时，要确认客户与实质受益人的身份、了解往来的目的，并持续审查往来中的交易
 {#fatf-r10}
 - **第 12 项，重要政治性职务人士**：客户是外国的政治人物或其家属时，要经高端主管核准才能往来，并采取合理措施了解财富与资金来源。国内的政治人物依风险决定是否比照
 {#fatf-r12}
@@ -198,14 +206,16 @@ FATF 的来历、灰名单与外界的评价，接着见[FATF，制定反洗钱�
 - 监察院：[兆丰案调查报告与纠正案新闻稿（2017-06-07）](https://www.cy.gov.tw/News_Content.aspx?n=124&sms=8912&s=8049)
 - FATF：[The FATF Recommendations](https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Fatf-recommendations.html)（2025 年 10 月版）
 - 全国法规资料库：[金融机构防制洗钱办法](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0380252)、[洗钱防制物品出入境申报及通报办法](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0350065)、[存款账户及其疑似不法或显属异常交易管理办法](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0380199)、[洗钱防制法沿革](https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=G0380131)、[诈欺犯罪危害防制条例沿革](https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=D0080226)、[账户账号暂停限制功能或迳予关闭管理办法](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=I0030062)
-- 行政院洗钱防制办公室：[成立背景](https://www.amlo.moj.gov.tw/1461/1462/1463/28852/post)、[2026-11-18 新闻稿](https://www.amlo.moj.gov.tw/1506/1507/46726/post)
+- 行政院洗钱防制办公室：[2024 年国家洗钱资恐及资武扩风险评估报告](https://www.amlo.moj.gov.tw/1506/1507/43304/post)、[成立背景](https://www.amlo.moj.gov.tw/1461/1462/1463/28852/post)、[2026-11-18 新闻稿](https://www.amlo.moj.gov.tw/1506/1507/46726/post)
 - 金管会保险局：[转知调查局 FATF 名单的公文（2025-07-14）](https://lia-roc.org.tw/storage/uploads/687612412232b.pdf)，附调查局 2025-06-19 的函
 - 法务部调查局：[洗钱防制处历史沿革](https://www.mjib.gov.tw/EditPage/?PageID=e21658e0-bde6-475f-884d-f2415a446d02)、洗钱防制工作年报（2010 到 2024 年）
 - 法务部：[行政院通过洗钱防制法修正草案的新闻稿（2016-08-25）](https://www.moj.gov.tw/2204/2205/2323/2353/8612)、[脱离 APG 过渡跟进的新闻](https://www.moj.gov.tw/2204/2795/2796/58211/)
 - APG：[与 FATF 的关系](https://apgml.org/about-us/relationship-fatf)、[相互评估的说明](https://apgml.org/about-us/mutual-evaluations)、[成员名单](https://apgml.org/about-us/members/members)
-- 行政院：[洗钱防制新制上路（2017-07-10）](https://www.ey.gov.tw/Page/5A8A0CB5B41DA11E/c935e972-67f5-4625-80b6-0e775a846cad)、[APG 评估的政策说明（2019-11-21）](https://www.ey.gov.tw/Page/5A8A0CB5B41DA11E/bdf44d9a-f4f0-43aa-99f2-771f612983ac)、[APG 评估结果的新闻（2019-08-25）](https://www.ey.gov.tw/Page/9277F759E41CCD91/42a5d2d2-4f84-4fb7-acc5-739f1d8be582)、[第 3 次跟进报告的新闻（2025-11-20）](https://www.ey.gov.tw/Page/9277F759E41CCD91/494b267b-a8fd-488f-90df-e1772405abdb)
+- 行政院：[《洗钱防制法》部分条文修正草案（2026-08-13）](https://www.ey.gov.tw/Page/9277F759E41CCD91/fc4d2ff5-4d4b-4129-ae5c-239e3d1ed9b7)、[洗钱防制新制上路（2017-07-10）](https://www.ey.gov.tw/Page/5A8A0CB5B41DA11E/c935e972-67f5-4625-80b6-0e775a846cad)、[APG 评估的政策说明（2019-11-21）](https://www.ey.gov.tw/Page/5A8A0CB5B41DA11E/bdf44d9a-f4f0-43aa-99f2-771f612983ac)、[APG 评估结果的新闻（2019-08-25）](https://www.ey.gov.tw/Page/9277F759E41CCD91/42a5d2d2-4f84-4fb7-acc5-739f1d8be582)、[第 3 次跟进报告的新闻（2025-11-20）](https://www.ey.gov.tw/Page/9277F759E41CCD91/494b267b-a8fd-488f-90df-e1772405abdb)
 - APG：[Chinese Taipei 2019 年相互评估报告](https://apgml.org/sites/default/files/documents//Chinese_Taipei_MER_2019_-_published_version.pdf)、[下一轮评估的时程表](https://www.apgml.org/apg-global-5th-round-schedule)
 - 金管会：[重大裁罚案件](https://www.fsc.gov.tw/ch/home.jsp?id=131)、[兆丰银行裁罚（2016-09-14）](https://www.fsc.gov.tw/ch/home.jsp?id=131&parentpath=0,2&mcustomize=multimessages_view.jsp&dataserno=201609210002&dtable=Penalty)、[台中商业银行裁罚（2026-05-15）](https://www.fsc.gov.tw/ch/home.jsp?id=131&parentpath=0,2&mcustomize=multimessages_view.jsp&dataserno=202605180002&dtable=Penalty)、[台湾银行裁罚（2025-03-11）](https://www.fsc.gov.tw/ch/home.jsp?id=131&parentpath=0,2&mcustomize=multimessages_view.jsp&dataserno=202503120002&dtable=Penalty)
 - 金管会：[存款账户及其疑似不法或显属异常交易管理办法第 13 条](https://law.banking.gov.tw/Chi/FLAW/FLAWDOC01.aspx?lsid=FL039015&lno=13)
 - 中央社：[台中银遭罚 3,200 万元的报道（2026-05-12）](https://www.cna.com.tw/news/afe/202605120324.aspx)
-- 联合报：[公益募款账号被盗用，不起诉的报道（2026-05-19）](https://udn.com/news/story/124490/9511526)
+- 联合报：[公益募款账号被盗用，不起诉的报道（2026-05-19）](https://udn.com/news/story/124490/9511526)、[台中商银分行主管涉洗钱 36 亿元遭起诉的报道（2026-04-24）](https://udn.com/news/story/7315/9461108)
+- 中央社：[洗钱防制惹民怨，行政院研议简化作法（2018-12-31）](https://www.cna.com.tw/news/aipl/201812310190.aspx)、[强制客户更新资料惹议，金管会下令台银改正（2018-12-31）](https://www.cna.com.tw/news/afe/201812310160.aspx)
+- 监察院：[台湾银行纠正案文（2026）](https://www.cy.gov.tw/DocFiles/IFDEWebBBS_CY/Docs/115/3RD/01/02/Attach/%E7%B3%BE%E6%AD%A3%E6%A1%88%E6%96%87.doc)
