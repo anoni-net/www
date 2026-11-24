@@ -11,13 +11,17 @@ description: 台灣很早就有洗錢防制專法，卻在 APG 評鑑裡落後�
 
     本頁是[匿名支付研究專題](/join/payments-research/)的 FATF 系列第 2 篇。[第 1 篇](/join/payments-research/fatf/)裡寫了 FATF 的來歷、運作方式，以及台灣在全球體系裡的位置。第 3 篇預計寫 FATF 對虛擬資產與虛擬資產服務提供者（VASP）的要求，規劃中。
 
+## 台灣遵循 FATF 標準的原因
+
+台灣不是防制洗錢金融行動工作組織（FATF）的成員，FATF 的建議也不是條約，沒有罰則（約束力的來源見[第 1 篇](/join/payments-research/fatf/)）。台灣在 1997 年以 Chinese Taipei 的名稱成為 APG 的創始會員。依 APG 的章程，成員要依各自的法制落實 FATF 的 40 項建議，並接受其他成員的相互評鑑。評鑑等級最差的成員會交由 FATF 列管，可能列入灰名單。被列入灰名單之後，其他國家的銀行會加強審查與該國的往來。
+
+台灣的銀行做國際匯款與美元交易，需要外國的往來銀行願意配合，在美國營業的分行也受當地的監理機關檢查。行政院在 2019 年說明評鑑的意義時，把評鑑結果和外商對台灣金流環境的評估、台灣實質參與國際組織連在一起。
+
 ## 有專法、沒有落實的二十年
 
-台灣在 1996 年制定《洗錢防制法》，隔年施行，政府稱它是亞洲第一部洗錢防制專法。調查局同時成立洗錢防制中心，作為台灣的金融情報中心（FIU），接收並分析金融機構申報的可疑交易。APG 在 1997 年成立，台灣以 Chinese Taipei 的名稱成為創始會員。
+台灣在 1996 年制定《洗錢防制法》，隔年施行，政府稱它是亞洲第一部洗錢防制專法。調查局同時成立洗錢防制中心，作為台灣的金融情報中心（FIU），接收並分析金融機構申報的可疑交易。
 
-制定專法之後，政策沒有持續推動，社會對洗錢防制的認識也有限。APG 在 2007 年的第二輪評鑑裡，台灣的 49 項建議有 24 項只達到部分遵循或不遵循，2011 年又因為改善不足被調降追蹤等級。第二輪在 2014 年結束時，台灣還和不丹、巴基斯坦、寮國、越南等國一起列在過渡追蹤（第二輪結束時還沒脫離追蹤的成員，在第三輪前繼續接受追蹤），法務部說明原因是缺失還沒有改善。2015 年第三輪的程序展開時，洗錢防制辦公室形容台灣「無論法制面、監理面或執法面，均大幅落後國際標準」。
-
-第三輪評鑑排在 2018 年底，行政院當時預期評鑑結果「對我國未來整體金融活動之靈活度將有深遠影響」。評鑑等級最差的成員會交由防制洗錢金融行動工作組織（FATF）列管（FATF 列管與灰名單的影響見[第 1 篇](/join/payments-research/fatf/)）。
+制定專法之後，政策沒有持續推動，社會對洗錢防制的認識也有限。APG 在 2007 年的第二輪評鑑裡，台灣的 49 項建議有 24 項只達到部分遵循或不遵循，2011 年又因為改善不足被調降追蹤等級。第二輪在 2014 年結束時，台灣還和不丹、巴基斯坦、寮國、越南等國一起列在過渡追蹤（第二輪結束時還沒脫離追蹤的成員，在第三輪前繼續接受追蹤），法務部說明原因是缺失還沒有改善。2015 年第三輪的程序展開時，洗錢防制辦公室形容台灣「無論法制面、監理面或執法面，均大幅落後國際標準」。第三輪評鑑排在 2018 年底，行政院當時預期評鑑結果「對我國未來整體金融活動之靈活度將有深遠影響」。
 
 ## 兆豐案與修法的時機
 
@@ -147,6 +151,7 @@ description: 台灣很早就有洗錢防制專法，卻在 APG 評鑑裡落後�
 - 行政院洗錢防制辦公室：[成立背景](https://www.amlo.moj.gov.tw/1461/1462/1463/28852/post)、[2026-11-18 新聞稿](https://www.amlo.moj.gov.tw/1506/1507/46726/post)
 - 法務部調查局：[洗錢防制處歷史沿革](https://www.mjib.gov.tw/EditPage/?PageID=e21658e0-bde6-475f-884d-f2415a446d02)、洗錢防制工作年報（2010 到 2024 年）
 - 法務部：[行政院通過洗錢防制法修正草案的新聞稿（2016-08-25）](https://www.moj.gov.tw/2204/2205/2323/2353/8612)、[脫離 APG 過渡追蹤的新聞](https://www.moj.gov.tw/2204/2795/2796/58211/)
+- APG：[與 FATF 的關係](https://apgml.org/about-us/relationship-fatf)
 - 行政院：[洗錢防制新制上路（2017-07-10）](https://www.ey.gov.tw/Page/5A8A0CB5B41DA11E/c935e972-67f5-4625-80b6-0e775a846cad)、[APG 評鑑的政策說明（2019-11-21）](https://www.ey.gov.tw/Page/5A8A0CB5B41DA11E/bdf44d9a-f4f0-43aa-99f2-771f612983ac)、[APG 評鑑結果的新聞（2019-08-25）](https://www.ey.gov.tw/Page/9277F759E41CCD91/42a5d2d2-4f84-4fb7-acc5-739f1d8be582)、[第 3 次追蹤報告的新聞（2025-11-20）](https://www.ey.gov.tw/Page/9277F759E41CCD91/494b267b-a8fd-488f-90df-e1772405abdb)
 - APG：[Chinese Taipei 2019 年相互評鑑報告](https://apgml.org/sites/default/files/documents//Chinese_Taipei_MER_2019_-_published_version.pdf)、[下一輪評鑑的時程表](https://www.apgml.org/apg-global-5th-round-schedule)
 - 金管會：[重大裁罰案件](https://www.fsc.gov.tw/ch/home.jsp?id=131)、[兆豐銀行裁罰（2016-09-14）](https://www.fsc.gov.tw/ch/home.jsp?id=131&parentpath=0,2&mcustomize=multimessages_view.jsp&dataserno=201609210002&dtable=Penalty)、[台中商業銀行裁罰（2026-05-15）](https://www.fsc.gov.tw/ch/home.jsp?id=131&parentpath=0,2&mcustomize=multimessages_view.jsp&dataserno=202605180002&dtable=Penalty)、[臺灣銀行裁罰（2025-03-11）](https://www.fsc.gov.tw/ch/home.jsp?id=131&parentpath=0,2&mcustomize=multimessages_view.jsp&dataserno=202503120002&dtable=Penalty)
