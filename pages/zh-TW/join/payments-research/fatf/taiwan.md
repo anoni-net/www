@@ -1,0 +1,148 @@
+---
+title: 台灣洗錢防制的起源與監理現況
+description: 2016 年兆豐銀行紐約分行被美國重罰之後，台灣在三年內修法、成立洗錢防制辦公室並通過 APG 評鑑。本頁整理這段過程與現在的監理，並以數據呈現。
+---
+
+到銀行開戶要說明資金來源，帳戶被列為警示帳戶就無法提款。把帳戶交給別人使用、被警察告誡的人，五年內每天只能用 ATM 轉帳與提領各一萬元。2025 年底，全台灣的警示帳戶超過 15 萬戶。上述規定大多在 2016 年之後才建立，當年兆豐銀行紐約分行被美國紐約州金融服務署罰款 1 億 8 千萬美元。台灣接著在三年內大幅修法、成立專責辦公室，並在 2019 年的亞太防制洗錢組織（APG）評鑑中列入一般追蹤。
+
+!!! info ""
+
+    本頁是[匿名支付研究專題](/join/payments-research/)的 FATF 系列第 2 篇。[第 1 篇](/join/payments-research/fatf/)介紹 FATF 是什麼、如何運作，以及台灣在全球體系裡的位置。第 3 篇談 FATF 對虛擬資產與虛擬資產服務提供者（VASP）的要求，規劃中。
+
+## 1996 年的專法與之後的停滯
+
+台灣在 1996-10-23 制定《洗錢防制法》，1997-04-23 施行，洗錢防制辦公室的說法是「亞洲第一部洗錢防制專法」。同一天，法務部調查局成立洗錢防制中心，負責接收金融機構申報的可疑交易。洗錢防制中心是台灣的金融情報中心，2007 年改制為洗錢防制處。APG 在 1997 年成立，依調查局年報與行政院的說法，台灣以 Chinese Taipei 的名稱成為創始會員。1998 年，台灣加入各國金融情報中心組成的艾格蒙聯盟（Egmont Group）。
+
+APG 在 2007 年的第二輪評鑑裡，台灣的 49 項建議有 7 項遵循、18 項大部分遵循、13 項部分遵循、11 項不遵循，16 項核心與關鍵建議只有 5 項達到大部分遵循以上。評鑑後台灣列入一般追蹤，2011 年因為改善不足被調降。官方文件對調降後的等級有「一般加速追蹤」與「加強追蹤」兩種寫法。第二輪在 2014 年結束時，台灣仍與不丹、巴基斯坦、寮國、越南等國一起列在過渡追蹤，法務部的說明是缺失還沒有改善。洗錢防制辦公室回顧 2015 年面對第三輪評鑑時的狀況，寫到台灣「無論法制面、監理面或執法面，均大幅落後國際標準」。
+
+## 兆豐銀行紐約分行案
+
+美國紐約州金融服務署（NYDFS）在 2016-08-19 與兆豐銀行及其紐約分行簽署合意處分令。兆豐同意繳納 1 億 8 千萬美元罰款，並由 NYDFS 選任的獨立監督人進駐兩年。處分令列出的缺失有三類：
+
+- **巴拿馬的交易**：紐約分行與兆豐在巴拿馬科隆自由貿易區分行的往來，2013 年與 2014 年分別達 35 億與 24 億美元。處分令裡寫到總行對這些交易的風險「漠不關心」（acted with indifference）
+- **法遵人員的利益衝突**：分行的法令遵循主管同時是副總經理，負責業務與營運，處分令裡直接寫明這是「明顯的利益衝突」
+- **總行的監督不足**：洗錢防制主管由不熟悉美國法規的總行人員擔任，法遵會議紀錄沒有送回總行，中文文件也沒有翻譯
+
+兩天後，行政院在 2016-08-21 成立跨部會專案小組。金管會在 2016-09-14 對兆豐銀行處以新臺幣 1,000 萬元罰鍰，暫停它增設海外分支機構，並解除 6 名重要幹部的職務。同年 10 月，金管會主委與副主委請辭。監察院在 2017-06-07 通過調查報告，糾正行政院、金管會與財政部，理由之一是金管會「未能及時發現」兆豐總行與海外分行的內部控制缺失。2018-01-17，美國聯準會又與伊利諾州的監理機關對兆豐在美國的三家分行處以 2,900 萬美元罰款。
+
+洗錢防制辦公室在〈成立背景〉裡把這件事寫成轉折點，「直至2016年爆發某國內銀行海外分行遭美國鉅額裁罰案後，始引發國內各界檢討聲浪及重視」。
+
+## 修法與評鑑的準備
+
+兆豐案之後四個月，《洗錢防制法》在 2016-12-28 全文修正公布，2017-06-28 施行。主要的修正如下：
+
+| 項目 | 修正前 | 修正後 |
+|---|---|---|
+| 前置犯罪的門檻 | 最輕本刑五年以上有期徒刑之罪 | 最輕本刑六個月以上有期徒刑之罪 |
+| 犯罪所得的門檻 | 詐欺等罪的犯罪所得要達新臺幣 500 萬元以上，才算前置犯罪 | 刪除所得門檻，詐欺等罪直接列入 |
+| 前置犯罪的認定 | 沒有規定 | 不以前置犯罪經有罪判決為必要 |
+| 特殊洗錢罪 | 沒有規定 | 新增，冒名或用不正方法取得帳戶、規避洗錢防制程序，且財物沒有合理來源者 |
+| 指定之非金融事業或人員 | 只列銀樓業 | 明列地政士、不動產經紀業、律師、公證人、會計師與信託及公司服務提供業 |
+
+行政院在 2017-03-16 成立洗錢防制辦公室，統籌洗錢防制政策與 APG 評鑑，主任由法務部政務次長兼任。法務部在 2017-03 向 APG 申請脫離過渡追蹤，APG 年會在 2017-07-20 同意。2018-11-07 的修法把虛擬通貨平台納入洗錢防制法的規範。
+
+APG 的評鑑團在 2018-11-05 到 11-16 來台進行現場評鑑，評鑑報告在 2019-08 的坎培拉年會通過，台灣列入一般追蹤（regular follow-up）。效能與技術遵循的評分見[第 1 篇](/join/payments-research/fatf/)。行政院的說明是，40 項建議裡有 36 項達到大部分遵循以上，其中 3 項在年會中由部分遵循調升為大部分遵循。之後的三次追蹤報告（2021-12、2023-11、2025-11）都維持一般追蹤。APG 只公布有重新評等的追蹤報告，官網上沒有台灣的追蹤報告，因此無法確認哪些評分在 2019 年之後調整過。
+
+金融機構申報的可疑交易報告，在這段期間增加了一倍多。
+
+<!-- tw-str -->
+
+可疑交易報告在 2016 年有 13,972 件，2017 年新法施行後增加到 23,651 件。2018 年現場評鑑那一年達到 35,869 件，之後維持在每年兩萬多件，2024 年是 30,679 件。2017 年起，申報的機構從金融業擴大到律師、會計師、不動產業等指定之非金融事業或人員。申報類別前後不完全相同，件數的變化有一部分來自範圍的擴大。
+
+## 現在的監理
+
+### 詐騙與人頭帳戶
+
+2019 年之後，洗錢防制的重心轉向詐騙。2023-06-14 的修法新增無正當理由收集帳戶罪，也禁止把帳戶交給別人使用。交付帳戶的初犯由警察告誡，有對價、交付三個以上帳戶或告誡後五年內再犯，才有刑責。2024-07-31，《洗錢防制法》再次全文修正，同一天制定《詐欺犯罪危害防制條例》。金融機構對被告誡者帳戶的限制，從「得」暫停或限制改為「應」。依主管機關的辦法，告誡後五年內的 ATM 每日轉帳與提領各以新臺幣一萬元為限，也不能使用網路銀行、行動銀行與支付平台。
+
+<!-- tw-alert -->
+
+金管會統計的警示帳戶，從 2021-06 的 50,285 戶增加到 2025-12 的 150,757 戶，2026-09 降到 125,013 戶。
+
+### 虛擬資產業者
+
+虛擬通貨平台在 2018 年納入洗錢防制法，業者的可疑交易申報從 2021-07 開始，件數逐年增加。2024 年的修法把虛擬資產服務提供者改為登記制，沒有完成洗錢防制登記就提供服務，最重可處二年有期徒刑。
+
+<!-- tw-va -->
+
+虛擬通貨業的可疑交易報告從 2021 年的 121 件增加到 2024 年的 918 件，占全部申報的比例從 0.5% 增加到 3.0%。虛擬資產的規範與旅行規則留到第 3 篇詳談。
+
+### 金管會的裁罰
+
+金管會對洗錢防制缺失的裁罰，金額較高的幾件如下：
+
+| 日期 | 金融機構 | 罰鍰（新臺幣） | 缺失 |
+|---|---|---|---|
+| 2016-09 | 兆豐銀行 | 1,000 萬元 | 紐約分行案，另暫停增設海外分支機構、解除 6 名幹部職務 |
+| 2025-03 | 臺灣銀行 | 2,200 萬元 | 客戶持續審查與帳戶監控，同一筆罰鍰也處罰員工異常行為管理的缺失 |
+| 2026-05 | 台中商業銀行 | 3,200 萬元 | 存款開戶、客戶持續審查與帳戶監控 |
+
+台中銀那一案，ETtoday 的報導引述銀行局長的說明，是銀行業歷來最高的裁罰金額。金管會網站公布的「重大裁罰」有門檻，2019-12 起是單一違法行為罰鍰 100 萬元，2022-04 起提高到 300 萬元。洗錢防制案件的罰鍰多半低於門檻，只公布在各業務局的網站。逐年加總的金額前後無法比較，表格只列單一案件。
+
+## 對讀者的意義
+
+[第 1 篇](/join/payments-research/fatf/)提到，銀行為了降低風險，會減少與被視為高風險的客戶往來。台灣目前沒有公開的統計，記錄銀行拒絕非營利組織、移工或新住民開戶的情形。在 2018 年的國家風險評估裡，人民團體、全國性宗教財團法人與社會福利慈善類財團法人被評為資恐低度風險。2019 年的評鑑報告裡也寫到，主管機關鼓勵非營利組織透過銀行處理款項。
+
+《存款帳戶及其疑似不法或顯屬異常交易管理辦法》第 13 條列出銀行應拒絕開戶的情形，其中一款是「受理開戶時有其他異常情形，且客戶無法提出合理說明」。依這一款，銀行的裁量空間很大。金管會針對低風險客戶發布的簡化措施裡則寫到，銀行在要求客戶提供資料前，「不宜逕以主管機關規定或契約約定得終止業務或限制交易為由」。公民團體遇到開戶被拒或帳戶被限制時，可以請銀行說明依據，並參考文件站的[倡議組織的匿名捐款管道](docs:scenarios/nonprofit-anonymous-donation/)。
+
+## 下一輪評鑑
+
+APG 的全球第五輪評鑑把台灣排在 2031 年的年會，依時程表的版面，技術遵循的資料要在 2030-03-31 前提交。洗錢防制辦公室在 2026-11-18 的新聞稿寫到要「迎接 2030 年 APG 全球第五輪相互評鑑」。台灣官方說的「第三輪」，就是 APG 現在說的「全球第四輪」。
+
+## 時間軸
+
+從 1996 年的專法到下一輪評鑑，台灣的洗錢防制在 2016 年之後三年內完成大部分的制度建設，之後的修法轉向詐騙與虛擬資產。
+
+<ol class="tl" aria-label="台灣洗錢防制的重要事件">
+  <li class="tl-origin"><span class="tl-when">1996-10</span><span class="tl-b"><span class="tl-t">制定《洗錢防制法》</span><span class="tl-d">1997-04 施行，調查局同時成立洗錢防制中心</span></span></li>
+  <li><span class="tl-when">1997</span><span class="tl-b"><span class="tl-t">APG 成立</span><span class="tl-d">台灣以 Chinese Taipei 的名稱成為創始會員</span></span></li>
+  <li><span class="tl-when">1998</span><span class="tl-b"><span class="tl-t">加入艾格蒙聯盟</span><span class="tl-d">各國金融情報中心組成的國際組織</span></span></li>
+  <li><span class="tl-when">2007</span><span class="tl-b"><span class="tl-t">APG 第二輪評鑑</span><span class="tl-d">49 項建議有 24 項部分遵循或不遵循，列入一般追蹤</span></span></li>
+  <li><span class="tl-when">2011</span><span class="tl-b"><span class="tl-t">追蹤等級調降</span><span class="tl-d">改善不足，官方文件寫成一般加速追蹤或加強追蹤</span></span></li>
+  <li><span class="tl-when">2014</span><span class="tl-b"><span class="tl-t">列入過渡追蹤</span><span class="tl-d">第二輪結束時缺失仍未改善</span></span></li>
+  <li><span class="tl-when">2016-08</span><span class="tl-b"><span class="tl-t">兆豐銀行紐約分行案</span><span class="tl-d">NYDFS 罰款 1 億 8 千萬美元，獨立監督人進駐兩年</span></span></li>
+  <li><span class="tl-when">2016-12</span><span class="tl-b"><span class="tl-t">《洗錢防制法》全文修正</span><span class="tl-d">2017-06 施行，前置犯罪門檻降到最輕本刑六個月</span></span></li>
+  <li><span class="tl-when">2017-03</span><span class="tl-b"><span class="tl-t">洗錢防制辦公室成立</span><span class="tl-d">統籌洗錢防制政策與 APG 評鑑</span></span></li>
+  <li><span class="tl-when">2017-07</span><span class="tl-b"><span class="tl-t">脫離過渡追蹤</span><span class="tl-d">APG 年會同意</span></span></li>
+  <li><span class="tl-when">2018-01</span><span class="tl-b"><span class="tl-t">聯準會處分兆豐</span><span class="tl-d">對美國的三家分行罰款 2,900 萬美元</span></span></li>
+  <li><span class="tl-when">2018-11</span><span class="tl-b"><span class="tl-t">APG 現場評鑑與修法</span><span class="tl-d">評鑑團來台兩週，同月修法把虛擬通貨平台納入規範</span></span></li>
+  <li><span class="tl-when">2019-08</span><span class="tl-b"><span class="tl-t">列入一般追蹤</span><span class="tl-d">APG 坎培拉年會通過評鑑報告</span></span></li>
+  <li><span class="tl-when">2021-07</span><span class="tl-b"><span class="tl-t">虛擬通貨業開始申報可疑交易</span><span class="tl-d">當年申報 121 件，2024 年增加到 918 件</span></span></li>
+  <li><span class="tl-when">2023-06</span><span class="tl-b"><span class="tl-t">收集帳戶罪與交付帳戶告誡</span><span class="tl-d">針對詐騙使用的人頭帳戶</span></span></li>
+  <li><span class="tl-when">2024-07</span><span class="tl-b"><span class="tl-t">《洗錢防制法》再次全文修正</span><span class="tl-d">同日制定《詐欺犯罪危害防制條例》，虛擬資產服務提供者改為登記制</span></span></li>
+  <li><span class="tl-when">2025-11</span><span class="tl-b"><span class="tl-t">第 3 次追蹤報告</span><span class="tl-d">維持一般追蹤</span></span></li>
+  <li><span class="tl-when">2026-05</span><span class="tl-b"><span class="tl-t">台中銀罰鍰 3,200 萬元</span><span class="tl-d">報導引述銀行局長的說明，是銀行業歷來最高的裁罰金額</span></span></li>
+  <li><span class="tl-when">2031</span><span class="tl-b"><span class="tl-t">APG 全球第五輪評鑑</span><span class="tl-d">台灣排在這一年的年會，資料在 2030-03 前提交</span></span></li>
+</ol>
+
+第 3 篇談 FATF 對虛擬資產與 VASP 的要求，以及這些要求如何落到台灣的《虛擬資產服務法》。
+
+## 資料說明
+
+- 可疑交易報告：法務部調查局 2010 到 2024 年的《洗錢防制工作年報》，每年取當年度年報的申報機構件數表。2015、2020、2024 年的年報，各類別加總與表上的合計有幾件的差距，這裡用表上的合計
+- 警示帳戶：金管會〈金融機構警示帳戶調查統計表〉，銀行（含中華郵政）與信用合作社的合計
+- 裁罰：金管會重大裁罰案件與各業務局的裁罰公告，只列單一案件
+- 法規條文：全國法規資料庫的沿革與各版本條文
+- 資料檔放在 [GitHub](https://github.com/anoni-net/www/tree/main/data/fatf)
+
+## 相關閱讀
+
+- [FATF，制定防制洗錢國際標準的組織](/join/payments-research/fatf/)
+- [匿名支付研究專題](/join/payments-research/)
+- [台灣 VASP 法 2026](docs:taiwan/vasp-2026/)
+- [倡議組織的匿名捐款管道](docs:scenarios/nonprofit-anonymous-donation/)
+
+## 參考資料
+
+- NYDFS：[Mega International Commercial Bank 合意處分令（2016-08-19）](https://www.dfs.ny.gov/system/files/documents/2020/04/ea160819_mega_international.pdf)、[新聞稿](https://www.dfs.ny.gov/reports_and_publications/press_releases/pr1608191)
+- Federal Reserve：[兆豐的處分新聞稿（2018-01-17）](https://www.federalreserve.gov/newsevents/pressreleases/enforcement20180117a.htm)、[處分令](https://www.federalreserve.gov/newsevents/pressreleases/files/enf20180117a1.pdf)
+- 監察院：[兆豐案調查報告與糾正案新聞稿（2017-06-07）](https://www.cy.gov.tw/News_Content.aspx?n=124&sms=8912&s=8049)
+- 全國法規資料庫：[洗錢防制法沿革](https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=G0380131)、[詐欺犯罪危害防制條例沿革](https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=D0080226)、[帳戶帳號暫停限制功能或逕予關閉管理辦法](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=I0030062)
+- 行政院洗錢防制辦公室：[成立背景](https://www.amlo.moj.gov.tw/1461/1462/1463/28852/post)、[2026-11-18 新聞稿](https://www.amlo.moj.gov.tw/1506/1507/46726/post)
+- 法務部調查局：[洗錢防制處歷史沿革](https://www.mjib.gov.tw/EditPage/?PageID=e21658e0-bde6-475f-884d-f2415a446d02)、洗錢防制工作年報（2010 到 2024 年）
+- 法務部：[脫離 APG 過渡追蹤的新聞](https://www.moj.gov.tw/2204/2795/2796/58211/)
+- 行政院：[APG 評鑑結果的新聞（2019-08-25）](https://www.ey.gov.tw/Page/9277F759E41CCD91/42a5d2d2-4f84-4fb7-acc5-739f1d8be582)、[第 3 次追蹤報告的新聞（2025-11-20）](https://www.ey.gov.tw/Page/9277F759E41CCD91/494b267b-a8fd-488f-90df-e1772405abdb)
+- APG：[Chinese Taipei 2019 年相互評鑑報告](https://apgml.org/sites/default/files/documents//Chinese_Taipei_MER_2019_-_published_version.pdf)、[全球第五輪評鑑時程](https://www.apgml.org/apg-global-5th-round-schedule)
+- 金管會：[重大裁罰案件](https://www.fsc.gov.tw/ch/home.jsp?id=131)、[兆豐銀行裁罰（2016-09-14）](https://www.fsc.gov.tw/ch/home.jsp?id=131&parentpath=0,2&mcustomize=multimessages_view.jsp&dataserno=201609210002&dtable=Penalty)、[台中商業銀行裁罰（2026-05-15）](https://www.fsc.gov.tw/ch/home.jsp?id=131&parentpath=0,2&mcustomize=multimessages_view.jsp&dataserno=202605180002&dtable=Penalty)、[臺灣銀行裁罰（2025-03-11）](https://www.fsc.gov.tw/ch/home.jsp?id=131&parentpath=0,2&mcustomize=multimessages_view.jsp&dataserno=202503120002&dtable=Penalty)
+- 金管會：[存款帳戶及其疑似不法或顯屬異常交易管理辦法第 13 條](https://law.banking.gov.tw/Chi/FLAW/FLAWDOC01.aspx?lsid=FL039015&lno=13)
+- ETtoday：[台中銀遭罰 3,200 萬元的報導](https://finance.ettoday.net/news/3164693)

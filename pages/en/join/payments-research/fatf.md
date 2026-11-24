@@ -9,7 +9,7 @@ Uploading ID to open an account at a crypto exchange, filling in the recipient's
 
 !!! info ""
 
-    This is part 1 of the FATF series in our [anonymous payments research track](/join/payments-research/). Part 2, on what the FATF requires of virtual assets and virtual asset service providers (VASPs), is being planned.
+    This is part 1 of the FATF series in our [anonymous payments research track](/join/payments-research/). [Part 2](/join/payments-research/fatf/taiwan/) covers the origins and current state of Taiwan's anti-money laundering regime; part 3, on what the FATF requires of virtual assets and virtual asset service providers (VASPs), is being planned.
 
 ## Origins and members
 
@@ -62,7 +62,7 @@ The authors note that grey-listing events are only about 0.7% of the sample. The
 
 ## Taiwan's position
 
-The APG adopted Taiwan's third-round mutual evaluation report in 2019, after an on-site visit in November 2018. Seven of the 11 effectiveness outcomes were rated substantial and four moderate (supervision, preventive measures, transparency of legal persons, and money laundering investigation and prosecution). On technical compliance, 10 Recommendations were compliant, 26 largely compliant and 4 partially compliant, with none non-compliant. According to Taiwan's Ministry of Justice, this placed Taiwan in regular follow-up, a level few APG members have reached.
+The APG adopted Taiwan's third-round mutual evaluation report in 2019, after an on-site visit in November 2018. Seven of the 11 effectiveness outcomes were rated substantial and four moderate (supervision, preventive measures, transparency of legal persons, and money laundering investigation and prosecution). On technical compliance, 10 Recommendations were compliant, 26 largely compliant and 4 partially compliant, with none non-compliant. According to Taiwan's Ministry of Justice, this placed Taiwan in regular follow-up, a level few APG members have reached. How Taiwan prepared for this round, starting with the heavy penalty on Mega Bank's New York branch in 2016, is covered in [part 2](/join/payments-research/fatf/taiwan/).
 
 Among the 199 jurisdictions with fourth-round evaluations, only six have more outcomes rated substantial or high than Taiwan. All six are FATF members (France, the United States, the United Kingdom, Spain, Italy and Israel). Taiwan shares the top score among non-members with Kazakhstan, Jersey and Bermuda.
 
@@ -108,7 +108,7 @@ The FATF launched a project on unintended consequences in 2021 and amended Recom
 
 ### Privacy implications
 
-The FATF requires financial institutions to know their customers, keep records and report suspicious transactions. Wire transfers must carry information on the sender and the recipient, a requirement known as the **Travel Rule** (Recommendation 16). These requirements now reach virtual assets. In 2021 Coin Center, a US crypto policy group, submitted comments on the FATF's draft virtual asset guidance. According to the submission, applying the Travel Rule to self-hosted wallets is incompatible with privacy rights. The FATF keeps widening payment transparency: in June 2026 it opened a consultation on new guidance for Recommendation 16, aiming for full implementation of the Travel Rule by 2030. Part 2 covers virtual assets in detail.
+The FATF requires financial institutions to know their customers, keep records and report suspicious transactions. Wire transfers must carry information on the sender and the recipient, a requirement known as the **Travel Rule** (Recommendation 16). These requirements now reach virtual assets. In 2021 Coin Center, a US crypto policy group, submitted comments on the FATF's draft virtual asset guidance. According to the submission, applying the Travel Rule to self-hosted wallets is incompatible with privacy rights. The FATF keeps widening payment transparency: in June 2026 it opened a consultation on new guidance for Recommendation 16, aiming for full implementation of the Travel Rule by 2030. Part 3 covers virtual assets in detail.
 
 ## Current reach and what it means for readers
 
@@ -121,7 +121,7 @@ The lists after the October 2026 plenary. Grey-listed jurisdictions are shown in
 
 For civil society groups, transfers of donations or humanitarian funds to listed places (such as Myanmar, Lebanon, Syria, Yemen, Haiti and South Sudan) face enhanced scrutiny from banks. That can mean requests for more documents, or the transfer being returned. Since Recommendation 8 was amended in 2023, countries are no longer expected to treat the whole non-profit sector as high-risk. Whether the change reaches banks' day-to-day checks depends on the new round of evaluations. Until then, preparing clear explanations of what the funds are for and who receives them, and choosing auditable channels, is the safer approach.
 
-For individuals, banks and exchanges follow FATF recommendations to know their customers and keep records. Now that the Travel Rule reaches virtual assets, sending cryptocurrency also means attaching the recipient's details, which narrows the room for financial privacy. The FATF aims for full implementation of the Travel Rule by 2030. Part 2 is planned to cover how these rules land in Taiwan's Virtual Asset Service Act and exchange practice, and where that leaves self-hosted wallets. For background on why anonymous payments matter, see [Why anonymous payments matter](docs:basics/payments-anonymity/) on our docs site.
+For individuals, banks and exchanges follow FATF recommendations to know their customers and keep records. Now that the Travel Rule reaches virtual assets, sending cryptocurrency also means attaching the recipient's details, which narrows the room for financial privacy. The FATF aims for full implementation of the Travel Rule by 2030. Part 3 is planned to cover how these rules land in Taiwan's Virtual Asset Service Act and exchange practice, and where that leaves self-hosted wallets. For background on why anonymous payments matter, see [Why anonymous payments matter](docs:basics/payments-anonymity/) on our docs site.
 
 ## Timeline
 
@@ -147,7 +147,7 @@ FATF rules have widened from money laundering to terrorist financing, proliferat
   <li><span class="tl-when">2030</span><span class="tl-b"><span class="tl-t">Target for full Travel Rule implementation</span><span class="tl-d">The deadline the FATF has set for Recommendation 16</span></span></li>
 </ol>
 
-The 2030 Travel Rule deadline is the next date that bears most directly on payment privacy, and part 2 picks up from there.
+[Part 2](/join/payments-research/fatf/taiwan/) returns to Taiwan, tracing how its anti-money laundering regime changed after the 2016 case against Mega Bank's New York branch. The 2030 Travel Rule deadline, the next date that bears most directly on payment privacy, is left to part 3.
 
 ## About the data
 
