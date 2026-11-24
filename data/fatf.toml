@@ -102,3 +102,21 @@ va_tip = { zh-TW = "{k} 年：{n} 件", zh-CN = "{k} 年：{n} 件", en = "{k}: 
 alert = { zh-TW = "警示帳戶戶數", zh-CN = "警示账户户数", en = "Accounts flagged for fraud" }
 alert_note = { zh-TW = "金管會〈金融機構警示帳戶調查統計表〉，季末數字，銀行（含中華郵政）與信用合作社合計", zh-CN = "金管会〈金融机构警示账户调查统计表〉，季末数字，银行（含中华邮政）与信用合作社合计", en = "End-of-quarter figures from the Financial Supervisory Commission, banks (including Chunghwa Post) and credit cooperatives combined" }
 alert_tip = { zh-TW = "{k}：{n} 戶", zh-CN = "{k}：{n} 户", en = "{k}: {n} accounts" }
+
+# 第 1 篇的兆豐案示意圖：台北總行、紐約分行、巴拿馬科隆自由貿易區分行與兩邊的監理機關。
+# 往來金額出自 NYDFS 合意處分令（紐約分行與科隆分行之間的貸方交易），整理見工作區 research/fatf-taiwan/facts.md
+[taiwan.mega]
+title = { zh-TW = "兆豐案的資金路徑與處分", zh-CN = "兆丰案的资金路径与处分", en = "Mega Bank: the money trail and the penalties" }
+hq = { zh-TW = "台北總行", zh-CN = "台北总行", en = "Head office, Taipei" }
+hq_d = { zh-TW = "負責監督紐約與巴拿馬兩家分行的法遵", zh-CN = "负责监督纽约与巴拿马两家分行的合规", en = "Responsible for overseeing compliance at the New York and Panama branches" }
+fsc = { zh-TW = "金管會", zh-CN = "金管会", en = "Financial Supervisory Commission, Taiwan" }
+fsc_d = { zh-TW = "2016 年 9 月罰鍰新臺幣 1,000 萬元，解除 6 名幹部的職務", zh-CN = "2016 年 9 月罚款新台币 1,000 万元，解除 6 名干部的职务", en = "September 2016: NT$10 million fine, six senior staff removed" }
+ny = { zh-TW = "紐約分行", zh-CN = "纽约分行", en = "New York branch" }
+ny_d = { zh-TW = "處理美元交易，法遵主管兼任副總經理", zh-CN = "处理美元交易，合规主管兼任副总经理", en = "Handled US dollar transactions; the compliance chief was also deputy general manager" }
+link = { zh-TW = "兩家分行之間的往來", zh-CN = "两家分行之间的往来", en = "Transactions between the two branches" }
+link_d = { zh-TW = "2013 年 35 億美元，2014 年 24 億美元", zh-CN = "2013 年 35 亿美元，2014 年 24 亿美元", en = "US$3.5 billion in 2013, US$2.4 billion in 2014" }
+pa = { zh-TW = "巴拿馬分行", zh-CN = "巴拿马分行", en = "Panama branch" }
+pa_d = { zh-TW = "科隆自由貿易區", zh-CN = "科隆自由贸易区", en = "Colón Free Trade Zone" }
+reg = { zh-TW = "紐約州金融服務署", zh-CN = "纽约州金融服务署", en = "New York State Department of Financial Services" }
+reg_d = { zh-TW = "2016 年 8 月罰款 1 億 8 千萬美元，派駐獨立監督人兩年", zh-CN = "2016 年 8 月罚款 1 亿 8 千万美元，派驻独立监督人两年", en = "August 2016: US$180 million fine and an independent monitor for two years" }
+note = { zh-TW = "往來金額是紐約分行與科隆自由貿易區分行之間的貸方交易，出自紐約州金融服務署的合意處分令", zh-CN = "往来金额是纽约分行与科隆自由贸易区分行之间的贷方交易，出自纽约州金融服务署的合意处分令", en = "Amounts are credit transactions between the New York branch and the Colón Free Trade Zone branch, from the NYDFS consent order" }

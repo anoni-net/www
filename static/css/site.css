@@ -712,6 +712,29 @@ svg.pc rect:hover, svg.pc circle:hover { opacity: .7; }
 .fi-org .fi-org-apg li b { color: var(--c-strong); }
 .fi-org .fi-org-apg li span { color: var(--c-muted); }
 .fi-org .fi-org-apg li.tw { background: color-mix(in srgb, var(--fi3) 22%, transparent); border-left: 4px solid var(--fi1); }
+/* 第 1 篇的兆豐案示意圖：桌機三欄，手機一欄。箭頭用 ::before 與 ::after，只是裝飾，
+   讀屏軟體照卡片的順序讀（總行、金管會、紐約分行、往來、巴拿馬分行、紐約州金融服務署） */
+.fi-flow .ff-grid { display: grid; grid-template-columns: 1fr minmax(8rem, .85fr) 1fr; grid-template-areas: "hq hq fsc" "ny link pa" "us . ."; gap: 1.4rem 1.1rem; margin: .5rem 0 .25rem; }
+.fi-flow .ff-node { position: relative; display: flex; flex-direction: column; gap: .15rem; padding: .55rem .7rem; border: 1px solid var(--c-hair); border-radius: var(--radius); background: var(--c-bg); }
+.fi-flow .ff-node b { font-size: .9rem; color: var(--c-strong); }
+.fi-flow .ff-node span { font-size: .78rem; line-height: 1.5; color: var(--c-muted); }
+.fi-flow .ff-hq { grid-area: hq; border: 2px solid var(--fi1); }
+.fi-flow .ff-ny { grid-area: ny; border: 2px solid var(--fi2); }
+.fi-flow .ff-pa { grid-area: pa; border: 2px solid var(--fi2); }
+.fi-flow .ff-link { grid-area: link; align-self: center; text-align: center; border: 0; background: color-mix(in srgb, var(--fi3) 16%, transparent); }
+.fi-flow .ff-reg { border-style: dashed; border-color: var(--c-border-strong); background: color-mix(in srgb, var(--c-muted) 6%, transparent); }
+.fi-flow .ff-fsc { grid-area: fsc; }
+.fi-flow .ff-us { grid-area: us; }
+.fi-flow .ff-node::before, .fi-flow .ff-node::after { position: absolute; color: var(--fi1); font-weight: 700; line-height: 1; }
+.fi-flow .ff-link::before { content: "⇄"; position: static; display: block; font-size: 1.4rem; }
+.fi-flow .ff-fsc::before { content: "←"; left: -1rem; top: 50%; transform: translateY(-50%); }
+.fi-flow .ff-us::before { content: "↑"; top: -1.25rem; left: 50%; transform: translateX(-50%); }
+@media (max-width: 560px) {
+  .fi-flow .ff-grid { grid-template-columns: 1fr; grid-template-areas: "fsc" "hq" "us" "ny" "link" "pa"; gap: 1.3rem; }
+  .fi-flow .ff-us::before { content: none; }
+  .fi-flow .ff-fsc::before, .fi-flow .ff-us::after { content: "↓"; top: auto; bottom: -1.2rem; left: 50%; transform: translateX(-50%); }
+  .fi-flow .ff-link::before { content: "⇅"; }
+}
 /* Tor 標記的說明放在名稱下面，橫跨整列 */
 .pulse-flags li { row-gap: .1rem; }
 .pulse-flags .d { grid-column: 1 / -1; font-size: .72rem; line-height: 1.4; color: var(--c-muted); }

@@ -119,10 +119,33 @@ def color_overrides(conf: dict) -> str:
     return f"{light}@media (prefers-color-scheme:dark){{{dark}}}" if pairs else ""
 
 
+def class_styles(conf: dict) -> tuple[str, dict[str, str]]:
+    """設定檔的 [[classes]] 是有順序的分級（例如評分的高低），每一級寫 codes、light、dark，
+    依序對應 CSS class c1、c2……。回傳樣式與「國碼 → class」的對照。"""
+    light, dark, by_code = [], [], {}
+    for i, c in enumerate(conf.get("classes", []), 1):
+        light.append(f".c{i}{{fill:{c['light']};stroke:#fff;stroke-width:.8}}")
+        dark.append(f".c{i}{{fill:{c['dark']};stroke:#00202d}}")
+        for code in c["codes"]:
+            by_code[code] = f"c{i}"
+    if not light:
+        return "", by_code
+    return "".join(light) + f"@media (prefers-color-scheme:dark){{{''.join(dark)}}}", by_code
+
+
+def _wrap(polygons: list) -> list:
+    """以太平洋為中心的地圖：整個環都在西半球（經度全部小於 0）才加 360。Natural Earth 的多邊形
+    已在換日線切開，跨過本初子午線的環（例如英國、法國）維持原樣，才不會被拉成橫跨全圖的長條。"""
+    return [[[(lon + 360, lat) for lon, lat in ring] if max(lon for lon, _ in ring) < 0 else ring
+             for ring in poly] for poly in polygons]
+
+
 def render_svg(conf: dict, data: dict) -> str:
     cv = Canvas(conf["lon"], conf["lat"], conf.get("width", 720))
     groups = conf.get("groups", {})
     primary, secondary = set(groups.get("primary", [])), set(groups.get("secondary", []))
+    class_css, by_code = class_styles(conf)
+    wrap = conf.get("wrap", False)
     paths = {}
     for feature in data["features"]:
         props = feature["properties"]
@@ -130,17 +153,23 @@ def render_svg(conf: dict, data: dict) -> str:
         if len(code) != 2 or not code.isalpha():
             continue
         geom = feature["geometry"]
-        d = cv.path(geom["coordinates"] if geom["type"] == "MultiPolygon" else [geom["coordinates"]])
+        polygons = geom["coordinates"] if geom["type"] == "MultiPolygon" else [geom["coordinates"]]
+        d = cv.path(_wrap(polygons) if wrap else polygons)
         if d:
             paths[code] = d
     parts = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {cv.width} {cv.height}" role="img">'
-             f'<title>{escape(conf["title"])}</title><style>{CSS.strip()}{color_overrides(conf)}</style>']
+             f'<title>{escape(conf["title"])}</title><style>{CSS.strip()}{color_overrides(conf)}{class_css}</style>']
+    colored = primary | secondary | set(by_code)
     # 上色的國家最後畫，國界才不會被鄰國的白邊蓋掉
-    for code, d in sorted(paths.items(), key=lambda kv: kv[0] in primary or kv[0] in secondary):
-        cls = "cli" if code in primary else "dom" if code in secondary else "land"
+    for code, d in sorted(paths.items(), key=lambda kv: kv[0] in colored):
+        cls = "cli" if code in primary else "dom" if code in secondary else by_code.get(code, "land")
         parts.append(f'<path class="{cls}" d="{d}"/>')
+    # 小到看不見的島國用圓點，顏色跟所屬的分級一樣：[經度, 緯度, 國碼]
+    for lon, lat, code in conf.get("dots", []):
+        x, y = cv.project(lon + 360 if wrap and lon < 0 else lon, lat)
+        parts.append(f'<circle class="{by_code.get(code, "land")}" cx="{x:.1f}" cy="{y:.1f}" r="5.5"/>')
     for n, lon, lat in conf.get("markers", []):
-        x, y = cv.project(lon, lat)
+        x, y = cv.project(lon + 360 if wrap and lon < 0 else lon, lat)
         parts.append(f'<circle class="mk" cx="{x:.1f}" cy="{y:.1f}" r="14"/>'
                      f'<text class="mt" x="{x:.1f}" y="{y:.1f}">{n}</text>')
     parts.append("</svg>")

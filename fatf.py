@@ -328,6 +328,23 @@ def simple_hbars(points: list[tuple[str, int]], cls: str, label: str, top: int, 
     return "".join(p)
 
 
+def mega_flow(mega: dict, pick) -> str:
+    """第 1 篇的兆豐案示意圖，用 HTML 排：總行、兩家分行與兩邊的監理機關各是一張卡片。
+    桌機排成三欄（總行與金管會在上，兩家分行與中間的往來在中，紐約州金融服務署在紐約分行下方），
+    手機改成一欄，箭頭跟著改方向。箭頭只是裝飾，讀屏軟體照卡片的順序讀。"""
+    L = {k: pick(v) for k, v in mega.items()}
+
+    def card(key: str, cls: str) -> str:
+        return (f'<div class="ff-node {cls}"><b>{escape(L[key])}</b>'
+                f'<span>{escape(L[key + "_d"])}</span></div>')
+
+    return (
+        f'<div class="pulse fatf"><figure class="pulse-chart fi-flow"><figcaption>{escape(L["title"])}</figcaption>'
+        f'<div class="ff-grid">{card("hq", "ff-hq")}{card("fsc", "ff-fsc ff-reg")}'
+        f'{card("ny", "ff-ny")}{card("link", "ff-link")}{card("pa", "ff-pa")}{card("reg", "ff-us ff-reg")}</div>'
+        f'<p class="fi-note">{escape(L["note"])}</p></figure></div>')
+
+
 def taiwan_blocks(data_dir: Path, tw: dict, pick) -> dict[str, str]:
     """第 1 篇〈台灣洗錢防制的起源與監理現況〉的三張圖，資料在 data/fatf/tw-*.csv。"""
     L = {k: pick(v) for k, v in tw["labels"].items()}
@@ -354,6 +371,7 @@ def taiwan_blocks(data_dir: Path, tw: dict, pick) -> dict[str, str]:
                                 ticks=(0, 40000, 80000, 120000, 160000),
                                 tip=L["alert_tip"], shown={k for k, _ in accounts})
     return {
+        "tw-mega": mega_flow(tw["mega"], pick),
         "tw-str": figure(L["str"], str_chart, note=L["str_note"]),
         "tw-va": figure(L["va"], va_chart, note=L["va_note"]),
         "tw-alert": figure(L["alert"], alert_chart, note=L["alert_note"]),
