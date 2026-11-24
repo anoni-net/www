@@ -9,7 +9,7 @@ Some of these rules come from the recommendations of the Financial Action Task F
 
 !!! info ""
 
-    This is part 1 of the FATF series in our [anonymous payments research track](/join/payments-research/). For where the FATF came from, how it works and where Taiwan sits in the Global Network, see [part 2](/join/payments-research/fatf/). What the FATF requires of virtual assets and virtual asset service providers (VASPs) is planned for part 3.
+    This article belongs to the FATF series in our [anonymous payments research track](/join/payments-research/); see the [series overview](/join/payments-research/#fatf-series) for the reading order. For where the FATF came from, how it works and where Taiwan sits in the Global Network, see [FATF, the body that sets anti-money laundering standards](/join/payments-research/fatf/). What the FATF requires of virtual assets and virtual asset service providers (VASPs) will be covered in a later article.
 
 ## Rules at the bank counter
 
@@ -28,7 +28,7 @@ The first four rows are customer due diligence that the FATF requires of every c
 
 ## Why Taiwan follows FATF standards
 
-Taiwan is not a member of the FATF, and the FATF's recommendations are not a treaty and carry no penalties (for where their force comes from, see [part 2](/join/payments-research/fatf/)). In 1997 Taiwan became a founding member of the Asia/Pacific Group on Money Laundering (APG) under the name Chinese Taipei. Under the APG's Terms of Reference and membership rules, members implement the FATF's 40 Recommendations according to their own legal frameworks, and on joining they commit to mutual evaluations by other members. Members with the worst results are referred to the FATF for review and may end up on the grey list. The FATF does not ask countries to apply enhanced due diligence to grey-listed jurisdictions, only to take the list into account in their risk analysis, and banks often treat the list as an indicator when assessing the risk of a relationship.
+Taiwan is not a member of the FATF, and the FATF's recommendations are not a treaty and carry no penalties (for where their force comes from, see [our FATF overview](/join/payments-research/fatf/#Sources-of-leverage)). In 1997 Taiwan became a founding member of the Asia/Pacific Group on Money Laundering (APG) under the name Chinese Taipei. Under the APG's Terms of Reference and membership rules, members implement the FATF's 40 Recommendations according to their own legal frameworks, and on joining they commit to mutual evaluations by other members. Members with the worst results are referred to the FATF for review and may end up on the grey list. The FATF does not ask countries to apply enhanced due diligence to grey-listed jurisdictions, only to take the list into account in their risk analysis, and banks often treat the list as an indicator when assessing the risk of a relationship.
 
 In its 2019 evaluation, Taiwan was placed in regular follow-up, the lightest follow-up level. The effectiveness outcomes are the 11 areas where evaluators check whether a system actually works; Taiwan was rated substantially effective on 7 of them, second only to the United States among the 42 APG members.
 
@@ -84,13 +84,13 @@ There were 13,972 suspicious transaction reports in 2016, peaking at 35,869 in 2
 
 <!-- tw-str -->
 
-The evaluation report was adopted at the APG annual meeting in August 2019, placing Taiwan in regular follow-up; the ratings are in [part 2](/join/payments-research/fatf/). On technical compliance, 36 of the 40 Recommendations were largely compliant or better (10 compliant, 26 largely compliant). Three follow-up reports since then (2021, 2023 and 2025) have kept Taiwan in regular follow-up.
+The evaluation report was adopted at the APG annual meeting in August 2019, placing Taiwan in regular follow-up; the ratings are in ["Taiwan's position" in our FATF overview](/join/payments-research/fatf/#Taiwans-position). On technical compliance, 36 of the 40 Recommendations were largely compliant or better (10 compliant, 26 largely compliant). Three follow-up reports since then (2021, 2023 and 2025) have kept Taiwan in regular follow-up.
 
 ## Legislation centred on fraud
 
 Fraud was already one of the reasons for the 2016 reform; under the new law, supplying a mule account or acting as a cash courier for fraudsters can count as money laundering. After the 2019 evaluation, legislation focused on fraud, and restrictions reached beyond banks' operations to individuals' accounts. A 2023 amendment created an offence of collecting other people's accounts without justification and banned handing one's own account to others. A first offence of handing over an account leads to a police warning; criminal liability applies only when there is payment, three or more accounts are handed over, or the person reoffends within five years of a warning.
 
-In 2024 the Act was rewritten in full again, on the same day as the new Fraud Crime Hazard Prevention Act. Financial institutions went from being allowed to restrict a warned person's accounts to being required to. Under the regulator's rules, for five years after a warning ATM transfers and withdrawals are capped at NT$10,000 a day each, and online banking, mobile banking and payment platforms cannot be used. The same amendment moved virtual asset service providers to a registration regime, which part 3 will cover.
+In 2024 the Act was rewritten in full again, on the same day as the new Fraud Crime Hazard Prevention Act. Financial institutions went from being allowed to restrict a warned person's accounts to being required to. Under the regulator's rules, for five years after a warning ATM transfers and withdrawals are capped at NT$10,000 a day each, and online banking, mobile banking and payment platforms cannot be used. The same amendment moved virtual asset service providers to a registration regime, which a later article will cover.
 
 <!-- tw-alert -->
 
@@ -108,7 +108,7 @@ Accounts are flagged when courts, prosecutors or police notify the bank for a cr
 
 ### Accounts of civil society groups
 
-As [part 2](/join/payments-research/fatf/) describes, banks cut back on customers they see as high-risk to reduce their own risk. Taiwan has no public statistics on banks refusing accounts to non-profits, migrant workers or new immigrants. The 2018 national risk assessment found Taiwan's overall terrorist financing risk to be low. Civic associations, religious foundations and social welfare and charitable foundations were identified as non-profits with potential terrorist financing risk, needing closer supervision, because of insufficient information on anonymous donations; medical, educational and cultural foundations were not. The official assessment named only these three categories and did not treat non-profits as a whole as at risk. The authorities also encourage non-profits to handle funds through banks.
+As ["The cost and who bears it" in our FATF overview](/join/payments-research/fatf/#The-cost-and-who-bears-it) describes, banks cut back on customers they see as high-risk to reduce their own risk. Taiwan has no public statistics on banks refusing accounts to non-profits, migrant workers or new immigrants. The 2018 national risk assessment found Taiwan's overall terrorist financing risk to be low. Civic associations, religious foundations and social welfare and charitable foundations were identified as non-profits with potential terrorist financing risk, needing closer supervision, because of insufficient information on anonymous donations; medical, educational and cultural foundations were not. The official assessment named only these three categories and did not treat non-profits as a whole as at risk. The authorities also encourage non-profits to handle funds through banks.
 
 Article 13 of the regulations governing deposit accounts and suspicious transactions lists the cases in which banks must refuse to open an account, including "other irregularities at account opening for which the customer cannot give a reasonable explanation", a clause that gives banks wide discretion. The Financial Supervisory Commission's simplified measures for low-risk customers state that before asking customers for information, banks "should not simply cite regulatory requirements or contract terms allowing them to terminate business or restrict transactions". Civil society groups whose account applications are refused or whose accounts are restricted can ask the bank to explain the basis, and can also see [Anonymous donation channels for advocacy organizations](docs:scenarios/nonprofit-anonymous-donation/) on our docs site.
 
@@ -154,7 +154,7 @@ From the 1996 law to the next evaluation, Taiwan's anti-money laundering regime 
   </details>
 </div>
 
-For the FATF's origins, its grey list and how it is judged, continue to [part 2](/join/payments-research/fatf/). What the FATF requires of virtual assets and VASPs, and how those requirements land in Taiwan's Virtual Asset Service Act, is planned for part 3.
+For the FATF's origins, its grey list and how it is judged, continue to [FATF, the body that sets anti-money laundering standards](/join/payments-research/fatf/). What the FATF requires of virtual assets and VASPs, and how those requirements land in Taiwan's Virtual Asset Service Act, will be covered in a later article.
 
 ## FATF Recommendations cited here
 
@@ -166,7 +166,7 @@ The full text is in the [FATF Recommendations](https://www.fatf-gafi.org/en/publ
 {#fatf-r10}
 - **Recommendation 12, politically exposed persons**: for foreign politicians and their families, senior management must approve the relationship and the institution must take reasonable measures to establish the source of wealth and funds; for domestic politicians, risk decides whether the same applies
 {#fatf-r12}
-- **Recommendation 16, payment transparency**: cross-border transfers must carry information on the originator and beneficiary, the requirement known as the Travel Rule (see [part 2](/join/payments-research/fatf/)). The June 2025 revision renamed it from "wire transfers" to "payment transparency"
+- **Recommendation 16, payment transparency**: cross-border transfers must carry information on the originator and beneficiary, the requirement known as the Travel Rule (see ["Privacy implications" in our FATF overview](/join/payments-research/fatf/#Privacy-implications)). The June 2025 revision renamed it from "wire transfers" to "payment transparency"
 {#fatf-r16}
 - **Recommendation 29, financial intelligence units**: countries must set up an FIU to receive and analyse suspicious transaction reports. Large cash transaction reporting appears in the interpretive note to this recommendation, which only asks countries to consider its feasibility
 {#fatf-r29}
