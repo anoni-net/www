@@ -20,6 +20,16 @@ Cash is the most mature form of anonymous payment, with clear limits when money 
 - **Regional regulation**: following Taiwan's Virtual Asset Service Act through passage, promulgation, and entry into force, and maintaining a long-term reference on what it means for individuals and organizations
 - **Cross-community dialogue**: bringing anonymous payments to more open source communities and civic advocates through programming partnerships at COSCUP and other events
 
+## The FATF series {#fatf-series}
+
+The privacy of payments is limited by international anti-money laundering standards, which are set by the Financial Action Task Force (FATF). The suggested reading order starts with the rules readers meet at banks in Taiwan, then moves out to the FATF itself, virtual assets and payment privacy:
+
+1. [Taiwan's anti-money laundering regime, origins and current supervision](/join/payments-research/fatf/taiwan/): which rules on account opening, cash reporting and flagged accounts come from the FATF, and which Taiwan added itself
+2. [FATF, the body that sets anti-money laundering standards](/join/payments-research/fatf/): where the FATF came from, its grey and black lists, and how it is judged
+3. Rules at virtual asset exchanges (planned)
+4. The costs of payment privacy and the room that remains (planned)
+5. What civil society can do before the 2030 evaluation (planned)
+
 ## Related articles
 
 The articles follow the layers of the docs site's [guides](docs:guides/):
@@ -28,7 +38,7 @@ The articles follow the layers of the docs site's [guides](docs:guides/):
 - **Tools**: [The cryptocurrency privacy spectrum](docs:tools/crypto-privacy-spectrum/)
 - **Scenarios**: [Anonymous donation channels for advocacy organizations](docs:scenarios/nonprofit-anonymous-donation/)
 - **Articles**: [Zero-Knowledge Identity and Payments](/articles/zk-identity-payments/)
-- **Institutions**: [FATF, the body that sets anti-money laundering standards](/join/payments-research/fatf/)
+- **Institutions**: the [FATF series](#fatf-series); see the section above for the reading order
 - **Regional**: [Taiwan's 2026 Virtual Asset Service Act](docs:regional/taiwan-vasp-2026/)
 
 Most first drafts are published, and they are revised and extended on a quarterly rhythm.
@@ -54,7 +64,7 @@ Most first drafts are published, and they are revised and extended on a quarterl
 We have marked a few outside resources as translation candidates, and volunteers are welcome to translate them or summarize the key points:
 
 - **Privacy coin design**: the Monero and Zcash whitepapers and technical documentation
-- **Stablecoin regulation**: FATF policy recommendations and comparative studies across jurisdictions
+- **Stablecoin regulation**: FATF policy recommendations and comparative studies across jurisdictions. The FATF's 2026 report on stablecoins and unhosted wallets is planned for [Translated Reports and Guidance](/library/), with the FATF series as the guide to it
 - **Chain analysis**: public reports from Chainalysis, Elliptic, and TRM Labs, and academic criticism of on-chain privacy
 - **The Tornado Cash sanctions**: a timeline of the US OFAC sanctions, the subsequent litigation, and the technical community's response
 - **Cross-border donations**: case studies on how advocacy organizations accept cryptocurrency donations within compliance

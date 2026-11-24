@@ -1,127 +1,167 @@
 ---
 title: Taiwan's anti-money laundering regime, origins and current supervision
-description: The 2016 US penalty on Mega Bank's New York branch set off three years of AML reform in Taiwan. Later amendments turned to fraud and virtual assets.
+description: Some rules at Taiwan's bank counters come from the FATF, others Taiwan added to fight fraud. From the Mega Bank case to today's flagged accounts.
 ---
 
-Opening a bank account in Taiwan means explaining where the money comes from, and an account flagged for fraud can no longer be used for withdrawals. Anyone warned by the police for handing their account to someone else is limited, for five years, to NT$10,000 a day each in ATM transfers and withdrawals. At the end of 2025 more than 150,000 accounts in Taiwan were flagged. Most of these rules date from after 2016, the year New York's Department of Financial Services fined Mega Bank's New York branch US$180 million. Within three years Taiwan overhauled its law, set up a dedicated office and was placed in regular follow-up, the lightest follow-up level, in its 2019 evaluation by the Asia/Pacific Group on Money Laundering (APG).
+Opening a bank account in Taiwan means showing ID and explaining the purpose of the account. Deposit or withdraw NT$500,000 or more in cash over the counter, and the teller records your identity. When the police flag an account, every transaction on it stops; at the end of 2025 more than 150,000 accounts in Taiwan were flagged.
+
+Some of these rules come from the recommendations of the Financial Action Task Force (FATF); others Taiwan added on its own to fight fraud. Large cash reporting, cross-border cash declarations and flagged accounts all existed before 2016. After New York regulators heavily fined Mega Bank's New York branch in 2016, Taiwan widened the scope of customer checks and raised fines within three years, and in 2019 was placed in regular follow-up, the lightest follow-up level, in its evaluation by the Asia/Pacific Group on Money Laundering (APG). After the evaluation, the focus of new legislation turned to fraud, and restrictions reached beyond banks' internal procedures to individuals' accounts.
 
 !!! info ""
 
-    This is part 2 of the FATF series in our [anonymous payments research track](/join/payments-research/). [Part 1](/join/payments-research/fatf/) explains what the FATF is, how it works and where Taiwan sits in the Global Network. Part 3, on what the FATF requires of virtual assets and virtual asset service providers (VASPs), is being planned.
+    This is part 1 of the FATF series in our [anonymous payments research track](/join/payments-research/). For where the FATF came from, how it works and where Taiwan sits in the Global Network, see [part 2](/join/payments-research/fatf/). What the FATF requires of virtual assets and virtual asset service providers (VASPs) is planned for part 3.
 
-## An early law, then a long stall
+## Why Taiwan follows FATF standards
 
-Taiwan enacted its Money Laundering Control Act on 23 October 1996, in force from 23 April 1997; the Anti-Money Laundering Office describes it as "Asia's first dedicated anti-money laundering law". On the same day the Investigation Bureau set up its Money Laundering Prevention Center to receive suspicious transaction reports from financial institutions. The center is Taiwan's financial intelligence unit (FIU, the agency that receives and analyses suspicious transaction reports), renamed the Anti-Money Laundering Division in 2007. The APG was founded in 1997, and according to the Investigation Bureau's annual report and the Executive Yuan, Taiwan joined as a founding member under the name Chinese Taipei. In 1998 Taiwan joined the Egmont Group of financial intelligence units.
+Taiwan is not a member of the FATF, and the FATF's recommendations are not a treaty and carry no penalties (for where their force comes from, see [part 2](/join/payments-research/fatf/)). In 1997 Taiwan became a founding member of the APG under the name Chinese Taipei. Under the APG's Terms of Reference and membership rules, members implement the FATF's 40 Recommendations according to their own legal frameworks, and on joining they commit to mutual evaluations by other members. Members with the worst results are referred to the FATF for review and may end up on the grey list. The FATF does not ask countries to apply enhanced due diligence to grey-listed jurisdictions, only to take the list into account in their risk analysis, and banks often treat the list as an indicator when assessing the risk of a relationship.
 
-In the APG's second-round evaluation in 2007, Taiwan was rated compliant on 7 of 49 Recommendations, largely compliant on 18, partially compliant on 13 and non-compliant on 11; only 5 of the 16 core and key Recommendations reached largely compliant or better. Taiwan was placed in regular follow-up and then downgraded in 2011 for insufficient progress. Official documents name the lower level inconsistently, as either expedited regular follow-up or enhanced follow-up. When the second round closed in 2014, Taiwan was still in transitional follow-up (for members that had not exited follow-up by the end of the second round, kept under review until the third) alongside Bhutan, Pakistan, Laos, Vietnam and others, because, the Ministry of Justice explained, its deficiencies had not been fixed. Looking back at 2015, when the third round loomed, the Anti-Money Laundering Office wrote that Taiwan "lagged far behind international standards in its laws, supervision and enforcement".
+In its 2019 evaluation, Taiwan was rated substantially effective on 7 of 11 effectiveness outcomes, second only to the United States among the 42 APG members.
 
-## The Mega Bank New York case
+![Map of the Asia-Pacific shading APG members by their effectiveness ratings, with Taiwan marked](https://assets.anoni.net/www/articles/fatf-apg-ratings-map-10a94906.svg){: .map-img width="720" height="497" loading="lazy" }
 
-On 19 August 2016 the New York State Department of Financial Services (NYDFS) entered a consent order with Mega International Commercial Bank and its New York branch. Mega agreed to pay a US$180 million penalty and to accept an independent monitor chosen by the NYDFS for two years. The order set out three groups of failings:
+Effectiveness ratings of APG members under the FATF's 2013 methodology; ① is Taiwan. The darker the shade in light mode, or the brighter in dark mode, the more of the 11 effectiveness outcomes were rated substantial or high. 6 or more: United States, Taiwan, Hong Kong, India, Macao, New Zealand. 3 to 5: Australia, Bangladesh, Brunei, Canada, China, Cook Islands, Indonesia, Japan, Korea, Malaysia, Singapore, Thailand. 1 to 2: Cambodia, Niue, Palau, Philippines, Samoa, Sri Lanka, Vietnam. 0: Bhutan, Fiji, Laos, Maldives, Marshall Islands, Mongolia, Myanmar, Nauru, Nepal, Pakistan, Papua New Guinea, Solomon Islands, Timor-Leste, Tonga, Vanuatu. No rating: Afghanistan, Tuvalu. The United States and Canada are outside the map; small island states are shown as dots. Members were assessed between 2015 and 2025, so the comparison only shows the broad picture.
+{: .fig-note }
 
-- **Panama transactions**: credit transactions between the New York branch and Mega's Colón Free Trade Zone branch in Panama came to US$3.5 billion in 2013 and US$2.4 billion in 2014. The order says the head office "acted with indifference" to the risks
-- **Compliance conflicts**: the branch's chief compliance officer was also its deputy general manager with business and operational duties, which the order calls "a clear conflict of interest"
-- **Weak head-office oversight**: the anti-money laundering officer was a head-office employee with little familiarity with US requirements, compliance meeting minutes were not sent to head office, and Chinese-language documents went untranslated
+Taiwan's banks rely on foreign correspondent banks for international remittances and US dollar transactions, and their US branches are examined by US regulators. When the Executive Yuan explained what the evaluation meant in 2019, it linked the result to how foreign businesses assess Taiwan's financial environment and to Taiwan's practical participation in international organisations.
 
-Two days later, on 21 August 2016, the Executive Yuan set up a cross-ministry task force. On 14 September 2016 the Financial Supervisory Commission fined Mega Bank NT$10 million, barred it from opening new overseas branches and removed six senior managers. The commission's chair and vice chair resigned that October. On 7 June 2017 the Control Yuan adopted an investigation report censuring the Executive Yuan, the Financial Supervisory Commission and the Ministry of Finance, finding among other things that the commission had "failed to detect in time" the internal control failings at Mega's head office and overseas branches. On 17 January 2018 the US Federal Reserve, with Illinois regulators, fined Mega's three US branches a further US$29 million.
+## Rules at the bank counter
 
-In its account of how it came to be set up, the Anti-Money Laundering Office treats the case as the turning point: only after "a domestic bank's overseas branch received a heavy US penalty in 2016" did the issue draw wide public scrutiny in Taiwan.
+| What you run into at the bank | The rule | Since | Where it comes from |
+|---|---|---|---|
+| Showing ID and explaining the purpose when opening an account | Risk-based customer identification, understanding the purpose and nature of the relationship | 2017 | Required by the FATF ([Recommendation 10](#fatf-r10)) |
+| Being asked where money comes from, or for more documents | For higher-risk customers or where necessary, banks must understand the source of funds | 2017 | The FATF requires a risk-based approach; each bank judges the details ([Recommendations 1](#fatf-r1) and [10](#fatf-r10)) |
+| Being asked whether you hold a prominent political position | Enhanced checks on politicians, their families and close associates | 2017 | Required by the FATF ([Recommendation 12](#fatf-r12)) |
+| Sending NT$30,000 or more abroad over the counter without an account | Identity must be verified | 2017 | Required by the FATF ([Recommendations 10](#fatf-r10) and [16](#fatf-r16)) |
+| Depositing or withdrawing NT$500,000 or more in cash over the counter | Identity recorded; the bank reports to the Investigation Bureau | Before 2016 | The FATF only asks countries to consider such a system ([interpretive note to Recommendation 29](#fatf-r29)) |
+| Carrying foreign cash worth more than US$10,000 across the border | Declare it to customs | Before 2016 | Required by the FATF ([Recommendation 32](#fatf-r32), with a maximum threshold of US$15,000) |
+| An account flagged for fraud | All transactions suspended for two years, extendable once by one year | 2006 | Taiwan's own system |
+| Handing your account to someone else | A police warning, then five years of limits on ATM transfers and withdrawals and no online banking | 2023, 2024 | Taiwan's own system |
 
-## Law reform and preparing for the evaluation
+The first four rows are customer due diligence that the FATF requires of every country; what differs is how strictly it is applied. How far a bank asks about the source of funds is a risk judgement, so the same person may meet different demands at different banks. Large cash reporting is a system Taiwan chose to set up; the FATF only asks countries to consider it. Taiwan's cross-border cash threshold of US$10,000 is also lower than the maximum the FATF allows. The last two rows target mule accounts and fraud, and how they are designed and changed is a matter for Taiwan's own legislative process.
 
-Four months after the Mega case, the Money Laundering Control Act was rewritten in full, promulgated on 28 December 2016 and in force from 28 June 2017. The main changes (a predicate offence is the crime that generates the proceeds being laundered):
+## An early law, then twenty years of little follow-through
 
-| Item | Before | After |
-|---|---|---|
-| Predicate offence threshold | Offences with a minimum sentence of five years | Offences with a minimum sentence of six months |
-| Proceeds threshold | Fraud and similar offences counted only if proceeds reached NT$5 million | Threshold removed; fraud and similar offences listed directly |
-| Proof of predicate offence | Not addressed | No conviction for the predicate offence required |
-| Special money laundering offence | None | New: opening accounts under false names, obtaining accounts improperly or evading AML procedures, with property that has no reasonable source |
-| Designated non-financial businesses and professions | Jewellers only | Land administration agents, real estate brokers, lawyers, notaries, accountants and trust and company service providers listed |
+Taiwan enacted its Money Laundering Control Act in 1996, in force the following year; the government describes it as Asia's first dedicated anti-money laundering law. At the same time the Investigation Bureau set up its Money Laundering Prevention Center as Taiwan's financial intelligence unit (FIU), receiving and analysing suspicious transaction reports from financial institutions. Large cash transaction reporting and declarations for carrying cash across the border were written into law over the following years, and the Financial Supervisory Commission issued the rules on flagged accounts in 2006.
 
-The Executive Yuan set up the Anti-Money Laundering Office on 16 March 2017 to coordinate AML policy and the APG evaluation, headed by a political deputy minister of justice. The Ministry of Justice applied in March 2017 for Taiwan to leave transitional follow-up, and the APG annual meeting agreed on 20 July 2017. An amendment on 7 November 2018 brought virtual currency platforms under the Act.
+After the law was passed, policy was not pursued and public awareness of money laundering stayed low. In the APG's second-round evaluation in 2007, Taiwan was only partially compliant or non-compliant on 24 of 49 Recommendations, and in 2011 its follow-up level was lowered for insufficient progress. When the second round closed in 2014, Taiwan was still in transitional follow-up (for members that had not exited follow-up by the end of the second round, kept under review until the third) alongside Bhutan, Pakistan, Laos, Vietnam and others; the Ministry of Justice gave the reason as unresolved deficiencies. The Executive Yuan, for its part, dates the move into transitional follow-up to 2015. Looking back, the Anti-Money Laundering Office wrote that when the third round got under way in 2015, Taiwan "lagged far behind international standards in its laws, supervision and enforcement". The third-round evaluation was scheduled for late 2018, and the Executive Yuan expected the result to have "a far-reaching impact on the flexibility of the country's overall financial activity".
 
-The APG evaluation team visited Taiwan from 5 to 16 November 2018, and the report was adopted at the August 2019 annual meeting in Canberra, placing Taiwan in regular follow-up. The effectiveness and technical compliance ratings are in [part 1](/join/payments-research/fatf/). According to the Executive Yuan, 36 of the 40 Recommendations reached largely compliant or better, three of them upgraded from partially compliant at the meeting. Three follow-up reports since then (December 2021, November 2023 and November 2025) have kept Taiwan in regular follow-up. The APG states that follow-up reports with re-ratings are published on its website, and none for Taiwan appears on its website, so it is not possible to confirm which ratings have changed since 2019.
+## The Mega Bank case and the timing of reform
 
-Suspicious transaction reports from financial institutions more than doubled over this period.
+In August 2016 the New York State Department of Financial Services (NYDFS) entered a consent order with Mega International Commercial Bank and its New York branch. Mega agreed to pay a US$180 million penalty and to accept an independent monitor chosen by the NYDFS for two years. The order set out three groups of failings:
+
+- **Panama transactions**: heavy transaction volumes between the New York branch and the Colón Free Trade Zone branch in Panama, while the head office "acted with indifference" to their risks
+- **Compliance conflicts**: the branch's chief compliance officer was also its deputy general manager with business and operational duties, "a clear conflict of interest"
+- **Weak head-office oversight**: the anti-money laundering officer was a head-office employee unfamiliar with US requirements, compliance meeting minutes were not sent to head office, and Chinese-language documents went untranslated
+
+<!-- tw-mega -->
+
+Customer and transaction checks, a designated compliance officer and head-office oversight of overseas branches, the areas behind all three groups of failings, are FATF requirements (Recommendations 10 and 18) and were what the evaluators would examine two years later.
+
+Six days after the order was published, on 25 August 2016, the Executive Yuan cabinet approved the Ministry of Justice's draft amendment to the Money Laundering Control Act. The ministry's press release that day gave the reasons as meeting international standards and fighting cross-border telecom fraud and cash smuggling by couriers, and used the Mega case as an example of how "Taiwan's anti-money laundering regime urgently needs adjustment". In September the Financial Supervisory Commission fined Mega Bank NT$10 million and removed six senior managers, and the commission's chair and vice chair resigned in October. In 2017 the Control Yuan adopted an investigation report censuring the Executive Yuan, the Financial Supervisory Commission and the Ministry of Finance.
+
+Looking back, the Anti-Money Laundering Office wrote that only after "a domestic bank's overseas branch received a heavy US penalty in 2016" did the issue draw wide public scrutiny in Taiwan.
+
+## A system built in three years
+
+The rewritten Money Laundering Control Act was promulgated on 28 December 2016 and took effect on 28 June 2017. Customer due diligence became risk-based and must identify the people who actually control an account (beneficial owners), and politicians and their families became subject to enhanced checks. Fines on financial institutions for breaching obligations such as large cash reporting rose from NT$200,000–1 million under the old law to NT$500,000–10 million. Lawyers, accountants, land administration agents, real estate brokers and similar businesses also had to carry out customer due diligence and file reports. On 28 June 2017 the Financial Supervisory Commission issued the Regulations Governing Anti-Money Laundering of Financial Institutions, which set out the detailed identity and due diligence rules applied at the counter.
+
+On the criminal side, the threshold for predicate offences (crimes that generate the proceeds being laundered) dropped from a minimum sentence of five years to six months. The cabinet's draft had proposed "offences punishable by three years or more", and the legislature went further. A new special money laundering offence also punishes people holding property of unclear origin that is out of proportion to their income, where accounts were opened under false names or due diligence was evaded.
+
+The Executive Yuan set up the Anti-Money Laundering Office in March 2017 to coordinate policy and evaluation preparations, headed by a political deputy minister of justice. That same month the Ministry of Justice applied to leave transitional follow-up, and the APG annual meeting agreed in July. According to the office's own account, public attitudes to the new regime went "from resistance at the start to gradual acceptance". In November 2018 the APG evaluation team spent two weeks in Taiwan on its on-site visit.
+
+There were 13,972 suspicious transaction reports in 2016, peaking at 35,869 in 2018, the year of the on-site visit, then settling at twenty to thirty thousand a year. 2024 saw 30,679, about 84 a day. From 2017 reporting extended beyond the financial sector to lawyers, accountants, real estate businesses and others. Reports from the newly added sectors remain few, only 102 in 2018; most reports come from banks.
 
 <!-- tw-str -->
 
-There were 13,972 suspicious transaction reports in 2016 and 23,651 in 2017, after the new law took effect. They peaked at 35,869 in 2018, the year of the on-site visit, then settled at twenty-odd thousand a year; 2024 saw 30,679. From 2017 reporting extended beyond the financial sector to lawyers, accountants, real estate businesses and other designated non-financial businesses and professions. The reporting categories are not identical across years, and part of the change comes from that wider scope.
+The evaluation report was adopted at the APG annual meeting in August 2019, placing Taiwan in regular follow-up; the ratings are in [part 2](/join/payments-research/fatf/). On technical compliance, 36 of the 40 Recommendations were largely compliant or better (10 compliant, 26 largely compliant). Three follow-up reports since then (2021, 2023 and 2025) have kept Taiwan in regular follow-up.
 
-## Current supervision
+## Legislation centred on fraud
 
-### Fraud and mule accounts
+Fraud was already one of the reasons for the 2016 reform; under the new law, supplying a mule account or acting as a cash courier for fraudsters can count as money laundering. After the 2019 evaluation, legislation focused on fraud, and restrictions reached beyond banks' operations to individuals' accounts. A 2023 amendment created an offence of collecting other people's accounts without justification and banned handing one's own account to others. A first offence of handing over an account leads to a police warning; criminal liability applies only when there is payment, three or more accounts are handed over, or the person reoffends within five years of a warning.
 
-After 2019 the focus of anti-money laundering work shifted to fraud. An amendment on 14 June 2023 created an offence of collecting other people's accounts without justification and banned handing one's own account to others. A first offence of handing over an account leads to a police warning; criminal liability applies only when there is payment, three or more accounts are handed over, or the person reoffends within five years of a warning. On 31 July 2024 the Act was rewritten in full again, on the same day as the new Fraud Crime Hazard Prevention Act. Financial institutions went from being allowed to restrict a warned person's accounts to being required to. Under the regulator's rules, for five years after a warning ATM transfers and withdrawals are capped at NT$10,000 a day each, and online banking, mobile banking and payment platforms cannot be used.
+In 2024 the Act was rewritten in full again, on the same day as the new Fraud Crime Hazard Prevention Act. Financial institutions went from being allowed to restrict a warned person's accounts to being required to. Under the regulator's rules, for five years after a warning ATM transfers and withdrawals are capped at NT$10,000 a day each, and online banking, mobile banking and payment platforms cannot be used. The same amendment moved virtual asset service providers to a registration regime, which part 3 will cover.
 
 <!-- tw-alert -->
 
 According to the Financial Supervisory Commission, flagged accounts rose from 50,285 in June 2021 to 150,757 in December 2025, then fell to 125,013 by September 2026.
 
-### Virtual asset businesses
-
-Virtual currency platforms came under the Act in 2018, and their suspicious transaction reporting began in July 2021, with numbers rising every year since. The 2024 amendment moved virtual asset service providers to a registration regime: providing services without completing AML registration can bring up to two years in prison.
-
-<!-- tw-va -->
-
-Suspicious transaction reports from virtual currency businesses grew from 121 in 2021 to 918 in 2024, from 0.5% to 3.0% of all reports. Virtual asset rules and the Travel Rule are covered in part 3.
-
-### Penalties from the Financial Supervisory Commission
-
-The largest penalties the commission has imposed for AML failings include:
-
-| Date | Institution | Fine (NT$) | Failings |
-|---|---|---|---|
-| 2016-09 | Mega Bank | 10 million | The New York branch case; also barred from new overseas branches, six managers removed |
-| 2025-03 | Bank of Taiwan | 22 million | Ongoing customer due diligence and account monitoring; the same fine also covers failures in managing staff misconduct |
-| 2026-05 | Taichung Commercial Bank | 32 million | Account opening, ongoing customer due diligence and account monitoring |
-
-According to the head of the Banking Bureau, quoted by ETtoday, the NT$32 million fine on Taichung Bank was the largest ever imposed on a bank. The commission's list of "major penalties" has a threshold: from December 2019, a single violation fined NT$1 million or more, and from April 2022, NT$3 million. Most AML fines fall below it and are published only on the individual bureaus' websites. Yearly totals are therefore not comparable over time, and the table lists individual cases only.
+The commission's recent fines on Bank of Taiwan and Taichung Commercial Bank concerned account opening checks, ongoing customer due diligence and transaction monitoring, the stages where customers are asked about the purpose of an account when opening it and asked to update their information afterwards. Taichung Bank was fined NT$32 million in May 2026, which the head of the Banking Bureau called the largest fine ever imposed on a bank.
 
 ## What it means for readers
 
-[Part 1](/join/payments-research/fatf/) describes how banks cut back on customers they see as high-risk. Taiwan has no public statistics on banks refusing accounts to non-profits, migrant workers or new immigrants. In the 2018 national risk assessment, civic associations, national religious foundations and social welfare and charitable foundations were rated low risk for terrorist financing. The 2019 evaluation report also notes that the authorities encouraged non-profits to conduct business through banks. The official risk ratings give banks no basis for refusing a customer simply for being a non-profit.
+Taiwan's current anti-money laundering regime expanded between 2016 and 2019 for the evaluation, then kept tightening to fight fraud. The rules in the table are all enforced by banks, at the counter and on accounts. The parts that come from the FATF change only when international standards change; the parts Taiwan added itself can be debated in Taiwan's own legislative process.
 
-Article 13 of the regulations governing deposit accounts and suspicious transactions lists the cases in which banks must refuse to open an account, including "other irregularities at account opening for which the customer cannot give a reasonable explanation". That clause leaves banks wide discretion. The Financial Supervisory Commission's simplified measures for low-risk customers state that before asking customers for information, banks "should not simply cite regulatory requirements or contract terms allowing them to terminate business or restrict transactions". Civil society groups whose account applications are refused or whose accounts are restricted can ask the bank to explain the basis, and can also see [Anonymous donation channels for advocacy organizations](docs:scenarios/nonprofit-anonymous-donation/) on our docs site.
+As [part 2](/join/payments-research/fatf/) describes, banks cut back on customers they see as high-risk to reduce their own risk. Taiwan has no public statistics on banks refusing accounts to non-profits, migrant workers or new immigrants. The 2018 national risk assessment found Taiwan's overall terrorist financing risk to be low. Civic associations, religious foundations and social welfare and charitable foundations were identified as non-profits with potential terrorist financing risk, needing closer supervision, because of insufficient information on anonymous donations; medical, educational and cultural foundations were not. The official assessment named only these three categories and did not treat non-profits as a whole as at risk. The authorities also encourage non-profits to handle funds through banks.
+
+Article 13 of the regulations governing deposit accounts and suspicious transactions lists the cases in which banks must refuse to open an account, including "other irregularities at account opening for which the customer cannot give a reasonable explanation", a clause that gives banks wide discretion. The Financial Supervisory Commission's simplified measures for low-risk customers state that before asking customers for information, banks "should not simply cite regulatory requirements or contract terms allowing them to terminate business or restrict transactions". Civil society groups whose account applications are refused or whose accounts are restricted can ask the bank to explain the basis, and can also see [Anonymous donation channels for advocacy organizations](docs:scenarios/nonprofit-anonymous-donation/) on our docs site.
 
 ## The next evaluation
 
-The APG's global fifth round places Taiwan at the 2031 annual meeting; going by the layout of the schedule, technical compliance material is due by 31 March 2030. A press release from the Anti-Money Laundering Office on 18 November 2026 speaks of "preparing for the APG global fifth-round mutual evaluation in 2030". What Taiwan's government calls the "third round" is what the APG now calls the "global fourth round".
+The Anti-Money Laundering Office has started preparing for the next evaluation in 2030, and the APG schedule puts Taiwan's report on the agenda of its 2031 annual meeting. In the last round, the years just before the evaluation were when legislation moved fastest.
 
 ## Timeline
 
-From the 1996 law to the next evaluation, Taiwan built most of its anti-money laundering system in the three years after 2016; later amendments turned to fraud and virtual assets.
+From the 1996 law to the next evaluation, Taiwan's anti-money laundering regime expanded sharply in the three years after 2016; later amendments turned to fraud and virtual assets.
 
-<ol class="tl" aria-label="Key events in Taiwan's anti-money laundering regime">
-  <li class="tl-origin"><span class="tl-when">1996-10</span><span class="tl-b"><span class="tl-t">Money Laundering Control Act enacted</span><span class="tl-d">In force from April 1997, when the Investigation Bureau also set up its Money Laundering Prevention Center</span></span></li>
-  <li><span class="tl-when">1997</span><span class="tl-b"><span class="tl-t">APG founded</span><span class="tl-d">Taiwan joins as a founding member under the name Chinese Taipei</span></span></li>
-  <li><span class="tl-when">1998</span><span class="tl-b"><span class="tl-t">Joins the Egmont Group</span><span class="tl-d">The international group of financial intelligence units</span></span></li>
-  <li><span class="tl-when">2007</span><span class="tl-b"><span class="tl-t">APG second-round evaluation</span><span class="tl-d">24 of 49 Recommendations partially compliant or non-compliant; regular follow-up</span></span></li>
-  <li><span class="tl-when">2011</span><span class="tl-b"><span class="tl-t">Follow-up level lowered</span><span class="tl-d">Insufficient progress; official documents call it expedited regular or enhanced follow-up</span></span></li>
-  <li><span class="tl-when">2014</span><span class="tl-b"><span class="tl-t">Transitional follow-up</span><span class="tl-d">Deficiencies still unresolved when the second round ended</span></span></li>
-  <li><span class="tl-when">2016-08</span><span class="tl-b"><span class="tl-t">Mega Bank New York case</span><span class="tl-d">NYDFS penalty of US$180 million and a two-year independent monitor</span></span></li>
-  <li><span class="tl-when">2016-12</span><span class="tl-b"><span class="tl-t">Money Laundering Control Act rewritten</span><span class="tl-d">In force from June 2017; predicate offence threshold lowered to a six-month minimum sentence</span></span></li>
-  <li><span class="tl-when">2017-03</span><span class="tl-b"><span class="tl-t">Anti-Money Laundering Office set up</span><span class="tl-d">Coordinates AML policy and the APG evaluation</span></span></li>
-  <li><span class="tl-when">2017-07</span><span class="tl-b"><span class="tl-t">Exit from transitional follow-up</span><span class="tl-d">Agreed at the APG annual meeting</span></span></li>
-  <li><span class="tl-when">2018-01</span><span class="tl-b"><span class="tl-t">Federal Reserve penalty on Mega</span><span class="tl-d">US$29 million against its three US branches</span></span></li>
-  <li><span class="tl-when">2018-11</span><span class="tl-b"><span class="tl-t">APG on-site visit and amendment</span><span class="tl-d">Two-week visit; the same month, virtual currency platforms brought under the Act</span></span></li>
-  <li><span class="tl-when">2019-08</span><span class="tl-b"><span class="tl-t">Regular follow-up</span><span class="tl-d">Report adopted at the APG annual meeting in Canberra</span></span></li>
-  <li><span class="tl-when">2021-07</span><span class="tl-b"><span class="tl-t">Virtual currency businesses start reporting</span><span class="tl-d">121 suspicious transaction reports that year, 918 in 2024</span></span></li>
-  <li><span class="tl-when">2023-06</span><span class="tl-b"><span class="tl-t">Account collection offence and warnings</span><span class="tl-d">Aimed at mule accounts used in fraud</span></span></li>
-  <li><span class="tl-when">2024-07</span><span class="tl-b"><span class="tl-t">Act rewritten again</span><span class="tl-d">Fraud Crime Hazard Prevention Act enacted the same day; VASPs moved to registration</span></span></li>
-  <li><span class="tl-when">2025-11</span><span class="tl-b"><span class="tl-t">Third follow-up report</span><span class="tl-d">Regular follow-up maintained</span></span></li>
-  <li><span class="tl-when">2026-05</span><span class="tl-b"><span class="tl-t">Taichung Bank fined NT$32 million</span><span class="tl-d">Reported as the largest fine ever imposed on a bank</span></span></li>
-  <li><span class="tl-when">2031</span><span class="tl-b"><span class="tl-t">APG global fifth round</span><span class="tl-d">Taiwan scheduled for this year's annual meeting; material due by March 2030</span></span></li>
-</ol>
+<div class="tl-phases">
+  <details class="tl-phase">
+    <summary><span class="tl-span">1996–2015</span><span class="tl-name">An early law, little follow-through</span><span class="tl-sum">The law came early but was not followed up, and Taiwan was in transitional follow-up when the second round ended.</span></summary>
+    <ol class="tl" aria-label="Events from 1996 to 2015">
+      <li class="tl-origin"><span class="tl-when">1996-10</span><span class="tl-b"><span class="tl-t">Money Laundering Control Act enacted</span><span class="tl-d">In force from April 1997, when the Investigation Bureau also set up its Money Laundering Prevention Center</span></span></li>
+      <li><span class="tl-when">1997</span><span class="tl-b"><span class="tl-t">APG founded</span><span class="tl-d">Taiwan joins as a founding member under the name Chinese Taipei</span></span></li>
+      <li><span class="tl-when">2006</span><span class="tl-b"><span class="tl-t">Rules on flagged accounts</span><span class="tl-d">Once police, prosecutors or courts notify the bank, all transactions on the account stop</span></span></li>
+      <li><span class="tl-when">2007</span><span class="tl-b"><span class="tl-t">APG second-round evaluation</span><span class="tl-d">24 of 49 Recommendations partially compliant or non-compliant; follow-up level lowered in 2011</span></span></li>
+      <li><span class="tl-when">2014</span><span class="tl-b"><span class="tl-t">Transitional follow-up</span><span class="tl-d">Deficiencies still unresolved when the second round ended</span></span></li>
+    </ol>
+  </details>
+  <details class="tl-phase">
+    <summary><span class="tl-span">2016–2019</span><span class="tl-name">The Mega case and the third round</span><span class="tl-sum">After the US penalty, Taiwan rewrote its law, set up a dedicated office and reached regular follow-up within three years.</span></summary>
+    <ol class="tl" aria-label="Events from 2016 to 2019">
+      <li><span class="tl-when">2016-08</span><span class="tl-b"><span class="tl-t">Mega Bank New York case</span><span class="tl-d">NYDFS penalty of US$180 million; six days later the cabinet approved the draft amendment. The Federal Reserve added a US$29 million penalty in 2018</span></span></li>
+      <li><span class="tl-when">2016-12</span><span class="tl-b"><span class="tl-t">Money Laundering Control Act rewritten</span><span class="tl-d">In force from June 2017; risk-based due diligence, fines of up to NT$10 million</span></span></li>
+      <li><span class="tl-when">2017-03</span><span class="tl-b"><span class="tl-t">Anti-Money Laundering Office set up</span><span class="tl-d">Coordinates policy and evaluation preparations; Taiwan leaves transitional follow-up in July</span></span></li>
+      <li><span class="tl-when">2018-11</span><span class="tl-b"><span class="tl-t">APG on-site visit and amendment</span><span class="tl-d">Two-week visit; the same month, virtual currency platforms brought under the Act</span></span></li>
+      <li><span class="tl-when">2019-08</span><span class="tl-b"><span class="tl-t">Regular follow-up</span><span class="tl-d">Report adopted at the APG annual meeting; three follow-up reports since have kept regular follow-up</span></span></li>
+    </ol>
+  </details>
+  <details class="tl-phase">
+    <summary><span class="tl-span">2020 on</span><span class="tl-name">Centred on fraud</span><span class="tl-sum">Legislation turned to mule accounts and fraud, restrictions reached individuals' accounts, and the next report is due in 2031.</span></summary>
+    <ol class="tl" aria-label="Events from 2020 on">
+      <li><span class="tl-when">2023-06</span><span class="tl-b"><span class="tl-t">Account collection offence and warnings</span><span class="tl-d">Aimed at mule accounts used in fraud</span></span></li>
+      <li><span class="tl-when">2024-07</span><span class="tl-b"><span class="tl-t">Act rewritten again</span><span class="tl-d">Fraud Crime Hazard Prevention Act enacted the same day; VASPs moved to registration</span></span></li>
+      <li><span class="tl-when">2026-05</span><span class="tl-b"><span class="tl-t">Taichung Bank fined NT$32 million</span><span class="tl-d">Called the largest fine ever imposed on a bank by the head of the Banking Bureau</span></span></li>
+      <li><span class="tl-when">2031</span><span class="tl-b"><span class="tl-t">Next APG evaluation</span><span class="tl-d">Taiwan's report on the agenda of this year's annual meeting</span></span></li>
+    </ol>
+  </details>
+</div>
 
-Part 3 covers what the FATF requires of virtual assets and VASPs, and how those requirements land in Taiwan's Virtual Asset Service Act.
+For the FATF's origins, its grey list and how it is judged, continue to [part 2](/join/payments-research/fatf/). What the FATF requires of virtual assets and VASPs, and how those requirements land in Taiwan's Virtual Asset Service Act, is planned for part 3.
+
+## FATF Recommendations cited here
+
+The full text is in the [FATF Recommendations](https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Fatf-recommendations.html) (October 2025 version).
+
+- **Recommendation 1, assessing risks and applying a risk-based approach**: countries and financial institutions must first assess money laundering and terrorist financing risks, strengthening measures where risk is higher and allowing simplified measures where it is lower
+{#fatf-r1}
+- **Recommendation 10, customer due diligence**: when establishing a business relationship or carrying out occasional transactions above a threshold, institutions must identify customers and beneficial owners, understand the purpose of the relationship and keep monitoring its transactions
+{#fatf-r10}
+- **Recommendation 12, politically exposed persons**: for foreign politicians and their families, senior management must approve the relationship and the institution must take reasonable measures to establish the source of wealth and funds; for domestic politicians, risk decides whether the same applies
+{#fatf-r12}
+- **Recommendation 16, payment transparency**: cross-border transfers must carry information on the originator and beneficiary, the requirement known as the Travel Rule (see [part 2](/join/payments-research/fatf/)). The June 2025 revision renamed it from "wire transfers" to "payment transparency"
+{#fatf-r16}
+- **Recommendation 29, financial intelligence units**: countries must set up an FIU to receive and analyse suspicious transaction reports. Large cash transaction reporting appears in the interpretive note to this recommendation, which only asks countries to consider its feasibility
+{#fatf-r29}
+- **Recommendation 32, cash couriers**: countries must have a declaration or disclosure system to detect cash and bearer negotiable instruments carried across the border, with a threshold no higher than US$/€15,000
+{#fatf-r32}
 
 ## About the data
 
 - Suspicious transaction reports: the Investigation Bureau's annual anti-money laundering reports for 2010 to 2024, using each year's own report. In the 2015, 2020 and 2024 reports the categories do not sum exactly to the printed total; the printed total is used here
 - Flagged accounts: the Financial Supervisory Commission's quarterly statistics, banks (including Chunghwa Post) and credit cooperatives combined
-- Penalties: the commission's major penalty list and the bureaus' penalty notices, individual cases only
+- Evaluation results in the Asia-Pacific: the APG member list from the APG website, and ratings from the FATF's consolidated assessment ratings (2013 methodology, updated 3 November 2026), counting effectiveness outcomes rated substantial or high
+- The Mega Bank money trail: the NYDFS consent order
+- Rules at the bank counter: the current texts of the Money Laundering Control Act, the Regulations Governing Anti-Money Laundering of Financial Institutions, the regulations on declaring goods carried across the border, and the regulations governing deposit accounts and suspicious transactions, compared against the October 2025 FATF Recommendations
+- Penalties: the commission's major penalty list and the bureaus' penalty notices. The commission's website publishes "major penalties" only above a threshold, a single violation fined NT$1 million or more from December 2019 and NT$3 million from April 2022; most AML fines fall below it and appear only on the bureaus' websites, so yearly totals are not comparable over time
 - Legislation: the Laws & Regulations Database of the Republic of China (Taiwan), including amendment history and earlier versions
 - The data files are on [GitHub](https://github.com/anoni-net/www/tree/main/data/fatf)
 
@@ -137,12 +177,14 @@ Part 3 covers what the FATF requires of virtual assets and VASPs, and how those 
 - NYDFS: [Consent order with Mega International Commercial Bank (19 August 2016)](https://www.dfs.ny.gov/system/files/documents/2020/04/ea160819_mega_international.pdf), [press release](https://www.dfs.ny.gov/reports_and_publications/press_releases/pr1608191)
 - Federal Reserve: [press release on Mega (17 January 2018)](https://www.federalreserve.gov/newsevents/pressreleases/enforcement20180117a.htm), [order](https://www.federalreserve.gov/newsevents/pressreleases/files/enf20180117a1.pdf)
 - Control Yuan: [investigation report and censure (7 June 2017, in Chinese)](https://www.cy.gov.tw/News_Content.aspx?n=124&sms=8912&s=8049)
-- Laws & Regulations Database: [Money Laundering Control Act amendment history](https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=G0380131), [Fraud Crime Hazard Prevention Act](https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=D0080226), [rules on restricting or closing accounts](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=I0030062) (in Chinese)
+- FATF: [The FATF Recommendations](https://www.fatf-gafi.org/en/publications/Fatfrecommendations/Fatf-recommendations.html) (October 2025 version)
+- Laws & Regulations Database (in Chinese): [Regulations Governing Anti-Money Laundering of Financial Institutions](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0380252), [regulations on declaring goods carried across the border](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0350065), [regulations governing deposit accounts and suspicious transactions](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0380199), [Money Laundering Control Act amendment history](https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=G0380131), [Fraud Crime Hazard Prevention Act](https://law.moj.gov.tw/LawClass/LawHistory.aspx?pcode=D0080226), [rules on restricting or closing accounts](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=I0030062)
 - Anti-Money Laundering Office: [background (in Chinese)](https://www.amlo.moj.gov.tw/1461/1462/1463/28852/post), [press release of 18 November 2026 (in Chinese)](https://www.amlo.moj.gov.tw/1506/1507/46726/post)
+- Financial Supervisory Commission, Insurance Bureau: [letter forwarding the Investigation Bureau's notice on the FATF lists (14 July 2025, in Chinese)](https://lia-roc.org.tw/storage/uploads/687612412232b.pdf), with the Investigation Bureau's letter of 19 June 2025
 - Investigation Bureau: [history of the Anti-Money Laundering Division (in Chinese)](https://www.mjib.gov.tw/EditPage/?PageID=e21658e0-bde6-475f-884d-f2415a446d02), annual anti-money laundering reports for 2010 to 2024
-- Ministry of Justice: [news on leaving APG transitional follow-up (in Chinese)](https://www.moj.gov.tw/2204/2795/2796/58211/)
-- Executive Yuan: [APG evaluation result (25 August 2019, in Chinese)](https://www.ey.gov.tw/Page/9277F759E41CCD91/42a5d2d2-4f84-4fb7-acc5-739f1d8be582), [third follow-up report (20 November 2025, in Chinese)](https://www.ey.gov.tw/Page/9277F759E41CCD91/494b267b-a8fd-488f-90df-e1772405abdb)
-- APG: [Chinese Taipei mutual evaluation report, 2019](https://apgml.org/sites/default/files/documents//Chinese_Taipei_MER_2019_-_published_version.pdf), [global fifth round schedule](https://www.apgml.org/apg-global-5th-round-schedule)
-- Financial Supervisory Commission: [major penalties](https://www.fsc.gov.tw/ch/home.jsp?id=131), [Mega Bank (14 September 2016)](https://www.fsc.gov.tw/ch/home.jsp?id=131&parentpath=0,2&mcustomize=multimessages_view.jsp&dataserno=201609210002&dtable=Penalty), [Bank of Taiwan (11 March 2025)](https://www.fsc.gov.tw/ch/home.jsp?id=131&parentpath=0,2&mcustomize=multimessages_view.jsp&dataserno=202503120002&dtable=Penalty), [Taichung Commercial Bank (15 May 2026)](https://www.fsc.gov.tw/ch/home.jsp?id=131&parentpath=0,2&mcustomize=multimessages_view.jsp&dataserno=202605180002&dtable=Penalty) (in Chinese)
-- Financial Supervisory Commission: [Article 13 of the regulations governing deposit accounts and suspicious transactions (in Chinese)](https://law.banking.gov.tw/Chi/FLAW/FLAWDOC01.aspx?lsid=FL039015&lno=13)
-- ETtoday: [report on the Taichung Bank fine (in Chinese)](https://finance.ettoday.net/news/3164693)
+- Ministry of Justice: [press release on the cabinet's approval of the draft amendment (25 August 2016, in Chinese)](https://www.moj.gov.tw/2204/2205/2323/2353/8612), [news on leaving APG transitional follow-up (in Chinese)](https://www.moj.gov.tw/2204/2795/2796/58211/)
+- APG: [Relationship with the FATF](https://apgml.org/about-us/relationship-fatf), [how the APG conducts mutual evaluations](https://apgml.org/about-us/mutual-evaluations), [members](https://apgml.org/about-us/members/members)
+- Executive Yuan (in Chinese): [the new AML regime takes effect (10 July 2017)](https://www.ey.gov.tw/Page/5A8A0CB5B41DA11E/c935e972-67f5-4625-80b6-0e775a846cad), [policy note on the APG evaluation (21 November 2019)](https://www.ey.gov.tw/Page/5A8A0CB5B41DA11E/bdf44d9a-f4f0-43aa-99f2-771f612983ac), [APG evaluation result (25 August 2019)](https://www.ey.gov.tw/Page/9277F759E41CCD91/42a5d2d2-4f84-4fb7-acc5-739f1d8be582), [third follow-up report (20 November 2025)](https://www.ey.gov.tw/Page/9277F759E41CCD91/494b267b-a8fd-488f-90df-e1772405abdb)
+- APG: [Chinese Taipei mutual evaluation report, 2019](https://apgml.org/sites/default/files/documents//Chinese_Taipei_MER_2019_-_published_version.pdf), [schedule for the next round](https://www.apgml.org/apg-global-5th-round-schedule)
+- Financial Supervisory Commission (in Chinese): [major penalties](https://www.fsc.gov.tw/ch/home.jsp?id=131), [Mega Bank (14 September 2016)](https://www.fsc.gov.tw/ch/home.jsp?id=131&parentpath=0,2&mcustomize=multimessages_view.jsp&dataserno=201609210002&dtable=Penalty), [Taichung Commercial Bank (15 May 2026)](https://www.fsc.gov.tw/ch/home.jsp?id=131&parentpath=0,2&mcustomize=multimessages_view.jsp&dataserno=202605180002&dtable=Penalty), [Bank of Taiwan (11 March 2025)](https://www.fsc.gov.tw/ch/home.jsp?id=131&parentpath=0,2&mcustomize=multimessages_view.jsp&dataserno=202503120002&dtable=Penalty), [Article 13 of the regulations governing deposit accounts and suspicious transactions](https://law.banking.gov.tw/Chi/FLAW/FLAWDOC01.aspx?lsid=FL039015&lno=13)
+- Central News Agency: [report on the Taichung Bank fine (12 May 2026, in Chinese)](https://www.cna.com.tw/news/afe/202605120324.aspx)
