@@ -1,0 +1,67 @@
+# 〈台灣洗錢防制的起源與監理現況〉的地圖：APG 成員在 2013 年評鑑方法下的效能評分。
+# 分數是 11 項效能指標裡達到實質或高度有效的項數，來自 data/fatf/ratings.csv，成員名單與對照表
+# 在工作區的 research/fatf-taiwan/apg/（apg-members-ratings.csv）。地名、分級與說明寫在文章的圖說，
+# 地圖只放編號，一張 SVG 三個語系共用。評分或成員有異動時改 classes 並重新產生。
+name = "fatf-apg-ratings-map"
+title = "Effectiveness ratings of APG members under the 2013 FATF methodology"
+# 以太平洋為中心：從阿富汗到庫克群島。美國與加拿大也是 APG 成員，不在地圖範圍內，寫在圖說
+lon = [58.0, 206.0]
+lat = [-48.0, 54.0]
+width = 720
+wrap = true
+
+# 編號、經度、緯度：① 台灣（放在台灣東側，不蓋住台灣本身的顏色）
+markers = [
+  [1, 125.6, 23.7],
+]
+
+# 小到看不見的成員用圓點：經度、緯度、國碼（要寫在 [[classes]] 之前，TOML 的表格之後的鍵都屬於那個表格）
+dots = [
+  [114.17, 22.32, "hk"],
+  [113.55, 22.19, "mo"],
+  [103.82, 1.35, "sg"],
+  [114.73, 4.54, "bn"],
+  [73.51, 4.18, "mv"],
+  [134.58, 7.51, "pw"],
+  [171.18, 7.13, "mh"],
+  [166.93, -0.52, "nr"],
+  [179.19, -8.52, "tv"],
+  [178.07, -17.71, "fj"],
+  [168.32, -17.73, "vu"],
+  [-172.10, -13.76, "ws"],
+  [-175.20, -21.18, "to"],
+  [-169.87, -19.05, "nu"],
+  [-159.78, -21.24, "ck"],
+]
+
+# 有順序的分級，深的分數高，跟文章圖表的色階一致：淺色模式 cyan 900、800、600、400，
+# 深色模式 cyan 100、300、600、800。最後一級是沒有 2013 年評鑑方法評分的成員
+[[classes]]
+name = "6 項以上"
+codes = ["hk", "in", "mo", "nz", "tw", "us"]
+light = "#003e57"
+dark = "#b3e3ff"
+
+[[classes]]
+name = "3 到 5 項"
+codes = ["au", "bd", "bn", "ca", "cn", "ck", "id", "jp", "kr", "my", "sg", "th"]
+light = "#006d99"
+dark = "#4dbfff"
+
+[[classes]]
+name = "1 到 2 項"
+codes = ["kh", "nu", "pw", "ph", "ws", "lk", "vn"]
+light = "#009ee6"
+dark = "#009ee6"
+
+[[classes]]
+name = "0 項"
+codes = ["bt", "fj", "la", "mv", "mh", "mn", "mm", "nr", "np", "pk", "pg", "sb", "tl", "to", "vu"]
+light = "#26b3ff"
+dark = "#006d99"
+
+[[classes]]
+name = "沒有評分"
+codes = ["af", "tv"]
+light = "#8e9ba2"
+dark = "#4f6a75"

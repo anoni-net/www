@@ -1,0 +1,193 @@
+---
+title: FATF，制定反洗钱国际标准的组织
+description: 银行关闭公民团体账户、退回人道汇款的去风险做法，有一部分源自 FATF 的标准与名单。FATF 没有罚则，约束力来自各国政府与银行的配合，外界对它的成效与公平性也有争议。
+---
+
+在台湾从事倡议工作、为海外伙伴募款，或是要把钱汇到受灾地区，可能遇到银行直接关闭账户或退回转账。银行为了降低自己的风险，会减少与被视为高风险的客户往来，这种做法称为**去风险**（de-risking）。受影响最大的是非营利组织、人道救援的汇款，以及原本就难以使用银行服务的人。银行判断风险的依据，有一部分来自金融行动特别工作组（Financial Action Task Force，FATF）制定的标准与公布的名单。FATF 在台湾称为防制洗钱金融行动工作组织。
+
+在加密货币交易所开户要上传证件、转出虚拟资产要填写收款人的信息，到银行开户也要说明资金来源，这些日常的规定同样源自 FATF。FATF 没有立法权，建议也没有条约的效力，各国的反洗钱法规却多半依循它的建议。要理解账户为什么被关、转账为什么被挡，以及匿名支付还有多少空间，需要先认识制定这些规则的组织。
+
+!!! info ""
+
+    本页属于[匿名支付研究专题](/join/payments-research/)的 FATF 系列，阅读顺序见[专题页的系列介绍](/join/payments-research/#fatf-series)。台湾银行柜台上的规定有哪些来自 FATF，见[台湾洗钱防制的起源与监管现况](/join/payments-research/fatf/taiwan/)。FATF 对虚拟资产与虚拟资产服务提供者（VASP）的要求，之后另文整理。
+
+## 组织的来历与成员
+
+FATF 在 1989 年 G7 巴黎高峰会上成立，任务是研究制定打击洗钱的措施，秘书处设在巴黎的经济合作与发展组织（OECD）。目前有 40 个成员，包括 38 个司法管辖区与欧盟委员会、海湾合作理事会两个区域组织，俄罗斯自 2023-02-24 起停权。成员以 G20 与欧洲国家为主，亚太地区的成员有澳洲、中国、香港、印度、印尼、日本、韩国、马来西亚、新西兰与新加坡。
+
+FATF 的成员只有 40 个，标准套用到全世界的方式是 9 个区域性的 FATF 型组织（FSRB）。FATF 与 9 个区域组织合称**全球体系**（Global Network），涵盖超过 200 个司法管辖区。台湾以 Chinese Taipei 的名称参加亚太反洗钱组织（APG），相互评估也由 APG 执行，没有加入 FATF。
+
+<!-- fatf-org -->
+
+## 40 项建议与历次扩张
+
+FATF 以 40 项建议为核心，各国把建议写进自己的法律，再由 FATF 检查落实的情况。建议涵盖的范围随着时间一再扩大：
+
+- 1990 年：发布最初的 40 项建议，对象是洗钱
+- 2001 年：九一一事件后，加入打击资助恐怖主义的特别建议
+- 2012 年：特别建议并入，改版成现在的 40 项，并纳入资助武器扩散
+- 2018 至 2019 年：修订第 15 项建议，把虚拟资产与 VASP 纳入规范
+- 2023 年：修订第 8 项建议，回应非营利组织受到过度管制的批评
+
+每一次扩张都让更多行业与交易纳入身份验证与申报的范围。虚拟资产是最近的一次，也和匿名支付的研究最直接相关。
+
+## 运作方式
+
+### 相互评估
+
+每个国家定期接受相互评估，评估团由其他国家的专家组成，评分分成两部分：
+
+- **技术遵循**：40 项建议逐项评为遵循、大部分遵循、部分遵循、不遵循四级，检查法规是否到位
+- **有效性**：11 项直接成果（immediate outcomes）逐项评为高度、实质、中等、低度有效四级，检查制度实际上是否发挥作用
+
+评估之后依结果列入一般跟进或强化跟进，定期回报改善的进度。
+
+### 灰名单与黑名单
+
+FATF 每年 2 月、6 月、10 月召开全体大会，决定两份公开的名单。**灰名单**的正式名称是「加强监控的司法管辖区」，列入的是有重大缺失、已向 FATF 承诺执行行动计划的国家。列入的国家要限期改善，完成之后经实地访查才能移出。**黑名单**的正式名称是「呼吁采取行动的高风险司法管辖区」，FATF 呼吁各国对名单上的国家加强审查，情况最严重的要采取反制措施。2026-10 的黑名单是朝鲜、伊朗与缅甸，对朝鲜与伊朗采取反制措施，对缅甸加强审查。
+
+<!-- fatf-grey -->
+
+灰名单在 2018-02 有 9 国，2023-06 达到最多的 26 国，2026-10 是 18 国。2020 年因疫情暂停审查，6 月的名单维持 2 月的内容。2022-10 缅甸从灰名单转到黑名单，是期间唯一一次升级。
+
+## 约束力的来源
+
+FATF 的建议没有罚则，约束力来自各国政府与金融业的配合。各国的主管机关会把名单转给金融机构，美国财政部的金融犯罪执法网（FinCEN）通常在大会之后发布公告，提醒金融机构注意名单上的国家。台湾的法务部调查局在网站上转载 FATF 的声明。以 2025-06 的大会为例，调查局发函给台湾的金融监督管理委员会（金管会），函中写明 FATF 呼吁各国对黑名单上的国家「采取加强尽职调查或与风险相称之反制措施」。对灰名单，FATF 未要求加强审查，只建议考量相关的风险。金管会保险局在 7 月把这份函转给保险业的公会，请会员依洗钱防制法办理。银行也把名单纳入自己的风险评估，往来银行可能减少或终止与名单上国家的业务。
+
+国际货币基金组织（IMF）的研究人员 Kida 与 Paetzold 在 2021 年的工作论文里估算过这些配合措施加起来的代价。他们用 89 个新兴与开发中国家 2000 到 2017 年的数据，估计列入灰名单之后资本流入平均减少约 GDP 的 7.6%。外国直接投资、证券投资与其他投资都下降。
+
+<!-- fatf-imf -->
+
+作者在论文里写明，灰名单事件只占样本约 0.7%。论文把银行降低风险、投资人把名单当作风险指标列为资本流入减少的可能机制。减少的幅度约等于 2008 年全球金融危机期间，新兴与开发中国家总资本流入季度降幅分布的第 25 百分位。
+
+## 台湾的位置
+
+APG 在 2019 年通过台湾第三轮的相互评估报告，现场评估在 2018-11。有效性的 11 项有 7 项实质有效，4 项中等有效（监管、预防措施、法人的透明度、洗钱的侦查与起诉）。技术遵循有 10 项遵循、26 项大部分遵循、4 项部分遵循，没有不遵循。行政院的说明是台湾因此列入一般跟进，当时 APG 成员中同为一般跟进的只有澳门、印尼、香港与库克群岛。台湾为这一轮评估做的准备，以及 2016 年兆丰银行纽约分行被重罚的经过，见[台湾洗钱防制的起源与监管现况](/join/payments-research/fatf/taiwan/)。
+
+放进同一轮评估的 199 个司法管辖区一起比较，达到实质或高度有效的项数比台湾多的只有 6 个。六国都是 FATF 成员（法国、美国、英国、西班牙、意大利、以色列）。台湾与哈萨克斯坦、泽西、百慕大并列非成员的最高分。
+
+<!-- fatf-ratings -->
+
+比较时要注意，各国的评估报告从 2014 年到 2024 年陆续发布，受评时适用的标准与评估团都不同。
+
+## 外界的评价
+
+外界的评价可以分成四个问题。有效性方面，四成的司法管辖区没有任何一项有效性达到实质有效，研究对名单能不能促成改革的结论也互相矛盾。公平性方面，灰名单偏向非高收入国家，成员的评分也明显高于非成员。代价方面，去风险让非营利组织受到特别深的影响。隐私方面，旅行规则一路延伸到虚拟资产。
+
+### 有效性
+
+在 FATF 自己的评估结果里，199 个司法管辖区的有效性评分有 38.5% 是低度有效，41.7% 的司法管辖区没有任何一项达到实质有效（见上图最左边那一格）。
+
+批评者常引用 Ronald Pol（2020）的估算，全世界每年约有 3 万亿美元的犯罪资金，主管机关没收的约 30 亿美元只占 0.1%。Pol 引用数据服务公司 LexisNexis 的估计，业者的合规成本约 3,040 亿美元，是没收金额的一百倍以上。Pol 在论文里写明数据缺乏验证、方法不一致，结论无法定论。他也写到，无论实际成功率是 0.1% 还是高十倍，政策目标与成果之间的落差都很大。
+
+Julia Morse（2019）从支持的角度提出「市场执法」的说法，FATF 本身没有制裁工具，由市场惩罚未达标的国家。她在研究里写到，被列入名单的国家跨境银行负债明显下降，政府因此有修法的压力。英国智库皇家联合军事研究所（RUSI）2024 年的评论文章里写到，FATF 近年协助非洲国家脱离反复列入灰名单的循环。之后在 2025-10 的大会，南非、尼日利亚、莫桑比克与布基纳法索同时移出灰名单。Case-Ruchala 与 Nance（2020）重做了 Morse 的分析，发现 Morse 只用了 10 个国家。补上同时期所有被列入名单的国家之后，效果就不再显著。
+
+### 公平性
+
+规则由 40 个成员以共识决制定，套用到 200 多个司法管辖区。RUSI 与反腐败研究中心 U4 的文章里都写到，非洲国家在 FATF 几乎没有代表，却要执行 FATF 的决定。也有评论者把名单看成地缘政治的工具。
+
+把灰名单上的国家依世界银行的收入分组，可以检验「名单大多是开发中国家」的说法。
+
+<!-- fatf-share -->
+
+灰名单上非高收入国家的比例在 67% 到 95% 之间，同期全世界约 59% 到 64%，名单确实偏向非高收入国家。每次大会也都有 1 到 6 个高收入经济体在名单上，例如巴拿马、开曼群岛、马耳他、阿联酋、摩纳哥与保加利亚。巴塞尔治理研究所（Basel Institute on Governance）的文章里写到，灰名单列入的是正在与 FATF 合作改善缺失的国家。
+
+评估结果在成员与非成员之间也有落差，FATF 成员平均有 4.7 项达到实质或高度有效，非成员只有 1.4 项。只看高收入国家，成员是 5.3 项，非成员是 2.0 项。
+
+<!-- fatf-groups -->
+
+批评者可以把差距解读成同侪评估对成员比较宽松，支持者可以解读成成员投入制度的资源比较多。从这份数据只看得出两者相关，分不出原因。区域组织成员的情况也不一致，海湾合作理事会是 FATF 的成员，会员国里的沙特阿拉伯本身也是成员。同一个区域组织里，阿联酋在 2022-03 到 2024-02 列入灰名单。科威特在 2026-02 列入，至今仍在名单上。
+
+### 代价的承担者
+
+非营利组织受去风险影响特别深，原因之一是第 8 项建议在 2016 年以前把非营利组织整体列为特别容易被利用来资助恐怖主义的部门。2016 年修订之后，各国仍常把规定套用到整个部门。RUSI 的评论文章里有尼加拉瓜的例子，当地政府以落实第 8 项建议为由打压公民团体。
+
+FATF 在 2021 年启动非预期后果的研究项目，2023-10 的大会通过第 8 项建议的修订，11 月公布。修订之后，各国要先找出真正有风险的非营利组织并采取相称的措施，不再对整个部门一体适用。代表非营利组织的 Global NPO Coalition on FATF 发表声明欢迎这次修订，声明里写到修订是和非营利部门密切咨询之后完成，公众咨询的意见也纳入了最终的文本。声明同时提醒，修订挡不住刻意的误用，联盟会在新一轮评估观察实际的执行情形。RUSI 的评论文章里则写到，修订可能只是表面的调整。FATF 的盘点报告里也写到，去风险很难直接归因到 FATF 的标准，监管的压力与商誉的考量都是原因。
+
+!!! tip ""
+
+    公民团体遇到账户被关或捐款被退回时，可以参考文档站的[倡议组织的匿名捐款管道](docs:scenarios/nonprofit-anonymous-donation/)，里面整理了兼顾捐款人保护与对外透明的合法收款流程。
+
+### 对隐私的影响
+
+FATF 要求金融机构认识客户、保存记录、申报可疑交易。转账时要附上汇款人与收款人的信息，这项要求称为**旅行规则**（Travel Rule，第 16 项建议）。相关要求一路延伸到虚拟资产。
+
+从 2026 年 10 月起，在台湾的交易所之间转币，都要附上双方的姓名与钱包地址。超过新台币 3 万元时，转出的人还要附上出生日期与住址，交易所无法取得这些信息时不能转账。跨境转账预计在 2027 年底前适用。FATF 在 2025 年修订第 16 项建议后，银行门槛以上的跨境汇款在 2030 年前也要附上汇款人的地址与出生日期（汇款人是个人时）。
+
+银行汇款的记录只有银行看得到，区块链上的交易却是公开的。钱包地址一旦和姓名绑在一起，这个地址过去与之后的交易都能连回同一个人。转账的信息也要保存在转出与接收两边的交易所，存放的地方越多，外泄的机会越大。美国的加密货币政策组织 Coin Center 在 2021 年对 FATF 虚拟资产指引草案提出意见书。意见书里写到，把旅行规则套用到用户自行保管的钱包，和隐私权不兼容。
+
+FATF 的方向是持续扩大支付透明的要求，2026-06 为第 16 项建议的新指引公开征求意见，目标是 2030 年前全面落实旅行规则。虚拟资产的部分之后另文详谈，数据保存的期限、账户被误判的影响这些金融隐私的代价，也规划另文整理。
+
+## 影响力的现况与对读者的意义
+
+FATF 只有 40 个成员，通过全球体系把标准套用到超过 200 个司法管辖区。2026-10 全体大会之后，灰名单有 18 个司法管辖区，黑名单有朝鲜、伊朗与缅甸 3 个。IMF 的研究人员估计，列入灰名单之后资本流入平均减少约 GDP 的 7.6%。台湾不在名单上，2019 年的相互评估列入一般跟进，有效性评分在非成员中并列最高。
+
+![2026-10 全体大会之后的 FATF 灰名单与黑名单地图，另外标出台湾与英属维尔京群岛](https://assets.anoni.net/www/articles/fatf-lists-2026-10-map-5f3252c9.svg){: .map-img width="720" height="281" loading="lazy" }
+
+2026-10 全体大会之后的名单。灰名单用主色标示，包括安哥拉、玻利维亚、波斯尼亚和黑塞哥维那、喀麦隆、海地、伊拉克、肯尼亚、科威特、老挝、黎巴嫩、尼泊尔、巴布亚新几内亚、南苏丹、叙利亚、委内瑞拉、越南、也门，以及面积太小、改用 ② 标出的英属维尔京群岛。黑名单用最醒目的颜色标示，包括朝鲜、伊朗与缅甸。① 是台湾。
+{: .fig-note }
+
+公民团体要把捐款或人道救援的资金汇到名单上的地区（例如缅甸、黎巴嫩、叙利亚、也门、海地与南苏丹），银行会加强审查。审查可能要求更多材料，也可能直接退回汇款。第 8 项建议在 2023 年修订之后，各国要先找出真正有风险的非营利组织，不再对整个部门一体适用。修订能否落实到银行的日常审查，要看新一轮评估的结果。在那之前，事先备妥资金用途与受款人的说明、选择可稽核的收款管道，是比较稳妥的做法。
+
+对一般用户来说，银行与交易所依 FATF 的建议认识客户、保存记录。旅行规则延伸到虚拟资产之后，转出加密货币也要附上收款人的信息，金融隐私的空间跟着缩小。FATF 的目标是 2030 年前全面落实旅行规则。这套规则如何落到台湾的《虚拟资产服务法》与交易所的规定，以及用户自行保管钱包的处境，规划之后另文讨论。想先了解匿名支付的意义，可以读文档站的[为什么匿名支付重要](docs:basics/payments-anonymity/)。
+
+## 时间轴
+
+FATF 的规则从洗钱一路扩大到资助恐怖主义、资助武器扩散、虚拟资产与支付透明，台湾的评估与公民团体争取到的修订也发生在同一段期间。
+
+<ol class="tl" aria-label="本页提到的 FATF 事件">
+  <li class="tl-origin"><span class="tl-when">1989</span><span class="tl-b"><span class="tl-t">FATF 成立</span><span class="tl-d">G7 巴黎高峰会上成立，任务是研究制定打击洗钱的措施</span></span></li>
+  <li><span class="tl-when">1990</span><span class="tl-b"><span class="tl-t">最初的 40 项建议</span><span class="tl-d">对象是洗钱</span></span></li>
+  <li><span class="tl-when">2001</span><span class="tl-b"><span class="tl-t">加入打击资助恐怖主义</span><span class="tl-d">九一一事件后发布特别建议</span></span></li>
+  <li><span class="tl-when">2012</span><span class="tl-b"><span class="tl-t">40 项建议改版</span><span class="tl-d">特别建议并入，并纳入资助武器扩散</span></span></li>
+  <li><span class="tl-when">2018-02</span><span class="tl-b"><span class="tl-t">灰名单 9 国</span><span class="tl-d">本页灰名单数据的起点</span></span></li>
+  <li><span class="tl-when">2019-06</span><span class="tl-b"><span class="tl-t">虚拟资产纳入规范</span><span class="tl-d">第 15 项建议在 2018-10 修订，2019-06 通过注释，旅行规则延伸到 VASP</span></span></li>
+  <li><span class="tl-when">2019-08</span><span class="tl-b"><span class="tl-t">台湾的相互评估报告通过</span><span class="tl-d">APG 的现场评估在 2018-11，有效性 7 项实质有效，台湾列入一般跟进</span></span></li>
+  <li><span class="tl-when">2020-06</span><span class="tl-b"><span class="tl-t">疫情暂停审查</span><span class="tl-d">名单沿用 2020-02 的内容</span></span></li>
+  <li><span class="tl-when">2021</span><span class="tl-b"><span class="tl-t">非预期后果的研究项目</span><span class="tl-d">同一年 Coin Center 对虚拟资产指引草案提出意见书，意见书里写到旅行规则套用到自行保管的钱包和隐私权不兼容</span></span></li>
+  <li><span class="tl-when">2022-10</span><span class="tl-b"><span class="tl-t">缅甸转到黑名单</span><span class="tl-d">2018 年以来唯一一次从灰名单升级</span></span></li>
+  <li><span class="tl-when">2023-02</span><span class="tl-b"><span class="tl-t">俄罗斯停权</span><span class="tl-d">仍列在成员名单上</span></span></li>
+  <li><span class="tl-when">2023-06</span><span class="tl-b"><span class="tl-t">灰名单最多 26 国</span><span class="tl-d">2018 年以来的最高点</span></span></li>
+  <li><span class="tl-when">2023-10</span><span class="tl-b"><span class="tl-t">印尼成为第 40 个成员</span><span class="tl-d">同一次大会通过第 8 项建议的修订</span></span></li>
+  <li><span class="tl-when">2023-11</span><span class="tl-b"><span class="tl-t">公布第 8 项建议的修订</span><span class="tl-d">各国要先找出真正有风险的非营利组织，不再对整个部门一体适用</span></span></li>
+  <li><span class="tl-when">2025-10</span><span class="tl-b"><span class="tl-t">四个非洲国家移出灰名单</span><span class="tl-d">南非、尼日利亚、莫桑比克与布基纳法索</span></span></li>
+  <li><span class="tl-when">2026-06</span><span class="tl-b"><span class="tl-t">第 16 项建议的新指引公开征求意见</span><span class="tl-d">支付透明的要求持续扩大</span></span></li>
+  <li><span class="tl-when">2026-10</span><span class="tl-b"><span class="tl-t">灰名单 18 国、黑名单 3 国</span><span class="tl-d">本页数据的截止点，黑名单是朝鲜、伊朗与缅甸</span></span></li>
+  <li><span class="tl-when">2030</span><span class="tl-b"><span class="tl-t">全面落实旅行规则的目标</span><span class="tl-d">FATF 为第 16 项建议设置的期限</span></span></li>
+</ol>
+
+台湾的洗钱防制如何从 2016 年兆丰银行纽约分行的案子开始转变，见[台湾洗钱防制的起源与监管现况](/join/payments-research/fatf/taiwan/)。2030 年的旅行规则期限是接下来最直接影响支付隐私的时间点，之后另文整理。
+
+## 数据说明
+
+- 灰名单：2018-02 到 2026-10 共 27 次全体大会，整理自法务部调查局转载的 FATF 声明原文、美国 FinCEN 的公告与新西兰内政部的公告，逐次核对前后两次的名单
+- 收入分组：世界银行的历年收入分组（经 Our World in Data 整理），每次大会用当天有效的分组，只计国家数，没有依人口或经济规模加权
+- 有效性评分：FATF 的汇总评分表（2013 年评估方法，2026-11-03 更新），每个司法管辖区取最新一份评估报告
+- 数据文件放在 [GitHub](https://github.com/anoni-net/www/tree/main/data/fatf)
+
+## 相关阅读
+
+- [匿名支付研究专题](/join/payments-research/)
+- [台湾 VASP 法 2026](docs:taiwan/vasp-2026/)
+- [为什么匿名支付重要](docs:basics/payments-anonymity/)
+- [报告与指引中译](/library/)
+
+## 参考资料
+
+- FATF：[Consolidated assessment ratings](https://www.fatf-gafi.org/publications/mutualevaluations/documents/assessment-ratings.html)、[Mitigating Unintended Consequences](https://www.fatf-gafi.org/en/publications/Financialinclusionandnpoissues/Unintended-consequences-project.html)、[R16 公开征求意见（2026-06）](https://fatf-gafi.org/en/publications/Fatfrecommendations/R16-Public-Consultation-June-2026.html)
+- APG：[Chinese Taipei 2019 年相互评估报告](https://apgml.org/sites/default/files/documents//Chinese_Taipei_MER_2019_-_published_version.pdf)
+- Kida、Paetzold，[The Impact of Gray-Listing on Capital Flows](https://www.imf.org/en/publications/wp/issues/2021/05/27/the-impact-of-gray-listing-on-capital-flows-an-analysis-using-machine-learning-50289)，IMF WP/21/153，2021
+- Ronald F. Pol，[Anti-money laundering: The world's least effective policy experiment? Together, we can fix it](https://doi.org/10.1080/25741292.2020.1725366)，Policy Design and Practice，2020
+- Julia Morse，[Blacklists, Market Enforcement, and the Global Regime to Combat Terrorist Financing](https://ideas.repec.org/a/cup/intorg/v73y2019i03p511-545_00.html)，International Organization，2019
+- Devin Case-Ruchala、Mark Nance，[FATF blacklists don't work the way you think they do](https://bahamasamlconference.centralbankbahamas.com/documents/2024-03-26-16-02-18-FATF-Blacklists-Dont-Work-the-Way-You-Think-They-Do-Case-Ruchala-and-Nance.pdf)，工作论文，2020
+- RUSI：[The FATF Gains Momentum in Breaking Africa's Cycle of Grey Listing](https://www.rusi.org/explore-our-research/publications/commentary/fatf-gains-momentum-breaking-africas-cycle-grey-listing)、[FATF's Recommendation 8: A Cure Worse Than the Disease](https://www.rusi.org/explore-our-research/publications/commentary/fatfs-recommendation-8-cure-worse-disease)
+- U4：[The participation of low and middle income countries in the Financial Action Task Force](https://u4.no/publications/the-participation-of-low-and-middle-income-countries-in-the-financial-action-task-force)
+- Basel Institute on Governance：[FATF grey list: truth and myths](https://baselgovernance.org/blog/fatf-grey-list-truth-and-myths)
+- FATF：[2025-10 加强监控的司法管辖区（调查局转载）](https://www.mjib.gov.tw/userfiles/files/35-%E6%B4%97%E9%8C%A2%E9%98%B2%E5%88%B6%E8%99%95/files/%E6%B4%97%E9%8C%A2%E9%98%B2%E5%88%B6%E8%99%95-EN/Jurisdictions%20under%20Increased%20Monitoring%20-%2024%20October%202025.pdf)、[2023-10 全体大会结果](https://www.fatf-gafi.org/en/publications/Fatfgeneral/outcomes-fatf-plenary-october-2023.html)
+- 全国法规数据库：[提供虚拟资产服务之事业或人员防制洗钱及打击资恐办法](https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=G0380268)（第 7 条，2026-10-20 修正）
+- 中央社：[国内虚拟货币转账新规 10 月上路（2026-08-04）](https://www.cna.com.tw/news/afe/202608040320.aspx)
+- FATF：[第 16 项建议的修订（2025-06）](https://www.fatf-gafi.org/en/publications/Fatfrecommendations/update-Recommendation-16-payment-transparency-june-2025.html)
+- 金管会保险局：[转知调查局 FATF 名单的公文（2025-07-14）](https://lia-roc.org.tw/storage/uploads/687612412232b.pdf)，附调查局 2025-06-19 的函
+- Global NPO Coalition on FATF：[Plenary approves revision of Recommendation 8](https://fatfplatform.org/news/plenary-approves-revision-of-recommendation-8-and-new-best-practices/)
+- Coin Center：[FATF 虚拟资产指引草案的意见书](https://www.coincenter.org/comments-to-the-financial-action-task-force-on-the-march-2021-draft-updated-guidance-for-a-risk-based-approach-to-virtual-assets-and-vasps/)
+- World Bank：[Country and Lending Groups](https://datahelpdesk.worldbank.org/knowledgebase/articles/906519)，经 [Our World in Data](https://ourworldindata.org/grapher/world-bank-income-groups) 整理
