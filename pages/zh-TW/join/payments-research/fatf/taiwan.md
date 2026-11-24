@@ -94,28 +94,37 @@ description: 銀行櫃檯上的規定，有的來自 FATF 的建議，有的是�
 
 從 1996 年的專法到下一輪評鑑，台灣的洗錢防制在 2016 年之後三年內大幅擴大，之後的修法轉向詐騙與虛擬資產。
 
-<ol class="tl" aria-label="台灣洗錢防制的重要事件">
-  <li class="tl-origin"><span class="tl-when">1996-10</span><span class="tl-b"><span class="tl-t">制定《洗錢防制法》</span><span class="tl-d">1997-04 施行，調查局同時成立洗錢防制中心</span></span></li>
-  <li><span class="tl-when">1997</span><span class="tl-b"><span class="tl-t">APG 成立</span><span class="tl-d">台灣以 Chinese Taipei 的名稱成為創始會員</span></span></li>
-  <li><span class="tl-when">1998</span><span class="tl-b"><span class="tl-t">加入艾格蒙聯盟</span><span class="tl-d">各國金融情報中心組成的國際組織</span></span></li>
-  <li><span class="tl-when">2006</span><span class="tl-b"><span class="tl-t">警示帳戶的辦法</span><span class="tl-d">警察、檢察署或法院通報後，帳戶全部交易暫停</span></span></li>
-  <li><span class="tl-when">2007</span><span class="tl-b"><span class="tl-t">APG 第二輪評鑑</span><span class="tl-d">49 項建議有 24 項部分遵循或不遵循，列入一般追蹤</span></span></li>
-  <li><span class="tl-when">2011</span><span class="tl-b"><span class="tl-t">追蹤等級調降</span><span class="tl-d">改善不足，官方文件寫成一般加速追蹤或加強追蹤</span></span></li>
-  <li><span class="tl-when">2014</span><span class="tl-b"><span class="tl-t">列入過渡追蹤</span><span class="tl-d">第二輪結束時缺失仍未改善</span></span></li>
-  <li><span class="tl-when">2016-08</span><span class="tl-b"><span class="tl-t">兆豐銀行紐約分行案</span><span class="tl-d">NYDFS 罰款 1 億 8 千萬美元，六天後行政院通過洗錢防制法修正草案</span></span></li>
-  <li><span class="tl-when">2016-12</span><span class="tl-b"><span class="tl-t">《洗錢防制法》全文修正</span><span class="tl-d">2017-06 施行，客戶審查依風險進行，罰鍰提高到最高 1,000 萬元</span></span></li>
-  <li><span class="tl-when">2017-03</span><span class="tl-b"><span class="tl-t">洗錢防制辦公室成立</span><span class="tl-d">統籌洗錢防制政策與 APG 評鑑</span></span></li>
-  <li><span class="tl-when">2017-07</span><span class="tl-b"><span class="tl-t">脫離過渡追蹤</span><span class="tl-d">APG 年會同意</span></span></li>
-  <li><span class="tl-when">2018-01</span><span class="tl-b"><span class="tl-t">聯準會處分兆豐</span><span class="tl-d">對美國的三家分行罰款 2,900 萬美元</span></span></li>
-  <li><span class="tl-when">2018-11</span><span class="tl-b"><span class="tl-t">APG 現場評鑑與修法</span><span class="tl-d">評鑑團來台兩週，同月修法把虛擬通貨平台納入規範</span></span></li>
-  <li><span class="tl-when">2019-08</span><span class="tl-b"><span class="tl-t">列入一般追蹤</span><span class="tl-d">APG 坎培拉年會通過評鑑報告</span></span></li>
-  <li><span class="tl-when">2021-07</span><span class="tl-b"><span class="tl-t">虛擬通貨業開始申報可疑交易</span><span class="tl-d">當年申報 121 件，2024 年增加到 918 件</span></span></li>
-  <li><span class="tl-when">2023-06</span><span class="tl-b"><span class="tl-t">收集帳戶罪與交付帳戶告誡</span><span class="tl-d">針對詐騙使用的人頭帳戶</span></span></li>
-  <li><span class="tl-when">2024-07</span><span class="tl-b"><span class="tl-t">《洗錢防制法》再次全文修正</span><span class="tl-d">同日制定《詐欺犯罪危害防制條例》，虛擬資產服務提供者改為登記制</span></span></li>
-  <li><span class="tl-when">2025-11</span><span class="tl-b"><span class="tl-t">第 3 次追蹤報告</span><span class="tl-d">維持一般追蹤</span></span></li>
-  <li><span class="tl-when">2026-05</span><span class="tl-b"><span class="tl-t">台中銀罰鍰 3,200 萬元</span><span class="tl-d">銀行局長形容是銀行業歷來最高的裁罰金額</span></span></li>
-  <li><span class="tl-when">2031</span><span class="tl-b"><span class="tl-t">APG 下一輪評鑑</span><span class="tl-d">台灣的評鑑報告排在這一年的年會討論</span></span></li>
-</ol>
+<div class="tl-phases">
+  <details class="tl-phase">
+    <summary><span class="tl-span">1996–2015</span><span class="tl-name">有專法、沒有落實</span><span class="tl-sum">專法很早就有，之後沒有持續推動，第二輪評鑑結束時列在過渡追蹤。</span></summary>
+    <ol class="tl" aria-label="1996 到 2015 年的事件">
+      <li class="tl-origin"><span class="tl-when">1996-10</span><span class="tl-b"><span class="tl-t">制定《洗錢防制法》</span><span class="tl-d">1997-04 施行，調查局同時成立洗錢防制中心</span></span></li>
+      <li><span class="tl-when">1997</span><span class="tl-b"><span class="tl-t">APG 成立</span><span class="tl-d">台灣以 Chinese Taipei 的名稱成為創始會員</span></span></li>
+      <li><span class="tl-when">2006</span><span class="tl-b"><span class="tl-t">警示帳戶的辦法</span><span class="tl-d">警察、檢察署或法院通報後，帳戶全部交易暫停</span></span></li>
+      <li><span class="tl-when">2007</span><span class="tl-b"><span class="tl-t">APG 第二輪評鑑</span><span class="tl-d">49 項建議有 24 項部分遵循或不遵循，2011 年又被調降追蹤等級</span></span></li>
+      <li><span class="tl-when">2014</span><span class="tl-b"><span class="tl-t">列入過渡追蹤</span><span class="tl-d">第二輪結束時缺失仍未改善</span></span></li>
+    </ol>
+  </details>
+  <details class="tl-phase">
+    <summary><span class="tl-span">2016–2019</span><span class="tl-name">兆豐案與第三輪評鑑</span><span class="tl-sum">美國的處分之後，三年內修法、成立專責辦公室，評鑑列入一般追蹤。</span></summary>
+    <ol class="tl" aria-label="2016 到 2019 年的事件">
+      <li><span class="tl-when">2016-08</span><span class="tl-b"><span class="tl-t">兆豐銀行紐約分行案</span><span class="tl-d">NYDFS 罰款 1 億 8 千萬美元，六天後行政院通過修正草案。2018 年聯準會再罰 2,900 萬美元</span></span></li>
+      <li><span class="tl-when">2016-12</span><span class="tl-b"><span class="tl-t">《洗錢防制法》全文修正</span><span class="tl-d">2017-06 施行，客戶審查依風險進行，罰鍰提高到最高 1,000 萬元</span></span></li>
+      <li><span class="tl-when">2017-03</span><span class="tl-b"><span class="tl-t">洗錢防制辦公室成立</span><span class="tl-d">統籌政策與評鑑的準備，同年 7 月脫離過渡追蹤</span></span></li>
+      <li><span class="tl-when">2018-11</span><span class="tl-b"><span class="tl-t">APG 現場評鑑與修法</span><span class="tl-d">評鑑團來台兩週，同月修法把虛擬通貨平台納入規範</span></span></li>
+      <li><span class="tl-when">2019-08</span><span class="tl-b"><span class="tl-t">列入一般追蹤</span><span class="tl-d">APG 年會通過評鑑報告，之後三次追蹤報告都維持一般追蹤</span></span></li>
+    </ol>
+  </details>
+  <details class="tl-phase">
+    <summary><span class="tl-span">2020 年之後</span><span class="tl-name">以詐騙為重心</span><span class="tl-sum">修法轉向人頭帳戶與詐騙，限制落到個人的帳戶，下一輪的評鑑報告排在 2031 年。</span></summary>
+    <ol class="tl" aria-label="2020 年之後的事件">
+      <li><span class="tl-when">2023-06</span><span class="tl-b"><span class="tl-t">收集帳戶罪與交付帳戶告誡</span><span class="tl-d">針對詐騙使用的人頭帳戶</span></span></li>
+      <li><span class="tl-when">2024-07</span><span class="tl-b"><span class="tl-t">《洗錢防制法》再次全文修正</span><span class="tl-d">同日制定《詐欺犯罪危害防制條例》，虛擬資產服務提供者改為登記制</span></span></li>
+      <li><span class="tl-when">2026-05</span><span class="tl-b"><span class="tl-t">台中銀罰鍰 3,200 萬元</span><span class="tl-d">銀行局長形容是銀行業歷來最高的裁罰金額</span></span></li>
+      <li><span class="tl-when">2031</span><span class="tl-b"><span class="tl-t">APG 下一輪評鑑</span><span class="tl-d">台灣的評鑑報告排在這一年的年會討論</span></span></li>
+    </ol>
+  </details>
+</div>
 
 第 3 篇預計寫 FATF 對虛擬資產與 VASP 的要求，以及這些要求如何落到台灣的《虛擬資產服務法》。
 
