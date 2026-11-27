@@ -1,6 +1,6 @@
 ---
 title: Tor relay lookup for AI assistants
-description: A Tor relay lookup service the community builds and hosts. Add one URL to a cloud AI assistant and ask, without writing code, how many relays a country runs, how much bandwidth they carry and which networks host them.
+description: A remote MCP server the community hosts on Tor's Onionoo data. Add it to a cloud AI assistant as a custom connector and ask about relays and bandwidth.
 lead: Paste one URL into a cloud AI assistant and ask about Tor relays anywhere in plain language.
 ---
 

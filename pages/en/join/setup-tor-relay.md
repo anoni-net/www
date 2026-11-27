@@ -1,6 +1,6 @@
 ---
 title: Tor Relay Setup Guide
-description: Steps for running a Tor middle relay on Debian or Ubuntu, covering torrc configuration, nyx monitoring and multiple instances on one host, with an FAQ on legal risk, home networks and bandwidth requirements.
+description: Setting up a Tor middle relay on Debian or Ubuntu, with torrc settings, nyx monitoring, several instances per host and an FAQ on legal risk and bandwidth.
 ---
 
 The bandwidth and stability of Tor, the onion routing network, come from relays run by volunteers around the world, and every new relay lets more people use the internet safely and anonymously. A middle relay only forwards traffic inside the Tor network and never connects to a final destination, so its operator carries far less legal risk than an exit operator (the roles of each relay type are covered in [What is Tor?](docs:tools/what-is-tor/)). The steps on this page use a middle relay as the example.

@@ -1,6 +1,6 @@
 ---
 title: oniux and Tor Isolation with Linux Namespaces
-description: A guide to the Tor Project's oniux, which uses Linux namespaces to force any program's traffic through Tor, with installation details checked in October 2026, its relationship to onionmasq, and our view on where it fits.
+description: A guide to the Tor Project's oniux, which runs a Linux program in a network namespace whose only way out is Tor, with installation checked in October 2026.
 date: 2025-05-16
 ---
 

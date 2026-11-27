@@ -1,6 +1,6 @@
 ---
-title: Two Opposite Approaches to Flattening GPU Fingerprints in Brave
-description: The three GPU fingerprinting protections Brave 1.93 enables by default, how uniformity and randomization split the work across WebGL and WebGPU, and how the approach compares with Tor Browser and Firefox.
+title: Brave's WebGL and WebGPU Fingerprinting Protections
+description: By default since 1.93, Brave shares one WebGL renderer string across users, clears WebGPU adapter fields and adds noise to the extension list.
 date: 2026-08-19
 ---
 
