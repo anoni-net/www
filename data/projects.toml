@@ -72,16 +72,16 @@ summary.zh-TW = "每一份委託都是一個案件，從照片、檔案與文字
 summary.zh-CN = "每一份委托都是一个案件，从照片、文件与文字里找出破绽，学会保护自己和别人的隐私。目前有正体中文与英文版。"
 summary.en = "Each request is a case: find the leaks in photos, files and writing, and learn to protect your own privacy and other people's."
 
-# ESP32 小工具（anoni-net/esp32），onion 版在 esp32.<onion>，onion 頁面的連結由 site.toml 的 rewrite 改寫
+# ESP32 工坊（anoni-net/esp32），onion 版在 esp32.<onion>，onion 頁面的連結由 site.toml 的 rewrite 改寫
 [[content]]
 icon = "shield-search"
 cat = "privacy"
 product = "esp32"
 display = "anoni.net/esp32"
 langs = ["zh-TW"]
-name = { zh-TW = "ESP32 小工具", zh-CN = "ESP32 小工具", en = "ESP32 Tools" }
-summary.zh-TW = "用幾百元的 ESP32-S3 開發板做的隱私小工具：找出一直跟著你的藍牙追蹤器，也能檢查旅館房間的攝影機與會議室裡沒交出的手機。"
-summary.zh-CN = "用几百元的 ESP32-S3 开发板做的隐私小工具：找出一直跟着你的蓝牙追踪器，也能检查酒店房间的摄像头与会议室里没交出的手机。目前只有正体中文版。"
+name = { zh-TW = "ESP32 工坊", zh-CN = "ESP32 工坊", en = "ESP32 Workshop" }
+summary.zh-TW = "用幾百元的 ESP32-S3 開發板開發的隱私工具：找出一直跟著你的藍牙追蹤器，也能檢查旅館房間的攝影機與會議室裡沒交出的手機。"
+summary.zh-CN = "用几百元的 ESP32-S3 开发板开发的隐私工具：找出一直跟着你的蓝牙追踪器，也能检查酒店房间的摄像头与会议室里没交出的手机。目前只有正体中文版。"
 summary.en = "Privacy tools built on an inexpensive ESP32-S3 board: find Bluetooth trackers that keep following you, and check hotel rooms for cameras and meeting rooms for phones nobody handed in. Chinese (Traditional) only for now."
 
 [[tools]]
