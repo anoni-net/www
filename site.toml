@@ -72,6 +72,8 @@ clearnet = false
 "https://anoni.net/docs" = "http://docs.{onion}"
 "https://anoni.net/news" = "http://news.{onion}"
 "https://anoni.net/mystery" = "http://mystery.{onion}"
+# ESP32 工坊（anoni-net/esp32）的 onion 版放在子網域的根目錄，anoni.net/esp32/x 對應 esp32.<onion>/x
+"https://anoni.net/esp32" = "http://esp32.{onion}"
 # 檔案工作台（Gears）的 onion 版放在子網域的根目錄，anoni.net/gears/x 對應 gears.<onion>/x
 "https://anoni.net/gears" = "http://gears.{onion}"
 "https://vessel.anoni.net" = "http://vessel.{onion}"
@@ -92,8 +94,8 @@ links_only = true
 mounts = ["/docs/", "/news/", "/mystery/"]
 # 連到這個前綴的圖片由部署腳本從圖片主機複製進來，清單寫在輸出目錄旁的 ipfs-assets.txt
 assets = "/assets/"
-# 不在鏡像裡的網站：Gears 的模型太大，API 是動態服務
-keep = ["https://anoni.net/gears", "https://anoni.net/api"]
+# 不在鏡像裡的網站：Gears 的模型太大，API 是動態服務，ESP32 工坊的網頁安裝要連到 assets.anoni.net
+keep = ["https://anoni.net/gears", "https://anoni.net/api", "https://anoni.net/esp32"]
 
 [targets.ipfs.rewrite]
 "https://assets.anoni.net/" = "/assets/"
