@@ -1,6 +1,6 @@
 ---
 title: Onion Service Setup Guide
-description: A v3 onion service set up the way the Tor Project documents it, with nginx routing, subdomains, permissions, logs, troubleshooting and post-launch operations, plus how vanity addresses are generated and what they cannot prove.
+description: Setting up a v3 onion service (formerly hidden service) with Tor and nginx, covering subdomains, access control, troubleshooting and vanity addresses.
 ---
 
 An onion service lets people reach your server over Tor without the server's IP being public and without registering a domain with any certificate authority. Both ends of the connection stay inside the Tor network, and Tor handles the encryption.

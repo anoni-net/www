@@ -1,6 +1,6 @@
 ---
 title: oniux，以 Linux 命名空间隔离应用程序的 Tor 工具
-description: Tor Project 介绍 oniux 的翻译，说明它如何用 Linux 命名空间让任意程序只能经由 Tor 连接，附上 2026-10 核查的安装方式，以及 oniux 与 onionmasq 的关系。
+description: Tor Project 介绍 oniux 的翻译，说明它如何用 Linux 命名空间让任意程序只能经由 Tor 连接，附上 2026-10 核查的安装方式，以及与 onionmasq 的关系。
 date: 2025-05-16
 ---
 
