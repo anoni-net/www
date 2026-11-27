@@ -14,6 +14,7 @@
 - [持續關注](https://anoni.net/contact/): 電子報、信箱與 PGP 公鑰。
 - [社群文件 anoni.net/Docs](https://anoni.net/docs/): 多語系文件站主入口，涵蓋概念、工具、場景、在地脈絡等分類。
 - [新聞導讀 anoni.net/news](https://anoni.net/news/): 從科技與開源的角度導讀國際隱私、匿名網路與網路審查的新聞，每篇附上原文，有正體中文、簡體中文與英文三個版本。
+- [ESP32 小工具 anoni.net/esp32](https://anoni.net/esp32/): 用 ESP32-S3 開發板做的隱私小工具。隨身偵測器找出一直跟著你的藍牙追蹤器，也能檢查旅館房間與會議室，原始碼公開，用電腦的 Chrome 或 Edge 就能在網頁上安裝。
 
 ## 概念
 
